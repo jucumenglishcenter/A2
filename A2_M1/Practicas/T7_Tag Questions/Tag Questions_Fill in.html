@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M1 T7 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .aux-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .aux-badge.be { background:#EDE9FE; color:#6D28D9; }
+        .aux-badge.do { background:#DBEAFE; color:#1D4ED8; }
+        .aux-badge.have { background:#FEF3C7; color:#92400E; }
+        .aux-badge.modal { background:#D1FAE5; color:#065F46; }
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .question-text { font-size:1.1rem; line-height:1.8; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:110px; padding:0.2rem 0.6rem; background:#D1FAE5; border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; font-family:'Courier New',monospace; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+        .translation { color:var(--text-light); font-size:0.83rem; margin-bottom:1rem; font-style:italic; }
+        .rule-reminder { background:#F0F9FF; border:1px solid #BAE6FD; border-radius:10px; padding:0.6rem 0.9rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.6rem; }
+        .rule-reminder-text { font-size:0.82rem; color:var(--info-dark); font-weight:600; line-height:1.4; }
+        .options-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.85rem 0.4rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Courier New',monospace; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; font-family:'Courier New',monospace; }
+        .signal-tag.red { background:var(--error); }
+        .tag-breakdown { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:0.75rem 1rem; margin-top:0.5rem; }
+        .tag-row { display:flex; align-items:center; gap:0.6rem; padding:0.3rem 0; border-bottom:1px dashed #E2E8F0; font-size:0.9rem; }
+        .tag-row:last-child { border-bottom:none; }
+        .tag-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; white-space:nowrap; }
+        .tag-label.stmt { background:#EDE9FE; color:#6D28D9; }
+        .tag-label.tag { background:var(--success-light); color:var(--success-dark); }
+        .tag-label.rule { background:var(--info-light); color:var(--info-dark); }
+        .tag-text { font-family:'Courier New',monospace; font-size:0.92rem; color:var(--text-dark); font-weight:600; }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); font-family:'Courier New',monospace; font-weight:600; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:4px; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.5rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:0.95rem; font-family:'Courier New',monospace; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-direction:column; gap:0.3rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.7rem; color:var(--info-dark); font-weight:600; font-family:'Courier New',monospace; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128221; Fill in the Blanks</div>
+            <div class="header-subtitle">&#128154; A2 &middot; Module 1 &middot; Tag Questions</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#10067;</div>
+            <div>
+                <div class="instructions-title">Choose the correct question tag</div>
+                <div class="instructions-text">Select the tag that completes the sentence correctly. Remember: <strong>positive statement &rarr; negative tag</strong> | <strong>negative statement &rarr; positive tag</strong>. The tag uses the <strong>same auxiliary</strong> as the main clause.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Try Again</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Back to Module</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // FILL — A2 M1 Topic 7
+    // Tag questions (common auxiliaries)
+    // 15 questions | 5-5-5 positions | Fisher-Yates runtime
+    // Characters: Lucia, James, Nadia, Carlos
+    // Key rules:
+    //   1. Positive statement → negative tag
+    //   2. Negative statement → positive tag
+    //   3. Tag uses same auxiliary as main clause
+    //   4. Tag pronoun matches subject
+    // ============================================================
+    const quizData = [
+        // Q1 — be present positive → negative tag | isn't it | pos 2
+        {
+            id:1, auxType:"be",
+            sentence:"The heating in the building is broken, ___?",
+            hint:"The statement is POSITIVE ('is broken'). What polarity does the tag need? Which auxiliary matches 'is'?",
+            clue:"is + positive statement", clueExplain:"A positive statement with 'is' needs a NEGATIVE tag: isn't it. The subject is 'the heating' → pronoun 'it'.",
+            options:["is it", "isn't it", "doesn't it"], correct:"isn't it",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"is", tagAux:"isn't",
+            feedback:{
+                "is it":{ errorType:"Same polarity (positive → positive)", explanation:"The statement is positive ('is broken'), so the tag must be NEGATIVE. 'Is it' is a positive tag — it needs to be 'isn't it'." },
+                "doesn't it":{ errorType:"Wrong auxiliary (doesn't ≠ is)", explanation:"The main clause uses 'is' (be). The tag must use the same auxiliary: 'isn't it' — not 'doesn't it', which belongs to do/does sentences." }
+            },
+            rule:"Positive be statement → negative be tag: is → isn't | are → aren't | was → wasn't",
+            examples:["The heating is broken, isn't it?","The pipe is fixed, isn't it?"],
+            correctReason:"'Is broken' = positive statement with 'is'. The tag reverses polarity (→ negative) and uses the same auxiliary (is → isn't) with pronoun 'it' for 'the heating'."
+        },
+        // Q2 — do negative → positive tag | do they | pos 0
+        {
+            id:2, auxType:"do",
+            sentence:"The tenants don't pay on time, ___?",
+            hint:"The statement is NEGATIVE ('don't pay'). What polarity does the tag need? The subject is 'the tenants' — which pronoun?",
+            clue:"don't + negative statement", clueExplain:"A negative statement needs a POSITIVE tag. 'Don't' → tag uses 'do'. Subject 'the tenants' → pronoun 'they'.",
+            options:["do they", "don't they", "are they"], correct:"do they",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"don't", tagAux:"do",
+            feedback:{
+                "don't they":{ errorType:"Same polarity (negative → negative)", explanation:"The statement is negative ('don't pay'), so the tag must be POSITIVE: 'do they' — not 'don't they'." },
+                "are they":{ errorType:"Wrong auxiliary (are ≠ do)", explanation:"The main clause uses 'don't' (do auxiliary). The tag must use the same auxiliary: 'do they' — not 'are they', which belongs to be sentences." }
+            },
+            rule:"Negative do statement → positive do tag: don't → do | doesn't → does | didn't → did",
+            examples:["They don't pay on time, do they?","She doesn't complain, does she?"],
+            correctReason:"'Don't pay' = negative statement with 'do'. The tag reverses polarity (→ positive: 'do') and uses pronoun 'they' for 'the tenants'."
+        },
+        // Q3 — have positive → negative tag | hasn't she | pos 1
+        {
+            id:3, auxType:"have",
+            sentence:"Nadia has already filed the complaint, ___?",
+            hint:"The statement is POSITIVE ('has filed'). What polarity does the tag need? Subject is 'Nadia' — which pronoun?",
+            clue:"has + positive statement", clueExplain:"A positive 'has' statement needs a NEGATIVE tag: hasn't. Subject 'Nadia' (3rd person singular feminine) → pronoun 'she'.",
+            options:["has she", "hasn't she", "didn't she"], correct:"hasn't she",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"has", tagAux:"hasn't",
+            feedback:{
+                "has she":{ errorType:"Same polarity (positive → positive)", explanation:"'Has filed' is positive, so the tag must be NEGATIVE: 'hasn't she' — not 'has she'." },
+                "didn't she":{ errorType:"Wrong auxiliary (didn't ≠ has)", explanation:"The main clause uses 'has' (present perfect). The tag must use 'hasn't' — not 'didn't', which belongs to the simple past." }
+            },
+            rule:"Positive have/has statement → negative have/has tag: has → hasn't | have → haven't",
+            examples:["Nadia has filed the complaint, hasn't she?","He has paid the bill, hasn't he?"],
+            correctReason:"'Has filed' = positive present perfect with 'has'. Tag: negative polarity → hasn't. Subject 'Nadia' → 'she'. Full tag: 'hasn't she'."
+        },
+        // Q4 — can positive → negative tag | can't he | pos 0
+        {
+            id:4, auxType:"modal",
+            sentence:"Carlos can contact the building manager directly, ___?",
+            hint:"The statement is POSITIVE ('can contact'). What polarity does the tag need? Subject is 'Carlos' — which pronoun?",
+            clue:"can + positive statement", clueExplain:"A positive 'can' statement needs a NEGATIVE tag: can't. Subject 'Carlos' → pronoun 'he'.",
+            options:["can't he", "can he", "doesn't he"], correct:"can't he",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"can", tagAux:"can't",
+            feedback:{
+                "can he":{ errorType:"Same polarity (positive → positive)", explanation:"'Can contact' is positive, so the tag must be NEGATIVE: 'can't he' — not 'can he'." },
+                "doesn't he":{ errorType:"Wrong auxiliary (doesn't ≠ can)", explanation:"The main clause uses 'can' (modal). The tag must use the same modal: 'can't he' — not 'doesn't he'." }
+            },
+            rule:"Positive modal statement → negative modal tag: can → can't | will → won't | should → shouldn't",
+            examples:["Carlos can contact them, can't he?","She can come tomorrow, can't she?"],
+            correctReason:"'Can contact' = positive statement with modal 'can'. Tag: negative polarity → can't. Subject 'Carlos' → 'he'. Full tag: 'can't he'."
+        },
+        // Q5 — will negative → positive tag | will you | pos 2
+        {
+            id:5, auxType:"modal",
+            sentence:"You won't forget to submit the repair form, ___?",
+            hint:"The statement is NEGATIVE ('won't forget'). What polarity does the tag need? Which auxiliary matches 'won't'?",
+            clue:"won't + negative statement", clueExplain:"A negative 'won't' statement needs a POSITIVE tag: will. Subject 'you' → pronoun 'you'.",
+            options:["won't you", "do you", "will you"], correct:"will you",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"won't", tagAux:"will",
+            feedback:{
+                "won't you":{ errorType:"Same polarity (negative → negative)", explanation:"'Won't forget' is negative, so the tag must be POSITIVE: 'will you' — not 'won't you'." },
+                "do you":{ errorType:"Wrong auxiliary (do ≠ will)", explanation:"The main clause uses 'won't' (will). The tag must use the same auxiliary: 'will you' — not 'do you'." }
+            },
+            rule:"Negative will/won't statement → positive will tag: won't → will",
+            examples:["You won't forget, will you?","She won't be late, will she?"],
+            correctReason:"'Won't forget' = negative statement with 'will'. Tag: positive polarity → will. Subject 'you' → 'you'. Full tag: 'will you'."
+        },
+        // Q6 — be positive → negative tag | aren't they | pos 1
+        {
+            id:6, auxType:"be",
+            sentence:"The maintenance workers are coming tomorrow, ___?",
+            hint:"The statement is POSITIVE ('are coming'). What polarity does the tag need? Subject is 'the maintenance workers' — which pronoun?",
+            clue:"are + positive statement", clueExplain:"A positive 'are' statement needs a NEGATIVE tag: aren't. Subject 'the maintenance workers' → pronoun 'they'.",
+            options:["are they", "aren't they", "don't they"], correct:"aren't they",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"are", tagAux:"aren't",
+            feedback:{
+                "are they":{ errorType:"Same polarity (positive → positive)", explanation:"'Are coming' is positive, so the tag must be NEGATIVE: 'aren't they' — not 'are they'." },
+                "don't they":{ errorType:"Wrong auxiliary (don't ≠ are)", explanation:"The main clause uses 'are' (be). The tag must use 'aren't' — not 'don't they', which belongs to do sentences." }
+            },
+            rule:"Positive be statement → negative be tag: are → aren't | is → isn't | were → weren't",
+            examples:["They are coming tomorrow, aren't they?","The workers are available, aren't they?"],
+            correctReason:"'Are coming' = positive statement with 'are'. Tag: negative polarity → aren't. Subject 'the maintenance workers' → 'they'. Full tag: 'aren't they'."
+        },
+        // Q7 — did negative → positive tag | did she | pos 0
+        {
+            id:7, auxType:"do",
+            sentence:"Lucia didn't receive a response from the company, ___?",
+            hint:"The statement is NEGATIVE ('didn't receive'). What polarity does the tag need? Subject is 'Lucia' — which pronoun?",
+            clue:"didn't + negative statement", clueExplain:"A negative 'didn't' statement needs a POSITIVE tag: did. Subject 'Lucia' → pronoun 'she'.",
+            options:["did she", "didn't she", "does she"], correct:"did she",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"didn't", tagAux:"did",
+            feedback:{
+                "didn't she":{ errorType:"Same polarity (negative → negative)", explanation:"'Didn't receive' is negative, so the tag must be POSITIVE: 'did she' — not 'didn't she'." },
+                "does she":{ errorType:"Wrong tense (does = present, did = past)", explanation:"The main clause uses 'didn't' (past tense). The tag must match the tense: 'did she' — not 'does she', which is present tense." }
+            },
+            rule:"Negative did/didn't statement → positive did tag: didn't → did",
+            examples:["Lucia didn't receive a response, did she?","He didn't call back, did he?"],
+            correctReason:"'Didn't receive' = negative past statement with 'did'. Tag: positive polarity → did. Subject 'Lucia' → 'she'. Full tag: 'did she'."
+        },
+        // Q8 — should negative → positive tag | should we | pos 2
+        {
+            id:8, auxType:"modal",
+            sentence:"We shouldn't ignore the water leak any longer, ___?",
+            hint:"The statement is NEGATIVE ('shouldn't ignore'). What polarity does the tag need? Which auxiliary matches 'shouldn't'?",
+            clue:"shouldn't + negative statement", clueExplain:"A negative 'shouldn't' statement needs a POSITIVE tag: should. Subject 'we' → pronoun 'we'.",
+            options:["shouldn't we", "do we", "should we"], correct:"should we",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"shouldn't", tagAux:"should",
+            feedback:{
+                "shouldn't we":{ errorType:"Same polarity (negative → negative)", explanation:"'Shouldn't ignore' is negative, so the tag must be POSITIVE: 'should we' — not 'shouldn't we'." },
+                "do we":{ errorType:"Wrong auxiliary (do ≠ should)", explanation:"The main clause uses 'shouldn't' (modal). The tag must use the same modal: 'should we' — not 'do we'." }
+            },
+            rule:"Negative should/shouldn't statement → positive should tag: shouldn't → should",
+            examples:["We shouldn't ignore it, should we?","She shouldn't wait, should she?"],
+            correctReason:"'Shouldn't ignore' = negative modal statement. Tag: positive polarity → should. Subject 'we' → 'we'. Full tag: 'should we'."
+        },
+        // Q9 — was positive → negative tag | wasn't it | pos 1
+        {
+            id:9, auxType:"be",
+            sentence:"The last inspection was carried out six months ago, ___?",
+            hint:"The statement is POSITIVE ('was carried out'). What polarity does the tag need? Subject is 'the last inspection' — which pronoun?",
+            clue:"was + positive statement", clueExplain:"A positive 'was' statement needs a NEGATIVE tag: wasn't. Subject 'the last inspection' → pronoun 'it'.",
+            options:["was it", "wasn't it", "didn't it"], correct:"wasn't it",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"was", tagAux:"wasn't",
+            feedback:{
+                "was it":{ errorType:"Same polarity (positive → positive)", explanation:"'Was carried out' is positive, so the tag must be NEGATIVE: 'wasn't it' — not 'was it'." },
+                "didn't it":{ errorType:"Wrong auxiliary (didn't ≠ was)", explanation:"The main clause uses 'was' (past be). The tag must use 'wasn't' — not 'didn't it', which belongs to do sentences." }
+            },
+            rule:"Positive was/were statement → negative was/were tag: was → wasn't | were → weren't",
+            examples:["The inspection was done six months ago, wasn't it?","The report was submitted, wasn't it?"],
+            correctReason:"'Was carried out' = positive past statement with 'was'. Tag: negative polarity → wasn't. Subject 'the last inspection' → 'it'. Full tag: 'wasn't it'."
+        },
+        // Q10 — have negative → positive tag | have they | pos 0
+        {
+            id:10, auxType:"have",
+            sentence:"The management team haven't addressed the heating issue yet, ___?",
+            hint:"The statement is NEGATIVE ('haven't addressed'). What polarity does the tag need? Subject is 'the management team' — which pronoun?",
+            clue:"haven't + negative statement", clueExplain:"A negative 'haven't' statement needs a POSITIVE tag: have. Subject 'the management team' → pronoun 'they'.",
+            options:["have they", "haven't they", "did they"], correct:"have they",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"haven't", tagAux:"have",
+            feedback:{
+                "haven't they":{ errorType:"Same polarity (negative → negative)", explanation:"'Haven't addressed' is negative, so the tag must be POSITIVE: 'have they' — not 'haven't they'." },
+                "did they":{ errorType:"Wrong tense (did = past simple, have = present perfect)", explanation:"The main clause uses 'haven't' (present perfect). The tag must match: 'have they' — not 'did they', which is past simple." }
+            },
+            rule:"Negative have/haven't statement → positive have tag: haven't → have | hasn't → has",
+            examples:["They haven't resolved it, have they?","She hasn't called back, has she?"],
+            correctReason:"'Haven't addressed' = negative present perfect with 'have'. Tag: positive polarity → have. Subject 'the management team' → 'they'. Full tag: 'have they'."
+        },
+        // Q11 — would positive → negative tag | wouldn't it | pos 2
+        {
+            id:11, auxType:"modal",
+            sentence:"It would be better to contact the manager directly, ___?",
+            hint:"The statement is POSITIVE ('would be'). What polarity does the tag need? Subject is 'it' — which pronoun?",
+            clue:"would + positive statement", clueExplain:"A positive 'would' statement needs a NEGATIVE tag: wouldn't. Subject 'it' → pronoun 'it'.",
+            options:["would it", "won't it", "wouldn't it"], correct:"wouldn't it",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"would", tagAux:"wouldn't",
+            feedback:{
+                "would it":{ errorType:"Same polarity (positive → positive)", explanation:"'Would be' is positive, so the tag must be NEGATIVE: 'wouldn't it' — not 'would it'." },
+                "won't it":{ errorType:"Wrong modal (won't = will not ≠ wouldn't = would not)", explanation:"The main clause uses 'would'. The tag must use the same modal negated: 'wouldn't it' — not 'won't it', which is the negative of 'will'." }
+            },
+            rule:"Positive would statement → negative would tag: would → wouldn't",
+            examples:["It would be better, wouldn't it?","That would help, wouldn't it?"],
+            correctReason:"'Would be' = positive modal statement. Tag: negative polarity → wouldn't. Subject 'it' → 'it'. Full tag: 'wouldn't it'. Don't confuse 'wouldn't' (would not) with 'won't' (will not)."
+        },
+        // Q12 — does negative → positive tag | does he | pos 1
+        {
+            id:12, auxType:"do",
+            sentence:"James doesn't know the reference number for his order, ___?",
+            hint:"The statement is NEGATIVE ('doesn't know'). What polarity does the tag need? Subject is 'James' — which pronoun?",
+            clue:"doesn't + negative statement", clueExplain:"A negative 'doesn't' statement needs a POSITIVE tag: does. Subject 'James' (3rd person singular masculine) → pronoun 'he'.",
+            options:["doesn't he", "does he", "is he"], correct:"does he",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"doesn't", tagAux:"does",
+            feedback:{
+                "doesn't he":{ errorType:"Same polarity (negative → negative)", explanation:"'Doesn't know' is negative, so the tag must be POSITIVE: 'does he' — not 'doesn't he'." },
+                "is he":{ errorType:"Wrong auxiliary (is ≠ does)", explanation:"The main clause uses 'doesn't' (do auxiliary). The tag must use the same auxiliary: 'does he' — not 'is he', which belongs to be sentences." }
+            },
+            rule:"Negative does/doesn't statement → positive does tag: doesn't → does",
+            examples:["James doesn't know the number, does he?","She doesn't have the invoice, does she?"],
+            correctReason:"'Doesn't know' = negative with 'does'. Tag: positive polarity → does. Subject 'James' → 'he'. Full tag: 'does he'."
+        },
+        // Q13 — could positive → negative tag | couldn't she | pos 0
+        {
+            id:13, auxType:"modal",
+            sentence:"Nadia could escalate the complaint to the ombudsman, ___?",
+            hint:"The statement is POSITIVE ('could escalate'). What polarity does the tag need? Subject is 'Nadia' — which pronoun?",
+            clue:"could + positive statement", clueExplain:"A positive 'could' statement needs a NEGATIVE tag: couldn't. Subject 'Nadia' → pronoun 'she'.",
+            options:["couldn't she", "could she", "can't she"], correct:"couldn't she",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"could", tagAux:"couldn't",
+            feedback:{
+                "could she":{ errorType:"Same polarity (positive → positive)", explanation:"'Could escalate' is positive, so the tag must be NEGATIVE: 'couldn't she' — not 'could she'." },
+                "can't she":{ errorType:"Wrong modal (can't = cannot ≠ couldn't = could not)", explanation:"The main clause uses 'could'. The tag must use the same modal negated: 'couldn't she' — not 'can't she', which negates 'can' (present tense modal)." }
+            },
+            rule:"Positive could statement → negative could tag: could → couldn't",
+            examples:["Nadia could escalate this, couldn't she?","He could file a claim, couldn't he?"],
+            correctReason:"'Could escalate' = positive modal statement. Tag: negative polarity → couldn't. Subject 'Nadia' → 'she'. Full tag: 'couldn't she'. Don't confuse 'couldn't' (could not) with 'can't' (cannot)."
+        },
+        // Q14 — had negative → positive tag | had they | pos 2
+        {
+            id:14, auxType:"have",
+            sentence:"The contractors hadn't finished the repairs before the deadline, ___?",
+            hint:"The statement is NEGATIVE ('hadn't finished'). What polarity does the tag need? Subject is 'the contractors' — which pronoun?",
+            clue:"hadn't + negative statement", clueExplain:"A negative 'hadn't' statement needs a POSITIVE tag: had. Subject 'the contractors' → pronoun 'they'.",
+            options:["hadn't they", "did they", "had they"], correct:"had they",
+            stmt:"negative", tagPolarity:"positive",
+            stmtAux:"hadn't", tagAux:"had",
+            feedback:{
+                "hadn't they":{ errorType:"Same polarity (negative → negative)", explanation:"'Hadn't finished' is negative, so the tag must be POSITIVE: 'had they' — not 'hadn't they'." },
+                "did they":{ errorType:"Wrong tense (did = simple past, had = past perfect)", explanation:"The main clause uses 'hadn't' (past perfect). The tag must match: 'had they' — not 'did they', which is simple past." }
+            },
+            rule:"Negative had/hadn't statement → positive had tag: hadn't → had",
+            examples:["They hadn't finished, had they?","She hadn't called, had she?"],
+            correctReason:"'Hadn't finished' = negative past perfect with 'had'. Tag: positive polarity → had. Subject 'the contractors' → 'they'. Full tag: 'had they'."
+        },
+        // Q15 — must positive → negative tag | mustn't it | pos 1
+        {
+            id:15, auxType:"modal",
+            sentence:"The boiler room must be inspected every year, ___?",
+            hint:"The statement is POSITIVE ('must be'). What polarity does the tag need? Subject is 'the boiler room' — which pronoun?",
+            clue:"must + positive statement", clueExplain:"A positive 'must' statement needs a NEGATIVE tag: mustn't. Subject 'the boiler room' → pronoun 'it'.",
+            options:["must it", "mustn't it", "isn't it"], correct:"mustn't it",
+            stmt:"positive", tagPolarity:"negative",
+            stmtAux:"must", tagAux:"mustn't",
+            feedback:{
+                "must it":{ errorType:"Same polarity (positive → positive)", explanation:"'Must be inspected' is positive, so the tag must be NEGATIVE: 'mustn't it' — not 'must it'." },
+                "isn't it":{ errorType:"Wrong auxiliary (isn't = be ≠ mustn't = must)", explanation:"The main clause uses 'must' (modal). The tag must use the same modal negated: 'mustn't it' — not 'isn't it', which belongs to be sentences." }
+            },
+            rule:"Positive must statement → negative must tag: must → mustn't",
+            examples:["The boiler must be inspected, mustn't it?","This must be resolved, mustn't it?"],
+            correctReason:"'Must be inspected' = positive modal statement. Tag: negative polarity → mustn't. Subject 'the boiler room' → 'it'. Full tag: 'mustn't it'."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, index) { container.appendChild(createCard(q, index)); });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const shuffled = shuffle(q.options);
+        const badgeClass = q.auxType === 'be' ? 'be' : q.auxType === 'do' ? 'do' : q.auxType === 'have' ? 'have' : 'modal';
+        const badgeLabel = q.auxType === 'be' ? '&#127381; be (is/are/was/were)' : q.auxType === 'do' ? '&#9899; do/does/did' : q.auxType === 'have' ? '&#9898; have/has/had' : '&#128308; modal';
+        const badge = '<span class="aux-badge ' + badgeClass + '">' + badgeLabel + '</span>';
+        const polarityIcon = q.stmt === 'positive' ? '&#10133;' : '&#10134;';
+        const polarityText = q.stmt === 'positive' ? 'Positive statement \u2192 negative tag' : 'Negative statement \u2192 positive tag';
+        const btnHTML = shuffled.map(function(opt) {
+            return '<button class="option-btn" onclick="selectAnswer(' + index + ', this)">' + opt + '</button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' + badge + '</div>' +
+            '<div class="hint-box"><div class="hint-label">&#128161; Hint</div>' + q.hint + '</div>' +
+            '<div class="rule-reminder"><span style="font-size:1.2rem;">' + polarityIcon + '</span><span class="rule-reminder-text">' + polarityText + '</span></div>' +
+            '<p class="question-text">' + q.sentence.replace('___', '<span class="blank" id="blank-' + index + '">___</span>') + '</p>' +
+            '<div class="options-grid" id="options-' + index + '">' + btnHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>&#8592; Previous</button>' +
+            '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+            (index===quizData.length-1?'See Results &#127881;':'Next &#8594;') +
+            '</button></div>';
+        return card;
+    }
+
+    function selectAnswer(qi, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const selected = btn.textContent.trim();
+        const q = quizData[qi];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+        const blank = document.getElementById('blank-' + qi);
+        blank.textContent = selected;
+        blank.className = 'blank ' + (isCorrect ? 'correct' : 'incorrect');
+        document.querySelectorAll('#options-' + qi + ' .option-btn').forEach(function(b) {
+            b.disabled = true;
+            if (b.textContent.trim() === q.correct) b.classList.add('correct');
+            else if (b.textContent.trim() === selected) b.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e){ return '<div class="rule-ex">' + e + '</div>'; }).join('');
+        const breakdownHTML =
+            '<div class="tag-breakdown">' +
+            '<div class="tag-row"><span class="tag-label stmt">Statement</span><span class="tag-text">' + q.stmtAux + ' (' + q.stmt + ')</span></div>' +
+            '<div class="tag-row"><span class="tag-label rule">Polarity rule</span><span class="tag-text">' + (q.stmt === 'positive' ? q.stmtAux + ' \u2192 negative tag: ' + q.tagAux : q.stmtAux + ' \u2192 positive tag: ' + q.tagAux) + '</span></div>' +
+            '<div class="tag-row"><span class="tag-label tag">Correct tag</span><span class="tag-text">' + q.correct + '</span></div>' +
+            '</div>';
+
+        if (isCorrect) {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">Correct tag!</div>' +
+                '<div class="fb-subtitle">You applied both rules correctly</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; Key signals identified</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">Auxiliary <span class="signal-tag">' + q.stmtAux + '</span> ' + q.clueExplain + '</div>' + breakdownHTML + '</div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Rule applied</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; Why is this tag correct?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            const err = q.feedback[selected] || { errorType:'Incorrect tag', explanation:'Review the polarity and auxiliary rules.' };
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrect tag</div>' +
+                '<div class="fb-subtitle">Let\'s review the two tag rules</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; Key signals you needed to spot</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">Auxiliary <span class="signal-tag red">' + q.stmtAux + '</span> ' + q.clueExplain + '</div>' + breakdownHTML + '</div>' +
+                '<div class="fb-block fb-compare"><div class="fb-block-title" style="color:#475569;">&#128260; Your answer vs. correct</div>' +
+                '<div class="compare-row"><span class="compare-label wrong">You chose</span><span class="compare-text"><span class="word-wrong">' + selected + '</span></span></div>' +
+                '<div class="compare-row"><span class="compare-label right">Correct</span><span class="compare-text"><span class="word-right">' + q.correct + '</span></span></div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; Error type: <span class="error-badge">' + err.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + q.correct + '</span></div>' +
+                '<div class="error-text">' + err.explanation + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; The correct rule</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; Why is the correct tag right?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden',idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master tag questions with all common auxiliaries. \uD83C\uDFC6'
+            : pct >= 70 ? 'Well done! Keep practising: same auxiliary, opposite polarity. \uD83D\uDCAA'
+            : 'Good effort. Remember the two rules: (1) reverse polarity, (2) same auxiliary as the main clause. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

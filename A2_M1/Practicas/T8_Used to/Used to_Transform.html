@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A2 M1 T8 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --orange: #F97316; --orange-light: #FFF7ED; --orange-dark: #C2410C;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .struct-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .struct-badge.affirm { background:#EDE9FE; color:#6D28D9; }
+        .struct-badge.neg { background:#FEE2E2; color:#DC2626; }
+        .struct-badge.quest { background:#DBEAFE; color:#1D4ED8; }
+        .struct-badge.would { background:#FEF3C7; color:#92400E; }
+        .struct-badge.state { background:#D1FAE5; color:#065F46; }
+        .transform-visual { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+        .transform-box { padding:0.7rem 0.9rem; border-radius:10px; }
+        .transform-box.base { background:var(--orange-light); border:1px solid #FED7AA; margin-bottom:0.5rem; }
+        .transform-box.goal { background:#F0F9FF; border:1px solid #BAE6FD; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:0.97rem; font-weight:600; color:var(--text-dark); line-height:1.6; font-family:'Courier New',monospace; }
+        .word-error { color:var(--error); font-weight:800; background:#FEE2E2; padding:0 4px; border-radius:4px; text-decoration:underline wavy var(--error); }
+        .transform-arrow { text-align:center; font-size:1rem; color:var(--text-light); margin:0.25rem 0; }
+        .options-container { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:0.5rem; }
+        .option-btn { border:2.5px solid #E5E7EB; border-radius:13px; padding:0.9rem 1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Courier New',monospace; display:flex; gap:0.75rem; align-items:flex-start; width:100%; font-size:0.95rem; font-weight:700; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:#D1FAE5; color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; margin-top:2px; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { color:var(--text-dark); flex:1; line-height:1.55; }
+        .option-btn.correct .option-text { color:var(--success-dark); }
+        .option-btn.incorrect .option-text { color:var(--error-dark); }
+        .key-hl { font-weight:900; }
+        .option-btn.correct .key-hl { color:var(--success-dark); text-decoration:underline; }
+        .option-btn.incorrect .key-hl { color:var(--error-dark); text-decoration:underline wavy; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-transform .fb-block-title { color:#475569; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.4rem; }
+        .tf-step { padding:0.5rem 0.85rem; border-radius:9px; font-size:0.9rem; font-weight:600; line-height:1.6; font-family:'Courier New',monospace; }
+        .tf-step.original { background:var(--orange-light); color:var(--orange-dark); border:1px solid #FED7AA; }
+        .tf-step.tf-correct { background:var(--success-light); color:var(--success-dark); border:1px solid #BBF7D0; }
+        .tf-step.tf-wrong { background:var(--error-light); color:var(--error-dark); border:1px solid #FECACA; text-decoration:line-through; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; margin-right:6px; opacity:.7; font-family:'Nunito',sans-serif; }
+        .tf-arrow { text-align:center; color:#94A3B8; font-size:0.9rem; }
+        .vb-hl { font-weight:900; text-decoration:underline; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; font-family:'Courier New',monospace; }
+        .signal-tag.red { background:var(--error); }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.5rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:0.9rem; font-family:'Courier New',monospace; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-direction:column; gap:0.3rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.7rem; color:var(--info-dark); font-weight:600; font-family:'Courier New',monospace; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128260; Transform</div>
+            <div class="header-subtitle">&#128154; A2 &middot; Module 1 &middot; Used to</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128260;</div>
+            <div>
+                <div class="instructions-title">Fix the used to error</div>
+                <div class="instructions-text">The sentence has an incorrect form (highlighted in red). Choose the correctly fixed version.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Try Again</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Back to Module</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // TRANSFORM — A2 M1 Topic 8
+    // Used to (past habits and states)
+    // 15 questions | 5-5-5 positions | Fisher-Yates runtime
+    // ============================================================
+    const quizData = [
+        // Q1 — affirm | use to live → used to live | pos 2
+        {
+            id:1, struct:"affirm",
+            base:"Before the renovation, Lucia use to live on the top floor of the building.",
+            errorWord:"use to live", correctWord:"used to live",
+            goal:"Fix the affirmative form \u2014 add the missing -d to 'use to'",
+            clue:"affirmative: used to (with -d) + verb base",
+            clueExplain:"In affirmative sentences, 'used to' always keeps the -d. 'Use to' (no -d) is only correct after auxiliaries like 'didn't' or 'Did'.",
+            options:[
+                { text:"Before the renovation, Lucia would live on the top floor of the building.", correct:false, keyWord:"would live",
+                  errorType:"Would cannot replace used to for past states",
+                  explanation:"'Live on the top floor' is a past state. 'Would' can only describe repeated past ACTIONS, not states. The correct fix: 'used to live' (not 'would live')." },
+                { text:"Before the renovation, Lucia had used to live on the top floor of the building.", correct:false, keyWord:"had used to live",
+                  errorType:"'Had used to' is not a standard English form",
+                  explanation:"'Had used to live' is not a grammatical structure in standard English. The correct form for a past state is simply 'used to live'." },
+                { text:"Before the renovation, Lucia used to live on the top floor of the building.", correct:true, keyWord:"used to live" }
+            ],
+            rule:"Affirmative: subject + used to (with -d) + verb base",
+            examples:["Lucia used to live on the top floor. (correct)", "She used to have a larger flat. (correct)"],
+            correctReason:"'Used to live' is correct. In the affirmative, 'used to' always keeps the -d. 'Use to' (no -d) is only used after 'didn't' or 'Did'."
+        },
+        // Q2 — neg | didn't used to → didn't use to | pos 0
+        {
+            id:2, struct:"neg",
+            base:"James didn't used to read customer reviews before making a purchase online.",
+            errorWord:"didn't used to", correctWord:"didn't use to",
+            goal:"Fix the negative form \u2014 remove the -d from 'used to' after 'didn't'",
+            clue:"didn't + use to (no -d) \u2014 'didn't' already carries the past",
+            clueExplain:"'Didn't' already marks the past tense. The verb following 'didn't' must be base form. 'Use to' (no -d) is correct after 'didn't'.",
+            options:[
+                { text:"James didn't use to read customer reviews before making a purchase online.", correct:true, keyWord:"didn't use to" },
+                { text:"James wasn't used to read customer reviews before making a purchase online.", correct:false, keyWord:"wasn't used to read",
+                  errorType:"'Wasn't used to' + bare infinitive is not grammatical",
+                  explanation:"'Wasn't used to' must be followed by a gerund: 'wasn't used to reading'. But even then, it means 'wasn't accustomed to reading' — a different meaning. For a past habit that didn't exist: 'didn't use to read'." },
+                { text:"James used to not read customer reviews before making a purchase online.", correct:false, keyWord:"used to not read",
+                  errorType:"'Used to not' is a non-standard negative form",
+                  explanation:"'Used to not read' is a non-standard negative form. The standard English negative is 'didn't use to read' — not 'used to not read'." }
+            ],
+            rule:"Negative: subject + didn't + use to (no -d) + verb base",
+            examples:["James didn't use to read reviews. (correct)", "She didn't use to check her bills."],
+            correctReason:"'Didn't use to' is the standard negative. 'Didn't' carries the past tense; 'use to' stays in base form (no -d). 'Didn't USED to' incorrectly doubles the past marker."
+        },
+        // Q3 — quest | Did Nadia used to → Did Nadia use to | pos 1
+        {
+            id:3, struct:"quest",
+            base:"Did Nadia used to submit her complaints in writing before the online system was introduced?",
+            errorWord:"Did Nadia used to", correctWord:"Did Nadia use to",
+            goal:"Fix the question form \u2014 remove the -d from 'used to' after 'Did'",
+            clue:"Did + subject + use to (no -d) \u2014 'Did' already carries the past",
+            clueExplain:"'Did' in questions already marks the past tense. The verb following must be base form: 'use to' (no -d). 'Did ... USED TO' double-marks the past.",
+            options:[
+                { text:"Was Nadia used to submitting complaints in writing before the online system was introduced?", correct:false, keyWord:"Was Nadia used to submitting",
+                  errorType:"'Was used to' = 'was accustomed to' \u2014 different meaning and structure",
+                  explanation:"'Was Nadia used to submitting?' asks if she was accustomed to it — a different meaning. To ask about a past habit: 'Did Nadia use to submit?' (no -d after 'Did')." },
+                { text:"Did Nadia use to submit her complaints in writing before the online system was introduced?", correct:true, keyWord:"Did Nadia use to" },
+                { text:"Had Nadia used to submit her complaints in writing before the online system was introduced?", correct:false, keyWord:"Had Nadia used to",
+                  errorType:"'Had used to' is not a standard English question form",
+                  explanation:"'Had Nadia used to submit?' is not a grammatical structure. The only standard question form for past habits is: 'Did + subject + use to + verb base?'" }
+            ],
+            rule:"Question: Did + subject + use to (no -d) + verb base?",
+            examples:["Did Nadia use to submit in writing? (correct)", "Did Carlos use to handle complaints? (correct)"],
+            correctReason:"'Did Nadia use to' is correct. 'Did' carries the past; 'use to' is base form (no -d). Every verb after 'did' stays in base form — including 'use to'."
+        },
+        // Q4 — state | would know → used to know | pos 0
+        {
+            id:4, struct:"state",
+            base:"Carlos would know all the building regulations by heart before the new rules came into effect.",
+            errorWord:"would know", correctWord:"used to know",
+            goal:"Fix the state error \u2014 'know' is a mental state, not an action",
+            clue:"mental state (know) \u2014 would \u2192 used to",
+            clueExplain:"'Know' is a stative verb (mental knowledge). 'Would' is only for repeated past ACTIONS. For past mental states: 'used to know'.",
+            options:[
+                { text:"Carlos used to know all the building regulations by heart before the new rules came into effect.", correct:true, keyWord:"used to know" },
+                { text:"Carlos use to know all the building regulations by heart before the new rules came into effect.", correct:false, keyWord:"use to know",
+                  errorType:"Missing -d in affirmative (use to \u2260 used to)",
+                  explanation:"'Use to know' (no -d) is incorrect in the affirmative. The fix for the original error is 'USED TO know' (with -d) — not 'use to know'." },
+                { text:"Carlos knew all the building regulations by heart before the new rules came into effect.", correct:false, keyWord:"knew",
+                  errorType:"Simple past 'knew' doesn't convey the 'used to' meaning",
+                  explanation:"'Knew' (simple past) states a fact about the past but doesn't emphasise that this was a past state that has now changed. 'Used to know' better conveys that the knowledge existed before but is now gone." }
+            ],
+            rule:"used to + stative verb (know, believe, own, feel) \u2014 NOT 'would' for mental states",
+            examples:["Carlos used to know the regulations. (mental state \u2014 correct)", "She used to believe the service was reliable."],
+            correctReason:"'Know' is a stative (mental) verb. Only 'used to know' is correct for past mental states. 'Would know' is wrong because 'would' is restricted to repeated physical actions."
+        },
+        // Q5 — affirm | used to worked → used to work | pos 2
+        {
+            id:5, struct:"affirm",
+            base:"The old lift in the building used to worked perfectly before it broke down last year.",
+            errorWord:"used to worked", correctWord:"used to work",
+            goal:"Fix the verb form \u2014 after 'used to', the verb must be in base form",
+            clue:"used to + verb BASE form (never past form after 'used to')",
+            clueExplain:"'Used to' already expresses the past tense. The main verb following 'used to' must always be in BASE form: 'used to WORK' \u2014 not 'used to WORKED'.",
+            options:[
+                { text:"The old lift in the building use to work perfectly before it broke down last year.", correct:false, keyWord:"use to work",
+                  errorType:"Missing -d in affirmative (fixing the wrong error)",
+                  explanation:"'Use to work' introduces a different error (missing -d). The original problem was 'used to WORKED' (past form). The correct fix: 'USED TO WORK' (used to + base form)." },
+                { text:"The old lift in the building would work perfectly before it broke down last year.", correct:false, keyWord:"would work",
+                  errorType:"Would changes the structure (also acceptable but not the target fix)",
+                  explanation:"'Would work' could be technically acceptable for a repeated past behaviour, but the task is to fix the original 'used to worked' error by using 'used to WORK' (base form) — keeping the 'used to' structure." },
+                { text:"The old lift in the building used to work perfectly before it broke down last year.", correct:true, keyWord:"used to work" }
+            ],
+            rule:"used to + verb BASE form always (never: used to + past form)",
+            examples:["The lift used to work perfectly. (correct)", "She used to live here. (correct \u2014 not 'used to lived')"],
+            correctReason:"After 'used to', the main verb always stays in BASE form: 'used to WORK'. 'Used to WORKED' incorrectly uses past simple after 'used to', which already expresses the past."
+        },
+        // Q6 — neg | didn't use to not → didn't use to | pos 1
+        {
+            id:6, struct:"neg",
+            base:"Nadia didn't use to not pay attention to her phone plan terms and conditions.",
+            errorWord:"didn't use to not", correctWord:"didn't use to",
+            goal:"Fix the double negative \u2014 'didn't' already makes the sentence negative",
+            clue:"didn't use to (not 'didn't use to NOT') \u2014 double negative",
+            clueExplain:"'Didn't' already makes the sentence negative. Adding 'not' after 'use to' creates a double negative, which changes the meaning and is grammatically incorrect.",
+            options:[
+                { text:"Nadia used to not pay attention to her phone plan terms and conditions.", correct:false, keyWord:"used to not",
+                  errorType:"'Used to not' is a non-standard negative form",
+                  explanation:"'Used to not pay' is a non-standard negative form. The standard negative of 'used to' is 'didn't use to pay' \u2014 not 'used to not pay'." },
+                { text:"Nadia didn't use to pay attention to her phone plan terms and conditions.", correct:true, keyWord:"didn't use to" },
+                { text:"Nadia didn't used to pay attention to her phone plan terms and conditions.", correct:false, keyWord:"didn't used to",
+                  errorType:"Double past marking (didn't + used)",
+                  explanation:"'Didn't used to' double-marks the past tense. After 'didn't', use base form: 'use to' (no -d). The correct negative: 'didn't USE TO pay'." }
+            ],
+            rule:"Negative: subject + didn't + use to + verb base (only one negative marker)",
+            examples:["Nadia didn't use to pay attention to the terms. (correct)", "He didn't use to worry about charges."],
+            correctReason:"'Didn't use to pay' is the correct negative. 'Didn't' makes the sentence negative; 'use to' is base form (no -d). The original 'didn't use to NOT' was a double negative."
+        },
+        // Q7 — state | would be → used to be | pos 0
+        {
+            id:7, struct:"state",
+            base:"The customer service at the phone company would be much more efficient a few years ago.",
+            errorWord:"would be", correctWord:"used to be",
+            goal:"Fix the state error \u2014 'be efficient' is a quality, not an action",
+            clue:"past quality/state (be + adjective) \u2014 used to be, not would be",
+            clueExplain:"'Be efficient' is a state/quality. 'Would' cannot replace 'used to' for states. Only 'used to be' correctly describes past qualities.",
+            options:[
+                { text:"The customer service at the phone company used to be much more efficient a few years ago.", correct:true, keyWord:"used to be" },
+                { text:"The customer service at the phone company use to be much more efficient a few years ago.", correct:false, keyWord:"use to be",
+                  errorType:"Missing -d in affirmative",
+                  explanation:"'Use to be' (no -d) is incorrect in the affirmative. The fix for the 'would be' error is 'USED TO be' (with -d) \u2014 not 'use to be'." },
+                { text:"The customer service at the phone company was much more efficient a few years ago.", correct:false, keyWord:"was much more efficient",
+                  errorType:"Simple past 'was' doesn't convey the 'used to be' meaning",
+                  explanation:"'Was' (simple past) states a fact but doesn't emphasise that this quality existed before but has now changed. 'Used to be' better conveys the contrast between past and present." }
+            ],
+            rule:"used to + be (state/quality) \u2014 ONLY 'used to', not 'would'",
+            examples:["The service used to be more efficient. (state \u2014 correct)", "The system used to be reliable. (state \u2014 correct)"],
+            correctReason:"'Be efficient' is a state/quality. 'Used to be' correctly expresses a past quality that no longer exists. 'Would be' is wrong because 'would' cannot describe past states."
+        },
+        // Q8 — quest | use to sent → use to send | pos 2
+        {
+            id:8, struct:"quest",
+            base:"Did the management company use to sent monthly reports to all residents before the new policy?",
+            errorWord:"use to sent", correctWord:"use to send",
+            goal:"Fix the verb form \u2014 after 'use to', the verb must be in base form",
+            clue:"Did + subject + use to + verb BASE form (never past form)",
+            clueExplain:"After 'use to', the main verb must always be in BASE form. 'Did' already carries the past tense. 'Use to SEND' \u2014 not 'use to SENT'.",
+            options:[
+                { text:"Did the management company used to send monthly reports to all residents before the new policy?", correct:false, keyWord:"Did the management company used to send",
+                  errorType:"Double past marking (Did + used) while fixing the verb form",
+                  explanation:"'Did the management used to send' double-marks the past: 'Did' carries past, and 'used to' (with -d) adds another past marker. Correct: 'Did the management USE TO send' (use to + base form)." },
+                { text:"Had the management company used to send monthly reports to all residents before the new policy?", correct:false, keyWord:"Had the management company used to send",
+                  errorType:"'Had used to' is not a standard English question form",
+                  explanation:"'Had used to send' is not a grammatical structure. The only standard question form is: 'Did + subject + use to + verb base?'" },
+                { text:"Did the management company use to send monthly reports to all residents before the new policy?", correct:true, keyWord:"use to send" }
+            ],
+            rule:"Question: Did + subject + use to (no -d) + verb BASE form?",
+            examples:["Did the company use to send reports? (correct)", "Did she use to call every week? (correct)"],
+            correctReason:"'Use to send' is correct. After 'use to' (which follows 'Did'), the main verb must be in BASE form: 'use to SEND' \u2014 not 'use to SENT'. 'Did' handles the past tense."
+        },
+        // Q9 — state | would own → used to own | pos 1
+        {
+            id:9, struct:"state",
+            base:"Before the company downsized, Carlos would own a private parking space in the building.",
+            errorWord:"would own", correctWord:"used to own",
+            goal:"Fix the state error \u2014 'own' is a possession state, not an action",
+            clue:"past possession (own) \u2014 would \u2192 used to",
+            clueExplain:"'Own a parking space' is a stative verb (possession). 'Would' can only describe repeated past actions, not states of ownership. Only 'used to own' is correct.",
+            options:[
+                { text:"Before the company downsized, Carlos used to own a private parking space in the building.", correct:true, keyWord:"used to own" },
+                { text:"Before the company downsized, Carlos owned a private parking space in the building.", correct:false, keyWord:"owned",
+                  errorType:"Simple past 'owned' loses the 'used to' implication",
+                  explanation:"'Owned' (simple past) is grammatically correct but doesn't carry the 'used to' implication that the state has now changed and is being compared to the present. 'Used to own' better captures this contrast." },
+                { text:"Before the company downsized, Carlos use to own a private parking space in the building.", correct:false, keyWord:"use to own",
+                  errorType:"Missing -d in affirmative",
+                  explanation:"'Use to own' (no -d) is incorrect in the affirmative. The fix for 'would own' (state error) is 'USED TO own' (with -d) \u2014 not 'use to own'." }
+            ],
+            rule:"used to + stative verb (own, have, know, belong) \u2014 NOT 'would' for possession/states",
+            examples:["Carlos used to own a parking space. (possession \u2014 correct)", "She used to have a company car. (possession \u2014 correct)"],
+            correctReason:"'Own a parking space' is a state of possession. Only 'used to own' is correct. 'Would own' is wrong because 'would' is restricted to repeated physical actions, not states."
+        },
+        // Q10 — neg | didn't used to → didn't use to | pos 0
+        {
+            id:10, struct:"neg",
+            base:"The building management didn't used to respond to emergency calls within two hours.",
+            errorWord:"didn't used to", correctWord:"didn't use to",
+            goal:"Fix the double past \u2014 remove the -d from 'used to' after 'didn't'",
+            clue:"didn't + use to (no -d) \u2014 base form after auxiliary",
+            clueExplain:"'Didn't' already marks the past. The verb following must be base form: 'use to' (no -d). 'Didn't USED TO' has two past markers.",
+            options:[
+                { text:"The building management didn't use to respond to emergency calls within two hours.", correct:true, keyWord:"didn't use to" },
+                { text:"The building management wasn't used to respond to emergency calls within two hours.", correct:false, keyWord:"wasn't used to respond",
+                  errorType:"'Wasn't used to' + bare infinitive is not grammatical",
+                  explanation:"'Wasn't used to' requires a gerund (-ing): 'wasn't used to responding'. But even then it means 'wasn't accustomed to' \u2014 different meaning. For a past habit: 'didn't use to respond'." },
+                { text:"The building management used to not respond to emergency calls within two hours.", correct:false, keyWord:"used to not respond",
+                  errorType:"'Used to not' is a non-standard negative form",
+                  explanation:"'Used to not respond' is non-standard. The correct negative is 'didn't use to respond'." }
+            ],
+            rule:"Negative: subject + didn't + use to (no -d) + verb base",
+            examples:["The management didn't use to respond quickly. (correct)", "They didn't use to send receipts."],
+            correctReason:"'Didn't use to' is the standard negative. 'Didn't' carries the past; 'use to' is base form (no -d). The original 'didn't USED to' incorrectly doubled the past marker."
+        },
+        // Q11 — affirm | use to check → used to check | pos 2
+        {
+            id:11, struct:"affirm",
+            base:"Before the digital system, Carlos use to check the maintenance records in a paper logbook every morning.",
+            errorWord:"use to check", correctWord:"used to check",
+            goal:"Fix the affirmative form \u2014 add the missing -d",
+            clue:"affirmative: used to (with -d) \u2014 not 'use to'",
+            clueExplain:"'Use to check' is incorrect in the affirmative. The -d is always present in affirmative 'used to'. 'Use to' (no -d) only follows auxiliaries (didn't, Did).",
+            options:[
+                { text:"Before the digital system, Carlos would check the maintenance records in a paper logbook every morning.", correct:false, keyWord:"would check",
+                  errorType:"Would is also acceptable here, but doesn't fix the original error",
+                  explanation:"'Would check' is grammatically acceptable for a repeated past action. However, the task is to fix the 'use to' error by adding the -d: 'USED TO check'. 'Would check' changes the structure rather than fixing the original form." },
+                { text:"Before the digital system, Carlos had used to check the maintenance records in a paper logbook every morning.", correct:false, keyWord:"had used to check",
+                  errorType:"'Had used to' is not a standard English form",
+                  explanation:"'Had used to check' is not grammatical in standard English. The simple fix: 'USED TO check' (with -d in the affirmative)." },
+                { text:"Before the digital system, Carlos used to check the maintenance records in a paper logbook every morning.", correct:true, keyWord:"used to check" }
+            ],
+            rule:"Affirmative: subject + used to (with -d) + verb base",
+            examples:["Carlos used to check the logbook every morning. (correct)", "She used to keep paper records. (correct)"],
+            correctReason:"'Used to check' is correct. In the affirmative, 'used to' always keeps the -d. The original 'use to check' was missing the -d, which is only dropped after 'didn't' or 'Did'."
+        },
+        // Q12 — quest | Did James used to → Did James use to | pos 1
+        {
+            id:12, struct:"quest",
+            base:"Did James used to shop at that online store before they lost his package?",
+            errorWord:"Did James used to", correctWord:"Did James use to",
+            goal:"Fix the double past in the question \u2014 remove the -d after 'Did'",
+            clue:"Did + subject + use to (no -d) \u2014 'Did' carries the past",
+            clueExplain:"'Did' already marks the past tense in questions. The verb following must be base form. 'Did James USED TO' double-marks the past.",
+            options:[
+                { text:"Had James used to shop at that online store before they lost his package?", correct:false, keyWord:"Had James used to",
+                  errorType:"'Had used to' is not a standard English question form",
+                  explanation:"'Had James used to shop?' is not grammatical. The only standard question form for past habits: 'Did + subject + use to + verb base?'" },
+                { text:"Did James use to shop at that online store before they lost his package?", correct:true, keyWord:"Did James use to" },
+                { text:"Was James used to shopping at that online store before they lost his package?", correct:false, keyWord:"Was James used to shopping",
+                  errorType:"'Was used to' + gerund = 'was accustomed to' \u2014 different meaning",
+                  explanation:"'Was James used to shopping there?' asks if he was accustomed to it \u2014 different meaning. To ask about a past habit: 'Did James use to shop there?'" }
+            ],
+            rule:"Question: Did + subject + use to (no -d) + verb base?",
+            examples:["Did James use to shop there? (correct)", "Did she use to work here? (correct)"],
+            correctReason:"'Did James use to' is correct. 'Did' carries the past; 'use to' is base form (no -d). The original 'Did James USED TO' incorrectly double-marked the past tense."
+        },
+        // Q13 — state | would believe → used to believe | pos 0
+        {
+            id:13, struct:"state",
+            base:"Nadia would believe that all service companies handled complaints fairly before she had this experience.",
+            errorWord:"would believe", correctWord:"used to believe",
+            goal:"Fix the state error \u2014 'believe' is a mental state, not an action",
+            clue:"mental state (believe) \u2014 would \u2192 used to",
+            clueExplain:"'Believe' is a stative verb (mental state/opinion). 'Would' can only describe repeated past actions. For past beliefs or opinions: 'used to believe'.",
+            options:[
+                { text:"Nadia used to believe that all service companies handled complaints fairly before she had this experience.", correct:true, keyWord:"used to believe" },
+                { text:"Nadia believed that all service companies handled complaints fairly before she had this experience.", correct:false, keyWord:"believed",
+                  errorType:"Simple past 'believed' loses the 'used to' implication",
+                  explanation:"'Believed' (simple past) is grammatically correct but doesn't emphasise that this was a held belief that has now fundamentally changed. 'Used to believe' captures the contrast between past belief and present reality." },
+                { text:"Nadia use to believe that all service companies handled complaints fairly before she had this experience.", correct:false, keyWord:"use to believe",
+                  errorType:"Missing -d in affirmative (fixing the wrong error)",
+                  explanation:"'Use to believe' (no -d) creates a different error. The correct fix for 'would believe' (state error) is 'USED TO believe' (with -d) \u2014 not 'use to believe'." }
+            ],
+            rule:"used to + stative verb (believe, know, think, feel) \u2014 NOT 'would' for mental states",
+            examples:["Nadia used to believe the service was fair. (belief \u2014 correct)", "She used to think the company was reliable."],
+            correctReason:"'Believe' is a stative verb (mental opinion). Only 'used to believe' is correct for past beliefs. 'Would believe' is wrong because 'would' is restricted to repeated physical actions."
+        },
+        // Q14 — would | used to be sending → would send | pos 2
+        {
+            id:14, struct:"would",
+            base:"Every week without fail, the building manager used to be sending residents an update on maintenance work.",
+            errorWord:"used to be sending", correctWord:"would send / used to send",
+            goal:"Fix the structure \u2014 'used to be + -ing' is not the correct past habit form",
+            clue:"past habit: used to + base verb OR would + base verb (not used to be + -ing)",
+            clueExplain:"'Used to be sending' is not a standard past habit structure. Past habits use 'used to + base verb' or 'would + base verb'. The continuous form (-ing) is not used with 'used to' for habits.",
+            options:[
+                { text:"Every week without fail, the building manager would send residents an update on maintenance work.", correct:true, keyWord:"would send" },
+                { text:"Every week without fail, the building manager use to send residents an update on maintenance work.", correct:false, keyWord:"use to send",
+                  errorType:"Missing -d in affirmative (a different error)",
+                  explanation:"'Use to send' introduces a new error (missing -d). The fix should use 'would send' or 'used to send' (with -d). 'Use to send' (no -d, no auxiliary) is incorrect." },
+                { text:"Every week without fail, the building manager was used to sending residents an update on maintenance work.", correct:false, keyWord:"was used to sending",
+                  errorType:"'Was used to' + gerund = 'was accustomed to' \u2014 different meaning",
+                  explanation:"'Was used to sending' means 'was accustomed to sending' \u2014 a completely different meaning. For a past habit: 'would send' or 'used to send'." }
+            ],
+            rule:"Past habit: used to + base verb OR would + base verb (NOT used to be + -ing)",
+            examples:["The manager would send updates every week. (habit \u2014 correct)", "He used to send monthly reports. (habit \u2014 correct)"],
+            correctReason:"'Would send' is correct for a past habit. 'Every week without fail' confirms the repeated routine. 'Used to be sending' is not a standard past habit structure. 'Would + base verb' or 'used to + base verb' are the correct forms."
+        },
+        // Q15 — neg | used to not complain → didn't use to complain | pos 1
+        {
+            id:15, struct:"neg",
+            base:"Lucia used to not complain about her neighbours before the noise problem started.",
+            errorWord:"used to not complain", correctWord:"didn't use to complain",
+            goal:"Fix the non-standard negative \u2014 use the standard 'didn't use to' form",
+            clue:"standard negative: didn't use to (not 'used to not')",
+            clueExplain:"'Used to not' is a non-standard negative form. The standard English negative of 'used to' is 'didn't use to + verb'.",
+            options:[
+                { text:"Lucia didn't use to complain about her neighbours before the noise problem started.", correct:true, keyWord:"didn't use to complain" },
+                { text:"Lucia didn't used to complain about her neighbours before the noise problem started.", correct:false, keyWord:"didn't used to",
+                  errorType:"Double past marking (didn't + used)",
+                  explanation:"'Didn't used to' double-marks the past: 'didn't' carries the past, and adding '-d' to create 'used' adds another past marker. Correct: 'didn't USE TO complain' (base form, no -d)." },
+                { text:"Lucia would not complain about her neighbours before the noise problem started.", correct:false, keyWord:"would not complain",
+                  errorType:"'Would not' changes meaning (and 'complain' could be action, but standard form preferred)",
+                  explanation:"'Would not complain' technically describes a negative repeated action, but it sounds unnatural here and changes the emphasis. The standard and more natural form: 'didn't use to complain'." }
+            ],
+            rule:"Standard negative: subject + didn't + use to (no -d) + verb base",
+            examples:["Lucia didn't use to complain. (standard \u2014 correct)", "She didn't use to worry about neighbours."],
+            correctReason:"'Didn't use to complain' is the standard negative form. 'Didn't' carries the past; 'use to' is base form (no -d). 'Used to not' is non-standard and should be avoided."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, i) {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const letters = ['A','B','C'];
+        const badgeMap = { affirm:'affirm', neg:'neg', quest:'quest', would:'would', state:'state' };
+        const labelMap = { affirm:'&#10133; Affirmative', neg:'&#10134; Negative', quest:'&#10067; Question', would:'&#128260; Would (habit)', state:'&#9898; State' };
+        const badge = '<span class="struct-badge ' + badgeMap[q.struct] + '">' + labelMap[q.struct] + '</span>';
+        const baseHL = q.base.replace(q.errorWord, '<span class="word-error">' + q.errorWord + '</span>');
+        const optsHTML = q.shuffled.map(function(opt, i) {
+            const txt = opt.text.replace(opt.keyWord, '<span class="key-hl">' + opt.keyWord + '</span>');
+            return '<button class="option-btn" onclick="selectOption(' + index + ',' + i + ')">' +
+                '<div class="option-letter">' + letters[i] + '</div>' +
+                '<div class="option-text">' + txt + '</div></button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' +
+            '<span style="font-size:0.88rem;color:var(--text-medium);font-weight:600;flex:1;">Fix the error:</span>' + badge + '</div>' +
+            '<div class="transform-visual">' +
+            '<div class="transform-box base"><span class="transform-label">&#128226; Sentence with error</span>' +
+            '<div class="transform-sentence">' + baseHL + '</div></div>' +
+            '<div class="transform-arrow">&#11015; Fix to...</div>' +
+            '<div class="transform-box goal"><span class="transform-label">&#127919; Goal</span>' +
+            '<div class="transform-sentence">' + q.goal + '</div></div></div>' +
+            '<div class="options-container" id="options-' + index + '">' + optsHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>&#8592; Previous</button>' +
+            '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+            (index===quizData.length-1?'See Results &#127881;':'Next &#8594;') +
+            '</button></div>';
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(function(o){ return o.correct; });
+        if (isCorrect) score++;
+        document.querySelectorAll('#options-' + qi + ' .option-btn').forEach(function(btn, i) {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function hl(text, word, cls) {
+        if (!word || text.indexOf(word) === -1) return text;
+        return text.replace(word, '<span class="' + cls + '">' + word + '</span>');
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e){ return '<div class="rule-ex">' + e + '</div>'; }).join('');
+        const baseHLed = hl(q.base, q.errorWord, 'vb-hl');
+        const correctHLed = hl(correctOpt.text, correctOpt.keyWord, 'vb-hl');
+        const wrongHLed = !isCorrect ? hl(selected.text, selected.keyWord, 'vb-hl') : null;
+        const flowHTML =
+            '<div class="transform-flow">' +
+            '<div class="tf-step original"><span class="tf-label">Error:</span>' + baseHLed + '</div>' +
+            '<div class="tf-arrow">\u2b07</div>' +
+            (wrongHLed ? '<div class="tf-step tf-wrong"><span class="tf-label">Your answer:</span>' + wrongHLed + '</div><div class="tf-arrow">\u2195</div>' : '') +
+            '<div class="tf-step tf-correct"><span class="tf-label">Correct:</span>' + correctHLed + '</div></div>';
+
+        if (isCorrect) {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">Correct fix!</div>' +
+                '<div class="fb-subtitle">You identified and corrected the error</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-transform"><div class="fb-block-title">&#128260; Correction made</div>' + flowHTML + '</div>' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; Key rule applied</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;"><span class="signal-tag">' + q.clue + '</span> \u2014 ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Rule applied</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; Why is this the correct fix?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrect fix</div>' +
+                '<div class="fb-subtitle">Review the used to rules carefully</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-transform"><div class="fb-block-title">&#128260; Your fix vs. the correct one</div>' + flowHTML + '</div>' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; Key rule to apply</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;"><span class="signal-tag red">' + q.clue + '</span> \u2014 ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; The error in your choice: <span class="error-badge">' + selected.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected.keyWord + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + correctOpt.keyWord + '</span></div>' +
+                '<div class="error-text">' + selected.explanation + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; The correct rule</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; Why is the correct fix right?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden',idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You fix used to errors perfectly. \uD83C\uDFC6'
+            : pct >= 70 ? 'Well done! Keep practising the -d rule and state vs. habit distinction. \uD83D\uDCAA'
+            : 'Good effort. Remember: affirmative = used to (-d); after didn\'t/Did = use to (no -d); states = used to only. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

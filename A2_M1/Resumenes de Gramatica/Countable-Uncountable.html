@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Countable vs Uncountable | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#F1F8E9;--note-border:#AED581;
+--cnt:#1565C0;--cnt-bg:#E3F2FD;
+--unc:#E53935;--unc-bg:#FFEBEE;
+--both-bg:#EFEBE9;--both:#6D4C41;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:800px;margin:0 auto}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:"";position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:"Fredoka",sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:"Fredoka",sans-serif;font-size:1.05rem;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.83rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:"Nunito",sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem;margin-top:1.1rem}
+.section-label::before{content:"";width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-label:first-child{margin-top:0}
+.section-title{font-family:"Fredoka",sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:"Fredoka",sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:"Fredoka",sans-serif;font-size:.93rem;color:var(--ld);line-height:2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:"Fredoka",sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem;font-weight:700}
+.alert-card p{font-size:.82rem;color:#555;line-height:1.7}
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:"Lora",serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+.noun-category-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+.noun-cat-card{padding:1rem;border-radius:12px;text-align:center}
+.countable-card{background:var(--cnt-bg);border:2px solid #90CAF9}
+.uncountable-card{background:var(--unc-bg);border:2px solid #EF9A9A}
+.noun-cat-icon{font-size:1.5rem;margin-bottom:.3rem}
+.noun-cat-label{font-family:"Fredoka",sans-serif;font-size:.85rem;font-weight:600;margin-bottom:.5rem}
+.countable-card .noun-cat-label{color:var(--cnt)}
+.uncountable-card .noun-cat-label{color:var(--unc)}
+.noun-cat-examples{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center}
+.noun-chip{background:#fff;border:1.5px solid #90CAF9;color:var(--cnt);padding:2px 8px;border-radius:20px;font-size:.76rem;font-weight:700}
+.noun-chip-u{background:#fff;border:1.5px solid #EF9A9A;color:var(--unc);padding:2px 8px;border-radius:20px;font-size:.76rem;font-weight:700}
+.quantifier-map{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:1rem 0}
+.q-col{border-radius:12px;padding:.8rem;text-align:center}
+.q-col-c{background:var(--cnt-bg);border:2px solid #90CAF9}
+.q-col-both{background:var(--both-bg);border:2px solid #BCAAA4}
+.q-col-u{background:var(--unc-bg);border:2px solid #EF9A9A}
+.q-col-header{font-family:"Fredoka",sans-serif;font-size:.78rem;font-weight:600;margin-bottom:.5rem;padding-bottom:.4rem;border-bottom:1.5px dashed rgba(0,0,0,.1)}
+.q-col-c .q-col-header{color:var(--cnt)}
+.q-col-both .q-col-header{color:var(--both)}
+.q-col-u .q-col-header{color:var(--unc)}
+.q-chip{font-size:.78rem;font-weight:700;margin:.2rem 0;padding:3px 0}
+.trap-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-top:.6rem}
+.trap-item{display:flex;align-items:center;gap:.3rem;font-size:.79rem;padding:.3rem .5rem;background:#fff2f2;border-radius:8px}
+.trap-es{color:#555;font-style:italic}
+.trap-arrow{color:var(--err);font-weight:700}
+.trap-en{color:var(--err);font-weight:700}
+.quick-guide{border-radius:10px;overflow:hidden;border:1px solid var(--border);margin:1rem 0}
+.qg-row{display:grid;grid-template-columns:1.8fr 1fr 2fr;gap:0;font-size:.81rem}
+.qg-header{background:var(--lg);color:#fff;font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.qg-header .qg-q,.qg-header .qg-a,.qg-header .qg-ex{padding:.55rem .7rem}
+.qg-row:not(.qg-header){border-bottom:1px solid #f0f0f0}
+.qg-row:not(.qg-header):nth-child(even){background:#fafafa}
+.qg-row:last-child{border-bottom:none}
+.qg-q,.qg-a,.qg-ex{padding:.5rem .7rem;border-right:1px solid #eee}
+.qg-ex{border-right:none;font-style:italic;color:var(--text-soft)}
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:"Fredoka",sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:"Nunito",sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:"Fredoka",sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:4px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#33691E}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:"Fredoka",sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block;animation:fadeIn .4s ease}
+.summary-final h3{font-family:"Fredoka",sans-serif;color:var(--ok);margin-bottom:.8rem;font-size:1.1rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:5px 0 5px 22px;position:relative;font-size:.84rem;color:var(--text-soft);border-bottom:1px solid var(--lm)}
+.summary-final li:last-child{border-bottom:none}
+.summary-final li:before{content:"V";position:absolute;left:0;color:var(--lp);font-weight:700}
+@media(max-width:600px){
+.level-header h1{font-size:1.4rem}
+.quantifier-map,.noun-category-grid,.compare-grid{grid-template-columns:1fr}
+.trap-grid{grid-template-columns:1fr 1fr}
+.qg-row{grid-template-columns:1fr 1fr}
+.qg-ex{display:none}
+.card{padding:1.2rem}
+.opts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+  <div class="level-badge">&#x1F49A; A2 &middot; Grammar Summary</div>
+  <h1>&#x1F4DD; Grammar Summary</h1>
+  <div class="module-name">&#x1F6CE;&#xFE0F; Services, Support &amp; Problem Solving</div>
+  <p class="subtitle">Countable vs Uncountable Nouns &middot; 5 steps &times; 5 exercises</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+  <h3>&#x1F393; Key Points &mdash; Countable vs Uncountable</h3>
+  <ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+var STEPS = [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol tambi\u00e9n existe esta distinci\u00f3n, aunque con diferencias importantes.</div>\n<div class=\"compare-grid\">\n  <div class=\"compare-card esp\"><h4>\u2705 Contables (Countable)</h4><ul><li>un libro \u2192 dos libros</li><li>una silla \u2192 tres sillas</li><li>un problema \u2192 varios problemas</li></ul></div>\n  <div class=\"compare-card eng\"><h4>\ud83d\udca7 Incontables (Uncountable)</h4><ul><li>agua (no \"aguas\")</li><li>informaci\u00f3n (no \"informaciones\")</li><li>dinero (no \"dineros\")</li></ul></div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Idea clave:</strong> Preg\u00fantate: <em>\u00bfPuedo contar uno, dos, tres...?</em> Si s\u00ed \u2192 contable. Si no \u2192 incontable. \"One water\" \u274c \u00b7 \"One bottle of water\" \u2705</div>\n<div class=\"noun-category-grid\">\n  <div class=\"noun-cat-card countable-card\">\n    <div class=\"noun-cat-icon\">\ud83d\udd22</div>\n    <div class=\"noun-cat-label\">CONTABLES</div>\n    <div class=\"noun-cat-examples\">\n      <span class=\"noun-chip\">complaint</span><span class=\"noun-chip\">form</span><span class=\"noun-chip\">appointment</span><span class=\"noun-chip\">bill</span><span class=\"noun-chip\">problem</span>\n    </div>\n  </div>\n  <div class=\"noun-cat-card uncountable-card\">\n    <div class=\"noun-cat-icon\">\ud83d\udca7</div>\n    <div class=\"noun-cat-label\">INCONTABLES</div>\n    <div class=\"noun-cat-examples\">\n      <span class=\"noun-chip-u\">advice</span><span class=\"noun-chip-u\">information</span><span class=\"noun-chip-u\">help</span><span class=\"noun-chip-u\">money</span><span class=\"noun-chip-u\">luggage</span>\n    </div>\n  </div>\n</div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">I have <b>three complaints</b> about the service.</div><div class=\"es\">Tengo tres quejas sobre el servicio. \u2705 (contable)</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udca1</div><div><div class=\"en\">I need some <b>advice</b>. <em>(NOT: an advice / advices)</em></div><div class=\"es\">Necesito consejo/s. \u2705 (incontable)</div></div></div>"}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Both languages share this concept \u2014 with a few key overlaps.</div>\n<table class=\"g-table\">\n  <tr><th>Similitud</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n  <tr><td>Contables tienen plural</td><td>libro \u2192 libros</td><td><span class=\"g-comp\">book</span> \u2192 books</td></tr>\n  <tr><td>Incontables no tienen plural</td><td>agua (sin plural)</td><td><span class=\"g-comp\">water</span> (no plural)</td></tr>\n  <tr><td>Cuantificadores generales</td><td>algo de / mucho</td><td><span class=\"g-comp\">some / a lot of</span></td></tr>\n  <tr><td>Partitivos para incontables</td><td>un vaso de agua</td><td>a glass of <span class=\"g-comp\">water</span></td></tr>\n  <tr><td>Art\u00edculo indefinido con contables</td><td>un problema</td><td>a <span class=\"g-comp\">problem</span></td></tr>\n</table>\n<div class=\"section-label\">Quantifier Map</div>\n<div class=\"quantifier-map\">\n  <div class=\"q-col q-col-c\">\n    <div class=\"q-col-header\">\ud83d\udd22 Only COUNTABLE</div>\n    <div class=\"q-chip\">many</div><div class=\"q-chip\">a few</div><div class=\"q-chip\">few</div><div class=\"q-chip\">several</div><div class=\"q-chip\">a number of</div>\n  </div>\n  <div class=\"q-col q-col-both\">\n    <div class=\"q-col-header\">\ud83d\udd04 BOTH</div>\n    <div class=\"q-chip\">some</div><div class=\"q-chip\">any</div><div class=\"q-chip\">a lot of</div><div class=\"q-chip\">plenty of</div><div class=\"q-chip\">no</div><div class=\"q-chip\">enough</div>\n  </div>\n  <div class=\"q-col q-col-u\">\n    <div class=\"q-col-header\">\ud83d\udca7 Only UNCOUNTABLE</div>\n    <div class=\"q-chip\">much</div><div class=\"q-chip\">a little</div><div class=\"q-chip\">little</div><div class=\"q-chip\">a bit of</div><div class=\"q-chip\">a great deal of</div>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> \"Some / any / a lot of\" funcionan con ambos tipos. Son los m\u00e1s seguros cuando no est\u00e1s seguro.</div>"}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<table class=\"g-table\">\n  <tr><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 Ingl\u00e9s</th><th>\ud83d\udca1 Explicaci\u00f3n</th></tr>\n  <tr><td>consejos (plural OK)</td><td><span class=\"g-comp\">advice</span> (NO plural)</td><td>En ingl\u00e9s: incontable siempre</td></tr>\n  <tr><td>informaciones (a veces)</td><td><span class=\"g-comp\">information</span> (NO plural)</td><td>Nunca \"informations\"</td></tr>\n  <tr><td>una maleta / maletas</td><td><span class=\"g-comp\">luggage</span> (singular = plural)</td><td>Partitivo: a piece of luggage</td></tr>\n  <tr><td>mueble / muebles</td><td><span class=\"g-comp\">furniture</span> (NO plural)</td><td>Nunca \"furnitures\"</td></tr>\n  <tr><td>trabajos / trabajo</td><td><span class=\"g-comp\">work</span> (incontable) vs <span class=\"g-comp\">job</span> (contable)</td><td>Depende del significado</td></tr>\n</table>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f Las 6 trampas cl\u00e1sicas para hispanohablantes</div>\n  <p>Sustantivos que en espa\u00f1ol son contables pero en ingl\u00e9s son <b>INCONTABLES</b>:</p>\n  <div class=\"trap-grid\">\n    <div class=\"trap-item\"><span class=\"trap-es\">consejos</span><span class=\"trap-arrow\">\u2192</span><span class=\"trap-en\">advice</span></div>\n    <div class=\"trap-item\"><span class=\"trap-es\">informaciones</span><span class=\"trap-arrow\">\u2192</span><span class=\"trap-en\">information</span></div>\n    <div class=\"trap-item\"><span class=\"trap-es\">maletas</span><span class=\"trap-arrow\">\u2192</span><span class=\"trap-en\">luggage</span></div>\n    <div class=\"trap-item\"><span class=\"trap-es\">muebles</span><span class=\"trap-arrow\">\u2192</span><span class=\"trap-en\">furniture</span></div>\n    <div class=\"trap-item\"><span class=\"trap-es\">noticias</span><span class=\"trap-arrow\">\u2192</span><span class=\"trap-en\">news</span></div>\n    <div class=\"trap-item\"><span class=\"trap-es\">trabajo (gral.)</span><span class=\"trap-arrow\">\u2192</span><span class=\"trap-en\">work</span></div>\n  </div>\n</div>\n<div class=\"section-label\">Partitivos \u2014 para contar los incontables</div>\n<table class=\"g-table\">\n  <tr><th>Incontable</th><th>Partitivo</th><th>Ejemplo</th></tr>\n  <tr><td>advice</td><td>a piece of</td><td>a piece of advice</td></tr>\n  <tr><td>information</td><td>a piece of</td><td>a piece of information</td></tr>\n  <tr><td>water</td><td>a glass / bottle of</td><td>a glass of water</td></tr>\n  <tr><td>luggage</td><td>a piece of / a bag of</td><td>a piece of luggage</td></tr>\n  <tr><td>furniture</td><td>a piece of</td><td>a piece of furniture</td></tr>\n</table>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">Can you give me an advice?</div><div class=\"es\">Error: advice es incontable \u2014 no lleva art\u00edculo an</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">Can you give me <span class=\"g-comp\">some advice</span> / a <span class=\"g-comp\">piece of advice</span>?</div><div class=\"es\">\u00bfPuedes darme alg\u00fan consejo?</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I received many informations about the complaint.</div><div class=\"es\">Error: information no tiene plural</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">I received <span class=\"g-comp\">a lot of information</span> about the complaint.</div><div class=\"es\">Recib\u00ed mucha informaci\u00f3n sobre la queja.</div></div></div>"}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n<div class=\"tip-card\"><strong>Tip 1 \u2014 The COUNT TEST:</strong> Ask yourself: <em>\"One ___, two ___s?\"</em> If it sounds natural \u2192 countable. \"One book, two books\" \u2705 \u00b7 \"One information, two informations\" \u274c</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Cuantificadores seguros:</strong> Cuando no est\u00e1s seguro, usa <b>some / any / a lot of / no</b> \u2014 funcionan con AMBOS tipos y nunca fallan.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Partitivos para incontables:</strong> Usa \"a piece of\" como comod\u00edn: <em>a piece of advice, a piece of information, a piece of furniture, a piece of luggage.</em></div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Palabras trampa del m\u00f3dulo:</strong> En contexto de servicios: <b>advice, information, help, feedback, support</b> \u2192 siempre incontables. <b>complaint, appointment, form, bill, problem</b> \u2192 contables.</div>\n<div class=\"section-label\">Gu\u00eda visual r\u00e1pida</div>\n<div class=\"quick-guide\">\n  <div class=\"qg-row qg-header\"><div class=\"qg-q\">\u00bfQu\u00e9 quieres decir?</div><div class=\"qg-a\">Usa...</div><div class=\"qg-ex\">Ejemplo</div></div>\n  <div class=\"qg-row\"><div class=\"qg-q\">Algo (afirmativo)</div><div class=\"qg-a\"><b>some</b></div><div class=\"qg-ex\">some advice / some forms</div></div>\n  <div class=\"qg-row\"><div class=\"qg-q\">Algo (pregunta/neg.)</div><div class=\"qg-a\"><b>any</b></div><div class=\"qg-ex\">any information / any complaints</div></div>\n  <div class=\"qg-row\"><div class=\"qg-q\">Mucho (contable)</div><div class=\"qg-a\"><b>many / a lot of</b></div><div class=\"qg-ex\">many problems / a lot of bills</div></div>\n  <div class=\"qg-row\"><div class=\"qg-q\">Mucho (incontable)</div><div class=\"qg-a\"><b>much / a lot of</b></div><div class=\"qg-ex\">much help / a lot of feedback</div></div>\n  <div class=\"qg-row\"><div class=\"qg-q\">Poco (contable)</div><div class=\"qg-a\"><b>a few / few</b></div><div class=\"qg-ex\">a few appointments / few options</div></div>\n  <div class=\"qg-row\"><div class=\"qg-q\">Poco (incontable)</div><div class=\"qg-a\"><b>a little / little</b></div><div class=\"qg-ex\">a little time / little support</div></div>\n</div>"}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"formula-box\">\n  <span class=\"g-comp\">COUNTABLE</span>: a/an + noun \u00b7 some / many / a few + noun-<b>s</b><br>\n  <span class=\"g-verb\">UNCOUNTABLE</span>: some / much / a little + noun (no plural)<br>\n  <span class=\"g-quest\">BOTH</span>: some \u00b7 any \u00b7 a lot of \u00b7 plenty of \u00b7 no \u00b7 enough\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">We received <span class=\"g-comp\">many complaints</span> and <span class=\"g-verb\">a lot of feedback</span>.</div><div class=\"es\">Recibimos muchas quejas y mucho feedback.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcbc</div><div><div class=\"en\">I need <span class=\"g-verb\">some advice</span> \u2014 can I make <span class=\"g-comp\">an appointment</span>?</div><div class=\"es\">Necesito consejo \u2014 \u00bfpuedo hacer una cita?</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfe2</div><div><div class=\"en\">There is <span class=\"g-verb\">a piece of information</span> missing from <span class=\"g-comp\">a few forms</span>.</div><div class=\"es\">Falta un dato en algunos formularios.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">Can I have an information and some advices?</div><div class=\"es\">Error doble: information y advice son ambos incontables</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">Can I have <span class=\"g-verb\">some information</span> and <span class=\"g-verb\">some advice</span>?</div><div class=\"es\">\u00bfMe puede dar informaci\u00f3n y alg\u00fan consejo?</div></div></div>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f 3 Errores Comunes</div>\n  <p>\u274c \"I have many <b>luggages</b>\" \u2192 \u2705 \"I have <b>a lot of luggage</b> / two pieces of luggage\"<br>\n  \u274c \"She gave me <b>an advice</b>\" \u2192 \u2705 \"She gave me <b>some advice</b> / a piece of advice\"<br>\n  \u274c \"How <b>many</b> information?\" \u2192 \u2705 \"How <b>much</b> information?\"</p>\n</div>"}];
+var EXERCISES = [[{"q": "\"Book\" (libro) es contable porque...", "a": "a", "o": ["Puedes decir: one book, two books", "Es una cosa f\u00edsica"], "fc": "Correcto. Si puedes contarlo (one, two, three...) es contable.", "fi": "Ser f\u00edsico no determina si es contable \u2014 water es f\u00edsico pero incontable.", "ex": "one book, two books \u2192 a book, some books", "tip": "Test: \u00bfPuedes poner un n\u00famero delante? one ___? \u2192 contable"}, {"q": "\u00bfCu\u00e1l es incontable?", "a": "b", "o": ["a complaint", "information"], "fc": "Information es incontable \u2014 no se dice an information ni informations.", "fi": "Complaint es contable: one complaint, two complaints.", "ex": "I need some information. (NOT: an information)", "tip": "Information, advice, luggage \u2192 siempre incontables en ingl\u00e9s"}, {"q": "\"Money\" (dinero) en ingl\u00e9s es...", "a": "b", "o": ["Contable", "Incontable"], "fc": "Money es incontable. No se dice two moneys. Se dice a lot of money.", "fi": "Money no tiene plural. Es igual que dinero en espa\u00f1ol coloquial.", "ex": "I don't have much money. / She has a lot of money.", "tip": "Money, water, advice, help \u2192 incontables comunes"}, {"q": "\u00bfCu\u00e1l S\u00cd tiene plural?", "a": "a", "o": ["appointments", "luggage"], "fc": "Appointment es contable: one appointment, two appointments.", "fi": "Luggage no tiene plural. Se dice a piece of luggage o some luggage.", "ex": "I have three appointments this week.", "tip": "appointments, complaints, bills \u2192 contables (tienen plural)"}, {"q": "\"Advice\" (consejo) en espa\u00f1ol tiene plural informal, pero en ingl\u00e9s...", "a": "b", "o": ["Tiene plural: advices", "Es incontable: no tiene plural"], "fc": "Trampa cl\u00e1sica! Advice es siempre incontable. Nunca advices.", "fi": "En espa\u00f1ol decimos consejos pero en ingl\u00e9s es some advice o a piece of advice.", "ex": "She gave me some good advice. (NOT: some advices)", "tip": "advice, information, furniture \u2192 NUNCA tienen plural en ingl\u00e9s"}], [{"q": "\"Some\" se puede usar con...", "a": "b", "o": ["Solo contables", "Contables e incontables"], "fc": "Some funciona con ambos: some books (contable) / some water (incontable).", "fi": "Some no es exclusivo. Es uno de los cuantificadores universales.", "ex": "some complaints / some information", "tip": "some, any, a lot of, no \u2192 sirven para ambos tipos"}, {"q": "\"Many\" se usa solo con...", "a": "a", "o": ["Contables", "Incontables"], "fc": "Many solo con contables: many problems, many appointments.", "fi": "Para incontables usamos much: much advice, much money.", "ex": "many complaints (OK) / many advice (wrong \u2192 much advice)", "tip": "Many = contable \u00b7 Much = incontable"}, {"q": "\"Much\" se usa con...", "a": "b", "o": ["Contables", "Incontables"], "fc": "Much es exclusivo de incontables: much water, much help.", "fi": "Para contables usamos many. Much bills is wrong \u2192 many bills.", "ex": "much information / much luggage / much advice", "tip": "Much = uncountable / Many = countable"}, {"q": "\"A few\" significa...", "a": "a", "o": ["Algunos (contable) \u2014 positivo", "Poco (incontable)"], "fc": "A few = algunos/as \u2192 positivo, para contables. A few complaints = algunas quejas.", "fi": "A little es para incontables: a little water. Few (sin a) es negativo.", "ex": "a few forms to fill in / a little help needed", "tip": "a few = contable \u00b7 a little = incontable"}, {"q": "\"Plenty of\" puede usarse con...", "a": "b", "o": ["Solo contables", "Contables e incontables"], "fc": "Plenty of es universal: plenty of options (contable) / plenty of time (incontable).", "fi": "Plenty of es uno de los cuantificadores que funcionan con ambos.", "ex": "plenty of complaints / plenty of information", "tip": "plenty of = a lot of \u2192 funciona con ambos"}], [{"q": "\"Can you give me ___ advice?\"", "a": "b", "o": ["an", "some"], "fc": "Advice es incontable \u2192 no usa an. Usamos some: some advice.", "fi": "An solo con contables (an appointment, an idea). Advice es incontable.", "ex": "Can you give me some advice? / a piece of advice?", "tip": "advice = incontable \u2192 some advice / a piece of advice"}, {"q": "\"___ luggage did you bring?\"", "a": "a", "o": ["How much", "How many"], "fc": "Luggage es incontable \u2192 How much luggage?", "fi": "How many es para contables: how many bags? how many suitcases?", "ex": "How much luggage do you have? / How many bags do you have?", "tip": "How much = incontable \u00b7 How many = contable"}, {"q": "\"There is ___ furniture in the office.\"", "a": "b", "o": ["many", "a lot of"], "fc": "Furniture es incontable \u2192 usamos a lot of, no many.", "fi": "Many solo con contables: many chairs, many desks.", "ex": "There is a lot of furniture in the waiting room.", "tip": "furniture = incontable \u2192 much / a lot of / some"}, {"q": "\"The news ___ very bad today.\"", "a": "a", "o": ["is", "are"], "fc": "News parece plural pero es incontable \u2192 verbo singular: is.", "fi": "Aunque news termina en -s, es incontable: The news is...", "ex": "The news is shocking. (NOT: The news are...)", "tip": "News, information, advice \u2192 singular verb (is/was)"}, {"q": "\u00bfCu\u00e1l es la forma correcta?", "a": "b", "o": ["I need three furnitures for the office.", "I need three pieces of furniture for the office."], "fc": "Furniture es incontable. Para contar usamos el partitivo a piece of furniture.", "fi": "Furnitures no existe en ingl\u00e9s. Furniture siempre es singular.", "ex": "three pieces of furniture / some furniture", "tip": "Partitivos: a piece of furniture/advice/information/luggage"}], [{"q": "\"I need ___ help with this form.\" (algo de ayuda)", "a": "a", "o": ["some", "many"], "fc": "Help es incontable y el contexto es afirmativo \u2192 some help.", "fi": "Many es para contables: many forms, many questions. Help no cuenta.", "ex": "I need some help with this complaint.", "tip": "some + incontable = afirmativo | any + incontable = pregunta/negaci\u00f3n"}, {"q": "\"Is there ___ feedback from the customer?\"", "a": "b", "o": ["many", "any"], "fc": "Feedback es incontable y es pregunta \u2192 any feedback.", "fi": "Many solo para contables en plural. Feedback es incontable.", "ex": "Is there any feedback from the department?", "tip": "Pregunta + incontable \u2192 any"}, {"q": "\"She has ___ experience in customer service.\" (mucha)", "a": "a", "o": ["a lot of", "many"], "fc": "Experience (en general) es incontable \u2192 a lot of experience.", "fi": "Many es para contables: many experiences (experiencias espec\u00edficas).", "ex": "She has a lot of experience dealing with complaints.", "tip": "experience (general) = incontable / experiences (espec\u00edficas) = contable"}, {"q": "\"There were ___ complaints last month.\" (pocas)", "a": "b", "o": ["a little", "a few"], "fc": "Complaints es contable \u2192 a few complaints. A few = pocos (positivo).", "fi": "A little es para incontables: a little information, a little time.", "ex": "There were a few complaints about the service.", "tip": "a few = contable | a little = incontable"}, {"q": "\"We have ___ time to process all these requests.\" (poco \u2014 negativo)", "a": "a", "o": ["little", "few"], "fc": "Time es incontable + significado negativo \u2192 little time (casi nada).", "fi": "Few es para contables con significado negativo: few options, few staff.", "ex": "We have little time and few staff members available.", "tip": "little (neg, incontable) / few (neg, contable) / a little (pos) / a few (pos)"}], [{"q": "\"I filed ___ complaint with the manager.\" (una queja)", "a": "b", "o": ["some", "a"], "fc": "Complaint es contable \u2192 a complaint (singular con art\u00edculo).", "fi": "Some ser\u00eda para plural: some complaints. Para uno: a complaint.", "ex": "I filed a complaint about the billing error.", "tip": "Singular contable \u2192 a/an. Plural contable \u2192 some/many."}, {"q": "\"How ___ support do you need?\"", "a": "b", "o": ["many", "much"], "fc": "Support es incontable \u2192 How much support?", "fi": "How many es para contables: how many agents, how many calls.", "ex": "How much support does the department need?", "tip": "How much = incontable | How many = contable"}, {"q": "\"There ___ no information available yet.\"", "a": "a", "o": ["is", "are"], "fc": "Information es incontable \u2192 verbo singular: There is no information.", "fi": "There are es para contables o plurales: There are no complaints.", "ex": "There is no information about your case yet.", "tip": "Uncountable \u2192 singular verb (is/was/has)"}, {"q": "\"We only have ___ options left.\" (pocas \u2014 negativo)", "a": "b", "o": ["a few", "few"], "fc": "Few (sin a) = negativo, casi ninguno. Options es contable.", "fi": "A few = algunos (positivo). Few = muy pocos (negativo/preocupante).", "ex": "We have few options \u2014 this is a serious problem.", "tip": "few (neg) = hardly any | a few (pos) = some"}, {"q": "Completa: \"The customer left ___ feedback and made ___ complaints.\"", "a": "a", "o": ["some / several", "many / much"], "fc": "Feedback es incontable (some) y complaints es contable (several).", "fi": "Many feedback is wrong (incontable) y much complaints is wrong (contable).", "ex": "The customer left some feedback and made several complaints.", "tip": "some = ambos | many = contable | much = incontable"}]];
+var SUMMARY = ["<b>Countable:</b> Se puede contar \u2192 a book, two books, <i>some</i> books", "<b>Uncountable:</b> No se puede contar \u2192 water, advice, information", "<b>Cuantificadores exclusivos:</b> <i>many/few</i> = contables \u00b7 <i>much/little</i> = incontables", "<b>Ambos:</b> <i>some, any, a lot of, plenty of, no</i>", "<b>Trampas comunes:</b> advice, information, furniture, luggage \u2192 SIEMPRE incontables en ingl\u00e9s", "<b>Partitivos:</b> a piece of advice, a bottle of water, a slice of bread", "<b>Algunos sustantivos cambian:</b> experience puede ser contable O incontable seg\u00fan contexto"];
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+    var c = document.getElementById("stepTabs");
+    c.innerHTML = "";
+    STEPS.forEach(function(s, i) {
+        var b = document.createElement("button");
+        b.className = "step-tab" + (i === curStep ? " active" : "");
+        var k = "s" + i;
+        if (scores[k] !== undefined && scores[k] >= 0 && i < curStep) b.classList.add("done");
+        var allAnswered = [0,1,2,3,4].every(function(j){ return answered[k+"e"+j]; });
+        if (allAnswered && i !== curStep) b.classList.add("done");
+        b.textContent = (i + 1) + ". " + s.icon + " " + s.title;
+        b.addEventListener("click", (function(idx){ return function(){
+            curStep = idx;
+            renderStepTabs();
+            renderCard();
+            document.getElementById("summaryFinal").classList.remove("show");
+        };})(i));
+        c.appendChild(b);
+    });
+}
+
+function renderCard() {
+    var s = STEPS[curStep];
+    var exs = EXERCISES[curStep];
+    var k = "s" + curStep;
+    if (scores[k] === undefined) scores[k] = 0;
+    var h = "<div class=\"card\">" + s.html;
+    h += "<div class=\"ex-section\"><h3>&#x270F;&#xFE0F; Exercises &mdash; " + s.title + "</h3>";
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        var ctxt = e.o[0].length > 40 ? " style=\"grid-template-columns:1fr\"" : "";
+        h += "<div class=\"exercise\" id=\"" + eid + "\">";
+        h += "<div class=\"exercise-q\">" + (i + 1) + ". " + e.q + "</div>";
+        h += "<div class=\"opts\"" + ctxt + ">";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "ba\">a) " + e.o[0] + "</button>";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "bb\">b) " + e.o[1] + "</button>";
+        h += "</div>";
+        var ct = e.a === "a" ? e.o[0] : e.o[1];
+        h += "<div class=\"fb fb-ok\" id=\"fbok-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F389;</span> Correct!</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\"><span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x1F4A1;</span><div class=\"fb-text\">The other option: " + e.fi + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div>";
+        h += "<div class=\"fb fb-bad\" id=\"fbbad-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F615;</span> Not quite right</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x274C;</span><div class=\"fb-text\"><span class=\"fb-wrong-reason\">" + e.fi + "</span></div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\">The correct answer is <span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div>";
+        h += "</div>";
+    });
+    h += "<div class=\"score-bar\"><div class=\"num\" id=\"sc-" + k + "\">0/5</div><div class=\"lbl\">Score</div></div>";
+    h += "</div></div>";
+    document.getElementById("cardArea").innerHTML = h;
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        document.getElementById(eid + "ba").addEventListener("click", (function(id, sel){ return function(){ chk(id, sel); }; })(eid, "a"));
+        document.getElementById(eid + "bb").addEventListener("click", (function(id, sel){ return function(){ chk(id, sel); }; })(eid, "b"));
+    });
+}
+
+function chk(eid, sel) {
+    if (answered[eid]) return;
+    answered[eid] = true;
+    var parts = eid.match(/s(\d+)e(\d+)/);
+    var si = parseInt(parts[1]);
+    var ei = parseInt(parts[2]);
+    var e = EXERCISES[si][ei];
+    var k = "s" + si;
+    var ex = document.getElementById(eid);
+    var btnA = document.getElementById(eid + "ba");
+    var btnB = document.getElementById(eid + "bb");
+    btnA.disabled = true;
+    btnB.disabled = true;
+    if (sel === e.a) {
+        ex.classList.add("correct");
+        (sel === "a" ? btnA : btnB).classList.add("sel-ok");
+        document.getElementById("fbok-" + eid).classList.add("show");
+        scores[k]++;
+    } else {
+        ex.classList.add("incorrect");
+        (sel === "a" ? btnA : btnB).classList.add("sel-bad");
+        (e.a === "a" ? btnA : btnB).classList.add("show-ok");
+        document.getElementById("fbbad-" + eid).classList.add("show");
+    }
+    document.getElementById("sc-" + k).textContent = scores[k] + "/5";
+    var allDone = [0,1,2,3,4].every(function(i){ return answered[k + "e" + i]; });
+    if (allDone && curStep === 4) {
+        setTimeout(function() {
+            var sf = document.getElementById("summaryFinal");
+            var sl = document.getElementById("summaryList");
+            sl.innerHTML = SUMMARY.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+            sf.classList.add("show");
+            sf.scrollIntoView({behavior: "smooth"});
+        }, 600);
+    }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

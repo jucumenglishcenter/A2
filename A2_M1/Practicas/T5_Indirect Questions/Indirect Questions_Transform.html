@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A2 M1 T5 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --orange: #F97316; --orange-light: #FFF7ED; --orange-dark: #C2410C;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .struct-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .struct-badge.wh { background:#EDE9FE; color:#6D28D9; }
+        .struct-badge.ifw { background:#DBEAFE; color:#1D4ED8; }
+        .struct-badge.intro { background:#D1FAE5; color:#065F46; }
+        .transform-visual { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+        .transform-box { padding:0.7rem 0.9rem; border-radius:10px; }
+        .transform-box.base { background:var(--orange-light); border:1px solid #FED7AA; margin-bottom:0.5rem; }
+        .transform-box.goal { background:#F0F9FF; border:1px solid #BAE6FD; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:0.97rem; font-weight:600; color:var(--text-dark); line-height:1.55; }
+        .word-error { color:var(--error); font-weight:800; background:#FEE2E2; padding:0 4px; border-radius:4px; text-decoration:underline wavy var(--error); }
+        .transform-arrow { text-align:center; font-size:1rem; color:var(--text-light); margin:0.25rem 0; }
+        .options-container { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:0.5rem; }
+        .option-btn { border:2.5px solid #E5E7EB; border-radius:13px; padding:0.9rem 1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:#D1FAE5; color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; margin-top:2px; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.95rem; color:var(--text-dark); line-height:1.55; font-weight:600; flex:1; }
+        .option-btn.correct .option-text { color:var(--success-dark); }
+        .option-btn.incorrect .option-text { color:var(--error-dark); }
+        .key-word { font-weight:800; }
+        .option-btn.correct .key-word { color:var(--success-dark); }
+        .option-btn.incorrect .key-word { color:var(--error-dark); text-decoration:underline wavy; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-transform .fb-block-title { color:#475569; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.4rem; }
+        .tf-step { padding:0.5rem 0.85rem; border-radius:9px; font-size:0.92rem; font-weight:600; line-height:1.55; }
+        .tf-step.original { background:var(--orange-light); color:var(--orange-dark); border:1px solid #FED7AA; }
+        .tf-step.tf-correct { background:var(--success-light); color:var(--success-dark); border:1px solid #BBF7D0; }
+        .tf-step.tf-wrong { background:var(--error-light); color:var(--error-dark); border:1px solid #FECACA; text-decoration:line-through; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; margin-right:6px; opacity:.7; }
+        .tf-arrow { text-align:center; color:#94A3B8; font-size:0.9rem; }
+        .vb-hl { font-weight:800; text-decoration:underline; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 0.9rem; border-radius:8px; font-weight:700; font-size:0.9rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.6rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128260; Transform</div>
+            <div class="header-subtitle">&#128154; A2 &middot; M&oacute;dulo 1 &middot; Preguntas Indirectas</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128260;</div>
+            <div>
+                <div class="instructions-title">Convierte a pregunta indirecta</div>
+                <div class="instructions-text">La pregunta directa (en rojo) tiene un error de orden o de estructura. Elige la versi&oacute;n indirecta correcta.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">&#161;Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Intentar de Nuevo</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Volver al M&oacute;dulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // TRANSFORM — A2 M1 Tema 5
+    // Indirect questions (polite forms)
+    // 15 preguntas | posiciones 5-5-5 | Fisher-Yates runtime
+    // Base: pregunta directa con error marcado en rojo
+    // Objetivo: elegir la versi\u00f3n indirecta correcta
+    // ============================================================
+    const quizData = [
+        // Q1 — wh_indirect | where is (direct) → where the office is | pos 2
+        {
+            id:1, struct:"wh",
+            base:"\"Where is the manager's office?\" \u2014 direct question word order",
+            errorWord:"Where is the manager's office?",
+            correctWord:"where the manager's office is",
+            goal:"Convi\u00e9rtela en pregunta indirecta \u2014 orden de oraci\u00f3n, no de pregunta",
+            clue:"Could you tell me + orden de oraci\u00f3n",
+            clueExplain:"despu\u00e9s de 'Could you tell me', el verbo NO se invierte: wh-word + sujeto + verbo.",
+            options:[
+                { text:"\"Could you tell me where is the manager's office?\"", correct:false, keyWord:"where is the manager's office",
+                  errorType:"Inversi\u00f3n de pregunta directa en indirecta",
+                  explanation:"'Where is the office?' mantiene el orden de pregunta directa. En pregunta indirecta, el verbo no se invierte: where + the manager's office (sujeto) + is (verbo al final)." },
+                { text:"\"Could you tell me where was the manager's office?\"", correct:false, keyWord:"where was the manager's office",
+                  errorType:"Tiempo verbal incorrecto",
+                  explanation:"'Where was' usa pasado, pero preguntamos por la ubicaci\u00f3n actual. El tiempo correcto es presente: 'where the manager's office IS'." },
+                { text:"\"Could you tell me where the manager's office is?\"", correct:true, keyWord:"where the manager's office is" }
+            ],
+            rule:"Could you tell me + wh-word + subject + verb?",
+            examples:["Could you tell me where the office is?","Do you know where she lives?"],
+            correctReason:"'Where the manager's office is' es orden de oraci\u00f3n: where + the manager's office (sujeto) + is (verbo). La regla fundamental: en pregunta indirecta el verbo NUNCA se invierte despu\u00e9s de la introducci\u00f3n."
+        },
+        // Q2 — if_whether | is the heating... → if the heating is | pos 0
+        {
+            id:2, struct:"ifw",
+            base:"\"Is the heating fixed yet?\" \u2014 direct yes/no question",
+            errorWord:"Is the heating fixed yet?",
+            correctWord:"if the heating is fixed yet",
+            goal:"Convi\u00e9rtela con 'Do you know if...' \u2014 sin inversi\u00f3n",
+            clue:"if + sujeto + verbo (sin inversi\u00f3n para yes/no)",
+            clueExplain:"las preguntas de s\u00ed/no en indirecto usan 'if' o 'whether' + orden de oraci\u00f3n. Nunca se invierte el auxiliar.",
+            options:[
+                { text:"\"Do you know if the heating is fixed yet?\"", correct:true, keyWord:"if the heating is fixed yet" },
+                { text:"\"Do you know if is the heating fixed yet?\"", correct:false, keyWord:"if is the heating fixed yet",
+                  errorType:"Inversi\u00f3n incorrecta despu\u00e9s de 'if'",
+                  explanation:"Despu\u00e9s de 'if' en pregunta indirecta, NO se invierte el auxiliar. La forma correcta: if + the heating (sujeto) + is (verbo) + fixed yet." },
+                { text:"\"Do you know whether fixed is the heating yet?\"", correct:false, keyWord:"whether fixed is the heating yet",
+                  errorType:"Orden completamente incorrecto",
+                  explanation:"'Whether fixed is the heating' es agramatical. La estructura correcta: whether/if + the heating (sujeto) + is (verbo) + fixed yet. El sujeto siempre va primero." }
+            ],
+            rule:"Do you know + if/whether + subject + verb (no inversion)?",
+            examples:["Do you know if the heating is fixed?","Do you know whether she called?"],
+            correctReason:"'If the heating is fixed yet' usa orden de oraci\u00f3n: if + the heating (sujeto) + is (verbo) + fixed yet. Compara: 'IS the heating fixed?' (directa) vs. 'if the heating IS fixed' (indirecta)."
+        },
+        // Q3 — polite_intro | Can you tell me → Could you tell me | pos 1
+        {
+            id:3, struct:"intro",
+            base:"\"Can you tell me what the delivery options are?\" \u2014 less polite form",
+            errorWord:"Can you tell me",
+            correctWord:"Could you tell me",
+            goal:"Hazla m\u00e1s cort\u00e9s usando el modal pasado",
+            clue:"Could (modal pasado = m\u00e1s cort\u00e9s que can)",
+            clueExplain:"'Could' es m\u00e1s formal y cort\u00e9s que 'can'. En contextos de servicio al cliente, 'could' es siempre preferible.",
+            options:[
+                { text:"\"Would you know what the delivery options are?\"", correct:false, keyWord:"Would you know",
+                  errorType:"'Would you know' no es una introducci\u00f3n de pregunta indirecta",
+                  explanation:"'Would you know' no se usa como introducci\u00f3n de pregunta indirecta en ingl\u00e9s. Las formas correctas son: 'Could you tell me', 'Do you know', 'I was wondering'. 'Would you know' suena como pregunta sobre capacidad." },
+                { text:"\"Could you tell me what the delivery options are?\"", correct:true, keyWord:"Could you tell me" },
+                { text:"\"Could you to tell me what the delivery options are?\"", correct:false, keyWord:"Could you to tell me",
+                  errorType:"Modal + 'to' (infinitivo con to despu\u00e9s de modal)",
+                  explanation:"Despu\u00e9s de un modal (could, can, would), el verbo NUNCA lleva 'to'. La forma correcta: 'Could you TELL me' (sin to), no 'Could you TO TELL me'." }
+            ],
+            rule:"Could you tell me + wh-word + subject + verb?",
+            examples:["Could you tell me what the options are?","Could you tell me how much it costs?"],
+            correctReason:"'Could you tell me' es la introducci\u00f3n cort\u00e9s est\u00e1ndar. 'Could' es m\u00e1s formal que 'can'. El verbo despu\u00e9s del modal va en forma base (sin 'to'): Could you TELL me (no 'to tell')."
+        },
+        // Q4 — wh_indirect | what time does... → what time the office opens | pos 0
+        {
+            id:4, struct:"wh",
+            base:"\"What time does the customer service line open?\" \u2014 direct question with 'does'",
+            errorWord:"What time does the customer service line open?",
+            correctWord:"what time the customer service line opens",
+            goal:"Convi\u00e9rtela en indirecta \u2014 elimina 'does' y a\u00f1ade -s al verbo",
+            clue:"eliminar 'does' + verbo con -s en pregunta indirecta",
+            clueExplain:"en pregunta indirecta se elimina 'does' y el verbo recupera la marca de tercera persona (-s): opens, closes, works.",
+            options:[
+                { text:"\"Do you know what time the customer service line opens?\"", correct:true, keyWord:"what time the customer service line opens" },
+                { text:"\"Do you know what time does the customer service line open?\"", correct:false, keyWord:"what time does the customer service line open",
+                  errorType:"Auxiliar 'does' en pregunta indirecta",
+                  explanation:"'Does' es auxiliar de pregunta directa. En pregunta indirecta se elimina 'does' y el verbo lleva -s: 'what time the customer service line OPENS'." },
+                { text:"\"Do you know what time opens the customer service line?\"", correct:false, keyWord:"what time opens the customer service line",
+                  errorType:"Inversi\u00f3n del verbo sin auxiliar",
+                  explanation:"'Opens the customer service line' invierte el verbo. En pregunta indirecta: what time + the customer service line (sujeto) + opens (verbo). Sin inversi\u00f3n." }
+            ],
+            rule:"Do you know + what time + subject + verb (-s, no does)?",
+            examples:["Do you know what time the line opens?","Do you know what time it closes?"],
+            correctReason:"'What time the customer service line opens' es correcto: se elimina 'does' y el verbo lleva -s (opens). Regla: Directa: 'What time DOES it OPEN?' \u2192 Indirecta: 'what time it OPENS'."
+        },
+        // Q5 — if_whether | if is the manager → whether the manager is | pos 2
+        {
+            id:5, struct:"ifw",
+            base:"\"Is the building manager available right now?\" \u2014 yes/no direct question",
+            errorWord:"Is the building manager available right now?",
+            correctWord:"whether the building manager is available right now",
+            goal:"Convi\u00e9rtela con 'Could you check whether...' \u2014 formal, sin inversi\u00f3n",
+            clue:"whether + sujeto + verbo (formal, sin inversi\u00f3n)",
+            clueExplain:"'whether' es m\u00e1s formal que 'if'. Despu\u00e9s de 'whether', orden de oraci\u00f3n: sujeto + verbo, nunca invertido.",
+            options:[
+                { text:"\"Could you check whether is the building manager available right now?\"", correct:false, keyWord:"whether is the building manager available",
+                  errorType:"Inversi\u00f3n incorrecta despu\u00e9s de 'whether'",
+                  explanation:"Despu\u00e9s de 'whether', NO se invierte. La forma correcta: whether + the building manager (sujeto) + is (verbo) + available right now." },
+                { text:"\"Could you check if the building manager is available right now?\"", correct:false, keyWord:"if the building manager is available",
+                  errorType:"Correcto gramaticalmente pero 'whether' es m\u00e1s formal aqu\u00ed",
+                  explanation:"'If the building manager is available' es gramaticalmente correcto. Sin embargo, 'whether' es m\u00e1s formal en este contexto de llamada oficial. El ejercicio pide la forma m\u00e1s formal con 'whether'." },
+                { text:"\"Could you check whether the building manager is available right now?\"", correct:true, keyWord:"whether the building manager is available right now" }
+            ],
+            rule:"Could you check + whether + subject + verb (statement order)?",
+            examples:["Could you check whether the manager is available?","Do you know whether she is in?"],
+            correctReason:"'Whether the building manager is available' usa orden de oraci\u00f3n: whether + the building manager (sujeto) + is (verbo) + available. 'Whether' es m\u00e1s formal que 'if' \u2014 preferible en contextos oficiales."
+        },
+        // Q6 — polite_intro | I wonder → I was wondering | pos 1
+        {
+            id:6, struct:"intro",
+            base:"\"I wonder if you could send me a copy of the bill.\" \u2014 slightly abrupt",
+            errorWord:"I wonder",
+            correctWord:"I was wondering",
+            goal:"Hazla m\u00e1s cort\u00e9s usando el pasado continuo",
+            clue:"I was wondering (pasado continuo = m\u00e1xima cortés\u00eda)",
+            clueExplain:"'I was wondering' es m\u00e1s cort\u00e9s que 'I wonder'. El pasado continuo crea distancia psicol\u00f3gica que suaviza la solicitud.",
+            options:[
+                { text:"\"I am wondering if you could send me a copy of the bill.\"", correct:false, keyWord:"I am wondering",
+                  errorType:"Presente continuo vs. Pasado continuo (cortés\u00eda)",
+                  explanation:"'I am wondering' es posible pero menos cort\u00e9s. 'I was wondering' usa el pasado para crear mayor distancia y suavizar la solicitud. En contextos formales, 'was wondering' es siempre preferible." },
+                { text:"\"I was wondering if you could send me a copy of the bill.\"", correct:true, keyWord:"I was wondering" },
+                { text:"\"I was wondering could you send me a copy of the bill.\"", correct:false, keyWord:"I was wondering could you send",
+                  errorType:"'If' omitido entre 'wondering' y el modal",
+                  explanation:"Despu\u00e9s de 'I was wondering', se necesita 'if' o 'whether' antes del sujeto y el modal: 'I was wondering IF you could send'. Sin 'if', la estructura es agramatical." }
+            ],
+            rule:"I was wondering + if/whether + subject + could/would + verb",
+            examples:["I was wondering if you could send me the bill.","I was wondering whether she was available."],
+            correctReason:"'I was wondering if you could send me' es la combinaci\u00f3n m\u00e1s cort\u00e9s: Past Continuous + 'if' + modal pasado ('could'). El 'if' es obligatorio entre 'wondering' y la cl\u00e1usula subordinada."
+        },
+        // Q7 — wh_indirect | how does the system work → how the system works | pos 0
+        {
+            id:7, struct:"wh",
+            base:"\"How does the online complaint system work?\" \u2014 direct question",
+            errorWord:"How does the online complaint system work?",
+            correctWord:"how the online complaint system works",
+            goal:"Convi\u00e9rtela en indirecta \u2014 elimina 'does', a\u00f1ade -s",
+            clue:"how + sujeto + verbo con -s (no does)",
+            clueExplain:"en pregunta indirecta se elimina 'does' y el verbo recupera la forma con -s: works, functions, operates.",
+            options:[
+                { text:"\"Could you explain how the online complaint system works?\"", correct:true, keyWord:"how the online complaint system works" },
+                { text:"\"Could you explain how does the online complaint system work?\"", correct:false, keyWord:"how does the online complaint system work",
+                  errorType:"Auxiliar 'does' en pregunta indirecta",
+                  explanation:"'Does' es auxiliar de pregunta directa. En pregunta indirecta se elimina: 'how the online complaint system WORKS' (con -s, sin does)." },
+                { text:"\"Could you explain how works the online complaint system?\"", correct:false, keyWord:"how works the online complaint system",
+                  errorType:"Inversi\u00f3n del verbo",
+                  explanation:"'Works the online complaint system' invierte el orden. La forma correcta: how + the online complaint system (sujeto) + works (verbo). Sin inversi\u00f3n." }
+            ],
+            rule:"Could you explain + how + subject + verb (-s, no does)?",
+            examples:["Could you explain how the system works?","Do you know how it functions?"],
+            correctReason:"'How the online complaint system works' es correcto: how + subject + works (-s, sin does). Regla: Directa: 'How DOES it WORK?' \u2192 Indirecta: 'how it WORKS'. El auxiliar 'does' desaparece y el verbo toma -s."
+        },
+        // Q8 — if_whether | are there any → if there are any | pos 2
+        {
+            id:8, struct:"ifw",
+            base:"\"Are there any extra charges in my bill?\" \u2014 direct yes/no question",
+            errorWord:"Are there any extra charges in my bill?",
+            correctWord:"if there are any extra charges in my bill",
+            goal:"Convi\u00e9rtela con 'Do you know if...' \u2014 sin inversi\u00f3n, concordancia correcta",
+            clue:"if + there + are (plural) + noun sin inversi\u00f3n",
+            clueExplain:"'Are there?' en directa se convierte en 'if there ARE' en indirecta. Sin inversi\u00f3n. 'Charges' es plural \u2192 'are'.",
+            options:[
+                { text:"\"Do you know if are there any extra charges in my bill?\"", correct:false, keyWord:"if are there any extra charges",
+                  errorType:"Inversi\u00f3n incorrecta despu\u00e9s de 'if'",
+                  explanation:"'Are there?' es el orden de pregunta directa. Despu\u00e9s de 'if', el orden es de oraci\u00f3n: if + there + are + any extra charges. Sin inversi\u00f3n." },
+                { text:"\"Do you know if there is any extra charges in my bill?\"", correct:false, keyWord:"if there is any extra charges",
+                  errorType:"Concordancia incorrecta (plural needs 'are')",
+                  explanation:"'Charges' es plural, por lo que el verbo debe ser 'are': 'if there ARE any extra charges'. 'Is' ser\u00eda correcto solo con singular: 'if there IS an extra charge'." },
+                { text:"\"Do you know if there are any extra charges in my bill?\"", correct:true, keyWord:"if there are any extra charges in my bill" }
+            ],
+            rule:"Do you know + if + there + are/is + noun (no inversion, correct agreement)?",
+            examples:["Do you know if there are any charges?","Do you know if there is a fee?"],
+            correctReason:"'If there are any extra charges' es correcto: if + there + are (plural) + any extra charges. Sin inversi\u00f3n. Concord. correcta: charges (plural) \u2192 are. Compara: 'Are THERE any charges?' (directa) vs. 'if THERE ARE any charges' (indirecta)."
+        },
+        // Q9 — polite_intro | do you know if where → do you know where | pos 1
+        {
+            id:9, struct:"intro",
+            base:"\"Do you know if where I can collect my package?\" \u2014 'if' incorrect with wh-word",
+            errorWord:"if where I can collect",
+            correctWord:"where I can collect",
+            goal:"Elimina 'if' innecesario \u2014 con wh-word no se usa 'if'",
+            clue:"wh-word presente = no 'if' (solo para yes/no)",
+            clueExplain:"'if' solo se usa para preguntas de s\u00ed/no sin wh-word. Cuando hay wh-word (where, what, when...), 'if' es redundante e incorrecto.",
+            options:[
+                { text:"\"Do you know where can I collect my package?\"", correct:false, keyWord:"where can I collect",
+                  errorType:"Inversi\u00f3n del modal en pregunta indirecta",
+                  explanation:"'Where can I collect?' es el orden de pregunta directa (modal invertido). En pregunta indirecta: where + I (sujeto) + can (modal) + collect (verbo). Sin inversi\u00f3n." },
+                { text:"\"Do you know where I can collect my package?\"", correct:true, keyWord:"where I can collect my package" },
+                { text:"\"Do you know where I could to collect my package?\"", correct:false, keyWord:"where I could to collect",
+                  errorType:"Modal + 'to' incorrecto",
+                  explanation:"Despu\u00e9s de un modal (can, could), el verbo NUNCA lleva 'to'. La forma correcta: 'where I can COLLECT' (sin to), no 'could to collect'." }
+            ],
+            rule:"Do you know + wh-word + subject + modal + verb (no if, no inversion)?",
+            examples:["Do you know where I can collect it?","Do you know what I should bring?"],
+            correctReason:"'Where I can collect my package' es correcto: where + I (sujeto) + can (modal) + collect (verbo base). Sin 'if' (ya hay wh-word). Sin inversi\u00f3n. Compara: 'Where CAN I collect?' (directa) vs. 'where I CAN collect' (indirecta)."
+        },
+        // Q10 — wh_indirect | when will... → when the invoice will arrive | pos 0
+        {
+            id:10, struct:"wh",
+            base:"\"When will the invoice arrive?\" \u2014 direct question with 'will'",
+            errorWord:"When will the invoice arrive?",
+            correctWord:"when the invoice will arrive",
+            goal:"Convi\u00e9rtela en indirecta \u2014 'will' no se invierte",
+            clue:"when + sujeto + will + verbo (no inversi\u00f3n de 'will')",
+            clueExplain:"en pregunta indirecta, 'will' no se invierte. El orden es: when + sujeto + will + verbo base.",
+            options:[
+                { text:"\"Could you tell me when the invoice will arrive?\"", correct:true, keyWord:"when the invoice will arrive" },
+                { text:"\"Could you tell me when will the invoice arrive?\"", correct:false, keyWord:"when will the invoice arrive",
+                  errorType:"Inversi\u00f3n de 'will' en pregunta indirecta",
+                  explanation:"'When will the invoice arrive?' es pregunta directa. En pregunta indirecta, 'will' NO se invierte: when + the invoice (sujeto) + will arrive (verbo). Sin inversi\u00f3n." },
+                { text:"\"Could you tell me when the invoice would arrive?\"", correct:false, keyWord:"when the invoice would arrive",
+                  errorType:"'Would' vs. 'will' (cambio de tiempo innecesario)",
+                  explanation:"Cambiar 'will' por 'would' altera el significado. En pregunta indirecta en tiempo real, 'will' se mantiene: 'when the invoice WILL arrive'. 'Would' implicar\u00eda un contexto condicional diferente." }
+            ],
+            rule:"Could you tell me + when + subject + will + verb?",
+            examples:["Could you tell me when the invoice will arrive?","Do you know when they will call?"],
+            correctReason:"'When the invoice will arrive' es orden de oraci\u00f3n: when + the invoice (sujeto) + will arrive (verbo). 'Will' no se invierte. Compara: 'When WILL the invoice arrive?' (directa) vs. 'when the invoice WILL arrive' (indirecta)."
+        },
+        // Q11 — polite_intro | would you mind to explain → would you mind explaining | pos 2
+        {
+            id:11, struct:"intro",
+            base:"\"Would you mind to explain the billing process?\" \u2014 wrong verb form after 'mind'",
+            errorWord:"to explain",
+            correctWord:"explaining",
+            goal:"Corrige la forma verbal \u2014 'mind' siempre va seguido de gerundio (-ing)",
+            clue:"Would you mind + -ing (gerundio siempre)",
+            clueExplain:"'mind' siempre va seguido de gerundio (-ing). Nunca infinitivo con 'to', nunca verbo base.",
+            options:[
+                { text:"\"Would you mind explain the billing process?\"", correct:false, keyWord:"Would you mind explain",
+                  errorType:"Verbo base despu\u00e9s de 'mind' (falta -ing)",
+                  explanation:"Despu\u00e9s de 'mind', el verbo requiere gerundio (-ing). 'Would you mind EXPLAIN' usa verbo base, que es incorrecto. La forma correcta: 'Would you mind EXPLAINING'." },
+                { text:"\"Would you mind to tell me to explain the billing process?\"", correct:false, keyWord:"Would you mind to tell me to explain",
+                  errorType:"Estructura completamente incorrecta",
+                  explanation:"'Would you mind to tell me to explain' es agramatical y redundante. La estructura simple y correcta es: 'Would you mind EXPLAINING the billing process?'" },
+                { text:"\"Would you mind explaining the billing process?\"", correct:true, keyWord:"explaining" }
+            ],
+            rule:"Would you mind + verb-ing + noun/clause?",
+            examples:["Would you mind explaining the process?","Would you mind holding for a moment?"],
+            correctReason:"'Would you mind explaining' es correcto: mind + EXPLAINING (gerundio). La regla es absoluta: despu\u00e9s de 'mind', siempre gerundio. Nunca 'mind to explain' ni 'mind explain'. Esta regla aplica a todas las formas de 'mind'."
+        },
+        // Q12 — if_whether | was the package → whether the package was | pos 1
+        {
+            id:12, struct:"ifw",
+            base:"\"Was the package insured during delivery?\" \u2014 direct yes/no question",
+            errorWord:"Was the package insured during delivery?",
+            correctWord:"whether the package was insured during delivery",
+            goal:"Convi\u00e9rtela con 'I would like to know whether...' \u2014 formal, sin inversi\u00f3n",
+            clue:"whether + sujeto + verbo (sin inversi\u00f3n del pasado 'was')",
+            clueExplain:"'whether' introduce preguntas de s\u00ed/no en indirecto. 'Was' no se invierte: whether + the package + was + insured.",
+            options:[
+                { text:"\"I would like to know whether was the package insured during delivery.\"", correct:false, keyWord:"whether was the package insured",
+                  errorType:"Inversi\u00f3n de 'was' despu\u00e9s de 'whether'",
+                  explanation:"'Was the package insured?' es pregunta directa. Despu\u00e9s de 'whether', el orden es de oraci\u00f3n: whether + the package (sujeto) + was (verbo) + insured. Sin inversi\u00f3n." },
+                { text:"\"I would like to know whether the package was insured during delivery.\"", correct:true, keyWord:"whether the package was insured during delivery" },
+                { text:"\"I would like to know if insured was the package during delivery.\"", correct:false, keyWord:"if insured was the package",
+                  errorType:"Orden agramatical del predicado",
+                  explanation:"'If insured was the package' tiene orden agramatical. La estructura correcta: if/whether + the package (sujeto) + was (verbo) + insured (predicativo). El sujeto siempre precede al verbo." }
+            ],
+            rule:"I would like to know + whether + subject + verb (statement order)",
+            examples:["I would like to know whether the package was insured.","I would like to know whether she was informed."],
+            correctReason:"'Whether the package was insured during delivery' usa orden de oraci\u00f3n: whether + the package + was + insured. Compara: 'WAS the package insured?' (directa) vs. 'whether the package WAS insured' (indirecta)."
+        },
+        // Q13 — wh_indirect | what is the problem → what the problem is | pos 0
+        {
+            id:13, struct:"wh",
+            base:"\"What is the exact problem with my connection?\" \u2014 direct question",
+            errorWord:"What is the exact problem with my connection?",
+            correctWord:"what the exact problem is with my connection",
+            goal:"Convi\u00e9rtela en indirecta \u2014 'is' va despu\u00e9s del sujeto",
+            clue:"what + sujeto + is (al final del sujeto)",
+            clueExplain:"'What IS the problem?' en directa se convierte en 'what the problem IS' en indirecta. El verbo copulativo 'is' se mueve despu\u00e9s del sujeto.",
+            options:[
+                { text:"\"Could you explain what the exact problem is with my connection?\"", correct:true, keyWord:"what the exact problem is with my connection" },
+                { text:"\"Could you explain what is the exact problem with my connection?\"", correct:false, keyWord:"what is the exact problem",
+                  errorType:"Orden de pregunta directa en indirecta",
+                  explanation:"'What is the problem?' mantiene el orden de pregunta directa. En pregunta indirecta, 'is' va despu\u00e9s del sujeto: what + the exact problem (sujeto) + is (verbo)." },
+                { text:"\"Could you explain what the exact problem with my connection is?\"", correct:false, keyWord:"what the exact problem with my connection is",
+                  errorType:"Orden aceptable pero menos natural",
+                  explanation:"'What the exact problem with my connection is' es gramaticalmente posible, pero separar 'the problem' de 'is' con una frase prepositional larga suena poco natural. Lo m\u00e1s fluido: 'what the exact problem IS with my connection'." }
+            ],
+            rule:"Could you explain + what + subject + verb (is after subject)?",
+            examples:["Could you explain what the problem is?","Do you know what the issue is?"],
+            correctReason:"'What the exact problem is with my connection' es la forma m\u00e1s natural: what + the exact problem (sujeto) + is (verbo copulativo) + with my connection. Compara: 'What IS the problem?' (directa) vs. 'what the problem IS' (indirecta)."
+        },
+        // Q14 — polite_intro | I like to know → I would like to know | pos 2
+        {
+            id:14, struct:"intro",
+            base:"\"I like to know why my payment was rejected.\" \u2014 not polite enough",
+            errorWord:"I like to know",
+            correctWord:"I would like to know",
+            goal:"Hazla m\u00e1s cort\u00e9s usando la forma con 'would'",
+            clue:"I would like to know (would like = querer de forma cort\u00e9s)",
+            clueExplain:"'I like to know' (presente) significa 'me gusta saber'. Para peticiones cort\u00e9s: 'I WOULD LIKE to know' (\u00e9quivale a un 'quisiera saber' respetuoso).",
+            options:[
+                { text:"\"I would know why my payment was rejected.\"", correct:false, keyWord:"I would know",
+                  errorType:"'Would know' no es expresi\u00f3n para pedir informaci\u00f3n",
+                  explanation:"'I would know' no se usa para pedir informaci\u00f3n. 'Would know' implica una condici\u00f3n ('saber\u00eda si...'). La forma para petici\u00f3n cort\u00e9s es 'I would LIKE to know'." },
+                { text:"\"I would like know why my payment was rejected.\"", correct:false, keyWord:"I would like know",
+                  errorType:"'Like' sin 'to' (omisi\u00f3n del infinitivo con to)",
+                  explanation:"'Would like' siempre va seguido de infinitivo con 'to': 'would like TO know', 'would like TO speak'. 'I would like know' omite el 'to' obligatorio." },
+                { text:"\"I would like to know why my payment was rejected.\"", correct:true, keyWord:"I would like to know" }
+            ],
+            rule:"I would like to know + wh-word + subject + verb",
+            examples:["I would like to know why it was rejected.","I would like to know when it will be resolved."],
+            correctReason:"'I would like to know' es la estructura correcta: would + like + TO + know. 'Would like' es la forma cort\u00e9s de 'want'. Compara: 'I want to know' (directo) < 'I would like to know' (cort\u00e9s) < 'I was wondering' (muy cort\u00e9s)."
+        },
+        // Q15 — wh_indirect | how was it calculated → how it was calculated | pos 1
+        {
+            id:15, struct:"wh",
+            base:"\"How was the late fee calculated?\" \u2014 direct passive question",
+            errorWord:"How was the late fee calculated?",
+            correctWord:"how the late fee was calculated",
+            goal:"Convi\u00e9rtela en indirecta \u2014 'was' no se invierte",
+            clue:"how + sujeto + was (no inversi\u00f3n de 'was')",
+            clueExplain:"en pregunta indirecta, 'was' (pasado de 'be') no se invierte. El orden es: how + the late fee + was calculated.",
+            options:[
+                { text:"\"I was wondering how was the late fee calculated.\"", correct:false, keyWord:"how was the late fee calculated",
+                  errorType:"Inversi\u00f3n de 'was' en pregunta indirecta",
+                  explanation:"'How was the late fee calculated?' es pregunta directa. En pregunta indirecta, 'was' no se invierte: how + the late fee (sujeto) + was calculated (verbo pasivo). Sin inversi\u00f3n." },
+                { text:"\"I was wondering how the late fee was calculated.\"", correct:true, keyWord:"how the late fee was calculated" },
+                { text:"\"I was wondering how calculated was the late fee.\"", correct:false, keyWord:"how calculated was the late fee",
+                  errorType:"Orden del participio incorrecto",
+                  explanation:"'How calculated was the late fee' es agramatical. La estructura correcta de voz pasiva en indirecta: how + the late fee (sujeto) + was (auxiliar) + calculated (participio). El sujeto siempre va antes del auxiliar." }
+            ],
+            rule:"I was wondering + how + subject + was + past participle?",
+            examples:["I was wondering how the fee was calculated.","I was wondering how the problem was resolved."],
+            correctReason:"'How the late fee was calculated' es orden de oraci\u00f3n: how + the late fee (sujeto) + was (auxiliar) + calculated (participio). Compara: 'How WAS the fee calculated?' (directa) vs. 'how the fee WAS calculated' (indirecta). 'Was' nunca se invierte en indirecta."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, i) {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const letters = ['A','B','C'];
+        const badgeClass = q.struct === 'wh' ? 'wh' : q.struct === 'ifw' ? 'ifw' : 'intro';
+        const badgeLabel = q.struct === 'wh' ? '&#128269; Wh- indirecta' : q.struct === 'ifw' ? '&#10067; If / Whether' : '&#128172; Introducci\u00f3n';
+        const badge = '<span class="struct-badge ' + badgeClass + '">' + badgeLabel + '</span>';
+        const baseHL = q.base.replace(q.errorWord, '<span class="word-error">' + q.errorWord + '</span>');
+        const optsHTML = q.shuffled.map(function(opt, i) {
+            const txt = opt.text.replace(opt.keyWord, '<span class="key-word">' + opt.keyWord + '</span>');
+            return '<button class="option-btn" onclick="selectOption(' + index + ',' + i + ')">' +
+                '<div class="option-letter">' + letters[i] + '</div>' +
+                '<div class="option-text">' + txt + '</div></button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' +
+            '<span style="font-size:0.88rem;color:var(--text-medium);font-weight:600;flex:1;">Convierte a pregunta indirecta:</span>' + badge + '</div>' +
+            '<div class="transform-visual">' +
+            '<div class="transform-box base"><span class="transform-label">&#128226; Pregunta directa (con error)</span>' +
+            '<div class="transform-sentence">' + baseHL + '</div></div>' +
+            '<div class="transform-arrow">&#11015; Convierte a...</div>' +
+            '<div class="transform-box goal"><span class="transform-label">&#127919; Objetivo</span>' +
+            '<div class="transform-sentence">' + q.goal + '</div></div></div>' +
+            '<div class="options-container" id="options-' + index + '">' + optsHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>\u2190 Anterior</button>' +
+            '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+            (index===quizData.length-1?'Ver Resultados &#127881;':'Siguiente \u2192') +
+            '</button></div>';
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(function(o){ return o.correct; });
+        if (isCorrect) score++;
+        document.querySelectorAll('#options-' + qi + ' .option-btn').forEach(function(btn, i) {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function hl(text, word, cls) {
+        if (!word || text.indexOf(word) === -1) return text;
+        return text.replace(word, '<span class="' + cls + '">' + word + '</span>');
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e){ return '<span class="rule-ex">' + e + '</span>'; }).join('');
+        const baseHLed = hl(q.base, q.errorWord, 'vb-hl');
+        const correctHLed = hl(correctOpt.text, correctOpt.keyWord, 'vb-hl');
+        const wrongHLed = !isCorrect ? hl(selected.text, selected.keyWord, 'vb-hl') : null;
+        const flowHTML =
+            '<div class="transform-flow">' +
+            '<div class="tf-step original"><span class="tf-label">Directa:</span>' + baseHLed + '</div>' +
+            '<div class="tf-arrow">\u2b07</div>' +
+            (wrongHLed ? '<div class="tf-step tf-wrong"><span class="tf-label">Tu resp.:</span>' + wrongHLed + '</div><div class="tf-arrow">\u2195</div>' : '') +
+            '<div class="tf-step tf-correct"><span class="tf-label">Correcto:</span>' + correctHLed + '</div></div>';
+
+        if (isCorrect) {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">&#161;Conversi\u00f3n correcta!</div>' +
+                '<div class="fb-subtitle">Aplicaste bien el orden de pregunta indirecta</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-transform"><div class="fb-block-title">&#128260; Conversi\u00f3n realizada</div>' + flowHTML + '</div>' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; La clave</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">La estructura <span class="signal-tag">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Regla aplicada</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Conversi\u00f3n incorrecta</div>' +
+                '<div class="fb-subtitle">Revisemos el orden de palabras</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-transform"><div class="fb-block-title">&#128260; Tu conversi\u00f3n vs. la correcta</div>' + flowHTML + '</div>' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; La clave que deb\u00edas identificar</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">La estructura <span class="signal-tag red">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; El error: <span class="error-badge">' + selected.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected.keyWord + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + correctOpt.keyWord + '</span></div>' +
+                '<div class="error-text">' + selected.explanation + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; La regla correcta</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfC\u00f3mo deb\u00eda hacerse la conversi\u00f3n?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden',idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '\u00a1Excelente! Conviertes preguntas directas en indirectas perfectamente. \uD83C\uDFC6'
+            : pct >= 70 ? '\u00a1Muy bien! Recuerda: en pregunta indirecta, el verbo nunca se invierte. \uD83D\uDCAA'
+            : 'Buen esfuerzo. La clave: introducci\u00f3n + orden de oraci\u00f3n (sujeto + verbo). \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

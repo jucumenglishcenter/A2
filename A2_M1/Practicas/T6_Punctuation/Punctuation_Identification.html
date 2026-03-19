@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification - A2 M1 T6 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .topic-badge.commas { background:#EDE9FE; color:#6D28D9; }
+        .topic-badge.endpunct { background:#DBEAFE; color:#1D4ED8; }
+        .topic-badge.apostrophe { background:#D1FAE5; color:#065F46; }
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled { cursor:default; }
+        .sent-option.correct { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:#D1FAE5; color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; margin-top:2px; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.6; font-weight:600; flex:1; font-family:'Courier New',monospace; }
+        .sent-option.correct .option-text { color:var(--success-dark); }
+        .sent-option.incorrect .option-text { color:var(--error-dark); }
+        .option-status { font-size:1.1rem; margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; margin-top:2px; }
+        .sent-option.correct .option-status, .sent-option.incorrect .option-status { opacity:1; }
+        .error-hl { color:var(--error); font-weight:800; text-decoration:underline wavy var(--error); font-style:normal; }
+        .correct-hl { color:var(--success-dark); font-weight:800; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .compare-box { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:0.7rem 0.9rem; margin-top:0.5rem; }
+        .compare-row { display:flex; align-items:flex-start; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; margin-top:2px; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.93rem; color:var(--text-dark); line-height:1.55; font-family:'Courier New',monospace; font-weight:600; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.5rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:0.95rem; font-family:'Courier New',monospace; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-direction:column; gap:0.3rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.7rem; color:var(--info-dark); font-weight:600; font-family:'Courier New',monospace; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128269; Identification</div>
+            <div class="header-subtitle">&#128154; A2 &middot; Module 1 &middot; Punctuation</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128269;</div>
+            <div>
+                <div class="instructions-title">Identify the correctly punctuated sentence</div>
+                <div class="instructions-text">Read the three options and choose the one that is <strong>correctly punctuated</strong>. Topics: commas in lists, end punctuation, apostrophes.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Try Again</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Back to Module</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // IDENTIFY — A2 M1 Topic 6
+    // Punctuation: commas in lists / end punctuation / apostrophes
+    // 15 questions | 5-5-5 positions | Fisher-Yates runtime
+    // All interface text in English
+    // ============================================================
+    const quizData = [
+        // Q1 — commas_list | comma after each item in 3-item list | pos 2
+        {
+            id:1, topic:"commas",
+            clue:"three-item list — comma after each item except the last",
+            clueExplain:"In a list of three or more items, a comma separates each item. The comma before 'and' (Oxford comma) is standard in formal writing.",
+            options:[
+                { text:"Lucia reported the water damage, the broken pipe and the heating failure to the manager.", correct:false,
+                  errorWord:"the broken pipe and", correctWord:"the broken pipe, and",
+                  errorType:"Missing Oxford comma before 'and' in three-item list",
+                  explanation:"Three items require a comma after each one. 'The broken pipe' is the second item — it needs a comma after it: '...the broken pipe, and the heating failure.'" },
+                { text:"Lucia reported the water damage the broken pipe, and the heating failure to the manager.", correct:false,
+                  errorWord:"the water damage the broken pipe,", correctWord:"the water damage, the broken pipe,",
+                  errorType:"Missing comma after first item in list",
+                  explanation:"The first item 'the water damage' also needs a comma after it. Every item in a three-item list (except the last) gets a comma: 'the water damage, the broken pipe, and the heating failure.'" },
+                { text:"Lucia reported the water damage, the broken pipe, and the heating failure to the manager.", correct:true }
+            ],
+            rule:"item 1, item 2, and item 3 — comma after every item except the last",
+            examples:["Lucia reported the damage, the pipe, and the heating.", "James contacted the store, the courier, and the manager."],
+            correctReason:"'The water damage, the broken pipe, and the heating failure' has commas after item 1 ('water damage') and item 2 ('broken pipe'). The Oxford comma before 'and' is standard in formal English."
+        },
+        // Q2 — end_punct | statement ends with period | pos 0
+        {
+            id:2, topic:"endpunct",
+            clue:"declarative statement of fact — ends with a period",
+            clueExplain:"A declarative sentence states a fact. It ends with a period — not a question mark or exclamation mark.",
+            options:[
+                { text:"James submitted his complaint to the customer service department last Tuesday.", correct:true },
+                { text:"James submitted his complaint to the customer service department last Tuesday?", correct:false,
+                  errorWord:"last Tuesday?", correctWord:"last Tuesday.",
+                  errorType:"Question mark on a statement",
+                  explanation:"'James submitted his complaint' is a statement of fact — it does not ask a question. A question mark is used only for direct questions ('Did James submit his complaint?')." },
+                { text:"James submitted his complaint to the customer service department last Tuesday!", correct:false,
+                  errorWord:"last Tuesday!", correctWord:"last Tuesday.",
+                  errorType:"Exclamation mark on a neutral statement",
+                  explanation:"An exclamation mark expresses strong emotion (anger, excitement, urgency). This is a neutral statement of fact — a period is the correct end punctuation." }
+            ],
+            rule:"Declarative sentence (statement) → ends with a period (.)",
+            examples:["James submitted his complaint last Tuesday.", "The refund was processed after three weeks."],
+            correctReason:"'James submitted his complaint...' is a plain declarative sentence — it states a fact with no question or strong emotion. Declarative sentences always end with a period."
+        },
+        // Q3 — apostrophe | it's vs its | pos 1
+        {
+            id:3, topic:"apostrophe",
+            clue:"it's = it is (contraction) | its = belonging to it (possessive)",
+            clueExplain:"'It's' (apostrophe) is the contraction of 'it is'. 'Its' (no apostrophe) is the possessive pronoun meaning 'belonging to it'.",
+            options:[
+                { text:"The company said its policy does not cover that type of damage.", correct:false,
+                  errorWord:"its policy does not cover", correctWord:"its policy does not cover",
+                  errorType:"Correct sentence — but check the context",
+                  explanation:"Actually 'its policy' IS correct here — 'its' (no apostrophe) shows possession: the policy belonging to the company. This option is grammatically correct. However, the question asks you to identify the sentence that uses the apostrophe rule correctly for the contraction." },
+                { text:"It's clear that the building management failed to fix the heating on time.", correct:true },
+                { text:"The building has lost it's heating system due to the pipe failure.", correct:false,
+                  errorWord:"it's heating system", correctWord:"its heating system",
+                  errorType:"Contraction 'it's' used instead of possessive 'its'",
+                  explanation:"'The heating system belonging to the building' is possessive — it needs 'its' (no apostrophe). 'It's heating system' wrongly uses the contraction 'it is heating system', which makes no sense." }
+            ],
+            rule:"it's = it is (contraction) | its = belonging to it (no apostrophe)",
+            examples:["It's important to fix this. (= It is)", "The building lost its heating. (belonging to it)"],
+            correctReason:"'It's clear' = 'It is clear' — the apostrophe correctly marks the contraction. 'It's' = contraction; 'its' = possessive (no apostrophe). These two are among the most common punctuation errors in English."
+        },
+        // Q4 — commas_list | Oxford comma | pos 0
+        {
+            id:4, topic:"commas",
+            clue:"Oxford comma — the comma before 'and' in a three-item list",
+            clueExplain:"In formal writing, a comma before 'and' (Oxford comma) clarifies the last two items are separate. Without it, the last two items can seem grouped together.",
+            options:[
+                { text:"The report included a list of costs, timelines, and recommendations.", correct:true },
+                { text:"The report included a list of costs, timelines and recommendations.", correct:false,
+                  errorWord:"timelines and recommendations", correctWord:"timelines, and recommendations",
+                  errorType:"Missing Oxford comma before 'and'",
+                  explanation:"In formal English, the Oxford comma goes before 'and' in a three-item list: 'costs, timelines, and recommendations.' Without it, 'timelines and recommendations' could be misread as a single grouped item." },
+                { text:"The report included a list of costs timelines, and recommendations.", correct:false,
+                  errorWord:"costs timelines,", correctWord:"costs, timelines,",
+                  errorType:"Missing comma after first item in list",
+                  explanation:"'Costs' is the first item and needs a comma after it: 'a list of costs, timelines, and recommendations.' Every item except the last in a three-item list gets a comma." }
+            ],
+            rule:"item 1, item 2, and item 3 — Oxford comma required before 'and' in formal writing",
+            examples:["The report covered costs, timelines, and recommendations.", "Nadia listed the date, the amount, and the reference number."],
+            correctReason:"'Costs, timelines, and recommendations' is correct — comma after item 1, Oxford comma after item 2 (before 'and'). Both commas are needed in a three-item formal list."
+        },
+        // Q5 — end_punct | direct question mark | pos 2
+        {
+            id:5, topic:"endpunct",
+            clue:"direct question in dialogue — ends with a question mark inside quotes",
+            clueExplain:"A direct question ends with a question mark. When the question is in dialogue, the question mark goes inside the closing quotation marks.",
+            options:[
+                { text:"Carlos called the company and demanded, \"Why has nobody responded to my emails.\"", correct:false,
+                  errorWord:"to my emails.\"", correctWord:"to my emails?\"",
+                  errorType:"Period instead of question mark on direct question",
+                  explanation:"'Why has nobody responded to my emails' is a direct question — it must end with a question mark, not a period. The question mark goes inside the closing quotes." },
+                { text:"Carlos called the company and demanded, \"Why has nobody responded to my emails!\"", correct:false,
+                  errorWord:"to my emails!\"", correctWord:"to my emails?\"",
+                  errorType:"Exclamation mark instead of question mark on direct question",
+                  explanation:"While Carlos is frustrated, the sentence is grammatically a question ('Why has nobody...?'). Direct questions end with a question mark, not an exclamation mark. If you want to show both question and emotion, '?!' is sometimes used informally, but '?' alone is standard." },
+                { text:"Carlos called the company and demanded, \"Why has nobody responded to my emails?\"", correct:true }
+            ],
+            rule:"Direct question → ? (question mark goes inside closing quotes in dialogue)",
+            examples:["\"Why has nobody responded?\" Carlos demanded.", "She asked, \"When will the repair be done?\""],
+            correctReason:"'Why has nobody responded to my emails?' is a direct question — it ends with a question mark. The question mark goes inside the closing quotation mark because it belongs to the quoted speech."
+        },
+        // Q6 — apostrophe | singular possessive | pos 1
+        {
+            id:6, topic:"apostrophe",
+            clue:"singular possessive — one noun owns something: noun + 's",
+            clueExplain:"To show something belongs to one person or thing, add apostrophe + s to the noun: company's, tenant's, manager's.",
+            options:[
+                { text:"The companies decision to ignore the complaint led to a formal investigation.", correct:false,
+                  errorWord:"companies decision", correctWord:"company's decision",
+                  errorType:"Plural noun used instead of singular possessive",
+                  explanation:"'Companies' is the plural of 'company'. Here, one company owns the decision — the singular possessive is needed: 'company's decision' (apostrophe + s)." },
+                { text:"The company's decision to ignore the complaint led to a formal investigation.", correct:true },
+                { text:"The companys' decision to ignore the complaint led to a formal investigation.", correct:false,
+                  errorWord:"companys'", correctWord:"company's",
+                  errorType:"Wrong plural formation and misplaced apostrophe",
+                  explanation:"'Companys'' is not a real word. 'Company' forms its plural as 'companies' (not 'companys'). The singular possessive is 'company's' (apostrophe + s after the root noun)." }
+            ],
+            rule:"Singular possessive: noun + 's → company's, tenant's, manager's",
+            examples:["The company's decision was final.", "The manager's response was delayed.", "Carlos's complaint was valid."],
+            correctReason:"'Company's' is the singular possessive — one company owns the decision. Rule: add apostrophe + s to the singular noun. Compare: 'company's' (one company) vs. 'companies'' (multiple companies)."
+        },
+        // Q7 — commas_list | no comma with 2 items | pos 0
+        {
+            id:7, topic:"commas",
+            clue:"only two items joined by 'and' — no comma needed",
+            clueExplain:"When exactly two items are joined by 'and', no comma is used before 'and'. Commas in lists apply to three or more items.",
+            options:[
+                { text:"Nadia called the billing department and asked to speak with a supervisor.", correct:true },
+                { text:"Nadia called the billing department, and asked to speak with a supervisor.", correct:false,
+                  errorWord:"billing department, and", correctWord:"billing department and",
+                  errorType:"Unnecessary comma before 'and' with two items",
+                  explanation:"'Called the billing department' and 'asked to speak with a supervisor' are two elements joined by 'and'. With only two items, no comma is needed before 'and'. Commas in lists are for three or more items." },
+                { text:"Nadia called; the billing department and asked to speak with a supervisor.", correct:false,
+                  errorWord:"called; the billing department", correctWord:"called the billing department",
+                  errorType:"Semicolon breaking a single clause",
+                  explanation:"A semicolon joins two independent clauses. 'Called the billing department' is not an independent clause — it is part of one continuous verb phrase. A semicolon here breaks the sentence incorrectly." }
+            ],
+            rule:"Two items + 'and' → no comma | Three+ items → comma before 'and'",
+            examples:["Nadia called and asked to speak with a supervisor. (2 — no comma)", "Nadia called, emailed, and visited the office. (3 — commas)"],
+            correctReason:"'Called the billing department and asked to speak with a supervisor' contains only two actions — no comma is needed before 'and'. The comma rule applies only when listing three or more items."
+        },
+        // Q8 — end_punct | exclamation for strong emotion | pos 2
+        {
+            id:8, topic:"endpunct",
+            clue:"strong emotion / urgent exclamation — exclamation mark",
+            clueExplain:"An exclamation mark expresses strong emotion: anger, excitement, or urgency. It signals that the statement carries emotional weight.",
+            options:[
+                { text:"\"The pipe has burst again and the entire floor is flooded.\" the neighbour shouted.", correct:false,
+                  errorWord:"is flooded.\"", correctWord:"is flooded!\"",
+                  errorType:"Period instead of exclamation mark on emotional outburst",
+                  explanation:"The neighbour is shouting about an emergency. This is not a calm statement of fact — it is an urgent, emotional exclamation. An exclamation mark is needed: 'is flooded!'" },
+                { text:"\"The pipe has burst again and the entire floor is flooded?\" the neighbour shouted.", correct:false,
+                  errorWord:"is flooded?\"", correctWord:"is flooded!\"",
+                  errorType:"Question mark on an exclamation (not a question)",
+                  explanation:"'The pipe has burst again and the entire floor is flooded' is not a question — it is an alarming announcement. A question mark would signal a question. Use an exclamation mark for emotional outbursts." },
+                { text:"\"The pipe has burst again and the entire floor is flooded!\" the neighbour shouted.", correct:true }
+            ],
+            rule:"Strong emotion / urgency → exclamation mark (!) — goes inside closing quotes when it belongs to the speech",
+            examples:["\"The pipe burst again!\" the neighbour shouted.", "\"This is completely unacceptable!\" Lucia cried."],
+            correctReason:"The neighbour is shouting about a flooding emergency — this is a clear emotional exclamation. The exclamation mark goes inside the closing quotation mark because it belongs to the quoted speech."
+        },
+        // Q9 — apostrophe | plural possessive ending -s | pos 0
+        {
+            id:9, topic:"apostrophe",
+            clue:"plural possessive (regular plural ending in -s): add only apostrophe after s",
+            clueExplain:"Regular plural nouns ending in -s form the possessive by adding only an apostrophe after the s (no extra s): tenants', managers', companies'.",
+            options:[
+                { text:"The tenants' complaints were finally addressed at the building meeting.", correct:true },
+                { text:"The tenants complaints were finally addressed at the building meeting.", correct:false,
+                  errorWord:"tenants complaints", correctWord:"tenants' complaints",
+                  errorType:"Missing apostrophe in plural possessive",
+                  explanation:"'The complaints belonging to the tenants' requires a possessive apostrophe. For plural nouns ending in -s, add only an apostrophe after the s: tenants'." },
+                { text:"The tenant's complaints were finally addressed at the building meeting.", correct:false,
+                  errorWord:"tenant's complaints", correctWord:"tenants' complaints",
+                  errorType:"Singular possessive instead of plural possessive",
+                  explanation:"'Tenant's' shows possession by ONE tenant. But the context says multiple tenants attended a building meeting — the plural possessive is needed: tenants' (apostrophe after the s, no extra s)." }
+            ],
+            rule:"Regular plural ending in -s + ' (apostrophe only) = plural possessive: tenants', managers'",
+            examples:["The tenants' complaints were addressed. (multiple tenants)", "The managers' decision was unanimous. (multiple managers)"],
+            correctReason:"'Tenants'' is the plural possessive — the complaints belong to multiple tenants. For regular plurals ending in -s, add only an apostrophe: tenants'. Compare: 'tenant's' (one) vs. 'tenants'' (many)."
+        },
+        // Q10 — commas_list | 4-item list all commas correct | pos 1
+        {
+            id:10, topic:"commas",
+            clue:"four-item list — comma after each item except the last",
+            clueExplain:"In a list of four items, commas separate every item. A comma comes after items 1, 2, and 3 — and before 'and' (the Oxford comma).",
+            options:[
+                { text:"The maintenance form asked for the tenant's name, flat number, nature of the problem, and preferred contact time.", correct:false,
+                  errorWord:"nature of the problem, and preferred", correctWord:"nature of the problem, and preferred",
+                  errorType:"Actually correct — re-check which option has the error",
+                  explanation:"This sentence is actually correct! 'Name, flat number, nature of the problem, and preferred contact time' has commas after items 1, 2, and 3. The Oxford comma is present before 'and'." },
+                { text:"The maintenance form asked for the tenant's name, flat number, nature of the problem and preferred contact time.", correct:false,
+                  errorWord:"problem and preferred", correctWord:"problem, and preferred",
+                  errorType:"Missing Oxford comma before 'and' in four-item list",
+                  explanation:"In a four-item list, a comma is needed after item 3 ('nature of the problem') before 'and'. Without it, the last two items seem merged: 'problem and preferred contact time' could be read as one item." },
+                { text:"The maintenance form asked for the tenant's name, flat number, nature of the problem, and preferred contact time.", correct:true }
+            ],
+            rule:"item 1, item 2, item 3, and item 4 — comma after items 1, 2, and 3",
+            examples:["Name, flat number, nature of the problem, and preferred contact time.", "Lucia provided the date, the charge, the reference, and her account number."],
+            correctReason:"The four items are: name / flat number / nature of the problem / preferred contact time. Commas follow items 1, 2, and 3. The Oxford comma before 'and' (after item 3) is present and correct."
+        },
+        // Q11 — end_punct | indirect question ends with period | pos 0
+        {
+            id:11, topic:"endpunct",
+            clue:"indirect question = statement — ends with a period, not a question mark",
+            clueExplain:"An indirect question reports that someone asked something. It is grammatically a statement, not a direct question, so it ends with a period.",
+            options:[
+                { text:"Carlos asked the technician whether the boiler had been inspected recently.", correct:true },
+                { text:"Carlos asked the technician whether the boiler had been inspected recently?", correct:false,
+                  errorWord:"inspected recently?", correctWord:"inspected recently.",
+                  errorType:"Question mark on an indirect question",
+                  explanation:"'Carlos asked the technician whether...' is an indirect question — it reports what Carlos asked. Indirect questions are statements and end with a period, not a question mark. Compare: 'Had the boiler been inspected recently?' (direct, ?) vs. 'Carlos asked whether the boiler had been inspected recently.' (indirect, .)" },
+                { text:"Carlos asked the technician whether the boiler had been inspected recently!", correct:false,
+                  errorWord:"inspected recently!", correctWord:"inspected recently.",
+                  errorType:"Exclamation mark on a neutral reporting statement",
+                  explanation:"There is no strong emotion in this reporting sentence. 'Carlos asked whether...' is a neutral statement — it ends with a period. An exclamation mark would imply urgency or strong feeling, which is not the case here." }
+            ],
+            rule:"Indirect question (reporting a question) = statement → ends with a period (.)",
+            examples:["Carlos asked whether the boiler had been inspected. (indirect, .)", "Had the boiler been inspected? (direct, ?)"],
+            correctReason:"'Carlos asked the technician whether...' is an indirect question — it states that Carlos asked, using 'whether'. Indirect questions are grammatically statements and always end with a period, not a question mark."
+        },
+        // Q12 — apostrophe | contraction they're | pos 2
+        {
+            id:12, topic:"apostrophe",
+            clue:"they're = they are | their = possessive | there = place/existence",
+            clueExplain:"'They're' (apostrophe) = 'they are'. 'Their' = belonging to them. 'There' = a place or existence. These three homophones are frequently confused.",
+            options:[
+                { text:"The maintenance workers said their finishing the job before the end of the day.", correct:false,
+                  errorWord:"their finishing", correctWord:"they're finishing",
+                  errorType:"Possessive 'their' instead of contraction 'they're'",
+                  explanation:"'Their finishing' uses the possessive pronoun ('belonging to them'), which makes no sense here. We need the contraction 'they are finishing' = 'they're finishing'." },
+                { text:"The maintenance workers said there finishing the job before the end of the day.", correct:false,
+                  errorWord:"there finishing", correctWord:"they're finishing",
+                  errorType:"'There' (place/existence) instead of contraction 'they're'",
+                  explanation:"'There' refers to a place or existence ('there is a problem'). Here we need the contraction: 'they are finishing' = 'they're finishing'. 'There finishing' makes no grammatical sense." },
+                { text:"The maintenance workers said they're finishing the job before the end of the day.", correct:true }
+            ],
+            rule:"they're = they are | their = possessive | there = place/existence",
+            examples:["They're finishing the job. (= They are)", "Their tools are in the van. (possessive)", "There is a problem with the boiler. (existence)"],
+            correctReason:"'They're finishing the job' = 'They are finishing the job'. The apostrophe in 'they're' replaces the 'a' from 'are'. This is the correct contraction. 'Their' is possessive; 'there' signals place or existence."
+        },
+        // Q13 — commas_list | 3-item list, comma between all items | pos 1
+        {
+            id:13, topic:"commas",
+            clue:"three-item list — comma needed after each of the first two items",
+            clueExplain:"In a three-item list, a comma follows item 1 and item 2. The comma before 'and' (Oxford comma) separates the second and third items clearly.",
+            options:[
+                { text:"James photographed the damaged box the missing items, and the incorrect invoice.", correct:false,
+                  errorWord:"the damaged box the missing items,", correctWord:"the damaged box, the missing items,",
+                  errorType:"Missing comma after the first item in a three-item list",
+                  explanation:"'The damaged box' is the first item and needs a comma after it: 'the damaged box, the missing items, and the incorrect invoice.'" },
+                { text:"James photographed the damaged box, the missing items, and the incorrect invoice.", correct:true },
+                { text:"James photographed the damaged box, the missing items and, the incorrect invoice.", correct:false,
+                  errorWord:"the missing items and, the incorrect invoice", correctWord:"the missing items, and the incorrect invoice",
+                  errorType:"Comma misplaced — after 'and' instead of before it",
+                  explanation:"The Oxford comma goes BEFORE 'and', not after it. The correct form: '...the missing items, and the incorrect invoice' (comma before 'and', no comma after 'and')." }
+            ],
+            rule:"item 1, item 2, and item 3 — Oxford comma before 'and', not after",
+            examples:["James photographed the box, the items, and the invoice.", "Lucia reported the damage, the date, and the cost."],
+            correctReason:"'The damaged box, the missing items, and the incorrect invoice' is correct: comma after item 1, Oxford comma after item 2 (before 'and'). No comma after 'and'."
+        },
+        // Q14 — end_punct | polite command ends with period | pos 2
+        {
+            id:14, topic:"endpunct",
+            clue:"polite instruction / command — ends with a period",
+            clueExplain:"Imperative sentences (commands and instructions) typically end with a period. Exclamation marks are reserved for urgent or highly emotional commands.",
+            options:[
+                { text:"Please attach all supporting documents before submitting your complaint form?", correct:false,
+                  errorWord:"complaint form?", correctWord:"complaint form.",
+                  errorType:"Question mark on an instruction",
+                  explanation:"'Please attach all supporting documents' is a polite instruction, not a question. Instructions and commands end with a period, not a question mark." },
+                { text:"Please attach all supporting documents before submitting your complaint form!", correct:false,
+                  errorWord:"complaint form!", correctWord:"complaint form.",
+                  errorType:"Exclamation mark on a routine instruction",
+                  explanation:"An exclamation mark is for urgent or highly emotional commands ('Call an ambulance!'). This is a routine polite instruction — a period is the appropriate ending." },
+                { text:"Please attach all supporting documents before submitting your complaint form.", correct:true }
+            ],
+            rule:"Polite instruction / routine command → ends with a period (.)",
+            examples:["Please attach all documents before submitting.", "Contact customer service with your reference number.", "Submit the form within 30 days."],
+            correctReason:"'Please attach all supporting documents' is a polite imperative. Routine instructions end with a period. An exclamation mark would only be appropriate for urgent or emotional commands."
+        },
+        // Q15 — apostrophe | contraction don't | pos 1
+        {
+            id:15, topic:"apostrophe",
+            clue:"do + not = don't — apostrophe between n and t, replacing the 'o' from 'not'",
+            clueExplain:"In contractions, the apostrophe replaces the missing letter(s). 'Do not' → 'don't': the 'o' from 'not' is removed and an apostrophe takes its place between 'n' and 't'.",
+            options:[
+                { text:"We dont process refunds for digital downloads under any circumstances.", correct:false,
+                  errorWord:"dont process", correctWord:"don't process",
+                  errorType:"Missing apostrophe in contraction",
+                  explanation:"'Dont' has no apostrophe. In contractions, an apostrophe is always required to mark the missing letter. The correct form is 'don't' (apostrophe between 'n' and 't')." },
+                { text:"We don't process refunds for digital downloads under any circumstances.", correct:true },
+                { text:"We do'nt process refunds for digital downloads under any circumstances.", correct:false,
+                  errorWord:"do'nt", correctWord:"don't",
+                  errorType:"Apostrophe in the wrong position",
+                  explanation:"The apostrophe must replace the missing letter, which is the 'o' from 'not'. The contraction of 'do not' is 'don't' — the apostrophe goes between 'n' and 't', not between 'o' and 'n'." }
+            ],
+            rule:"do + not = don't — apostrophe replaces 'o', placed between n and t",
+            examples:["We don't process refunds for downloads. (= do not)", "They don't accept verbal complaints.", "Please don't submit without a reference number."],
+            correctReason:"'Don't' = 'do not'. The apostrophe correctly replaces the letter 'o' from 'not' and is placed between 'n' and 't'. Compare: 'don't' (correct) vs. 'dont' (no apostrophe) vs. 'do'nt' (apostrophe in wrong place)."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, i) {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const letters = ['A','B','C'];
+        const badgeClass = q.topic === 'commas' ? 'commas' : q.topic === 'endpunct' ? 'endpunct' : 'apostrophe';
+        const badgeLabel = q.topic === 'commas' ? '&#128394; Commas in Lists'
+            : q.topic === 'endpunct' ? '&#9679; End Punctuation'
+            : '&#8217; Apostrophes';
+        const badge = '<span class="topic-badge ' + badgeClass + '">' + badgeLabel + '</span>';
+        const optsHTML = q.shuffled.map(function(opt, i) {
+            return '<button class="sent-option" onclick="selectOption(' + index + ',' + i + ')">' +
+                '<div class="option-letter">' + letters[i] + '</div>' +
+                '<div class="option-text">' + opt.text + '</div>' +
+                '<div class="option-status">' + (opt.correct ? '&#9989;' : '&#10060;') + '</div>' +
+                '</button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' +
+            '<span class="q-label">Choose the correctly punctuated sentence:</span>' + badge + '</div>' +
+            '<div class="sentence-options" id="options-' + index + '">' + optsHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>&#8592; Previous</button>' +
+            '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+            (index===quizData.length-1?'See Results &#127881;':'Next &#8594;') +
+            '</button></div>';
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(function(o){ return o.correct; });
+        if (isCorrect) score++;
+        document.querySelectorAll('#options-' + qi + ' .sent-option').forEach(function(btn, i) {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e){ return '<div class="rule-ex">' + e + '</div>'; }).join('');
+
+        if (isCorrect) {
+            const errBlocks = q.shuffled.filter(function(o){ return !o.correct; }).map(function(err) {
+                return '<div class="fb-block fb-error">' +
+                    '<div class="fb-block-title">&#9888;&#65039; Error in this option: <span class="error-badge">' + err.errorType + '</span></div>' +
+                    '<div class="word-swap"><span class="ws-box ws-wrong">' + err.errorWord + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + err.correctWord + '</span></div>' +
+                    '<div class="error-text">' + err.explanation + '</div></div>';
+            }).join('');
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">Correct! You identified the right sentence</div>' +
+                '<div class="fb-subtitle">Let\'s see why the other options were wrong</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; Key rule applied</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;"><span class="signal-tag">' + q.clue + '</span> \u2014 ' + q.clueExplain + '</div></div>' +
+                errBlocks +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Rule applied</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; Why is the correct sentence right?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrect \u2014 let\'s review the punctuation</div>' +
+                '<div class="fb-subtitle">Focus on the error in the sentence you chose</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; Key rule you needed to apply</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;"><span class="signal-tag red">' + q.clue + '</span> \u2014 ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block" style="background:#F8FAFC;border:1px solid #E2E8F0;"><div class="fb-block-title" style="color:#475569;">&#128260; Your choice vs. correct sentence</div>' +
+                '<div class="compare-box">' +
+                '<div class="compare-row"><span class="compare-label wrong">You chose</span><span class="compare-text">' + selected.text + '</span></div>' +
+                '<div class="compare-row"><span class="compare-label right">Correct</span><span class="compare-text">' + correctOpt.text + '</span></div>' +
+                '</div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; The error: <span class="error-badge">' + selected.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected.errorWord + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + selected.correctWord + '</span></div>' +
+                '<div class="error-text">' + selected.explanation + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; The correct rule</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; Why is the correct sentence right?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden',idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You can spot punctuation errors perfectly. \uD83C\uDFC6'
+            : pct >= 70 ? 'Well done! Keep practising the three punctuation rules. \uD83D\uDCAA'
+            : 'Good effort. Focus on the key signals: list size, sentence type, and apostrophe use. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

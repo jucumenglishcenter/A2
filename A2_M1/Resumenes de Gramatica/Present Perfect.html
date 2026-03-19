@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Present Perfect | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#F1F8E9;--note-border:#AED581;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:800px;margin:0 auto}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:"";position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:"Fredoka",sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:"Fredoka",sans-serif;font-size:1.05rem;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.83rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:"Nunito",sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem;margin-top:1.1rem}
+.section-label::before{content:"";width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-label:first-child{margin-top:0}
+.section-title{font-family:"Fredoka",sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:"Fredoka",sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0}
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:"Fredoka",sans-serif;font-size:.9rem;color:var(--ld);line-height:2.2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:"Fredoka",sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem;font-weight:700}
+.alert-card p{font-size:.82rem;color:#555;line-height:1.7}
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:"Lora",serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+/* PP TIMELINE */
+.pp-timeline{background:#F8F9FA;border-radius:14px;padding:1.1rem;margin:1rem 0;border:1px solid var(--border)}
+.ppt-label{font-family:"Fredoka",sans-serif;font-size:.78rem;font-weight:600;color:var(--text-soft);text-align:center;margin-bottom:.7rem;text-transform:uppercase;letter-spacing:.07em}
+.ppt-track{display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin-bottom:.8rem}
+.ppt-past,.ppt-future{font-size:.68rem;font-weight:800;color:var(--text-soft);text-transform:uppercase;letter-spacing:.08em;flex-shrink:0}
+.ppt-line{display:flex;align-items:center;flex:1;gap:.4rem;justify-content:center;flex-wrap:wrap}
+.ppt-start{font-size:.72rem;font-weight:700;background:var(--verb-bg);color:var(--verb);padding:2px 8px;border-radius:6px;white-space:nowrap}
+.ppt-bridge{color:var(--comp);font-size:1rem;font-weight:700;letter-spacing:2px}
+.ppt-now{font-size:.72rem;font-weight:800;background:var(--ok);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.ppt-examples{display:flex;flex-direction:column;gap:.35rem}
+.ppt-ex{display:flex;align-items:center;gap:.5rem;font-size:.79rem;color:var(--text-soft)}
+.ppt-badge{display:inline-block;font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:10px;flex-shrink:0;text-transform:uppercase;letter-spacing:.06em}
+.since-b{background:var(--quest-bg);color:var(--quest)}
+.for-b{background:var(--comp-bg);color:var(--comp)}
+/* SINCE FOR VISUAL */
+.since-for-visual{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.9rem 0}
+.sfv-col{border-radius:12px;overflow:hidden;border:2px solid var(--border)}
+.sfv-since{border-color:#CE93D8}
+.sfv-for{border-color:#80DEEA}
+.sfv-header{padding:.55rem .8rem;font-family:"Fredoka",sans-serif;font-size:.88rem;font-weight:700;text-align:center}
+.sfv-since .sfv-header{background:var(--quest-bg);color:var(--quest)}
+.sfv-for .sfv-header{background:var(--comp-bg);color:var(--comp)}
+.sfv-sub{font-size:.72rem;font-weight:600;text-align:center;padding:.3rem .8rem;color:var(--text-soft);background:#FAFAFA;border-bottom:1px dashed #e0e0e0}
+.sfv-items{padding:.5rem .8rem}
+.sfv-item{font-size:.8rem;padding:3px 0;color:var(--text-soft)}
+.sfv-q{padding:.4rem .8rem;font-size:.73rem;font-weight:700;font-style:italic;text-align:center;border-top:1px dashed #e0e0e0}
+.sfv-since .sfv-q{color:var(--quest);background:var(--quest-bg)}
+.sfv-for .sfv-q{color:var(--comp);background:var(--comp-bg)}
+/* PP VS PS */
+.pp-vs-ps{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.pvp-col{border-radius:10px;overflow:hidden;border:2px solid var(--border)}
+.pvp-pp{border-color:#A5D6A7}
+.pvp-ps{border-color:#90CAF9}
+.pvp-header{padding:.5rem .7rem;font-family:"Fredoka",sans-serif;font-size:.8rem;font-weight:700;text-align:center}
+.pvp-pp .pvp-header{background:var(--ok-bg);color:var(--ok)}
+.pvp-ps .pvp-header{background:var(--subj-bg);color:var(--subj)}
+.pvp-item{padding:.4rem .7rem;font-size:.78rem;color:var(--text-soft);border-top:1px solid #f0f0f0;line-height:1.5}
+/* PARTICIPLE GRID */
+.participle-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin:.9rem 0}
+.pg-item{border-radius:8px;overflow:hidden;border:1.5px solid var(--border);text-align:center}
+.pg-inf{font-size:.73rem;color:var(--text-soft);padding:3px 0;background:#fafafa}
+.pg-pp{font-size:.78rem;font-weight:700;color:var(--ok);padding:3px 0;background:var(--ok-bg)}
+/* TIME SIGNAL GUIDE */
+.time-signal-guide{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1rem 0}
+.tsg-col{border-radius:12px;overflow:hidden;border:2px solid var(--border)}
+.tsg-pp{border-color:#A5D6A7}
+.tsg-ps{border-color:#90CAF9}
+.tsg-header{padding:.55rem .8rem;font-family:"Fredoka",sans-serif;font-size:.8rem;font-weight:700;text-align:center}
+.tsg-pp .tsg-header{background:var(--ok-bg);color:var(--ok)}
+.tsg-ps .tsg-header{background:var(--subj-bg);color:var(--subj)}
+.tsg-item{padding:.38rem .8rem;font-size:.79rem;color:var(--text-soft);border-top:1px solid #f0f0f0}
+.tsg-item:nth-child(even){background:#fafafa}
+.tsg-word{font-weight:700;color:var(--text)}
+@media(max-width:600px){
+.since-for-visual,.pp-vs-ps,.time-signal-guide{grid-template-columns:1fr}
+.participle-grid{grid-template-columns:repeat(3,1fr)}
+.ppt-track{flex-direction:column;text-align:center}
+}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:"Fredoka",sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:"Nunito",sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:"Fredoka",sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:4px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#33691E}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:"Fredoka",sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block;animation:fadeIn .4s ease}
+.summary-final h3{font-family:"Fredoka",sans-serif;color:var(--ok);margin-bottom:.8rem;font-size:1.1rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:5px 0 5px 22px;position:relative;font-size:.84rem;color:var(--text-soft);border-bottom:1px solid var(--lm)}
+.summary-final li:last-child{border-bottom:none}
+.summary-final li:before{content:"&#10003;";position:absolute;left:0;color:var(--lp);font-weight:700}
+@media(max-width:600px){
+.level-header h1{font-size:1.4rem}
+.compare-grid{grid-template-columns:1fr}
+.card{padding:1.2rem}
+.opts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+  <div class="level-badge">&#x1F49A; A2 &middot; Grammar Summary</div>
+  <h1>&#x1F4DD; Grammar Summary</h1>
+  <div class="module-name">&#x1F6CE;&#xFE0F; Services, Support &amp; Problem Solving</div>
+  <p class="subtitle">Present Perfect: since/for &middot; ever/never &middot; 5 steps &times; 5 exercises</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+  <h3>&#x1F393; Key Points &mdash; Present Perfect</h3>
+  <ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+var STEPS = [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol el Pret\u00e9rito Perfecto (\"he hablado\") y el Pret\u00e9rito Indefinido (\"habl\u00e9\") tienen funciones distintas seg\u00fan la regi\u00f3n. En ingl\u00e9s la distinci\u00f3n es m\u00e1s clara y sistem\u00e1tica.</div>\n<div class=\"compare-grid\">\n  <div class=\"compare-card esp\">\n    <h4>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol \u2014 contexto</h4>\n    <ul>\n      <li>He trabajado aqu\u00ed <b>desde</b> 2020.</li>\n      <li>He trabajado aqu\u00ed <b>por</b> 5 a\u00f1os.</li>\n      <li>\u00bfHas <b>alguna vez</b> viajado?</li>\n      <li><b>Nunca</b> he viajado.</li>\n    </ul>\n  </div>\n  <div class=\"compare-card eng\">\n    <h4>\ud83c\uddec\ud83c\udde7 English \u2014 presente perfecto</h4>\n    <ul>\n      <li>I have worked here <b>since</b> 2020.</li>\n      <li>I have worked here <b>for</b> 5 years.</li>\n      <li>Have you <b>ever</b> travelled?</li>\n      <li>I have <b>never</b> travelled.</li>\n    </ul>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Idea clave:</strong> El Present Perfect conecta el pasado con el presente. La acci\u00f3n comenz\u00f3 en el pasado pero <b>todav\u00eda tiene relevancia ahora</b>: \"I have worked here for 5 years\" \u2192 todav\u00eda trabajo aqu\u00ed.</div>\n<div class=\"pp-timeline\">\n  <div class=\"ppt-label\">L\u00ednea de tiempo del Present Perfect</div>\n  <div class=\"ppt-track\">\n    <div class=\"ppt-past\">PASADO</div>\n    <div class=\"ppt-line\">\n      <div class=\"ppt-start\">\u2605 acci\u00f3n empieza</div>\n      <div class=\"ppt-bridge\">\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2192</div>\n      <div class=\"ppt-now\">AHORA \u25cf</div>\n    </div>\n    <div class=\"ppt-future\">FUTURO</div>\n  </div>\n  <div class=\"ppt-examples\">\n    <div class=\"ppt-ex\"><span class=\"ppt-badge since-b\">since</span> I have worked here <b>since</b> 2020 \u2192 empez\u00f3 en 2020, contin\u00faa ahora</div>\n    <div class=\"ppt-ex\"><span class=\"ppt-badge for-b\">for</span> I have worked here <b>for</b> 5 years \u2192 dura 5 a\u00f1os, contin\u00faa ahora</div>\n  </div>\n</div>"}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">The Present Perfect shares its core purpose with the Spanish Pret\u00e9rito Perfecto \u2014 linking past actions to the present moment.</div>\n<table class=\"g-table\">\n  <tr><th>Similitud</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n  <tr><td>Estructura: haber + participio</td><td>he trabajado / has viajado</td><td><span class=\"g-verb\">have</span> worked / <span class=\"g-verb\">has</span> travelled</td></tr>\n  <tr><td>Experiencia de vida</td><td>\u00bfHas viajado alguna vez?</td><td>Have you <span class=\"g-comp\">ever</span> travelled?</td></tr>\n  <tr><td>Nunca en la vida</td><td>Nunca he viajado.</td><td>I have <span class=\"g-neg\">never</span> travelled.</td></tr>\n  <tr><td>Duraci\u00f3n hasta ahora</td><td>desde hace 5 a\u00f1os</td><td>for 5 years / since 2020</td></tr>\n  <tr><td>He/has seg\u00fan persona</td><td>he/has/hemos/han</td><td>have (I/you/we/they) / has (he/she/it)</td></tr>\n</table>\n<div class=\"section-label\">Since vs For \u2014 la distinci\u00f3n clave</div>\n<div class=\"since-for-visual\">\n  <div class=\"sfv-col sfv-since\">\n    <div class=\"sfv-header\">SINCE \u2605</div>\n    <div class=\"sfv-sub\">Punto de inicio espec\u00edfico</div>\n    <div class=\"sfv-items\">\n      <div class=\"sfv-item\">since <b>2020</b></div>\n      <div class=\"sfv-item\">since <b>Monday</b></div>\n      <div class=\"sfv-item\">since <b>last year</b></div>\n      <div class=\"sfv-item\">since <b>I started</b></div>\n      <div class=\"sfv-item\">since <b>the complaint</b></div>\n    </div>\n    <div class=\"sfv-q\">\u2192 \u00bfDesde cu\u00e1ndo exactamente?</div>\n  </div>\n  <div class=\"sfv-col sfv-for\">\n    <div class=\"sfv-header\">FOR \u23f1</div>\n    <div class=\"sfv-sub\">Per\u00edodo de tiempo (duraci\u00f3n)</div>\n    <div class=\"sfv-items\">\n      <div class=\"sfv-item\">for <b>two years</b></div>\n      <div class=\"sfv-item\">for <b>six months</b></div>\n      <div class=\"sfv-item\">for <b>a long time</b></div>\n      <div class=\"sfv-item\">for <b>three days</b></div>\n      <div class=\"sfv-item\">for <b>a week</b></div>\n    </div>\n    <div class=\"sfv-q\">\u2192 \u00bfCu\u00e1nto tiempo ha durado?</div>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Truco:</strong> <b>Since</b> = punto de inicio (una fecha, un d\u00eda, un evento). <b>For</b> = per\u00edodo de tiempo (puedes medir la duraci\u00f3n). \"Since 2020\" es un punto. \"For 5 years\" es una duraci\u00f3n.</div>"}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<table class=\"g-table\">\n  <tr><th>\ud83c\uddea\ud83c\uddf8 / Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 Present Perfect</th><th>\ud83d\udca1 Uso</th></tr>\n  <tr><td>\u00bfDesde cu\u00e1ndo? \u2192 desde 2020</td><td>I've worked here <span class=\"g-comp\">since</span> 2020</td><td>since + punto de inicio</td></tr>\n  <tr><td>\u00bfCu\u00e1nto tiempo? \u2192 5 a\u00f1os</td><td>I've worked here <span class=\"g-comp\">for</span> 5 years</td><td>for + per\u00edodo</td></tr>\n  <tr><td>\u00bfAlguna vez? (vida)</td><td>Have you <span class=\"g-comp\">ever</span> spoken to a manager?</td><td>ever en preguntas</td></tr>\n  <tr><td>Nunca en la vida</td><td>I've <span class=\"g-neg\">never</span> had this problem before</td><td>never en negativo</td></tr>\n  <tr><td>Acci\u00f3n pasada terminada</td><td>I <span class=\"g-verb\">called</span> yesterday. <em>(Past Simple)</em></td><td>PP \u2260 Past Simple</td></tr>\n</table>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f Present Perfect vs Past Simple \u2014 la diferencia cr\u00edtica</div>\n  <div class=\"pp-vs-ps\">\n    <div class=\"pvp-col pvp-pp\">\n      <div class=\"pvp-header\">Present Perfect \u2705</div>\n      <div class=\"pvp-item\">I <b>have worked</b> here for 5 years.<br><em>(todav\u00eda trabajo aqu\u00ed)</em></div>\n      <div class=\"pvp-item\">Have you <b>ever had</b> this problem?<br><em>(en alg\u00fan momento de tu vida)</em></div>\n      <div class=\"pvp-item\">She <b>has never seen</b> this form.<br><em>(hasta este momento)</em></div>\n    </div>\n    <div class=\"pvp-col pvp-ps\">\n      <div class=\"pvp-header\">Past Simple \u2705</div>\n      <div class=\"pvp-item\">I <b>worked</b> there in 2015.<br><em>(ya no trabajo ah\u00ed)</em></div>\n      <div class=\"pvp-item\">Did you <b>have</b> this problem last week?<br><em>(tiempo espec\u00edfico, terminado)</em></div>\n      <div class=\"pvp-item\">She <b>never saw</b> that form.<br><em>(momento pasado espec\u00edfico)</em></div>\n    </div>\n  </div>\n</div>\n<div class=\"section-label\">Participios irregulares \u2014 los m\u00e1s importantes</div>\n<div class=\"participle-grid\">\n  <div class=\"pg-item\"><div class=\"pg-inf\">be</div><div class=\"pg-pp\">been</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">do</div><div class=\"pg-pp\">done</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">have</div><div class=\"pg-pp\">had</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">see</div><div class=\"pg-pp\">seen</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">speak</div><div class=\"pg-pp\">spoken</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">write</div><div class=\"pg-pp\">written</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">give</div><div class=\"pg-pp\">given</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">take</div><div class=\"pg-pp\">taken</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">make</div><div class=\"pg-pp\">made</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">send</div><div class=\"pg-pp\">sent</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">receive</div><div class=\"pg-pp\">received \u2713</div></div>\n  <div class=\"pg-item\"><div class=\"pg-inf\">process</div><div class=\"pg-pp\">processed \u2713</div></div>\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">The customer has <span class=\"g-comp\">waited</span> <span class=\"g-comp\">for</span> three weeks \u2014 still no response.</div><div class=\"es\">El cliente ha esperado tres semanas \u2014 todav\u00eda sin respuesta.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I have called yesterday. <em>(wrong \u2014 yesterday = Past Simple)</em></div><div class=\"es\">Error: yesterday indica tiempo pasado espec\u00edfico \u2192 I called yesterday.</div></div></div>"}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n<div class=\"tip-card\"><strong>Tip 1 \u2014 Since vs For en espa\u00f1ol:</strong> Si en espa\u00f1ol dices \"desde [fecha/d\u00eda]\" \u2192 <b>since</b>. Si dices \"hace [tiempo] / durante [tiempo]\" \u2192 <b>for</b>. \"Desde 2020\" \u2192 since 2020. \"Hace 5 a\u00f1os / durante 5 a\u00f1os\" \u2192 for 5 years.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Ever y Never en su lugar:</strong> <b>Ever</b> va en preguntas, entre have y el participio: \"Have you <b>ever</b> spoken to a manager?\" <b>Never</b> va en afirmativo (reemplaza el negativo): \"I have <b>never</b> had this problem\" (no: I haven't never...).</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 La se\u00f1al del Past Simple:</strong> Si ves palabras como <b>yesterday, last week, in 2015, ago, at 3pm</b> \u2192 usa Past Simple, no Present Perfect. Estas palabras anclan la acci\u00f3n en el pasado terminado.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Contracciones naturales:</strong> I have \u2192 <b>I've</b> \u00b7 He has \u2192 <b>He's</b> \u00b7 She has \u2192 <b>She's</b> \u00b7 They have \u2192 <b>They've</b>. En conversaci\u00f3n siempre se usan contracciones. \"I've worked here for 5 years\" suena m\u00e1s natural que \"I have worked\".</div>\n<div class=\"section-label\">Se\u00f1ales de tiempo \u2014 \u00bfPP o Past Simple?</div>\n<div class=\"time-signal-guide\">\n  <div class=\"tsg-col tsg-pp\">\n    <div class=\"tsg-header\">Present Perfect \u2705</div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">for</span> + per\u00edodo</div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">since</span> + punto</div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">ever</span> (preguntas)</div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">never</span></div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">already / yet / just</span></div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">so far / up to now</span></div>\n  </div>\n  <div class=\"tsg-col tsg-ps\">\n    <div class=\"tsg-header\">Past Simple \u2705</div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">yesterday</span></div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">last week / last year</span></div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">in 2015 / in March</span></div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">ago</span> (3 days ago)</div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">at [specific time]</span></div>\n    <div class=\"tsg-item\"><span class=\"tsg-word\">when I was...</span></div>\n  </div>\n</div>"}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"formula-box\">\n  <span class=\"g-subj\">I/You/We/They</span> + <span class=\"g-verb\">have</span> + <span class=\"g-comp\">past participle</span> + <span class=\"g-quest\">for/since/ever/never</span><br>\n  <span class=\"g-subj\">He/She/It</span> + <span class=\"g-verb\">has</span> + <span class=\"g-comp\">past participle</span> + <span class=\"g-quest\">for/since/ever/never</span><br>\n  <em style=\"font-size:.8rem\">\u2753 Have/Has + subject + ever + past participle...?</em>\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">I <span class=\"g-verb\">have</span> <span class=\"g-comp\">worked</span> in customer service <span class=\"g-quest\">for</span> three years.</div><div class=\"es\">He trabajado en atenci\u00f3n al cliente durante tres a\u00f1os. (sigo trabajando aqu\u00ed)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\uddd3\ufe0f</div><div><div class=\"en\">The complaint <span class=\"g-verb\">has</span> been <span class=\"g-comp\">open</span> <span class=\"g-quest\">since</span> last Monday.</div><div class=\"es\">La queja lleva abierta desde el lunes pasado. (todav\u00eda est\u00e1 abierta)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2753</div><div><div class=\"en\"><span class=\"g-verb\">Have</span> you <span class=\"g-quest\">ever</span> <span class=\"g-comp\">spoken</span> to our technical team?</div><div class=\"es\">\u00bfHa hablado alguna vez con nuestro equipo t\u00e9cnico?</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udeab</div><div><div class=\"en\">I <span class=\"g-verb\">have</span> <span class=\"g-quest\">never</span> <span class=\"g-comp\">had</span> this problem with my account before.</div><div class=\"es\">Nunca hab\u00eda tenido este problema con mi cuenta antes.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I have called yesterday. / She has worked here since three years.</div><div class=\"es\">Errores: yesterday \u2192 Past Simple \u00b7 three years \u2192 for (not since)</div></div></div>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f 3 Errores Comunes</div>\n  <p>\u274c \"I have called <b>yesterday</b>\" \u2192 \u2705 \"I <b>called</b> yesterday\" (tiempo espec\u00edfico \u2192 Past Simple)<br>\n  \u274c \"She has worked here <b>since</b> three years\" \u2192 \u2705 \"...for three years\" (per\u00edodo \u2192 for, not since)<br>\n  \u274c \"Have you <b>never</b> been here?\" \u2192 \u2705 \"Have you <b>ever</b> been here?\" (preguntas \u2192 ever, not never)</p>\n</div>"}];
+var EXERCISES = [[{"q": "El Present Perfect conecta el pasado con el presente porque:", "a": "b", "o": ["La acci\u00f3n ocurri\u00f3 y ya termin\u00f3 completamente", "La acci\u00f3n pasada sigue teniendo relevancia o efecto ahora"], "fc": "Exacto. El PP conecta: la acci\u00f3n empez\u00f3 en el pasado pero a\u00fan es relevante ahora.", "fi": "Si la acci\u00f3n termin\u00f3 completamente y no tiene relevancia presente, usamos Past Simple.", "ex": "I have worked here for 5 years. (sigo trabajando aqu\u00ed)", "tip": "PP = conexi\u00f3n pasado-presente \u00b7 PS = pasado terminado sin conexi\u00f3n"}, {"q": "\"He trabajado aqu\u00ed desde 2020.\" \u2192 en ingl\u00e9s:", "a": "a", "o": ["I have worked here since 2020.", "I have worked here for 2020."], "fc": "Since + punto de inicio: 2020 es una fecha espec\u00edfica \u2192 since 2020.", "fi": "For es para per\u00edodos de tiempo (for 5 years, for a week). 2020 es un punto, no un per\u00edodo.", "ex": "I have worked here since 2020. (desde ese a\u00f1o, sigo aqu\u00ed)", "tip": "Punto de inicio espec\u00edfico \u2192 since \u00b7 Per\u00edodo de tiempo \u2192 for"}, {"q": "\"He trabajado aqu\u00ed durante 5 a\u00f1os.\" \u2192 en ingl\u00e9s:", "a": "b", "o": ["I have worked here since 5 years.", "I have worked here for 5 years."], "fc": "For + per\u00edodo de tiempo: '5 years' es una duraci\u00f3n \u2192 for 5 years.", "fi": "Since va con puntos de inicio, no con per\u00edodos. '5 years' es duraci\u00f3n \u2192 for.", "ex": "I have worked here for 5 years. (duraci\u00f3n = for)", "tip": "Per\u00edodo / duraci\u00f3n \u2192 for \u00b7 Fecha / punto \u2192 since"}, {"q": "\"\u00bfHas viajado alguna vez?\" \u2192 en ingl\u00e9s:", "a": "a", "o": ["Have you ever travelled?", "Have you never travelled?"], "fc": "Ever se usa en preguntas de experiencia de vida. Have you ever...?", "fi": "Never es para negaciones: I have never travelled. En preguntas se usa ever.", "ex": "Have you ever spoken to a manager? (pregunta de experiencia)", "tip": "Pregunta de experiencia de vida \u2192 ever"}, {"q": "\"Nunca he tenido este problema.\" \u2192 en ingl\u00e9s:", "a": "b", "o": ["I have ever had this problem.", "I have never had this problem."], "fc": "Never = en ning\u00fan momento de la vida. Va entre have y el participio.", "fi": "Ever se usa en preguntas, no en afirmaciones negativas.", "ex": "I have never had this problem before.", "tip": "Never \u2192 afirmaci\u00f3n negativa \u00b7 Ever \u2192 pregunta"}], [{"q": "\"Since\" se usa con:", "a": "b", "o": ["Un per\u00edodo de tiempo (dos a\u00f1os, seis meses)", "Un punto de inicio espec\u00edfico (2020, Monday, last year)"], "fc": "Since + punto de inicio: since 2020, since Monday, since the complaint.", "fi": "Per\u00edodos de tiempo van con for: for two years, for six months.", "ex": "since 2020 / since Monday / since I started (puntos espec\u00edficos)", "tip": "Since = punto de inicio \u00b7 For = per\u00edodo / duraci\u00f3n"}, {"q": "\"For\" se usa con:", "a": "a", "o": ["Un per\u00edodo de tiempo (three weeks, a long time)", "Un punto de inicio (2020, last Monday)"], "fc": "For + per\u00edodo de tiempo que se puede medir: for three weeks, for a long time.", "fi": "Puntos de inicio van con since: since 2020, since Monday.", "ex": "for three weeks / for a long time / for five years", "tip": "For = per\u00edodo medible \u00b7 Since = punto de inicio"}, {"q": "\"The complaint has been open ___ last Monday.\"", "a": "b", "o": ["for", "since"], "fc": "Last Monday es un punto de inicio espec\u00edfico \u2192 since last Monday.", "fi": "For va con per\u00edodos: for a week. Last Monday es un punto concreto \u2192 since.", "ex": "The complaint has been open since last Monday.", "tip": "Last Monday = punto de inicio \u2192 since"}, {"q": "\"She has worked in this department ___ six months.\"", "a": "a", "o": ["for", "since"], "fc": "Six months es un per\u00edodo de tiempo (duraci\u00f3n) \u2192 for six months.", "fi": "Since va con puntos de inicio. Six months es duraci\u00f3n \u2192 for.", "ex": "She has worked here for six months.", "tip": "Six months = per\u00edodo / duraci\u00f3n \u2192 for"}, {"q": "\"Have you ___ spoken to the technical team?\"", "a": "b", "o": ["never", "ever"], "fc": "Pregunta de experiencia de vida \u2192 ever. Have you ever...?", "fi": "Never va en oraciones afirmativas negativas: I have never spoken to them.", "ex": "Have you ever spoken to our technical team?", "tip": "Preguntas de experiencia \u2192 ever"}], [{"q": "Which sentence uses Present Perfect correctly?", "a": "a", "o": ["I have worked here for five years.", "I have worked here five years ago."], "fc": "For five years = per\u00edodo hasta ahora \u2192 Present Perfect correcto.", "fi": "Five years ago = tiempo espec\u00edfico pasado terminado \u2192 Past Simple: I worked there five years ago.", "ex": "I have worked here for five years. (still working)", "tip": "ago = Past Simple \u00b7 for = Present Perfect (duraci\u00f3n hasta ahora)"}, {"q": "\"I ___ this issue yesterday.\" \u00bfQu\u00e9 tiempo verbal es correcto?", "a": "b", "o": ["have reported", "reported"], "fc": "Yesterday = tiempo espec\u00edfico pasado \u2192 Past Simple: I reported this issue yesterday.", "fi": "Yesterday ancla la acci\u00f3n en el pasado terminado. Present Perfect no se usa con yesterday.", "ex": "I reported this issue yesterday. (Past Simple)", "tip": "yesterday = Past Simple (nunca con Present Perfect)"}, {"q": "\"The manager has ___ seen this type of complaint before.\"", "a": "a", "o": ["never", "not ever"], "fc": "Never = not ever. Va entre has y el participio. I have never / She has never.", "fi": "Not ever es incorrecto en ingl\u00e9s est\u00e1ndar. Se usa never (= not + ever combinados).", "ex": "The manager has never seen this type of complaint.", "tip": "never = not ever (ya combinados). Posici\u00f3n: have/has + never + participio"}, {"q": "\"She has worked here ___ she graduated.\" \u00bfSince o for?", "a": "a", "o": ["since", "for"], "fc": "Since + cl\u00e1usula/evento: since she graduated = desde que se gradu\u00f3 (punto de inicio).", "fi": "For necesita per\u00edodo de tiempo medible. 'She graduated' es un evento (punto) \u2192 since.", "ex": "She has worked here since she graduated. (since + event)", "tip": "since + event / date / day \u00b7 for + duration"}, {"q": "\u00bfCu\u00e1l indica experiencia de vida con Present Perfect?", "a": "b", "o": ["I called the manager last week.", "Have you ever called the manager?"], "fc": "Have you ever...? = \u00bfalguna vez en tu vida? \u2192 experiencia con Present Perfect.", "fi": "I called last week es Past Simple con tiempo espec\u00edfico (last week).", "ex": "Have you ever called to complain? (experiencia de vida)", "tip": "Have you ever + participio? = pregunta de experiencia"}], [{"q": "\"Desde hace tres d\u00edas\" \u2192 en ingl\u00e9s:", "a": "b", "o": ["since three days", "for three days"], "fc": "Tres d\u00edas es un per\u00edodo de tiempo (duraci\u00f3n) \u2192 for three days.", "fi": "Since va con puntos: since Monday, since 2020. Three days es duraci\u00f3n \u2192 for.", "ex": "I have been waiting for three days.", "tip": "Per\u00edodo / duraci\u00f3n \u2192 for \u00b7 Punto de inicio \u2192 since"}, {"q": "\"Desde el martes\" \u2192 en ingl\u00e9s:", "a": "a", "o": ["since Tuesday", "for Tuesday"], "fc": "Tuesday es un punto de inicio espec\u00edfico \u2192 since Tuesday.", "fi": "For no va con d\u00edas espec\u00edficos. Tuesday es punto de inicio \u2192 since.", "ex": "The case has been open since Tuesday.", "tip": "D\u00eda espec\u00edfico = punto de inicio \u2192 since"}, {"q": "\"I ___ spoke to her three days ago.\" \u00bfCu\u00e1l es correcto?", "a": "b", "o": ["have", "\u2014  (no auxiliary needed)"], "fc": "Three days ago = tiempo espec\u00edfico pasado \u2192 Past Simple: I spoke to her three days ago (sin have).", "fi": "Have spoke es incorrecto. Con ago siempre Past Simple sin auxiliar have.", "ex": "I spoke to her three days ago. (Past Simple)", "tip": "ago = Past Simple (sin have)"}, {"q": "\"___ you ever had to deal with a difficult complaint?\"", "a": "a", "o": ["Have", "Did"], "fc": "Have you ever...? = Present Perfect para experiencia de vida. Ever con PP.", "fi": "Did you ever... es tambi\u00e9n posible pero con Past Simple implica tiempo pasado espec\u00edfico. Have you ever es la forma m\u00e1s com\u00fan para experiencia.", "ex": "Have you ever had to handle a difficult complaint?", "tip": "Have you ever + participio = experiencia de vida"}, {"q": "El cliente dice: \"I have never received a response.\" Esto significa:", "a": "b", "o": ["Recibi\u00f3 una respuesta en el pasado y la olvid\u00f3", "En ning\u00fan momento de su experiencia ha recibido respuesta"], "fc": "Have never + participio = en ning\u00fan momento de la vida. Es una experiencia completa de 'nunca'.", "fi": "Never en PP indica ausencia total de experiencia hasta el momento presente.", "ex": "I have never received a response. (nunca en la vida \u2014 hasta ahora)", "tip": "have never + participle = nunca en la vida hasta ahora"}], [{"q": "\"The agent ___ been dealing with this complaint for two hours.\"", "a": "a", "o": ["has", "have"], "fc": "The agent = he/she/it \u2192 has. For two hours = per\u00edodo \u2192 Present Perfect correcto.", "fi": "Have se usa con I/you/we/they. The agent = singular \u2192 has.", "ex": "The agent has been dealing with this complaint for two hours.", "tip": "He/she/it \u2192 has \u00b7 I/you/we/they \u2192 have"}, {"q": "\"I ___ never had to escalate a complaint before.\"", "a": "b", "o": ["has", "have"], "fc": "I \u2192 have. Have never + participio. I have never had...", "fi": "Has es para he/she/it. Con I siempre have.", "ex": "I have never had to escalate a complaint before.", "tip": "I \u2192 have (nunca has con I)"}, {"q": "\"The customer has been waiting ___ last Tuesday.\"", "a": "b", "o": ["for", "since"], "fc": "Last Tuesday es un punto de inicio espec\u00edfico \u2192 since last Tuesday.", "fi": "For necesita per\u00edodo: for three days. Last Tuesday es punto \u2192 since.", "ex": "The customer has been waiting since last Tuesday.", "tip": "D\u00eda / fecha espec\u00edfica \u2192 since"}, {"q": "\"Have you ___ filled in this type of form before?\"", "a": "a", "o": ["ever", "never"], "fc": "Pregunta de experiencia de vida \u2192 ever. Have you ever filled in...?", "fi": "Never en una pregunta ser\u00eda Have you never...? \u2014 posible pero inusual y diferente en significado.", "ex": "Have you ever filled in this type of form?", "tip": "Pregunta de experiencia \u2192 ever (no never)"}, {"q": "Elige la oraci\u00f3n completamente correcta:", "a": "b", "o": ["She has worked here since three years.", "She has worked here for three years."], "fc": "Three years es un per\u00edodo de tiempo (duraci\u00f3n) \u2192 for three years. Since + punto de inicio.", "fi": "Since three years es el error m\u00e1s com\u00fan de hispanohablantes. Three years es duraci\u00f3n \u2192 for.", "ex": "She has worked here for three years. (duraci\u00f3n \u2192 for)", "tip": "NUNCA: since + per\u00edodo \u00b7 SIEMPRE: for + per\u00edodo"}]];
+var SUMMARY = ["<b>Present Perfect:</b> have/has + past participle \u2192 experiencia, resultado o duraci\u00f3n hasta ahora", "<b>for</b> + per\u00edodo de tiempo: for two years / for a long time (\u00bfcu\u00e1nto tiempo ha durado?)", "<b>since</b> + punto de inicio: since 2020 / since Monday / since I started (\u00bfdesde cu\u00e1ndo?)", "<b>ever</b> en preguntas: Have you ever...? (\u00bfalguna vez en tu vida?)", "<b>never</b> en negativo: I have never... (= not ever \u2014 nunca en la vida)", "<b>Diferencia clave:</b> Present Perfect \u2260 Past Simple. PP \u2192 conexi\u00f3n con el presente. PS \u2192 pasado terminado", "<b>Participios irregulares clave:</b> been, done, had, seen, spoken, written, given, taken, made"];
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+    var c = document.getElementById("stepTabs");
+    c.innerHTML = "";
+    STEPS.forEach(function(s, i) {
+        var k = "s" + i;
+        var allDone = [0,1,2,3,4].every(function(j){ return answered[k+"e"+j]; });
+        var b = document.createElement("button");
+        b.className = "step-tab" + (i === curStep ? " active" : "") + (allDone && i !== curStep ? " done" : "");
+        b.textContent = (i + 1) + ". " + s.icon + " " + s.title;
+        b.addEventListener("click", (function(idx){ return function(){
+            curStep = idx;
+            renderStepTabs();
+            renderCard();
+            document.getElementById("summaryFinal").classList.remove("show");
+        };})(i));
+        c.appendChild(b);
+    });
+}
+
+function renderCard() {
+    var s = STEPS[curStep];
+    var exs = EXERCISES[curStep];
+    var k = "s" + curStep;
+    if (scores[k] === undefined) scores[k] = 0;
+    var h = "<div class=\"card\">" + s.html;
+    h += "<div class=\"ex-section\"><h3>&#x270F;&#xFE0F; Exercises &mdash; " + s.title + "</h3>";
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        var longOpts = e.o[0].length > 42 || e.o[1].length > 42;
+        var gs = longOpts ? " style=\"grid-template-columns:1fr\"" : "";
+        h += "<div class=\"exercise\" id=\"" + eid + "\">";
+        h += "<div class=\"exercise-q\">" + (i+1) + ". " + e.q + "</div>";
+        h += "<div class=\"opts\"" + gs + ">";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "ba\">a) " + e.o[0] + "</button>";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "bb\">b) " + e.o[1] + "</button>";
+        h += "</div>";
+        var ct = e.a === "a" ? e.o[0] : e.o[1];
+        h += "<div class=\"fb fb-ok\" id=\"fbok-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F389;</span> Correct!</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\"><span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x1F4A1;</span><div class=\"fb-text\">The other option: " + e.fi + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div>";
+        h += "<div class=\"fb fb-bad\" id=\"fbbad-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F615;</span> Not quite right</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x274C;</span><div class=\"fb-text\"><span class=\"fb-wrong-reason\">" + e.fi + "</span></div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\">The correct answer is <span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div></div>";
+    });
+    h += "<div class=\"score-bar\"><div class=\"num\" id=\"sc-" + k + "\">0/5</div><div class=\"lbl\">Score</div></div>";
+    h += "</div></div>";
+    document.getElementById("cardArea").innerHTML = h;
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        document.getElementById(eid + "ba").addEventListener("click", (function(id){ return function(){ chk(id,"a"); }; })(eid));
+        document.getElementById(eid + "bb").addEventListener("click", (function(id){ return function(){ chk(id,"b"); }; })(eid));
+    });
+}
+
+function chk(eid, sel) {
+    if (answered[eid]) return;
+    answered[eid] = true;
+    var parts = eid.match(/s(\d+)e(\d+)/);
+    var si = parseInt(parts[1]);
+    var ei = parseInt(parts[2]);
+    var e = EXERCISES[si][ei];
+    var k = "s" + si;
+    var ex = document.getElementById(eid);
+    var btnA = document.getElementById(eid + "ba");
+    var btnB = document.getElementById(eid + "bb");
+    btnA.disabled = true;
+    btnB.disabled = true;
+    if (sel === e.a) {
+        ex.classList.add("correct");
+        (sel === "a" ? btnA : btnB).classList.add("sel-ok");
+        document.getElementById("fbok-" + eid).classList.add("show");
+        scores[k]++;
+    } else {
+        ex.classList.add("incorrect");
+        (sel === "a" ? btnA : btnB).classList.add("sel-bad");
+        (e.a === "a" ? btnA : btnB).classList.add("show-ok");
+        document.getElementById("fbbad-" + eid).classList.add("show");
+    }
+    document.getElementById("sc-" + k).textContent = scores[k] + "/5";
+    var allDone = [0,1,2,3,4].every(function(i){ return answered[k + "e" + i]; });
+    if (allDone && curStep === 4) {
+        setTimeout(function() {
+            var sf = document.getElementById("summaryFinal");
+            document.getElementById("summaryList").innerHTML = SUMMARY.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+            sf.classList.add("show");
+            sf.scrollIntoView({behavior:"smooth"});
+        }, 600);
+    }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>
