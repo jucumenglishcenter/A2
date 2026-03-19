@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M1 T3 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .modal-type-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .modal-type-badge.deduction { background:#EDE9FE; color:#6D28D9; }
+        .modal-type-badge.obligation { background:#DBEAFE; color:#1D4ED8; }
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:90px; padding:0.2rem 0.6rem; background:#D1FAE5; border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; }
+        .options-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.9rem 0.5rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:4px; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.92rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.6rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128221; Fill in the Blanks</div>
+            <div class="header-subtitle">&#128154; A2 &middot; M&oacute;dulo 1 &middot; Modales de deducci&oacute;n &amp; Obligaci&oacute;n</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128218;</div>
+            <div>
+                <div class="instructions-title">Completa el espacio en blanco</div>
+                <div class="instructions-text">Elige el modal correcto. <strong>Deducci&oacute;n:</strong> must / might / may / can't &bull; <strong>Obligaci&oacute;n:</strong> must / have to / should / need to / needn't</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">&#161;Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Intentar de Nuevo</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Volver al M&oacute;dulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // FILL — A2 M1 Tema 3
+    // Modals of deduction + Obligation spectrum
+    // 15 preguntas | DOBLE ALEATORIZACIÓN
+    //   1. Opciones pre-mezcladas en datos (posición correcta variada: 2,2,2,1,0,0,0,0,1,0,2,1,0,2,1)
+    //   2. Fisher-Yates adicional en runtime
+    // Q1-Q8: deduction | Q9-Q15: obligation
+    // ============================================================
+    const quizData = [
+        // Q1 — must | deduction | correct pos 2
+        {
+            id:1, topic:"deduction",
+            sentence:"The pipe is completely dry. The plumber _____ have fixed it already.",
+            translation:"La tuber\u00eda est\u00e1 completamente seca. El plomero _________ haberla arreglado ya.",
+            hint:"La tuber\u00eda est\u00e1 completamente seca \u2014 es evidencia f\u00edsica directa. \u00bfEs una certeza o solo una posibilidad?",
+            clue:"completely dry",
+            clueExplain:"'Completely dry' es evidencia s\u00f3lida y directa. Con prueba clara de que algo es verdad, usamos 'must' para expresar casi certeza positiva.",
+            options:["might","can't","must"], correct:"must",
+            feedback:{
+                "might":{ errorType:"Posibilidad vs. Certeza", explanation:"'Might' indica posibilidad (50% o menos). Pero la tuber\u00eda completamente seca es evidencia directa \u2014 no hay duda razonable. Con prueba s\u00f3lida usamos 'must'.", rule:"must = casi certeza (+) con evidencia / might = posibilidad incierta" },
+                "can't":{ errorType:"Certeza negativa vs. Positiva", explanation:"'Can't' expresa que algo es casi imposible. Pero la tuber\u00eda seca confirma que S\u00cd lo arregl\u00f3. Con evidencia que confirma algo positivo, usamos 'must'.", rule:"must = casi seguro que s\u00ed / can't = casi imposible" }
+            },
+            rule:"must + inf. = deducci\u00f3n positiva casi segura (evidencia s\u00f3lida)",
+            examples:["It must be fixed \u2014 the pipe is dry","She must be home \u2014 the lights are on"],
+            correctReason:"Con evidencia directa (tuber\u00eda completamente seca), 'must' es la deducci\u00f3n correcta: casi con certeza el plomero ya lo arregl\u00f3."
+        },
+        // Q2 — can't | deduction | correct pos 2
+        {
+            id:2, topic:"deduction",
+            sentence:"James _____ be the customer they lost the package for \u2014 he ordered it two years ago.",
+            translation:"James _________ ser el cliente al que perdieron el paquete \u2014 lo orden\u00f3 hace dos a\u00f1os.",
+            hint:"El pedido fue hace dos a\u00f1os. \u00bfEs l\u00f3gicamente posible que sea ese caso activo?",
+            clue:"two years ago",
+            clueExplain:"'Two years ago' hace casi imposible que sea el mismo caso. Cuando la evidencia descarta una opci\u00f3n, usamos 'can't'.",
+            options:["might","must","can't"], correct:"can't",
+            feedback:{
+                "might":{ errorType:"Posibilidad vs. Imposibilidad l\u00f3gica", explanation:"'Might' indicar\u00eda posibilidad real. Pero 'two years ago' hace esto casi imposible, no solo improbable. Con evidencia que descarta, usamos 'can't'.", rule:"can't = imposibilidad l\u00f3gica / might = posibilidad incierta" },
+                "must":{ errorType:"Certeza positiva vs. Negativa", explanation:"'Must' expresar\u00eda certeza de que S\u00cd es ese cliente. Pero 'two years ago' lo descarta casi con certeza. Usamos 'can't' para certeza negativa.", rule:"must = casi seguro que s\u00ed / can't = casi imposible" }
+            },
+            rule:"can't + inf. = imposibilidad l\u00f3gica basada en evidencia",
+            examples:["He can't be the same customer \u2014 it was two years ago","It can't be right \u2014 the dates don't match"],
+            correctReason:"'Two years ago' hace l\u00f3gicamente imposible que sea el mismo caso activo. 'Can't' expresa esa certeza negativa basada en evidencia."
+        },
+        // Q3 — might | deduction | correct pos 2
+        {
+            id:3, topic:"deduction",
+            sentence:"The heating system is making a strange noise. There _____ be a problem with the pressure.",
+            translation:"El sistema de calefacci\u00f3n est\u00e1 haciendo un ruido extra\u00f1o. _________ haber un problema con la presi\u00f3n.",
+            hint:"Un ruido extra\u00f1o puede tener varias causas. \u00bfEst\u00e1s seguro o es solo una posibilidad?",
+            clue:"strange noise",
+            clueExplain:"Un ruido extra\u00f1o es una pista ambigua con m\u00faltiples causas posibles. Sin evidencia directa, usamos 'might' para posibilidad incierta.",
+            options:["must","can't","might"], correct:"might",
+            feedback:{
+                "must":{ errorType:"Certeza vs. Posibilidad", explanation:"'Must' requiere evidencia s\u00f3lida. Un ruido extra\u00f1o es solo una pista ambigua \u2014 hay varias causas posibles. Usamos 'might' cuando no hay certeza.", rule:"must = evidencia directa y s\u00f3lida / might = posibilidad incierta" },
+                "can't":{ errorType:"Imposibilidad vs. Posibilidad", explanation:"'Can't be a problem' descartaría el problema de presi\u00f3n. Pero s\u00ed es una posibilidad real. Usamos 'might' para algo posible pero no confirmado.", rule:"can't = imposible / might = posible pero incierto" }
+            },
+            rule:"might / may + inf. = posibilidad incierta (sin evidencia directa)",
+            examples:["There might be a pressure problem","It might be the thermostat"],
+            correctReason:"Un ruido extra\u00f1o es una pista ambigua. 'Might be a problem' expresa posibilidad sin certeza. Compara: 'must be' (evidencia clara) vs. 'might be' (solo posible)."
+        },
+        // Q4 — may | deduction | correct pos 1
+        {
+            id:4, topic:"deduction",
+            sentence:"Nadia hasn't called back yet. She _____ still be waiting on hold with the phone company.",
+            translation:"Nadia a\u00fan no ha devuelto la llamada. _________ que todav\u00eda est\u00e9 en espera con la compa\u00f1\u00eda.",
+            hint:"No sabes d\u00f3nde est\u00e1 Nadia. Es una deducci\u00f3n razonada, no una certeza.",
+            clue:"hasn't called back yet",
+            clueExplain:"No tener informaci\u00f3n directa sugiere posibilidad razonada. 'May' expresa algo plausible pero no confirmado.",
+            options:["can't","may","must"], correct:"may",
+            feedback:{
+                "can't":{ errorType:"Imposibilidad vs. Posibilidad razonada", explanation:"'Can't still be waiting' descartaría esa opci\u00f3n. Pero s\u00ed es perfectamente posible que est\u00e9 en espera. Usamos 'may' para algo plausible.", rule:"can't = imposible / may = posible y razonable" },
+                "must":{ errorType:"Certeza vs. Posibilidad razonada", explanation:"'Must be waiting' expresar\u00eda casi certeza. Pero no devolver la llamada tiene muchas explicaciones posibles. Usamos 'may' para posibilidad sin certeza.", rule:"must = casi certeza con evidencia / may = posibilidad razonada" }
+            },
+            rule:"may + inf. = posibilidad razonada (plausible, sin confirmar)",
+            examples:["She may still be on hold","He may have missed the call"],
+            correctReason:"Sin evidencia directa, 'may still be waiting' expresa una deducci\u00f3n plausible pero no confirmada. 'May' y 'might' son intercambiables aqui; 'may' es ligeramente m\u00e1s formal."
+        },
+        // Q5 — must | deduction | correct pos 0
+        {
+            id:5, topic:"deduction",
+            sentence:"Carlos has been awake since 5 AM dealing with the maintenance team. He _____ be exhausted.",
+            translation:"Carlos ha estado despierto desde las 5 AM con el equipo de mantenimiento. _________ estar agotado.",
+            hint:"Lleva horas despierto gestionando una crisis. \u00bfCu\u00e1l es la conclusi\u00f3n l\u00f3gica casi inevitable?",
+            clue:"awake since 5 AM",
+            clueExplain:"Estar despierto desde las 5 AM gestionando una crisis es evidencia s\u00f3lida. Usamos 'must' para deducir con casi certeza.",
+            options:["must","can't","may"], correct:"must",
+            feedback:{
+                "can't":{ errorType:"Certeza negativa vs. Positiva", explanation:"'Can't be exhausted' descartaría el agotamiento. Pero llevar horas despierto en una crisis hace casi imposible NO estar agotado. Usamos 'must' para certeza positiva.", rule:"must = casi seguro que s\u00ed / can't = casi imposible" },
+                "may":{ errorType:"Posibilidad vs. Certeza", explanation:"'May be exhausted' indica solo posibilidad. Pero 'since 5 AM in a crisis' es evidencia muy s\u00f3lida \u2014 no hay duda real. Usamos 'must' para casi certeza.", rule:"must = casi certeza con evidencia clara / may = posibilidad incierta" }
+            },
+            rule:"must + inf. = deducci\u00f3n positiva casi segura",
+            examples:["He must be exhausted \u2014 awake since 5 AM","She must be stressed with all those issues"],
+            correctReason:"La evidencia es directa y clara. 'Must be exhausted' es la deducci\u00f3n casi inevitable: despierto desde las 5 AM gestionando una crisis de mantenimiento."
+        },
+        // Q6 — can't | deduction | correct pos 0
+        {
+            id:6, topic:"deduction",
+            sentence:"The customer service office closes at 5 PM. It's 7 PM now, so Lucia _____ be calling them.",
+            translation:"La oficina cierra a las 5 PM. Son las 7 PM, as\u00ed que Lucia _________ estar llam\u00e1ndoles ahora.",
+            hint:"Son las 7 PM y la oficina cerr\u00f3 a las 5 PM. \u00bfEs l\u00f3gicamente posible esa llamada?",
+            clue:"closes at 5 PM / it's 7 PM",
+            clueExplain:"El horario hace imposible esa llamada. Con evidencia que elimina una opci\u00f3n, usamos 'can't'.",
+            options:["can't","might","must"], correct:"can't",
+            feedback:{
+                "might":{ errorType:"Posibilidad vs. Imposibilidad l\u00f3gica", explanation:"'Might be calling' indicar\u00eda posibilidad. Pero la oficina est\u00e1 cerrada \u2014 es imposible. Con evidencia que lo descarta, usamos 'can't'.", rule:"can't = imposible por evidencia / might = posible" },
+                "must":{ errorType:"Certeza positiva vs. Negativa", explanation:"'Must be calling' afirmar\u00eda que S\u00ed est\u00e1 llamando. Pero el horario hace eso imposible. Usamos 'can't' cuando la evidencia descarta algo.", rule:"must = casi seguro que s\u00ed / can't = imposible" }
+            },
+            rule:"can't + inf. = imposibilidad l\u00f3gica por evidencia",
+            examples:["She can't be calling \u2014 it's 7 PM","He can't be there \u2014 the office is closed"],
+            correctReason:"El horario es evidencia irrefutable. 'Can't be calling' expresa que es l\u00f3gicamente imposible \u2014 la oficina lleva dos horas cerrada."
+        },
+        // Q7 — might | deduction | correct pos 0
+        {
+            id:7, topic:"deduction",
+            sentence:"The tracking page still says 'processing'. The package _____ have been lost in transit.",
+            translation:"La p\u00e1gina de rastreo a\u00fan dice 'procesando'. El paquete _________ haberse perdido en tr\u00e1nsito.",
+            hint:"'Procesando' despu\u00e9s de mucho tiempo es una pista ambigua. \u00bfHay certeza o solo posibilidad?",
+            clue:"still says processing",
+            clueExplain:"'Still processing' puede significar retraso, error t\u00e9cnico o p\u00e9rdida. Sin prueba directa, usamos 'might' para posibilidad incierta.",
+            options:["might","must","can't"], correct:"might",
+            feedback:{
+                "must":{ errorType:"Certeza vs. Posibilidad", explanation:"'Must have been lost' expresar\u00eda casi certeza. Pero 'still processing' es solo una pista ambigua \u2014 puede haber otras causas. Usamos 'might' sin evidencia s\u00f3lida.", rule:"must = evidencia s\u00f3lida / might = posibilidad incierta" },
+                "can't":{ errorType:"Imposibilidad vs. Posibilidad", explanation:"'Can't have been lost' descartaría la p\u00e9rdida. Pero la p\u00e9rdida S\u00cd es una posibilidad real. Usamos 'might' para algo posible pero no confirmado.", rule:"might = posible pero incierto / can't = imposible" }
+            },
+            rule:"might have + past participle = posibilidad sobre el pasado",
+            examples:["It might have been lost","The order might have been delayed"],
+            correctReason:"'Still processing' es ambiguo. 'Might have been lost' expresa posibilidad real sin certeza. Es una deducci\u00f3n razonable, no una conclusi\u00f3n definitiva."
+        },
+        // Q8 — may | deduction | correct pos 0
+        {
+            id:8, topic:"deduction",
+            sentence:"The building manager hasn't replied to Carlos's email. He _____ not have seen it yet.",
+            translation:"El administrador no ha respondido el correo de Carlos. Puede que _________ no lo haya visto todav\u00eda.",
+            hint:"No responder tiene varias causas posibles. \u00bfPuedes estar seguro de por qu\u00e9?",
+            clue:"hasn't replied",
+            clueExplain:"No responder tiene m\u00faltiples explicaciones. Sin evidencia directa, 'may not have seen it' expresa posibilidad razonada.",
+            options:["may","must","can't"], correct:"may",
+            feedback:{
+                "must":{ errorType:"Certeza vs. Posibilidad razonada", explanation:"'Must not have seen it' expresar\u00eda casi certeza de que no lo vio. Pero no responder tiene muchas causas posibles. Usamos 'may not' para posibilidad sin certeza.", rule:"must = casi certeza / may = posibilidad razonada" },
+                "can't":{ errorType:"Imposibilidad vs. Posibilidad", explanation:"'Can't have seen it' describiría imposibilidad. Pero es perfectamente posible que lo haya visto y a\u00fan no respondido. Usamos 'may not' para posibilidad negativa.", rule:"may not = posiblemente no / can't = imposible" }
+            },
+            rule:"may not have + past participle = posibilidad negativa sobre el pasado",
+            examples:["He may not have seen it","She may not have received the notification"],
+            correctReason:"Sin saber por qu\u00e9 no respondi\u00f3, 'may not have seen it' es la deducci\u00f3n m\u00e1s equilibrada: es posible que no lo haya visto, pero no es certeza."
+        },
+
+        // Q9 — must | obligation | correct pos 1
+        {
+            id:9, topic:"obligation",
+            sentence:"You _____ report any water damage to the building management immediately \u2014 it's a serious safety issue.",
+            translation:"_________ reportar cualquier da\u00f1o por agua a la administraci\u00f3n inmediatamente \u2014 es un problema grave de seguridad.",
+            hint:"Es un problema grave de seguridad. \u00bfEs una obligaci\u00f3n fuerte del hablante o solo un consejo?",
+            clue:"serious safety issue",
+            clueExplain:"Un problema grave de seguridad requiere obligaci\u00f3n fuerte impuesta por el hablante. Usamos 'must' para ese nivel de urgencia.",
+            options:["should","must","needn't"], correct:"must",
+            feedback:{
+                "should":{ errorType:"Recomendaci\u00f3n vs. Obligaci\u00f3n fuerte", explanation:"'Should' da una recomendaci\u00f3n. Pero un problema grave de seguridad exige 'must' \u2014 obligaci\u00f3n fuerte que el hablante impone como esencial.", rule:"must = obligaci\u00f3n fuerte (del hablante) / should = recomendaci\u00f3n" },
+                "needn't":{ errorType:"No obligaci\u00f3n vs. Obligaci\u00f3n urgente", explanation:"'Needn't' significa que no es necesario. Pero un problema de seguridad grave es exactamente lo contrario \u2014 DEBE reportarse inmediatamente.", rule:"needn't = no es necesario / must = obligaci\u00f3n fuerte urgente" }
+            },
+            rule:"must = obligaci\u00f3n fuerte impuesta por el hablante",
+            examples:["You must report it immediately","You must call the manager now \u2014 it's urgent"],
+            correctReason:"'Must' expresa obligaci\u00f3n fuerte del hablante. Un problema grave de seguridad no admite opciones \u2014 es imperativo actuar de inmediato."
+        },
+        // Q10 — have to | obligation | correct pos 0
+        {
+            id:10, topic:"obligation",
+            sentence:"Nadia _____ submit the billing complaint form within 30 days, according to the contract.",
+            translation:"Nadia _________ enviar el formulario de queja en 30 d\u00edas, seg\u00fan el contrato.",
+            hint:"'According to the contract' \u2014 \u00bfla obligaci\u00f3n viene del hablante o de una norma externa?",
+            clue:"according to the contract",
+            clueExplain:"Una obligaci\u00f3n impuesta por el contrato es externa al hablante. Usamos 'have to' para obligaciones que vienen de reglas o normas externas.",
+            options:["have to","should","need to"], correct:"have to",
+            feedback:{
+                "should":{ errorType:"Recomendaci\u00f3n vs. Obligaci\u00f3n contractual", explanation:"'Should' es consejo o recomendaci\u00f3n. Pero el contrato impone un plazo obligatorio \u2014 no es una sugerencia. 'Have to' expresa obligaci\u00f3n por regla externa.", rule:"have to = obligaci\u00f3n por norma externa / should = recomendaci\u00f3n" },
+                "need to":{ errorType:"Necesidad pr\u00e1ctica vs. Obligaci\u00f3n contractual", explanation:"'Need to' expresa necesidad pr\u00e1ctica. 'Have to' es m\u00e1s espec\u00edfico para obligaciones impuestas por reglas externas como contratos o leyes.", rule:"have to = obligaci\u00f3n por regla externa / need to = necesidad pr\u00e1ctica" }
+            },
+            rule:"have to = obligaci\u00f3n impuesta por regla o norma externa",
+            examples:["She has to submit it in 30 days \u2014 contract","He has to pay by Friday \u2014 company policy"],
+            correctReason:"'Have to' expresa obligaci\u00f3n que viene de fuera del hablante: el contrato. No es opci\u00f3n \u2014 la norma externa lo impone."
+        },
+        // Q11 — should | obligation | correct pos 2
+        {
+            id:11, topic:"obligation",
+            sentence:"If the plumber hasn't come by noon, you _____ call the emergency maintenance line.",
+            translation:"Si el plomero no ha llegado para el mediod\u00eda, _________ llamar a la l\u00ednea de emergencias.",
+            hint:"Es un consejo razonable en una situaci\u00f3n condicional, no una ley absoluta.",
+            clue:"if... by noon",
+            clueExplain:"La estructura condicional (if) sugiere consejo razonable, no imposici\u00f3n absoluta. 'Should' es ideal para recomendaciones.",
+            options:["must","needn't","should"], correct:"should",
+            feedback:{
+                "must":{ errorType:"Obligaci\u00f3n fuerte vs. Recomendaci\u00f3n", explanation:"'Must' impone obligaci\u00f3n fuerte. Pero la estructura condicional (if) y el tono de la situaci\u00f3n indican recomendaci\u00f3n razonable. 'Should' es m\u00e1s apropiado.", rule:"should = recomendaci\u00f3n / must = obligaci\u00f3n fuerte" },
+                "needn't":{ errorType:"No obligaci\u00f3n vs. Recomendaci\u00f3n positiva", explanation:"'Needn't call' indicar\u00eda que no es necesario llamar. Pero el consejo es exactamente hacer esa llamada si el plomero no llega. 'Should' expresa la recomendaci\u00f3n positiva.", rule:"needn't = no es necesario / should = se recomienda" }
+            },
+            rule:"should = consejo o recomendaci\u00f3n razonable",
+            examples:["You should call if he hasn't come","You should contact them by noon"],
+            correctReason:"'Should' da una recomendaci\u00f3n sin imponerla como obligaci\u00f3n absoluta. La estructura condicional (if) confirma que es un consejo, no una regla."
+        },
+        // Q12 — need to | obligation | correct pos 1
+        {
+            id:12, topic:"obligation",
+            sentence:"James _____ keep all his email records to prove the store's delayed response.",
+            translation:"James _________ guardar todos sus registros de correo para probar el retraso de la tienda.",
+            hint:"Es una necesidad pr\u00e1ctica que surge de su situaci\u00f3n, no una regla externa.",
+            clue:"to prove the store's delayed response",
+            clueExplain:"Guardar los correos es una necesidad pr\u00e1ctica que surge de la situaci\u00f3n de James. 'Need to' expresa necesidades pr\u00e1cticas situacionales.",
+            options:["must","need to","should"], correct:"need to",
+            feedback:{
+                "must":{ errorType:"Obligaci\u00f3n impuesta vs. Necesidad pr\u00e1ctica", explanation:"'Must' expresa obligaci\u00f3n fuerte del hablante. Aqu\u00ed la obligaci\u00f3n surge de la situaci\u00f3n pr\u00e1ctica de James, no de una imposici\u00f3n. 'Need to' es m\u00e1s natural.", rule:"need to = necesidad pr\u00e1ctica situacional / must = obligaci\u00f3n impuesta" },
+                "should":{ errorType:"Recomendaci\u00f3n vs. Necesidad real", explanation:"'Should' ser\u00eda recomendaci\u00f3n leve. Pero sin esos correos James no puede probar nada \u2014 es una necesidad real, no solo una sugerencia. 'Need to' lo expresa con m\u00e1s fuerza.", rule:"need to = necesidad real / should = recomendaci\u00f3n leve" }
+            },
+            rule:"need to = necesidad pr\u00e1ctica que surge de la situaci\u00f3n",
+            examples:["He needs to keep the emails","She needs to save all the receipts"],
+            correctReason:"'Need to' expresa necesidad pr\u00e1ctica situacional. James necesita esos correos para su caso \u2014 no es una regla externa ni una orden, es lo que la situaci\u00f3n requiere."
+        },
+        // Q13 — needn't | obligation | correct pos 0
+        {
+            id:13, topic:"obligation",
+            sentence:"You _____ call the emergency line tonight \u2014 the issue has already been resolved.",
+            translation:"_________ llamar a la l\u00ednea de emergencias esta noche \u2014 el problema ya fue resuelto.",
+            hint:"El problema ya est\u00e1 resuelto. \u00bfHay alguna necesidad de llamar ahora?",
+            clue:"already been resolved",
+            clueExplain:"Si el problema ya est\u00e1 resuelto, la llamada no es necesaria. 'Needn't' expresa ausencia de obligaci\u00f3n.",
+            options:["needn't","must","have to"], correct:"needn't",
+            feedback:{
+                "must":{ errorType:"Obligaci\u00f3n fuerte vs. Sin obligaci\u00f3n", explanation:"'Must call' impondr\u00eda obligaci\u00f3n. Pero el problema ya est\u00e1 resuelto \u2014 no hay raz\u00f3n para llamar. 'Needn't' niega la necesidad.", rule:"needn't = no es necesario / must = obligaci\u00f3n fuerte" },
+                "have to":{ errorType:"Obligaci\u00f3n externa vs. Sin obligaci\u00f3n", explanation:"'Have to call' impondr\u00eda obligaci\u00f3n externa. Pero el problema ya fue resuelto \u2014 ninguna norma exige llamar ahora. 'Needn't' indica que no es necesario.", rule:"needn't = no hay necesidad / have to = obligaci\u00f3n externa" }
+            },
+            rule:"needn't = no es necesario (ausencia de obligaci\u00f3n)",
+            examples:["You needn't call \u2014 it's already resolved","She needn't worry \u2014 everything is fine"],
+            correctReason:"'Needn't' expresa que no hay necesidad. El problema ya est\u00e1 resuelto, as\u00ed que llamar esta noche es innecesario. Importante: 'needn't' \u2260 'mustn't' (prohibici\u00f3n)."
+        },
+        // Q14 — should | obligation | correct pos 2
+        {
+            id:14, topic:"obligation",
+            sentence:"Before signing any service contract, you _____ read all the terms and conditions carefully.",
+            translation:"Antes de firmar cualquier contrato de servicio, _________ leer todos los t\u00e9rminos y condiciones.",
+            hint:"Es un consejo general de buenas pr\u00e1cticas, no una ley impuesta externamente.",
+            clue:"before signing any contract",
+            clueExplain:"Leer un contrato antes de firmarlo es buenas pr\u00e1cticas, no una ley. 'Should' es perfecto para consejos y recomendaciones generales.",
+            options:["have to","needn't","should"], correct:"should",
+            feedback:{
+                "have to":{ errorType:"Obligaci\u00f3n externa vs. Consejo general", explanation:"'Have to' indicar\u00eda obligaci\u00f3n por ley o regla. Leer los t\u00e9rminos es buenas pr\u00e1cticas, no una ley. 'Should' es m\u00e1s apropiado para consejos.", rule:"should = buenas pr\u00e1cticas / have to = obligaci\u00f3n por norma" },
+                "needn't":{ errorType:"Sin obligaci\u00f3n vs. Recomendaci\u00f3n positiva", explanation:"'Needn't read' indicar\u00eda que no es necesario leer. Pero el consejo es exactamente S\u00cd leer cuidadosamente. 'Should' da la recomendaci\u00f3n positiva.", rule:"needn't = no es necesario / should = se recomienda" }
+            },
+            rule:"should = recomendaci\u00f3n o consejo de buenas pr\u00e1cticas",
+            examples:["You should read the terms","You should check everything before signing"],
+            correctReason:"'Should' da un consejo razonable de buenas pr\u00e1cticas. No es obligaci\u00f3n legal (have to) ni imposici\u00f3n fuerte (must) \u2014 es lo que se recomienda hacer."
+        },
+        // Q15 — must | obligation | correct pos 1
+        {
+            id:15, topic:"obligation",
+            sentence:"We _____ fix this heating problem today \u2014 the tenant has been without heat for three days.",
+            translation:"_________ arreglar este problema de calefacci\u00f3n hoy \u2014 el inquilino lleva tres d\u00edas sin calor.",
+            hint:"Tres d\u00edas sin calefacci\u00f3n es una urgencia seria. \u00bfEl hablante siente obligaci\u00f3n fuerte o solo da un consejo?",
+            clue:"three days without heat",
+            clueExplain:"Tres d\u00edas sin calefacci\u00f3n es una urgencia seria. El hablante impone obligaci\u00f3n fuerte interna \u2014 'must' es lo correcto.",
+            options:["should","must","need to"], correct:"must",
+            feedback:{
+                "should":{ errorType:"Recomendaci\u00f3n vs. Obligaci\u00f3n urgente", explanation:"'Should fix it today' ser\u00eda una recomendaci\u00f3n. Pero tres d\u00edas sin calor es urgencia absoluta que el hablante trata como obligaci\u00f3n fuerte. 'Must' expresa esa urgencia.", rule:"must = obligaci\u00f3n urgente y fuerte / should = recomendaci\u00f3n leve" },
+                "need to":{ errorType:"Necesidad pr\u00e1ctica vs. Obligaci\u00f3n fuerte urgente", explanation:"'Need to' expresa necesidad pr\u00e1ctica. Pero el tono aqu\u00ed es de urgencia absoluta \u2014 el hablante impone la obligaci\u00f3n con fuerza. 'Must' lo expresa m\u00e1s directamente.", rule:"must = obligaci\u00f3n fuerte e urgente / need to = necesidad pr\u00e1ctica" }
+            },
+            rule:"must = obligaci\u00f3n fuerte impuesta por el hablante, especialmente en urgencias",
+            examples:["We must fix it today \u2014 3 days is too long","They must respond immediately"],
+            correctReason:"'Must' expresa obligaci\u00f3n fuerte del hablante. Tres d\u00edas sin calefacci\u00f3n es una urgencia que no admite sugerencias \u2014 es una obligaci\u00f3n absoluta."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    // Fisher-Yates — segunda capa sobre datos ya pre-mezclados
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, index) { container.appendChild(createCard(q, index)); });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const shuffled = shuffle(q.options);
+        const badge = q.topic === 'deduction'
+            ? '<span class="modal-type-badge deduction">&#129302; Deducci\u00f3n</span>'
+            : '<span class="modal-type-badge obligation">&#128203; Obligaci\u00f3n</span>';
+        const btnHTML = shuffled.map(function(opt) {
+            return '<button class="option-btn" onclick="selectAnswer(' + index + ', this)">' + opt + '</button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' + badge + '</div>' +
+            '<div class="hint-box"><div class="hint-label">&#128161; Pista</div>' + q.hint + '</div>' +
+            '<p class="question-text">' + q.sentence.replace('_____', '<span class="blank" id="blank-' + index + '">?</span>') + '</p>' +
+            '<p class="translation">' + q.translation + '</p>' +
+            '<div class="options-grid" id="options-' + index + '">' + btnHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>\u2190 Anterior</button>' +
+            '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+            (index===quizData.length-1?'Ver Resultados &#127881;':'Siguiente \u2192') +
+            '</button></div>';
+        return card;
+    }
+
+    function selectAnswer(qi, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const selected = btn.textContent.trim();
+        const q = quizData[qi];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+        const blank = document.getElementById('blank-' + qi);
+        blank.textContent = selected;
+        blank.className = 'blank ' + (isCorrect ? 'correct' : 'incorrect');
+        document.querySelectorAll('#options-' + qi + ' .option-btn').forEach(function(b) {
+            b.disabled = true;
+            if (b.textContent.trim() === q.correct) b.classList.add('correct');
+            else if (b.textContent.trim() === selected) b.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e){ return '<span class="rule-ex">' + e + '</span>'; }).join('');
+        if (isCorrect) {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">&#161;Correcto!</div>' +
+                '<div class="fb-subtitle">Elegiste el modal adecuado</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; La clave que deb\u00edas identificar</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">La expresi\u00f3n <span class="signal-tag">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Regla aplicada</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcto?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            const err = q.feedback[selected] || { errorType:'Error', explanation:'Respuesta incorrecta.', rule:'' };
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrecto</div>' +
+                '<div class="fb-subtitle">Revisemos qu\u00e9 pas\u00f3</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; La clave que deb\u00edas identificar</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">La expresi\u00f3n <span class="signal-tag red">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">&#128260; Tu respuesta vs. la correcta</div>' +
+                '<div class="compare-row"><span class="compare-label wrong">T\u00fa elegiste</span><span class="compare-text"><span class="word-wrong">' + selected + '</span></span></div>' +
+                '<div class="compare-row"><span class="compare-label right">Correcto</span><span class="compare-text"><span class="word-right">' + q.correct + '</span></span></div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; Tipo de error: <span class="error-badge">' + err.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + q.correct + '</span></div>' +
+                '<div class="error-text">' + err.explanation + '</div>' +
+                (err.rule ? '<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">&#128204; ' + err.rule + '</div>' : '') + '</div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; La regla correcta</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcta la respuesta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden',idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '\u00a1Excelente! Dominas los modales de deducci\u00f3n y obligaci\u00f3n. \uD83C\uDFC6'
+            : pct >= 70 ? '\u00a1Muy bien! Sigue practicando los modales. \uD83D\uDCAA'
+            : 'Buen esfuerzo. Repasa los matices de cada modal e int\u00e9ntalo de nuevo. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

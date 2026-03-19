@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M1 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .noun-type-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .noun-type-badge.countable { background:#D1FAE5; color:#059669; }
+        .noun-type-badge.uncountable { background:#EDE9FE; color:#7C3AED; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:90px; padding:0.2rem 0.6rem; background:#D1FAE5; border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; }
+
+        .options-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.9rem 0.5rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-signal-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+
+        .fb-error { background:var(--error-light); border-radius:12px; padding:0.9rem 1rem; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; }
+        .ew-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base { color:var(--info-dark); font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .result { color:var(--success-dark); font-weight:700; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128221; Fill in the Blanks</div>
+            <div class="header-subtitle">&#128154; A2 &middot; M&oacute;dulo 1 &middot; Countable &amp; Uncountable Nouns</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128218;</div>
+            <div>
+                <div class="instructions-title">Completa el espacio en blanco</div>
+                <div class="instructions-text">Elige la opci&oacute;n correcta: <strong>How much</strong>, <strong>How many</strong>, o la forma correcta del sustantivo. Usa la pista para guiarte.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">&#161;Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Intentar de Nuevo</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Volver al M&oacute;dulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [
+        {
+            id: 1,
+            sentence: "Lucia asked the manager: \"_____ water did the building use today?\"",
+            translation: "Lucia le pregunt\u00f3 al administrador: \"\u00bfCu\u00e1nta _________ us\u00f3 el edificio hoy?\"",
+            hint: "Piensa: \u00bfpuedes contar el agua en unidades individuales? \u00bfDices 'one water, two waters'?",
+            clue: "water",
+            clueExplain: "'Water' es incontable \u2014 no tiene plural y no se puede numerar directamente. Los sustantivos incontables usan 'How much', no 'How many'.",
+            nounType: "uncountable",
+            options: ["How much", "How many", "How few"],
+            correct: "How much",
+            feedback: {
+                "How many": { errorType: "Cuantificador incorrecto \u2014 Contable vs Incontable", explanation: "Elegiste 'How many'. Esa forma se usa SOLO con sustantivos contables en plural (calls, pipes, days). 'Water' es incontable: no puedes contar 'one water, two waters'. Los incontables necesitan 'How much'.", rule: "How many + contable plural / How much + incontable" },
+                "How few": { errorType: "Estructura inexistente para preguntar cantidad", explanation: "'How few' no se usa para preguntar cu\u00e1nto hay de algo. Para preguntar cantidad usamos 'How much' (incontable) o 'How many' (contable).", rule: "Preguntas de cantidad: How much (incontable) / How many (contable)" }
+            },
+            correctReason: "'Water' es incontable: no tiene forma plural y no se puede numerar sin una medida ('a glass of water'). La regla es directa: How much + sustantivo incontable.",
+            examples: ["water \u2192 incontable \u2192 How much", "information \u2192 incontable \u2192 How much", "time \u2192 incontable \u2192 How much"]
+        },
+        {
+            id: 2,
+            sentence: "The building manager asked: \"_____ complaints did you receive this week?\"",
+            translation: "El administrador pregunt\u00f3: \"\u00bfCu\u00e1ntas _________ recibiste esta semana?\"",
+            hint: "\u00bfPuedes contar las quejas una por una? \u00bfPuedes decir 'one complaint, two complaints'?",
+            clue: "complaints",
+            clueExplain: "'Complaints' est\u00e1 en plural con -s al final. Esa -s confirma que es un sustantivo contable. Contable en plural \u2192 siempre 'How many'.",
+            nounType: "countable",
+            options: ["How many", "How much", "How little"],
+            correct: "How many",
+            feedback: {
+                "How much": { errorType: "Cuantificador de Incontable aplicado a Contable", explanation: "Elegiste 'How much'. Esa forma es para incontables (water, information, advice). 'Complaints' tiene -s de plural \u2014 es contable. Contable plural \u2192 siempre 'How many complaints'.", rule: "How much + incontable / How many + contable plural" },
+                "How little": { errorType: "Cuantificador de Incontable \u2014 no interrogativo", explanation: "'How little' se usa con incontables para expresar poca cantidad. No se usa para preguntar el n\u00famero de elementos contables. Para contables en plural la pregunta es siempre 'How many'.", rule: "Pregunta de n\u00famero: How many + contable plural" }
+            },
+            correctReason: "'Complaints' tiene -s de plural y es claramente contable \u2014 puedes contar: one complaint, two complaints, three complaints. Contable plural \u2192 'How many complaints'.",
+            examples: ["complaints \u2192 contable \u2192 How many", "calls \u2192 contable \u2192 How many", "requests \u2192 contable \u2192 How many"]
+        },
+        {
+            id: 3,
+            sentence: "James checked his notes: \"_____ time did I spend on this problem?\"",
+            translation: "James revis\u00f3 sus notas: \"\u00bfCu\u00e1nto _________ pas\u00e9 con este problema?\"",
+            hint: "\u00bfEl 'tiempo' de duraci\u00f3n es algo que puedes contar como objetos individuales?",
+            clue: "time",
+            clueExplain: "'Time' en sentido de duraci\u00f3n es incontable \u2014 no dices 'one time, two times' para hablar de cu\u00e1nto tiempo pas\u00f3. Duraci\u00f3n incontable \u2192 'How much time'.",
+            nounType: "uncountable",
+            options: ["How much", "How many", "How long"],
+            correct: "How much",
+            feedback: {
+                "How many": { errorType: "Confusi\u00f3n: time como duraci\u00f3n vs. repeticiones", explanation: "'How many times' existe pero significa 'cu\u00e1ntas veces' (n\u00famero de repeticiones). Aqu\u00ed James pregunta por duraci\u00f3n \u2014 cu\u00e1nto tiempo pas\u00f3. Duraci\u00f3n \u2192 'How much time'.", rule: "How much time = duraci\u00f3n / How many times = n\u00famero de veces" },
+                "How long": { errorType: "Confusi\u00f3n de estructura interrogativa", explanation: "'How long' pregunta duraci\u00f3n pero NO se usa con el sustantivo 'time' despu\u00e9s. La oraci\u00f3n ya incluye 'time', as\u00ed que la estructura correcta es 'How much time did I spend'.", rule: "How long + verbo directo / How much time + verbo" }
+            },
+            correctReason: "'Time' como duraci\u00f3n es incontable. F\u00f3rmula: How much + incontable \u2192 'How much time'. Recuerda: 'How many times' = cu\u00e1ntas veces; 'How much time' = cu\u00e1nto tiempo.",
+            examples: ["time (duraci\u00f3n) \u2192 incontable \u2192 How much", "money \u2192 incontable \u2192 How much", "energy \u2192 incontable \u2192 How much"]
+        },
+        {
+            id: 4,
+            sentence: "Nadia counted carefully: \"_____ bills did I receive from the phone company?\"",
+            translation: "Nadia cont\u00f3 con cuidado: \"\u00bfCu\u00e1ntas _________ recib\u00ed de la compa\u00f1\u00eda telef\u00f3nica?\"",
+            hint: "Las facturas son documentos individuales. \u00bfPuedes numerarlas una por una?",
+            clue: "bills",
+            clueExplain: "'Bills' es plural de 'bill' (factura). Puedes contarlas: first bill, second bill, third bill. Contable \u2192 'How many'.",
+            nounType: "countable",
+            options: ["How many", "How much", "How few"],
+            correct: "How many",
+            feedback: {
+                "How much": { errorType: "Cuantificador de Incontable aplicado a Contable", explanation: "Elegiste 'How much'. Esa forma es para incontables como 'money' o 'information'. 'Bills' son documentos f\u00edsicos que puedes contar uno por uno: one bill, two bills, three bills. Contable \u2192 'How many bills'.", rule: "Objetos contables individualmente \u2192 How many + plural" },
+                "How few": { errorType: "Estructura no interrogativa", explanation: "'How few' no hace preguntas de cantidad \u2014 describe que hay poca cantidad de algo. Para preguntar cu\u00e1ntas facturas recibi\u00f3 Nadia, la forma correcta es 'How many bills'.", rule: "Pregunta de n\u00famero \u2192 How many" }
+            },
+            correctReason: "'Bills' (facturas) son contables: one bill, two bills, three bills. Contable plural \u2192 'How many bills'.",
+            examples: ["bills \u2192 contable \u2192 How many", "emails \u2192 contable \u2192 How many", "documents \u2192 contable \u2192 How many"]
+        },
+        {
+            id: 5,
+            sentence: "Carlos asked the worker: \"Do you need _____ equipment for the repair?\"",
+            translation: "Carlos le pregunt\u00f3 al t\u00e9cnico: \"\u00bfNecesitas _________ para la reparaci\u00f3n?\"",
+            hint: "'Equipment' \u2014 \u00bfpuedes decir 'one equipment, two equipments'? Prueba hacerlo.",
+            clue: "equipment",
+            clueExplain: "'Equipment' es siempre incontable en ingl\u00e9s \u2014 no tiene plural ni acepta 'a/an'. Con incontables en oraciones usamos 'much', 'a lot of', o 'some'.",
+            nounType: "uncountable",
+            options: ["much", "many", "a few"],
+            correct: "much",
+            feedback: {
+                "many": { errorType: "Cuantificador de Contable con Incontable", explanation: "Elegiste 'many'. Ese cuantificador se usa con sustantivos contables en plural (many tools, many workers, many parts). 'Equipment' es incontable \u2014 nunca tiene -s. Incontable \u2192 'much equipment'.", rule: "many + contable plural / much + incontable" },
+                "a few": { errorType: "Cuantificador de Contable con Incontable", explanation: "'A few' se usa con sustantivos CONTABLES en plural ('a few tools'). Para incontables como 'equipment' usamos 'a little equipment' o 'much equipment'.", rule: "a few + contable plural / a little + incontable / much + incontable" }
+            },
+            correctReason: "'Equipment' es incontable \u2014 no tiene plural en ingl\u00e9s. Para cuantificar incontables formalmente usamos 'much': 'much equipment'. Informal: 'a lot of equipment'.",
+            examples: ["equipment \u2192 incontable \u2192 much", "furniture \u2192 incontable \u2192 much", "luggage \u2192 incontable \u2192 much"]
+        },
+        {
+            id: 6,
+            sentence: "Lucia made _____ calls before someone finally answered.",
+            translation: "Lucia hizo _________ llamadas antes de que alguien contestara.",
+            hint: "Las llamadas telef\u00f3nicas son acciones individuales. \u00bfPuedes contarlas?",
+            clue: "calls",
+            clueExplain: "'Calls' es plural de 'call' \u2014 puedes contarlas: one call, two calls. Contable plural \u2192 'many', nunca 'much'.",
+            nounType: "countable",
+            options: ["many", "much", "a little"],
+            correct: "many",
+            feedback: {
+                "much": { errorType: "Cuantificador de Incontable con Contable Plural", explanation: "Elegiste 'much'. Ese cuantificador es para incontables (much water, much time). 'Calls' tiene -s de plural \u2014 es contable. No se puede decir 'much calls'. Contable plural \u2192 'many calls'.", rule: "much + incontable / many + contable plural" },
+                "a little": { errorType: "Cuantificador de Incontable con Contable Plural", explanation: "'A little' es para incontables ('a little water'). Para contables en plural se usa 'a few calls' (pocos) o 'many calls' (muchos). 'A little calls' no es correcto.", rule: "a little + incontable / a few + contable plural" }
+            },
+            correctReason: "'Calls' es contable (one call, many calls). Para contables en plural usamos 'many': 'many calls'. La -s al final confirma que es plural contable.",
+            examples: ["calls \u2192 contable \u2192 many", "complaints \u2192 contable \u2192 many", "requests \u2192 contable \u2192 many"]
+        },
+        {
+            id: 7,
+            sentence: "The agent gave Nadia useful _____ about the new plan.",
+            translation: "El agente le dio _________ \u00fatil a Nadia sobre el nuevo plan.",
+            hint: "Esta palabra nunca lleva -s en ingl\u00e9s, aunque hables de mucha o poca cantidad.",
+            clue: "useful ___",
+            clueExplain: "'Advice' es incontable en ingl\u00e9s \u2014 nunca dice 'advices' ni lleva 'a/an'. Es uno de los sustantivos incontables que m\u00e1s confunde a los hispanohablantes.",
+            nounType: "uncountable",
+            options: ["advice", "advices", "an advice"],
+            correct: "advice",
+            feedback: {
+                "advices": { errorType: "Plural incorrecto de Incontable", explanation: "Escribiste 'advices'. 'Advice' es incontable \u2014 NUNCA tiene plural en ingl\u00e9s. 'Advices' no existe. Para hablar de un consejo espec\u00edfico dices 'a piece of advice'.", rule: "Advice = siempre incontable \u2192 sin -s, sin plural" },
+                "an advice": { errorType: "Art\u00edculo indefinido con Incontable", explanation: "Escribiste 'an advice'. Los incontables NO llevan 'a/an' porque ese art\u00edculo significa 'uno' \u2014 y los incontables no se cuentan de uno en uno. Correcto: 'advice' o 'a piece of advice'.", rule: "Incontable \u2192 sin a/an \u2192 correcto: 'advice' / 'some advice' / 'a piece of advice'" }
+            },
+            correctReason: "'Advice' (consejo) es incontable en ingl\u00e9s \u2014 nunca lleva -s ni 'a/an'. Simplemente dices 'advice' o 'some advice'. Para hablar de uno en concreto: 'a piece of advice'.",
+            examples: ["advice \u2192 incontable \u2192 sin plural", "information \u2192 incontable \u2192 sin plural", "news \u2192 incontable \u2192 sin plural"]
+        },
+        {
+            id: 8,
+            sentence: "Carlos read the contract and noticed _____ important clauses.",
+            translation: "Carlos ley\u00f3 el contrato y not\u00f3 _________ cl\u00e1usulas importantes.",
+            hint: "Las cl\u00e1usulas son partes numeradas de un contrato. \u00bfPuedes contarlas una por una?",
+            clue: "clauses",
+            clueExplain: "'Clauses' es plural de 'clause'. Puedes contarlas: clause 1, clause 2. Contable \u2192 usa cuantificadores de contable como 'several', 'many', 'a few'.",
+            nounType: "countable",
+            options: ["several", "much", "a little"],
+            correct: "several",
+            feedback: {
+                "much": { errorType: "Cuantificador de Incontable con Contable Plural", explanation: "Elegiste 'much'. Ese cuantificador es para incontables (much information, much advice). 'Clauses' tiene -s de plural y es contable. No se puede decir 'much clauses'. Contable plural \u2192 'several clauses', 'many clauses', 'a few clauses'.", rule: "much + incontable / several / many / a few + contable plural" },
+                "a little": { errorType: "Cuantificador de Incontable con Contable Plural", explanation: "'A little' va con incontables ('a little information'). Para contables en plural se usa 'a few clauses' o 'several clauses'. 'A little clauses' es incorrecto.", rule: "a little + incontable / a few / several + contable plural" }
+            },
+            correctReason: "'Clauses' (cl\u00e1usulas) son contables: puedes numerarlas. Para varios elementos contables usamos 'several'. Otras opciones v\u00e1lidas: 'a few clauses', 'many clauses'.",
+            examples: ["clauses \u2192 contable \u2192 several", "pages \u2192 contable \u2192 several", "sections \u2192 contable \u2192 several"]
+        },
+        {
+            id: 9,
+            sentence: "_____ damage did the broken pipe cause in Lucia's building?",
+            translation: "\u00bfCu\u00e1nto _________ caus\u00f3 la tuber\u00eda rota en el edificio de Lucia?",
+            hint: "El da\u00f1o como deterioro general \u2014 \u00bfpuedes contarlo en unidades? \u00bfOne damage, two damages?",
+            clue: "damage",
+            clueExplain: "'Damage' como deterioro o perjuicio es incontable en ingl\u00e9s \u2014 no tiene plural en este sentido. Incontable \u2192 'How much'.",
+            nounType: "uncountable",
+            options: ["How much", "How many", "How few"],
+            correct: "How much",
+            feedback: {
+                "How many": { errorType: "Cuantificador incorrecto \u2014 Damage es Incontable", explanation: "Elegiste 'How many'. 'Damage' como sustantivo de deterioro general es incontable en ingl\u00e9s \u2014 no puedes decir 'one damage, two damages'. Incontable \u2192 'How much damage'.", rule: "damage (deterioro) \u2192 incontable \u2192 How much damage" },
+                "How few": { errorType: "Estructura incorrecta para incontable", explanation: "'How few' no se usa con incontables ni para hacer preguntas de cantidad. Para preguntar la cantidad de un incontable, siempre usamos 'How much'.", rule: "Pregunta sobre incontable \u2192 How much" }
+            },
+            correctReason: "'Damage' como deterioro o perjuicio general es incontable. Pregunta correcta: 'How much damage'. Compara: 'How much damage did it cause?' vs. 'How many pipes were damaged?'",
+            examples: ["damage \u2192 incontable \u2192 How much", "harm \u2192 incontable \u2192 How much", "progress \u2192 incontable \u2192 How much"]
+        },
+        {
+            id: 10,
+            sentence: "James needed to send _____ emails to finally resolve the issue.",
+            translation: "James necesit\u00f3 enviar _________ correos para resolver el problema.",
+            hint: "Los correos electr\u00f3nicos son mensajes individuales. \u00bfPuedes numerarlos?",
+            clue: "emails",
+            clueExplain: "'Emails' es plural de 'email' \u2014 es contable. Puedes contar: one email, two emails, several emails. Contable plural \u2192 cuantificadores de contable.",
+            nounType: "countable",
+            options: ["several", "much", "a little"],
+            correct: "several",
+            feedback: {
+                "much": { errorType: "Cuantificador de Incontable con Contable Plural", explanation: "Elegiste 'much'. Ese cuantificador se usa con incontables (much information, much patience). 'Emails' tiene -s de plural y es contable. No se puede decir 'much emails'. Contable plural \u2192 'several emails'.", rule: "much + incontable / several / many + contable plural" },
+                "a little": { errorType: "Cuantificador de Incontable con Contable Plural", explanation: "'A little' es para incontables ('a little patience'). Para contables en plural: 'a few emails' o 'several emails'. 'A little emails' no es correcto.", rule: "a little + incontable / a few / several + contable plural" }
+            },
+            correctReason: "'Emails' son contables: one email, several emails. 'Several' implica m\u00e1s de dos, lo que encaja con el contexto de James intentando resolver el problema repetidamente.",
+            examples: ["emails \u2192 contable \u2192 several", "messages \u2192 contable \u2192 several", "reports \u2192 contable \u2192 several"]
+        },
+        {
+            id: 11,
+            sentence: "The manager checked: \"_____ workers came to fix the heating system?\"",
+            translation: "El administrador verific\u00f3: \"\u00bfCu\u00e1ntos _________ vinieron a arreglar el sistema de calefacci\u00f3n?\"",
+            hint: "Los trabajadores son personas individuales. \u00bfPuedes contarlos? \u00bfOne worker, two workers?",
+            clue: "workers",
+            clueExplain: "'Workers' es plural de 'worker' (trabajador). Puedes contarlos: one worker, two workers. Contable plural \u2192 'How many'.",
+            nounType: "countable",
+            options: ["How many", "How much", "How few"],
+            correct: "How many",
+            feedback: {
+                "How much": { errorType: "Cuantificador de Incontable aplicado a Personas", explanation: "Elegiste 'How much'. 'How much' es para incontables como 'water' o 'information'. Las personas y objetos contables como 'workers' necesitan 'How many'. No se puede decir 'How much workers'.", rule: "Personas y objetos contables \u2192 How many + plural" },
+                "How few": { errorType: "Estructura no interrogativa", explanation: "'How few' no hace preguntas de cantidad \u2014 expresa que hay poca cantidad. Para preguntar cu\u00e1ntos trabajadores vinieron, usamos 'How many workers'.", rule: "Pregunta de n\u00famero \u2192 How many" }
+            },
+            correctReason: "'Workers' (trabajadores) son personas contables: one worker, two workers, three workers. Para preguntar su n\u00famero usamos 'How many workers'.",
+            examples: ["workers \u2192 contable \u2192 How many", "tenants \u2192 contable \u2192 How many", "agents \u2192 contable \u2192 How many"]
+        },
+        {
+            id: 12,
+            sentence: "Nadia needed a lot of _____ while waiting for the issue to be resolved.",
+            translation: "Nadia necesit\u00f3 mucha _________ mientras esperaba que resolvieran el problema.",
+            hint: "La paciencia no es un objeto que puedas contar. No puedes decir 'one patience, two patiences'.",
+            clue: "patience",
+            clueExplain: "'Patience' (paciencia) es incontable \u2014 es un concepto abstracto que no se cuenta. Incontable \u2192 cuantificadores de incontable como 'much', 'a lot of', 'a little'.",
+            nounType: "uncountable",
+            options: ["much", "many", "a few"],
+            correct: "much",
+            feedback: {
+                "many": { errorType: "Cuantificador de Contable con Incontable Abstracto", explanation: "Elegiste 'many'. 'Many' se usa con sustantivos contables en plural (many calls, many days). 'Patience' es incontable \u2014 es un concepto abstracto sin plural. Incontable \u2192 'much patience' o 'a lot of patience'.", rule: "many + contable plural / much + incontable" },
+                "a few": { errorType: "Cuantificador de Contable con Incontable Abstracto", explanation: "'A few' se usa con contables ('a few calls'). 'Patience' es incontable \u2014 no tiene plural. Para poca cantidad de un incontable se usa 'a little patience'. Aqu\u00ed el contexto pide 'much patience'.", rule: "a few + contable plural / a little / much + incontable" }
+            },
+            correctReason: "'Patience' (paciencia) es incontable \u2014 es un concepto abstracto sin plural. Para cuantificarla usamos 'much' (formal) o 'a lot of' (informal).",
+            examples: ["patience \u2192 incontable \u2192 much", "courage \u2192 incontable \u2192 much", "confidence \u2192 incontable \u2192 much"]
+        },
+        {
+            id: 13,
+            sentence: "Carlos asked: \"_____ money did the repair cost in total?\"",
+            translation: "Carlos pregunt\u00f3: \"\u00bfCu\u00e1nto _________ cost\u00f3 la reparaci\u00f3n en total?\"",
+            hint: "El dinero como cantidad general \u2014 \u00bfes contable o incontable en ingl\u00e9s?",
+            clue: "money",
+            clueExplain: "'Money' es incontable en ingl\u00e9s \u2014 no dices 'one money, two moneys'. Puedes contar monedas (coins) o billetes (bills), pero 'money' como sustantivo gen\u00e9rico es incontable \u2192 'How much'.",
+            nounType: "uncountable",
+            options: ["How much", "How many", "How long"],
+            correct: "How much",
+            feedback: {
+                "How many": { errorType: "Cuantificador incorrecto \u2014 Money es Incontable", explanation: "Elegiste 'How many'. 'Money' es incontable en ingl\u00e9s \u2014 no tiene plural. No se dice 'one money, two moneys'. Para preguntar cantidad de dinero, la forma siempre es 'How much money'.", rule: "money \u2192 incontable \u2192 How much money" },
+                "How long": { errorType: "Estructura de pregunta incorrecta", explanation: "'How long' pregunta duraci\u00f3n o distancia, no cantidad de dinero. 'How long did it take?' (\u00bfcu\u00e1nto tiempo tom\u00f3?). Para preguntar cantidad de dinero siempre usamos 'How much money'.", rule: "How long = duraci\u00f3n / distancia // How much money = cantidad de dinero" }
+            },
+            correctReason: "'Money' como sustantivo gen\u00e9rico es incontable en ingl\u00e9s \u2014 no tiene plural. La pregunta correcta es siempre 'How much money'. Para contar unidades espec\u00edficas se usan: coins, bills/notes.",
+            examples: ["money \u2192 incontable \u2192 How much", "cash \u2192 incontable \u2192 How much", "funding \u2192 incontable \u2192 How much"]
+        },
+        {
+            id: 14,
+            sentence: "Carlos noticed that some _____ in his apartment was damaged by the water.",
+            translation: "Carlos not\u00f3 que algunos _________ de su apartamento fueron da\u00f1ados por el agua.",
+            hint: "Esta palabra en ingl\u00e9s es siempre singular e incontable, aunque represente varios muebles.",
+            clue: "furniture",
+            clueExplain: "'Furniture' (muebles) es incontable en ingl\u00e9s \u2014 nunca lleva -s ni 'a/an'. Para hablar de una pieza de mobiliario se dice 'a piece of furniture'.",
+            nounType: "uncountable",
+            options: ["furniture", "furnitures", "a furniture"],
+            correct: "furniture",
+            feedback: {
+                "furnitures": { errorType: "Plural incorrecto de Incontable", explanation: "Escribiste 'furnitures'. 'Furniture' (muebles) es SIEMPRE incontable en ingl\u00e9s \u2014 nunca tiene plural. 'Furnitures' no existe. Para hablar de piezas individuales dices 'pieces of furniture'.", rule: "Furniture = siempre incontable \u2192 sin -s, sin plural" },
+                "a furniture": { errorType: "Art\u00edculo indefinido con Incontable", explanation: "Escribiste 'a furniture'. Los incontables no llevan 'a/an' porque ese art\u00edculo implica que puedes contar uno. Para hablar de un mueble espec\u00edfico dices 'a piece of furniture'.", rule: "Incontable \u2192 sin a/an \u2192 correcto: 'furniture' / 'some furniture' / 'a piece of furniture'" }
+            },
+            correctReason: "'Furniture' (muebles) es incontable en ingl\u00e9s \u2014 no tiene plural ni acepta 'a/an'. Siempre se usa como 'furniture' o 'some furniture'. Para una pieza individual: 'a piece of furniture'.",
+            examples: ["furniture \u2192 incontable \u2192 sin plural", "luggage \u2192 incontable \u2192 sin plural", "equipment \u2192 incontable \u2192 sin plural"]
+        },
+        {
+            id: 15,
+            sentence: "Carlos found out that _____ tenants in the building had the same problem.",
+            translation: "Carlos descubri\u00f3 que _________ inquilinos del edificio ten\u00edan el mismo problema.",
+            hint: "Los inquilinos son personas individuales. \u00bfPuedes contarlos? \u00bfOne tenant, two tenants?",
+            clue: "tenants",
+            clueExplain: "'Tenants' es plural de 'tenant' (inquilino). Puedes contar inquilinos: one tenant, two tenants. Contable plural \u2192 cuantificadores de contable.",
+            nounType: "countable",
+            options: ["several", "much", "a little"],
+            correct: "several",
+            feedback: {
+                "much": { errorType: "Cuantificador de Incontable con Personas Contables", explanation: "Elegiste 'much'. 'Much' es para incontables (much damage, much information). Las personas son siempre contables. No se puede decir 'much tenants'. Para contables en plural: 'several tenants', 'many tenants', 'a few tenants'.", rule: "Personas y objetos contables \u2192 several / many / a few (nunca much)" },
+                "a little": { errorType: "Cuantificador de Incontable con Personas Contables", explanation: "'A little' se usa con incontables ('a little damage'). Para personas y objetos contables en plural se usa 'a few tenants' (pocos) o 'several tenants' (varios). 'A little tenants' no es correcto.", rule: "a little + incontable / a few / several + contable plural" }
+            },
+            correctReason: "'Tenants' (inquilinos) son personas contables: one tenant, two tenants. 'Several tenants' significa 'varios inquilinos' \u2014 lo que encaja con lo que Carlos descubri\u00f3 al final de la historia.",
+            examples: ["tenants \u2192 contable \u2192 several", "workers \u2192 contable \u2192 several", "neighbors \u2192 contable \u2192 several"]
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, index) => container.appendChild(createQuestionCard(q, index)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createQuestionCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const shuffled = shuffle(q.options);
+        const badge = q.nounType === 'countable'
+            ? '<span class="noun-type-badge countable">&#128230; Contable</span>'
+            : '<span class="noun-type-badge uncountable">&#128167; Incontable</span>';
+
+        const btnHTML = shuffled.map(opt =>
+            '<button class="option-btn" onclick="selectAnswer(' + index + ', this)">' + opt + '</button>'
+        ).join('');
+
+        card.innerHTML =
+            '<div class="q-header">' +
+                '<div class="question-number">' + (index + 1) + '</div>' +
+                badge +
+            '</div>' +
+            '<div class="hint-box"><div class="hint-label">&#128161; Pista</div>' + q.hint + '</div>' +
+            '<p class="question-text">' + q.sentence.replace('_____', '<span class="blank" id="blank-' + index + '">?</span>') + '</p>' +
+            '<p class="translation">' + q.translation + '</p>' +
+            '<div class="options-grid" id="options-' + index + '">' + btnHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+                '<button class="nav-btn prev" onclick="prevQuestion()"' + (index === 0 ? ' disabled' : '') + '>\u2190 Anterior</button>' +
+                '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+                    (index === quizData.length - 1 ? 'Ver Resultados &#127881;' : 'Siguiente \u2192') +
+                '</button>' +
+            '</div>';
+        return card;
+    }
+
+    function selectAnswer(qi, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const selected = btn.textContent.trim();
+        const q = quizData[qi];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+
+        const blank = document.getElementById('blank-' + qi);
+        blank.textContent = selected;
+        blank.className = 'blank ' + (isCorrect ? 'correct' : 'incorrect');
+
+        document.querySelectorAll('#options-' + qi + ' .option-btn').forEach(function(b) {
+            b.disabled = true;
+            const t = b.textContent.trim();
+            if (t === q.correct) b.classList.add('correct');
+            else if (t === selected) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const formula = q.nounType === 'countable'
+            ? 'Contable \u2192 How many / many / several / a few'
+            : 'Incontable \u2192 How much / much / a little';
+
+        const exHTML = q.examples.map(function(e) {
+            const p = e.split(' \u2192 ');
+            return '<span class="rule-ex"><span class="base">' + p[0] + '</span><span class="arrow">\u2192</span><span class="result">' + p[p.length - 1] + '</span></span>';
+        }).join('');
+
+        if (isCorrect) {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">&#161;Correcto!</div>' +
+                '<div class="fb-subtitle">Identificaste correctamente el tipo de sustantivo</div>' +
+                '</div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-signal"><div class="fb-block-title">&#128269; La se\u00f1al clave que deb\u00edas identificar</div>' +
+                '<div class="fb-signal-text">El sustantivo <span class="signal-tag">' + q.clue + '</span> en la oraci\u00f3n te indicaba qu\u00e9 cuantificador usar. ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-rule"><div class="fb-block-title">&#128208; Regla aplicada</div>' +
+                '<div class="rule-formula">' + formula + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div>' +
+                '</div>';
+        } else {
+            const err = q.feedback[selected] || { errorType: 'Error', explanation: 'Respuesta incorrecta.', rule: '' };
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrecto</div>' +
+                '<div class="fb-subtitle">Revisemos juntos qu\u00e9 pas\u00f3</div>' +
+                '</div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-signal wrong"><div class="fb-block-title">&#128269; La se\u00f1al clave que deb\u00edas identificar</div>' +
+                '<div class="fb-signal-text">El sustantivo <span class="signal-tag red">' + q.clue + '</span> te indicaba el tipo de cuantificador. ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-compare"><div class="fb-block-title" style="color:#64748B;">&#128260; Tu respuesta vs. la correcta</div>' +
+                '<div class="fb-compare-row"><span class="compare-label wrong">T\u00fa elegiste</span><span class="compare-text"><span class="word-wrong">' + selected + '</span></span></div>' +
+                '<div class="fb-compare-row"><span class="compare-label right">Correcto</span><span class="compare-text"><span class="word-right">' + q.correct + '</span></span></div>' +
+                '</div>' +
+                '<div class="fb-error"><div class="fb-block-title">&#9888;&#65039; Tipo de error: <span class="error-badge">' + err.errorType + '</span></div>' +
+                '<div class="error-word-row"><span class="ew-box ew-wrong">' + selected + '</span><span class="ew-arrow">\u2192</span><span class="ew-box ew-right">' + q.correct + '</span></div>' +
+                '<div class="error-rule">' + err.explanation + '</div>' +
+                (err.rule ? '<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">&#128204; ' + err.rule + '</div>' : '') +
+                '</div>' +
+                '<div class="fb-rule"><div class="fb-block-title">&#128208; La regla correcta</div>' +
+                '<div class="rule-formula">' + formula + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcta la respuesta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div>' +
+                '</div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c, idx) { c.classList.toggle('hidden', idx !== i); });
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+
+    function nextQuestion(i) {
+        if (i < quizData.length - 1) showQuestion(i + 1);
+        else showResults();
+    }
+
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c) { c.classList.add('hidden'); });
+        const rs = document.getElementById('resultsScreen');
+        rs.classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/' + quizData.length;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '\u00a1Excelente! Dominas los contables e incontables. \uD83C\uDFC6'
+            : pct >= 70 ? '\u00a1Muy bien! Sigue practicando con How much / How many. \uD83D\uDCAA'
+            : 'Buen esfuerzo. Repasa la diferencia contable / incontable e int\u00e9ntalo de nuevo. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s, i) {
+            if (i < stars) setTimeout(function() { s.classList.add('earned'); }, i * 300);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

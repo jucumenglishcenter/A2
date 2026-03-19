@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification - A2 M1 T4 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .topic-badge.pp { background:#EDE9FE; color:#6D28D9; }
+        .topic-badge.contrast { background:#DBEAFE; color:#1D4ED8; }
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled { cursor:default; }
+        .sent-option.correct { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:#D1FAE5; color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; margin-top:1px; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.55; font-weight:600; flex:1; }
+        .sent-option.correct .option-text { color:var(--success-dark); }
+        .sent-option.incorrect .option-text { color:var(--error-dark); }
+        .option-status { font-size:1.1rem; margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; }
+        .sent-option.correct .option-status, .sent-option.incorrect .option-status { opacity:1; }
+        .error-hl { color:var(--error); font-weight:800; text-decoration:underline wavy var(--error); }
+        .correct-hl { color:var(--success-dark); font-weight:800; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:flex-start; gap:0.6rem; padding:0.4rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; margin-top:2px; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.55; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.9rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.6rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128269; Identification</div>
+            <div class="header-subtitle">&#128154; A2 &middot; M&oacute;dulo 1 &middot; Present Perfect &amp; Past Simple</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128269;</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee las tres oraciones y elige la que use correctamente el tiempo verbal o la palabra. <strong>Present Perfect:</strong> since / for / ever / never &bull; <strong>PP vs Past Simple</strong></div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">&#161;Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Intentar de Nuevo</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Volver al M&oacute;dulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // IDENTIFY — A2 M1 Tema 4
+    // Present Perfect (since/for/ever/never) + PP vs Past Simple
+    // 15 preguntas | posiciones 5-5-5 | Fisher-Yates runtime
+    // ============================================================
+    const quizData = [
+        // Q1 — PP since/for | for vs since | correct pos 2
+        {
+            id:1, topic:"pp", clue:"for three months",
+            clueExplain:"es una cantidad de tiempo (duraci\u00f3n) \u2192 se usa 'for', no 'since' ni 'ago'.",
+            options:[
+                { text:"The building has had water pressure problems since three months.", correct:false,
+                  errorWord:"since three months", correctWord:"for three months",
+                  errorType:"Since vs. For",
+                  explanation:"'Since' necesita un punto de inicio espec\u00edfico: 'since March', 'since last week'. 'Three months' es una cantidad de tiempo \u2014 duraci\u00f3n. Con duraciones usamos 'for'." },
+                { text:"The building has had water pressure problems three months ago.", correct:false,
+                  errorWord:"three months ago", correctWord:"for three months",
+                  errorType:"Ago con Present Perfect",
+                  explanation:"'Ago' no se combina con Present Perfect. 'Ago' indica un punto en el pasado y va con Past Simple: 'The problem started three months ago.' Para duraci\u00f3n hasta el presente: 'for three months'." },
+                { text:"The building has had water pressure problems for three months.", correct:true }
+            ],
+            rule:"for + duraci\u00f3n / since + punto de inicio / ago + Past Simple",
+            examples:["for three months (duraci\u00f3n)","since March (punto de inicio)","three months ago + Past Simple"],
+            correctReason:"'For three months' expresa duraci\u00f3n \u2014 cu\u00e1nto tiempo lleva el problema. 'For' + duraci\u00f3n es la estructura correcta con Present Perfect."
+        },
+        // Q2 — PP ever/never | has never + before | correct pos 0
+        {
+            id:2, topic:"pp", clue:"has never had to wait",
+            clueExplain:"es la estructura correcta: has/have + never + participio. 'Before' al final confirma experiencia de vida.",
+            options:[
+                { text:"James has never had to wait so long for a customer service response before.", correct:true },
+                { text:"James never has had to wait so long for a customer service response before.", correct:false,
+                  errorWord:"never has had", correctWord:"has never had",
+                  errorType:"Orden del auxiliar y adverbio",
+                  explanation:"El orden correcto en Present Perfect es: sujeto + has/have + never + participio. 'Never has had' invierte incorrectamente el auxiliar. Lo correcto es 'has never had'." },
+                { text:"James never waited so long for a customer service response before.", correct:false,
+                  errorWord:"never waited", correctWord:"has never had to wait",
+                  errorType:"Past Simple vs. Present Perfect con 'before'",
+                  explanation:"'Before' al final de la oraci\u00f3n indica experiencia de vida hasta el presente \u2014 se\u00f1al de Present Perfect. 'Never waited' (Past Simple) no captura esa idea de experiencia acumulada." }
+            ],
+            rule:"Subject + has/have + never + past participle (+ before)",
+            examples:["He has never had to wait this long","She has never seen such poor service"],
+            correctReason:"'Has never had to wait...before' es la estructura correcta: has + never + participio. 'Before' al final confirma que hablamos de experiencia de vida hasta el presente."
+        },
+        // Q3 — PP vs PS | PP result present | correct pos 1
+        {
+            id:3, topic:"contrast", clue:"the water is running again (resultado presente)",
+            clueExplain:"indica que el resultado de la reparaci\u00f3n es visible ahora. Sin tiempo espec\u00edfico pasado \u2192 Present Perfect.",
+            options:[
+                { text:"The maintenance team repaired the pipe \u2014 the water is running again.", correct:false,
+                  errorWord:"repaired", correctWord:"has repaired",
+                  errorType:"Past Simple vs. Present Perfect (resultado presente)",
+                  explanation:"'Repaired' (Past Simple) enfocar\u00eda en el momento pasado de la reparaci\u00f3n. Pero el contexto enfatiza el resultado presente (el agua corre ahora). Sin tiempo espec\u00edfico, usamos Present Perfect." },
+                { text:"The maintenance team has repaired the pipe \u2014 the water is running again.", correct:true },
+                { text:"The maintenance team did repair the pipe \u2014 the water is running again.", correct:false,
+                  errorWord:"did repair", correctWord:"has repaired",
+                  errorType:"Past Simple enfatizado vs. Present Perfect",
+                  explanation:"'Did repair' es Past Simple enfatizado. El problema es el mismo: el contexto enfatiza el resultado presente (agua corriendo ahora) sin mencionar cu\u00e1ndo. Present Perfect es lo correcto." }
+            ],
+            rule:"Present Perfect = resultado presente relevante (sin tiempo pasado espec\u00edfico)",
+            examples:["The team has repaired the pipe \u2014 water runs now","She has called \u2014 I have the answer"],
+            correctReason:"'Has repaired' + resultado presente (agua corriendo) es la combinaci\u00f3n correcta. Present Perfect enfoca en la relevancia del resultado ahora, no en el momento de la acci\u00f3n."
+        },
+        // Q4 — PP since/for | since + point | correct pos 0
+        {
+            id:4, topic:"pp", clue:"since last Tuesday",
+            clueExplain:"'Last Tuesday' es un punto de inicio espec\u00edfico en el pasado. Con puntos de inicio usamos 'since'.",
+            options:[
+                { text:"Carlos has been without heating since last Tuesday.", correct:true },
+                { text:"Carlos has been without heating for last Tuesday.", correct:false,
+                  errorWord:"for last Tuesday", correctWord:"since last Tuesday",
+                  errorType:"For vs. Since",
+                  explanation:"'For' se usa con cantidades de tiempo: 'for five days'. 'Last Tuesday' es un punto de inicio espec\u00edfico, no una cantidad. Con puntos de inicio espec\u00edficos usamos 'since'." },
+                { text:"Carlos has been without heating last Tuesday ago.", correct:false,
+                  errorWord:"last Tuesday ago", correctWord:"since last Tuesday",
+                  errorType:"Ago con punto de inicio (doble error)",
+                  explanation:"'Last Tuesday ago' combina dos expresiones de tiempo incorrectamente. 'Ago' va con Past Simple ('It started last Tuesday'). Para Present Perfect con punto de inicio, usamos 'since last Tuesday'." }
+            ],
+            rule:"since + punto de inicio espec\u00edfico (day, date, event)",
+            examples:["since last Tuesday","since Monday morning","since the pipe burst"],
+            correctReason:"'Last Tuesday' es un punto de inicio espec\u00edfico. 'Since last Tuesday' es la \u00fanica estructura correcta con Present Perfect. 'For' necesitar\u00eda una cantidad: 'for five days'."
+        },
+        // Q5 — PP vs PS | PS + yesterday | correct pos 2
+        {
+            id:5, topic:"contrast", clue:"yesterday afternoon (tiempo pasado espec\u00edfico)",
+            clueExplain:"es una referencia de tiempo pasado terminado. Con tiempos espec\u00edficos del pasado usamos siempre Past Simple.",
+            options:[
+                { text:"Nadia has spoken to the customer service agent yesterday afternoon.", correct:false,
+                  errorWord:"has spoken", correctWord:"spoke",
+                  errorType:"Present Perfect con tiempo pasado espec\u00edfico",
+                  explanation:"Present Perfect no puede usarse con 'yesterday afternoon' \u2014 una referencia de tiempo pasado terminado. 'Yesterday afternoon' exige Past Simple: 'spoke'." },
+                { text:"Nadia have spoken to the customer service agent yesterday afternoon.", correct:false,
+                  errorWord:"have spoken", correctWord:"spoke",
+                  errorType:"Present Perfect con tiempo pasado espec\u00edfico + error de concordancia",
+                  explanation:"Dos errores: (1) Present Perfect no puede combinarse con 'yesterday'. (2) 'Nadia' es tercera persona singular \u2192 'has', no 'have'. La forma correcta es Past Simple: 'spoke'." },
+                { text:"Nadia spoke to the customer service agent yesterday afternoon.", correct:true }
+            ],
+            rule:"Past Simple + yesterday / last [period] / ago / at [time] / in [year]",
+            examples:["She spoke to them yesterday","He called last week","They fixed it in January"],
+            correctReason:"'Yesterday afternoon' es referencia de tiempo pasado terminado. Past Simple es obligatorio: 'spoke'. Present Perfect (has/have + participio) nunca se combina con tiempos pasados espec\u00edficos."
+        },
+        // Q6 — PP ever/never | Have you ever | correct pos 1
+        {
+            id:6, topic:"pp", clue:"Have you ever (experiencia de vida)",
+            clueExplain:"es la estructura correcta para preguntar sobre experiencias en cualquier momento de la vida: Have/Has + sujeto + ever + participio.",
+            options:[
+                { text:"Did you ever deal with a company that lost your order?", correct:false,
+                  errorWord:"Did you ever deal", correctWord:"Have you ever dealt",
+                  errorType:"Past Simple vs. Present Perfect en preguntas de experiencia",
+                  explanation:"'Did you ever deal' (Past Simple) preguntar\u00eda sobre un momento espec\u00edfico del pasado. Para experiencias de vida \u2014 cualquier momento hasta el presente \u2014 usamos 'Have you ever dealt'." },
+                { text:"Have you ever dealt with a company that lost your order?", correct:true },
+                { text:"Do you ever deal with a company that lost your order?", correct:false,
+                  errorWord:"Do you ever deal", correctWord:"Have you ever dealt",
+                  errorType:"Present Simple vs. Present Perfect en preguntas de experiencia",
+                  explanation:"'Do you ever deal' pregunta sobre h\u00e1bitos actuales ('Do you ever complain?'). Para experiencias pasadas de vida usamos Present Perfect: 'Have you ever dealt'." }
+            ],
+            rule:"Have/Has + sujeto + ever + past participle = \u00bfalguna vez (en tu vida)?",
+            examples:["Have you ever dealt with this?","Has she ever complained to a company?"],
+            correctReason:"'Have you ever dealt' es la estructura de Present Perfect para preguntas de experiencia de vida. 'Ever' en este contexto significa '\u00e1lguna vez en tu vida hasta ahora'."
+        },
+        // Q7 — PP since/for | for + duration | correct pos 0
+        {
+            id:7, topic:"pp", clue:"for almost a week",
+            clueExplain:"'Almost a week' es una cantidad de tiempo (duraci\u00f3n). Con cantidades usamos 'for'.",
+            options:[
+                { text:"Lucia has been trying to contact the building manager for almost a week.", correct:true },
+                { text:"Lucia has been trying to contact the building manager since almost a week.", correct:false,
+                  errorWord:"since almost a week", correctWord:"for almost a week",
+                  errorType:"Since vs. For",
+                  explanation:"'Since' necesita un punto de inicio espec\u00edfico: 'since Monday', 'since last week'. 'Almost a week' es una cantidad de tiempo \u2014 duraci\u00f3n. Con duraciones usamos 'for'." },
+                { text:"Lucia has been trying to contact the building manager during almost a week.", correct:false,
+                  errorWord:"during almost a week", correctWord:"for almost a week",
+                  errorType:"During vs. For con Present Perfect",
+                  explanation:"'During' significa 'durante' un per\u00edodo espec\u00edfico nombrado: 'during the week', 'during the meeting'. No expresa duraci\u00f3n continua hasta el presente. Para eso usamos 'for'." }
+            ],
+            rule:"for + cantidad de tiempo (duraci\u00f3n continua hasta el presente)",
+            examples:["for almost a week","for several days","for a long time"],
+            correctReason:"'Almost a week' es una cantidad de tiempo. 'For almost a week' + Present Perfect expresa cu\u00e1nto tiempo lleva Lucia intentando contactar al administrador hasta ahora."
+        },
+        // Q8 — PP vs PS | PP no specific time | correct pos 2
+        {
+            id:8, topic:"contrast", clue:"the building is in good condition now (resultado presente)",
+            clueExplain:"el resultado presente (buen estado del edificio) es lo relevante. Sin tiempo espec\u00edfico pasado \u2192 Present Perfect.",
+            options:[
+                { text:"The new management company improved the building a lot.", correct:false,
+                  errorWord:"improved", correctWord:"has improved",
+                  errorType:"Past Simple vs. Present Perfect (evaluaci\u00f3n presente)",
+                  explanation:"'Improved' (Past Simple) sugiere que la mejora es pasada y el enfoque es en ese momento. Pero el resultado (edificio en buen estado ahora) es lo relevante. Sin tiempo espec\u00edfico, Present Perfect es correcto." },
+                { text:"The new management company was improving the building a lot.", correct:false,
+                  errorWord:"was improving", correctWord:"has improved",
+                  errorType:"Past Continuous vs. Present Perfect",
+                  explanation:"'Was improving' describe una acci\u00f3n en progreso en el pasado. Aqu\u00ed se eval\u00faa el resultado hasta el presente (buen estado del edificio ahora). Present Perfect expresa esa evaluaci\u00f3n correctamente." },
+                { text:"The new management company has improved the building a lot \u2014 it's in good condition now.", correct:true }
+            ],
+            rule:"Present Perfect = evaluaci\u00f3n o mejora con resultado visible en el presente",
+            examples:["The company has improved the building a lot","The situation has changed recently"],
+            correctReason:"'Has improved...it's in good condition now' conecta la acci\u00f3n pasada con su resultado presente. Present Perfect es correcto cuando el resultado es relevante en el momento de hablar."
+        },
+        // Q9 — PP since/for | since + specific time | correct pos 1
+        {
+            id:9, topic:"pp", clue:"since the pipe burst",
+            clueExplain:"'The pipe burst' es un evento espec\u00edfico en el pasado \u2014 un punto de inicio. Con eventos como punto de inicio usamos 'since'.",
+            options:[
+                { text:"The residents have been without hot water for the pipe burst.", correct:false,
+                  errorWord:"for the pipe burst", correctWord:"since the pipe burst",
+                  errorType:"For vs. Since con evento",
+                  explanation:"'For' necesita una cantidad de tiempo: 'for three days'. 'The pipe burst' es un evento \u2014 punto de inicio espec\u00edfico. Con eventos como punto de inicio usamos 'since'." },
+                { text:"The residents have been without hot water since the pipe burst.", correct:true },
+                { text:"The residents have been without hot water since three days.", correct:false,
+                  errorWord:"since three days", correctWord:"for three days / since the pipe burst",
+                  errorType:"Since con cantidad de tiempo (doble error)",
+                  explanation:"'Since three days' es incorrecto: 'since' necesita un punto de inicio, no una cantidad. Para cantidades de tiempo usamos 'for': 'for three days'. Para el evento de inicio: 'since the pipe burst'." }
+            ],
+            rule:"since + evento o momento espec\u00edfico en el pasado",
+            examples:["since the pipe burst","since the new company started","since Monday"],
+            correctReason:"'Since the pipe burst' usa un evento como punto de inicio. 'Since' + evento espec\u00edfico es correcto con Present Perfect. 'For' necesitar\u00eda una cantidad de tiempo."
+        },
+        // Q10 — PP vs PS | PS + last week | correct pos 0
+        {
+            id:10, topic:"contrast", clue:"last week (tiempo pasado terminado)",
+            clueExplain:"indica un per\u00edodo pasado ya terminado. Con referencias de tiempo pasado terminado usamos siempre Past Simple.",
+            options:[
+                { text:"James contacted the online store four times last week.", correct:true },
+                { text:"James has contacted the online store four times last week.", correct:false,
+                  errorWord:"has contacted", correctWord:"contacted",
+                  errorType:"Present Perfect con tiempo pasado espec\u00edfico",
+                  explanation:"'Has contacted' (Present Perfect) no puede usarse con 'last week' \u2014 una referencia de tiempo pasado terminado. 'Last week' exige Past Simple: 'contacted'." },
+                { text:"James have contacted the online store four times last week.", correct:false,
+                  errorWord:"have contacted", correctWord:"contacted",
+                  errorType:"Present Perfect con tiempo pasado + error de concordancia",
+                  explanation:"Dos errores: (1) Present Perfect no puede combinarse con 'last week'. (2) 'James' es tercera persona singular \u2192 'has', no 'have'. La forma correcta es Past Simple: 'contacted'." }
+            ],
+            rule:"Past Simple + last [week/month/year] / yesterday / ago",
+            examples:["He contacted them last week","She called yesterday","They sent it last month"],
+            correctReason:"'Last week' es referencia de tiempo pasado terminado. Past Simple es obligatorio: 'contacted'. 'Last week' nunca se combina con Present Perfect."
+        },
+        // Q11 — PP ever/never | never + PP | correct pos 2
+        {
+            id:11, topic:"pp", clue:"has never received (never + PP + before)",
+            clueExplain:"'Has never received...before' es la estructura correcta: auxiliar + never + participio + before.",
+            options:[
+                { text:"Lucia never has received such poor service from a building company before.", correct:false,
+                  errorWord:"never has received", correctWord:"has never received",
+                  errorType:"Orden incorrecto: never antes del auxiliar",
+                  explanation:"El orden correcto en Present Perfect es: sujeto + has/have + never + participio. 'Never' va despu\u00e9s del auxiliar, no antes. Lo correcto es 'has never received'." },
+                { text:"Lucia never received such poor service from a building company before.", correct:false,
+                  errorWord:"never received", correctWord:"has never received",
+                  errorType:"Past Simple vs. Present Perfect con 'before'",
+                  explanation:"'Never received' (Past Simple) no captura la idea de experiencia de vida hasta el presente. 'Before' al final exige Present Perfect: 'has never received'. El Past Simple con 'never' habr\u00eda sido para un tiempo espec\u00edfico." },
+                { text:"Lucia has never received such poor service from a building company before.", correct:true }
+            ],
+            rule:"Subject + has/have + never + past participle (+ before)",
+            examples:["She has never received such poor service","He has never seen anything like this before"],
+            correctReason:"'Has never received...before' es la estructura correcta: auxiliar (has) + never + participio (received) + before. 'Before' al final confirma que hablamos de experiencia de vida hasta el presente."
+        },
+        // Q12 — PP since/for | for vs since | correct pos 1
+        {
+            id:12, topic:"pp", clue:"for the past two weeks",
+            clueExplain:"'The past two weeks' es una cantidad de tiempo (duraci\u00f3n). Con cantidades usamos 'for'.",
+            options:[
+                { text:"The customer service team has been investigating Nadia's complaint since the past two weeks.", correct:false,
+                  errorWord:"since the past two weeks", correctWord:"for the past two weeks",
+                  errorType:"Since vs. For con cantidad de tiempo",
+                  explanation:"'Since' necesita un punto de inicio: 'since two weeks ago', 'since Monday'. 'The past two weeks' es una cantidad de tiempo \u2014 duraci\u00f3n. Con duraciones usamos 'for'." },
+                { text:"The customer service team has been investigating Nadia's complaint for the past two weeks.", correct:true },
+                { text:"The customer service team has been investigating Nadia's complaint during the past two weeks.", correct:false,
+                  errorWord:"during the past two weeks", correctWord:"for the past two weeks",
+                  errorType:"During vs. For con Present Perfect continuo",
+                  explanation:"'During the past two weeks' puede sonar similar, pero 'during' es menos natural con Present Perfect continuo de duraci\u00f3n. 'For' + duraci\u00f3n es la estructura est\u00e1ndar y correcta aqu\u00ed." }
+            ],
+            rule:"for + cantidad/per\u00edodo de tiempo (duraci\u00f3n continua)",
+            examples:["for the past two weeks","for several months","for a long time"],
+            correctReason:"'For the past two weeks' expresa duraci\u00f3n: cu\u00e1nto tiempo lleva la investigaci\u00f3n. 'For' + duraci\u00f3n es la estructura correcta con Present Perfect continuo."
+        },
+        // Q13 — PP vs PS | PP vs PS contrast | correct pos 0
+        {
+            id:13, topic:"contrast", clue:"recently (sin tiempo espec\u00edfico terminado)",
+            clueExplain:"'Recently' sin tiempo espec\u00edfico indica Present Perfect. Contrasta con tiempos espec\u00edficos que piden Past Simple.",
+            options:[
+                { text:"The building management has introduced a new online complaint system recently.", correct:true },
+                { text:"The building management introduced a new online complaint system recently last month.", correct:false,
+                  errorWord:"recently last month", correctWord:"recently / last month",
+                  errorType:"Combinaci\u00f3n contradictoria de marcadores temporales",
+                  explanation:"'Recently last month' combina dos marcadores incompatibles. 'Recently' es vago y compatible con Present Perfect. 'Last month' es tiempo espec\u00edfico y exige Past Simple: 'introduced it last month'. No se pueden usar juntos." },
+                { text:"The building management has introduced a new online complaint system last month.", correct:false,
+                  errorWord:"has introduced...last month", correctWord:"introduced...last month",
+                  errorType:"Present Perfect con tiempo pasado espec\u00edfico",
+                  explanation:"'Has introduced' (Present Perfect) no puede combinarse con 'last month' \u2014 tiempo pasado espec\u00edfico terminado. 'Last month' exige Past Simple: 'introduced last month'." }
+            ],
+            rule:"PP + recently / just / already / yet / ever / never (sin tiempo espec\u00edfico)",
+            examples:["has introduced recently (PP)","introduced last month (PS)","has just announced (PP)"],
+            correctReason:"'Recently' sin tiempo espec\u00edfico es compatible con Present Perfect. 'Has introduced recently' es correcto. 'Last month' habr\u00eda exigido Past Simple: 'introduced last month'."
+        },
+        // Q14 — PP ever/never | Have ever + experience | correct pos 2
+        {
+            id:14, topic:"pp", clue:"Have you ever had (pregunta de experiencia)",
+            clueExplain:"pregunta si esa experiencia ha ocurrido en cualquier momento de la vida hasta ahora. Estructura: Have + sujeto + ever + participio.",
+            options:[
+                { text:"Were you ever having a heating problem in your apartment?", correct:false,
+                  errorWord:"Were you ever having", correctWord:"Have you ever had",
+                  errorType:"Past Continuous vs. Present Perfect de experiencia",
+                  explanation:"'Were you ever having' usa Past Continuous \u2014 incorrecto para preguntas de experiencia de vida. 'Have you ever had' es la estructura est\u00e1ndar de Present Perfect para experiencias." },
+                { text:"Did you ever have a heating problem in your apartment?", correct:false,
+                  errorWord:"Did you ever have", correctWord:"Have you ever had",
+                  errorType:"Past Simple vs. Present Perfect en preguntas de experiencia",
+                  explanation:"'Did you ever have' (Past Simple) preguntar\u00eda sobre un momento espec\u00edfico del pasado. Para preguntar sobre experiencias de vida en cualquier momento hasta ahora, usamos 'Have you ever had'." },
+                { text:"Have you ever had a heating problem in your apartment?", correct:true }
+            ],
+            rule:"Have/Has + sujeto + ever + past participle = experiencia de vida",
+            examples:["Have you ever had this problem?","Has she ever dealt with a difficult company?"],
+            correctReason:"'Have you ever had' es la estructura correcta de Present Perfect para preguntar sobre experiencias: '\u00bfAlguna vez has tenido...?' La experiencia pudo ocurrir en cualquier momento hasta ahora."
+        },
+        // Q15 — PP vs PS | PS + specific date | correct pos 1
+        {
+            id:15, topic:"contrast", clue:"in October (mes espec\u00edfico pasado)",
+            clueExplain:"es una referencia de tiempo pasado terminado. Con meses, a\u00f1os o fechas espec\u00edficas usamos siempre Past Simple.",
+            options:[
+                { text:"Nadia has changed her phone plan in October after the billing dispute.", correct:false,
+                  errorWord:"has changed", correctWord:"changed",
+                  errorType:"Present Perfect con mes espec\u00edfico",
+                  explanation:"'Has changed' (Present Perfect) no puede combinarse con 'in October' \u2014 referencia de tiempo pasado terminado. Los meses espec\u00edficos del pasado exigen Past Simple: 'changed'." },
+                { text:"Nadia changed her phone plan in October after the billing dispute.", correct:true },
+                { text:"Nadia have changed her phone plan in October after the billing dispute.", correct:false,
+                  errorWord:"have changed", correctWord:"changed",
+                  errorType:"Present Perfect con tiempo espec\u00edfico + concordancia",
+                  explanation:"Dos errores: (1) Present Perfect no va con 'in October'. (2) 'Nadia' es tercera persona singular \u2192 'has', no 'have'. La forma correcta es Past Simple: 'changed'." }
+            ],
+            rule:"Past Simple + in [month] / in [year] / on [date] / at [time]",
+            examples:["She changed it in October (PS)","He signed it last year (PS)","They fixed it in January (PS)"],
+            correctReason:"'In October' es referencia de tiempo pasado terminado. Past Simple es obligatorio: 'changed'. Los meses, a\u00f1os y fechas espec\u00edficas del pasado nunca se combinan con Present Perfect."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, i) {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const letters = ['A','B','C'];
+        const badge = q.topic === 'pp'
+            ? '<span class="topic-badge pp">&#128200; Present Perfect</span>'
+            : '<span class="topic-badge contrast">&#128260; PP vs Past Simple</span>';
+        const optsHTML = q.shuffled.map(function(opt, i) {
+            return '<button class="sent-option" onclick="selectOption(' + index + ',' + i + ')">' +
+                '<div class="option-letter">' + letters[i] + '</div>' +
+                '<div class="option-text">' + opt.text + '</div>' +
+                '<div class="option-status">' + (opt.correct ? '&#9989;' : '&#10060;') + '</div>' +
+                '</button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' +
+            '<span class="q-label">Elige la oraci\u00f3n gramaticalmente correcta:</span>' + badge + '</div>' +
+            '<div class="sentence-options" id="options-' + index + '">' + optsHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>\u2190 Anterior</button>' +
+            '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+            (index===quizData.length-1?'Ver Resultados &#127881;':'Siguiente \u2192') +
+            '</button></div>';
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(function(o){ return o.correct; });
+        if (isCorrect) score++;
+        document.querySelectorAll('#options-' + qi + ' .sent-option').forEach(function(btn, i) {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function markErr(text, word) {
+        if (!word) return text;
+        return text.replace(word, '<span class="error-hl">' + word + '</span>');
+    }
+    function markOk(text, word) {
+        if (!word) return text;
+        return text.replace(word, '<span class="correct-hl">' + word + '</span>');
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e){ return '<span class="rule-ex">' + e + '</span>'; }).join('');
+
+        if (isCorrect) {
+            const errBlocks = q.shuffled.filter(function(o){ return !o.correct; }).map(function(err) {
+                return '<div class="fb-block fb-error">' +
+                    '<div class="fb-block-title">&#9888;&#65039; Error en esta opci\u00f3n: <span class="error-badge">' + err.errorType + '</span></div>' +
+                    '<div class="word-swap"><span class="ws-box ws-wrong">' + err.errorWord + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + err.correctWord + '</span></div>' +
+                    '<div class="error-text">' + err.explanation + '</div></div>';
+            }).join('');
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">&#161;Correcto! Identificaste bien la oraci\u00f3n</div>' +
+                '<div class="fb-subtitle">Veamos por qu\u00e9 las otras estaban mal</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; Se\u00f1al clave en las oraciones</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">La expresi\u00f3n <span class="signal-tag">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                errBlocks +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Regla aplicada</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 la oraci\u00f3n correcta ES correcta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrecto \u2014 revisemos juntos</div>' +
+                '<div class="fb-subtitle">Identifica la se\u00f1al clave en la oraci\u00f3n</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; Se\u00f1al clave que deb\u00edas identificar</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">La expresi\u00f3n <span class="signal-tag red">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">&#128260; Tu elecci\u00f3n vs. la correcta</div>' +
+                '<div class="compare-row"><span class="compare-label wrong">Elegiste</span><span class="compare-text">' + markErr(selected.text, selected.errorWord) + '</span></div>' +
+                '<div class="compare-row"><span class="compare-label right">Correcta</span><span class="compare-text">' + correctOpt.text + '</span></div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; El error: <span class="error-badge">' + selected.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected.errorWord + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + selected.correctWord + '</span></div>' +
+                '<div class="error-text">' + selected.explanation + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; La regla correcta</div>' +
+                '<div class="rule-formula">' + q.rule + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 la oraci\u00f3n correcta ES correcta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden',idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '\u00a1Excelente! Identificas perfectamente el Present Perfect y el Past Simple. \uD83C\uDFC6'
+            : pct >= 70 ? '\u00a1Muy bien! Sigue practicando las se\u00f1ales clave. \uD83D\uDCAA'
+            : 'Buen esfuerzo. Repasa los errores y vuelve a intentarlo. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

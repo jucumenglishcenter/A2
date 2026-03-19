@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M1 T2 | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .noun-type-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .noun-type-badge.countable { background:#D1FAE5; color:#059669; }
+        .noun-type-badge.uncountable { background:#EDE9FE; color:#7C3AED; }
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:100px; padding:0.2rem 0.6rem; background:#D1FAE5; border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; }
+        .options-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.9rem 0.5rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:4px; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.6rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a2-m1-index.html" class="back-btn">&#8592;</a>
+        <div class="header-info">
+            <div class="header-title">&#128221; Fill in the Blanks</div>
+            <div class="header-subtitle">&#128154; A2 &middot; M&oacute;dulo 1 &middot; A few / A little &middot; Too many / Too much</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">&#128218;</div>
+            <div>
+                <div class="instructions-title">Completa el espacio en blanco</div>
+                <div class="instructions-text">Elige entre <strong>a few</strong>, <strong>a little</strong>, <strong>too many</strong> o <strong>too much</strong>. Recuerda: <em>a few / too many</em> = contable &bull; <em>a little / too much</em> = incontable.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">&#127881;</div>
+            <div class="results-title">&#161;Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">&#11088;</span><span class="star">&#11088;</span><span class="star">&#11088;</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">&#128260; Intentar de Nuevo</button>
+                <a href="a2-m1-index.html" class="result-btn secondary">&#8592; Volver al M&oacute;dulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // FILL — A2 M1 Tema 2
+    // A few / A little + Too many / Too much
+    // 15 preguntas | 1 sola respuesta correcta
+    // DOBLE ALEATORIZACIÓN:
+    //   1. Opciones pre-mezcladas en los datos (posición de correcta varía)
+    //   2. Fisher-Yates adicional en runtime al generar cada tarjeta
+    // Personajes: Lucia, James, Nadia, Carlos
+    // ============================================================
+    const quizData = [
+        // Q1 — correct "a little" en pos 1 (pre-mezclado)
+        {
+            id:1, nounType:"uncountable",
+            sentence:"Lucia added _____ sugar to her coffee while she waited for the plumber.",
+            translation:"Lucia a\u00f1adi\u00f3 _________ az\u00facar a su caf\u00e9 mientras esperaba al plomero.",
+            hint:"\u00bfEl az\u00facar se cuenta en unidades? \u00bfDices 'one sugar, two sugars'? \u00bfLa situaci\u00f3n es tranquila o problem\u00e1tica?",
+            clue:"sugar", clueExplain:"'Sugar' es incontable. La situaci\u00f3n es tranquila (espera casual) \u2192 poca cantidad de incontable \u2192 'a little'.",
+            options:["a few","a little","too many"], correct:"a little",
+            feedback:{
+                "a few":{ errorType:"Cuantificador de Contable con Incontable", explanation:"'A few' se usa con contables en plural ('a few spoons'). 'Sugar' es incontable \u2014 no tiene plural. Para poca cantidad de incontables: 'a little sugar'.", rule:"a few + contable plural / a little + incontable" },
+                "too many":{ errorType:"Exceso de Contable con Incontable tranquilo", explanation:"'Too many' indica exceso de contable. 'Sugar' es incontable y la situaci\u00f3n es tranquila. La forma correcta es 'a little sugar'.", rule:"too many + contable (exceso) / a little + incontable (poca cantidad)" }
+            },
+            correctReason:"'Sugar' es incontable. 'A little' = poca cantidad de incontable. Lucia solo a\u00f1adi\u00f3 un poco \u2014 situaci\u00f3n calmada.",
+            examples:["a little sugar","a little time","a little money"]
+        },
+        // Q2 — correct "a few" en pos 2 (pre-mezclado)
+        {
+            id:2, nounType:"countable",
+            sentence:"The manager received _____ complaints that day, so he handled them quickly.",
+            translation:"El administrador recibi\u00f3 _________ quejas ese d\u00eda, as\u00ed que las atendi\u00f3 r\u00e1pido.",
+            hint:"Las quejas son contables. El contexto dice que las pudo atender r\u00e1pido. \u00bfEra mucho o poco?",
+            clue:"complaints", clueExplain:"'Complaints' es contable. El contexto es positivo (manejable) \u2192 poca cantidad de contable \u2192 'a few'.",
+            options:["too much","a little","a few"], correct:"a few",
+            feedback:{
+                "a little":{ errorType:"Cuantificador de Incontable con Contable", explanation:"'A little' se usa con incontables ('a little information'). 'Complaints' tiene -s \u2014 es contable. Para poca cantidad de contable: 'a few complaints'.", rule:"a little + incontable / a few + contable plural" },
+                "too much":{ errorType:"Exceso de Incontable con Contable manejable", explanation:"'Too much' indica exceso de incontable. 'Complaints' es contable y el contexto es positivo (las atendi\u00f3 r\u00e1pido). La forma correcta es 'a few complaints'.", rule:"too much + incontable (exceso) / a few + contable (poca cantidad)" }
+            },
+            correctReason:"'Complaints' es contable. 'A few' = pocas quejas \u2014 cantidad peque\u00f1a y manejable, confirmada por el contexto.",
+            examples:["a few complaints","a few calls","a few days"]
+        },
+        // Q3 — correct "too much" en pos 2 (pre-mezclado)
+        {
+            id:3, nounType:"uncountable",
+            sentence:"There was _____ noise from the broken pipe \u2014 it was impossible to sleep.",
+            translation:"Hab\u00eda _________ ruido de la tuber\u00eda rota \u2014 era imposible dormir.",
+            hint:"Imposible dormir \u2014 \u00bfeso sugiere poca cantidad o un exceso?",
+            clue:"noise", clueExplain:"'Noise' es incontable. 'Impossible to sleep' indica EXCESO \u2192 'too much'.",
+            options:["too many","a few","too much"], correct:"too much",
+            feedback:{
+                "too many":{ errorType:"Cuantificador de Contable con Incontable (exceso)", explanation:"'Too many' se usa con contables en plural. 'Noise' como ruido general es incontable. Para exceso de incontable: 'too much noise'.", rule:"too many + contable / too much + incontable" },
+                "a few":{ errorType:"Poca cantidad vs. exceso + Contable con Incontable", explanation:"'A few' indica poca cantidad de contable. El contexto muestra exceso (imposible dormir) y 'noise' es incontable. La forma correcta es 'too much noise'.", rule:"a few + contable (poco) / too much + incontable (exceso)" }
+            },
+            correctReason:"'Noise' es incontable. 'Too much' = exceso de incontable. Era imposible dormir \u2014 la cantidad era exagerada.",
+            examples:["too much noise","too much stress","too much information"]
+        },
+        // Q4 — correct "too many" en pos 2 (pre-mezclado)
+        {
+            id:4, nounType:"countable",
+            sentence:"James made _____ calls to the store \u2014 the agent asked him to send an email instead.",
+            translation:"James hizo _________ llamadas a la tienda \u2014 el agente le pidi\u00f3 que enviara un correo.",
+            hint:"El agente lo redirige. \u00bfHizo pocas llamadas o demasiadas?",
+            clue:"calls", clueExplain:"'Calls' es contable. El agente lo redirige \u2192 EXCESO de contable \u2192 'too many'.",
+            options:["too much","a little","too many"], correct:"too many",
+            feedback:{
+                "too much":{ errorType:"Cuantificador de Incontable con Contable (exceso)", explanation:"'Too much' se usa con INCONTABLES ('too much time'). 'Calls' tiene -s \u2014 es contable. Para exceso de contable: 'too many calls'.", rule:"too much + incontable / too many + contable plural" },
+                "a little":{ errorType:"Incontable (poco) con Contable (exceso)", explanation:"'A little' indica poca cantidad de incontable. 'Calls' es contable y el contexto indica exceso. La forma correcta es 'too many calls'.", rule:"a little + incontable (poco) / too many + contable (exceso)" }
+            },
+            correctReason:"'Calls' es contable. 'Too many' = exceso de contable. La consecuencia (el agente lo redirige) confirma el exceso.",
+            examples:["too many calls","too many complaints","too many emails"]
+        },
+        // Q5 — correct "a little" en pos 1 (pre-mezclado)
+        {
+            id:5, nounType:"uncountable",
+            sentence:"Carlos had _____ time before the repair team arrived, so he made some tea.",
+            translation:"Carlos ten\u00eda _________ tiempo antes de que llegara el equipo, as\u00ed que prepar\u00f3 t\u00e9.",
+            hint:"Carlos prepar\u00f3 t\u00e9 sin problema. \u00bfTen\u00eda mucho tiempo, poco o un exceso?",
+            clue:"time", clueExplain:"'Time' es incontable. El contexto es tranquilo (hizo t\u00e9) \u2192 poca cantidad suficiente de incontable \u2192 'a little'.",
+            options:["a few","a little","too many"], correct:"a little",
+            feedback:{
+                "a few":{ errorType:"Cuantificador de Contable con Incontable", explanation:"'A few' se usa con contables en plural ('a few minutes'). 'Time' como duraci\u00f3n es incontable. Para poca cantidad de incontable: 'a little time'.", rule:"a few + contable / a little + incontable" },
+                "too many":{ errorType:"Exceso de Contable con Incontable tranquilo", explanation:"'Too many' indica exceso de contable. 'Time' es incontable y la situaci\u00f3n es positiva. La forma correcta es 'a little time'.", rule:"too many + contable (exceso) / a little + incontable (poco)" }
+            },
+            correctReason:"'Time' es incontable. 'A little time' = algo de tiempo libre \u2014 suficiente para hacer t\u00e9 sin apuros.",
+            examples:["a little time","a little money","a little patience"]
+        },
+        // Q6 — correct "a few" en pos 0 (pre-mezclado)
+        {
+            id:6, nounType:"countable",
+            sentence:"The agent emailed Nadia _____ documents to review before changing her plan.",
+            translation:"El agente le envi\u00f3 _________ documentos a Nadia para revisar antes de cambiar su plan.",
+            hint:"Los documentos son contables. La situaci\u00f3n es normal \u2014 una cantidad manejable.",
+            clue:"documents", clueExplain:"'Documents' es contable. Contexto neutral (revisi\u00f3n normal) \u2192 poca cantidad de contable \u2192 'a few'.",
+            options:["a few","a little","too much"], correct:"a few",
+            feedback:{
+                "a little":{ errorType:"Cuantificador de Incontable con Contable", explanation:"'A little' se usa con incontables ('a little paperwork'). 'Documents' tiene -s \u2014 es contable. Para pocos documentos: 'a few documents'.", rule:"a little + incontable / a few + contable plural" },
+                "too much":{ errorType:"Exceso de Incontable con Contable manejable", explanation:"'Too much' indica exceso de incontable. 'Documents' es contable y el contexto es normal. La forma correcta es 'a few documents'.", rule:"too much + incontable (exceso) / a few + contable (poco)" }
+            },
+            correctReason:"'Documents' es contable. 'A few documents' = pocos documentos \u2014 cantidad normal y manejable.",
+            examples:["a few documents","a few options","a few clauses"]
+        },
+        // Q7 — correct "too much" en pos 2 (pre-mezclado)
+        {
+            id:7, nounType:"uncountable",
+            sentence:"Nadia felt _____ stress when she saw that her bill had doubled unexpectedly.",
+            translation:"Nadia sinti\u00f3 _________ estr\u00e9s cuando vio que su factura se hab\u00eda duplicado.",
+            hint:"La factura se duplic\u00f3 de golpe. \u00bfEso causa poco estr\u00e9s o demasiado?",
+            clue:"stress", clueExplain:"'Stress' es incontable. Factura duplicada inesperadamente \u2192 EXCESO de incontable \u2192 'too much'.",
+            options:["too many","a few","too much"], correct:"too much",
+            feedback:{
+                "too many":{ errorType:"Cuantificador de Contable con Incontable (exceso)", explanation:"'Too many' se usa con contables en plural. 'Stress' es incontable \u2014 concepto abstracto sin plural. Para exceso de incontable: 'too much stress'.", rule:"too many + contable / too much + incontable" },
+                "a few":{ errorType:"Poca cantidad + Contable con Incontable de exceso", explanation:"'A few' indica poca cantidad de contable. 'Stress' es incontable y el contexto indica exceso. La forma correcta es 'too much stress'.", rule:"a few + contable (poco) / too much + incontable (exceso)" }
+            },
+            correctReason:"'Stress' es incontable. 'Too much' = exceso de incontable. Ver la factura duplicada genera un nivel exagerado de estr\u00e9s.",
+            examples:["too much stress","too much pressure","too much work"]
+        },
+        // Q8 — correct "too many" en pos 2 (pre-mezclado)
+        {
+            id:8, nounType:"countable",
+            sentence:"James sent _____ emails that the customer service team flagged his account.",
+            translation:"James envi\u00f3 _________ correos que el equipo de atenci\u00f3n marc\u00f3 su cuenta.",
+            hint:"Marcaron su cuenta como consecuencia. \u00bfEnvi\u00f3 pocos correos o demasiados?",
+            clue:"emails", clueExplain:"'Emails' es contable. Consecuencia negativa (cuenta marcada) \u2192 EXCESO de contable \u2192 'too many'.",
+            options:["too much","a little","too many"], correct:"too many",
+            feedback:{
+                "too much":{ errorType:"Cuantificador de Incontable con Contable (exceso)", explanation:"'Too much' se usa con INCONTABLES. 'Emails' tiene -s \u2014 es contable. Para exceso de contable: 'too many emails'.", rule:"too much + incontable / too many + contable plural" },
+                "a little":{ errorType:"Incontable (poco) con Contable (exceso)", explanation:"'A little' indica poca cantidad de incontable. 'Emails' es contable y hay exceso (marcaron la cuenta). La forma correcta es 'too many emails'.", rule:"a little + incontable (poco) / too many + contable (exceso)" }
+            },
+            correctReason:"'Emails' es contable. 'Too many' = exceso de contable. La cuenta marcada confirma que James envi\u00f3 demasiados.",
+            examples:["too many emails","too many messages","too many attempts"]
+        },
+        // Q9 — correct "a little" en pos 2 (pre-mezclado)
+        {
+            id:9, nounType:"uncountable",
+            sentence:"Carlos only had _____ money left after paying the emergency repair bill.",
+            translation:"Carlos solo le qued\u00f3 _________ dinero despu\u00e9s de pagar la reparaci\u00f3n de emergencia.",
+            hint:"'Only' (solo) indica que la cantidad era peque\u00f1a. \u00bfEl dinero es contable?",
+            clue:"money", clueExplain:"'Money' es incontable. 'Only' confirma poca cantidad \u2192 'a little money'.",
+            options:["a few","too many","a little"], correct:"a little",
+            feedback:{
+                "a few":{ errorType:"Cuantificador de Contable con Incontable", explanation:"'A few' se usa con contables en plural ('a few coins'). 'Money' es incontable. Para poca cantidad de dinero: 'a little money'.", rule:"a few + contable / a little + incontable" },
+                "too many":{ errorType:"Exceso de Contable con Incontable escaso", explanation:"'Too many' indica exceso de contable. 'Money' es incontable y 'only' indica escasez, no exceso. La forma correcta es 'a little money'.", rule:"too many + contable (exceso) / a little + incontable (poco)" }
+            },
+            correctReason:"'Money' es incontable. 'A little money' = poco dinero. 'Only' confirma la escasez: casi no le qued\u00f3 nada.",
+            examples:["a little money","a little cash","a little time"]
+        },
+        // Q10 — correct "a few" en pos 1 (pre-mezclado)
+        {
+            id:10, nounType:"countable",
+            sentence:"Lucia waited _____ days before the building management finally responded.",
+            translation:"Lucia esper\u00f3 _________ d\u00edas antes de que la administraci\u00f3n respondiera.",
+            hint:"Los d\u00edas son contables. La espera fue corta pero notable.",
+            clue:"days", clueExplain:"'Days' es contable. Contexto neutral \u2192 poca cantidad de contable \u2192 'a few days'.",
+            options:["a little","a few","too much"], correct:"a few",
+            feedback:{
+                "a little":{ errorType:"Cuantificador de Incontable con Contable", explanation:"'A little' se usa con incontables ('a little time'). 'Days' tiene -s \u2014 es contable. Para pocos d\u00edas: 'a few days'.", rule:"a little + incontable / a few + contable plural" },
+                "too much":{ errorType:"Exceso de Incontable con Contable neutro", explanation:"'Too much' indica exceso de incontable. 'Days' es contable. Para exceso de d\u00edas: 'too many days'. Para pocos: 'a few days'.", rule:"too much + incontable / a few + contable (poco)" }
+            },
+            correctReason:"'Days' es contable. 'A few days' = pocos d\u00edas \u2014 espera corta pero suficiente para notar el retraso.",
+            examples:["a few days","a few weeks","a few hours"]
+        },
+        // Q11 — correct "too much" en pos 0 (pre-mezclado)
+        {
+            id:11, nounType:"uncountable",
+            sentence:"The contract had _____ information that Nadia couldn't understand it all in one reading.",
+            translation:"El contrato ten\u00eda _________ informaci\u00f3n que Nadia no pudo entenderla toda en una lectura.",
+            hint:"Nadia no pudo entenderlo todo de una vez. \u00bfHab\u00eda poca o demasiada informaci\u00f3n?",
+            clue:"information", clueExplain:"'Information' es incontable. No pudo entenderlo todo \u2192 EXCESO \u2192 'too much'.",
+            options:["too much","too many","a few"], correct:"too much",
+            feedback:{
+                "too many":{ errorType:"Cuantificador de Contable con Incontable (exceso)", explanation:"'Too many' se usa con contables ('too many clauses'). 'Information' es incontable y nunca tiene plural. Para exceso de incontable: 'too much information'.", rule:"too many + contable / too much + incontable" },
+                "a few":{ errorType:"Poca cantidad + Contable con Incontable de exceso", explanation:"'A few' indica poca cantidad de contable. Pero 'information' es incontable y hay exceso (no pod\u00eda entenderlo todo). La forma correcta es 'too much information'.", rule:"a few + contable (poco) / too much + incontable (exceso)" }
+            },
+            correctReason:"'Information' es incontable. 'Too much information' = exceso. Nota: 'TMI' (Too Much Information) viene exactamente de esta estructura.",
+            examples:["too much information","too much detail","too much text"]
+        },
+        // Q12 — correct "too many" en pos 2 (pre-mezclado)
+        {
+            id:12, nounType:"countable",
+            sentence:"Carlos noticed there were _____ problems with the heating system, not just one.",
+            translation:"Carlos not\u00f3 que hab\u00eda _________ problemas con el sistema de calefacci\u00f3n, no solo uno.",
+            hint:"Esperaba uno y hab\u00eda varios. \u00bfEra una cantidad normal o excesiva?",
+            clue:"problems", clueExplain:"'Problems' es contable. M\u00e1s de lo esperado \u2192 EXCESO de contable \u2192 'too many'.",
+            options:["a little","too much","too many"], correct:"too many",
+            feedback:{
+                "too much":{ errorType:"Cuantificador de Incontable con Contable (exceso)", explanation:"'Too much' se usa con INCONTABLES ('too much damage'). 'Problems' tiene -s \u2014 es contable. Para exceso de contable: 'too many problems'.", rule:"too much + incontable / too many + contable plural" },
+                "a little":{ errorType:"Incontable (poco) con Contable (exceso)", explanation:"'A little' indica poca cantidad de incontable. 'Problems' es contable y hay exceso (m\u00e1s de lo esperado). La forma correcta es 'too many problems'.", rule:"a little + incontable (poco) / too many + contable (exceso)" }
+            },
+            correctReason:"'Problems' es contable. 'Too many' = exceso. Carlos esperaba uno y encontr\u00f3 varios \u2014 m\u00e1s de lo esperado.",
+            examples:["too many problems","too many issues","too many repairs"]
+        },
+        // Q13 — correct "a little" en pos 0 (pre-mezclado)
+        {
+            id:13, nounType:"uncountable",
+            sentence:"James had to show _____ patience while his refund was being processed.",
+            translation:"James tuvo que mostrar _________ paciencia mientras procesaban su reembolso.",
+            hint:"Esperar un reembolso es normal. La oraci\u00f3n no indica exceso ni problema.",
+            clue:"patience", clueExplain:"'Patience' es incontable. Contexto neutro (espera normal) \u2192 poca cantidad de incontable \u2192 'a little'.",
+            options:["a little","a few","too many"], correct:"a little",
+            feedback:{
+                "a few":{ errorType:"Cuantificador de Contable con Incontable", explanation:"'A few' se usa con contables en plural. 'Patience' es incontable \u2014 concepto abstracto sin plural. Para poca paciencia: 'a little patience'.", rule:"a few + contable / a little + incontable" },
+                "too many":{ errorType:"Exceso de Contable con Incontable neutro", explanation:"'Too many' indica exceso de contable. 'Patience' es incontable y el contexto es neutro. La forma correcta es 'a little patience'.", rule:"too many + contable (exceso) / a little + incontable (poco)" }
+            },
+            correctReason:"'Patience' es incontable. 'A little patience' = un poco de paciencia \u2014 cantidad normal, no exagerada.",
+            examples:["a little patience","a little courage","a little effort"]
+        },
+        // Q14 — correct "a few" en pos 2 (pre-mezclado)
+        {
+            id:14, nounType:"countable",
+            sentence:"The agent offered Nadia _____ options to choose from for her new phone plan.",
+            translation:"El agente le ofreci\u00f3 _________ opciones a Nadia para elegir su nuevo plan.",
+            hint:"El agente ofrece opciones en una situaci\u00f3n de servicio normal. \u00bfSon pocas o excesivas?",
+            clue:"options", clueExplain:"'Options' es contable. Situaci\u00f3n positiva de servicio \u2192 poca cantidad de contable \u2192 'a few'.",
+            options:["a little","too much","a few"], correct:"a few",
+            feedback:{
+                "a little":{ errorType:"Cuantificador de Incontable con Contable", explanation:"'A little' se usa con incontables ('a little information'). 'Options' tiene -s \u2014 es contable. Para pocas opciones: 'a few options'.", rule:"a little + incontable / a few + contable plural" },
+                "too much":{ errorType:"Exceso de Incontable con Contable positivo", explanation:"'Too much' indica exceso de incontable. 'Options' es contable y el contexto es positivo (servicio normal). La forma correcta es 'a few options'.", rule:"too much + incontable (exceso) / a few + contable (poco)" }
+            },
+            correctReason:"'Options' es contable. 'A few options' = pocas opciones claras \u2014 lo justo para elegir sin sentirse abrumada.",
+            examples:["a few options","a few choices","a few alternatives"]
+        },
+        // Q15 — correct "too much" en pos 0 (pre-mezclado)
+        {
+            id:15, nounType:"uncountable",
+            sentence:"Carlos felt he had _____ work to do in one week \u2014 the list kept growing.",
+            translation:"Carlos sinti\u00f3 que ten\u00eda _________ trabajo que hacer en una semana \u2014 la lista segu\u00eda creciendo.",
+            hint:"La lista segu\u00eda creciendo. \u00bfEso es poca cantidad o exceso?",
+            clue:"work", clueExplain:"'Work' como sustantivo gen\u00e9rico es incontable. Lista creciente \u2192 EXCESO \u2192 'too much'.",
+            options:["too much","too many","a few"], correct:"too much",
+            feedback:{
+                "too many":{ errorType:"Cuantificador de Contable con Incontable (exceso)", explanation:"'Too many' se usa con contables en plural ('too many tasks'). 'Work' como sustantivo gen\u00e9rico es incontable \u2014 no tiene plural. Para exceso de incontable: 'too much work'.", rule:"too many + contable / too much + incontable" },
+                "a few":{ errorType:"Poca cantidad + Contable con Incontable de exceso", explanation:"'A few' indica poca cantidad de contable. 'Work' es incontable y hay exceso (lista creciente). La forma correcta es 'too much work'.", rule:"a few + contable (poco) / too much + incontable (exceso)" }
+            },
+            correctReason:"'Work' es incontable. 'Too much work' = exceso de trabajo. La lista que sigue creciendo confirma el desbordamiento.",
+            examples:["too much work","too much homework","too much effort"]
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    // Fisher-Yates — segunda capa de aleatorización sobre los datos ya pre-mezclados
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach(function(q, index) { container.appendChild(createCard(q, index)); });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = 'question-card' + (index !== 0 ? ' hidden' : '');
+        card.id = 'question-' + index;
+        const shuffled = shuffle(q.options);  // Fisher-Yates runtime sobre opciones ya pre-mezcladas
+        const badge = q.nounType === 'countable'
+            ? '<span class="noun-type-badge countable">&#128230; Contable</span>'
+            : '<span class="noun-type-badge uncountable">&#128167; Incontable</span>';
+        const btnHTML = shuffled.map(function(opt) {
+            return '<button class="option-btn" onclick="selectAnswer(' + index + ', this)">' + opt + '</button>';
+        }).join('');
+        card.innerHTML =
+            '<div class="q-header"><div class="question-number">' + (index+1) + '</div>' + badge + '</div>' +
+            '<div class="hint-box"><div class="hint-label">&#128161; Pista</div>' + q.hint + '</div>' +
+            '<p class="question-text">' + q.sentence.replace('_____', '<span class="blank" id="blank-' + index + '">?</span>') + '</p>' +
+            '<p class="translation">' + q.translation + '</p>' +
+            '<div class="options-grid" id="options-' + index + '">' + btnHTML + '</div>' +
+            '<div class="feedback" id="feedback-' + index + '"></div>' +
+            '<div class="nav-buttons">' +
+                '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>\u2190 Anterior</button>' +
+                '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
+                    (index===quizData.length-1?'Ver Resultados &#127881;':'Siguiente \u2192') +
+                '</button></div>';
+        return card;
+    }
+
+    function selectAnswer(qi, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const selected = btn.textContent.trim();
+        const q = quizData[qi];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+        const blank = document.getElementById('blank-' + qi);
+        blank.textContent = selected;
+        blank.className = 'blank ' + (isCorrect ? 'correct' : 'incorrect');
+        document.querySelectorAll('#options-' + qi + ' .option-btn').forEach(function(b) {
+            b.disabled = true;
+            if (b.textContent.trim() === q.correct) b.classList.add('correct');
+            else if (b.textContent.trim() === selected) b.classList.add('incorrect');
+        });
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById('next-' + qi).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById('feedback-' + qi);
+        el.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+        const exHTML = q.examples.map(function(e) {
+            return '<span class="rule-ex">' + e + '</span>';
+        }).join('');
+        const formula = q.nounType === 'countable'
+            ? 'a few + contable &nbsp;|&nbsp; too many + contable'
+            : 'a little + incontable &nbsp;|&nbsp; too much + incontable';
+        if (isCorrect) {
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#9989;</span><div>' +
+                '<div class="fb-title">&#161;Correcto!</div>' +
+                '<div class="fb-subtitle">Elegiste el cuantificador adecuado</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal"><div class="fb-block-title">&#128269; La clave que deb\u00edas identificar</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">El sustantivo <span class="signal-tag">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; Regla aplicada</div>' +
+                '<div class="rule-formula">' + formula + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        } else {
+            const err = q.feedback[selected] || { errorType:'Error', explanation:'Respuesta incorrecta.', rule:'' };
+            el.innerHTML =
+                '<div class="fb-header"><span class="fb-icon">&#10060;</span><div>' +
+                '<div class="fb-title">Incorrecto</div>' +
+                '<div class="fb-subtitle">Revisemos qu\u00e9 pas\u00f3</div></div></div>' +
+                '<div class="fb-body">' +
+                '<div class="fb-block fb-signal wrong"><div class="fb-block-title">&#128269; La clave que deb\u00edas identificar</div>' +
+                '<div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">El sustantivo <span class="signal-tag red">' + q.clue + '</span> ' + q.clueExplain + '</div></div>' +
+                '<div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">&#128260; Tu respuesta vs. la correcta</div>' +
+                '<div class="compare-row"><span class="compare-label wrong">T\u00fa elegiste</span><span class="compare-text"><span class="word-wrong">' + selected + '</span></span></div>' +
+                '<div class="compare-row"><span class="compare-label right">Correcto</span><span class="compare-text"><span class="word-right">' + q.correct + '</span></span></div></div>' +
+                '<div class="fb-block fb-error"><div class="fb-block-title">&#9888;&#65039; Tipo de error: <span class="error-badge">' + err.errorType + '</span></div>' +
+                '<div class="word-swap"><span class="ws-box ws-wrong">' + selected + '</span><span class="ws-arrow">\u2192</span><span class="ws-box ws-right">' + q.correct + '</span></div>' +
+                '<div class="error-text">' + err.explanation + '</div>' +
+                (err.rule ? '<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">&#128204; ' + err.rule + '</div>' : '') + '</div>' +
+                '<div class="fb-block fb-rule"><div class="fb-block-title">&#128208; La regla correcta</div>' +
+                '<div class="rule-formula">' + formula + '</div>' +
+                '<div class="rule-examples">' + exHTML + '</div></div>' +
+                '<div class="fb-block fb-why"><div class="fb-block-title">&#128161; \u00bfPor qu\u00e9 es correcta la respuesta?</div>' +
+                '<div class="fb-why-text">' + q.correctReason + '</div></div></div>';
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach(function(c,idx){ c.classList.toggle('hidden', idx!==i); });
+        document.getElementById('currentQ').textContent = i+1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length-1 ? showQuestion(i+1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion-1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(function(c){ c.classList.add('hidden'); });
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = score + '/15';
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '\u00a1Excelente! Dominas a few, a little, too many y too much. \uD83C\uDFC6'
+            : pct >= 70 ? '\u00a1Muy bien! Sigue practicando los cuantificadores. \uD83D\uDCAA'
+            : 'Buen esfuerzo. Repasa la diferencia contable/incontable e int\u00e9ntalo de nuevo. \uD83D\uDCDA';
+        document.querySelectorAll('.star').forEach(function(s,i){
+            if (i < stars) setTimeout(function(){ s.classList.add('earned'); }, i*300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

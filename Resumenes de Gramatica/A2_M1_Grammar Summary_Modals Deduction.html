@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Modals of Deduction | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#F1F8E9;--note-border:#AED581;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:800px;margin:0 auto}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:"";position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:"Fredoka",sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:"Fredoka",sans-serif;font-size:1.05rem;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.83rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:"Nunito",sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem;margin-top:1.1rem}
+.section-label::before{content:"";width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-label:first-child{margin-top:0}
+.section-title{font-family:"Fredoka",sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:"Fredoka",sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0}
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:"Fredoka",sans-serif;font-size:.93rem;color:var(--ld);line-height:2.2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:"Fredoka",sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem;font-weight:700}
+.alert-card p{font-size:.82rem;color:#555;line-height:1.7}
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:"Lora",serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+/* CERTAINTY SCALE */
+.certainty-scale{background:#F8F9FA;border-radius:14px;padding:1rem;margin:1rem 0;border:1px solid var(--border)}
+.cs-label{font-family:"Fredoka",sans-serif;font-size:.78rem;font-weight:600;color:var(--text-soft);text-align:center;margin-bottom:.7rem;text-transform:uppercase;letter-spacing:.07em}
+.cs-track{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.cs-item{text-align:center;padding:.7rem .9rem;border-radius:12px;min-width:90px}
+.cs-must{background:var(--ok-bg);border:2px solid #A5D6A7}
+.cs-might{background:#FFF3E0;border:2px solid #FFB74D}
+.cs-cant{background:var(--err-bg);border:2px solid #EF9A9A}
+.cs-pct{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+.cs-must .cs-pct{color:var(--ok)}
+.cs-might .cs-pct{color:#E65100}
+.cs-cant .cs-pct{color:var(--err)}
+.cs-modal{font-family:"Fredoka",sans-serif;font-size:1rem;font-weight:700;margin-bottom:.15rem}
+.cs-must .cs-modal{color:var(--ld)}
+.cs-might .cs-modal{color:#BF360C}
+.cs-cant .cs-modal{color:var(--err)}
+.cs-desc{font-size:.68rem;color:var(--text-soft)}
+.cs-arrow{font-size:1.2rem;color:var(--text-soft);font-weight:700}
+/* STRUCTURE VISUAL */
+.structure-visual{margin:.9rem 0}
+.sv-row{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:.8rem}
+.sv-part{padding:.4rem .8rem;border-radius:8px;font-size:.78rem;font-weight:700;text-align:center}
+.sv-subj{background:var(--subj-bg);color:var(--subj);border:1.5px solid #90CAF9}
+.sv-modal{background:var(--quest-bg);color:var(--quest);border:1.5px solid #CE93D8}
+.sv-verb{background:var(--comp-bg);color:var(--comp);border:1.5px solid #80CBC4;font-size:.73rem}
+.sv-plus{font-weight:800;color:var(--text-soft)}
+.sv-examples{display:flex;flex-direction:column;gap:.3rem}
+.sv-ex{font-size:.81rem;padding:.3rem .6rem;background:#fafafa;border-radius:8px;border:1px solid var(--border)}
+.sv-s{color:var(--subj);font-weight:700}
+.sv-m{color:var(--quest);font-weight:800}
+.sv-v{color:var(--comp);font-weight:700}
+/* DANGER PAIRS */
+.danger-pairs{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+.dp-item{background:#fff;border-radius:10px;padding:.8rem;border:1.5px solid var(--border)}
+.dp-header{font-family:"Fredoka",sans-serif;font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.4rem;border-bottom:1px dashed #e0e0e0;padding-bottom:.3rem}
+.dp-ded{font-size:.79rem;color:var(--ok);margin-bottom:.2rem}
+.dp-obl{font-size:.79rem;color:var(--err);margin-bottom:.2rem}
+.dp-tip{font-size:.72rem;color:var(--text-soft);font-style:italic;margin-top:.3rem}
+/* MIGHT MAY BOX */
+.might-may-box{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.5rem;margin:.8rem 0;background:#F8F9FA;border-radius:12px;padding:.9rem;border:1px solid var(--border)}
+.mmb-col{text-align:center}
+.mmb-word{font-family:"Fredoka",sans-serif;font-size:1.1rem;font-weight:700;color:var(--quest);margin-bottom:.3rem}
+.mmb-note{font-size:.73rem;color:var(--text-soft);margin-bottom:.4rem;line-height:1.4}
+.mmb-ex{font-size:.78rem;font-weight:700;color:var(--text)}
+.mmb-eq{font-family:"Fredoka",sans-serif;font-size:1.3rem;color:var(--lp);font-weight:700;text-align:center}
+/* SERVICE DEDUCTIONS */
+.service-deductions{display:flex;flex-direction:column;gap:.45rem;margin:1rem 0}
+.sd-item{display:grid;grid-template-columns:.8fr 1fr 3fr;align-items:center;gap:.7rem;border-radius:10px;padding:.65rem .8rem;font-size:.81rem}
+.sd-must{background:var(--ok-bg);border:1.5px solid #A5D6A7}
+.sd-might{background:#FFF3E0;border:1.5px solid #FFB74D}
+.sd-cant{background:var(--err-bg);border:1.5px solid #EF9A9A}
+.sd-modal{font-family:"Fredoka",sans-serif;font-weight:700;font-size:.88rem}
+.sd-must .sd-modal{color:var(--ok)}
+.sd-might .sd-modal{color:#BF360C}
+.sd-cant .sd-modal{color:var(--err)}
+.sd-context{font-size:.71rem;font-weight:700;color:var(--text-soft)}
+.sd-ex{color:var(--text);line-height:1.4}
+@media(max-width:600px){
+.cs-track{flex-direction:column;align-items:center}
+.cs-arrow{transform:rotate(90deg)}
+.might-may-box{grid-template-columns:1fr;text-align:center}
+.mmb-eq{padding:.3rem 0}
+.sd-item{grid-template-columns:1fr}
+.sv-row{gap:.3rem}
+}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:"Fredoka",sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:"Nunito",sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:"Fredoka",sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:4px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#33691E}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:"Fredoka",sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block;animation:fadeIn .4s ease}
+.summary-final h3{font-family:"Fredoka",sans-serif;color:var(--ok);margin-bottom:.8rem;font-size:1.1rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:5px 0 5px 22px;position:relative;font-size:.84rem;color:var(--text-soft);border-bottom:1px solid var(--lm)}
+.summary-final li:last-child{border-bottom:none}
+.summary-final li:before{content:"&#10003;";position:absolute;left:0;color:var(--lp);font-weight:700}
+@media(max-width:600px){
+.level-header h1{font-size:1.4rem}
+.compare-grid{grid-template-columns:1fr}
+.card{padding:1.2rem}
+.opts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+  <div class="level-badge">&#x1F49A; A2 &middot; Grammar Summary</div>
+  <h1>&#x1F4DD; Grammar Summary</h1>
+  <div class="module-name">&#x1F6CE;&#xFE0F; Services, Support &amp; Problem Solving</div>
+  <p class="subtitle">Modals of Deduction: must / might / may / can't &middot; 5 steps &times; 5 exercises</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+  <h3>&#x1F393; Key Points &mdash; Modals of Deduction</h3>
+  <ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+var STEPS = [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol usamos expresiones como \"debe ser\", \"puede ser\", \"no puede ser\" para hacer deducciones. En ingl\u00e9s los modales de deducci\u00f3n funcionan igual pero con palabras fijas.</div>\n<div class=\"compare-grid\">\n  <div class=\"compare-card esp\">\n    <h4>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</h4>\n    <ul>\n      <li><b>Debe ser</b> un error del sistema.</li>\n      <li><b>Podr\u00eda ser</b> un problema t\u00e9cnico.</li>\n      <li><b>No puede ser</b> correcto.</li>\n      <li><b>Quiz\u00e1s sea</b> un retraso.</li>\n    </ul>\n  </div>\n  <div class=\"compare-card eng\">\n    <h4>\ud83c\uddec\ud83c\udde7 English</h4>\n    <ul>\n      <li>It <b>must</b> be a system error.</li>\n      <li>It <b>might</b> be a technical issue.</li>\n      <li>That <b>can't</b> be right.</li>\n      <li>It <b>may</b> be a delay.</li>\n    </ul>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Idea clave:</strong> Los modales de deducci\u00f3n expresan cu\u00e1nta <b>certeza</b> tienes sobre algo. No son hechos \u2014 son deducciones basadas en evidencia o l\u00f3gica.</div>\n<div class=\"certainty-scale\">\n  <div class=\"cs-label\">Escala de certeza</div>\n  <div class=\"cs-track\">\n    <div class=\"cs-item cs-must\">\n      <div class=\"cs-pct\">~95%</div>\n      <div class=\"cs-modal\">must</div>\n      <div class=\"cs-desc\">Casi seguro</div>\n    </div>\n    <div class=\"cs-arrow\">\u2192</div>\n    <div class=\"cs-item cs-might\">\n      <div class=\"cs-pct\">~50%</div>\n      <div class=\"cs-modal\">might / may</div>\n      <div class=\"cs-desc\">Posible</div>\n    </div>\n    <div class=\"cs-arrow\">\u2192</div>\n    <div class=\"cs-item cs-cant\">\n      <div class=\"cs-pct\">0%</div>\n      <div class=\"cs-modal\">can't</div>\n      <div class=\"cs-desc\">Imposible</div>\n    </div>\n  </div>\n</div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udca1</div><div><div class=\"en\">The system <b>must</b> be down \u2014 nobody can log in. <em>(casi seguro)</em></div><div class=\"es\">El sistema debe estar ca\u00eddo \u2014 nadie puede iniciar sesi\u00f3n.</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83e\udd14</div><div><div class=\"en\">The delay <b>might</b> be due to high traffic. <em>(posible)</em></div><div class=\"es\">El retraso puede deberse al alto tr\u00e1fico.</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udeab</div><div><div class=\"en\">That <b>can't</b> be the right account \u2014 the name is different. <em>(imposible)</em></div><div class=\"es\">Esa no puede ser la cuenta correcta \u2014 el nombre es diferente.</div></div></div>"}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Both languages express deduction using specific words \u2014 the concept and position are nearly identical.</div>\n<table class=\"g-table\">\n  <tr><th>Espa\u00f1ol</th><th>English</th><th>Certeza</th></tr>\n  <tr><td>Debe ser...</td><td><span class=\"g-comp\">must</span> be...</td><td>~95% \u2014 casi seguro</td></tr>\n  <tr><td>Podr\u00eda ser / Puede ser</td><td><span class=\"g-quest\">might / may</span> be...</td><td>~50% \u2014 posible</td></tr>\n  <tr><td>No puede ser...</td><td><span class=\"g-neg\">can't</span> be...</td><td>0% \u2014 imposible</td></tr>\n  <tr><td>Posici\u00f3n: antes del verbo</td><td>subject + <b>modal</b> + be/verb</td><td>siempre entre sujeto y verbo</td></tr>\n  <tr><td>Misma forma para todas las personas</td><td>he/she/it <b>must</b> (no: musts)</td><td>los modales no cambian</td></tr>\n</table>\n<div class=\"section-label\">Estructura gramatical</div>\n<div class=\"structure-visual\">\n  <div class=\"sv-row\">\n    <div class=\"sv-part sv-subj\">Subject</div>\n    <div class=\"sv-plus\">+</div>\n    <div class=\"sv-part sv-modal\">must / might / may / can't</div>\n    <div class=\"sv-plus\">+</div>\n    <div class=\"sv-part sv-verb\">be + adj/noun<br><em>OR infinitive</em></div>\n  </div>\n  <div class=\"sv-examples\">\n    <div class=\"sv-ex\"><span class=\"sv-s\">The charge</span> <span class=\"sv-m\">must</span> <span class=\"sv-v\">be a mistake</span>.</div>\n    <div class=\"sv-ex\"><span class=\"sv-s\">The refund</span> <span class=\"sv-m\">might</span> <span class=\"sv-v\">take a few days</span>.</div>\n    <div class=\"sv-ex\"><span class=\"sv-s\">That account</span> <span class=\"sv-m\">can't</span> <span class=\"sv-v\">be correct</span>.</div>\n    <div class=\"sv-ex\"><span class=\"sv-s\">The customer</span> <span class=\"sv-m\">may</span> <span class=\"sv-v\">have misunderstood</span>.</div>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Importante:</strong> Los modales de deducci\u00f3n <b>nunca cambian de forma</b>. No existe \"he musts\" o \"she mights\". Son invariables: she <b>must</b> be / they <b>might</b> be / it <b>can't</b> be.</div>"}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<table class=\"g-table\">\n  <tr><th>Espa\u00f1ol</th><th>English</th><th>\ud83d\udca1 Significado</th></tr>\n  <tr><td>Debe ser un error. (deducci\u00f3n)</td><td>It <span class=\"g-comp\">must</span> be an error.</td><td>Deducci\u00f3n l\u00f3gica, ~95%</td></tr>\n  <tr><td>Tiene que pagar. (obligaci\u00f3n)</td><td>He <span class=\"g-comp\">has to</span> pay.</td><td>Obligaci\u00f3n \u2014 NO deducci\u00f3n</td></tr>\n  <tr><td>No puede ser correcto. (imposible)</td><td>It <span class=\"g-neg\">can't</span> be right.</td><td>Deducci\u00f3n negativa</td></tr>\n  <tr><td>No debe hacerlo. (prohibici\u00f3n)</td><td>He <span class=\"g-neg\">mustn't</span> do it.</td><td>Prohibici\u00f3n \u2014 NO deducci\u00f3n</td></tr>\n  <tr><td>Puede ser / Podr\u00eda ser (50%)</td><td>It <span class=\"g-quest\">might</span> / <span class=\"g-quest\">may</span> be...</td><td>might y may son casi sin\u00f3nimos</td></tr>\n</table>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f Confusiones peligrosas</div>\n  <div class=\"danger-pairs\">\n    <div class=\"dp-item\">\n      <div class=\"dp-header\">must (deducci\u00f3n) vs must (obligaci\u00f3n)</div>\n      <div class=\"dp-ded\">\ud83d\udd0d <b>Deducci\u00f3n:</b> \"The system <b>must</b> be overloaded.\" <em>(lo deduzco)</em></div>\n      <div class=\"dp-obl\">\ud83d\udccb <b>Obligaci\u00f3n:</b> \"You <b>must</b> submit the form.\" <em>(tienes que)</em></div>\n      <div class=\"dp-tip\">\u2192 Contexto determina el significado</div>\n    </div>\n    <div class=\"dp-item\">\n      <div class=\"dp-header\">can't (deducci\u00f3n) vs mustn't (prohibici\u00f3n)</div>\n      <div class=\"dp-ded\">\ud83d\udd0d <b>Deducci\u00f3n:</b> \"That <b>can't</b> be her account.\" <em>(es imposible)</em></div>\n      <div class=\"dp-obl\">\ud83d\udeab <b>Prohibici\u00f3n:</b> \"You <b>mustn't</b> share your password.\" <em>(est\u00e1 prohibido)</em></div>\n      <div class=\"dp-tip\">\u2192 can't = imposible \u00b7 mustn't = prohibido</div>\n    </div>\n  </div>\n</div>\n<div class=\"section-label\">Might vs May \u2014 \u00bfhay diferencia?</div>\n<div class=\"might-may-box\">\n  <div class=\"mmb-col\">\n    <div class=\"mmb-word\">might</div>\n    <div class=\"mmb-note\">Ligeramente m\u00e1s informal \u00b7 m\u00e1s com\u00fan en conversaci\u00f3n \u00b7 implica quiz\u00e1s un poco menos de seguridad</div>\n    <div class=\"mmb-ex\">The refund <b>might</b> arrive tomorrow.</div>\n  </div>\n  <div class=\"mmb-eq\">=</div>\n  <div class=\"mmb-col\">\n    <div class=\"mmb-word\">may</div>\n    <div class=\"mmb-note\">Ligeramente m\u00e1s formal \u00b7 m\u00e1s com\u00fan en escritura \u00b7 en A2 son pr\u00e1cticamente intercambiables</div>\n    <div class=\"mmb-ex\">The refund <b>may</b> arrive tomorrow.</div>\n  </div>\n</div>"}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n<div class=\"tip-card\"><strong>Tip 1 \u2014 Elige seg\u00fan la certeza:</strong> Antes de hablar, preg\u00fantate: \u00bfcu\u00e1nto est\u00e1s seguro? Si casi seguro \u2192 <b>must</b>. Si posible pero no seguro \u2192 <b>might/may</b>. Si es imposible \u2192 <b>can't</b>. La evidencia determina el modal.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 must \u2260 have to en deducci\u00f3n:</strong> \"There <b>must</b> be a problem\" = deduzco que hay un problema. \"There <b>has to</b> be a problem\" = tiene que haber (obligaci\u00f3n o certeza fuerte). En deducci\u00f3n, must es la elecci\u00f3n natural.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 can't para lo imposible:</strong> Cuando la l\u00f3gica hace que algo sea completamente imposible, usas <b>can't</b>: \"This can't be the right form \u2014 it's for a different department.\" La evidencia hace imposible la alternativa.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 En atenci\u00f3n al cliente:</strong> Los modales de deducci\u00f3n son muy \u00fatiles para sonar profesional sin ser brusco. \"That <b>might</b> be an issue with our system\" (posibilidad cort\u00e9s) vs \"That IS an error\" (directo, potencialmente confrontacional).</div>\n<div class=\"section-label\">Deducci\u00f3n en contexto de servicios</div>\n<div class=\"service-deductions\">\n  <div class=\"sd-item sd-must\">\n    <div class=\"sd-modal\">must</div>\n    <div class=\"sd-context\">Casi seguro</div>\n    <div class=\"sd-ex\">The payment <b>must</b> have failed \u2014 your account shows no transaction.</div>\n  </div>\n  <div class=\"sd-item sd-might\">\n    <div class=\"sd-modal\">might / may</div>\n    <div class=\"sd-context\">Posible</div>\n    <div class=\"sd-ex\">There <b>might</b> be a delay due to the bank's processing time.</div>\n  </div>\n  <div class=\"sd-item sd-cant\">\n    <div class=\"sd-modal\">can't</div>\n    <div class=\"sd-context\">Imposible</div>\n    <div class=\"sd-ex\">This <b>can't</b> be your account \u2014 the address doesn't match.</div>\n  </div>\n</div>"}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"formula-box\">\n  <span class=\"g-comp\">must</span> + be/V \u2192 deducci\u00f3n positiva (~95%)<br>\n  <span class=\"g-quest\">might / may</span> + be/V \u2192 posibilidad (~50%)<br>\n  <span class=\"g-neg\">can't</span> + be/V \u2192 deducci\u00f3n negativa (imposible, 0%)\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udda5\ufe0f</div><div><div class=\"en\">The system <span class=\"g-comp\">must</span> <span class=\"g-verb\">be</span> <span class=\"g-comp\">overloaded</span> \u2014 response times are very slow.</div><div class=\"es\">El sistema debe estar sobrecargado \u2014 los tiempos de respuesta son muy lentos.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udce6</div><div><div class=\"en\">Your parcel <span class=\"g-quest\">might</span> <span class=\"g-verb\">still be</span> <span class=\"g-comp\">in transit</span> \u2014 let me check the tracking.</div><div class=\"es\">Su paquete puede que todav\u00eda est\u00e9 en tr\u00e1nsito \u2014 d\u00e9jeme verificar el seguimiento.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcb3</div><div><div class=\"en\">This charge <span class=\"g-neg\">can't</span> <span class=\"g-verb\">be</span> <span class=\"g-neg\">correct</span> \u2014 you only ordered one item.</div><div class=\"es\">Este cargo no puede ser correcto \u2014 solo pidi\u00f3 un art\u00edculo.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udce7</div><div><div class=\"en\">The email <span class=\"g-quest\">may</span> <span class=\"g-verb\">have gone</span> to your <span class=\"g-comp\">spam folder</span>.</div><div class=\"es\">El email puede que haya ido a su carpeta de spam.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">That mustn't be right. / He musts be the manager.</div><div class=\"es\">Errores: mustn't = prohibici\u00f3n (no deducci\u00f3n) \u00b7 musts no existe \u2014 los modales son invariables</div></div></div>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f 3 Errores Comunes</div>\n  <p>\u274c \"That <b>mustn't</b> be right.\" \u2192 \u2705 \"That <b>can't</b> be right.\" (imposible = can't, no mustn't)<br>\n  \u274c \"She <b>musts</b> be the manager.\" \u2192 \u2705 \"She <b>must</b> be the manager.\" (modales invariables)<br>\n  \u274c \"It <b>might be</b> wrong, I'm sure.\" \u2192 \u2705 \"It <b>must be</b> wrong, I'm sure.\" (seguro = must, no might)</p>\n</div>"}];
+var EXERCISES = [[{"q": "\"The system ___ be down \u2014 nobody can log in.\" (casi seguro)", "a": "a", "o": ["must", "might"], "fc": "Must = deducci\u00f3n casi segura (~95%). La evidencia es clara: nadie puede iniciar sesi\u00f3n.", "fi": "Might = posibilidad 50%. Aqu\u00ed la evidencia es fuerte, as\u00ed que must es la elecci\u00f3n correcta.", "ex": "The system must be down \u2014 nobody can log in.", "tip": "Evidencia fuerte + casi seguro \u2192 must"}, {"q": "\"The delay ___ be due to high traffic.\" (es posible, no seguro)", "a": "b", "o": ["must", "might"], "fc": "Might = posibilidad ~50%. No estamos seguros \u2014 es una posibilidad.", "fi": "Must implica casi certeza. Si no est\u00e1s seguro, usa might o may.", "ex": "The delay might be due to high traffic. (posible, no seguro)", "tip": "Posible pero no seguro \u2192 might / may (~50%)"}, {"q": "\"That ___ be the right account \u2014 the name is completely different.\"", "a": "b", "o": ["must", "can't"], "fc": "Can't = imposible (0%). El nombre diferente hace imposible que sea la cuenta correcta.", "fi": "Must = casi seguro positivo. Aqu\u00ed la l\u00f3gica dice que ES imposible \u2192 can't.", "ex": "That can't be the right account \u2014 the name is different.", "tip": "Imposible / contradice la evidencia \u2192 can't"}, {"q": "\u00bfCu\u00e1l modal expresa ~95% de certeza en una deducci\u00f3n positiva?", "a": "a", "o": ["must", "might"], "fc": "Must = deducci\u00f3n casi segura. \"It must be an error\" \u2192 casi seguro que es un error.", "fi": "Might = solo ~50% de posibilidad. Para alta certeza usa must.", "ex": "The charge must be a mistake. (~95% certeza)", "tip": "~95% certeza positiva \u2192 must"}, {"q": "\"The refund ___ arrive tomorrow or the day after.\" (es posible)", "a": "b", "o": ["must", "may"], "fc": "May = posibilidad ~50%. No sabemos exactamente cu\u00e1ndo llegar\u00e1.", "fi": "Must implicar\u00eda casi certeza. Si hay incertidumbre, usa may o might.", "ex": "The refund may arrive tomorrow. (posible)", "tip": "Incertidumbre / posibilidad \u2192 may / might"}], [{"q": "\"She ___ be the new manager \u2014 I've never seen her before.\"", "a": "a", "o": ["might", "musts"], "fc": "Might = posibilidad. No sabemos con certeza si es la nueva gerente. Y 'musts' no existe.", "fi": "Musts no existe \u2014 los modales son invariables. She might (no musts).", "ex": "She might be the new manager. (posibilidad)", "tip": "Modales son invariables: must, might, may, can't (sin -s)"}, {"q": "\"This ___ be a billing error \u2014 the amount is three times what it should be.\"", "a": "b", "o": ["may", "must"], "fc": "Must = casi certeza por la evidencia fuerte (cantidad tres veces mayor). La l\u00f3gica apunta claramente a un error.", "fi": "May = solo posibilidad. La evidencia aqu\u00ed es muy fuerte \u2192 must.", "ex": "This must be a billing error \u2014 the amount is three times what it should be.", "tip": "Evidencia muy fuerte \u2192 must"}, {"q": "Los modales de deducci\u00f3n (must/might/may/can't):", "a": "a", "o": ["Son invariables \u2014 misma forma para todas las personas", "A\u00f1aden -s en tercera persona (she musts)"], "fc": "Los modales son invariables. She must / he might / it can't \u2014 sin -s, sin cambios.", "fi": "Musts, mights, cants no existen. Los modales nunca cambian de forma.", "ex": "He must be wrong. / She might know. / It can't be right.", "tip": "Modales: siempre la misma forma, todas las personas"}, {"q": "Posici\u00f3n correcta del modal en la oraci\u00f3n:", "a": "b", "o": ["The account be might correct.", "The account might be correct."], "fc": "Subject + modal + be + adjective/noun. El modal siempre va entre el sujeto y el verbo be.", "fi": "El modal nunca va despu\u00e9s de be. El orden correcto es: sujeto + modal + be.", "ex": "The account might be correct. (sujeto + modal + be)", "tip": "Orden: Subject + modal + be + complement"}, {"q": "\"The email ___ have gone to your spam folder.\" (posible)", "a": "a", "o": ["may", "must"], "fc": "May = posibilidad. No sabemos con certeza si fue al spam, pero es posible.", "fi": "Must implicar\u00eda casi certeza: 'The email must have gone to spam' = estoy casi seguro.", "ex": "The email may have gone to your spam folder. (posible)", "tip": "Posibilidad sin evidencia fuerte \u2192 may / might"}], [{"q": "\"That ___ be right \u2014 the figures don't add up at all.\"", "a": "b", "o": ["mustn't", "can't"], "fc": "Can't = deducci\u00f3n imposible. Los n\u00fameros no cuadran, por lo tanto es imposible que sea correcto.", "fi": "Mustn't = prohibici\u00f3n ('no debes'). Para deducci\u00f3n imposible se usa can't.", "ex": "That can't be right \u2014 the figures don't add up.", "tip": "Deducci\u00f3n imposible \u2192 can't (no mustn't)"}, {"q": "\"You ___ share your account password with anyone.\" \u00bfQu\u00e9 tipo de must es?", "a": "b", "o": ["Deducci\u00f3n (deduzco que no compartes)", "Prohibici\u00f3n (est\u00e1 prohibido compartir)"], "fc": "Mustn't = prohibici\u00f3n. Es una regla: est\u00e1 prohibido compartir la contrase\u00f1a.", "fi": "Si fuera deducci\u00f3n dir\u00eda: 'You can't be sharing your password' (es imposible que lo est\u00e9s haciendo).", "ex": "You mustn't share your password. (prohibici\u00f3n)", "tip": "mustn't = prohibici\u00f3n \u00b7 can't = deducci\u00f3n imposible"}, {"q": "\"Might\" y \"may\" en deducci\u00f3n son:", "a": "a", "o": ["Pr\u00e1cticamente intercambiables en A2 (~50% posibilidad)", "Completamente diferentes \u2014 might es negativo, may es positivo"], "fc": "En A2, might y may son casi sin\u00f3nimos. Ambos expresan ~50% de posibilidad.", "fi": "No hay diferencia de positivo/negativo entre might y may. Ambos expresan posibilidad.", "ex": "The issue might be resolved soon. / The issue may be resolved soon. (igual)", "tip": "might \u2248 may = posibilidad ~50% (pr\u00e1cticamente sin\u00f3nimos en A2)"}, {"q": "\"There ___ be a problem with your account.\" \u2014 El agente no est\u00e1 seguro.", "a": "b", "o": ["must", "might"], "fc": "Might = posibilidad. El agente no est\u00e1 seguro, solo lo considera posible.", "fi": "Must implicar\u00eda casi certeza. Si hay incertidumbre profesional, might/may es m\u00e1s apropiado.", "ex": "There might be a problem with your account \u2014 let me check.", "tip": "Incertidumbre profesional \u2192 might/may (m\u00e1s cort\u00e9s que must)"}, {"q": "\"This ___ be her file \u2014 the ID number matches exactly.\"", "a": "a", "o": ["must", "can't"], "fc": "Must = casi seguro positivo. La evidencia (ID coincide exactamente) es muy fuerte.", "fi": "Can't = imposible. Aqu\u00ed la evidencia apunta a que S\u00cd es el archivo correcto \u2192 must.", "ex": "This must be her file \u2014 the ID number matches exactly. (~95%)", "tip": "Evidencia positiva fuerte \u2192 must"}], [{"q": "Un agente ve que el cliente pag\u00f3 dos veces por el mismo art\u00edculo. Dice:", "a": "b", "o": ["This might be an error.", "This must be an error."], "fc": "Must = casi seguro. La evidencia es clara: doble pago. La deducci\u00f3n es casi segura.", "fi": "Might = solo posibilidad. Con evidencia tan clara, must es la elecci\u00f3n apropiada.", "ex": "This must be an error \u2014 you've been charged twice for the same item.", "tip": "Evidencia clara \u2192 must (no might)"}, {"q": "Un agente busca el paquete del cliente pero el sistema est\u00e1 lento. Dice:", "a": "a", "o": ["The system might be experiencing issues \u2014 please bear with me.", "The system can't be experiencing issues \u2014 please bear with me."], "fc": "Might = posibilidad. Es posible que haya problemas. Can't ser\u00eda imposible \u2014 contradice la realidad.", "fi": "Can't significa que es imposible. Pero el sistema S\u00cd parece tener problemas \u2192 might.", "ex": "The system might be experiencing issues right now.", "tip": "Posibilidad sin certeza absoluta \u2192 might / may"}, {"q": "El cliente insiste en que pag\u00f3, pero no hay registro. El agente deduce:", "a": "b", "o": ["The payment can't have been processed \u2014 it must be a delay.", "The payment must have been processed \u2014 it might be a delay."], "fc": "Sin registro \u2192 puede que el pago NO se proces\u00f3 (can't have been processed) o posiblemente es un retraso (might be a delay).", "fi": "La l\u00f3gica: sin registro en el sistema \u2192 casi seguro que no se proces\u00f3. Con posibilidad de retraso.", "ex": "The payment can't have been processed \u2014 there's no record. It might be a delay.", "tip": "Sin evidencia del pago \u2192 can't (procesado) + might (retraso posible)"}, {"q": "\"The customer ___ be frustrated \u2014 he's been waiting for two weeks.\"", "a": "a", "o": ["must", "can't"], "fc": "Must = casi seguro. Dos semanas de espera hacen casi segura la frustraci\u00f3n.", "fi": "Can't = imposible. Dos semanas de espera hacen MUY probable la frustraci\u00f3n \u2192 must.", "ex": "The customer must be frustrated \u2014 he's been waiting for two weeks.", "tip": "Consecuencia l\u00f3gica clara \u2192 must"}, {"q": "Profesionalmente, \u00bfcu\u00e1l suena m\u00e1s cort\u00e9s y apropiado con un cliente?", "a": "b", "o": ["\"That is wrong.\" (declaraci\u00f3n directa)", "\"That might be an error.\" (deducci\u00f3n cort\u00e9s)"], "fc": "Might + deducci\u00f3n es m\u00e1s cort\u00e9s \u2014 no acusa directamente y da espacio para investigar.", "fi": "Declaraci\u00f3n directa puede sonar confrontacional. Los modales permiten ser profesional y suave.", "ex": "That might be an error \u2014 let me verify the details for you.", "tip": "Modales de deducci\u00f3n \u2192 m\u00e1s cort\u00e9s, m\u00e1s profesional en servicios"}], [{"q": "\"The account ___ be blocked \u2014 the customer can't access it.\"", "a": "a", "o": ["must", "can't"], "fc": "Must = casi seguro positivo. La evidencia (no puede acceder) apunta fuertemente a que est\u00e1 bloqueada.", "fi": "Can't be blocked = imposible que est\u00e9 bloqueada \u2014 pero la evidencia indica lo contrario.", "ex": "The account must be blocked \u2014 the customer can't access it.", "tip": "Evidencia \u2192 deducci\u00f3n positiva: must"}, {"q": "\"The email ___ be in your inbox by now \u2014 it was sent an hour ago.\"", "a": "b", "o": ["can't", "should"], "fc": "Should = expectativa razonable. Tambi\u00e9n podr\u00eda usarse 'must' (casi seguro). Should expresa lo que normalmente deber\u00eda ocurrir.", "fi": "Can't = imposible. Pero el email S\u00cd podr\u00eda estar en el inbox \u2192 can't es incorrecto aqu\u00ed.", "ex": "The email should be in your inbox by now. / The email must be there by now.", "tip": "Expectativa razonable \u2192 should / must (no can't)"}, {"q": "\"This charge ___ be correct \u2014 I never made this purchase.\"", "a": "b", "o": ["must", "can't"], "fc": "Can't = imposible. El cliente no hizo la compra \u2192 es imposible que el cargo sea correcto.", "fi": "Must = casi seguro positivo. Aqu\u00ed la l\u00f3gica dice que ES imposible \u2192 can't.", "ex": "This charge can't be correct \u2014 I never made this purchase.", "tip": "Contradice la l\u00f3gica / imposible \u2192 can't"}, {"q": "\"There ___ be a simpler explanation \u2014 the system glitches sometimes.\"", "a": "a", "o": ["might", "can't"], "fc": "Might = posibilidad. Hay una posible explicaci\u00f3n m\u00e1s simple (errores del sistema).", "fi": "Can't = imposible. Aqu\u00ed no es imposible, es posible \u2192 might/may.", "ex": "There might be a simpler explanation \u2014 the system glitches sometimes.", "tip": "Explicaci\u00f3n alternativa posible \u2192 might / may"}, {"q": "Elige la oraci\u00f3n de deducci\u00f3n completamente correcta:", "a": "b", "o": ["She musts be the manager \u2014 she has a key.", "She must be the manager \u2014 she has a key."], "fc": "She must be the manager. Must es invariable \u2014 nunca 'musts'.", "fi": "Musts no existe. Los modales nunca a\u00f1aden -s en tercera persona.", "ex": "She must be the manager \u2014 she has a key. (must invariable)", "tip": "must es invariable \u2014 nunca: he/she musts"}]];
+var SUMMARY = ["<b>must</b> \u2192 deducci\u00f3n casi segura (positiva): The system must be down \u2014 estoy casi seguro", "<b>can't</b> \u2192 deducci\u00f3n casi segura (negativa): That can't be right \u2014 es imposible", "<b>might / may</b> \u2192 posibilidad (50%): The refund might take a few days \u2014 es posible", "<b>Estructura:</b> Subject + modal + be + adjective/noun OR Subject + modal + infinitivo", "<b>must \u2260 have to:</b> must = deducci\u00f3n \u00b7 have to = obligaci\u00f3n", "<b>can't \u2260 mustn't:</b> can't = imposible (deducci\u00f3n) \u00b7 mustn't = prohibici\u00f3n", "<b>Grado de certeza:</b> must (95%) \u2192 might/may (50%) \u2192 can't (0% \u2014 imposible)"];
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+    var c = document.getElementById("stepTabs");
+    c.innerHTML = "";
+    STEPS.forEach(function(s, i) {
+        var k = "s" + i;
+        var allDone = [0,1,2,3,4].every(function(j){ return answered[k+"e"+j]; });
+        var b = document.createElement("button");
+        b.className = "step-tab" + (i === curStep ? " active" : "") + (allDone && i !== curStep ? " done" : "");
+        b.textContent = (i + 1) + ". " + s.icon + " " + s.title;
+        b.addEventListener("click", (function(idx){ return function(){
+            curStep = idx;
+            renderStepTabs();
+            renderCard();
+            document.getElementById("summaryFinal").classList.remove("show");
+        };})(i));
+        c.appendChild(b);
+    });
+}
+
+function renderCard() {
+    var s = STEPS[curStep];
+    var exs = EXERCISES[curStep];
+    var k = "s" + curStep;
+    if (scores[k] === undefined) scores[k] = 0;
+    var h = "<div class=\"card\">" + s.html;
+    h += "<div class=\"ex-section\"><h3>&#x270F;&#xFE0F; Exercises &mdash; " + s.title + "</h3>";
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        var longOpts = e.o[0].length > 44 || e.o[1].length > 44;
+        var gs = longOpts ? " style=\"grid-template-columns:1fr\"" : "";
+        h += "<div class=\"exercise\" id=\"" + eid + "\">";
+        h += "<div class=\"exercise-q\">" + (i+1) + ". " + e.q + "</div>";
+        h += "<div class=\"opts\"" + gs + ">";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "ba\">a) " + e.o[0] + "</button>";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "bb\">b) " + e.o[1] + "</button>";
+        h += "</div>";
+        var ct = e.a === "a" ? e.o[0] : e.o[1];
+        h += "<div class=\"fb fb-ok\" id=\"fbok-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F389;</span> Correct!</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\"><span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x1F4A1;</span><div class=\"fb-text\">The other option: " + e.fi + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div>";
+        h += "<div class=\"fb fb-bad\" id=\"fbbad-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F615;</span> Not quite right</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x274C;</span><div class=\"fb-text\"><span class=\"fb-wrong-reason\">" + e.fi + "</span></div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\">The correct answer is <span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div></div>";
+    });
+    h += "<div class=\"score-bar\"><div class=\"num\" id=\"sc-" + k + "\">0/5</div><div class=\"lbl\">Score</div></div>";
+    h += "</div></div>";
+    document.getElementById("cardArea").innerHTML = h;
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        document.getElementById(eid + "ba").addEventListener("click", (function(id){ return function(){ chk(id,"a"); }; })(eid));
+        document.getElementById(eid + "bb").addEventListener("click", (function(id){ return function(){ chk(id,"b"); }; })(eid));
+    });
+}
+
+function chk(eid, sel) {
+    if (answered[eid]) return;
+    answered[eid] = true;
+    var parts = eid.match(/s(\d+)e(\d+)/);
+    var si = parseInt(parts[1]);
+    var ei = parseInt(parts[2]);
+    var e = EXERCISES[si][ei];
+    var k = "s" + si;
+    var ex = document.getElementById(eid);
+    var btnA = document.getElementById(eid + "ba");
+    var btnB = document.getElementById(eid + "bb");
+    btnA.disabled = true;
+    btnB.disabled = true;
+    if (sel === e.a) {
+        ex.classList.add("correct");
+        (sel === "a" ? btnA : btnB).classList.add("sel-ok");
+        document.getElementById("fbok-" + eid).classList.add("show");
+        scores[k]++;
+    } else {
+        ex.classList.add("incorrect");
+        (sel === "a" ? btnA : btnB).classList.add("sel-bad");
+        (e.a === "a" ? btnA : btnB).classList.add("show-ok");
+        document.getElementById("fbbad-" + eid).classList.add("show");
+    }
+    document.getElementById("sc-" + k).textContent = scores[k] + "/5";
+    var allDone = [0,1,2,3,4].every(function(i){ return answered[k + "e" + i]; });
+    if (allDone && curStep === 4) {
+        setTimeout(function() {
+            var sf = document.getElementById("summaryFinal");
+            document.getElementById("summaryList").innerHTML = SUMMARY.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+            sf.classList.add("show");
+            sf.scrollIntoView({behavior:"smooth"});
+        }, 600);
+    }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

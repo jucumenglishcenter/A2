@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUCUM English Center — A2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lp:#66BB6A; --ld:#2E7D32; --ll:#E8F5E9; --lm:#C8E6C9;
+  --lg:linear-gradient(135deg,#66BB6A 0%,#388E3C 100%);
+  --lglow:rgba(102,187,106,0.15); --lbt:#1B5E20;
+  --bg:#FAFAF6; --card:#FFFFFF; --text:#2A2A2A; --ts:#777777;
+  --border:#E8E5DC; --shadow:0 3px 16px rgba(0,0,0,0.06); --rad:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;}
+header{background:var(--card);border-bottom:1.5px solid var(--border);padding:0 28px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.hlogo{display:flex;align-items:center;gap:10px;}
+.hbadge{font-family:'Fredoka',sans-serif;font-size:14px;font-weight:600;background:var(--lg);color:#fff;padding:5px 13px;border-radius:8px;letter-spacing:0.04em;}
+.htitle{font-family:'Fredoka',sans-serif;font-size:16px;font-weight:600;color:var(--text);}
+.hlevel{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;background:var(--ll);color:var(--lbt);border:1.5px solid var(--lm);padding:4px 12px;border-radius:20px;}
+.hero{background:var(--lg);padding:40px 28px 48px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40%;right:-8%;width:280px;height:280px;background:rgba(255,255,255,0.1);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-60%;left:-5%;width:200px;height:200px;background:rgba(255,255,255,0.06);border-radius:50%;}
+.hero-in{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.hlevel-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;background:var(--ll);color:var(--lbt);padding:5px 14px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:14px;}
+.hero h1{font-family:'Fredoka',sans-serif;font-size:38px;font-weight:600;color:#fff;line-height:1.1;margin-bottom:8px;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.82);max-width:500px;line-height:1.6;}
+.hero-pills{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.3);color:#fff;padding:5px 13px;border-radius:20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;}
+main{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
+.stitle{font-family:'Fredoka',sans-serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.stitle::before{content:'';display:block;width:20px;height:3px;background:var(--lp);border-radius:2px;}
+.mgrid{display:flex;flex-direction:column;gap:10px;}
+.mcard{background:var(--card);border-radius:var(--rad);border:1px solid var(--border);border-top:3.5px solid var(--lp);box-shadow:var(--shadow);display:flex;align-items:stretch;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;overflow:hidden;}
+.mcard:not(.locked):hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--lglow);border-color:var(--lm);}
+.mcard.locked{opacity:0.5;cursor:default;filter:grayscale(20%);}
+.mcard-img{width:100px;flex-shrink:0;background-size:cover;background-position:center;position:relative;}
+.mcard-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,var(--card));}
+.mcard-body{flex:1;padding:16px 18px;display:flex;align-items:center;gap:14px;}
+.minfo{flex:1;}
+.mname{font-family:'Fredoka',sans-serif;font-size:17px;font-weight:600;color:var(--text);line-height:1.2;}
+.mcard.locked .mname{color:#BBB;}
+.mtags{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap;}
+.mtag{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;background:var(--ll);color:var(--ld);border:1.5px solid var(--lm);padding:2px 9px;border-radius:20px;}
+.mcard.locked .mtag{background:#F5F3EE;color:#CCC;border-color:#E0DDD5;}
+.mcard-cta{display:flex;align-items:center;padding:0 18px;flex-shrink:0;}
+.cta-btn{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;background:var(--ll);color:var(--ld);border:1.5px solid var(--lm);padding:7px 14px;border-radius:20px;display:flex;align-items:center;gap:5px;transition:all 0.18s;white-space:nowrap;}
+.mcard:not(.locked):hover .cta-btn{background:var(--lg);color:#fff;border-color:var(--lp);}
+.lock-cta{font-size:16px;color:#CCC;}
+.overlay{position:fixed;inset:0;background:rgba(5,30,10,0.45);backdrop-filter:blur(3px);z-index:400;opacity:0;pointer-events:none;transition:opacity 0.28s;}
+.overlay.on{opacity:1;pointer-events:all;}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(500px,100vw);background:var(--bg);z-index:500;transform:translateX(105%);transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;box-shadow:-6px 0 40px rgba(0,0,0,0.15);border-radius:20px 0 0 20px;overflow:hidden;}
+.drawer.on{transform:translateX(0);}
+.dhead{background:var(--lg);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.dhead-name{font-family:'Fredoka',sans-serif;font-size:17px;font-weight:600;color:#fff;flex:1;line-height:1.2;}
+.dclose{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.3);cursor:pointer;font-size:15px;color:#fff;display:flex;align-items:center;justify-content:center;transition:background 0.15s;flex-shrink:0;}
+.dclose:hover{background:rgba(255,255,255,0.35);}
+.dimg{height:120px;flex-shrink:0;background-size:cover;background-position:center;position:relative;}
+.dimg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(5,25,8,0.6));}
+.dimg-label{position:absolute;bottom:10px;left:16px;z-index:1;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:rgba(255,255,255,0.88);letter-spacing:0.06em;text-transform:uppercase;}
+.dscroll{flex:1;overflow-y:auto;padding:14px 14px 32px;}
+.dscroll::-webkit-scrollbar{width:3px;}
+.dscroll::-webkit-scrollbar-thumb{background:var(--lm);border-radius:4px;}
+.dsec{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--lp);border-radius:var(--rad);margin-bottom:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:box-shadow 0.18s;}
+.dsec.open{box-shadow:0 4px 16px var(--lglow);}
+.dsec-trig{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none;transition:background 0.14s;}
+.dsec-trig:hover{background:var(--ll);}
+.dsec.open .dsec-trig{background:var(--ll);}
+.dsec-ico{width:36px;height:36px;border-radius:8px;background:var(--ll);border:1.5px solid var(--lm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:all 0.18s;}
+.dsec.open .dsec-ico{background:var(--lg);}
+.dsec-label{font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--text);flex:1;}
+.dsec-meta{font-size:11px;color:var(--ts);font-family:'Nunito',sans-serif;font-weight:600;flex-shrink:0;}
+.dsec-chev{font-size:11px;color:var(--ts);transition:transform 0.22s,color 0.15s;margin-left:4px;}
+.dsec.open .dsec-chev{transform:rotate(180deg);color:var(--ld);}
+.dsec-body{display:none;padding:0 14px 12px;border-top:1.5px dashed var(--lm);}
+.dsec.open .dsec-body{display:block;}
+.sec-label{display:flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.13em;color:var(--ld);margin:10px 0 6px;}
+.sec-label::before{content:'';width:16px;height:2.5px;background:var(--lp);border-radius:2px;}
+.tacc{display:flex;flex-direction:column;gap:4px;}
+.titem{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--card);transition:border-color 0.15s,box-shadow 0.15s;}
+.titem:hover{border-color:var(--lp);}
+.titem.open{border-color:var(--lp);box-shadow:0 2px 10px var(--lglow);}
+.ttrig{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;user-select:none;}
+.ttrig:hover{background:var(--ll);}
+.titem.open .ttrig{background:var(--ll);}
+.tn{font-family:'Nunito',sans-serif;font-size:10px;font-weight:800;color:var(--ts);width:16px;flex-shrink:0;}
+.ttext{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--text);flex:1;}
+.tchev{font-size:10px;color:var(--ts);transition:transform 0.2s;}
+.titem.open .tchev{transform:rotate(180deg);}
+.tacts{display:none;padding:6px 10px 10px;border-top:1px dashed var(--lm);gap:5px;flex-wrap:wrap;}
+.titem.open .tacts{display:flex;}
+.chip{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;padding:5px 12px;border-radius:20px;text-decoration:none;cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;gap:4px;}
+.chip-fill{background:var(--ll);color:var(--ld);border:1.5px solid var(--lm);}
+.chip-fill:hover{background:var(--lg);color:#fff;border-color:var(--lp);}
+.chip-out{background:#F0FFF4;color:#1B5E20;border:1.5px solid #A5D6A7;}
+.chip-out:hover{background:linear-gradient(135deg,#2E7D32,#66BB6A);color:#fff;border-color:#388E3C;}
+.drow{display:flex;gap:8px;flex-wrap:wrap;padding-top:10px;}
+.dchip{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;padding:7px 15px;border-radius:20px;background:var(--lg);color:#fff;border:1.5px solid var(--lp);text-decoration:none;cursor:pointer;box-shadow:0 2px 8px var(--lglow);transition:all 0.15s;}
+.dchip:hover{box-shadow:0 4px 14px var(--lglow);transform:translateY(-1px);}
+.matlist{padding-top:9px;display:flex;flex-direction:column;gap:6px;}
+.matitem{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:10px;border:1px solid var(--border);background:var(--card);text-decoration:none;color:var(--ts);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.15s;}
+.matitem:hover{border-color:var(--lp);background:var(--ll);color:var(--ld);transform:translateX(4px);}
+.matitem-ico{width:36px;height:36px;border-radius:8px;background:var(--ll);border:1.5px solid var(--lm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.matitem span{flex:1;}
+.matitem-arr{color:var(--lp);font-size:15px;font-weight:800;}
+.gr-topic{border:1px solid var(--border);border-left:3px solid var(--lp);border-radius:10px;overflow:hidden;background:var(--card);margin-bottom:6px;}
+.gr-topic-head{display:flex;align-items:center;gap:8px;padding:10px 13px;cursor:pointer;user-select:none;transition:background 0.14s;}
+.gr-topic-head:hover{background:var(--ll);}
+.gr-topic.open .gr-topic-head{background:var(--ll);}
+.gr-topic-name{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--text);flex:1;}
+.gr-topic-chev{font-size:10px;color:var(--ts);transition:transform 0.2s;}
+.gr-topic.open .gr-topic-chev{transform:rotate(180deg);}
+.gr-topic-body{display:none;padding:6px 10px 10px;border-top:1px dashed var(--lm);gap:5px;flex-wrap:wrap;}
+.gr-topic.open .gr-topic-body{display:flex;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.mcard{animation:fadeUp 0.36s ease both;}
+.mcard:nth-child(1){animation-delay:.03s}.mcard:nth-child(2){animation-delay:.07s}
+.mcard:nth-child(3){animation-delay:.11s}.mcard:nth-child(4){animation-delay:.15s}.mcard:nth-child(5){animation-delay:.19s}
+</style>
+</head>
+<body>
+<header>
+  <div class="hlogo"><div class="hbadge">JUCUM EC</div><div class="htitle">Panel de Materiales</div><div class="hlevel">A2</div></div>
+</header>
+<div class="hero">
+  <div class="hero-in">
+    <div class="hlevel-badge">📗 Nivel A2</div>
+    <h1>Expande tu inglés<br>en situaciones reales</h1>
+    <p class="hero-sub">Servicios, dinero y administración cotidiana. Selecciona un módulo para acceder a todos sus recursos.</p>
+    <div class="hero-pills">
+      <span class="hpill">🗂 5 Módulos</span><span class="hpill">📝 Gramática</span><span class="hpill">📖 Lectura</span><span class="hpill">🎧 Auditiva</span><span class="hpill">🃏 Quizlet</span><span class="hpill">📚 Materiales</span>
+    </div>
+  </div>
+</div>
+<main>
+  <div class="stitle">Módulos del Nivel</div>
+  <div class="mgrid" id="root"></div>
+</main>
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="dhead"><div class="dhead-name" id="d-name"></div><button class="dclose" onclick="closeDrawer()">✕</button></div>
+  <div class="dimg" id="d-img"><div class="dimg-label" id="d-label"></div></div>
+  <div class="dscroll" id="d-scroll"></div>
+</div>
+<script>
+const GH = 'https://jucumenglishcenter.github.io/A2/';
+
+const DATA=[
+  {
+    id:1,
+    name:'Services, Support & Problem Solving',
+    ok:true,
+    img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80',
+    tags:['Quantifiers','Present Perfect','Modals'],
+    summaries:[
+      {label:'T1 · Countable vs uncountable',             url:GH+'A2_M1_Grammar_Summary_Countable-Uncountable.html'},
+      {label:'T2 · How much / How many',                  url:GH+'A2_M1_Grammar_Summary_How_much-many.html'},
+      {label:'T3 · Quantifiers: some / any / no',         url:GH+'A2_M1_Grammar_Summary_Some-Any-No.html'},
+      {label:'T4 · Quantifiers: much / many / a lot of',  url:GH+'A2_M1_Grammar_Summary_Much-Many-A_lot.html'},
+      {label:'T5 · A few / a little',                     url:GH+'A2_M1_Grammar_Summary_A_few-A_little.html'},
+      {label:'T6 · Too many / too much',                  url:GH+'A2_M1_Grammar_Summary_Too_many-Too_much.html'},
+      {label:'T7 · Indirect questions',                   url:GH+'A2_M1_Grammar_Summary_Indirect_Questions.html'},
+      {label:'T8 · Punctuation',                          url:GH+'A2_M1_Grammar_Summary_Punctuation.html'},
+      {label:'T9 · Tag questions',                        url:GH+'A2_M1_Grammar_Summary_Tag_Questions.html'},
+      {label:'T10 · Present Perfect',                     url:GH+'A2_M1_Grammar_Summary_Present_Perfect.html'},
+      {label:'T11 · Present Perfect vs Past Simple',      url:GH+'A2_M1_Grammar_Summary_Present_Perfect_vs_Past_Simple.html'},
+      {label:'T12 · Used to',                             url:GH+'A2_M1_Grammar_Summary_Used_to.html'},
+      {label:'T13 · Modals of deduction',                 url:GH+'A2_M1_Grammar_Summary_Modals_Deduction.html'},
+      {label:'T14 · Obligation spectrum',                 url:GH+'A2_M1_Grammar_Summary_Obligation_Spectrum.html'},
+    ],
+    grammar:[
+      {
+        label:'Countable vs uncountable + How much / How many',
+        tag:'T1–T2',
+        fill:  GH+'A2_M1_Grammar_Countable___How_much-many_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Countable___How_much-many_Identification.html',
+        trans: GH+'A2_M1_Grammar_Countable___How_much-many_Transform.html'
+      },
+      {
+        label:'A few / a little + Too many / too much',
+        tag:'T5–T6',
+        fill:  GH+'A2_M1_Grammar_A_few-A_little___Too_many-Too_much_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_A_few-A_little___Too_many-Too_much_Identification.html',
+        trans: GH+'A2_M1_Grammar_A_few-A_little___Too_many-Too_much_Transform.html'
+      },
+      {
+        label:'Indirect questions',
+        tag:'T7',
+        fill:  GH+'A2_M1_Grammar_Indirect_Questions_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Indirect_Questions_Identification.html',
+        trans: GH+'A2_M1_Grammar_Indirect_Questions_Transform.html'
+      },
+      {
+        label:'Punctuation',
+        tag:'T8',
+        fill:  GH+'A2_M1_Grammar_Punctuation_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Punctuation_Identification.html',
+        trans: GH+'A2_M1_Grammar_Punctuation_Transform.html'
+      },
+      {
+        label:'Tag questions',
+        tag:'T9',
+        fill:  GH+'A2_M1_Grammar_Tag_Questions_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Tag_Questions_Identification.html',
+        trans: GH+'A2_M1_Grammar_Tag_Questions_Transform.html'
+      },
+      {
+        label:'Present Perfect + Present Perfect vs Past Simple',
+        tag:'T10–T11',
+        fill:  GH+'A2_M1_Grammar_Present_Perfect___Past_Simple_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Present_Perfect___Past_Simple_Identification.html',
+        trans: GH+'A2_M1_Grammar_Present_Perfect___Past_Simple_Transform.html'
+      },
+      {
+        label:'Used to',
+        tag:'T12',
+        fill:  GH+'A2_M1_Grammar_Used_to_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Used_to_Identification.html',
+        trans: GH+'A2_M1_Grammar_Used_to_Transform.html'
+      },
+      {
+        label:'Modals of deduction + Obligation spectrum',
+        tag:'T13–T14',
+        fill:  GH+'A2_M1_Grammar_Modals_Deduction___Obligation_Fill_in.html',
+        ident: GH+'A2_M1_Grammar_Modals_Deduction___Obligation_Identification.html',
+        trans: GH+'A2_M1_Grammar_Modals_Deduction___Obligation_Transform.html'
+      },
+    ],
+    reading:  GH+'A2_M1_Reading_Comprehension_Services___Support.html',
+    listening:GH+'A2_M1_Listening_Services___Support.html',
+    story:    GH+'A2_M1_Story_Services___Support.html',
+    quizlet:[
+      {label:'📚 Vocabulario – Definiciones', url:'https://quizlet.com/pe/1157845432/a2-vocabulario-definiciones-flash-cards/?new'},
+      {label:'🔤 Vocabulario – Eng → Es',     url:'https://quizlet.com/pe/1157845545/a2-vocabulario-eng-es-flash-cards/?new'},
+      {label:'🔀 Escritura – Ordenar',        url:'https://quizlet.com/pe/1157845650/a2-escritura-ordenar-flash-cards/?new'},
+      {label:'✍️ Escritura – Traducir',       url:'https://quizlet.com/pe/1157845768/a2-escritura-traducir-flash-cards/?new'},
+    ]
+  },
+  {id:2,name:'Banking, Money & Admin',ok:false,img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80',tags:[],summaries:[],grammar:[],quizlet:[]},
+  {id:3,name:'Health & Lifestyle',ok:false,img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80',tags:[],summaries:[],grammar:[],quizlet:[]},
+  {id:4,name:'Technology & Communication',ok:false,img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',tags:[],summaries:[],grammar:[],quizlet:[]},
+  {id:5,name:'Environment & Society',ok:false,img:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',tags:[],summaries:[],grammar:[],quizlet:[]},
+];
+
+function buildGrammarSec(m){
+  if(!m.grammar||m.grammar.length===0) return '<p style="font-size:12px;color:var(--ts);padding:10px 0;">Sin ejercicios disponibles aún.</p>';
+  return m.grammar.map((g,i)=>{
+    return `<div class="gr-topic" id="gt_${m.id}_${i}">
+      <div class="gr-topic-head" onclick="tog('gt_${m.id}_${i}')">
+        <span style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:800;background:var(--ll);color:var(--ld);border:1.5px solid var(--lm);padding:2px 7px;border-radius:20px;flex-shrink:0;">${g.tag}</span>
+        <span class="gr-topic-name">${g.label}</span>
+        <span class="gr-topic-chev">▾</span>
+      </div>
+      <div class="gr-topic-body">
+        <a class="chip chip-fill" href="${g.fill}" target="_blank">✏️ Fill In</a>
+        <a class="chip chip-fill" href="${g.ident}" target="_blank">🔍 Identification</a>
+        <a class="chip chip-fill" href="${g.trans}" target="_blank">🔄 Transform</a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function buildDrawer(m){
+  let html='';
+
+  // Materiales
+  html+=`<div class="dsec" id="ds_${m.id}_mt">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_mt')">
+      <div class="dsec-ico">📚</div>
+      <span class="dsec-label">Materiales</span>
+      <span class="dsec-chev">▾</span>
+    </div>
+    <div class="dsec-body">
+      <div class="matlist">
+        <a class="matitem" href="${m.story}" target="_blank"><div class="matitem-ico">📗</div><span>Story &amp; Diálogos</span><span class="matitem-arr">→</span></a>
+      </div>
+      <div class="sec-label">Resúmenes de Gramática</div>
+      <div class="tacc">
+        ${m.summaries.map((s,i)=>`
+          <div class="titem" id="sm_${m.id}_${i}">
+            <div class="ttrig" onclick="tog('sm_${m.id}_${i}')">
+              <span class="tn">${i+1}</span>
+              <span class="ttext">${s.label}</span>
+              <span class="tchev">▾</span>
+            </div>
+            <div class="tacts">
+              <a class="chip chip-out" href="${s.url}" target="_blank">📄 Ver resumen</a>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+
+  // Comprensión Lectora
+  html+=`<div class="dsec" id="ds_${m.id}_rd">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_rd')">
+      <div class="dsec-ico">📖</div>
+      <span class="dsec-label">Comprensión Lectora</span>
+      <span class="dsec-chev">▾</span>
+    </div>
+    <div class="dsec-body">
+      <div class="drow">
+        <a class="dchip" href="${m.reading}" target="_blank">📖 Abrir actividad</a>
+      </div>
+    </div>
+  </div>`;
+
+  // Comprensión Auditiva
+  html+=`<div class="dsec" id="ds_${m.id}_ls">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_ls')">
+      <div class="dsec-ico">🎧</div>
+      <span class="dsec-label">Comprensión Auditiva</span>
+      <span class="dsec-chev">▾</span>
+    </div>
+    <div class="dsec-body">
+      <div class="drow">
+        <a class="dchip" href="${m.listening}" target="_blank">🎧 Abrir actividad</a>
+      </div>
+    </div>
+  </div>`;
+
+  // Quizlet
+  html+=`<div class="dsec" id="ds_${m.id}_qu">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_qu')">
+      <div class="dsec-ico">🃏</div>
+      <span class="dsec-label">Quizlet</span>
+      <span class="dsec-meta">${m.quizlet.length} sets</span>
+      <span class="dsec-chev">▾</span>
+    </div>
+    <div class="dsec-body">
+      <div class="drow">
+        ${m.quizlet.map(q=>`<a class="dchip" href="${q.url}" target="_blank">${q.label}</a>`).join('')}
+      </div>
+    </div>
+  </div>`;
+
+  // Práctica de Gramática
+  html+=`<div class="dsec" id="ds_${m.id}_gr">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_gr')">
+      <div class="dsec-ico">📝</div>
+      <span class="dsec-label">Práctica de Gramática</span>
+      <span class="dsec-meta">${m.grammar.length} grupos</span>
+      <span class="dsec-chev">▾</span>
+    </div>
+    <div class="dsec-body">
+      <div class="sec-label">Temas con ejercicios</div>
+      ${buildGrammarSec(m)}
+    </div>
+  </div>`;
+
+  return html;
+}
+
+function buildCard(m){
+  const tags=m.tags.map(t=>`<span class="mtag">${t}</span>`).join('');
+  return `<div class="mcard${m.ok?'':' locked'}" onclick="${m.ok?`openDrawer(${m.id})`:''}">
+    <div class="mcard-img" style="background-image:url('${m.img}')"></div>
+    <div class="mcard-body">
+      <div class="minfo">
+        <div class="mname">${m.name}</div>
+        <div class="mtags">${m.ok?tags:'<span class="mtag">🔒 Próximamente</span>'}</div>
+      </div>
+    </div>
+    <div class="mcard-cta">${m.ok?'<div class="cta-btn">Ver recursos ›</div>':'<div class="lock-cta">🔒</div>'}</div>
+  </div>`;
+}
+
+function tog(id){document.getElementById(id).classList.toggle('open');}
+
+function openDrawer(id){
+  const m=DATA.find(x=>x.id===id);
+  document.getElementById('d-name').textContent=m.name;
+  document.getElementById('d-img').style.backgroundImage=`url('${m.img}')`;
+  document.getElementById('d-label').textContent=m.name;
+  document.getElementById('d-scroll').innerHTML=buildDrawer(m);
+  document.getElementById('drawer').classList.add('on');
+  document.getElementById('overlay').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('on');
+  document.getElementById('overlay').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+document.getElementById('root').innerHTML=DATA.map(buildCard).join('');
+</script>
+</body>
+</html>
