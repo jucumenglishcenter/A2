@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — much / many / a lot of | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#F1F8E9;--note-border:#AED581;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:800px;margin:0 auto}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:"";position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:"Fredoka",sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:"Fredoka",sans-serif;font-size:1.05rem;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.83rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:"Nunito",sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem;margin-top:1.1rem}
+.section-label::before{content:"";width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-label:first-child{margin-top:0}
+.section-title{font-family:"Fredoka",sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:"Fredoka",sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0}
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:"Fredoka",sans-serif;font-size:.93rem;color:var(--ld);line-height:2.1}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:"Fredoka",sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem;font-weight:700}
+.alert-card p{font-size:.82rem;color:#555;line-height:1.7}
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:"Lora",serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+/* THREE WAY INTRO */
+.three-way-intro{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:1rem 0}
+.twi-item{border-radius:14px;padding:.9rem .7rem;text-align:center}
+.twi-many{background:var(--subj-bg);border:2px solid #90CAF9}
+.twi-much{background:var(--verb-bg);border:2px solid #EF9A9A}
+.twi-alot{background:var(--ok-bg);border:2px solid #A5D6A7}
+.twi-word{font-family:"Fredoka",sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:.3rem}
+.twi-many .twi-word{color:var(--subj)}
+.twi-much .twi-word{color:var(--err)}
+.twi-alot .twi-word{color:var(--ok)}
+.twi-rule{font-size:.73rem;font-weight:700;color:var(--text-soft);margin-bottom:.3rem}
+.twi-ctx{font-size:.7rem;font-weight:800;letter-spacing:.05em}
+.twi-many .twi-ctx{color:var(--subj)}
+.twi-much .twi-ctx{color:var(--err)}
+.twi-alot .twi-ctx{color:var(--ok)}
+/* WHICH WITH WHICH */
+.which-with-which{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.9rem 0}
+.www-col{border-radius:12px;padding:.8rem;border:2px solid var(--border)}
+.www-cnt{border-color:#90CAF9;background:#F8FBFF}
+.www-unc{border-color:#EF9A9A;background:#FFF8F8}
+.www-header{font-family:"Fredoka",sans-serif;font-size:.82rem;font-weight:600;margin-bottom:.5rem}
+.www-cnt .www-header{color:var(--subj)}
+.www-unc .www-header{color:var(--err)}
+.www-chips{display:flex;flex-direction:column;gap:.3rem}
+.www-chip{font-size:.78rem;padding:3px 8px;border-radius:6px;font-weight:600}
+.www-chip.ok{background:var(--ok-bg);color:var(--ok)}
+.www-chip.bad{background:var(--err-bg);color:var(--err);font-style:italic}
+/* FORMAL INFORMAL GRID */
+.formal-informal-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.fi-col{border-radius:10px;padding:.7rem}
+.fi-col:not(.fi-natural){background:#F5F5F5;border:1.5px solid #ddd}
+.fi-natural{background:var(--ok-bg);border:1.5px solid #A5D6A7}
+.fi-header{font-family:"Fredoka",sans-serif;font-size:.78rem;font-weight:600;margin-bottom:.4rem;padding-bottom:.3rem;border-bottom:1px dashed rgba(0,0,0,.1)}
+.fi-col:not(.fi-natural) .fi-header{color:#666}
+.fi-natural .fi-header{color:var(--ok)}
+.fi-item{font-size:.79rem;padding:3px 0;color:var(--text-soft)}
+/* USAGE MAP */
+.usage-map{border-radius:12px;overflow:hidden;border:1px solid var(--border);margin:1rem 0}
+.um-row{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;border-bottom:1px solid #f0f0f0}
+.um-row:last-child{border-bottom:none}
+.um-header{background:var(--lg);color:#fff}
+.um-header .um-cell{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.um-cell{padding:.5rem .6rem;font-size:.8rem;display:flex;align-items:center;justify-content:center;text-align:center}
+.um-label{font-weight:700;color:var(--text);justify-content:flex-start;font-size:.78rem}
+.um-ok{background:var(--ok-bg);color:var(--ok);font-weight:700}
+.um-formal{background:#FFF9C4;color:#F57F17;font-weight:600;font-size:.75rem}
+.um-best{background:#1B5E20;color:#fff;font-weight:800}
+.um-alot{background:var(--ll)}
+@media(max-width:600px){
+.three-way-intro,.which-with-which,.formal-informal-grid{grid-template-columns:1fr}
+.um-row{grid-template-columns:1fr 1fr 1fr 1fr;font-size:.7rem}
+}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:"Fredoka",sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:"Nunito",sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:"Fredoka",sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:4px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#33691E}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:"Fredoka",sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block;animation:fadeIn .4s ease}
+.summary-final h3{font-family:"Fredoka",sans-serif;color:var(--ok);margin-bottom:.8rem;font-size:1.1rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:5px 0 5px 22px;position:relative;font-size:.84rem;color:var(--text-soft);border-bottom:1px solid var(--lm)}
+.summary-final li:last-child{border-bottom:none}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+@media(max-width:600px){
+.level-header h1{font-size:1.4rem}
+.compare-grid{grid-template-columns:1fr}
+.card{padding:1.2rem}
+.opts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+  <div class="level-badge">&#x1F49A; A2 &middot; Grammar Summary</div>
+  <h1>&#x1F4DD; Grammar Summary</h1>
+  <div class="module-name">&#x1F6CE;&#xFE0F; Services, Support &amp; Problem Solving</div>
+  <p class="subtitle">Quantifiers: much / many / a lot of &middot; 5 steps &times; 5 exercises</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+  <h3>&#x1F393; Key Points &mdash; much / many / a lot of</h3>
+  <ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+var STEPS = [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol \"mucho\" cambia de forma seg\u00fan el sustantivo. En ingl\u00e9s hay tres opciones y la elecci\u00f3n depende del tipo de sustantivo y del contexto.</div>\n<div class=\"compare-grid\">\n  <div class=\"compare-card esp\">\n    <h4>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol \u2014 \"mucho\" cambia</h4>\n    <ul>\n      <li><b>Mucho</b> tiempo (masc.)</li>\n      <li><b>Mucha</b> informaci\u00f3n (fem.)</li>\n      <li><b>Muchos</b> problemas (pl. masc.)</li>\n      <li><b>Muchas</b> quejas (pl. fem.)</li>\n    </ul>\n  </div>\n  <div class=\"compare-card eng\">\n    <h4>\ud83c\uddec\ud83c\udde7 English \u2014 3 opciones</h4>\n    <ul>\n      <li><b>Much</b> time (incontable)</li>\n      <li><b>Much</b> information (incontable)</li>\n      <li><b>Many</b> problems (contable)</li>\n      <li><b>A lot of</b> complaints (ambos)</li>\n    </ul>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Idea clave:</strong> En espa\u00f1ol \"mucho\" se adapta al g\u00e9nero y n\u00famero. En ingl\u00e9s no hay g\u00e9nero \u2014 solo importa si el sustantivo es <b>contable o incontable</b>, y si la oraci\u00f3n es afirmativa, negativa o interrogativa.</div>\n<div class=\"three-way-intro\">\n  <div class=\"twi-item twi-many\">\n    <div class=\"twi-word\">many</div>\n    <div class=\"twi-rule\">contable \u2726 plural</div>\n    <div class=\"twi-ctx\">\u2753\u274c principalmente</div>\n  </div>\n  <div class=\"twi-item twi-much\">\n    <div class=\"twi-word\">much</div>\n    <div class=\"twi-rule\">incontable \u2726 singular</div>\n    <div class=\"twi-ctx\">\u2753\u274c principalmente</div>\n  </div>\n  <div class=\"twi-item twi-alot\">\n    <div class=\"twi-word\">a lot of</div>\n    <div class=\"twi-rule\">ambos \u2726 natural</div>\n    <div class=\"twi-ctx\">\u2705\u2753\u274c todos</div>\n  </div>\n</div>"}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">The concept of \"a large quantity\" exists in both languages \u2014 the difference is just how you express it.</div>\n<table class=\"g-table\">\n  <tr><th>Similitud</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n  <tr><td>Cantidad grande (contable)</td><td>muchos problemas</td><td><span class=\"g-comp\">many</span> problems / <span class=\"g-comp\">a lot of</span> problems</td></tr>\n  <tr><td>Cantidad grande (incontable)</td><td>mucha informaci\u00f3n</td><td><span class=\"g-comp\">much</span> information / <span class=\"g-comp\">a lot of</span> information</td></tr>\n  <tr><td>Negaci\u00f3n de cantidad</td><td>no muchos / no mucho</td><td><span class=\"g-neg\">not many</span> / <span class=\"g-neg\">not much</span></td></tr>\n  <tr><td>Pregunta de cantidad</td><td>\u00bfcu\u00e1ntos? / \u00bfcu\u00e1nto?</td><td>how <span class=\"g-quest\">many</span>? / how <span class=\"g-quest\">much</span>?</td></tr>\n  <tr><td>Cantidad informal grande</td><td>un mont\u00f3n de</td><td><span class=\"g-comp\">lots of</span> / <span class=\"g-comp\">a lot of</span></td></tr>\n</table>\n<div class=\"section-label\">\u00bfCu\u00e1l va con cu\u00e1l?</div>\n<div class=\"which-with-which\">\n  <div class=\"www-col www-cnt\">\n    <div class=\"www-header\">\ud83d\udd22 Contable (plural)</div>\n    <div class=\"www-chips\">\n      <span class=\"www-chip ok\">many complaints</span>\n      <span class=\"www-chip ok\">many forms</span>\n      <span class=\"www-chip ok\">a lot of problems</span>\n      <span class=\"www-chip ok\">lots of appointments</span>\n      <span class=\"www-chip bad\">much complaints \u274c</span>\n    </div>\n  </div>\n  <div class=\"www-col www-unc\">\n    <div class=\"www-header\">\ud83d\udca7 Incontable (singular)</div>\n    <div class=\"www-chips\">\n      <span class=\"www-chip ok\">much information</span>\n      <span class=\"www-chip ok\">much advice</span>\n      <span class=\"www-chip ok\">a lot of support</span>\n      <span class=\"www-chip ok\">lots of help</span>\n      <span class=\"www-chip bad\">many information \u274c</span>\n    </div>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> <b>a lot of</b> y <b>lots of</b> son los m\u00e1s seguros \u2014 funcionan con contables e incontables, y son naturales en cualquier contexto.</div>"}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<table class=\"g-table\">\n  <tr><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 Ingl\u00e9s</th><th>\ud83d\udca1 Explicaci\u00f3n</th></tr>\n  <tr><td>Tengo muchas quejas.</td><td>I have <span class=\"g-comp\">a lot of</span> complaints. <em>(natural)</em><br><span style=\"font-size:.78rem;color:#999\">I have many complaints. <em>(formal)</em></span></td><td>En afirmativo: a lot of suena m\u00e1s natural</td></tr>\n  <tr><td>No tengo mucho tiempo.</td><td>I don't have <span class=\"g-neg\">much</span> time.</td><td>Negaci\u00f3n + incontable \u2192 much</td></tr>\n  <tr><td>No hay muchos agentes.</td><td>There aren't <span class=\"g-neg\">many</span> agents.</td><td>Negaci\u00f3n + contable \u2192 many</td></tr>\n  <tr><td>\u00bfCu\u00e1nta informaci\u00f3n?</td><td>How <span class=\"g-quest\">much</span> information?</td><td>Pregunta + incontable \u2192 much</td></tr>\n  <tr><td>Mucho trabajo (gral.)</td><td><span class=\"g-comp\">A lot of</span> work. <em>NOT: Many works</em></td><td>work = incontable en general</td></tr>\n</table>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f Much/Many en afirmativo \u2014 suena raro o muy formal</div>\n  <p>En ingl\u00e9s hablado y escrito informal, <b>much y many en afirmativo</b> suenan extra\u00f1os o muy formales:</p>\n  <div class=\"formal-informal-grid\">\n    <div class=\"fi-col\">\n      <div class=\"fi-header\">\ud83d\ude10 Formal / Raro</div>\n      <div class=\"fi-item\">I have <b>many</b> complaints about this.</div>\n      <div class=\"fi-item\">There is <b>much</b> work to do.</div>\n      <div class=\"fi-item\">She has <b>many</b> years of experience.</div>\n    </div>\n    <div class=\"fi-col fi-natural\">\n      <div class=\"fi-header\">\ud83d\ude0a Natural / Com\u00fan</div>\n      <div class=\"fi-item\">I have <b>a lot of</b> complaints about this.</div>\n      <div class=\"fi-item\">There is <b>a lot of</b> work to do.</div>\n      <div class=\"fi-item\">She has <b>a lot of</b> years of experience.</div>\n    </div>\n  </div>\n</div>\n<div class=\"section-label\">Cu\u00e1ndo usar cada uno \u2014 gu\u00eda por contexto</div>\n<table class=\"g-table\">\n  <tr><th>Contexto</th><th>many</th><th>much</th><th>a lot of</th></tr>\n  <tr><td>\u2705 Afirmativo</td><td><span style=\"color:#999\">formal</span></td><td><span style=\"color:#999\">formal</span></td><td><span class=\"g-comp\">\u2713 natural</span></td></tr>\n  <tr><td>\u2753 Pregunta</td><td><span class=\"g-comp\">\u2713 contable</span></td><td><span class=\"g-comp\">\u2713 incontable</span></td><td><span class=\"g-comp\">\u2713 ambos</span></td></tr>\n  <tr><td>\u274c Negaci\u00f3n</td><td><span class=\"g-comp\">\u2713 contable</span></td><td><span class=\"g-comp\">\u2713 incontable</span></td><td><span class=\"g-comp\">\u2713 ambos</span></td></tr>\n</table>"}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n<div class=\"tip-card\"><strong>Tip 1 \u2014 El cuantificador m\u00e1s seguro:</strong> Si no est\u00e1s seguro, usa <b>a lot of</b>. Funciona con contables e incontables, y es natural en afirmativo, pregunta y negaci\u00f3n. Nunca falla.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Much y many en su hogar:</strong> Much y many brillan en <b>preguntas y negaciones</b>. \"How many complaints?\" / \"I don't have much time.\" \u2014 aqu\u00ed suenan perfectamente naturales.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Lots of = a lot of:</strong> Son intercambiables. <b>Lots of</b> es un poco m\u00e1s informal y coloquial. En un email formal: a lot of. En conversaci\u00f3n: lots of.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Much en afirmativo: se\u00f1al de registro:</strong> Si alguien usa \"much\" en afirmativo (\"There is much to discuss\"), es registro formal \u2014 reportes, documentos oficiales, cartas formales. En conversaci\u00f3n suena anticuado.</div>\n<div class=\"section-label\">Mapa completo de uso</div>\n<div class=\"usage-map\">\n  <div class=\"um-row um-header\">\n    <div class=\"um-cell\"></div>\n    <div class=\"um-cell\">\u2705 Afirmativo</div>\n    <div class=\"um-cell\">\u2753 Pregunta</div>\n    <div class=\"um-cell\">\u274c Negaci\u00f3n</div>\n  </div>\n  <div class=\"um-row\">\n    <div class=\"um-cell um-label\">many<br><small>contable</small></div>\n    <div class=\"um-cell um-formal\">formal \u26a0\ufe0f</div>\n    <div class=\"um-cell um-ok\">\u2713 natural</div>\n    <div class=\"um-cell um-ok\">\u2713 natural</div>\n  </div>\n  <div class=\"um-row\">\n    <div class=\"um-cell um-label\">much<br><small>incontable</small></div>\n    <div class=\"um-cell um-formal\">formal \u26a0\ufe0f</div>\n    <div class=\"um-cell um-ok\">\u2713 natural</div>\n    <div class=\"um-cell um-ok\">\u2713 natural</div>\n  </div>\n  <div class=\"um-row um-alot\">\n    <div class=\"um-cell um-label\">a lot of<br><small>ambos</small></div>\n    <div class=\"um-cell um-best\">\u2713\u2713 mejor</div>\n    <div class=\"um-cell um-ok\">\u2713 natural</div>\n    <div class=\"um-cell um-ok\">\u2713 natural</div>\n  </div>\n</div>"}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"formula-box\">\n  <span class=\"g-comp\">a lot of</span> + countable/uncountable \u2192 todos los contextos \u2705<br>\n  <span class=\"g-quest\">many</span> + countable plural \u2192 preguntas &amp; negaciones \u2705<br>\n  <span class=\"g-quest\">much</span> + uncountable \u2192 preguntas &amp; negaciones \u2705\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">We received <span class=\"g-comp\">a lot of</span> <span class=\"g-comp\">complaints</span> about the new billing system.</div><div class=\"es\">Recibimos muchas quejas sobre el nuevo sistema de facturaci\u00f3n.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u23f1\ufe0f</div><div><div class=\"en\">There <span class=\"g-neg\">isn't</span> <span class=\"g-neg\">much</span> <span class=\"g-comp\">time</span> left to process your request.</div><div class=\"es\">No queda mucho tiempo para procesar su solicitud.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcca</div><div><div class=\"en\">How <span class=\"g-quest\">many</span> <span class=\"g-comp\">appointments</span> are available this week?</div><div class=\"es\">\u00bfCu\u00e1ntas citas hay disponibles esta semana?</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcbc</div><div><div class=\"en\">She has <span class=\"g-comp\">a lot of</span> <span class=\"g-comp\">experience</span> handling difficult complaints.</div><div class=\"es\">Ella tiene mucha experiencia manejando quejas dif\u00edciles.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I have much complaints about the service.</div><div class=\"es\">Error: complaints es contable \u2192 many complaints / a lot of complaints</div></div></div>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f 3 Errores Comunes</div>\n  <p>\u274c \"I have <b>much</b> complaints\" \u2192 \u2705 \"I have <b>many / a lot of</b> complaints\" (contable)<br>\n  \u274c \"There are <b>many</b> information\" \u2192 \u2705 \"There is <b>much / a lot of</b> information\" (incontable)<br>\n  \u274c \"I have <b>many</b> time today\" \u2192 \u2705 \"I have <b>a lot of</b> time today\" (afirmativo natural)</p>\n</div>"}];
+var EXERCISES = [[{"q": "\"Muchas quejas\" en ingl\u00e9s (afirmativo, natural):", "a": "b", "o": ["Many complaints", "A lot of complaints"], "fc": "A lot of complaints es m\u00e1s natural en afirmativo. Many complaints suena formal.", "fi": "Many complaints es correcto pero suena formal en afirmativo. A lot of es la opci\u00f3n m\u00e1s natural.", "ex": "We received a lot of complaints this week.", "tip": "Afirmativo \u2192 a lot of (m\u00e1s natural que many/much)"}, {"q": "\"Mucha informaci\u00f3n\" en ingl\u00e9s:", "a": "a", "o": ["A lot of information", "Many information"], "fc": "Information es incontable \u2192 much / a lot of. Many solo con contables.", "fi": "Many solo con contables (many complaints, many forms). Information es incontable.", "ex": "We need a lot of information to process your case.", "tip": "information = incontable \u2192 much / a lot of (NUNCA many)"}, {"q": "\"Muchos problemas\" en ingl\u00e9s:", "a": "b", "o": ["Much problems", "Many problems / a lot of problems"], "fc": "Problems es contable \u2192 many problems / a lot of problems. Much es para incontables.", "fi": "Much solo con incontables: much time, much advice. Problems tiene plural \u2192 many.", "ex": "There are many problems with the system. / a lot of problems.", "tip": "problems = contable \u2192 many / a lot of (NUNCA much)"}, {"q": "La diferencia principal entre much y many es:", "a": "a", "o": ["Much = incontable / Many = contable", "Much = formal / Many = informal"], "fc": "Much + incontable (time, advice) / Many + contable (complaints, forms). Esta es la regla base.", "fi": "Ambos pueden ser formales. La diferencia es el tipo de sustantivo, no el registro.", "ex": "much advice / many complaints", "tip": "much = uncountable \u00b7 many = countable"}, {"q": "\"A lot of\" puede usarse con:", "a": "b", "o": ["Solo sustantivos contables", "Contables e incontables"], "fc": "A lot of funciona con ambos: a lot of complaints (contable) / a lot of information (incontable).", "fi": "A lot of no tiene restricci\u00f3n de tipo \u2014 es el cuantificador universal de cantidad.", "ex": "a lot of forms (contable) / a lot of support (incontable)", "tip": "a lot of = ambos tipos \u2192 el cuantificador m\u00e1s vers\u00e1til"}], [{"q": "There are ___ complaints in the queue. (muchas \u2014 afirmativo natural)", "a": "b", "o": ["many", "a lot of"], "fc": "A lot of es m\u00e1s natural en afirmativo. Many en afirmativo suena formal o enf\u00e1tico.", "fi": "Many es correcto pero suena m\u00e1s formal. A lot of es la opci\u00f3n conversacional est\u00e1ndar.", "ex": "There are a lot of complaints in the queue today.", "tip": "Afirmativo \u2192 a lot of (m\u00e1s natural)"}, {"q": "\"Lots of\" es sin\u00f3nimo de:", "a": "a", "o": ["A lot of", "Many"], "fc": "Lots of = a lot of. Son intercambiables, aunque lots of es un poco m\u00e1s informal.", "fi": "Lots of no es equivalente a many \u2014 many tiene restricciones de tipo de sustantivo.", "ex": "lots of problems = a lot of problems / lots of help = a lot of help", "tip": "lots of = a lot of (un poco m\u00e1s informal)"}, {"q": "I don't have ___ time to process this today. (negaci\u00f3n)", "a": "b", "o": ["many", "much"], "fc": "Time es incontable \u2192 not much time. Many es para contables.", "fi": "Many solo con contables: not many forms, not many agents.", "ex": "I don't have much time. / There isn't much support available.", "tip": "Negaci\u00f3n + incontable \u2192 not much"}, {"q": "We don't have ___ staff available on weekends. (negaci\u00f3n)", "a": "a", "o": ["many", "much"], "fc": "Staff (employees) es contable \u2192 not many staff. Much es para incontables.", "fi": "Much no se usa con contables: much staff es incorrecto.", "ex": "We don't have many staff available. / not many agents.", "tip": "Negaci\u00f3n + contable \u2192 not many"}, {"q": "How ___ feedback did the customer leave?", "a": "b", "o": ["many", "much"], "fc": "Feedback es incontable \u2192 How much feedback.", "fi": "How many solo con contables: how many complaints, how many forms.", "ex": "How much feedback did we receive? / How many complaints?", "tip": "How much = incontable \u00b7 How many = contable"}], [{"q": "She has ___ experience in customer service. (afirmativo)", "a": "b", "o": ["much", "a lot of"], "fc": "Experience en general es incontable. En afirmativo: a lot of experience suena m\u00e1s natural.", "fi": "Much experience en afirmativo es correcto pero suena formal. A lot of es m\u00e1s natural.", "ex": "She has a lot of experience. (natural) / She has much experience. (formal)", "tip": "Afirmativo + incontable \u2192 a lot of (m\u00e1s natural que much)"}, {"q": "\"Much\" en una oraci\u00f3n afirmativa indica:", "a": "a", "o": ["Registro formal o escrito", "Un error gramatical"], "fc": "Much en afirmativo es gramaticalmente correcto pero suena formal. Se usa en documentos, reportes, lenguaje oficial.", "fi": "Much en afirmativo no es un error \u2014 es simplemente m\u00e1s formal que a lot of.", "ex": "There is much to consider. (formal) / There is a lot to consider. (natural)", "tip": "much/many en afirmativo = formal. a lot of = conversacional"}, {"q": "There aren't ___ appointments available this week.", "a": "a", "o": ["many", "much"], "fc": "Appointments es contable \u2192 not many appointments. Much es para incontables.", "fi": "Much appointments es incorrecto. Appointments tiene plural \u2192 many.", "ex": "There aren't many appointments. / There isn't much availability.", "tip": "Negaci\u00f3n + contable \u2192 not many"}, {"q": "Do you have ___ information about the delay?", "a": "b", "o": ["many", "much"], "fc": "Information es incontable \u2192 any/much information. Many implica contable con plural.", "fi": "Many information es incorrecto. Information no tiene plural.", "ex": "Do you have much information? / Do you have any information?", "tip": "Pregunta + incontable \u2192 much / any"}, {"q": "Elige la oraci\u00f3n m\u00e1s natural en ingl\u00e9s hablado:", "a": "b", "o": ["We have many options for you.", "We have a lot of options for you."], "fc": "A lot of options es m\u00e1s natural en afirmativo. Many options suena m\u00e1s formal.", "fi": "Many options es correcto pero en conversaci\u00f3n a lot of es la opci\u00f3n m\u00e1s com\u00fan.", "ex": "We have a lot of options. / There are a lot of ways to resolve this.", "tip": "Conversacional afirmativo \u2192 a lot of"}], [{"q": "El cuantificador \"m\u00e1s seguro\" para cualquier contexto es:", "a": "b", "o": ["much", "a lot of"], "fc": "A lot of funciona con contables e incontables, y es natural en afirmativo, pregunta y negaci\u00f3n.", "fi": "Much solo con incontables y suena formal en afirmativo.", "ex": "a lot of time / a lot of complaints / a lot of help \u2192 siempre correcto", "tip": "a lot of = the safe choice para cualquier situaci\u00f3n"}, {"q": "En un email formal de trabajo, \u00bfcu\u00e1l suena mejor?", "a": "a", "o": ["There is much to discuss regarding your complaint.", "There is a lot to discuss regarding your complaint."], "fc": "Much en afirmativo es apropiado en registro formal escrito: reportes, emails formales, documentos.", "fi": "A lot to discuss tambi\u00e9n es correcto, pero much encaja mejor en el registro formal de un email profesional.", "ex": "There is much to consider. / There are many factors involved.", "tip": "much/many afirmativo \u2192 formal escrito \u2713"}, {"q": "We don't receive ___ feedback on this issue. (negaci\u00f3n)", "a": "a", "o": ["much", "many"], "fc": "Feedback es incontable \u2192 not much feedback.", "fi": "Many solo con contables: not many complaints, not many responses.", "ex": "We don't receive much feedback on this.", "tip": "Negaci\u00f3n + incontable \u2192 not much"}, {"q": "\"Lots of support\" equivale a:", "a": "b", "o": ["Many support", "A lot of support"], "fc": "Lots of = a lot of. Son sin\u00f3nimos. Lots of support = a lot of support.", "fi": "Many support es incorrecto \u2014 support es incontable. Many solo con contables.", "ex": "lots of support = a lot of support / lots of forms = a lot of forms", "tip": "lots of = a lot of (informal pero correcto)"}, {"q": "How ___ complaints did the department receive last month?", "a": "b", "o": ["much", "many"], "fc": "Complaints es contable (plural) \u2192 How many complaints.", "fi": "How much es para incontables: how much time, how much information.", "ex": "How many complaints? / How much information?", "tip": "How many = contable \u00b7 How much = incontable"}], [{"q": "I have ___ forms to complete before the meeting.", "a": "b", "o": ["much", "a lot of"], "fc": "Forms es contable. A lot of forms es natural en afirmativo.", "fi": "Much forms es incorrecto \u2014 forms es contable. A lot of / many (formal).", "ex": "I have a lot of forms to complete. / I have many forms to complete. (formal)", "tip": "Contable afirmativo \u2192 a lot of (m\u00e1s natural)"}, {"q": "There isn't ___ support available after 6pm.", "a": "a", "o": ["much", "many"], "fc": "Support es incontable \u2192 not much support.", "fi": "Many solo con contables. Support es incontable.", "ex": "There isn't much support available. / There isn't much help.", "tip": "Negaci\u00f3n + incontable \u2192 not much"}, {"q": "We received ___ positive responses to the survey.", "a": "b", "o": ["much", "a lot of"], "fc": "Responses es contable \u2192 a lot of responses (natural en afirmativo) o many responses (formal).", "fi": "Much responses es incorrecto. Responses es contable.", "ex": "We received a lot of positive responses. / many positive responses (formal).", "tip": "Contable afirmativo \u2192 a lot of / many (formal)"}, {"q": "Are there ___ delays at the moment?", "a": "b", "o": ["much", "many"], "fc": "Delays es contable \u2192 How many / Are there many delays. Much es para incontables.", "fi": "Much delays es incorrecto. Delays tiene plural \u2192 many.", "ex": "Are there many delays? / Are there a lot of delays?", "tip": "Pregunta + contable \u2192 many / a lot of"}, {"q": "Elige la oraci\u00f3n correcta:", "a": "a", "o": ["There is a lot of information missing from your file.", "There are many information missing from your file."], "fc": "Information es incontable \u2192 a lot of information / much information. Verbo singular: there IS.", "fi": "Many information y there ARE information son incorrectos \u2014 information es incontable (singular).", "ex": "There is a lot of information. / There is much information. (formal)", "tip": "information = incontable \u2192 is (singular) + much / a lot of"}]];
+var SUMMARY = ["<b>many</b> \u2192 contables en plural (preguntas y negaciones principalmente): many complaints, many forms", "<b>much</b> \u2192 incontables (preguntas y negaciones principalmente): much time, much advice", "<b>a lot of</b> \u2192 ambos tipos, afirmativo y negativo: a lot of complaints / a lot of information", "<b>lots of</b> = a lot of (m\u00e1s informal): lots of problems / lots of support", "<b>En afirmativo</b>: a lot of es preferido sobre much/many (more natural)", "<b>much / many en afirmativo</b>: suena formal o enf\u00e1tico: There is much work to do (formal)", "<b>Preguntas y negaciones</b>: much y many son igualmente naturales: How many? / not much / not many"];
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+    var c = document.getElementById("stepTabs");
+    c.innerHTML = "";
+    STEPS.forEach(function(s, i) {
+        var k = "s" + i;
+        var allDone = [0,1,2,3,4].every(function(j){ return answered[k+"e"+j]; });
+        var b = document.createElement("button");
+        b.className = "step-tab" + (i === curStep ? " active" : "") + (allDone && i !== curStep ? " done" : "");
+        b.textContent = (i + 1) + ". " + s.icon + " " + s.title;
+        b.addEventListener("click", (function(idx){ return function(){
+            curStep = idx;
+            renderStepTabs();
+            renderCard();
+            document.getElementById("summaryFinal").classList.remove("show");
+        };})(i));
+        c.appendChild(b);
+    });
+}
+
+function renderCard() {
+    var s = STEPS[curStep];
+    var exs = EXERCISES[curStep];
+    var k = "s" + curStep;
+    if (scores[k] === undefined) scores[k] = 0;
+    var h = "<div class=\"card\">" + s.html;
+    h += "<div class=\"ex-section\"><h3>&#x270F;&#xFE0F; Exercises &mdash; " + s.title + "</h3>";
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        var longOpts = e.o[0].length > 40 || e.o[1].length > 40;
+        var gs = longOpts ? " style=\"grid-template-columns:1fr\"" : "";
+        h += "<div class=\"exercise\" id=\"" + eid + "\">";
+        h += "<div class=\"exercise-q\">" + (i+1) + ". " + e.q + "</div>";
+        h += "<div class=\"opts\"" + gs + ">";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "ba\">a) " + e.o[0] + "</button>";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "bb\">b) " + e.o[1] + "</button>";
+        h += "</div>";
+        var ct = e.a === "a" ? e.o[0] : e.o[1];
+        h += "<div class=\"fb fb-ok\" id=\"fbok-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F389;</span> Correct!</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\"><span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x1F4A1;</span><div class=\"fb-text\">The other option: " + e.fi + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div>";
+        h += "<div class=\"fb fb-bad\" id=\"fbbad-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F615;</span> Not quite right</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x274C;</span><div class=\"fb-text\"><span class=\"fb-wrong-reason\">" + e.fi + "</span></div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\">The correct answer is <span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div></div>";
+    });
+    h += "<div class=\"score-bar\"><div class=\"num\" id=\"sc-" + k + "\">0/5</div><div class=\"lbl\">Score</div></div>";
+    h += "</div></div>";
+    document.getElementById("cardArea").innerHTML = h;
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        document.getElementById(eid + "ba").addEventListener("click", (function(id){ return function(){ chk(id,"a"); }; })(eid));
+        document.getElementById(eid + "bb").addEventListener("click", (function(id){ return function(){ chk(id,"b"); }; })(eid));
+    });
+}
+
+function chk(eid, sel) {
+    if (answered[eid]) return;
+    answered[eid] = true;
+    var parts = eid.match(/s(\d+)e(\d+)/);
+    var si = parseInt(parts[1]);
+    var ei = parseInt(parts[2]);
+    var e = EXERCISES[si][ei];
+    var k = "s" + si;
+    var ex = document.getElementById(eid);
+    var btnA = document.getElementById(eid + "ba");
+    var btnB = document.getElementById(eid + "bb");
+    btnA.disabled = true;
+    btnB.disabled = true;
+    if (sel === e.a) {
+        ex.classList.add("correct");
+        (sel === "a" ? btnA : btnB).classList.add("sel-ok");
+        document.getElementById("fbok-" + eid).classList.add("show");
+        scores[k]++;
+    } else {
+        ex.classList.add("incorrect");
+        (sel === "a" ? btnA : btnB).classList.add("sel-bad");
+        (e.a === "a" ? btnA : btnB).classList.add("show-ok");
+        document.getElementById("fbbad-" + eid).classList.add("show");
+    }
+    document.getElementById("sc-" + k).textContent = scores[k] + "/5";
+    var allDone = [0,1,2,3,4].every(function(i){ return answered[k + "e" + i]; });
+    if (allDone && curStep === 4) {
+        setTimeout(function() {
+            var sf = document.getElementById("summaryFinal");
+            document.getElementById("summaryList").innerHTML = SUMMARY.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+            sf.classList.add("show");
+            sf.scrollIntoView({behavior:"smooth"});
+        }, 600);
+    }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

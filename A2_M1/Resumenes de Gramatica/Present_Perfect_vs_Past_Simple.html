@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Present Perfect vs Past Simple | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#F1F8E9;--note-border:#AED581;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:800px;margin:0 auto}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:"";position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:"Fredoka",sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:"Fredoka",sans-serif;font-size:1.05rem;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.83rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:"Nunito",sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem;margin-top:1.1rem}
+.section-label::before{content:"";width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-label:first-child{margin-top:0}
+.section-title{font-family:"Fredoka",sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:"Fredoka",sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0}
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:"Fredoka",sans-serif;font-size:.88rem;color:var(--ld);line-height:2.2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:"Fredoka",sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem;font-weight:700}
+.alert-card p{font-size:.82rem;color:#555;line-height:1.7}
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:"Lora",serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+/* WHEN VS THAT */
+.when-vs-that{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1rem 0}
+.wvt-col{border-radius:12px;padding:.9rem;text-align:center}
+.wvt-ps{background:#FFF3E0;border:2px solid #FFB74D}
+.wvt-pp{background:var(--ok-bg);border:2px solid #A5D6A7}
+.wvt-label{font-family:"Fredoka",sans-serif;font-size:.78rem;font-weight:600;margin-bottom:.5rem}
+.wvt-ps .wvt-label{color:#E65100}
+.wvt-pp .wvt-label{color:var(--ok)}
+.wvt-q{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.3rem}
+.wvt-a{font-size:.79rem;color:var(--text-soft);margin-bottom:.3rem}
+.wvt-note{font-size:.7rem;font-style:italic;color:var(--text-soft)}
+/* SIGNAL MAP */
+.signal-map{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.9rem 0}
+.sm-col{border-radius:12px;overflow:hidden;border:2px solid var(--border)}
+.sm-ps{border-color:#FFB74D}
+.sm-pp{border-color:#A5D6A7}
+.sm-header{padding:.55rem .8rem;font-family:"Fredoka",sans-serif;font-size:.82rem;font-weight:700;text-align:center}
+.sm-ps .sm-header{background:#FFF3E0;color:#E65100}
+.sm-pp .sm-header{background:var(--ok-bg);color:var(--ok)}
+.sm-sub{font-size:.7rem;text-align:center;padding:.25rem .8rem;color:var(--text-soft);background:#FAFAFA;border-bottom:1px dashed #e0e0e0;font-style:italic}
+.sm-chips{padding:.6rem .8rem;display:flex;flex-wrap:wrap;gap:.3rem}
+.sm-chip{font-size:.76rem;font-weight:700;padding:2px 8px;border-radius:12px}
+.sm-ps .sm-chip{background:#FFF3E0;color:#BF360C;border:1.5px solid #FFCC02}
+.sm-pp .sm-chip{background:var(--ok-bg);color:var(--ld);border:1.5px solid #A5D6A7}
+/* CONFUSION CASES */
+.confusion-cases{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.6rem}
+.cc-item{background:#fff;border-radius:10px;padding:.7rem .8rem;border:1.5px solid var(--border)}
+.cc-label{font-size:.68rem;font-weight:800;text-transform:uppercase;margin-bottom:.4rem;padding:2px 7px;border-radius:8px;display:inline-block}
+.cc-bad{background:var(--err-bg);color:var(--err)}
+.cc-sent{font-size:.78rem;font-weight:600;color:var(--err);margin-bottom:.25rem;text-decoration:line-through;text-decoration-color:#EF9A9A}
+.cc-fix{font-size:.78rem;font-weight:700;color:var(--ok);margin-bottom:.25rem}
+.cc-why{font-size:.7rem;color:var(--text-soft);font-style:italic}
+/* DECISION FLOW FULL */
+.decision-flow-full{margin:1rem 0}
+.dff-start{font-family:"Fredoka",sans-serif;font-size:.9rem;font-weight:600;color:#fff;background:var(--lg);border-radius:10px;padding:.5rem 1rem;text-align:center;margin-bottom:.6rem}
+.dff-branches{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.dff-branch{border-radius:12px;padding:.8rem}
+.dff-ps{background:#FFF3E0;border:2px solid #FFB74D}
+.dff-pp{background:var(--ok-bg);border:2px solid #A5D6A7}
+.dff-q{font-size:.79rem;font-weight:600;color:var(--text);margin-bottom:.4rem;line-height:1.4}
+.dff-q em{font-size:.72rem;color:var(--text-soft);font-weight:400}
+.dff-ans{font-family:"Fredoka",sans-serif;font-size:.88rem;font-weight:700;margin-bottom:.4rem}
+.dff-ps .dff-ans{color:#E65100}
+.dff-pp .dff-ans{color:var(--ok)}
+.dff-ex{font-size:.75rem;color:var(--text-soft);line-height:1.6}
+@media(max-width:600px){
+.when-vs-that,.signal-map,.confusion-cases,.dff-branches{grid-template-columns:1fr}
+}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:"Fredoka",sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:"Nunito",sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:"Fredoka",sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:4px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#33691E}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:"Fredoka",sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block;animation:fadeIn .4s ease}
+.summary-final h3{font-family:"Fredoka",sans-serif;color:var(--ok);margin-bottom:.8rem;font-size:1.1rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:5px 0 5px 22px;position:relative;font-size:.84rem;color:var(--text-soft);border-bottom:1px solid var(--lm)}
+.summary-final li:last-child{border-bottom:none}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+@media(max-width:600px){
+.level-header h1{font-size:1.4rem}
+.compare-grid{grid-template-columns:1fr}
+.card{padding:1.2rem}
+.opts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+  <div class="level-badge">&#x1F49A; A2 &middot; Grammar Summary</div>
+  <h1>&#x1F4DD; Grammar Summary</h1>
+  <div class="module-name">&#x1F6CE;&#xFE0F; Services, Support &amp; Problem Solving</div>
+  <p class="subtitle">Present Perfect vs Past Simple (use-based) &middot; 5 steps &times; 5 exercises</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+  <h3>&#x1F393; Key Points &mdash; PP vs Past Simple</h3>
+  <ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+var STEPS = [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol la distinci\u00f3n entre \"llam\u00e9\" (indefinido) y \"he llamado\" (perfecto) var\u00eda seg\u00fan la regi\u00f3n. En ingl\u00e9s la distinci\u00f3n es m\u00e1s sistem\u00e1tica y basada en si el tiempo importa o no.</div>\n<div class=\"compare-grid\">\n  <div class=\"compare-card esp\">\n    <h4>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol \u2014 uso variable</h4>\n    <ul>\n      <li>Llam\u00e9 <b>ayer</b>. <em>(indefinido)</em></li>\n      <li>He llamado hoy. <em>(perfecto)</em></li>\n      <li>\u00bfAlguna vez llamaste?</li>\n      <li>Ya envi\u00e9 el formulario.</li>\n    </ul>\n  </div>\n  <div class=\"compare-card eng\">\n    <h4>\ud83c\uddec\ud83c\udde7 English \u2014 uso sistem\u00e1tico</h4>\n    <ul>\n      <li>I called <b>yesterday</b>. <em>(Past Simple)</em></li>\n      <li>I have called today. <em>(Present Perfect)</em></li>\n      <li>Have you ever called?</li>\n      <li>I have already sent the form.</li>\n    </ul>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 La pregunta clave:</strong> \u00bfImporta <b>cu\u00e1ndo</b> ocurri\u00f3? \u2192 Past Simple. \u00bfImporta <b>que</b> ocurri\u00f3 (y el resultado ahora)? \u2192 Present Perfect.</div>\n<div class=\"when-vs-that\">\n  <div class=\"wvt-col wvt-ps\">\n    <div class=\"wvt-label\">\u00bfCu\u00e1ndo? \u2192 Past Simple</div>\n    <div class=\"wvt-q\">Did you call?</div>\n    <div class=\"wvt-a\">Yes, I called <b>at 3pm yesterday</b>.</div>\n    <div class=\"wvt-note\">El tiempo espec\u00edfico importa</div>\n  </div>\n  <div class=\"wvt-col wvt-pp\">\n    <div class=\"wvt-label\">\u00bfQue...? \u2192 Present Perfect</div>\n    <div class=\"wvt-q\">Have you called?</div>\n    <div class=\"wvt-a\">Yes, I <b>have called</b>. \u2713</div>\n    <div class=\"wvt-note\">El resultado importa, no cu\u00e1ndo</div>\n  </div>\n</div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">I <b>filed</b> the complaint <b>last Tuesday</b>. <em>(PS \u2014 tiempo espec\u00edfico)</em></div><div class=\"es\">Present\u00e9 la queja el martes pasado.</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udccb</div><div><div class=\"en\">I <b>have filed</b> the complaint. <em>(PP \u2014 resultado: ya est\u00e1 hecha)</em></div><div class=\"es\">He presentado la queja. (el resultado importa ahora)</div></div></div>"}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Both tenses have parallel purposes \u2014 the key is whether you focus on the time it happened or the fact that it happened.</div>\n<table class=\"g-table\">\n  <tr><th>Similitud</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n  <tr><td>Pasado + tiempo espec\u00edfico</td><td>Llam\u00e9 <b>ayer</b>.</td><td>I called <span class=\"g-neg\">yesterday</span>. (PS)</td></tr>\n  <tr><td>Pasado + resultado presente</td><td>He perdido mi tarjeta.</td><td>I <span class=\"g-comp\">have lost</span> my card. (PP)</td></tr>\n  <tr><td>Experiencia de vida</td><td>\u00bfAlguna vez has...?</td><td>Have you <span class=\"g-comp\">ever</span>...? (PP)</td></tr>\n  <tr><td>Acci\u00f3n reciente relevante</td><td>Acabo de enviar el email.</td><td>I have <span class=\"g-comp\">just</span> sent the email. (PP)</td></tr>\n  <tr><td>Pregunta sobre el pasado</td><td>\u00bfCu\u00e1ndo llamaste?</td><td>When did you call? (PS)</td></tr>\n</table>\n<div class=\"section-label\">Se\u00f1ales de tiempo \u2014 el mapa completo</div>\n<div class=\"signal-map\">\n  <div class=\"sm-col sm-ps\">\n    <div class=\"sm-header\">\u23f0 Past Simple</div>\n    <div class=\"sm-sub\">tiempo espec\u00edfico pasado</div>\n    <div class=\"sm-chips\">\n      <span class=\"sm-chip\">yesterday</span>\n      <span class=\"sm-chip\">last week / month / year</span>\n      <span class=\"sm-chip\">in 2020 / in March</span>\n      <span class=\"sm-chip\">... ago</span>\n      <span class=\"sm-chip\">at 3pm / at that time</span>\n      <span class=\"sm-chip\">when I was...</span>\n      <span class=\"sm-chip\">that day / morning</span>\n    </div>\n  </div>\n  <div class=\"sm-col sm-pp\">\n    <div class=\"sm-header\">\u2705 Present Perfect</div>\n    <div class=\"sm-sub\">relevancia presente</div>\n    <div class=\"sm-chips\">\n      <span class=\"sm-chip\">already</span>\n      <span class=\"sm-chip\">yet (preguntas/negaciones)</span>\n      <span class=\"sm-chip\">just (acaba de)</span>\n      <span class=\"sm-chip\">ever / never</span>\n      <span class=\"sm-chip\">recently / lately</span>\n      <span class=\"sm-chip\">so far / up to now</span>\n      <span class=\"sm-chip\">for / since</span>\n    </div>\n  </div>\n</div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Tip r\u00e1pido:</strong> Si puedes a\u00f1adir \"yesterday\" o \"last week\" a la oraci\u00f3n \u2192 Past Simple. Si puedes a\u00f1adir \"already\" o \"just\" \u2192 Present Perfect. Las palabras de tiempo son tu br\u00fajula.</div>"}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<table class=\"g-table\">\n  <tr><th>Situaci\u00f3n</th><th>Past Simple \u2705</th><th>Present Perfect \u2705</th></tr>\n  <tr><td>Tiempo espec\u00edfico</td><td>I called <b>at 3pm</b>.</td><td>I <b>have called</b>. \u2713 (sin cu\u00e1ndo)</td></tr>\n  <tr><td>Pregunta de experiencia</td><td>Did you call <b>last week</b>?</td><td>Have you <b>ever</b> called?</td></tr>\n  <tr><td>Acci\u00f3n reciente + resultado</td><td>I sent it <b>yesterday</b>.</td><td>I've <b>just</b> sent it. \u2192 it's done now</td></tr>\n  <tr><td>Pregunta \"When\"</td><td>When <b>did</b> you call? \u2705</td><td>When <b>have</b> you called? \u274c (incorrecto)</td></tr>\n  <tr><td>Noticia reciente</td><td>\u2014</td><td>The customer <b>has complained</b>. \u2713</td></tr>\n</table>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f 4 casos donde los estudiantes se confunden</div>\n  <div class=\"confusion-cases\">\n    <div class=\"cc-item\">\n      <div class=\"cc-label cc-bad\">\u274c Error frecuente</div>\n      <div class=\"cc-sent\">Did you send the form <b>already</b>?</div>\n      <div class=\"cc-fix\">\u2705 Have you <b>already</b> sent the form?</div>\n      <div class=\"cc-why\">Already \u2192 PP (resultado importa)</div>\n    </div>\n    <div class=\"cc-item\">\n      <div class=\"cc-label cc-bad\">\u274c Error frecuente</div>\n      <div class=\"cc-sent\">When have you called?</div>\n      <div class=\"cc-fix\">\u2705 When <b>did</b> you call?</div>\n      <div class=\"cc-why\">When siempre con Past Simple</div>\n    </div>\n    <div class=\"cc-item\">\n      <div class=\"cc-label cc-bad\">\u274c Error frecuente</div>\n      <div class=\"cc-sent\">I have seen him <b>yesterday</b>.</div>\n      <div class=\"cc-fix\">\u2705 I <b>saw</b> him yesterday.</div>\n      <div class=\"cc-why\">Yesterday \u2192 Past Simple siempre</div>\n    </div>\n    <div class=\"cc-item\">\n      <div class=\"cc-label cc-bad\">\u274c Error frecuente</div>\n      <div class=\"cc-sent\">I didn't receive the refund <b>yet</b>.</div>\n      <div class=\"cc-fix\">\u2705 I <b>haven't received</b> the refund yet.</div>\n      <div class=\"cc-why\">Yet \u2192 PP negativo</div>\n    </div>\n  </div>\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcf1</div><div><div class=\"en\">I <span class=\"g-verb\">have just</span> <span class=\"g-comp\">spoken</span> to the manager \u2014 he's aware of the issue.</div><div class=\"es\">Acabo de hablar con el gerente \u2014 ya sabe del problema. (PP: resultado ahora)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcf1</div><div><div class=\"en\">I <span class=\"g-verb\">spoke</span> to the manager <span class=\"g-neg\">this morning at 9am</span>.</div><div class=\"es\">Habl\u00e9 con el gerente esta ma\u00f1ana a las 9. (PS: tiempo espec\u00edfico)</div></div></div>"}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n<div class=\"tip-card\"><strong>Tip 1 \u2014 El test del \"\u00bfcu\u00e1ndo?\":</strong> Si alguien pregunta \"\u00bfcu\u00e1ndo?\" y la respuesta es relevante \u2192 Past Simple. Si nadie pregunta \"\u00bfcu\u00e1ndo?\" porque no importa (solo importa que pas\u00f3) \u2192 Present Perfect. \"Did you send it?\" \u2192 \"Yes, I sent it <b>this morning</b>.\" (PS, el cu\u00e1ndo importa) \u2192 \"Yes, I <b>have</b> sent it.\" (PP, el resultado importa)</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 \"Already / yet / just\" siempre con PP:</strong> Estos tres son las se\u00f1ales m\u00e1s confiables del PP. \"Have you <b>already</b> processed this? / I <b>haven't</b> received it <b>yet</b>. / I've <b>just</b> submitted the form.\" Nunca van con Past Simple.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 \"When\" siempre con Past Simple:</strong> La pregunta \"When did you...?\" siempre usa Past Simple \u2014 incluso si la acci\u00f3n tiene relevancia presente. \"When did you file the complaint?\" (no: When have you filed?)</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Conversaci\u00f3n natural: PP introduce, PS da detalles:</strong> En conversaciones reales a menudo usamos PP para introducir el tema y PS para dar los detalles. \"I <b>have spoken</b> to a manager.\" (PP) \u2192 \"Oh, what did they say? / When did you call?\" (PS)</div>\n<div class=\"section-label\">Flujo de decisi\u00f3n \u2014 \u00bfPS o PP?</div>\n<div class=\"decision-flow-full\">\n  <div class=\"dff-start\">\u00bfPasado o presente perfecto?</div>\n  <div class=\"dff-branches\">\n    <div class=\"dff-branch dff-ps\">\n      <div class=\"dff-q\">\u00bfHay se\u00f1al de tiempo espec\u00edfico?<br><em>(yesterday, ago, last week, at 3pm)</em></div>\n      <div class=\"dff-ans\">\u2192 <b>Past Simple</b></div>\n      <div class=\"dff-ex\">I called <b>yesterday</b>.<br>I sent it <b>3 days ago</b>.</div>\n    </div>\n    <div class=\"dff-branch dff-pp\">\n      <div class=\"dff-q\">\u00bfEl resultado/hecho importa ahora?<br><em>(already, yet, just, recently, ever)</em></div>\n      <div class=\"dff-ans\">\u2192 <b>Present Perfect</b></div>\n      <div class=\"dff-ex\">I <b>have just</b> called.<br>Have you <b>already</b> sent it?</div>\n    </div>\n  </div>\n</div>"}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"formula-box\">\n  <span class=\"g-neg\">Past Simple</span>: Subject + V<sub>past</sub> + <span class=\"g-neg\">time expression</span> \u2192 I called <b>yesterday</b><br>\n  <span class=\"g-comp\">Present Perfect</span>: Subject + <span class=\"g-verb\">have/has</span> + <span class=\"g-comp\">V<sub>pp</sub></span> + <span class=\"g-comp\">signal</span> \u2192 I have <b>already</b> called\n</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udce7</div><div><div class=\"en\">The customer <span class=\"g-verb\">has just</span> <span class=\"g-comp\">sent</span> an email \u2014 please respond as soon as possible.</div><div class=\"es\">El cliente acaba de enviar un email \u2014 responde lo antes posible. (PP: acaba de pasar)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcc5</div><div><div class=\"en\">She <span class=\"g-verb\">submitted</span> the complaint form <span class=\"g-neg\">three days ago</span>.</div><div class=\"es\">Ella envi\u00f3 el formulario de queja hace tres d\u00edas. (PS: tiempo espec\u00edfico)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">Have you <span class=\"g-comp\">already</span> <span class=\"g-verb\">processed</span> the refund? \u2014 Yes, I <span class=\"g-verb\">processed</span> it <span class=\"g-neg\">this morning</span>.</div><div class=\"es\">\u00bfYa procesaste el reembolso? \u2014 S\u00ed, lo proces\u00e9 esta ma\u00f1ana. (PP \u2192 PS con detalle)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udeab</div><div><div class=\"en\">I <span class=\"g-neg\">haven't received</span> any response <span class=\"g-comp\">yet</span>.</div><div class=\"es\">Todav\u00eda no he recibido ninguna respuesta. (PP negativo + yet)</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I have seen the manager yesterday. / Did you call already?</div><div class=\"es\">Errores: yesterday \u2192 PS (saw) \u00b7 already en pregunta \u2192 PP (Have you already called?)</div></div></div>\n<div class=\"alert-card\">\n  <div class=\"atitle\">\u26a0\ufe0f 3 Errores Comunes</div>\n  <p>\u274c \"I have called <b>yesterday</b>\" \u2192 \u2705 \"I <b>called</b> yesterday\" (yesterday = PS siempre)<br>\n  \u274c \"Did you receive it <b>yet</b>?\" \u2192 \u2705 \"Have you received it <b>yet</b>?\" (yet = PP en preguntas)<br>\n  \u274c \"<b>When have</b> you filed it?\" \u2192 \u2705 \"<b>When did</b> you file it?\" (when = PS siempre)</p>\n</div>"}];
+var EXERCISES = [[{"q": "\"I filed the complaint ___.\" \u00bfQu\u00e9 tiempo y palabra es correcta?", "a": "b", "o": ["I have filed the complaint yesterday.", "I filed the complaint yesterday."], "fc": "Yesterday = tiempo espec\u00edfico pasado \u2192 Past Simple: I filed.", "fi": "Yesterday nunca se usa con Present Perfect. Siempre Past Simple con yesterday.", "ex": "I filed the complaint yesterday. (PS + tiempo espec\u00edfico)", "tip": "yesterday = Past Simple (siempre)"}, {"q": "\"Have you ___ the form?\" \u2014 el cliente pregunta si el proceso est\u00e1 listo.", "a": "a", "o": ["already processed", "processed yesterday"], "fc": "Already + Present Perfect: Have you already processed the form? Importa si est\u00e1 hecho ahora.", "fi": "Processed yesterday es Past Simple \u2014 no combina con Have you...? de Present Perfect.", "ex": "Have you already processed the form?", "tip": "already \u2192 Present Perfect (resultado presente)"}, {"q": "\u00bfCu\u00e1ndo usamos Present Perfect en lugar de Past Simple?", "a": "b", "o": ["Cuando queremos especificar exactamente cu\u00e1ndo ocurri\u00f3", "Cuando importa que la acci\u00f3n ocurri\u00f3, no cu\u00e1ndo"], "fc": "El PP se usa cuando el resultado o hecho importa ahora, no el momento espec\u00edfico.", "fi": "Especificar cu\u00e1ndo es funci\u00f3n del Past Simple.", "ex": "I have called. (PP \u2014 importa que llam\u00e9) / I called at 3pm. (PS \u2014 importa cu\u00e1ndo)", "tip": "\u00bfImporta cu\u00e1ndo? \u2192 PS \u00b7 \u00bfImporta que ocurri\u00f3? \u2192 PP"}, {"q": "\"I ___ the customer just now.\" (acabo de llamar)", "a": "a", "o": ["have just called", "just called"], "fc": "Just + Present Perfect: I have just called. Just indica acci\u00f3n reciente con resultado presente.", "fi": "Just called sin have puede ser informal, pero formalmente just requiere Present Perfect.", "ex": "I have just called the customer \u2014 he's on his way.", "tip": "just \u2192 Present Perfect (acaba de pasar)"}, {"q": "\"She ___ the refund request ___ ago.\"", "a": "b", "o": ["has submitted / three days", "submitted / three days"], "fc": "Three days ago = tiempo espec\u00edfico pasado \u2192 Past Simple: submitted.", "fi": "Ago siempre indica pasado espec\u00edfico terminado \u2192 Past Simple, nunca Present Perfect.", "ex": "She submitted the refund request three days ago. (PS + ago)", "tip": "ago = Past Simple (siempre)"}], [{"q": "\"I haven't received a response ___.\" \u00bfQu\u00e9 palabra encaja?", "a": "b", "o": ["yesterday", "yet"], "fc": "Yet + Present Perfect negativo: I haven't received a response yet. Todav\u00eda no, sigue siendo relevante.", "fi": "Yesterday va con Past Simple afirmativo/negativo: I didn't receive a call yesterday.", "ex": "I haven't received a response yet. (PP negativo + yet)", "tip": "yet \u2192 Present Perfect (en preguntas y negaciones)"}, {"q": "\"___ did you speak to the manager?\" \u00bfPS o PP?", "a": "a", "o": ["When did you speak...? (PS)", "When have you spoken...? (PP)"], "fc": "When siempre va con Past Simple. 'When did you speak to the manager?' es la forma correcta.", "fi": "When have you... no es correcto en ingl\u00e9s est\u00e1ndar. When requiere Past Simple.", "ex": "When did you file the complaint? (When + PS siempre)", "tip": "When = Past Simple (siempre \u2014 nunca con PP)"}, {"q": "\"The agent ___ just ___ the form.\" (acaba de procesar)", "a": "b", "o": ["processed / just", "has / processed"], "fc": "Has just processed: Present Perfect con just. The agent has just processed the form.", "fi": "El orden correcto es: has + just + participio. La opci\u00f3n A invierte el orden.", "ex": "The agent has just processed the form \u2014 it's done!", "tip": "have/has + just + past participle"}, {"q": "\"Have you ___ had to deal with a billing error?\" (alguna vez)", "a": "a", "o": ["ever", "yet"], "fc": "Pregunta de experiencia de vida \u2192 ever: Have you ever had to deal with...?", "fi": "Yet va en preguntas de resultado presente: Have you finished yet? No para experiencia de vida.", "ex": "Have you ever had to deal with a billing error?", "tip": "Experiencia de vida \u2192 ever / Resultado presente \u2192 yet"}, {"q": "\"We received your complaint ___ Monday.\"", "a": "b", "o": ["We have received / on", "We received / on"], "fc": "On Monday es tiempo espec\u00edfico pasado \u2192 Past Simple: We received your complaint on Monday.", "fi": "Present Perfect no se usa con fechas/d\u00edas espec\u00edficos del pasado.", "ex": "We received your complaint on Monday. (PS + specific day)", "tip": "D\u00eda/fecha espec\u00edfica del pasado \u2192 Past Simple"}], [{"q": "\"Did you already send the form?\" \u2014 \u00bfes correcto?", "a": "b", "o": ["S\u00ed, es correcto", "No \u2014 already va con Present Perfect: Have you already sent it?"], "fc": "Already en preguntas va con Present Perfect: Have you already sent the form?", "fi": "Did you...? es Past Simple. Already no combina naturalmente con Past Simple en preguntas.", "ex": "Have you already sent the form? (PP + already)", "tip": "already en pregunta \u2192 Have you already...? (PP)"}, {"q": "\"I have seen him ___ at the office.\" \u00bfCu\u00e1l es correcto?", "a": "b", "o": ["yesterday", "recently"], "fc": "Recently va con Present Perfect: I have seen him recently. Yesterday requerir\u00eda Past Simple (I saw him yesterday).", "fi": "Yesterday siempre requiere Past Simple: I saw him yesterday (no have seen).", "ex": "I have seen him recently. / I saw him yesterday.", "tip": "recently \u2192 PP \u00b7 yesterday \u2192 PS"}, {"q": "\"The customer ___ yet to receive a response.\" \u00bfCu\u00e1l es correcto?", "a": "a", "o": ["hasn't received a response yet", "didn't receive a response yet"], "fc": "Yet en negaciones va con Present Perfect: hasn't received yet.", "fi": "Didn't receive yet es incorrecto. Yet en negaciones siempre con Present Perfect.", "ex": "The customer hasn't received a response yet. (PP negativo + yet)", "tip": "yet en negaciones \u2192 Present Perfect (hasn't/haven't)"}, {"q": "Un colega dice: 'I spoke to the manager.' T\u00fa quieres saber cu\u00e1ndo. Preguntas:", "a": "b", "o": ["When have you spoken to the manager?", "When did you speak to the manager?"], "fc": "When + Past Simple: When did you speak to the manager? When siempre usa PS.", "fi": "When have you spoken...? es incorrecto. When requiere Past Simple.", "ex": "When did you speak to the manager?", "tip": "When = siempre Past Simple"}, {"q": "\"She has worked here ___ she joined the company.\" \u00bfFor o since?", "a": "b", "o": ["for", "since"], "fc": "Since + evento/punto de inicio: since she joined the company (desde que se uni\u00f3).", "fi": "For va con per\u00edodos de tiempo: for 5 years, for a long time. Since va con puntos.", "ex": "She has worked here since she joined the company.", "tip": "since + event / point in time \u00b7 for + duration"}], [{"q": "Completa con PS o PP: \"Have you finished the report?\" \u2014 \"Yes, I ___ it ___ an hour ago.\"", "a": "b", "o": ["have finished / an", "finished / an"], "fc": "An hour ago = tiempo espec\u00edfico \u2192 Past Simple: I finished it an hour ago.", "fi": "La pregunta usa PP (Have you finished?) pero la respuesta con 'ago' requiere PS.", "ex": "Have you finished it? \u2014 Yes, I finished it an hour ago. (PP pregunta \u2192 PS respuesta con ago)", "tip": "Respuesta con ago \u2192 siempre Past Simple"}, {"q": "\"I ___ just ___ a refund for this customer.\" (acaba de aprobar)", "a": "a", "o": ["have / approved", "had / approved"], "fc": "Have just approved: Present Perfect con just. Acci\u00f3n reciente con resultado presente.", "fi": "Had approved es Past Perfect \u2014 diferente tiempo verbal (pasado del pasado).", "ex": "I have just approved a refund for this customer.", "tip": "have/has + just + participio = acabar de"}, {"q": "Un agente quiere informar que el cliente acaba de enviar un email. \u00bfCu\u00e1l es m\u00e1s apropiado?", "a": "b", "o": ["The customer sent an email just now.", "The customer has just sent an email."], "fc": "Has just sent = Present Perfect. Noticia reciente con relevancia inmediata. M\u00e1s natural en ingl\u00e9s.", "fi": "Sent an email just now es posible pero less natural. Has just sent es la forma est\u00e1ndar.", "ex": "The customer has just sent an email \u2014 please respond quickly.", "tip": "Noticia reciente relevante \u2192 Present Perfect + just"}, {"q": "\"Did you receive the complaint?\" \u2192 respuesta: \"Yes, I ___ it ___ Monday morning.\"", "a": "a", "o": ["received / on", "have received / on"], "fc": "On Monday morning = tiempo espec\u00edfico \u2192 Past Simple: I received it on Monday morning.", "fi": "On Monday morning indica tiempo espec\u00edfico pasado \u2192 Past Simple, no PP.", "ex": "Yes, I received it on Monday morning. (PS + specific time)", "tip": "Respuesta con d\u00eda/hora espec\u00edfica \u2192 Past Simple"}, {"q": "\"So far, we ___ fifteen complaints this week.\" (hasta ahora)", "a": "b", "o": ["received", "have received"], "fc": "So far = hasta ahora \u2192 Present Perfect: we have received fifteen complaints so far.", "fi": "So far indica que el per\u00edodo todav\u00eda est\u00e1 activo (esta semana) \u2192 PP.", "ex": "So far, we have received fifteen complaints this week.", "tip": "so far / up to now \u2192 Present Perfect"}], [{"q": "\"The manager ___ the customer's complaint ___ minutes ago.\"", "a": "b", "o": ["has reviewed / a few", "reviewed / a few"], "fc": "A few minutes ago = tiempo espec\u00edfico \u2192 Past Simple: reviewed.", "fi": "Ago indica pasado espec\u00edfico terminado \u2192 siempre Past Simple.", "ex": "The manager reviewed the customer's complaint a few minutes ago. (PS + ago)", "tip": "ago = Past Simple (siempre, sin excepci\u00f3n)"}, {"q": "\"Have you ___ spoken to a supervisor about this issue?\"", "a": "a", "o": ["ever", "already"], "fc": "Have you ever spoken...? = pregunta de experiencia. Ever en preguntas de vida.", "fi": "Already en pregunta ser\u00eda: Have you already spoken...? \u2014 pero el contexto pide experiencia de vida.", "ex": "Have you ever spoken to a supervisor about this? (experiencia)", "tip": "Experiencia de vida \u2192 ever \u00b7 Resultado ya listo \u2192 already"}, {"q": "\"I ___ this form last Thursday, but I still haven't received a response.\"", "a": "b", "o": ["have submitted", "submitted"], "fc": "Last Thursday = tiempo espec\u00edfico \u2192 Past Simple: I submitted this form last Thursday.", "fi": "Last Thursday indica pasado espec\u00edfico \u2192 Past Simple. La segunda parte usa PP (haven't received).", "ex": "I submitted the form last Thursday, but I haven't received a response yet.", "tip": "Last Thursday = PS \u00b7 haven't received yet = PP (ambos en la misma oraci\u00f3n)"}, {"q": "\"___ you already ___ the refund to the customer?\"", "a": "a", "o": ["Have / sent", "Did / sent"], "fc": "Already en pregunta \u2192 Present Perfect: Have you already sent the refund?", "fi": "Did you sent es incorrecto (did + infinitivo, no participio). Y already \u2192 PP.", "ex": "Have you already sent the refund to the customer?", "tip": "already en pregunta = Have you already + participio?"}, {"q": "Elige la conversaci\u00f3n gramaticalmente correcta:", "a": "b", "o": ["'Have you called yesterday?' \u2014 'Yes, I have called at 3pm.'", "'Did you call yesterday?' \u2014 'Yes, I called at 3pm.'"], "fc": "Yesterday + tiempo espec\u00edfico (3pm) \u2192 ambas oraciones en Past Simple: Did you call? / I called at 3pm.", "fi": "Have you called yesterday? mezcla PP con yesterday, que siempre requiere PS.", "ex": "Did you call yesterday? \u2014 Yes, I called at 3pm. (PS + tiempo espec\u00edfico)", "tip": "yesterday en pregunta Y respuesta \u2192 Past Simple en ambas"}]];
+var SUMMARY = ["<b>Past Simple</b> \u2192 acci\u00f3n terminada en un tiempo espec\u00edfico del pasado: I called <b>yesterday</b>", "<b>Present Perfect</b> \u2192 acci\u00f3n pasada con conexi\u00f3n al presente: I have called \u2014 resultado ahora", "<b>Se\u00f1ales de Past Simple:</b> yesterday, last week, in 2020, ago, at 3pm, when I was...", "<b>Se\u00f1ales de Present Perfect:</b> already, yet, just, still, recently, so far, ever, never", "<b>La pregunta clave:</b> \u00bfImporta CU\u00c1NDO ocurri\u00f3? \u2192 Past Simple. \u00bfImporta QUE ocurri\u00f3? \u2192 Present Perfect", "<b>PP + resultado presente:</b> I've lost my card \u2192 I don't have it now (el resultado importa)", "<b>Conversaci\u00f3n natural:</b> Did you call? (PS) \u2192 Yes, I have / I called this morning (PP o PS seg\u00fan contexto)"];
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+    var c = document.getElementById("stepTabs");
+    c.innerHTML = "";
+    STEPS.forEach(function(s, i) {
+        var k = "s" + i;
+        var allDone = [0,1,2,3,4].every(function(j){ return answered[k+"e"+j]; });
+        var b = document.createElement("button");
+        b.className = "step-tab" + (i === curStep ? " active" : "") + (allDone && i !== curStep ? " done" : "");
+        b.textContent = (i + 1) + ". " + s.icon + " " + s.title;
+        b.addEventListener("click", (function(idx){ return function(){
+            curStep = idx;
+            renderStepTabs();
+            renderCard();
+            document.getElementById("summaryFinal").classList.remove("show");
+        };})(i));
+        c.appendChild(b);
+    });
+}
+
+function renderCard() {
+    var s = STEPS[curStep];
+    var exs = EXERCISES[curStep];
+    var k = "s" + curStep;
+    if (scores[k] === undefined) scores[k] = 0;
+    var h = "<div class=\"card\">" + s.html;
+    h += "<div class=\"ex-section\"><h3>&#x270F;&#xFE0F; Exercises &mdash; " + s.title + "</h3>";
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        var longOpts = e.o[0].length > 44 || e.o[1].length > 44;
+        var gs = longOpts ? " style=\"grid-template-columns:1fr\"" : "";
+        h += "<div class=\"exercise\" id=\"" + eid + "\">";
+        h += "<div class=\"exercise-q\">" + (i+1) + ". " + e.q + "</div>";
+        h += "<div class=\"opts\"" + gs + ">";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "ba\">a) " + e.o[0] + "</button>";
+        h += "<button class=\"opt-btn\" id=\"" + eid + "bb\">b) " + e.o[1] + "</button>";
+        h += "</div>";
+        var ct = e.a === "a" ? e.o[0] : e.o[1];
+        h += "<div class=\"fb fb-ok\" id=\"fbok-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F389;</span> Correct!</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\"><span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x1F4A1;</span><div class=\"fb-text\">The other option: " + e.fi + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div>";
+        h += "<div class=\"fb fb-bad\" id=\"fbbad-" + eid + "\">";
+        h += "<div class=\"fb-header\"><span class=\"fb-icon\">&#x1F615;</span> Not quite right</div>";
+        h += "<div class=\"fb-body\">";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x274C;</span><div class=\"fb-text\"><span class=\"fb-wrong-reason\">" + e.fi + "</span></div></div>";
+        h += "<div class=\"fb-row\"><span class=\"fb-dot\">&#x2705;</span><div class=\"fb-text\">The correct answer is <span class=\"fb-correct-answer\">" + ct + "</span> &mdash; " + e.fc + "</div></div>";
+        if (e.ex) h += "<div class=\"fb-example\">&#x1F4DD; " + e.ex + "</div>";
+        if (e.tip) h += "<div class=\"fb-tip\"><strong>&#x1F4A1; Remember:</strong> " + e.tip + "</div>";
+        h += "</div></div></div>";
+    });
+    h += "<div class=\"score-bar\"><div class=\"num\" id=\"sc-" + k + "\">0/5</div><div class=\"lbl\">Score</div></div>";
+    h += "</div></div>";
+    document.getElementById("cardArea").innerHTML = h;
+    exs.forEach(function(e, i) {
+        var eid = k + "e" + i;
+        document.getElementById(eid + "ba").addEventListener("click", (function(id){ return function(){ chk(id,"a"); }; })(eid));
+        document.getElementById(eid + "bb").addEventListener("click", (function(id){ return function(){ chk(id,"b"); }; })(eid));
+    });
+}
+
+function chk(eid, sel) {
+    if (answered[eid]) return;
+    answered[eid] = true;
+    var parts = eid.match(/s(\d+)e(\d+)/);
+    var si = parseInt(parts[1]);
+    var ei = parseInt(parts[2]);
+    var e = EXERCISES[si][ei];
+    var k = "s" + si;
+    var ex = document.getElementById(eid);
+    var btnA = document.getElementById(eid + "ba");
+    var btnB = document.getElementById(eid + "bb");
+    btnA.disabled = true;
+    btnB.disabled = true;
+    if (sel === e.a) {
+        ex.classList.add("correct");
+        (sel === "a" ? btnA : btnB).classList.add("sel-ok");
+        document.getElementById("fbok-" + eid).classList.add("show");
+        scores[k]++;
+    } else {
+        ex.classList.add("incorrect");
+        (sel === "a" ? btnA : btnB).classList.add("sel-bad");
+        (e.a === "a" ? btnA : btnB).classList.add("show-ok");
+        document.getElementById("fbbad-" + eid).classList.add("show");
+    }
+    document.getElementById("sc-" + k).textContent = scores[k] + "/5";
+    var allDone = [0,1,2,3,4].every(function(i){ return answered[k + "e" + i]; });
+    if (allDone && curStep === 4) {
+        setTimeout(function() {
+            var sf = document.getElementById("summaryFinal");
+            document.getElementById("summaryList").innerHTML = SUMMARY.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+            sf.classList.add("show");
+            sf.scrollIntoView({behavior:"smooth"});
+        }, 600);
+    }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>
