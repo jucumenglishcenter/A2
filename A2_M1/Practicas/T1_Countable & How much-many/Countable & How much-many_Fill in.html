@@ -381,14 +381,14 @@
             clue: "patience",
             clueExplain: "'Patience' (paciencia) es incontable \u2014 es un concepto abstracto que no se cuenta. Incontable \u2192 cuantificadores de incontable como 'much', 'a lot of', 'a little'.",
             nounType: "uncountable",
-            options: ["much", "many", "a few"],
-            correct: "much",
+            options: ["patience", "patiences", "a patience"],
+            correct: "patience",
             feedback: {
-                "many": { errorType: "Cuantificador de Contable con Incontable Abstracto", explanation: "Elegiste 'many'. 'Many' se usa con sustantivos contables en plural (many calls, many days). 'Patience' es incontable \u2014 es un concepto abstracto sin plural. Incontable \u2192 'much patience' o 'a lot of patience'.", rule: "many + contable plural / much + incontable" },
-                "a few": { errorType: "Cuantificador de Contable con Incontable Abstracto", explanation: "'A few' se usa con contables ('a few calls'). 'Patience' es incontable \u2014 no tiene plural. Para poca cantidad de un incontable se usa 'a little patience'. Aqu\u00ed el contexto pide 'much patience'.", rule: "a few + contable plural / a little / much + incontable" }
+                "patiences": { errorType: "Plural incorrecto de Incontable", explanation: "Escribiste 'patiences'. 'Patience' (paciencia) es incontable \u2014 NUNCA tiene plural en ingl\u00e9s. 'Patiences' no existe. Para hablar de una peque\u00f1a cantidad puedes decir 'a little patience'.", rule: "Patience = siempre incontable \u2192 sin -s, sin plural" },
+                "a patience": { errorType: "Art\u00edculo indefinido con Incontable", explanation: "Escribiste 'a patience'. Los incontables no llevan 'a/an' porque ese art\u00edculo implica que puedes contar uno. Lo correcto es simplemente 'patience' o 'a lot of patience'.", rule: "Incontable \u2192 sin a/an \u2192 correcto: 'patience' / 'a lot of patience' / 'a little patience'" }
             },
-            correctReason: "'Patience' (paciencia) es incontable \u2014 es un concepto abstracto sin plural. Para cuantificarla usamos 'much' (formal) o 'a lot of' (informal).",
-            examples: ["patience \u2192 incontable \u2192 much", "courage \u2192 incontable \u2192 much", "confidence \u2192 incontable \u2192 much"]
+            correctReason: "'Patience' (paciencia) es incontable \u2014 es un concepto abstracto sin plural ni art\u00edculo 'a/an'. Con 'a lot of' simplemente se escribe 'patience': 'a lot of patience'. Compara: 'advice', 'furniture', 'information' \u2014 todos incontables sin plural.",
+            examples: ["patience \u2192 incontable \u2192 sin plural", "courage \u2192 incontable \u2192 sin plural", "confidence \u2192 incontable \u2192 sin plural"]
         },
         {
             id: 13,
