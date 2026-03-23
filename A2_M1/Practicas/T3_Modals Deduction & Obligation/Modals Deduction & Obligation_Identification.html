@@ -536,8 +536,8 @@
         if (isCorrect) score++;
         document.querySelectorAll('#options-' + qi + ' .sent-option').forEach(function(btn, i) {
             btn.classList.add('disabled');
-            if (q.shuffled[i].correct) btn.classList.add('correct');
-            else if (i === optIdx) btn.classList.add('incorrect');
+            if (i === optIdx && isCorrect) btn.classList.add('correct');
+            else if (i === optIdx && !isCorrect) btn.classList.add('incorrect');
         });
         buildFeedback(qi, selected, isCorrect, correctOpt, q);
         document.getElementById('next-' + qi).disabled = false;
