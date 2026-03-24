@@ -529,13 +529,11 @@
         const badge = '<span class="aux-badge ' + badgeClass + '">' + badgeLabel + '</span>';
         const optsHTML = q.shuffled.map(function(opt, i) {
             const tagPart = opt.correct ? opt.text.match(/, ([^?]+\?)/)?.[1] || '' : '';
-            const displayText = opt.correct
-                ? opt.text.replace(', ' + q.correctTag + '?', ', <span class="tag-ok">' + q.correctTag + '</span>?')
-                : opt.text.replace(', ' + opt.errorTag + '?', ', <span class="tag-hl">' + opt.errorTag + '</span>?');
+            const displayText = opt.text;
             return '<button class="sent-option" onclick="selectOption(' + index + ',' + i + ')">' +
                 '<div class="option-letter">' + letters[i] + '</div>' +
                 '<div class="option-text">' + displayText + '</div>' +
-                '<div class="option-status">' + (opt.correct ? '&#9989;' : '&#10060;') + '</div>' +
+                '<div class="option-status"></div>' +
                 '</button>';
         }).join('');
         const breakdownHTML =
@@ -567,8 +565,13 @@
         if (isCorrect) score++;
         document.querySelectorAll('#options-' + qi + ' .sent-option').forEach(function(btn, i) {
             btn.classList.add('disabled');
-            if (i === optIdx && isCorrect) btn.classList.add('correct');
-            else if (i === optIdx && !isCorrect) btn.classList.add('incorrect');
+            if (i === optIdx && isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.option-status').textContent = '✅';
+            } else if (i === optIdx && !isCorrect) {
+                btn.classList.add('incorrect');
+                btn.querySelector('.option-status').textContent = '❌';
+            }
         });
         buildFeedback(qi, selected, isCorrect, correctOpt, q);
         document.getElementById('next-' + qi).disabled = false;
