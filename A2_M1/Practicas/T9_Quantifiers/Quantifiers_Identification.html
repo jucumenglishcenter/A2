@@ -402,7 +402,7 @@
             <button class="sent-option" onclick="selectOption(${index}, ${i})">
                 <span class="option-letter">${letters[i]}</span>
                 <span class="option-text">${opt.text}</span>
-                <span class="option-status">${opt.correct ? '✅' : '❌'}</span>
+                <span class="option-status"></span>
             </button>`).join('');
         card.innerHTML = `
             <div class="q-header">
@@ -431,8 +431,13 @@
 
         document.querySelectorAll(`#options-${qi} .sent-option`).forEach((btn, i) => {
             btn.classList.add('disabled');
-            if (i === optIdx && isCorrect) btn.classList.add('selected-correct');
-            else if (i === optIdx && !isCorrect) btn.classList.add('selected-incorrect');
+            if (i === optIdx && isCorrect) {
+                btn.classList.add('selected-correct');
+                btn.querySelector('.option-status').textContent = '✅';
+            } else if (i === optIdx && !isCorrect) {
+                btn.classList.add('selected-incorrect');
+                btn.querySelector('.option-status').textContent = '❌';
+            }
         });
 
         buildFeedback(qi, selected, isCorrect, correctOpt, q);
