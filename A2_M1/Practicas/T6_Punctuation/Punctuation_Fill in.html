@@ -22,8 +22,8 @@
         * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
         body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
         .header { background:linear-gradient(135deg,#2E7D32 0%,#66BB6A 60%,#A5D6A7 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
-        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:var(--text-dark); transition:all .2s; flex-shrink:0; }
-        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .back-btn { padding:0.4rem 0.9rem; border-radius:20px; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; gap:0.4rem; cursor:pointer; font-size:0.9rem; font-weight:700; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); }
         .header-info { flex:1; }
         .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
         .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
@@ -162,36 +162,27 @@
     </main>
 
     <script>
-    // ============================================================
-    // FILL — A2 M1 Topic 6
-    // Punctuation: commas in lists / end punctuation / apostrophes
-    // 15 questions | 5-5-5 position distribution | Fisher-Yates runtime
-    // Characters: Lucia, James, Nadia, Carlos
-    // All interface text in English
-    // ============================================================
     const quizData = [
-        // Q1 — commas_list | commas after each item in 3-item list | pos 2
         {
             id:1, topic:"commas",
             sentence:"Lucia contacted the building manager, the plumber___ and the electrician about the problem.",
             context:"Three items in a list — what goes in the blank before 'and'?",
-            hint:"Carlos enumera tres cosas que se da\u00f1aron en su apartamento.",
+            hint:"Lucia reporta el problema a tres personas diferentes.",
             clue:"three-item list", clueExplain:"With three or more items, place a comma after each item except the last. The comma before 'and' is called the Oxford (or serial) comma.",
             options:[",", "", ";"], correct:",",
             feedback:{
-                "":{ errorType:"Missing comma in list", explanation:"With three or more items in a list, you need a comma after each item before the conjunction. 'the building manager, the plumber___ and the electrician' needs a comma: '...the plumber, and the electrician.'" },
+                "":{ errorType:"Missing comma in list", explanation:"With three or more items in a list, you need a comma after each item before the conjunction. '...the plumber___ and the electrician' needs a comma: '...the plumber, and the electrician.'" },
                 ";":{ errorType:"Semicolon instead of comma in simple list", explanation:"Semicolons are used to separate list items only when the items themselves contain commas. For a simple list of nouns, commas are correct: '...the plumber, and the electrician.'" }
             },
             rule:"item 1, item 2, and item 3 (comma after each item in a 3+ list)",
             examples:["Lucia, James, and Nadia attended the meeting.","The report covered costs, timelines, and outcomes."],
             correctReason:"A comma is needed after 'plumber' because this is a three-item list. Each item gets a comma: 'the building manager, the plumber, and the electrician.' The comma before 'and' is the Oxford comma."
         },
-        // Q2 — end_punct | statement ends with period | pos 0
         {
             id:2, topic:"endpunct",
             sentence:"James received a refund from the online store after three months___",
             context:"This is a statement of fact — what end punctuation does it need?",
-            hint:"Lucia le informa al administrador sobre el problema. No es una pregunta ni expresa emoci\u00f3n fuerte.",
+            hint:"James describe algo que ocurrió. No es una pregunta.",
             clue:"declarative statement", clueExplain:"A declarative sentence (a statement of fact) always ends with a period (full stop).",
             options:[".", "?", "!"], correct:".",
             feedback:{
@@ -202,28 +193,26 @@
             examples:["James received a refund after three months.", "The plumber fixed the pipe this morning."],
             correctReason:"This is a declarative sentence — it states a fact with no question or strong emotion. Declarative sentences always end with a period."
         },
-        // Q3 — apostrophe | contraction it is → it's | pos 1
         {
             id:3, topic:"apostrophe",
             sentence:"Carlos told the manager: \"___ important to fix the heating before winter.\"",
             context:"The blank means 'it is' — which form is correct?",
-            hint:"James usa una forma corta en su mensaje. La palabra del espacio en blanco es una contracci\u00f3n.",
+            hint:"El espacio en blanco es una contracción de dos palabras.",
             clue:"contraction: it + is = ___", clueExplain:"'It's' = 'it is' (contraction). 'Its' = belonging to it (possessive pronoun, no apostrophe).",
             options:["Its", "It's", "ITS"], correct:"It's",
             feedback:{
-                "Its":{ errorType:"Possessive 'its' vs. contraction 'it's'", explanation:"'Its' (no apostrophe) is a possessive pronoun meaning 'belonging to it': 'The building has its own maintenance team.' Here we need the contraction 'it is' = 'It's'." },
-                "ITS":{ errorType:"All caps and missing apostrophe", explanation:"Capitalising the whole word is incorrect here, and 'ITS' (no apostrophe) is possessive, not the contraction. The correct form is 'It's' (= 'it is')." }
+                "Its":{ errorType:"Possessive 'its' vs. contraction 'it's'", explanation:"'Its' (no apostrophe) is a possessive pronoun meaning 'belonging to it': 'The building has its own maintenance team.' Here we need the contraction 'it is' = 'It\u2019s'." },
+                "ITS":{ errorType:"All caps and missing apostrophe", explanation:"Capitalising the whole word is incorrect here, and 'ITS' (no apostrophe) is possessive, not the contraction. The correct form is 'It\u2019s' (= 'it is')." }
             },
             rule:"it + is = it's (apostrophe replaces the missing letter i) | its = possessive (no apostrophe)",
             examples:["It's important to call the plumber. (= It is)", "The pipe has lost its pressure. (= belonging to it)"],
             correctReason:"'It's' = 'it is'. The apostrophe replaces the missing letter 'i'. This is the contraction form. Compare: 'It's cold today' (it is) vs. 'The building lost its heating' (belonging to it)."
         },
-        // Q4 — commas_list | Oxford comma before 'and' in 3-item list | pos 0
         {
             id:4, topic:"commas",
             sentence:"The complaint form asked for the customer's name___ account number, and issue description.",
             context:"Three items in a list — what goes in the first blank after 'name'?",
-            hint:"Nadia da su nombre y luego menciona dos datos m\u00e1s sobre ella.",
+            hint:"El formulario pide tres datos diferentes.",
             clue:"name is the first item in a 3-item list", clueExplain:"In a list of three items, a comma follows each item (including after the first): name, account number, and issue description.",
             options:[",", "", " and"], correct:",",
             feedback:{
@@ -234,12 +223,11 @@
             examples:["Enter your name, account number, and issue description.", "Nadia listed the date, the charge, and the reference number."],
             correctReason:"A comma is needed after 'name' because it is the first item in a three-item list. The structure is: name[,] account number[,] and issue description."
         },
-        // Q5 — end_punct | direct question ends with ? | pos 2
         {
             id:5, topic:"endpunct",
             sentence:"Nadia called the phone company and asked, \"Have you reviewed my complaint___\"",
             context:"This is a direct question inside quotation marks — what end punctuation goes inside the quotes?",
-            hint:"Carlos cita lo que le dijo el t\u00e9cnico. Las palabras dentro de las comillas son una pregunta.",
+            hint:"Nadia hace una pregunta directa al agente.",
             clue:"direct question in dialogue", clueExplain:"A direct question always ends with a question mark — even when embedded in a larger sentence. The question mark goes inside the closing quotation mark.",
             options:[".", "!", "?"], correct:"?",
             feedback:{
@@ -250,28 +238,26 @@
             examples:["She asked, \"Have you reviewed my complaint?\"", "\"When will the repair be done?\" Carlos asked."],
             correctReason:"'Have you reviewed my complaint' is a direct question, so it ends with a question mark. The question mark goes inside the closing quotation mark when it belongs to the quoted speech."
         },
-        // Q6 — apostrophe | singular possessive manager's | pos 1
         {
             id:6, topic:"apostrophe",
             sentence:"The ___ decision to delay the repair frustrated all the tenants.",
             context:"One manager owns the decision — how do you show singular possession?",
-            hint:"La decisi\u00f3n pertenece al administrador. Solo hay un administrador.",
+            hint:"La decisión pertenece a un solo administrador.",
             clue:"singular possessive: one manager owns the decision", clueExplain:"For singular nouns, add apostrophe + s ('s) to show possession: manager's = belonging to one manager.",
             options:["managers", "manager's", "managers'"], correct:"manager's",
             feedback:{
                 "managers":{ errorType:"Plural noun instead of possessive", explanation:"'Managers' is just the plural form — it means 'more than one manager' with no possession. To show that one manager owns the decision: manager's (apostrophe + s)." },
                 "managers'":{ errorType:"Plural possessive instead of singular possessive", explanation:"'Managers'' is the possessive of plural 'managers' (more than one manager). Here there is only one manager, so we need the singular possessive: manager's." }
             },
-            rule:"Singular possessive: noun + 's → manager's, tenant's, company's",
+            rule:"Singular possessive: noun + 's \u2192 manager's, tenant's, company's",
             examples:["The manager's decision was final.", "The tenant's complaint was valid.", "Carlos's report was detailed."],
             correctReason:"'Manager's' shows that one manager owns/made the decision. Rule: singular noun + apostrophe + s. Compare: 'manager's' (one) vs. 'managers'' (more than one)."
         },
-        // Q7 — commas_list | NO comma with only 2 items | pos 0
         {
             id:7, topic:"commas",
             sentence:"James contacted the store___ and asked for a full refund.",
             context:"There are only two elements joined by 'and' — do you need a comma?",
-            hint:"La oraci\u00f3n describe dos cosas que hizo James, unidas con 'and'.",
+            hint:"James hizo dos cosas, unidas con 'and'.",
             clue:"only two items joined by 'and'", clueExplain:"When only two items or clauses are joined by 'and', no comma is needed before 'and'. Commas in lists are for three or more items.",
             options:["", ",", ";"], correct:"",
             feedback:{
@@ -279,47 +265,44 @@
                 ";":{ errorType:"Semicolon instead of nothing", explanation:"A semicolon joins two independent clauses without a conjunction ('James contacted the store; he asked for a refund'). When 'and' is used to join two items, no additional punctuation is needed." }
             },
             rule:"Two items: no comma before 'and' | Three+ items: comma before 'and'",
-            examples:["James contacted the store and asked for a refund. (2 items — no comma)", "James called, emailed, and visited the store. (3 items — commas)"],
+            examples:["James contacted the store and asked for a refund. (2 items \u2014 no comma)", "James called, emailed, and visited the store. (3 items \u2014 commas)"],
             correctReason:"There are only two elements here: 'contacted the store' and 'asked for a full refund'. With exactly two items joined by 'and', no comma is used. Commas in lists apply to three or more items."
         },
-        // Q8 — end_punct | exclamation for strong emotion | pos 2
         {
             id:8, topic:"endpunct",
             sentence:"After waiting three months, Lucia finally shouted, \"This is completely unacceptable___\"",
             context:"Lucia is shouting in frustration — what end punctuation fits?",
-            hint:"Lucia est\u00e1 muy frustrada y grita al descubrir el da\u00f1o.",
+            hint:"Lucia expresa una emoción fuerte: está muy frustrada.",
             clue:"strong emotion / exclamation in dialogue", clueExplain:"An exclamation mark is used when the speaker expresses strong emotion — anger, excitement, urgency, or emphasis. It goes inside the quotes when it belongs to the quoted speech.",
             options:[".", "?", "!"], correct:"!",
             feedback:{
                 ".":{ errorType:"Period instead of exclamation on emotional outburst", explanation:"A period signals a neutral statement. But Lucia is shouting in frustration — 'This is completely unacceptable' expresses strong emotion. An exclamation mark is the correct choice." },
                 "?":{ errorType:"Question mark on a statement", explanation:"'This is completely unacceptable' is not a question — it is an angry declaration. A question mark would signal a question. Use an exclamation mark for strong emotional statements." }
             },
-            rule:"Strong emotion (anger, excitement, urgency) → exclamation mark (!)",
+            rule:"Strong emotion (anger, excitement, urgency) \u2192 exclamation mark (!)",
             examples:["\"This is completely unacceptable!\" Lucia shouted.", "\"The pipe burst again!\" Carlos called out."],
             correctReason:"Lucia is shouting in frustration — this is a clear emotional outburst. An exclamation mark expresses that strong emotion. It goes inside the closing quotation mark because it belongs to the quoted speech."
         },
-        // Q9 — apostrophe | contraction they are → they're | pos 0
         {
             id:9, topic:"apostrophe",
             sentence:"___ reviewing the complaint right now, so please wait on the line.",
             context:"The blank means 'they are' — which contraction is correct?",
-            hint:"El espacio en blanco es una forma corta de dos palabras. Es una contracci\u00f3n.",
+            hint:"El espacio en blanco es una contracción de 'they are'.",
             clue:"contraction: they + are = ___", clueExplain:"'They're' = 'they are'. 'Their' = belonging to them (possessive). 'There' = a place or existence.",
             options:["They're", "Their", "There"], correct:"They're",
             feedback:{
-                "Their":{ errorType:"Possessive 'their' vs. contraction 'they're'", explanation:"'Their' is a possessive pronoun meaning 'belonging to them': 'The tenants submitted their complaints.' Here we need the contraction 'they are' = 'They're'." },
-                "There":{ errorType:"'There' (place/existence) vs. contraction 'they're'", explanation:"'There' refers to a place ('over there') or existence ('There is a problem'). Here we need the contraction 'they are' = 'They're reviewing the complaint'." }
+                "Their":{ errorType:"Possessive 'their' vs. contraction 'they're'", explanation:"'Their' is a possessive pronoun meaning 'belonging to them': 'The tenants submitted their complaints.' Here we need the contraction 'they are' = 'They\u2019re'." },
+                "There":{ errorType:"'There' (place/existence) vs. contraction 'they're'", explanation:"'There' refers to a place ('over there') or existence ('There is a problem'). Here we need the contraction 'they are' = 'They\u2019re reviewing the complaint'." }
             },
             rule:"they + are = they're (apostrophe replaces 'a') | their = possessive | there = place/existence",
             examples:["They're reviewing the complaint now. (= They are)", "Their office is on the third floor. (possessive)", "There is a problem with the invoice. (existence)"],
             correctReason:"'They're' = 'they are'. The apostrophe replaces the missing letter 'a'. This is the only contraction among the three options. 'Their' is possessive; 'there' indicates place or existence."
         },
-        // Q10 — commas_list | 4-item list — comma after each | pos 1
         {
             id:10, topic:"commas",
             sentence:"The building inspection covered the roof, the pipes___ the heating system, and the electrical wiring.",
             context:"This is a four-item list — what goes in the blank after 'pipes'?",
-            hint:"Carlos lista cuatro partes del edificio que necesitan reparaci\u00f3n.",
+            hint:"La inspección cubre cuatro partes del edificio.",
             clue:"four-item list — comma after each item", clueExplain:"In a list of four items, a comma follows each item except the last. The comma before 'and' separates the third item from the fourth.",
             options:[".", ",", ";"], correct:",",
             feedback:{
@@ -330,44 +313,41 @@
             examples:["The inspection covered the roof, the pipes, the heating system, and the wiring.", "Nadia reported the charge, the date, the amount, and the reference number."],
             correctReason:"In a four-item list, a comma follows each item (except the last). After 'pipes' (the second item), a comma is needed to separate it from 'the heating system' (the third item)."
         },
-        // Q11 — end_punct | imperative/command ends with period | pos 0
         {
             id:11, topic:"endpunct",
             sentence:"Please send us the completed form within 30 days___",
             context:"This is a polite instruction or command — what end punctuation does it use?",
-            hint:"James le pide algo al servicio al cliente de manera cort\u00e9s.",
+            hint:"El agente da una instrucción cortés al cliente.",
             clue:"polite command / instruction", clueExplain:"Imperative sentences (commands and instructions) typically end with a period. An exclamation mark is used only for urgent or very strong commands.",
             options:[".", "?", "!"], correct:".",
             feedback:{
                 "?":{ errorType:"Question mark on a command", explanation:"'Please send us the form' is a command, not a question. Commands do not end with question marks. A period is the standard ending for polite instructions." },
                 "!":{ errorType:"Exclamation on a routine instruction", explanation:"An exclamation mark is used for urgent or emotional commands ('Call 911!'). 'Please send us the form within 30 days' is a routine polite instruction — a period is appropriate." }
             },
-            rule:"Polite command / instruction → ends with a period (.)",
+            rule:"Polite command / instruction \u2192 ends with a period (.)",
             examples:["Please send the form within 30 days.", "Contact customer service with your reference number.", "Submit your complaint in writing."],
             correctReason:"This is a polite imperative sentence. Routine commands and instructions end with a period. An exclamation mark would only be appropriate for urgent or emotional commands."
         },
-        // Q12 — apostrophe | plural possessive tenants' | pos 2
         {
             id:12, topic:"apostrophe",
             sentence:"The building manager addressed all the ___ concerns at the meeting.",
             context:"More than one tenant has concerns — how do you show plural possession?",
-            hint:"Las preocupaciones pertenecen a todos los inquilinos. Hay m\u00e1s de uno.",
+            hint:"Las preocupaciones pertenecen a varios inquilinos.",
             clue:"plural possessive: multiple tenants own the concerns", clueExplain:"For regular plurals ending in -s, add only an apostrophe after the s: tenants' (not tenants's). This shows possession belonging to multiple people.",
             options:["tenants", "tenant's", "tenants'"], correct:"tenants'",
             feedback:{
                 "tenants":{ errorType:"Plural noun without possessive", explanation:"'Tenants' is simply the plural form (more than one tenant) with no possession. To show that the concerns belong to multiple tenants, add an apostrophe after the s: tenants'." },
                 "tenant's":{ errorType:"Singular possessive instead of plural possessive", explanation:"'Tenant's' shows possession by ONE tenant. But there are multiple tenants here. For plural nouns ending in -s, the possessive is formed by adding only an apostrophe after the s: tenants'." }
             },
-            rule:"Regular plural ending in -s + ' (apostrophe only) → tenants', managers', companies'",
+            rule:"Regular plural ending in -s + ' (apostrophe only) \u2192 tenants', managers', companies'",
             examples:["The tenants' concerns were noted. (multiple tenants)", "The managers' decision was unanimous. (multiple managers)"],
             correctReason:"'Tenants'' is the plural possessive. Since 'tenants' already ends in -s (regular plural), we add only an apostrophe after the s. Compare: 'tenant's' (one tenant) vs. 'tenants'' (multiple tenants)."
         },
-        // Q13 — commas_list | 3-item list — comma between items | pos 1
         {
             id:13, topic:"commas",
             sentence:"Carlos brought the invoice___ the contract, and the repair report to the meeting.",
             context:"Three items in a list — what goes after the first item 'invoice'?",
-            hint:"Nadia enumera tres documentos que adjunta a su carta.",
+            hint:"Carlos lleva tres documentos a la reunión.",
             clue:"comma after first item in three-item list", clueExplain:"In a three-item list, a comma follows each item except the last. The first item 'invoice' needs a comma before moving to the second item 'contract'.",
             options:["and", ",", ""], correct:",",
             feedback:{
@@ -378,28 +358,26 @@
             examples:["Carlos brought the invoice, the contract, and the report.", "Lucia contacted the manager, the plumber, and the electrician."],
             correctReason:"A comma is needed after 'invoice' (the first item) to separate it from 'the contract' (the second item). Rule: in a three-item list, a comma follows each item except the last."
         },
-        // Q14 — end_punct | indirect question ends with period | pos 2
         {
             id:14, topic:"endpunct",
             sentence:"Nadia asked the agent whether the refund had been processed___",
             context:"This looks like a question, but is it a direct or indirect question?",
-            hint:"Nadia reporta lo que le pregunt\u00f3 al agente. No es una pregunta directa al lector.",
-            clue:"indirect question = statement → period", clueExplain:"An indirect question reports that someone asked something. It is grammatically a statement, not a direct question, so it ends with a period, not a question mark.",
+            hint:"Nadia reporta lo que preguntó — no hace la pregunta directamente al lector.",
+            clue:"indirect question = statement \u2192 period", clueExplain:"An indirect question reports that someone asked something. It is grammatically a statement, not a direct question, so it ends with a period, not a question mark.",
             options:["!", ".", "?"], correct:".",
             feedback:{
                 "?":{ errorType:"Question mark on an indirect question (statement)", explanation:"'Nadia asked the agent whether...' is an indirect question — it reports a question without asking the reader directly. Indirect questions are statements and end with a period, not a question mark." },
                 "!":{ errorType:"Exclamation mark on a neutral statement", explanation:"There is no strong emotion here. 'Nadia asked the agent whether the refund had been processed' is a neutral statement reporting an action — it ends with a period." }
             },
-            rule:"Indirect question (reporting a question) = statement → ends with a period (.)",
+            rule:"Indirect question (reporting a question) = statement \u2192 ends with a period (.)",
             examples:["Nadia asked whether the refund had been processed.", "James wondered if the package had been shipped.", "She asked who was responsible."],
             correctReason:"This is an indirect question — it reports what Nadia asked, using 'whether'. Indirect questions are grammatically statements (not direct questions), so they end with a period. Compare: 'Has the refund been processed?' (direct, ?) vs. 'She asked whether the refund had been processed.' (indirect, .)"
         },
-        // Q15 — apostrophe | contraction do not → don't | pos 0
         {
             id:15, topic:"apostrophe",
             sentence:"\"We ___ accept verbal complaints — please submit everything in writing,\" the manager said.",
             context:"The blank is a contraction of 'do not' — which spelling is correct?",
-            hint:"James usa una forma corta de 'does not' en su mensaje.",
+            hint:"El espacio en blanco es una contracción de 'do not'.",
             clue:"contraction: do + not = ___", clueExplain:"'Don't' = 'do not'. The apostrophe replaces the letters 'o' from 'not'. No apostrophe or wrong placement makes the contraction incorrect.",
             options:["don't", "dont", "do'nt"], correct:"don't",
             feedback:{
@@ -455,7 +433,7 @@
             '<div class="options-grid" id="options-' + index + '">' + btnHTML + '</div>' +
             '<div class="feedback" id="feedback-' + index + '"></div>' +
             '<div class="nav-buttons">' +
-            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '&#8592; Previous</button>' +
+            '<button class="nav-btn prev" onclick="prevQuestion()"' + (index===0?' disabled':'') + '>&#8592; Previous</button>' +
             '<button class="nav-btn next" id="next-' + index + '" onclick="nextQuestion(' + index + ')" disabled>' +
             (index===quizData.length-1?'See Results &#127881;':'Next &#8594;') +
             '</button></div>';
