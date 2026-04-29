@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A2 M2 · Enough / Too | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange: #F59E0B; --orange-light: #FEF3C7; --orange-dark: #B45309;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .ref-panel { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--info); }
+        .ref-title { font-family:'Fredoka',sans-serif; font-size:0.95rem; font-weight:600; color:var(--info-dark); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem; }
+        .ref-card { background:#F0F9FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:0.6rem 0.8rem; margin-bottom:0.5rem; }
+        .ref-card.too { background:#FEF2F2; border-color:#FECACA; }
+        .ref-card.enough { background:#F0FDF4; border-color:#BBF7D0; }
+        .ref-word { font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; display:block; margin-bottom:0.2rem; }
+        .ref-card.too .ref-word { color:var(--error-dark); }
+        .ref-card.enough .ref-word { color:var(--success-dark); }
+        .ref-text { font-size:0.78rem; color:var(--text-medium); line-height:1.4; }
+        .ref-pattern { display:inline-block; background:white; padding:0.15rem 0.45rem; border-radius:6px; font-family:'Fredoka',sans-serif; font-weight:600; font-size:0.78rem; margin-right:0.3rem; border:1px solid #E5E7EB; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#EDE9FE; color:#6D28D9; }
+
+        .transform-visual { margin:1rem 0; }
+        .transform-box { padding:0.9rem 1rem; border-radius:12px; margin-bottom:0.4rem; }
+        .transform-box.base { background:#FEF3C7; border:1.5px solid #FCD34D; }
+        .transform-box.goal { background:var(--info-light); border:1.5px solid #BFDBFE; }
+        .transform-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.4rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:1.02rem; line-height:1.55; font-weight:600; color:var(--text-dark); }
+        .transform-arrow { text-align:center; font-size:0.85rem; font-weight:700; color:var(--text-medium); padding:0.3rem; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.3rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:0.8rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation-block { display:none; padding:0.7rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); margin-bottom:0.8rem; font-style:italic; color:var(--text-light); font-size:0.85rem; }
+        .translation-block.show { display:block; animation:fadeUp .3s ease; }
+        .translation-block strong { color:var(--text-medium); font-weight:700; font-style:normal; }
+
+        .options-container { display:flex; flex-direction:column; gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { display:flex; align-items:center; gap:0.85rem; padding:1rem 1.1rem; border:2.5px solid #E5E7EB; border-radius:14px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; cursor:pointer; transition:all .2s; color:var(--text-dark); text-align:left; width:100%; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:#F0FDF4; transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:32px; height:32px; flex-shrink:0; border-radius:50%; background:#E5E7EB; color:var(--text-medium); display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.9rem; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { flex:1; font-weight:600; line-height:1.45; }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { padding:0.9rem 1rem; border-radius:12px; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.4rem; }
+        .tf-step { padding:0.55rem 0.8rem; border-radius:10px; font-size:0.92rem; line-height:1.45; border:1.5px solid; }
+        .tf-step.present { background:#FEF3C7; border-color:#FCD34D; color:var(--text-dark); }
+        .tf-step.past-wrong { background:var(--error-light); border-color:var(--error); color:var(--error-dark); text-decoration:line-through; }
+        .tf-step.past-correct { background:var(--success-light); border-color:var(--success); color:var(--success-dark); font-weight:700; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; display:inline-block; margin-right:0.4rem; padding:0.1rem 0.4rem; background:rgba(0,0,0,0.06); border-radius:5px; }
+        .tf-arrow { text-align:center; font-size:0.95rem; color:var(--text-medium); }
+
+        .fb-error { background:var(--error-light); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.92rem; color:var(--info-dark); font-weight:600; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · Enough / Too</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Transform the sentence</div>
+                <div class="instructions-text">Read the original sentence and the goal. Choose the option that correctly transforms the meaning. Tap 🇪🇸 to see Spanish translations.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // Goals: change between excess/sufficient OR between affirmative/negative
+    // Goals NEUTRAL — never reveal which structure to use
+    const quizData = [
+        {
+            id: 1,
+            base: "The coffee is too hot to drink.",
+            baseEs: "El café está demasiado caliente para beber.",
+            goal: "Change to sufficient meaning (positive ability)",
+            goalEs: "Cambiar a significado suficiente (habilidad positiva)",
+            hint: "The original means excess. Change to mean the temperature is right for drinking — positive sufficiency.",
+            options: [
+                { text: "The coffee is hot enough to drink.", textEs: "El café está suficientemente caliente para beber.", correct: true },
+                { text: "The coffee is enough hot to drink.", textEs: "El café está suficiente caliente para beber.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective, not before. Correct order: 'hot enough'." },
+                { text: "The coffee is too much hot to drink.", textEs: "El café está demasiado mucho caliente para beber.", correct: false,
+                  errorType: "Wrong form",
+                  explanation: "'Too much' is for uncountable nouns, not adjectives. Plus the meaning is sufficient (positive), not excess." }
+            ],
+            ruleFormula: "too + adj (excess) → adj + enough (sufficient)",
+            correctReason: "To change from excess to sufficient meaning with adjectives, replace 'too' with 'enough' AFTER the adjective: 'too hot' → 'hot enough'."
+        },
+        {
+            id: 2,
+            base: "Sofía is tall enough to reach the top shelf.",
+            baseEs: "Sofía es lo suficientemente alta para alcanzar el estante superior.",
+            goal: "Change to excess meaning (causes a problem)",
+            goalEs: "Cambiar a significado excesivo (causa un problema)",
+            hint: "The original means sufficient ability. Change to mean her height is excessive (a problem).",
+            options: [
+                { text: "Sofía is enough tall to reach the top shelf.", textEs: "Sofía es suficiente alta para alcanzar el estante superior.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective. 'Enough tall' is incorrect. Plus the meaning is excess, so use 'too'." },
+                { text: "Sofía is too tall to reach the top shelf.", textEs: "Sofía es demasiado alta para alcanzar el estante superior.", correct: true },
+                { text: "Sofía is too much tall to reach the top shelf.", textEs: "Sofía es demasiado mucho alta para alcanzar el estante superior.", correct: false,
+                  errorType: "Wrong form",
+                  explanation: "'Too much' is for uncountable nouns, not adjectives. With adjectives we use just 'too': 'too tall'." }
+            ],
+            ruleFormula: "adj + enough (sufficient) → too + adj (excess)",
+            correctReason: "To change from sufficient to excess meaning with adjectives, replace 'enough' with 'too' BEFORE the adjective: 'tall enough' → 'too tall'."
+        },
+        {
+            id: 3,
+            base: "Marcos has too much money in his account.",
+            baseEs: "Marcos tiene demasiado dinero en su cuenta.",
+            goal: "Change to insufficient meaning (negative)",
+            goalEs: "Cambiar a significado insuficiente (negativo)",
+            hint: "The original means excess money. Change to mean he doesn't have enough money.",
+            options: [
+                { text: "Marcos hasn't money enough in his account.", textEs: "Marcos no tiene dinero suficiente en su cuenta.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "With nouns, 'enough' goes BEFORE the noun. 'Money enough' has the wrong order — we say 'enough money'." },
+                { text: "Marcos doesn't have too much money in his account.", textEs: "Marcos no tiene demasiado dinero en su cuenta.", correct: false,
+                  errorType: "Wrong meaning",
+                  explanation: "'Doesn't have too much' means 'doesn't have an excess', not 'doesn't have enough'. The goal is INSUFFICIENT, so use 'enough'." },
+                { text: "Marcos doesn't have enough money in his account.", textEs: "Marcos no tiene suficiente dinero en su cuenta.", correct: true }
+            ],
+            ruleFormula: "too much + noun (excess) → not + enough + noun (insufficient)",
+            correctReason: "To change from excess to insufficient with nouns, use 'doesn't have enough + noun': 'too much money' → 'not enough money'. 'Enough' goes BEFORE the noun."
+        },
+        {
+            id: 4,
+            base: "There were too many people in the meeting.",
+            baseEs: "Había demasiada gente en la reunión.",
+            goal: "Change to sufficient meaning (the right amount)",
+            goalEs: "Cambiar a significado suficiente (la cantidad correcta)",
+            hint: "The original means excess of people. Change to mean the right amount of people.",
+            options: [
+                { text: "There were people enough in the meeting.", textEs: "Había gente suficiente en la reunión.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "With nouns, 'enough' goes BEFORE the noun. 'People enough' has the wrong order — we say 'enough people'." },
+                { text: "There were enough people in the meeting.", textEs: "Había suficiente gente en la reunión.", correct: true },
+                { text: "There were too people in the meeting.", textEs: "Había demasiada gente en la reunión.", correct: false,
+                  errorType: "Missing 'many' or wrong choice",
+                  explanation: "'Too' alone doesn't go with nouns. The goal is SUFFICIENT, so we need 'enough people' (not any 'too' form)." }
+            ],
+            ruleFormula: "too many + plural (excess) → enough + plural (sufficient)",
+            correctReason: "To change from excess to sufficient with countable plural nouns, replace 'too many' with 'enough': 'too many people' → 'enough people'."
+        },
+        {
+            id: 5,
+            base: "Carlos is too young to drive a car.",
+            baseEs: "Carlos es demasiado joven para conducir un coche.",
+            goal: "Express the same meaning using 'old' instead of 'young' (insufficient age)",
+            goalEs: "Expresar el mismo significado usando 'old' en lugar de 'young' (edad insuficiente)",
+            hint: "If he's TOO YOUNG, then he's NOT OLD ENOUGH. Same meaning, opposite adjective with negative form.",
+            options: [
+                { text: "Carlos is old enough to drive a car.", textEs: "Carlos es lo suficientemente mayor para conducir un coche.", correct: false,
+                  errorType: "Wrong meaning — opposite",
+                  explanation: "'Old enough' means he CAN drive (positive). But the original says he can't — the same meaning needs negation: 'isn't old enough'." },
+                { text: "Carlos isn't enough old to drive a car.", textEs: "Carlos no es suficiente mayor para conducir un coche.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective. 'Enough old' is incorrect. Correct: 'isn't old enough'." },
+                { text: "Carlos isn't old enough to drive a car.", textEs: "Carlos no es lo suficientemente mayor para conducir un coche.", correct: true }
+            ],
+            ruleFormula: "too + adj₁ → not + opposite_adj + enough",
+            correctReason: "'Too young' = 'not old enough'. Same meaning expressed with the opposite adjective and negative form. 'Enough' goes AFTER the adjective."
+        },
+        {
+            id: 6,
+            base: "Sofía has enough time to finish the report.",
+            baseEs: "Sofía tiene suficiente tiempo para terminar el informe.",
+            goal: "Change to insufficient meaning (negative)",
+            goalEs: "Cambiar a significado insuficiente (negativo)",
+            hint: "The original means sufficient. Change to mean she doesn't have enough time.",
+            options: [
+                { text: "Sofía hasn't time enough to finish the report.", textEs: "Sofía no tiene tiempo suficiente para terminar el informe.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "With nouns, 'enough' goes BEFORE the noun. 'Time enough' has the wrong order — we say 'enough time'." },
+                { text: "Sofía doesn't have too much time to finish the report.", textEs: "Sofía no tiene demasiado tiempo para terminar el informe.", correct: false,
+                  errorType: "Wrong meaning",
+                  explanation: "'Doesn't have too much' means 'doesn't have an excess'. The goal is INSUFFICIENT, so use 'doesn't have enough'." },
+                { text: "Sofía doesn't have enough time to finish the report.", textEs: "Sofía no tiene suficiente tiempo para terminar el informe.", correct: true }
+            ],
+            ruleFormula: "have enough + noun (sufficient) → don't have enough + noun (insufficient)",
+            correctReason: "To change from sufficient to insufficient, simply add the negation: 'have enough time' → 'doesn't have enough time'. 'Enough' stays BEFORE the noun."
+        },
+        {
+            id: 7,
+            base: "Marcos drinks too much coffee.",
+            baseEs: "Marcos toma demasiado café.",
+            goal: "Change to sufficient meaning (the right amount)",
+            goalEs: "Cambiar a significado suficiente (la cantidad correcta)",
+            hint: "The original means excess. Change to mean he drinks the right amount of coffee.",
+            options: [
+                { text: "Marcos drinks coffee enough.", textEs: "Marcos toma café suficiente.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "With nouns, 'enough' goes BEFORE the noun. 'Coffee enough' has the wrong order — we say 'enough coffee'." },
+                { text: "Marcos drinks too coffee.", textEs: "Marcos toma demasiado café.", correct: false,
+                  errorType: "Missing 'much' or wrong choice",
+                  explanation: "'Too' alone doesn't go with nouns. The goal is SUFFICIENT, so we need 'enough coffee'." },
+                { text: "Marcos drinks enough coffee.", textEs: "Marcos toma suficiente café.", correct: true }
+            ],
+            ruleFormula: "too much + uncountable (excess) → enough + uncountable (sufficient)",
+            correctReason: "To change from excess to sufficient with uncountable nouns, replace 'too much' with 'enough': 'too much coffee' → 'enough coffee'."
+        },
+        {
+            id: 8,
+            base: "There aren't enough chairs in the kitchen.",
+            baseEs: "No hay suficientes sillas en la cocina.",
+            goal: "Change to express excess (the opposite quantity problem)",
+            goalEs: "Cambiar para expresar exceso (problema de cantidad opuesto)",
+            hint: "The original means insufficient. Change to mean there are too many chairs (excess).",
+            options: [
+                { text: "There are chairs enough in the kitchen.", textEs: "Hay sillas suficientes en la cocina.", correct: false,
+                  errorType: "Wrong word order and meaning",
+                  explanation: "'Chairs enough' has the wrong word order. Plus the goal is excess, not sufficient. Use 'too many'." },
+                { text: "There are too much chairs in the kitchen.", textEs: "Hay demasiadas sillas en la cocina.", correct: false,
+                  errorType: "Wrong quantifier",
+                  explanation: "'Too much' is for UNCOUNTABLE nouns. 'Chairs' is countable plural — we use 'too many'." },
+                { text: "There are too many chairs in the kitchen.", textEs: "Hay demasiadas sillas en la cocina.", correct: true }
+            ],
+            ruleFormula: "not enough + plural (insufficient) → too many + plural (excess)",
+            correctReason: "To change from insufficient to excess with countable plural nouns, replace 'not enough' with 'too many': 'aren't enough chairs' → 'are too many chairs'."
+        },
+        {
+            id: 9,
+            base: "The soup is too salty.",
+            baseEs: "La sopa está demasiado salada.",
+            goal: "Change to sufficient meaning (the right level)",
+            goalEs: "Cambiar a significado suficiente (el nivel correcto)",
+            hint: "The original means excess saltiness. Change to mean the saltiness is appropriate.",
+            options: [
+                { text: "The soup is salty enough.", textEs: "La sopa está suficientemente salada.", correct: true },
+                { text: "The soup is enough salty.", textEs: "La sopa está suficiente salada.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective. 'Enough salty' is incorrect. Correct order: 'salty enough'." },
+                { text: "The soup is too much salty.", textEs: "La sopa está demasiado mucho salada.", correct: false,
+                  errorType: "Wrong form and meaning",
+                  explanation: "'Too much' is for uncountable nouns, not adjectives. Plus the goal is sufficient, not excess." }
+            ],
+            ruleFormula: "too + adj (excess) → adj + enough (sufficient)",
+            correctReason: "To change from excess to sufficient with adjectives, replace 'too' with 'enough' AFTER the adjective: 'too salty' → 'salty enough'."
+        },
+        {
+            id: 10,
+            base: "Carlos isn't old enough to enter the night club.",
+            baseEs: "Carlos no es lo suficientemente mayor para entrar al club nocturno.",
+            goal: "Express the same meaning using 'young' instead of 'old'",
+            goalEs: "Expresar el mismo significado usando 'young' en lugar de 'old'",
+            hint: "If he's NOT OLD ENOUGH, then he's TOO YOUNG. Same meaning, opposite adjective.",
+            options: [
+                { text: "Carlos is young enough to enter the night club.", textEs: "Carlos es lo suficientemente joven para entrar al club nocturno.", correct: false,
+                  errorType: "Wrong meaning — opposite",
+                  explanation: "'Young enough' means his youth is positive (he can enter). But the original says he CAN'T — that's 'too young'." },
+                { text: "Carlos is too young to enter the night club.", textEs: "Carlos es demasiado joven para entrar al club nocturno.", correct: true },
+                { text: "Carlos is enough young to enter the night club.", textEs: "Carlos es suficiente joven para entrar al club nocturno.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective. Plus the meaning is excess (too young), so 'too' is correct." }
+            ],
+            ruleFormula: "not + adj₁ + enough → too + opposite_adj",
+            correctReason: "'Not old enough' = 'too young'. Same meaning with the opposite adjective. 'Too' goes BEFORE the adjective for excess."
+        },
+        {
+            id: 11,
+            base: "Sofía bought enough ingredients to prepare a big meal.",
+            baseEs: "Sofía compró suficientes ingredientes para preparar una gran comida.",
+            goal: "Change to insufficient meaning (negative)",
+            goalEs: "Cambiar a significado insuficiente (negativo)",
+            hint: "The original means sufficient. Change to mean she didn't buy enough ingredients.",
+            options: [
+                { text: "Sofía didn't buy too many ingredients to prepare a big meal.", textEs: "Sofía no compró demasiados ingredientes para preparar una gran comida.", correct: false,
+                  errorType: "Wrong meaning",
+                  explanation: "'Didn't buy too many' means 'didn't buy an excess'. The goal is INSUFFICIENT, so use 'didn't buy enough'." },
+                { text: "Sofía didn't buy ingredients enough to prepare a big meal.", textEs: "Sofía no compró ingredientes suficientes para preparar una gran comida.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "With nouns, 'enough' goes BEFORE the noun. 'Ingredients enough' has the wrong order." },
+                { text: "Sofía didn't buy enough ingredients to prepare a big meal.", textEs: "Sofía no compró suficientes ingredientes para preparar una gran comida.", correct: true }
+            ],
+            ruleFormula: "bought enough + noun → didn't buy enough + noun",
+            correctReason: "To change from sufficient to insufficient, add the negation: 'bought enough' → 'didn't buy enough'. 'Enough' stays BEFORE the noun."
+        },
+        {
+            id: 12,
+            base: "The bank office is close enough to walk to.",
+            baseEs: "La oficina del banco está suficientemente cerca para caminar.",
+            goal: "Change to excess meaning (the distance is a problem)",
+            goalEs: "Cambiar a significado excesivo (la distancia es un problema)",
+            hint: "The original means appropriate distance. Change to mean the distance is too small (problematic).",
+            options: [
+                { text: "The bank office is enough close to walk to.", textEs: "La oficina del banco está suficiente cerca para caminar.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective. 'Enough close' is incorrect. Plus the goal is excess, so 'too'." },
+                { text: "The bank office is too close to walk to.", textEs: "La oficina del banco está demasiado cerca para caminar.", correct: true },
+                { text: "The bank office is too much close to walk to.", textEs: "La oficina del banco está demasiado mucho cerca para caminar.", correct: false,
+                  errorType: "Wrong form",
+                  explanation: "'Too much' is for uncountable nouns, not adjectives. With adjectives use just 'too': 'too close'." }
+            ],
+            ruleFormula: "adj + enough (sufficient) → too + adj (excess)",
+            correctReason: "To change from sufficient to excess with adjectives, replace 'enough' with 'too' BEFORE the adjective: 'close enough' → 'too close'."
+        },
+        {
+            id: 13,
+            base: "There is enough water in the glass for both of us.",
+            baseEs: "Hay suficiente agua en el vaso para los dos.",
+            goal: "Change to excess meaning (the amount is excessive)",
+            goalEs: "Cambiar a significado excesivo (la cantidad es excesiva)",
+            hint: "The original means sufficient water. Change to mean there's too much water.",
+            options: [
+                { text: "There is too many water in the glass for both of us.", textEs: "Hay demasiadas agua en el vaso para los dos.", correct: false,
+                  errorType: "Wrong quantifier",
+                  explanation: "'Too many' is for COUNTABLE plural nouns. 'Water' is uncountable — we use 'too much'." },
+                { text: "There is too much water in the glass for both of us.", textEs: "Hay demasiada agua en el vaso para los dos.", correct: true },
+                { text: "There is water too much in the glass for both of us.", textEs: "Hay agua demasiada en el vaso para los dos.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Too much' goes BEFORE the uncountable noun, not after. Correct order: 'too much water'." }
+            ],
+            ruleFormula: "enough + uncountable (sufficient) → too much + uncountable (excess)",
+            correctReason: "To change from sufficient to excess with uncountable nouns, replace 'enough' with 'too much': 'enough water' → 'too much water'."
+        },
+        {
+            id: 14,
+            base: "The exam was difficult enough.",
+            baseEs: "El examen fue suficientemente difícil.",
+            goal: "Change to excess meaning (caused failure)",
+            goalEs: "Cambiar a significado excesivo (causó fallos)",
+            hint: "The original means appropriately difficult. Change to mean it was too difficult (problematic).",
+            options: [
+                { text: "The exam was too difficult.", textEs: "El examen fue demasiado difícil.", correct: true },
+                { text: "The exam was enough difficult.", textEs: "El examen fue suficiente difícil.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Enough' goes AFTER the adjective. 'Enough difficult' is incorrect. Plus the goal is excess, so use 'too'." },
+                { text: "The exam was too much difficult.", textEs: "El examen fue demasiado mucho difícil.", correct: false,
+                  errorType: "Wrong form",
+                  explanation: "'Too much' is for uncountable nouns, not adjectives. With adjectives use just 'too': 'too difficult'." }
+            ],
+            ruleFormula: "adj + enough (sufficient) → too + adj (excess)",
+            correctReason: "To change from sufficient to excess with adjectives, replace 'enough' with 'too' BEFORE the adjective: 'difficult enough' → 'too difficult'."
+        },
+        {
+            id: 15,
+            base: "There are too many people at this restaurant.",
+            baseEs: "Hay demasiada gente en este restaurante.",
+            goal: "Change to insufficient meaning (negative — not enough)",
+            goalEs: "Cambiar a significado insuficiente (negativo — no suficiente)",
+            hint: "The original means excess of people. Change to mean there are not enough people (negative).",
+            options: [
+                { text: "There aren't people enough at this restaurant.", textEs: "No hay gente suficiente en este restaurante.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "With nouns, 'enough' goes BEFORE the noun. 'People enough' has the wrong order — we say 'enough people'." },
+                { text: "There aren't enough people at this restaurant.", textEs: "No hay suficiente gente en este restaurante.", correct: true },
+                { text: "There aren't too many people at this restaurant.", textEs: "No hay demasiada gente en este restaurante.", correct: false,
+                  errorType: "Wrong meaning",
+                  explanation: "'Aren't too many' means 'not an excess'. The goal is INSUFFICIENT, so use 'aren't enough'." }
+            ],
+            ruleFormula: "too many + plural (excess) → not enough + plural (insufficient)",
+            correctReason: "To change from excess to insufficient with countable plural nouns, replace 'too many' with 'aren't enough': 'too many people' → 'aren't enough people'."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="q-label">Transform the sentence:</span>
+                <span class="topic-badge">⚖️ enough/too</span>
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">🔶 Original sentence</span>
+                    <div class="transform-sentence">${q.base}</div>
+                </div>
+                <div class="transform-arrow">⬇ Transform to...</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Goal</span>
+                    <div class="transform-sentence">${q.goal}</div>
+                </div>
+            </div>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation-block" id="translation-${index}">
+                <div><strong>Original:</strong> ${q.baseEs}</div>
+                <div style="margin-top:0.3rem;"><strong>Goal:</strong> ${q.goalEs}</div>
+                <div style="margin-top:0.3rem;border-top:1px dashed #BBF7D0;padding-top:0.3rem;"><strong>Options:</strong></div>
+                ${q.shuffled.map((opt, i) => `<div style="margin-top:0.2rem;">${letters[i]}. ${opt.textEs}</div>`).join('')}
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${opt.text}</div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        const correctIdx = q.shuffled.indexOf(correctOpt);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (i === correctIdx) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const transformFlow = (showWrong) => `
+            <div class="transform-flow">
+                <div class="tf-step present"><span class="tf-label">Original</span>${q.base}</div>
+                <div class="tf-arrow">⬇</div>
+                ${showWrong ? `<div class="tf-step past-wrong"><span class="tf-label">Your answer</span>${selected.text}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correct</span>${correctOpt.text}</div>
+            </div>
+        `;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct transformation!</div>
+                        <div class="fb-subtitle">You changed the meaning correctly</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Transformation done</div>
+                        ${transformFlow(false)}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the transformation correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect transformation</div>
+                        <div class="fb-subtitle">Let's review what went wrong</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Your transformation vs. correct</div>
+                        ${transformFlow(true)}
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ The error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 How should the transformation be done?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You transform enough/too perfectly. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

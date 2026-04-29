@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A2 M2 · Linkers of Contrast & Reason | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange: #F59E0B; --orange-light: #FEF3C7; --orange-dark: #B45309;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .ref-panel { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--info); }
+        .ref-title { font-family:'Fredoka',sans-serif; font-size:0.95rem; font-weight:600; color:var(--info-dark); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem; }
+        .ref-card { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:10px; padding:0.5rem 0.85rem; margin-bottom:0.4rem; }
+        .ref-card.although { background:#EFF6FF; border-color:#BFDBFE; }
+        .ref-card.however { background:#EDE9FE; border-color:#DDD6FE; }
+        .ref-card.because { background:#FEF3C7; border-color:#FCD34D; }
+        .ref-card.so { background:#D1FAE5; border-color:#86EFAC; }
+        .ref-word { font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.85rem; display:block; margin-bottom:0.2rem; color:var(--text-dark); }
+        .ref-text { font-size:0.74rem; color:var(--text-medium); line-height:1.4; }
+        .ref-text strong { color:var(--text-dark); font-weight:700; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#EDE9FE; color:#6D28D9; }
+
+        .transform-visual { margin:1rem 0; }
+        .transform-box { padding:0.9rem 1rem; border-radius:12px; margin-bottom:0.4rem; }
+        .transform-box.base { background:#FEF3C7; border:1.5px solid #FCD34D; }
+        .transform-box.goal { background:var(--info-light); border:1.5px solid #BFDBFE; }
+        .transform-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.4rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:1.02rem; line-height:1.55; font-weight:600; color:var(--text-dark); }
+        .transform-arrow { text-align:center; font-size:0.85rem; font-weight:700; color:var(--text-medium); padding:0.3rem; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.3rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:0.8rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation-block { display:none; padding:0.7rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); margin-bottom:0.8rem; font-style:italic; color:var(--text-light); font-size:0.85rem; }
+        .translation-block.show { display:block; animation:fadeUp .3s ease; }
+        .translation-block strong { color:var(--text-medium); font-weight:700; font-style:normal; }
+
+        .options-container { display:flex; flex-direction:column; gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { display:flex; align-items:center; gap:0.85rem; padding:1rem 1.1rem; border:2.5px solid #E5E7EB; border-radius:14px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; cursor:pointer; transition:all .2s; color:var(--text-dark); text-align:left; width:100%; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:#F0FDF4; transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:32px; height:32px; flex-shrink:0; border-radius:50%; background:#E5E7EB; color:var(--text-medium); display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.9rem; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { flex:1; font-weight:600; line-height:1.45; }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { padding:0.9rem 1rem; border-radius:12px; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.4rem; }
+        .tf-step { padding:0.55rem 0.8rem; border-radius:10px; font-size:0.92rem; line-height:1.45; border:1.5px solid; }
+        .tf-step.present { background:#FEF3C7; border-color:#FCD34D; color:var(--text-dark); }
+        .tf-step.past-wrong { background:var(--error-light); border-color:var(--error); color:var(--error-dark); text-decoration:line-through; }
+        .tf-step.past-correct { background:var(--success-light); border-color:var(--success); color:var(--success-dark); font-weight:700; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; display:inline-block; margin-right:0.4rem; padding:0.1rem 0.4rem; background:rgba(0,0,0,0.06); border-radius:5px; }
+        .tf-arrow { text-align:center; font-size:0.95rem; color:var(--text-medium); }
+
+        .fb-error { background:var(--error-light); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.92rem; color:var(--info-dark); font-weight:600; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · Linkers (contrast & reason)</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Transform the sentence</div>
+                <div class="instructions-text">Read the original and the goal. Choose the option that correctly transforms the structure using a linker. Tap 🇪🇸 to see Spanish translations.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // Transform mechanics:
+    // Type 1: Combine 2 simple sentences with linker (contrast or cause-effect)
+    // Type 2: Switch direction — because → so / so → because (invert effect/cause)
+    // Type 3: Switch register — although ↔ however (one sentence vs two)
+    // Type 4: Fix incorrect linker structure
+    // Goals NEUTRAL — never reveal which exact linker
+    const quizData = [
+        {
+            id: 1,
+            base: "It was raining heavily. We decided to go for a walk.",
+            baseEs: "Estaba lloviendo fuerte. Decidimos ir a caminar.",
+            goal: "Combine into ONE sentence using a contrast linker at the start",
+            goalEs: "Combinar en UNA oración usando un conector de contraste al inicio",
+            hint: "Two contrasting ideas → one sentence with the contrast linker that goes at the START.",
+            options: [
+                { text: "Although it was raining heavily, we decided to go for a walk.", textEs: "Aunque estaba lloviendo fuerte, decidimos ir a caminar.", correct: true },
+                { text: "However it was raining heavily, we decided to go for a walk.", textEs: "Sin embargo estaba lloviendo fuerte, decidimos ir a caminar.", correct: false,
+                  errorType: "Wrong linker — however not for one sentence",
+                  explanation: "'However' connects TWO SEPARATE sentences (with period). For ONE sentence with two clauses, use 'Although'." },
+                { text: "Because it was raining heavily, we decided to go for a walk.", textEs: "Porque estaba lloviendo fuerte, decidimos ir a caminar.", correct: false,
+                  errorType: "Wrong relationship — cause",
+                  explanation: "'Because' would mean rain CAUSED us to walk. But the relationship is CONTRAST (we walked DESPITE rain). Use 'Although'." }
+            ],
+            ruleFormula: "Although + cause, contrasting effect",
+            correctReason: "Two contrasting ideas combined in ONE sentence need 'Although' at the start. Pattern: 'Although + S + V, main clause'."
+        },
+        {
+            id: 2,
+            base: "Sofía was tired. She finished her project on time.",
+            baseEs: "Sofía estaba cansada. Terminó su proyecto a tiempo.",
+            goal: "Keep two sentences but connect with a contrast adverb",
+            goalEs: "Mantener dos oraciones pero conectar con un adverbio de contraste",
+            hint: "Keep TWO separate sentences (period). The second starts with a contrast adverb + comma.",
+            options: [
+                { text: "Sofía was tired, however she finished her project on time.", textEs: "Sofía estaba cansada, sin embargo terminó su proyecto a tiempo.", correct: false,
+                  errorType: "Wrong punctuation — comma instead of period",
+                  explanation: "Two SEPARATE sentences need a PERIOD between them, not a comma. Pattern: 'Sentence 1. However, sentence 2.'" },
+                { text: "Sofía was tired. However, she finished her project on time.", textEs: "Sofía estaba cansada. Sin embargo, terminó su proyecto a tiempo.", correct: true },
+                { text: "Sofía was tired. Although she finished her project on time.", textEs: "Sofía estaba cansada. Aunque terminó su proyecto a tiempo.", correct: false,
+                  errorType: "Wrong linker — although for two sentences",
+                  explanation: "'Although' joins clauses WITHIN ONE sentence. For TWO separate sentences (with period), use 'However' (with comma after)." }
+            ],
+            ruleFormula: "Sentence 1. However, sentence 2.",
+            correctReason: "Two separate sentences with contrast use 'However' at the start of the second sentence (period before, comma after). Mandatory punctuation."
+        },
+        {
+            id: 3,
+            base: "Carlos felt sick. He stayed home from work.",
+            baseEs: "Carlos se sentía mal. Se quedó en casa sin ir al trabajo.",
+            goal: "Combine into ONE sentence using a cause linker (effect first)",
+            goalEs: "Combinar en UNA oración usando un conector de causa (efecto primero)",
+            hint: "EFFECT (stayed home) + linker + CAUSE (felt sick). Which linker introduces the cause?",
+            options: [
+                { text: "Carlos stayed home from work so he felt sick.", textEs: "Carlos se quedó en casa entonces se sentía mal.", correct: false,
+                  errorType: "Wrong direction — cause/effect inverted",
+                  explanation: "'So' introduces an EFFECT. But the goal is to introduce a CAUSE (felt sick). Use 'because': 'stayed home because he felt sick'." },
+                { text: "Carlos stayed home from work although he felt sick.", textEs: "Carlos se quedó en casa aunque se sentía mal.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'Although' shows contrast. But staying home isn't CONTRARY to feeling sick — it's the LOGICAL CAUSE. Use 'because'." },
+                { text: "Carlos stayed home from work because he felt sick.", textEs: "Carlos se quedó en casa porque se sentía mal.", correct: true }
+            ],
+            ruleFormula: "effect + because + cause",
+            correctReason: "Putting EFFECT first, then introducing the CAUSE, requires 'because'. Pattern: 'effect + because + cause'."
+        },
+        {
+            id: 4,
+            base: "Marcos missed the bus. He was late to the meeting.",
+            baseEs: "Marcos perdió el autobús. Llegó tarde a la reunión.",
+            goal: "Combine into ONE sentence using an effect linker (cause first)",
+            goalEs: "Combinar en UNA oración usando un conector de efecto (causa primero)",
+            hint: "CAUSE (missed bus) + linker + EFFECT (late to meeting). Which linker introduces the effect?",
+            options: [
+                { text: "Marcos missed the bus, so he was late to the meeting.", textEs: "Marcos perdió el autobús, entonces llegó tarde a la reunión.", correct: true },
+                { text: "Marcos missed the bus, because he was late to the meeting.", textEs: "Marcos perdió el autobús, porque llegó tarde a la reunión.", correct: false,
+                  errorType: "Wrong direction — cause/effect inverted",
+                  explanation: "'Because' introduces a CAUSE. But being late is the EFFECT of missing the bus. Use 'so' to introduce the effect." },
+                { text: "Marcos missed the bus although he was late to the meeting.", textEs: "Marcos perdió el autobús aunque llegó tarde a la reunión.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'Although' shows contrast. But being late isn't CONTRARY to missing the bus — it's the natural CONSEQUENCE. Use 'so' for effect." }
+            ],
+            ruleFormula: "cause, so + effect",
+            correctReason: "Putting CAUSE first, then introducing the EFFECT, requires 'so' with a comma. Pattern: 'cause, so + effect'."
+        },
+        {
+            id: 5,
+            base: "Sofía didn't have an umbrella. She got wet in the rain.",
+            baseEs: "Sofía no tenía paraguas. Se mojó en la lluvia.",
+            goal: "Combine into ONE sentence introducing the consequence with comma",
+            goalEs: "Combinar en UNA oración introduciendo la consecuencia con coma",
+            hint: "No umbrella (cause) → got wet (consequence). Which linker introduces the consequence?",
+            options: [
+                { text: "Sofía didn't have an umbrella because she got wet in the rain.", textEs: "Sofía no tenía paraguas porque se mojó en la lluvia.", correct: false,
+                  errorType: "Wrong direction — cause/effect inverted",
+                  explanation: "'Because' introduces a cause. But getting wet is the CONSEQUENCE of not having umbrella. Use 'so' for the consequence." },
+                { text: "Sofía didn't have an umbrella, so she got wet in the rain.", textEs: "Sofía no tenía paraguas, entonces se mojó en la lluvia.", correct: true },
+                { text: "Sofía didn't have an umbrella however she got wet in the rain.", textEs: "Sofía no tenía paraguas sin embargo se mojó en la lluvia.", correct: false,
+                  errorType: "Wrong relationship and punctuation",
+                  explanation: "'However' is for contrast (and needs period before). Plus, getting wet is the EFFECT, not contrast. Use ', so' for natural consequence." }
+            ],
+            ruleFormula: "cause, so + effect (consequence)",
+            correctReason: "The natural consequence of not having an umbrella in the rain is getting wet. Use 'so' (with comma before) to introduce the effect."
+        },
+        {
+            id: 6,
+            base: "Although Marcos was sick, he went to work.",
+            baseEs: "Aunque Marcos estaba enfermo, fue al trabajo.",
+            goal: "Rewrite as TWO separate sentences with a contrast adverb",
+            goalEs: "Reescribir como DOS oraciones separadas con un adverbio de contraste",
+            hint: "Split into two sentences. Use the contrast adverb that goes at the start of a new sentence.",
+            options: [
+                { text: "Marcos was sick. Although he went to work.", textEs: "Marcos estaba enfermo. Aunque fue al trabajo.", correct: false,
+                  errorType: "Wrong linker — although in separate sentence",
+                  explanation: "'Although' starts a SUBORDINATE clause that needs a main clause in the same sentence. For separate sentences, use 'However'." },
+                { text: "Marcos was sick because he went to work.", textEs: "Marcos estaba enfermo porque fue al trabajo.", correct: false,
+                  errorType: "Wrong relationship — cause",
+                  explanation: "'Because' shows cause. But being sick wasn't CAUSED by going to work — there's a CONTRAST. Use 'However' between two sentences." },
+                { text: "Marcos was sick. However, he went to work.", textEs: "Marcos estaba enfermo. Sin embargo, fue al trabajo.", correct: true }
+            ],
+            ruleFormula: "Although + clause, main → Sentence. However, sentence.",
+            correctReason: "To rewrite 'Although + clause, main' as TWO separate sentences, use 'However' at the start of the second one (period before, comma after)."
+        },
+        {
+            id: 7,
+            base: "Sofía studied hard. She passed the exam.",
+            baseEs: "Sofía estudió duro. Aprobó el examen.",
+            goal: "Combine into ONE sentence using an effect linker",
+            goalEs: "Combinar en UNA oración usando un conector de efecto",
+            hint: "Studying hard CAUSED passing. Which linker introduces the EFFECT (passing)?",
+            options: [
+                { text: "Sofía studied hard, so she passed the exam.", textEs: "Sofía estudió duro, entonces aprobó el examen.", correct: true },
+                { text: "Sofía studied hard because she passed the exam.", textEs: "Sofía estudió duro porque aprobó el examen.", correct: false,
+                  errorType: "Wrong direction — cause/effect inverted",
+                  explanation: "'Because' introduces the cause. But passing is the EFFECT of studying. Use 'so' to introduce the effect: 'studied, so passed'." },
+                { text: "Sofía studied hard. However, she passed the exam.", textEs: "Sofía estudió duro. Sin embargo, aprobó el examen.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'However' shows surprising contrast. But passing AFTER studying is the EXPECTED RESULT, not a contrast. Use 'so' for natural consequence." }
+            ],
+            ruleFormula: "cause, so + effect",
+            correctReason: "Studying hard naturally causes passing. Use 'so' (with comma) to introduce the expected effect: 'studied hard, so passed'."
+        },
+        {
+            id: 8,
+            base: "Sofía didn't go to the gym because she was tired.",
+            baseEs: "Sofía no fue al gimnasio porque estaba cansada.",
+            goal: "Rewrite using an effect linker (invert direction)",
+            goalEs: "Reescribir usando un conector de efecto (invertir dirección)",
+            hint: "Switch the order: put the cause FIRST, then introduce the effect with the appropriate linker.",
+            options: [
+                { text: "Sofía was tired, although she didn't go to the gym.", textEs: "Sofía estaba cansada, aunque no fue al gimnasio.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'Although' shows contrast. But not going to gym was the RESULT of being tired, not contrary to it. Use 'so' for the effect." },
+                { text: "Sofía was tired, so she didn't go to the gym.", textEs: "Sofía estaba cansada, entonces no fue al gimnasio.", correct: true },
+                { text: "Sofía was tired. However, she didn't go to the gym.", textEs: "Sofía estaba cansada. Sin embargo, no fue al gimnasio.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'However' shows surprising contrast. Not going to gym is the EXPECTED result of being tired. Use 'so' for natural consequence." }
+            ],
+            ruleFormula: "effect + because + cause → cause, so + effect",
+            correctReason: "To invert 'effect + because + cause' (Sofía didn't go because tired), put the CAUSE first and introduce the EFFECT with 'so': 'tired, so didn't go'."
+        },
+        {
+            id: 9,
+            base: "Carlos took an umbrella. It started raining.",
+            baseEs: "Carlos llevó un paraguas. Empezó a llover.",
+            goal: "Combine using a cause linker (effect mentioned first)",
+            goalEs: "Combinar usando un conector de causa (efecto mencionado primero)",
+            hint: "Effect (took umbrella) first, then introduce the cause (rain). Which linker introduces the cause?",
+            options: [
+                { text: "Carlos took an umbrella, so it started raining.", textEs: "Carlos llevó un paraguas, entonces empezó a llover.", correct: false,
+                  errorType: "Wrong direction — illogical",
+                  explanation: "'So' would mean taking the umbrella CAUSED the rain — illogical! The rain came first as the CAUSE. Use 'because' to introduce the cause." },
+                { text: "Carlos took an umbrella however it started raining.", textEs: "Carlos llevó un paraguas sin embargo empezó a llover.", correct: false,
+                  errorType: "Wrong relationship and punctuation",
+                  explanation: "'However' shows contrast. But taking umbrella isn't CONTRARY to rain — it's the LOGICAL response. Plus, 'however' needs period before. Use 'because'." },
+                { text: "Carlos took an umbrella because it started raining.", textEs: "Carlos llevó un paraguas porque empezó a llover.", correct: true }
+            ],
+            ruleFormula: "effect + because + cause",
+            correctReason: "Taking umbrella (effect) BECAUSE it started raining (cause). 'Because' introduces the cause that led to the action. Pattern: effect + because + cause."
+        },
+        {
+            id: 10,
+            base: "The bank was closed. We needed to deposit money urgently.",
+            baseEs: "El banco estaba cerrado. Necesitábamos depositar dinero urgentemente.",
+            goal: "Combine into ONE sentence using a contrast linker (problem situation)",
+            goalEs: "Combinar en UNA oración usando un conector de contraste (situación problemática)",
+            hint: "Closed bank + urgent need = CONTRAST/PROBLEM. Use the linker that introduces a contrasting clause at the start.",
+            options: [
+                { text: "Although the bank was closed, we needed to deposit money urgently.", textEs: "Aunque el banco estaba cerrado, necesitábamos depositar dinero urgentemente.", correct: true },
+                { text: "However the bank was closed, we needed to deposit money urgently.", textEs: "Sin embargo el banco estaba cerrado, necesitábamos depositar dinero urgentemente.", correct: false,
+                  errorType: "Wrong linker — however not for one sentence",
+                  explanation: "'However' is for TWO separate sentences (with period). For ONE sentence with contrasting clauses, use 'Although' at the start." },
+                { text: "Because the bank was closed, we needed to deposit money urgently.", textEs: "Porque el banco estaba cerrado, necesitábamos depositar dinero urgentemente.", correct: false,
+                  errorType: "Wrong relationship — cause",
+                  explanation: "'Because' shows cause. But the bank being closed wasn't the CAUSE of needing to deposit — there's a CONTRAST/PROBLEM. Use 'Although'." }
+            ],
+            ruleFormula: "Although + S + V, main clause",
+            correctReason: "Closed bank vs. urgent need = CONTRAST/PROBLEM in ONE sentence. 'Although' at the start introduces the contrasting situation."
+        },
+        {
+            id: 11,
+            base: "It started raining heavily, because we cancelled our walk.",
+            baseEs: "Empezó a llover fuerte, porque cancelamos nuestro paseo.",
+            goal: "Fix the incorrect cause-effect direction",
+            goalEs: "Corregir la dirección incorrecta de causa-efecto",
+            hint: "The current sentence says rain was CAUSED by cancelling — illogical! Fix the linker direction.",
+            options: [
+                { text: "It started raining heavily although we cancelled our walk.", textEs: "Empezó a llover fuerte aunque cancelamos nuestro paseo.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'Although' shows contrast. But cancelling the walk isn't CONTRARY to rain — it's the LOGICAL RESPONSE. Use 'so' for the natural effect." },
+                { text: "It started raining heavily, so we cancelled our walk.", textEs: "Empezó a llover fuerte, entonces cancelamos nuestro paseo.", correct: true },
+                { text: "It started raining heavily however we cancelled our walk.", textEs: "Empezó a llover fuerte sin embargo cancelamos nuestro paseo.", correct: false,
+                  errorType: "Wrong relationship and punctuation",
+                  explanation: "'However' shows contrast (and needs period before). But cancelling because of rain is the EXPECTED RESULT. Use ', so' for consequence." }
+            ],
+            ruleFormula: "cause, so + effect (correct direction)",
+            correctReason: "Rain (cause) leads to cancelling the walk (effect). Use 'so' (with comma before) to express the natural consequence in the correct direction."
+        },
+        {
+            id: 12,
+            base: "Sofía. The phone was ringing. She didn't answer it.",
+            baseEs: "Sofía. El teléfono estaba sonando. Ella no contestó.",
+            goal: "Connect with a contrast adverb across two sentences",
+            goalEs: "Conectar con un adverbio de contraste entre dos oraciones",
+            hint: "Two SEPARATE sentences (with period). Use the linker that goes at the START of the second one with comma.",
+            options: [
+                { text: "The phone was ringing although she didn't answer it.", textEs: "El teléfono estaba sonando aunque ella no contestó.", correct: false,
+                  errorType: "Wrong linker — although for one sentence",
+                  explanation: "'Although' joins clauses in ONE sentence. The goal is TWO separate sentences. Use 'However' at the start of the second sentence." },
+                { text: "The phone was ringing because she didn't answer it.", textEs: "El teléfono estaba sonando porque ella no contestó.", correct: false,
+                  errorType: "Wrong relationship — cause",
+                  explanation: "'Because' shows cause. But not answering wasn't the CAUSE of ringing — there's a CONTRAST/SURPRISE. Use 'However' between sentences." },
+                { text: "The phone was ringing. However, she didn't answer it.", textEs: "El teléfono estaba sonando. Sin embargo, ella no contestó.", correct: true }
+            ],
+            ruleFormula: "Sentence 1. However, sentence 2.",
+            correctReason: "Two separate sentences with contrast use 'However' at the start of the second (period before, comma after). The contrast: phone ringing but no answer."
+        },
+        {
+            id: 13,
+            base: "Marcos studies English every day so he wants to travel abroad.",
+            baseEs: "Marcos estudia inglés cada día entonces quiere viajar al extranjero.",
+            goal: "Fix the incorrect cause-effect direction",
+            goalEs: "Corregir la dirección incorrecta de causa-efecto",
+            hint: "Wanting to travel is the REASON for studying, not the result. Fix the linker direction.",
+            options: [
+                { text: "Marcos studies English every day because he wants to travel abroad.", textEs: "Marcos estudia inglés cada día porque quiere viajar al extranjero.", correct: true },
+                { text: "Marcos studies English every day, so wanting to travel abroad.", textEs: "Marcos estudia inglés cada día, entonces queriendo viajar al extranjero.", correct: false,
+                  errorType: "Wrong form — gerund instead of clause",
+                  explanation: "'So' needs a complete CLAUSE (S+V), not a gerund. Plus, the direction is still wrong: wanting to travel is the CAUSE, not effect. Use 'because'." },
+                { text: "Marcos studies English every day although he wants to travel abroad.", textEs: "Marcos estudia inglés cada día aunque quiere viajar al extranjero.", correct: false,
+                  errorType: "Wrong relationship — contrast",
+                  explanation: "'Although' shows contrast. But wanting to travel isn't CONTRARY to studying English — it's the REASON for it. Use 'because' for cause/motivation." }
+            ],
+            ruleFormula: "effect + because + cause (correct direction)",
+            correctReason: "Studying English (effect) BECAUSE wanting to travel (cause/motivation). Use 'because' to introduce the reason. Pattern: effect + because + cause."
+        },
+        {
+            id: 14,
+            base: "Carlos doesn't like coffee. Many of his friends drink it daily.",
+            baseEs: "A Carlos no le gusta el café. Muchos de sus amigos lo toman a diario.",
+            goal: "Combine into ONE sentence using a contrast linker at the start",
+            goalEs: "Combinar en UNA oración usando un conector de contraste al inicio",
+            hint: "Two contrasting habits → combine into ONE sentence with the contrast linker that goes at the start.",
+            options: [
+                { text: "However Carlos doesn't like coffee, many of his friends drink it daily.", textEs: "Sin embargo a Carlos no le gusta el café, muchos de sus amigos lo toman a diario.", correct: false,
+                  errorType: "Wrong linker — however not for one sentence",
+                  explanation: "'However' is for TWO separate sentences. For ONE sentence with contrasting clauses, use 'Although' at the start." },
+                { text: "Although Carlos doesn't like coffee, many of his friends drink it daily.", textEs: "Aunque a Carlos no le gusta el café, muchos de sus amigos lo toman a diario.", correct: true },
+                { text: "Carlos doesn't like coffee, so many of his friends drink it daily.", textEs: "A Carlos no le gusta el café, entonces muchos de sus amigos lo toman a diario.", correct: false,
+                  errorType: "Wrong relationship — illogical effect",
+                  explanation: "'So' would mean Carlos's dislike CAUSED his friends to drink it — illogical! There's no cause-effect here, just CONTRAST. Use 'Although'." }
+            ],
+            ruleFormula: "Although + S + V, main clause",
+            correctReason: "Carlos's dislike vs friends' habit = CONTRAST in ONE sentence. 'Although' at the start introduces the contrasting clause."
+        },
+        {
+            id: 15,
+            base: "Although it was very cold, Sofía went swimming in the lake.",
+            baseEs: "Aunque hacía mucho frío, Sofía fue a nadar al lago.",
+            goal: "Rewrite as TWO separate sentences with a contrast adverb",
+            goalEs: "Reescribir como DOS oraciones separadas con un adverbio de contraste",
+            hint: "Split into two sentences. Use the contrast adverb at the start of the second sentence with proper punctuation.",
+            options: [
+                { text: "It was very cold, however Sofía went swimming in the lake.", textEs: "Hacía mucho frío, sin embargo Sofía fue a nadar al lago.", correct: false,
+                  errorType: "Wrong punctuation — comma instead of period",
+                  explanation: "Two SEPARATE sentences need a PERIOD between them. Plus, 'However' needs a comma AFTER it. Pattern: 'Sentence 1. However, sentence 2.'" },
+                { text: "It was very cold. Although Sofía went swimming in the lake.", textEs: "Hacía mucho frío. Aunque Sofía fue a nadar al lago.", correct: false,
+                  errorType: "Wrong linker — although in separate sentence",
+                  explanation: "'Although' starts a SUBORDINATE clause that needs a main clause in the same sentence. For two separate sentences, use 'However'." },
+                { text: "It was very cold. However, Sofía went swimming in the lake.", textEs: "Hacía mucho frío. Sin embargo, Sofía fue a nadar al lago.", correct: true }
+            ],
+            ruleFormula: "Although + clause, main → Sentence. However, sentence.",
+            correctReason: "Splitting an 'Although' sentence into two separate sentences requires 'However' at the start of the second (period before, comma after)."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="q-label">Transform the sentence:</span>
+                <span class="topic-badge">🔗 linker</span>
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">🔶 Original sentence(s)</span>
+                    <div class="transform-sentence">${q.base}</div>
+                </div>
+                <div class="transform-arrow">⬇ Transform to...</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Goal</span>
+                    <div class="transform-sentence">${q.goal}</div>
+                </div>
+            </div>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation-block" id="translation-${index}">
+                <div><strong>Original:</strong> ${q.baseEs}</div>
+                <div style="margin-top:0.3rem;"><strong>Goal:</strong> ${q.goalEs}</div>
+                <div style="margin-top:0.3rem;border-top:1px dashed #BBF7D0;padding-top:0.3rem;"><strong>Options:</strong></div>
+                ${q.shuffled.map((opt, i) => `<div style="margin-top:0.2rem;">${letters[i]}. ${opt.textEs}</div>`).join('')}
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${opt.text}</div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        const correctIdx = q.shuffled.indexOf(correctOpt);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (i === correctIdx) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const transformFlow = (showWrong) => `
+            <div class="transform-flow">
+                <div class="tf-step present"><span class="tf-label">Original</span>${q.base}</div>
+                <div class="tf-arrow">⬇</div>
+                ${showWrong ? `<div class="tf-step past-wrong"><span class="tf-label">Your answer</span>${selected.text}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correct</span>${correctOpt.text}</div>
+            </div>
+        `;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct transformation!</div>
+                        <div class="fb-subtitle">You chose the right linker</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Transformation done</div>
+                        ${transformFlow(false)}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the transformation correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect transformation</div>
+                        <div class="fb-subtitle">Let's review what went wrong</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Your transformation vs. correct</div>
+                        ${transformFlow(true)}
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ The error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 How should the transformation be done?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You transform linkers perfectly. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the patterns and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

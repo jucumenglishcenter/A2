@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Relative Clauses (Defining) | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">🔗 Relative Clauses — Defining (who / which / that / where / when)</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>WHO:</b> para personas \u2014 \"The woman <b>who</b> called me is my aunt\"", "<b>WHICH:</b> para cosas / animales \u2014 \"The book <b>which</b> I read was great\"", "<b>THAT:</b> puede reemplazar a who o which en cl\u00e1usulas definitorias", "<b>WHERE:</b> para lugares \u2014 \"The city <b>where</b> I live is beautiful\"", "<b>WHEN:</b> para tiempo \u2014 \"The day <b>when</b> we met was sunny\"", "<b>Defining clause:</b> informaci\u00f3n esencial \u2014 sin comas, define al sustantivo", "En defining clauses, <b>that</b> es muy com\u00fan y a menudo preferido en ingl\u00e9s informal"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol usamos <b>\"que\"</b>, <b>\"quien\"</b>, <b>\"donde\"</b>, <b>\"cuando\"</b> para a\u00f1adir informaci\u00f3n sobre un sustantivo. Son <b>pronombres relativos</b>: unen dos ideas y especifican a qu\u00e9 nos referimos.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83d\udc65 Personas</h4><ul>\n<li>La persona <b>que</b> vino</li>\n<li>El profesor <b>que</b> ense\u00f1a</li>\n<li>La chica <b>quien</b> llam\u00f3 (formal)</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83d\udce6 Cosas / Lugares / Tiempo</h4><ul>\n<li>El libro <b>que</b> le\u00ed</li>\n<li>El caf\u00e9 <b>donde</b> trabajo</li>\n<li>El d\u00eda <b>cuando</b> naciste</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udc69</div><div><div class=\"en\">\"La mujer <b>que</b> vive al lado es doctora\" \u2192 \"que\" introduce informaci\u00f3n que identifica a la mujer.</div><div class=\"es\">Relativo = especifica a qui\u00e9n/qu\u00e9 nos referimos</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udcda</div><div><div class=\"en\">\"El libro <b>que</b> me prestaste es excelente\" \u2192 \"que\" conecta libro + accion de prestar.</div><div class=\"es\">Define cu\u00e1l libro exactamente</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83c\udfe0</div><div><div class=\"en\">\"La casa <b>donde</b> crec\u00ed ya no existe\" \u2192 \"donde\" conecta la casa con una ubicaci\u00f3n.</div><div class=\"es\">Para lugares usamos \"donde\"</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> En espa\u00f1ol \"que\" es el comod\u00edn: sirve para personas y cosas. Usamos \"donde\" para lugares y \"cuando\" para tiempo. Ingl\u00e9s tiene palabras espec\u00edficas para cada caso.</div>", "exercises": [{"q": "\"La persona <b>que</b> me ayud\u00f3\" \u2014 \u00bfa qui\u00e9n se refiere \"que\"?", "a": "a", "o": ["A la persona", "A ti (yo)"], "fc": "\"Que\" se refiere al sustantivo anterior \u2014 en este caso, \"la persona\".", "fi": "\"Me\" ya indica a qui\u00e9n ayudaron; \"que\" refiere al sustantivo.", "ex": "La persona que me ayud\u00f3 \u2192 The person who helped me", "tip": "Que + verbo \u2192 el relativo refiere al sustantivo de antes"}, {"q": "\u00bfQu\u00e9 palabra usa el espa\u00f1ol para introducir informaci\u00f3n sobre un LUGAR?", "a": "b", "o": ["Quien", "Donde"], "fc": "\"Donde\" introduce informaci\u00f3n sobre lugares.", "fi": "\"Quien\" es para personas (formal).", "ex": "El caf\u00e9 donde trabajo \u2192 The cafe where I work", "tip": "Lugar \u2192 donde / where"}, {"q": "\"El d\u00eda <b>cuando</b> nos conocimos\" \u2014 \u00bfqu\u00e9 introduce \"cuando\"?", "a": "a", "o": ["Informaci\u00f3n sobre el tiempo", "La causa del encuentro"], "fc": "\"Cuando\" introduce informaci\u00f3n sobre el TIEMPO en que ocurri\u00f3 algo.", "fi": "La causa se introducir\u00eda con \"porque\".", "ex": "El d\u00eda cuando nos conocimos \u2192 The day when we met", "tip": "Tiempo \u2192 cuando / when"}, {"q": "\"El libro que le\u00ed\" \u2014 \u00bfpuedo omitir \"que\"?", "a": "b", "o": ["No, nunca", "A veces en ingl\u00e9s s\u00ed, en espa\u00f1ol no"], "fc": "En espa\u00f1ol \"que\" es obligatorio; en ingl\u00e9s se puede omitir en ciertos casos (lo veremos m\u00e1s adelante).", "fi": "En espa\u00f1ol NUNCA se omite; es una diferencia clave con el ingl\u00e9s.", "ex": "El libro que le\u00ed \u2192 The book (that) I read", "tip": "Espa\u00f1ol: que obligatorio \u00b7 Ingl\u00e9s: a veces omisible"}, {"q": "\"La mujer <b>quien</b> llam\u00f3\" \u2014 este uso es:", "a": "b", "o": ["Informal/hablado", "Formal/escrito"], "fc": "\"Quien\" para personas es m\u00e1s formal; en habla cotidiana usamos \"que\".", "fi": "En habla informal decimos \"la mujer que llam\u00f3\", no \"quien\".", "ex": "La mujer que llam\u00f3 \u2192 The woman who called (cotidiano)", "tip": "Quien = formal \u00b7 Que = cotidiano"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">El concepto es id\u00e9ntico. Los relativos conectan un sustantivo con informaci\u00f3n que lo define.</div>\n\n<table class=\"g-table\">\n<tr><th>Tipo</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Personas</td><td>que / quien</td><td><span class=\"g-subj\">who</span> / <span class=\"g-subj\">that</span></td></tr>\n<tr><td>Cosas, animales</td><td>que</td><td><span class=\"g-comp\">which</span> / <span class=\"g-comp\">that</span></td></tr>\n<tr><td>Lugares</td><td>donde</td><td><span class=\"g-verb\">where</span></td></tr>\n<tr><td>Tiempo</td><td>cuando</td><td><span class=\"g-verb\">when</span></td></tr>\n<tr><td>Posesi\u00f3n</td><td>cuyo / cuya</td><td><span class=\"g-quest\">whose</span></td></tr>\n</table>\n\n<div class=\"section-label\">F\u00f3rmula</div>\n<div class=\"formula-box\">\n<span class=\"g-subj\">sustantivo</span> + <span class=\"g-verb\">pronombre relativo</span> + <span class=\"g-comp\">cl\u00e1usula</span><br>\nThe girl <span class=\"g-verb\">who</span> lives next door \u00b7 The book <span class=\"g-verb\">which</span> I bought\n</div>\n\n<div class=\"section-label\">El \"that\" comod\u00edn</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">Personas</div><div class=\"vrb\">who/that</div><div class=\"meaning\">The girl who/that called</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Cosas</div><div class=\"vrb\">which/that</div><div class=\"meaning\">The book which/that I read</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Ambos</div><div class=\"vrb\">that</div><div class=\"meaning\">Funciona para los dos</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> La estructura es igual: sustantivo + relativo + cl\u00e1usula. La posici\u00f3n del relativo (inmediatamente despu\u00e9s del sustantivo al que refiere) se respeta en ambos idiomas.</div>", "exercises": [{"q": "\"The man ___ lives there is my uncle.\" (persona)", "a": "a", "o": ["who", "which"], "fc": "Para personas \u2192 <b>who</b>.", "fi": "\"Which\" es para cosas y animales, no personas.", "ex": "The man who lives there \u2192 El hombre que vive ah\u00ed", "tip": "Persona \u2192 who"}, {"q": "\"The book ___ is on the table is mine.\" (cosa)", "a": "b", "o": ["who", "which"], "fc": "Para cosas \u2192 <b>which</b>.", "fi": "\"Who\" es para personas, no libros.", "ex": "The book which is on the table \u2192 El libro que est\u00e1 en la mesa", "tip": "Cosa \u2192 which"}, {"q": "\"The caf\u00e9 ___ we met last week is closed.\" (lugar)", "a": "a", "o": ["where", "when"], "fc": "Para lugares \u2192 <b>where</b>.", "fi": "\"When\" es para tiempo; el caf\u00e9 es un lugar.", "ex": "The cafe where we met \u2192 El caf\u00e9 donde nos encontramos", "tip": "Lugar \u2192 where"}, {"q": "\"The day ___ I was born was a Sunday.\" (tiempo)", "a": "b", "o": ["where", "when"], "fc": "Para tiempo \u2192 <b>when</b>.", "fi": "\"Where\" es para lugares; un d\u00eda no es un lugar.", "ex": "The day when I was born \u2192 El d\u00eda cuando nac\u00ed", "tip": "Tiempo \u2192 when"}, {"q": "\u00bfQu\u00e9 relativo funciona tanto para personas como para cosas?", "a": "a", "o": ["that", "which"], "fc": "\"That\" es comod\u00edn: funciona para personas Y cosas en cl\u00e1usulas definitorias.", "fi": "\"Which\" solo funciona con cosas/animales.", "ex": "The girl that called \u00b7 The book that I read", "tip": "That = comod\u00edn en defining clauses"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Las trampas: <b>qui\u00e9n usa qu\u00e9</b>, la omisi\u00f3n de \"that\", y el concepto de cl\u00e1usulas definitorias.</div>\n\n<table class=\"g-table\">\n<tr><th>Regla</th><th>Ingl\u00e9s</th><th>Por qu\u00e9 importa</th></tr>\n<tr><td>Personas: nunca \"which\"</td><td>\u2705 who \u00b7 \u2705 that \u00b7 \u274c which</td><td>\"Which\" para cosas solamente</td></tr>\n<tr><td>Cosas: nunca \"who\"</td><td>\u2705 which \u00b7 \u2705 that \u00b7 \u274c who</td><td>\"Who\" para personas solamente</td></tr>\n<tr><td>That = comod\u00edn</td><td>\u2705 para personas y cosas</td><td>Muy usado en ingl\u00e9s informal</td></tr>\n<tr><td>Omisi\u00f3n posible</td><td>\u2705 Cuando el relativo es OBJETO</td><td>\"The book (that) I read\" \u2014 se puede omitir</td></tr>\n<tr><td>Omisi\u00f3n imposible</td><td>\u274c Cuando el relativo es SUJETO</td><td>\"The girl who called\" \u2014 NO se puede omitir \"who\"</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f La regla de oro: \u00bfse puede omitir el relativo?</div>\n<p>Solo se puede OMITIR el relativo cuando NO es el sujeto de la cl\u00e1usula.<br><br>\n\u2022 <b>Relativo = sujeto de la cl\u00e1usula \u2192 OBLIGATORIO</b><br>\n&nbsp;&nbsp;\"The girl <u>who</u> called me\" \u2192 \"who\" es sujeto de \"called\" \u2192 no se puede omitir<br>\n&nbsp;&nbsp;\u274c \"The girl called me\" \u2192 significado completamente distinto<br><br>\n\u2022 <b>Relativo = objeto de la cl\u00e1usula \u2192 OMISIBLE</b><br>\n&nbsp;&nbsp;\"The book (that) <u>I read</u>\" \u2192 \"that\" es objeto; \"I\" es sujeto \u2192 omisible<br>\n&nbsp;&nbsp;\u2705 \"The book I read was great\" (sin \"that\" funciona)<br><br>\nTruco: si despu\u00e9s del relativo viene directamente un VERBO \u2192 es sujeto (no omitas). Si viene un SUJETO+VERBO \u2192 es objeto (puedes omitir).</p></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Defining vs non-defining (muy breve)</div>\n<p>En A2 trabajamos <b>defining clauses</b> (sin comas): la cl\u00e1usula es ESENCIAL para identificar el sustantivo.<br><br>\n\u2705 \"The man <b>who</b> lives next door is kind\" (identifica cu\u00e1l hombre)<br><br>\nLas <b>non-defining</b> (con comas, a\u00f1aden info extra) se estudian en B1. Por ahora: en defining clauses <b>no hay comas</b>, y \"that\" es la opci\u00f3n m\u00e1s com\u00fan.</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">The doctor which treated me was kind.</div><div class=\"es\">\"Which\" no se usa con personas</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">The doctor <span class=\"g-subj\">who</span> treated me was kind.</div><div class=\"es\">El doctor que me trat\u00f3 fue amable.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">The doctor <span class=\"g-subj\">that</span> treated me was kind.</div><div class=\"es\">\"That\" tambi\u00e9n funciona con personas.</div></div></div>", "exercises": [{"q": "\"The woman ___ gave the speech is famous.\" (persona, sujeto del verbo gave)", "a": "b", "o": ["which", "who"], "fc": "Persona como sujeto de la cl\u00e1usula \u2192 <b>who</b>.", "fi": "\"Which\" no se usa con personas, solo con cosas y animales.", "ex": "The woman who gave the speech", "tip": "Persona \u2192 who (nunca which)"}, {"q": "\"The song ___ plays on the radio is popular.\" (cosa, sujeto)", "a": "b", "o": ["who", "which"], "fc": "Cosa como sujeto \u2192 <b>which</b> (o that).", "fi": "\"Who\" solo para personas.", "ex": "The song which plays on the radio", "tip": "Cosa \u2192 which/that"}, {"q": "\"The restaurant ___ we had dinner last night was amazing.\"", "a": "a", "o": ["where", "which"], "fc": "Restaurante = lugar donde ocurri\u00f3 algo \u2192 <b>where</b>.", "fi": "\"Which\" funcionar\u00eda si \"the restaurant\" fuera sujeto/objeto directo, no ubicaci\u00f3n.", "ex": "The restaurant where we had dinner", "tip": "Lugar donde ocurre algo \u2192 where"}, {"q": "\"The year ___ I was born had great historical events.\"", "a": "b", "o": ["where", "when"], "fc": "Year = tiempo \u2192 <b>when</b>.", "fi": "\"Where\" es para lugares; un a\u00f1o no es un lugar.", "ex": "The year when I was born", "tip": "Per\u00edodo temporal \u2192 when"}, {"q": "\"The book ___ I borrowed was very interesting.\" (se puede omitir \"that\")", "a": "a", "o": ["That puede omitirse (objeto)", "That es obligatorio (sujeto)"], "fc": "\"I\" es sujeto de \"borrowed\"; \"that\" es objeto \u2192 OMISIBLE: \"The book I borrowed\".", "fi": "Si \"that\" fuera sujeto (\"the book that is on the table\"), ser\u00eda obligatorio.", "ex": "The book (that) I borrowed \u2192 se puede omitir that", "tip": "That objeto = omisible \u00b7 That sujeto = obligatorio"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 Identifica PRIMERO a qu\u00e9 refiere el relativo:</strong> \u00bfPersona? \u2192 who/that. \u00bfCosa? \u2192 which/that. \u00bfLugar? \u2192 where. \u00bfTiempo? \u2192 when. Esta decisi\u00f3n es el 80% del ejercicio.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 \"That\" es el atajo seguro:</strong> En defining clauses (sin comas), \"that\" funciona para personas Y cosas. Si no est\u00e1s seguro entre who/which, usa <b>that</b> y casi siempre acertar\u00e1s.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Regla de omisi\u00f3n visual:</strong><br>\n\u2022 Relativo + <b>verbo directo</b> \u2192 es sujeto, NO se omite: \"The girl <b>who called</b>...\"<br>\n\u2022 Relativo + <b>sujeto + verbo</b> \u2192 es objeto, SE omite: \"The book (<b>that</b>) <b>I read</b>...\"</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Where/When reemplazan preposiciones:</strong> \"the cafe where I work\" reemplaza \"the cafe in which I work\" (m\u00e1s formal). \"The day when we met\" reemplaza \"the day on which we met\". Where/when simplifican.</div>\n\n<div class=\"formula-box\">\n\ud83d\udc64 PERSONA: <span class=\"g-subj\">who / that</span> + cl\u00e1usula<br>\n\ud83d\udce6 COSA: <span class=\"g-comp\">which / that</span> + cl\u00e1usula<br>\n\ud83c\udf0d LUGAR: <span class=\"g-verb\">where</span> + cl\u00e1usula<br>\n\u23f0 TIEMPO: <span class=\"g-verb\">when</span> + cl\u00e1usula<br>\n\ud83d\udd11 POSESI\u00d3N: <span class=\"g-quest\">whose</span> + sustantivo\n</div>\n\n<table class=\"g-table\">\n<tr><th>Ejemplo</th><th>Relativo correcto</th></tr>\n<tr><td>The teacher ___ taught us was kind.</td><td>who / that (persona sujeto)</td></tr>\n<tr><td>The car ___ I bought is red.</td><td>which / that (cosa objeto)</td></tr>\n<tr><td>The hotel ___ we stayed was nice.</td><td>where (lugar)</td></tr>\n<tr><td>The moment ___ I saw her, I knew.</td><td>when (tiempo)</td></tr>\n<tr><td>The friend ___ brother is a doctor.</td><td>whose (posesi\u00f3n)</td></tr>\n</table>", "exercises": [{"q": "\"The actor ___ won the Oscar gave a great speech.\"", "a": "a", "o": ["who", "which"], "fc": "\"Actor\" = persona, sujeto de \"won\" \u2192 <b>who</b>.", "fi": "\"Which\" no se usa con personas.", "ex": "The actor who won the Oscar", "tip": "Persona sujeto \u2192 who"}, {"q": "\"This is the phone ___ my dad gave me for my birthday.\"", "a": "b", "o": ["who", "that"], "fc": "\"Phone\" = cosa \u2192 <b>that</b> (o which).", "fi": "\"Who\" es solo para personas.", "ex": "This is the phone that my dad gave me", "tip": "Cosa \u2192 that/which"}, {"q": "\"I remember the summer ___ we went to Cusco.\"", "a": "a", "o": ["when", "where"], "fc": "\"Summer\" = tiempo \u2192 <b>when</b>.", "fi": "\"Where\" es para lugares; \"summer\" es un per\u00edodo.", "ex": "The summer when we went to Cusco", "tip": "Per\u00edodo \u2192 when"}, {"q": "\"She works in a school ___ teaches Spanish to immigrants.\"", "a": "b", "o": ["where", "that"], "fc": "Aqu\u00ed \"a school\" es sujeto del verbo \"teaches\" \u2192 <b>that</b> (no es ubicaci\u00f3n donde ella trabaja, es la escuela que hace la acci\u00f3n).", "fi": "\"Where\" se usar\u00eda si dij\u00e9ramos \"a school where she teaches\" (ubicaci\u00f3n).", "ex": "A school that teaches Spanish to immigrants", "tip": "Escuela hace acci\u00f3n \u2192 that (no where)"}, {"q": "\"The friend ___ car broke down called me yesterday.\" (posesi\u00f3n)", "a": "a", "o": ["whose", "who"], "fc": "\"Whose\" indica posesi\u00f3n \u2014 el amigo POSEE el car \u2192 <b>whose</b>.", "fi": "\"Who\" no indica posesi\u00f3n; ser\u00eda \"the friend who called me\".", "ex": "The friend whose car broke down", "tip": "Posesi\u00f3n \u2192 whose"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Elige el relativo correcto seg\u00fan el tipo (persona/cosa/lugar/tiempo) y la funci\u00f3n (sujeto/objeto/posesi\u00f3n).</div>\n\n<div class=\"formula-box\">\n\ud83d\udc64 Persona: <span class=\"g-subj\">who / that</span><br>\n\ud83d\udce6 Cosa: <span class=\"g-comp\">which / that</span><br>\n\ud83c\udf0d Lugar: <span class=\"g-verb\">where</span><br>\n\u23f0 Tiempo: <span class=\"g-verb\">when</span><br>\n\ud83d\udd11 Posesi\u00f3n: <span class=\"g-quest\">whose</span>\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udc69\u200d\u2695\ufe0f</div><div><div class=\"en\">The doctor <span class=\"g-subj\">who</span> treated my grandmother was excellent.</div><div class=\"es\">La doctora que trat\u00f3 a mi abuela fue excelente. (persona sujeto)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcf1</div><div><div class=\"en\">This is the app <span class=\"g-comp\">that</span> I use to learn languages.</div><div class=\"es\">Esta es la app que uso para aprender idiomas. (cosa objeto, \"that\" omisible)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfeb</div><div><div class=\"en\">That's the school <span class=\"g-verb\">where</span> I studied as a child.</div><div class=\"es\">Esa es la escuela donde estudi\u00e9 de ni\u00f1o. (lugar)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67</div><div><div class=\"en\">I met a woman <span class=\"g-quest\">whose</span> daughter is a famous singer.</div><div class=\"es\">Conoc\u00ed a una mujer cuya hija es una cantante famosa. (posesi\u00f3n)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"The man which called me\" \u2192 \u2705 \"The man <b>who/that</b> called me\" (personas: nunca which)<br>\n\u274c \"The book who I read\" \u2192 \u2705 \"The book <b>which/that</b> I read\" (cosas: nunca who)<br>\n\u274c \"The place when we met\" \u2192 \u2705 \"The place <b>where</b> we met\" (lugar \u2260 tiempo)<br>\n\u274c \"The girl she called me\" \u2192 \u2705 \"The girl <b>who</b> called me\" (falta relativo)<br>\n\u274c \"The car what I bought\" \u2192 \u2705 \"The car <b>that</b> I bought\" (what no es relativo)\n</p></div>", "exercises": [{"q": "\"The artist ___ painting we saw at the museum is Peruvian.\"", "a": "a", "o": ["whose", "who"], "fc": "\"The artist\" POSEE el painting \u2192 <b>whose</b>.", "fi": "\"Who\" no indica posesi\u00f3n; \"whose\" refiere al pintor due\u00f1o de la pintura.", "ex": "The artist whose painting we saw", "tip": "Posesi\u00f3n \u2192 whose"}, {"q": "\"I don't remember the place ___ I left my keys.\"", "a": "b", "o": ["when", "where"], "fc": "\"The place\" = lugar \u2192 <b>where</b>.", "fi": "\"When\" es para tiempo; \"the place\" es ubicaci\u00f3n.", "ex": "The place where I left my keys", "tip": "Place \u2192 where"}, {"q": "\"The email ___ she sent yesterday was very important.\"", "a": "a", "o": ["that", "who"], "fc": "\"Email\" = cosa; \"she\" es sujeto de \"sent\", \"that\" es objeto \u2192 <b>that</b> (o omitido).", "fi": "\"Who\" no se usa con cosas.", "ex": "The email (that) she sent yesterday", "tip": "Cosa objeto \u2192 that (omisible)"}, {"q": "\"The children ___ live in that building go to my school.\"", "a": "b", "o": ["which", "who"], "fc": "\"Children\" = personas, sujeto de \"live\" \u2192 <b>who</b>.", "fi": "\"Which\" no se usa con personas; es solo para cosas y animales.", "ex": "The children who live in that building", "tip": "Personas \u2192 who"}, {"q": "\"The winter ___ we moved to Lima was unusually cold.\"", "a": "b", "o": ["where", "when"], "fc": "\"Winter\" = per\u00edodo de tiempo \u2192 <b>when</b>.", "fi": "\"Where\" es para lugares; el invierno es un tiempo.", "ex": "The winter when we moved to Lima", "tip": "Estaci\u00f3n/per\u00edodo \u2192 when"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

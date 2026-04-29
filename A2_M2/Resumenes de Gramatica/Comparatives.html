@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Comparatives: Patterns | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">⚖️ Comparatives — Patterns (as...as / the...the...)</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>AS...AS:</b> igualdad \u2014 \"She is <b>as tall as</b> her sister\" (tan alta como)", "<b>NOT AS...AS:</b> menor grado \u2014 \"He is <b>not as fast as</b> me\" (no tan r\u00e1pido como)", "<b>THE + comp + ..., THE + comp + ...:</b> dos cosas que cambian juntas \u2014 \"<b>The more you study, the better you learn</b>\"", "<b>Comparativos dobles:</b> \"<b>more and more</b> tired\", \"<b>bigger and bigger</b>\" (cambio progresivo)", "<b>Twice / three times as...as:</b> proporciones \u2014 \"twice as expensive as\"", "<b>Less...than:</b> menor grado \u2014 \"less interesting than\" (alternativa a not as...as)", "Las tres f\u00f3rmulas: as...as (=), not as...as (\u2260), the...the... (proporcional)"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol usamos <b>\"tan...como\"</b> para igualdad, <b>\"menos...que\"</b> para inferioridad, y estructuras como <b>\"cuanto m\u00e1s..., m\u00e1s...\"</b> para cambios proporcionales. Ya conoces los conceptos.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\u2696\ufe0f Igualdad / Inferioridad</h4><ul>\n<li><b>Tan</b> alto <b>como</b> su pap\u00e1</li>\n<li><b>No tan</b> r\u00e1pido <b>como</b> t\u00fa</li>\n<li><b>Menos</b> caro <b>que</b> el otro</li>\n<li>El <b>doble de</b> caro <b>que</b>...</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83d\udd04 Proporcional</h4><ul>\n<li><b>Cuanto m\u00e1s</b> estudias, <b>m\u00e1s</b> aprendes</li>\n<li><b>Cuanto menos</b> duermes, <b>peor</b> rindes</li>\n<li><b>Cada vez m\u00e1s</b> cansado</li>\n<li><b>Cada vez mejor</b></li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\u2696\ufe0f</div><div><div class=\"en\">\"Mar\u00eda es <b>tan</b> alta <b>como</b> Juana\" \u2192 las dos miden lo mismo (igualdad).</div><div class=\"es\">Comparaci\u00f3n de igualdad: as...as</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udcc9</div><div><div class=\"en\">\"Carlos no es <b>tan</b> r\u00e1pido <b>como</b> Pedro\" \u2192 Carlos es m\u00e1s lento que Pedro.</div><div class=\"es\">Comparaci\u00f3n negativa: not as...as</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udcc8</div><div><div class=\"en\">\"<b>Cuanto m\u00e1s</b> practicas, <b>mejor</b> tocas la guitarra\" \u2192 dos cambios que avanzan juntos.</div><div class=\"es\">Estructura proporcional: the more..., the better...</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> Estos tres patrones (igualdad, no-igualdad, proporcional) existen en ambos idiomas con mapeo directo. Solo cambia la forma exacta de las palabras.</div>", "exercises": [{"q": "\"Tan alto como\" en espa\u00f1ol expresa:", "a": "a", "o": ["Igualdad", "Diferencia"], "fc": "\"Tan...como\" indica que las dos cosas son IGUALES en esa cualidad.", "fi": "Para diferencia usar\u00edamos \"m\u00e1s...que\" o \"menos...que\".", "ex": "Tan alto como su pap\u00e1 \u2192 As tall as his dad", "tip": "Tan...como = igualdad"}, {"q": "\"No tan r\u00e1pido como t\u00fa\" significa:", "a": "b", "o": ["M\u00e1s r\u00e1pido que t\u00fa", "Menos r\u00e1pido que t\u00fa"], "fc": "\"No tan r\u00e1pido como t\u00fa\" = soy MENOS r\u00e1pido que t\u00fa.", "fi": "Si fuera m\u00e1s r\u00e1pido dir\u00edamos \"m\u00e1s r\u00e1pido que t\u00fa\".", "ex": "No tan r\u00e1pido como t\u00fa \u2192 Not as fast as you", "tip": "No tan...como = inferioridad"}, {"q": "\"Cuanto m\u00e1s estudias, m\u00e1s aprendes\" \u2014 \u00bfcu\u00e1ntos cambios?", "a": "a", "o": ["Dos, ligados (estudio \u2192 aprendizaje)", "Solo uno (estudiar)"], "fc": "Hay DOS cambios que avanzan juntos: m\u00e1s estudio \u2192 m\u00e1s aprendizaje.", "fi": "No es solo uno; ambos cambian de manera ligada.", "ex": "The more you study, the more you learn", "tip": "Cuanto m\u00e1s..., m\u00e1s... = the...the..."}, {"q": "\"Cada vez m\u00e1s cansado\" indica:", "a": "b", "o": ["Cantidad fija de cansancio", "Cansancio que aumenta"], "fc": "\"Cada vez m\u00e1s\" = aumento progresivo en el tiempo.", "fi": "No es fijo; describe un cambio creciente.", "ex": "Cada vez m\u00e1s cansado \u2192 More and more tired", "tip": "Cada vez m\u00e1s = more and more"}, {"q": "\"Es el doble de caro\" expresa:", "a": "b", "o": ["Una igualdad", "Una proporci\u00f3n exacta"], "fc": "\"El doble de\" = proporci\u00f3n exacta: cuesta 2 veces lo que otra cosa.", "fi": "No es igualdad; es una diferencia cuantificada (proporci\u00f3n).", "ex": "El doble de caro \u2192 Twice as expensive", "tip": "El doble = twice as...as"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">El mapeo entre los patrones es directo. Same logic, same patterns.</div>\n\n<table class=\"g-table\">\n<tr><th>Patr\u00f3n</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Igualdad</td><td><b>tan</b> alto <b>como</b></td><td><span class=\"g-comp\">as</span> tall <span class=\"g-comp\">as</span></td></tr>\n<tr><td>Inferioridad</td><td><b>no tan</b> r\u00e1pido <b>como</b></td><td><span class=\"g-neg\">not as</span> fast <span class=\"g-neg\">as</span></td></tr>\n<tr><td>Inferioridad alt.</td><td><b>menos</b> caro <b>que</b></td><td><span class=\"g-neg\">less</span> expensive <span class=\"g-neg\">than</span></td></tr>\n<tr><td>Proporcional</td><td><b>cuanto m\u00e1s</b>..., <b>m\u00e1s</b>...</td><td><span class=\"g-quest\">the more</span>..., <span class=\"g-quest\">the more</span>...</td></tr>\n<tr><td>Cambio progresivo</td><td><b>cada vez m\u00e1s</b> cansado</td><td><span class=\"g-verb\">more and more</span> tired</td></tr>\n<tr><td>Proporci\u00f3n</td><td>el <b>doble de</b> caro</td><td><span class=\"g-comp\">twice as</span> expensive <span class=\"g-comp\">as</span></td></tr>\n</table>\n\n<div class=\"section-label\">Las 3 f\u00f3rmulas clave</div>\n<div class=\"formula-box\" style=\"text-align:left;font-size:.88rem\">\n\u2696\ufe0f IGUALDAD: <span class=\"g-subj\">A</span> + verb + <span class=\"g-comp\">as + adj + as</span> + <span class=\"g-subj\">B</span><br>\n\ud83d\udcc9 INFERIORIDAD: <span class=\"g-subj\">A</span> + verb + <span class=\"g-neg\">not as + adj + as</span> + <span class=\"g-subj\">B</span><br>\n\ud83d\udd04 PROPORCIONAL: <span class=\"g-quest\">The + comp1</span>..., <span class=\"g-quest\">the + comp2</span>...\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> Si dom\u00ednas \"tan...como\", \"no tan...como\" y \"cuanto m\u00e1s...m\u00e1s...\" en espa\u00f1ol, ya entiendes la l\u00f3gica completa. Solo memoriza las palabras: as, not as, the.</div>", "exercises": [{"q": "\"Mar\u00eda is ___ tall ___ Juana.\" (igualdad)", "a": "a", "o": ["as / as", "not as / as"], "fc": "Igualdad = <b>as ... as</b>: \"as tall as\".", "fi": "\"Not as...as\" indicar\u00eda inferioridad, no igualdad.", "ex": "Mar\u00eda is as tall as Juana \u2192 Es tan alta como Juana", "tip": "Igualdad \u2192 as + adj + as"}, {"q": "\"This phone is ___ expensive ___ that one.\" (no tan caro)", "a": "b", "o": ["as / as", "not as / as"], "fc": "Inferioridad = <b>not as ... as</b>: \"not as expensive as\".", "fi": "\"As / as\" ser\u00eda igualdad (mismo precio).", "ex": "Not as expensive as that one \u2192 No tan caro como ese", "tip": "Inferioridad \u2192 not as...as"}, {"q": "\"___ you practice, ___ you become.\"", "a": "a", "o": ["The more / the better", "More / better"], "fc": "Patr\u00f3n proporcional: <b>The more ... the better</b>.", "fi": "\"More / better\" sin \"the\" no es la estructura correcta.", "ex": "The more you practice, the better you become \u2192 Cuanto m\u00e1s practicas, mejor eres", "tip": "The + comp..., the + comp..."}, {"q": "\"He gets ___ tired every day.\"", "a": "b", "o": ["more tired", "more and more tired"], "fc": "Para cambio progresivo (cada vez m\u00e1s) usamos <b>more and more</b>.", "fi": "\"More tired\" sola es comparativo simple, no progresivo.", "ex": "More and more tired \u2192 Cada vez m\u00e1s cansado", "tip": "Progresivo \u2192 more and more / -er and -er"}, {"q": "\"This car is ___ expensive ___ that one.\" (el doble)", "a": "a", "o": ["twice as / as", "twice more / than"], "fc": "Proporci\u00f3n exacta = <b>twice as ... as</b>: \"twice as expensive as\".", "fi": "\"Twice more than\" no es una estructura est\u00e1ndar.", "ex": "Twice as expensive as that one \u2192 El doble de caro que ese", "tip": "El doble = twice as...as"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Las trampas en posici\u00f3n y formaci\u00f3n de los comparativos.</div>\n\n<table class=\"g-table\">\n<tr><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th><th>\ud83d\udca1 Explanation</th></tr>\n<tr><td>tan + adj + como</td><td><span class=\"g-comp\">as</span> + adj + <span class=\"g-comp\">as</span></td><td>Adjetivo va EN MEDIO de las dos \"as\"</td></tr>\n<tr><td>menos + adj + que</td><td><span class=\"g-neg\">less</span> + adj + <span class=\"g-neg\">than</span></td><td>\"Than\" no \"as\" con less</td></tr>\n<tr><td>cuanto m\u00e1s..., m\u00e1s...</td><td><span class=\"g-quest\">the more</span>..., <span class=\"g-quest\">the more</span>...</td><td>\"The\" obligatorio en ambas partes</td></tr>\n<tr><td>cuanto m\u00e1s alto, mejor</td><td>the <span class=\"g-quest\">taller</span>, the better</td><td>Adj cortos: usar -er, no \"more\"</td></tr>\n<tr><td>Cada vez m\u00e1s grande</td><td><span class=\"g-verb\">bigger and bigger</span></td><td>Adj cortos: doble -er, no \"more and more big\"</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Adjetivos cortos vs largos en patrones proporcionales</div>\n<p>La regla de comparativos b\u00e1sicos aplica tambi\u00e9n aqu\u00ed:<br>\n\u2022 <b>1 s\u00edlaba o 2 s\u00edlabas en -y:</b> + <b>-er</b> \u2192 taller, easier, bigger<br>\n\u2022 <b>2+ s\u00edlabas:</b> + <b>more</b> \u2192 more interesting, more expensive<br><br>\n\u2705 \"<b>The bigger</b>, the better\" / \"<b>Bigger and bigger</b>\"<br>\n\u2705 \"<b>The more interesting</b>, the better\" / \"<b>More and more interesting</b>\"<br>\n\u274c \"The more big\" / \"More big and more big\"</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">She is more tall as her sister.</div><div class=\"es\">\"More tall\" + \"as\" \u2014 dos errores</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">She is <span class=\"g-comp\">as tall as</span> her sister.</div><div class=\"es\">Es tan alta como su hermana.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">More you study, more you learn.</div><div class=\"es\">Falta \"the\" en ambas partes</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\"><span class=\"g-quest\">The more</span> you study, <span class=\"g-quest\">the more</span> you learn.</div><div class=\"es\">Cuanto m\u00e1s estudias, m\u00e1s aprendes.</div></div></div>", "exercises": [{"q": "\"___ harder you work, ___ more you earn.\"", "a": "b", "o": ["\u00d8 / \u00d8", "The / the"], "fc": "En patr\u00f3n proporcional, ambos comparativos llevan \"the\".", "fi": "Sin \"the\" no es la estructura est\u00e1ndar en ingl\u00e9s.", "ex": "The harder you work, the more you earn", "tip": "The + comp..., the + comp..."}, {"q": "\"This book is ___ as the other one.\"", "a": "a", "o": ["as interesting", "interestinger"], "fc": "Adj largo (interesting) en igualdad: <b>as interesting as</b>.", "fi": "\"Interestinger\" no existe; adj largos no llevan -er.", "ex": "As interesting as the other one \u2192 Tan interesante como el otro", "tip": "Adj largo + as = as + adj + as"}, {"q": "\"The weather is getting ___.\"", "a": "b", "o": ["more cold and more cold", "colder and colder"], "fc": "\"Cold\" es adj corto \u2192 <b>colder and colder</b> (no \"more cold\").", "fi": "\"More cold and more cold\" no es est\u00e1ndar; cold es corto.", "ex": "Colder and colder \u2192 Cada vez m\u00e1s fr\u00edo", "tip": "Adj corto \u2192 -er and -er"}, {"q": "\"This car is ___ that one.\" (el doble de r\u00e1pido)", "a": "b", "o": ["as fast than", "twice as fast as"], "fc": "\"El doble\" = <b>twice as ... as</b>: twice as fast as.", "fi": "\"As fast than\" mezcla \"as\" y \"than\" \u2014 no existe.", "ex": "Twice as fast as that one \u2192 El doble de r\u00e1pido", "tip": "El doble \u2192 twice as...as"}, {"q": "\"Spanish is ___ Russian.\" (menos dif\u00edcil)", "a": "a", "o": ["less difficult than", "not as difficult as"], "fc": "Ambas son v\u00e1lidas, pero <b>less difficult than</b> es la estructura cl\u00e1sica con \"less\".", "fi": "\"Not as difficult as\" tambi\u00e9n significa lo mismo; ambas correctas.", "ex": "Spanish is less difficult than Russian \u2192 El espa\u00f1ol es menos dif\u00edcil que el ruso", "tip": "less + adj + than (alt: not as...as)"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 As...as siempre lleva el adj EN MEDIO:</strong> \"as <b>tall</b> as\", \"as <b>fast</b> as\", \"as <b>interesting</b> as\". El adj nunca cambia su forma (no -er, no more).</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 The...the... siempre con DOS comparativos:</strong> \"The <b>more</b>... the <b>better</b>\", \"The <b>older</b>, the <b>wiser</b>\". Ambas partes deben tener un comparativo Y un \"the\".</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Cambio progresivo:</strong><br>\n\u2022 Adj cortos: <b>-er and -er</b> \u2192 bigger and bigger, hotter and hotter<br>\n\u2022 Adj largos: <b>more and more + adj</b> \u2192 more and more difficult, more and more interesting</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Proporciones exactas:</strong> twice as...as (el doble), three times as...as (el triple), half as...as (la mitad). Siempre con \"as...as\", no \"than\".</div>\n\n<div class=\"formula-box\">\n\u2696\ufe0f <span class=\"g-comp\">as + adj + as</span> = igualdad<br>\n\ud83d\udcc9 <span class=\"g-neg\">not as + adj + as</span> = inferioridad<br>\n\ud83d\udcc9 <span class=\"g-neg\">less + adj + than</span> = inferioridad (alt.)<br>\n\ud83d\udd04 <span class=\"g-quest\">the + comp..., the + comp...</span> = proporcional<br>\n\ud83d\udcc8 <span class=\"g-verb\">comp + and + comp</span> = cambio progresivo<br>\n\ud83d\udd22 <span class=\"g-comp\">twice as + adj + as</span> = el doble\n</div>\n\n<table class=\"g-table\">\n<tr><th>Estructura</th><th>Ejemplo</th><th>Significado</th></tr>\n<tr><td>as ... as</td><td>as cold as ice</td><td>tan fr\u00edo como hielo</td></tr>\n<tr><td>not as ... as</td><td>not as tall as</td><td>no tan alto como</td></tr>\n<tr><td>less ... than</td><td>less expensive than</td><td>menos caro que</td></tr>\n<tr><td>the more, the more</td><td>the more, the better</td><td>cuanto m\u00e1s, mejor</td></tr>\n<tr><td>-er and -er</td><td>hotter and hotter</td><td>cada vez m\u00e1s caliente</td></tr>\n<tr><td>twice as ... as</td><td>twice as fast as</td><td>el doble de r\u00e1pido</td></tr>\n</table>", "exercises": [{"q": "\"He earns ___ his brother.\" (la mitad)", "a": "a", "o": ["half as much as", "half than"], "fc": "\"La mitad\" = <b>half as ... as</b>. \"Much\" para sustantivos incontables (dinero).", "fi": "\"Half than\" no es estructura v\u00e1lida; siempre es \"as...as\" con proporciones.", "ex": "He earns half as much as his brother \u2192 Gana la mitad que su hermano", "tip": "Half/Twice/Three times + as...as"}, {"q": "\"___ you sleep, ___ tired you feel.\"", "a": "b", "o": ["More / less", "The less / the more"], "fc": "Patr\u00f3n proporcional con sentidos opuestos: <b>The less ... the more</b>.", "fi": "\"More / less\" sin \"the\" no es la estructura.", "ex": "The less you sleep, the more tired you feel \u2192 Cuanto menos duermes, m\u00e1s cansado te sientes", "tip": "The + comp..., the + comp..."}, {"q": "\"Her English is getting ___.\"", "a": "a", "o": ["better and better", "more and more good"], "fc": "\"Good\" es irregular: comparativo = <b>better</b>. Progresivo: <b>better and better</b>.", "fi": "\"More and more good\" no existe; usa \"better\".", "ex": "Her English is getting better and better \u2192 Su ingl\u00e9s mejora cada vez m\u00e1s", "tip": "good \u2192 better (irregular)"}, {"q": "\"This room is ___ the other one.\" (igual de grande)", "a": "b", "o": ["bigger as", "as big as"], "fc": "Igualdad = <b>as + adj + as</b>: \"as big as\".", "fi": "\"Bigger as\" mezcla dos estructuras incorrectas.", "ex": "As big as the other one \u2192 Tan grande como el otro", "tip": "as + adj BASE + as"}, {"q": "\"My new job is ___ my old one.\" (no tan estresante)", "a": "a", "o": ["not as stressful as", "less stressful as"], "fc": "Estructura: <b>not as + adj + as</b>: \"not as stressful as\".", "fi": "\"Less stressful as\" mezcla estructuras \u2014 es \"less stressful THAN\" o \"not as stressful AS\", no \"less...as\".", "ex": "Not as stressful as my old one \u2192 No tan estresante como el anterior", "tip": "not as + adj + as"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Combina los 3 patrones: as...as, the...the..., y comparativos progresivos.</div>\n\n<div class=\"formula-box\">\n\u2696\ufe0f Igualdad: <span class=\"g-comp\">as + adj + as</span><br>\n\ud83d\udcc9 Inferioridad: <span class=\"g-neg\">not as + adj + as</span> / <span class=\"g-neg\">less + adj + than</span><br>\n\ud83d\udd04 Proporcional: <span class=\"g-quest\">the + comp..., the + comp...</span><br>\n\ud83d\udcc8 Progresivo: <span class=\"g-verb\">-er and -er</span> / <span class=\"g-verb\">more and more + adj</span>\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2696\ufe0f</div><div><div class=\"en\"><span class=\"g-subj\">My phone</span> is <span class=\"g-comp\">as fast as</span> <span class=\"g-subj\">yours</span>.</div><div class=\"es\">Mi tel\u00e9fono es tan r\u00e1pido como el tuyo. (igualdad)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcc9</div><div><div class=\"en\"><span class=\"g-subj\">Today</span> is <span class=\"g-neg\">not as cold as</span> <span class=\"g-subj\">yesterday</span>.</div><div class=\"es\">Hoy no hace tanto fr\u00edo como ayer. (inferioridad)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udd04</div><div><div class=\"en\"><span class=\"g-quest\">The more</span> you read, <span class=\"g-quest\">the more</span> you learn.</div><div class=\"es\">Cuanto m\u00e1s lees, m\u00e1s aprendes. (proporcional)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcc8</div><div><div class=\"en\"><span class=\"g-subj\">The days</span> are getting <span class=\"g-verb\">shorter and shorter</span>.</div><div class=\"es\">Los d\u00edas se hacen cada vez m\u00e1s cortos. (progresivo)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"She is more tall as her sister\" \u2192 \u2705 \"She is <b>as tall as</b> her sister\"<br>\n\u274c \"More you practice, more you improve\" \u2192 \u2705 \"<b>The more</b> you practice, <b>the more</b> you improve\"<br>\n\u274c \"More and more good\" \u2192 \u2705 \"<b>Better and better</b>\" (good \u2192 better, irregular)<br>\n\u274c \"Not so fast than\" \u2192 \u2705 \"Not <b>as</b> fast <b>as</b>\" (no \"than\" con as...as)<br>\n\u274c \"Two times as fast\" \u2192 \u2705 \"<b>Twice as</b> fast\" (twice, no \"two times\")\n</p></div>", "exercises": [{"q": "\"This city is ___ I expected.\" (m\u00e1s caro de lo)", "a": "a", "o": ["more expensive than", "as expensive as"], "fc": "Comparativo simple con expectativa = <b>more expensive than</b>.", "fi": "\"As expensive as\" ser\u00eda igualdad, no superioridad.", "ex": "This city is more expensive than I expected", "tip": "M\u00e1s + adj + de lo que = more + adj + than"}, {"q": "\"The exam was ___ I thought.\" (no tan dif\u00edcil como)", "a": "b", "o": ["less difficult than", "not as difficult as"], "fc": "\"No tan...como\" \u2192 <b>not as + adj + as</b>. Ambas son v\u00e1lidas pero esta es la estructura cl\u00e1sica.", "fi": "\"Less difficult than\" tambi\u00e9n correcto pero \"not as difficult as\" mapea m\u00e1s directo.", "ex": "The exam was not as difficult as I thought \u2192 El examen no fue tan dif\u00edcil como pens\u00e9", "tip": "No tan...como \u2192 not as...as"}, {"q": "\"___ you eat, ___ you weigh.\" (cuanto m\u00e1s comes, m\u00e1s pesas)", "a": "a", "o": ["The more / the more", "More / more"], "fc": "Patr\u00f3n proporcional: <b>The more ... the more</b>. Ambas con \"the\".", "fi": "Sin \"the\" no es la estructura est\u00e1ndar.", "ex": "The more you eat, the more you weigh", "tip": "Cuanto m\u00e1s..., m\u00e1s..."}, {"q": "\"My headache is getting ___.\" (cada vez peor)", "a": "b", "o": ["more and more bad", "worse and worse"], "fc": "\"Bad\" es irregular: comparativo = <b>worse</b>. Progresivo: <b>worse and worse</b>.", "fi": "\"More and more bad\" no es correcto; \"bad\" es irregular.", "ex": "My headache is getting worse and worse \u2192 Mi dolor de cabeza empeora cada vez m\u00e1s", "tip": "bad \u2192 worse (irregular)"}, {"q": "\"This bag costs ___ that one.\" (el triple)", "a": "b", "o": ["three times much than", "three times as much as"], "fc": "\"El triple\" = <b>three times as ... as</b>. \"Much\" para precio (incontable).", "fi": "\"Three times much than\" mezcla \"much\" con \"than\" sin estructura v\u00e1lida.", "ex": "This bag costs three times as much as that one \u2192 Esta bolsa cuesta el triple que esa", "tip": "X times + as...as"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

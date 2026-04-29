@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Past Simple | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">📆 Past Simple — Regular & Irregular Verbs</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>Regulares:</b> base + <b>-ed</b> \u2014 worked, played, studied", "<b>Irregulares:</b> forma \u00fanica \u2014 went, saw, ate, bought, thought", "<b>Misma forma para TODAS las personas:</b> I went / He went / They went", "<b>Negativo:</b> didn't + base \u2014 \"She didn't go\" (sin -ed!)", "<b>Pregunta:</b> Did + subject + base? \u2014 \"Did you see it?\"", "<b>Was/Were</b> son el pasado de to be (\u00fanica excepci\u00f3n con 2 formas)", "Grupos irregulares t\u00edpicos: A-A-A (cut), A-B-B (buy/bought), A-B-C (go/went/gone)"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol, el pasado simple tiene muchas formas distintas seg\u00fan la persona (com\u00ed, comiste, comi\u00f3...). En ingl\u00e9s es mucho m\u00e1s f\u00e1cil: <b>una sola forma</b> para todas las personas.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol (6 formas)</h4><ul>\n<li>Yo com<b>\u00ed</b></li>\n<li>T\u00fa com<b>iste</b></li>\n<li>\u00c9l/Ella com<b>i\u00f3</b></li>\n<li>Nosotros com<b>imos</b></li>\n<li>Ustedes com<b>ieron</b></li>\n<li>Ellos com<b>ieron</b></li>\n</ul></div>\n<div class=\"compare-card eng\"><h4>\ud83c\uddec\ud83c\udde7 English (1 forma)</h4><ul>\n<li>I <b>ate</b></li>\n<li>You <b>ate</b></li>\n<li>He/She <b>ate</b></li>\n<li>We <b>ate</b></li>\n<li>You <b>ate</b></li>\n<li>They <b>ate</b></li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\u2728</div><div><div class=\"en\">En ingl\u00e9s, TODOS los pronombres usan la misma forma.</div><div class=\"es\">\"Ate\" sirve para yo, t\u00fa, ella, nosotros... \u00a1la misma palabra!</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udcda</div><div><div class=\"en\">Espa\u00f1ol: \"ser\" \u2192 fui, fuiste, fue, fuimos...<br>Ingl\u00e9s: \"be\" \u2192 was/were (\u00fanica excepci\u00f3n con 2 formas)</div><div class=\"es\">Una regla que compensa la complejidad del espa\u00f1ol</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> En espa\u00f1ol memorizas 6 formas por verbo. En ingl\u00e9s, solo 1 forma (excepto \"was/were\"). \u00a1Mucho m\u00e1s simple!</div>", "exercises": [{"q": "En espa\u00f1ol, \u00bfcu\u00e1ntas formas tiene un verbo en pasado?", "a": "a", "o": ["6 (una por persona)", "1 (para todos)"], "fc": "Espa\u00f1ol cambia seg\u00fan la persona: com\u00ed, comiste, comi\u00f3...", "fi": "En espa\u00f1ol s\u00ed cambia por persona. En ingl\u00e9s es 1 sola.", "ex": "Yo com\u00ed / T\u00fa comiste / \u00c9l comi\u00f3", "tip": "Espa\u00f1ol = 6 formas \u00b7 Ingl\u00e9s = 1 forma"}, {"q": "\"Com\u00ed una manzana\" \u2014 \u00bfqu\u00e9 persona?", "a": "b", "o": ["T\u00fa", "Yo"], "fc": "\"Com\u00ed\" = primera persona (yo).", "fi": "\"T\u00fa\" ser\u00eda \"comiste\".", "ex": "Yo com\u00ed \u2192 I ate"}, {"q": "\u00bfCu\u00e1l es la terminaci\u00f3n de pasado regular en espa\u00f1ol para \"yo\"?", "a": "a", "o": ["-\u00e9 / -\u00ed", "-aste / -iste"], "fc": "\"Yo\" usa \"-\u00e9\" (cant\u00e9) o \"-\u00ed\" (com\u00ed, viv\u00ed).", "fi": "\"-aste / -iste\" son para \"t\u00fa\" (cantaste, comiste)."}, {"q": "\"Ellos salieron\" \u2014 \u00bfel verbo cambia por el n\u00famero de personas?", "a": "b", "o": ["No, siempre es igual", "S\u00ed, por plural"], "fc": "S\u00ed: \"\u00e9l sali\u00f3\" vs \"ellos salieron\". Cambia por persona Y n\u00famero.", "fi": "En espa\u00f1ol el verbo s\u00ed cambia por persona/n\u00famero.", "ex": "\u00c9l sali\u00f3 \u2260 Ellos salieron", "tip": "En espa\u00f1ol cambia mucho; en ingl\u00e9s no"}, {"q": "\"Nosotros salimos\" \u2014 \u00bfqu\u00e9 forma tendr\u00eda en ingl\u00e9s?", "a": "a", "o": ["We went out", "We gone out"], "fc": "\"Salimos\" = pasado simple \u2192 \"went out\" (pasado de \"go out\"). \"Went\" sirve para todas las personas.", "fi": "\"Gone\" es participio pasado, no se usa solo en pasado simple.", "ex": "Nosotros salimos \u2192 We went out", "tip": "go out \u2192 went out \u2192 gone out"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Ambos idiomas comparten conceptos clave del pasado, aunque la ejecuci\u00f3n sea distinta.</div>\n\n<table class=\"g-table\">\n<tr><th>Similitud / Similarity</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Acciones completas</td><td>Ayer com\u00ed pizza</td><td>Yesterday I <span class=\"g-verb\">ate</span> pizza</td></tr>\n<tr><td>Verbos regulares</td><td>-\u00e9 / -\u00ed (estudi\u00e9)</td><td><span class=\"g-verb\">-ed</span> (studied)</td></tr>\n<tr><td>Verbos irregulares</td><td>fui, dije, hice, supe...</td><td><span class=\"g-verb\">went, said, did, knew</span>...</td></tr>\n<tr><td>Marcadores temporales</td><td>ayer, la semana pasada</td><td>yesterday, last week</td></tr>\n<tr><td>Uso con historias</td><td>Contar algo que pas\u00f3</td><td>Tell what happened</td></tr>\n</table>\n\n<div class=\"section-label\">Grupos de irregulares</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">A-A-A</div><div class=\"vrb\">cut \u2192 cut</div><div class=\"meaning\">sin cambio</div></div>\n<div class=\"conj-item\"><div class=\"pron\">A-B-B</div><div class=\"vrb\">buy \u2192 bought</div><div class=\"meaning\">pasado = participio</div></div>\n<div class=\"conj-item\"><div class=\"pron\">A-B-C</div><div class=\"vrb\">go \u2192 went</div><div class=\"meaning\">3 formas distintas</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> Tanto en espa\u00f1ol como en ingl\u00e9s existen verbos regulares (patr\u00f3n predecible) e irregulares (hay que memorizar). La diferencia est\u00e1 en las reglas concretas de cada idioma.</div>", "exercises": [{"q": "\"Yesterday I ___ pizza.\" (verbo \"eat\")", "a": "b", "o": ["eated", "ate"], "fc": "\"Eat\" es irregular: pasado = <b>ate</b>.", "fi": "\"Eated\" no existe en ingl\u00e9s.", "ex": "I ate pizza yesterday \u2192 Ayer com\u00ed pizza", "tip": "eat \u2192 ate \u2192 eaten"}, {"q": "\u00bfCu\u00e1l es el pasado regular en ingl\u00e9s?", "a": "a", "o": ["Base + -ed", "Base + -en"], "fc": "Regulares: play \u2192 play<b>ed</b>, work \u2192 work<b>ed</b>.", "fi": "\"-en\" es para participios (eaten, taken).", "ex": "She worked yesterday \u2192 Ella trabaj\u00f3 ayer"}, {"q": "\"She ___ to the party.\" (verbo \"go\")", "a": "b", "o": ["goed", "went"], "fc": "\"Go\" es irregular: pasado = <b>went</b>.", "fi": "\"Goed\" no existe en ingl\u00e9s.", "ex": "She went to the party \u2192 Ella fue a la fiesta", "tip": "go \u2192 went \u2192 gone"}, {"q": "\"They ___ the movie.\" (verbo \"see\")", "a": "a", "o": ["saw", "seed"], "fc": "\"See\" es irregular: pasado = <b>saw</b>.", "fi": "\"Seed\" no es pasado de \"see\".", "ex": "They saw the movie \u2192 Ellos vieron la pel\u00edcula", "tip": "see \u2192 saw \u2192 seen"}, {"q": "\"I ___ a new bike last week.\" (verbo \"buy\")", "a": "b", "o": ["buyed", "bought"], "fc": "\"Buy\" es irregular: pasado = <b>bought</b>.", "fi": "\"Buyed\" no existe en ingl\u00e9s.", "ex": "I bought a bike \u2192 Compr\u00e9 una bici", "tip": "buy \u2192 bought \u2192 bought"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Estas son las reglas del ingl\u00e9s que NO existen igual en espa\u00f1ol.</div>\n\n<table class=\"g-table\">\n<tr><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th><th>\ud83d\udca1 Explanation</th></tr>\n<tr><td>6 formas por verbo</td><td>1 sola forma</td><td>I went / You went / She went...</td></tr>\n<tr><td>\"No fui\" \u2014 solo agregar \"no\"</td><td>\"I <span class=\"g-neg\">didn't go</span>\" \u2014 auxiliar</td><td>Ingl\u00e9s usa \"did not / didn't\"</td></tr>\n<tr><td>Verbo en pasado en negativo</td><td>Verbo en <b>base</b> tras did</td><td>didn't <span class=\"g-verb\">go</span> (no didn't went)</td></tr>\n<tr><td>\"\u00bfFuiste?\" \u2014 tono</td><td>\"<span class=\"g-quest\">Did you</span> go?\" \u2014 inversi\u00f3n</td><td>Did + sujeto + base</td></tr>\n<tr><td>Verbo cambia por persona</td><td>\"Did\" hace todo el trabajo</td><td>She went \u2192 Did she go?</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f \u00a1La regla de oro!</div>\n<p>Despu\u00e9s de <b>did / didn't</b>, el verbo vuelve a su <b>forma base</b> (sin -ed, sin irregular).<br>\n\u274c \"She didn't went\" \u2192 \u2705 \"She <b>didn't go</b>\"<br>\n\u274c \"Did you saw it?\" \u2192 \u2705 \"Did you <b>see</b> it?\"</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I didn't went to school.</div><div class=\"es\">Con \"didn't\" el verbo va en base</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">I <span class=\"g-neg\">didn't go</span> to school.</div><div class=\"es\">No fui a la escuela.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">Did she bought a car?</div><div class=\"es\">Con \"did\" tambi\u00e9n va la forma base</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\"><span class=\"g-quest\">Did</span> she <span class=\"g-verb\">buy</span> a car?</div><div class=\"es\">\u00bfEll\u00e1 compr\u00f3 un coche?</div></div></div>", "exercises": [{"q": "\"She ___ go to the party.\" (negativo)", "a": "a", "o": ["didn't", "wasn't"], "fc": "Negativo en pasado simple = <b>didn't</b> + verbo base.", "fi": "\"Wasn't\" es para past continuous (wasn't going).", "ex": "She didn't go \u2192 Ella no fue", "tip": "didn't + verbo base (sin -ed)"}, {"q": "\"They ___ see the movie.\" (negativo)", "a": "b", "o": ["didn't saw", "didn't see"], "fc": "Tras \"didn't\" va la forma BASE: <b>see</b>, no \"saw\".", "fi": "\"Didn't saw\" es doble pasado \u2014 incorrecto.", "ex": "They didn't see the movie \u2192 No vieron la peli", "tip": "Con did/didn't \u2192 verbo base"}, {"q": "\"___ you go to the concert?\"", "a": "a", "o": ["Did", "Was"], "fc": "Pregunta en pasado simple = <b>Did</b> + sujeto + base.", "fi": "\"Was\" es para to be o past continuous (Were you going?).", "ex": "Did you go? \u2192 \u00bfFuiste?"}, {"q": "\"Did she ___ the book?\" (verbo \"read\")", "a": "b", "o": ["read (pasado)", "read (base)"], "fc": "Tras \"did\" va la forma BASE: read (pronunciado /ri:d/).", "fi": "\"Did + pasado\" es doble marca \u2014 incorrecto.", "ex": "Did she read it? \u2192 \u00bfEll\u00e1 lo ley\u00f3?", "tip": "\"Read\" se escribe igual en base y pasado, pero se pronuncia distinto"}, {"q": "\"I went\" \u2014 \u00bfcambia con \"they\"?", "a": "b", "o": ["S\u00ed: they wented", "No: they went"], "fc": "Mismo verbo pasado para TODAS las personas: I went / They went / She went.", "fi": "\"Wented\" no existe. En ingl\u00e9s no cambia por persona.", "tip": "Ingl\u00e9s pasado = 1 forma \u00fanica"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 Regulares:</strong> Base + -ed. Spelling: study \u2192 studi<b>ed</b>, stop \u2192 stop<b>ped</b>, live \u2192 liv<b>ed</b>. Las mismas reglas de -ing aplican (-y, doble consonante, drop -e).</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Irregulares prioritarios:</strong> go/went, see/saw, eat/ate, buy/bought, think/thought, take/took, come/came, make/made, say/said, get/got.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Negativo y pregunta:</strong> <b>Did / Didn't</b> hace todo el trabajo. El verbo vuelve a la forma BASE: \"She didn't <b>go</b>\", \"Did you <b>see</b>?\"</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Time markers:</strong> yesterday, last week/month/year, in 2020, two days ago, when I was young, this morning (if already finished).</div>\n\n<div class=\"formula-box\">\n\u2705 <span class=\"g-subj\">Subject</span> + <span class=\"g-verb\">verb-ed / irregular</span><br>\n\u274c <span class=\"g-subj\">Subject</span> + <span class=\"g-neg\">didn't</span> + <span class=\"g-verb\">base verb</span><br>\n\u2753 <span class=\"g-quest\">Did</span> + <span class=\"g-subj\">subject</span> + <span class=\"g-verb\">base verb</span>?\n</div>\n\n<table class=\"g-table\">\n<tr><th>Base</th><th>Past</th><th>Tipo</th></tr>\n<tr><td>play</td><td>played</td><td>Regular</td></tr>\n<tr><td>study</td><td>studi<b>ed</b></td><td>Regular (y\u2192i)</td></tr>\n<tr><td>stop</td><td>stop<b>ped</b></td><td>Regular (doble consonante)</td></tr>\n<tr><td>go</td><td><b>went</b></td><td>Irregular A-B-C</td></tr>\n<tr><td>buy</td><td><b>bought</b></td><td>Irregular A-B-B</td></tr>\n<tr><td>cut</td><td><b>cut</b></td><td>Irregular A-A-A</td></tr>\n<tr><td>take</td><td><b>took</b></td><td>Irregular A-B-C</td></tr>\n</table>", "exercises": [{"q": "\"Yesterday she ___ a book.\" (verbo \"read\")", "a": "a", "o": ["read", "readed"], "fc": "\"Read\" es irregular A-A-A: base y pasado se escriben igual.", "fi": "\"Readed\" no existe en ingl\u00e9s.", "ex": "She read a book yesterday \u2192 Ella ley\u00f3 un libro", "tip": "read \u2192 read \u2192 read (escrito igual, pronunciaci\u00f3n distinta)"}, {"q": "\"He ___ his homework last night.\" (verbo \"do\")", "a": "b", "o": ["doed", "did"], "fc": "\"Do\" es irregular: pasado = <b>did</b>.", "fi": "\"Doed\" no existe.", "ex": "He did his homework \u2192 \u00c9l hizo la tarea", "tip": "do \u2192 did \u2192 done"}, {"q": "\"They ___ a new house last year.\" (verbo \"build\")", "a": "a", "o": ["built", "builded"], "fc": "\"Build\" es irregular: pasado = <b>built</b>.", "fi": "\"Builded\" no existe.", "ex": "They built a house \u2192 Construyeron una casa", "tip": "build \u2192 built \u2192 built"}, {"q": "\"I ___ my bag at school.\" (verbo \"leave\")", "a": "b", "o": ["leaved", "left"], "fc": "\"Leave\" es irregular: pasado = <b>left</b>.", "fi": "\"Leaved\" no existe.", "ex": "I left my bag \u2192 Dej\u00e9 mi mochila", "tip": "leave \u2192 left \u2192 left"}, {"q": "\"She ___ Spanish for 5 years.\" (verbo \"study\")", "a": "a", "o": ["studied", "studyed"], "fc": "Regular con y: quitar y + a\u00f1adir -ied \u2192 <b>studied</b>.", "fi": "\"Studyed\" no sigue la regla ortogr\u00e1fica.", "ex": "She studied Spanish \u2192 Estudi\u00f3 espa\u00f1ol", "tip": "Consonante + y \u2192 -ied (study, cry, try)"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Aplica todo lo aprendido: regulares, irregulares, negativos e interrogativos.</div>\n\n<div class=\"formula-box\">\n\u2705 <span class=\"g-subj\">S</span> + <span class=\"g-verb\">verb<sub>ed</sub> / irregular</span><br>\n\u274c <span class=\"g-subj\">S</span> + <span class=\"g-neg\">didn't</span> + <span class=\"g-verb\">base</span><br>\n\u2753 <span class=\"g-quest\">Did</span> + <span class=\"g-subj\">S</span> + <span class=\"g-verb\">base</span>?\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfe2</div><div><div class=\"en\"><span class=\"g-subj\">I</span> <span class=\"g-verb\">worked</span> <span class=\"g-comp\">from 9 to 5 yesterday</span>.</div><div class=\"es\">Trabaj\u00e9 de 9 a 5 ayer. (regular)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcd6</div><div><div class=\"en\"><span class=\"g-subj\">She</span> <span class=\"g-verb\">wrote</span> <span class=\"g-comp\">a letter last week</span>.</div><div class=\"es\">Ella escribi\u00f3 una carta la semana pasada. (irregular)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u274c</div><div><div class=\"en\"><span class=\"g-subj\">They</span> <span class=\"g-neg\">didn't</span> <span class=\"g-verb\">see</span> <span class=\"g-comp\">the movie</span>.</div><div class=\"es\">No vieron la pel\u00edcula. (base tras didn't)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2753</div><div><div class=\"en\"><span class=\"g-quest\">Did</span> <span class=\"g-subj\">you</span> <span class=\"g-verb\">buy</span> <span class=\"g-comp\">the tickets</span>?</div><div class=\"es\">\u00bfCompraste las entradas?</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"She goed home\" \u2192 \u2705 \"She <b>went</b> home\" (irregular)<br>\n\u274c \"I didn't went\" \u2192 \u2705 \"I <b>didn't go</b>\" (base tras didn't)<br>\n\u274c \"Did you saw it?\" \u2192 \u2705 \"Did you <b>see</b> it?\" (base tras did)<br>\n\u274c \"He taked it\" \u2192 \u2705 \"He <b>took</b> it\" (irregular: take\u2192took)\n</p></div>", "exercises": [{"q": "\"Last summer, we ___ to Paris.\" (verbo \"go\")", "a": "b", "o": ["goed", "went"], "fc": "\"Go\" es irregular: pasado = <b>went</b>.", "fi": "\"Goed\" no existe en ingl\u00e9s.", "ex": "We went to Paris \u2192 Fuimos a Par\u00eds", "tip": "go \u2192 went \u2192 gone"}, {"q": "\"He ___ dinner at 8 PM.\" (negativo, verbo \"eat\")", "a": "a", "o": ["didn't eat", "didn't ate"], "fc": "Tras \"didn't\" va la BASE: <b>eat</b>.", "fi": "\"Didn't ate\" es doble pasado \u2014 incorrecto.", "ex": "He didn't eat dinner \u2192 \u00c9l no cen\u00f3", "tip": "didn't + base (siempre)"}, {"q": "\"___ they finish the project?\"", "a": "a", "o": ["Did", "Was"], "fc": "Pregunta en pasado simple = <b>Did</b> + sujeto + base.", "fi": "\"Was they\" no existe (es \"were\" para plural); adem\u00e1s aqu\u00ed es past simple, no past cont.", "ex": "Did they finish? \u2192 \u00bfTerminaron?"}, {"q": "\"I ___ my keys this morning.\" (verbo \"lose\")", "a": "b", "o": ["losed", "lost"], "fc": "\"Lose\" es irregular: pasado = <b>lost</b>.", "fi": "\"Losed\" no existe.", "ex": "I lost my keys \u2192 Perd\u00ed mis llaves", "tip": "lose \u2192 lost \u2192 lost"}, {"q": "\"She ___ the window.\" (verbo \"break\", negativo)", "a": "a", "o": ["didn't break", "didn't broke"], "fc": "Tras \"didn't\" va la BASE: <b>break</b>.", "fi": "\"Didn't broke\" es doble pasado.", "ex": "She didn't break the window \u2192 No rompi\u00f3 la ventana", "tip": "didn't + break (no broke)"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

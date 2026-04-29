@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Zero Article | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">⬜ Zero Article — Plurals & Uncountables</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>Zero article (\u00d8):</b> NO se usa art\u00edculo \u2014 \"I like <b>music</b>\" (no \"the music\")", "<b>Plurales generales:</b> \"Dogs are loyal\" \u2014 todos los perros, sin \"the\"", "<b>Incontables generales:</b> \"Water is important\" \u2014 el agua en general, sin \"the\"", "<b>The</b> se usa cuando hablamos de algo ESPEC\u00cdFICO conocido por ambos", "<b>A/An</b> se usa solo con contables SINGULARES (a book, an apple)", "Regla clave: singular contable SIEMPRE lleva art\u00edculo (a/an/the)", "Regla clave: plural general e incontable general \u2192 SIN art\u00edculo (\u00d8)"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol casi siempre usamos art\u00edculo: \"<b>los</b> perros son leales\", \"<b>el</b> agua es importante\". En ingl\u00e9s, cuando hablas en GENERAL, NO se usa art\u00edculo.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol (con art\u00edculo)</h4><ul>\n<li><b>Los</b> perros son leales</li>\n<li><b>El</b> agua es importante</li>\n<li>Me gusta <b>la</b> m\u00fasica</li>\n<li><b>Los</b> ni\u00f1os juegan</li>\n</ul></div>\n<div class=\"compare-card eng\"><h4>\ud83c\uddec\ud83c\udde7 English (SIN art\u00edculo)</h4><ul>\n<li><b>\u00d8</b> Dogs are loyal</li>\n<li><b>\u00d8</b> Water is important</li>\n<li>I like <b>\u00d8</b> music</li>\n<li><b>\u00d8</b> Children play</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udc36</div><div><div class=\"en\">\"Los perros son fieles\" \u2192 los perros EN GENERAL, toda la especie.</div><div class=\"es\">Espa\u00f1ol usa \"los\" aunque sea generalizaci\u00f3n</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83c\udfb5</div><div><div class=\"en\">\"Me gusta la m\u00fasica\" \u2192 la m\u00fasica en general, no una canci\u00f3n espec\u00edfica.</div><div class=\"es\">Espa\u00f1ol mantiene \"la\" para generalizar</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> En ingl\u00e9s, cuando quieres decir algo sobre una categor\u00eda COMPLETA (todos los perros, toda el agua, toda la m\u00fasica), NO usas art\u00edculo. El espa\u00f1ol s\u00ed lo usa.</div>", "exercises": [{"q": "\"Los perros son leales\" \u2014 \u00bfhablamos de?", "a": "a", "o": ["Todos los perros (general)", "Unos perros espec\u00edficos"], "fc": "\"Los perros son leales\" generaliza sobre la especie entera.", "fi": "Para unos espec\u00edficos dir\u00edamos \"esos perros\" o \"los perros de mi t\u00eda\".", "ex": "Los perros son leales \u2192 Dogs are loyal", "tip": "Generalizaci\u00f3n \u2192 \u00d8 en ingl\u00e9s"}, {"q": "\"Me gusta la m\u00fasica\" en espa\u00f1ol lleva:", "a": "b", "o": ["Sin art\u00edculo", "Art\u00edculo \"la\""], "fc": "En espa\u00f1ol es obligatorio: \"la m\u00fasica\".", "fi": "\"Me gusta m\u00fasica\" no es natural en espa\u00f1ol.", "ex": "Me gusta la m\u00fasica \u2192 I like music (sin art\u00edculo)", "tip": "Espa\u00f1ol obliga art\u00edculo; ingl\u00e9s no en generalizaci\u00f3n"}, {"q": "\"El agua es esencial\" \u2014 \u00bfes el agua general o espec\u00edfica?", "a": "a", "o": ["General (toda el agua)", "Espec\u00edfica (esta)"], "fc": "Una verdad universal sobre el agua como sustancia.", "fi": "Espec\u00edfica ser\u00eda \"el agua de este vaso\".", "ex": "El agua es esencial \u2192 Water is essential", "tip": "Verdad general \u2192 \u00d8"}, {"q": "\"Los elefantes son grandes\" en espa\u00f1ol \u00bflleva art\u00edculo?", "a": "b", "o": ["No lleva art\u00edculo", "S\u00ed: \"los\" es obligatorio"], "fc": "En espa\u00f1ol las generalizaciones SIEMPRE llevan art\u00edculo: \"los elefantes son grandes\".", "fi": "\"Elefantes son grandes\" sin art\u00edculo no es natural en espa\u00f1ol.", "ex": "Los elefantes son grandes \u2192 Elephants are big (sin art\u00edculo en ingl\u00e9s)", "tip": "Espa\u00f1ol obliga art\u00edculo; ingl\u00e9s no en generalizaciones"}, {"q": "\"Me encanta el caf\u00e9\" \u2014 \u00bfqu\u00e9 tipo de caf\u00e9?", "a": "a", "o": ["Caf\u00e9 como bebida general", "Un caf\u00e9 espec\u00edfico"], "fc": "\"El caf\u00e9\" aqu\u00ed es el caf\u00e9 como bebida/concepto general.", "fi": "Espec\u00edfico ser\u00eda \"este caf\u00e9\" o \"el caf\u00e9 de esa marca\".", "ex": "Me encanta el caf\u00e9 \u2192 I love coffee", "tip": "Bebida general \u2192 \u00d8 en ingl\u00e9s"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Los dos idiomas SI comparten art\u00edculos: a/an (un/una), the (el/la/los/las). La diferencia es CU\u00c1NDO usar cada uno.</div>\n\n<table class=\"g-table\">\n<tr><th>Uso</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Singular contable, nuevo</td><td>un/una libro</td><td><span class=\"g-comp\">a/an</span> book</td></tr>\n<tr><td>Ya mencionado (espec\u00edfico)</td><td>el libro (ese)</td><td><span class=\"g-comp\">the</span> book</td></tr>\n<tr><td>\u00danico (el sol, la luna)</td><td>el sol, la luna</td><td><span class=\"g-comp\">the</span> sun, <span class=\"g-comp\">the</span> moon</td></tr>\n<tr><td>\"El primer\", \"el mejor\"</td><td>el primero, el mejor</td><td><span class=\"g-comp\">the</span> first, <span class=\"g-comp\">the</span> best</td></tr>\n<tr><td>Generalizaci\u00f3n</td><td>con art\u00edculo</td><td><b>\u00d8</b> (sin art\u00edculo)</td></tr>\n</table>\n\n<div class=\"section-label\">Cu\u00e1ndo S\u00cd se usa \"the\" en ingl\u00e9s (igual que esp.)</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">\u00danico</div><div class=\"vrb\">the sun</div><div class=\"meaning\">el sol</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Conocido</div><div class=\"vrb\">the book</div><div class=\"meaning\">el libro (ese)</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Superlativo</div><div class=\"vrb\">the best</div><div class=\"meaning\">el mejor</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> Cuando algo es \u00daNICO (the sun) o ESPEC\u00cdFICO y conocido (the book we read), tanto espa\u00f1ol como ingl\u00e9s usan \"the/el/la\". La diferencia est\u00e1 solo en las generalizaciones.</div>", "exercises": [{"q": "\"I bought ___ book yesterday.\" (singular nuevo)", "a": "a", "o": ["a", "the"], "fc": "Primera menci\u00f3n de un libro cualquiera \u2192 <b>a</b> book.", "fi": "\"The\" implicar\u00eda que ya sab\u00edamos de qu\u00e9 libro hablamos.", "ex": "I bought a book yesterday \u2192 Compr\u00e9 un libro ayer", "tip": "Nuevo/cualquiera \u2192 a/an"}, {"q": "\"___ sun is hot today.\" (cielo \u00fanico)", "a": "b", "o": ["A", "The"], "fc": "\"Sun\" es \u00fanico \u2192 <b>the sun</b>.", "fi": "\"A sun\" sonar\u00eda como si hubiera varios soles.", "ex": "The sun is hot today \u2192 El sol est\u00e1 caliente hoy", "tip": "\u00danico \u2192 the"}, {"q": "\"She is ___ best student in class.\"", "a": "b", "o": ["a", "the"], "fc": "Superlativo \u2192 <b>the best</b>.", "fi": "\"A best\" no existe; los superlativos son \u00fanicos.", "ex": "She is the best student \u2192 Ella es la mejor estudiante", "tip": "Superlativos \u2192 the"}, {"q": "\"I want to buy ___ new phone.\" (no especifica cu\u00e1l)", "a": "a", "o": ["a", "the"], "fc": "\"A new phone\" \u2014 cualquiera, sin especificar.", "fi": "\"The new phone\" implicar\u00eda que el oyente ya lo conoce.", "ex": "I want to buy a new phone \u2192 Quiero comprar un tel\u00e9fono nuevo", "tip": "Primer menci\u00f3n singular \u2192 a/an"}, {"q": "\"___ book on the table is mine.\" (especificando cu\u00e1l)", "a": "b", "o": ["A", "The"], "fc": "Ya especificamos cu\u00e1l (en la mesa) \u2192 <b>the book</b>.", "fi": "\"A book on the table\" ser\u00eda un libro cualquiera, no este espec\u00edfico.", "ex": "The book on the table is mine \u2192 El libro sobre la mesa es m\u00edo", "tip": "Especificado \u2192 the"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">La GRAN diferencia: las generalizaciones en ingl\u00e9s NO llevan art\u00edculo.</div>\n\n<table class=\"g-table\">\n<tr><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th><th>\ud83d\udca1 Explanation</th></tr>\n<tr><td><b>Los</b> gatos duermen mucho</td><td><b>\u00d8</b> Cats sleep a lot</td><td>Plural general \u2192 sin art\u00edculo</td></tr>\n<tr><td>Me gusta <b>la</b> m\u00fasica</td><td>I like <b>\u00d8</b> music</td><td>Incontable general \u2192 sin art\u00edculo</td></tr>\n<tr><td><b>El</b> dinero no compra amor</td><td><b>\u00d8</b> Money doesn't buy love</td><td>Abstracto general \u2192 sin art\u00edculo</td></tr>\n<tr><td>Voy <b>a la</b> escuela</td><td>I go to <b>\u00d8</b> school</td><td>Instituciones (como prop\u00f3sito) \u2192 sin art\u00edculo</td></tr>\n<tr><td><b>El</b> ingl\u00e9s es \u00fatil</td><td><b>\u00d8</b> English is useful</td><td>Idiomas como materia \u2192 sin art\u00edculo</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f El triple sistema de art\u00edculos en ingl\u00e9s</div>\n<p>\n\u2022 <b>A/AN</b> \u2192 singular contable NUEVO (a book, an apple)<br>\n\u2022 <b>THE</b> \u2192 algo ESPEC\u00cdFICO o \u00daNICO (the book I bought, the sun)<br>\n\u2022 <b>\u00d8 (zero)</b> \u2192 plurales generales + incontables generales (cats, water, music)<br><br>\n\u274c \"I like the music\" = me gusta ESA m\u00fasica (espec\u00edfica)<br>\n\u2705 \"I like \u00d8 music\" = me gusta la m\u00fasica (en general)</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">The dogs are man's best friend.</div><div class=\"es\">Con \"the\" = esos perros espec\u00edficos</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\"><b>\u00d8</b> Dogs are man's best friend.</div><div class=\"es\">Los perros (en general) son el mejor amigo del hombre.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I don't drink the coffee.</div><div class=\"es\">Con \"the\" = ese caf\u00e9 espec\u00edfico</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">I don't drink <b>\u00d8</b> coffee.</div><div class=\"es\">No bebo caf\u00e9 (en general, nunca).</div></div></div>", "exercises": [{"q": "\"___ children need love and care.\" (generalizaci\u00f3n)", "a": "a", "o": ["\u00d8 (nada)", "The"], "fc": "Todos los ni\u00f1os en general \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The children\" ser\u00edan ni\u00f1os espec\u00edficos (los de la foto, etc.).", "ex": "\u00d8 Children need love \u2192 Los ni\u00f1os necesitan amor", "tip": "Plural general \u2192 \u00d8"}, {"q": "\"I study ___ English at school.\"", "a": "a", "o": ["\u00d8", "the"], "fc": "Idiomas como materia/asignatura \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The English\" se refiere a los ingleses (personas).", "ex": "I study English \u2192 Estudio ingl\u00e9s", "tip": "Idiomas y materias \u2192 \u00d8"}, {"q": "\"Pass me ___ salt, please.\" (la de la mesa)", "a": "b", "o": ["\u00d8", "the"], "fc": "Sal espec\u00edfica (la de la mesa, conocida por ambos) \u2192 <b>the salt</b>.", "fi": "Sin art\u00edculo ser\u00eda hablar de la sal en general, no la de la mesa.", "ex": "Pass me the salt \u2192 P\u00e1same la sal", "tip": "Espec\u00edfico/visible \u2192 the"}, {"q": "\"I love ___ animals.\"", "a": "a", "o": ["\u00d8", "the"], "fc": "Animales en general (todos) \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The animals\" ser\u00edan espec\u00edficos (del zoo, etc.).", "ex": "I love animals \u2192 Amo a los animales", "tip": "Generalizaci\u00f3n plural \u2192 \u00d8"}, {"q": "\"My brother goes to ___ school by bike.\" (instituci\u00f3n como prop\u00f3sito)", "a": "b", "o": ["the", "\u00d8"], "fc": "\"Go to school\" como prop\u00f3sito (estudiar) \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The school\" ser\u00eda el edificio espec\u00edfico, no como estudiante.", "ex": "He goes to school \u2192 Va a la escuela", "tip": "Instituciones (prop\u00f3sito) \u2192 \u00d8: school, church, prison, bed, work"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 La pregunta clave:</strong> \u00bfHablo de algo en GENERAL (todos, toda) o algo ESPEC\u00cdFICO (ese, este, uno concreto)? General \u2192 \u00d8. Espec\u00edfico \u2192 the.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Singular contable:</strong> Si el sustantivo es singular y contable (book, car, dog), SIEMPRE necesita art\u00edculo (a/an o the). Nunca va solo.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Instituciones con zero article:</strong> \"go to school/church/bed/work/prison/hospital\" cuando es con su PROP\u00d3SITO t\u00edpico. Con \"the\" = el edificio espec\u00edfico.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Idiomas, deportes, comidas:</strong> sin art\u00edculo. \"I speak <b>\u00d8</b> English\", \"I play <b>\u00d8</b> tennis\", \"We had <b>\u00d8</b> breakfast at 8\".</div>\n\n<div class=\"formula-box\">\n\u2b55 <b>A / AN</b> \u2192 singular contable, primera menci\u00f3n<br>\n\ud83d\udcd8 <b>THE</b> \u2192 espec\u00edfico / \u00fanico / conocido<br>\n\u2b1c <b>\u00d8 (zero)</b> \u2192 plural general / incontable general / idioma / materia\n</div>\n\n<table class=\"g-table\">\n<tr><th>Tipo de sustantivo</th><th>General</th><th>Espec\u00edfico</th></tr>\n<tr><td>Singular contable</td><td>a / an (un cualquiera)</td><td>the (el espec\u00edfico)</td></tr>\n<tr><td>Plural contable</td><td><b>\u00d8</b> (todos)</td><td>the (esos)</td></tr>\n<tr><td>Incontable</td><td><b>\u00d8</b> (toda la)</td><td>the (esa espec\u00edfica)</td></tr>\n<tr><td>Idioma/materia</td><td><b>\u00d8</b> (siempre)</td><td>\u2014</td></tr>\n<tr><td>Instituci\u00f3n (prop\u00f3sito)</td><td><b>\u00d8</b> (school, work, bed)</td><td>the (edificio)</td></tr>\n</table>", "exercises": [{"q": "\"I'm reading ___ book. It's very good.\"", "a": "a", "o": ["a", "\u00d8"], "fc": "Singular contable + primera menci\u00f3n \u2192 <b>a book</b>.", "fi": "Singular contable no puede ir sin art\u00edculo.", "ex": "I'm reading a book \u2192 Estoy leyendo un libro", "tip": "Singular contable \u2192 a/an siempre"}, {"q": "\"___ exercise is good for your health.\" (generalizaci\u00f3n)", "a": "b", "o": ["The", "\u00d8"], "fc": "\"Exercise\" es incontable general (el ejercicio como concepto) \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The exercise\" ser\u00eda un ejercicio espec\u00edfico.", "ex": "Exercise is good for your health", "tip": "Incontable general \u2192 \u00d8"}, {"q": "\"She plays ___ piano beautifully.\"", "a": "a", "o": ["the", "\u00d8"], "fc": "Instrumentos musicales llevan <b>the</b>: play <b>the</b> piano, the guitar, the violin.", "fi": "Sin art\u00edculo no es est\u00e1ndar con instrumentos.", "ex": "She plays the piano", "tip": "Instrumentos \u2192 the (excepci\u00f3n)"}, {"q": "\"I go to ___ bed at 10 PM.\" (prop\u00f3sito: dormir)", "a": "b", "o": ["the", "\u00d8"], "fc": "\"Go to bed\" como prop\u00f3sito (dormir) \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The bed\" ser\u00eda la cama f\u00edsica espec\u00edfica.", "ex": "I go to bed at 10 \u2192 Me acuesto a las 10", "tip": "Go to bed/school/work \u2192 \u00d8"}, {"q": "\"I love ___ apple you gave me.\" (una espec\u00edfica)", "a": "a", "o": ["the", "\u00d8"], "fc": "\"Apple you gave me\" la especifica \u2192 <b>the apple</b>.", "fi": "Sin art\u00edculo no es posible con singular contable.", "ex": "I love the apple you gave me", "tip": "Especificada con cl\u00e1usula \u2192 the"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Combina las 3 opciones: A/AN, THE, \u00d8 (zero).</div>\n\n<div class=\"formula-box\">\n\u2b55 <span class=\"g-comp\">A/AN</span> + singular contable nuevo<br>\n\ud83d\udcd8 <span class=\"g-comp\">THE</span> + espec\u00edfico/\u00fanico/conocido<br>\n\u2b1c <span class=\"g-neg\">\u00d8</span> + plural general / incontable / idioma / instituci\u00f3n\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udc31</div><div><div class=\"en\"><span class=\"g-neg\">\u00d8</span> <span class=\"g-subj\">Cats</span> are independent animals.</div><div class=\"es\">Los gatos son animales independientes. (plural general)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2615</div><div><div class=\"en\">I drink <span class=\"g-neg\">\u00d8</span> <span class=\"g-subj\">coffee</span> every morning.</div><div class=\"es\">Bebo caf\u00e9 todas las ma\u00f1anas. (incontable general)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcda</div><div><div class=\"en\">I'm reading <span class=\"g-comp\">a</span> <span class=\"g-subj\">novel</span> about Peru.</div><div class=\"es\">Estoy leyendo una novela sobre Per\u00fa. (singular nuevo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udf19</div><div><div class=\"en\"><span class=\"g-comp\">The</span> <span class=\"g-subj\">moon</span> looks beautiful tonight.</div><div class=\"es\">La luna se ve hermosa esta noche. (\u00fanica)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"The dogs are loyal\" \u2192 \u2705 \"<b>\u00d8</b> Dogs are loyal\" (generalizaci\u00f3n)<br>\n\u274c \"I like the music\" (como generalizaci\u00f3n) \u2192 \u2705 \"I like <b>\u00d8</b> music\"<br>\n\u274c \"I study the English\" \u2192 \u2705 \"I study <b>\u00d8</b> English\" (idioma)<br>\n\u274c \"I go to the bed early\" \u2192 \u2705 \"I go to <b>\u00d8</b> bed early\" (prop\u00f3sito)<br>\n\u274c \"Book on table is mine\" \u2192 \u2705 \"<b>The</b> book on <b>the</b> table is mine\"\n</p></div>", "exercises": [{"q": "\"___ honesty is the best policy.\" (verdad general)", "a": "b", "o": ["The", "\u00d8"], "fc": "Cualidad abstracta en general \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The honesty\" ser\u00eda espec\u00edfica, no funciona con verdades universales.", "ex": "Honesty is the best policy \u2192 La honestidad es la mejor pol\u00edtica", "tip": "Abstractos generales \u2192 \u00d8"}, {"q": "\"Look at ___ stars tonight!\"", "a": "a", "o": ["the", "\u00d8"], "fc": "\"Stars\" aqu\u00ed son las visibles ahora (espec\u00edficas, compartidas) \u2192 <b>the stars</b>.", "fi": "Sin art\u00edculo ser\u00eda estrellas en general; aqu\u00ed las estamos viendo.", "ex": "Look at the stars tonight", "tip": "Visible/compartido \u2192 the"}, {"q": "\"___ elephants are the largest land animals.\" (generalizaci\u00f3n)", "a": "b", "o": ["The", "\u00d8"], "fc": "Generalizaci\u00f3n sobre la especie \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The elephants\" ser\u00edan unos espec\u00edficos (del zoo, etc.).", "ex": "Elephants are the largest land animals", "tip": "Especies en general \u2192 \u00d8"}, {"q": "\"I had ___ sandwich for lunch.\" (singular, cualquiera)", "a": "a", "o": ["a", "\u00d8"], "fc": "Singular contable primera menci\u00f3n \u2192 <b>a sandwich</b>.", "fi": "Singular contable nunca va sin art\u00edculo.", "ex": "I had a sandwich \u2192 Com\u00ed un s\u00e1ndwich", "tip": "Comida contable singular \u2192 a/an"}, {"q": "\"She speaks ___ French fluently.\"", "a": "b", "o": ["the", "\u00d8"], "fc": "Idioma como habilidad \u2192 <b>sin art\u00edculo</b>.", "fi": "\"The French\" ser\u00edan los franceses (personas).", "ex": "She speaks French \u2192 Habla franc\u00e9s", "tip": "Idiomas \u2192 \u00d8"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

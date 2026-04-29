@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M2 · Past Simple vs Past Continuous | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#FEF3C7; color:#B45309; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:90px; padding:0.2rem 0.6rem; background:var(--primary-light); border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+        .verb-label { display:inline-block; font-size:0.75rem; font-weight:700; color:var(--text-light); padding:0.1rem 0.5rem; background:#FEF3C7; border-radius:6px; margin-left:0.3rem; vertical-align:middle; }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:1rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation { display:none; color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; padding:0.6rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); }
+        .translation.show { display:block; animation:fadeUp .3s ease; }
+
+        .options-grid { display:grid; grid-template-columns:1fr; gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.9rem 0.8rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); text-align:left; }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-light); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-signal-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+
+        .fb-error { background:var(--error-light); border-radius:12px; padding:0.9rem 1rem; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ew-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">📝 Fill in the Blanks</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · Past Simple vs Past Continuous</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">⚖️</div>
+            <div>
+                <div class="instructions-title">Choose between Past Simple and Past Continuous</div>
+                <div class="instructions-text">Look at the time markers and the relationship between actions. Choose the form that fits the context. Tap 🇪🇸 to see Spanish.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // ============================================================
+    // PAST SIMPLE vs PAST CONTINUOUS
+    // Key patterns:
+    // 1. Longer action (PC) + when + shorter action (PS) — interruption
+    // 2. While + PC + PC — parallel actions
+    // 3. PS + when + PS — sequence of finished actions
+    // 4. PC (background) + PS (main event)
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            sentence: "Sofía _____ to the bank when she _____ her wallet at home.",
+            translation: "Sofía estaba caminando al banco cuando se dio cuenta que dejó su billetera en casa.",
+            verb1: "walk",
+            verb2: "realize",
+            hint: "One action was in progress (longer) and another action interrupted it (shorter, sudden).",
+            clue: "when she realized",
+            clueExplain: "'When' + a sudden short action (Past Simple) typically interrupts a longer ongoing action (Past Continuous).",
+            options: [
+                "was walking / realized",
+                "walked / was realizing",
+                "walked / realized"
+            ],
+            correct: "was walking / realized",
+            feedback: {
+                "walked / was realizing": { errorType: "Tenses reversed", explanation: "The longer ongoing action (walking) needs Past Continuous, and the sudden interrupting action (realized) needs Past Simple. Here both tenses are reversed.", rule: "longer action: PC / interrupting action: PS" },
+                "walked / realized": { errorType: "Both Past Simple", explanation: "Both verbs in Past Simple suggests two finished actions in sequence. But the context shows ONE action was in progress when ANOTHER interrupted it.", rule: "Use PC for the ongoing action, PS for the interruption" }
+            },
+            correctReason: "The walking was IN PROGRESS (longer action → Past Continuous: was walking), and realizing was a sudden interrupting moment (shorter action → Past Simple: realized).",
+            ruleFormula: "PC (was/were + -ing) + when + PS"
+        },
+        {
+            id: 2,
+            sentence: "While the clerks _____ the documents, the manager _____ to give important news.",
+            translation: "Mientras las cajeras estaban organizando los documentos, el gerente llegó para dar noticias importantes.",
+            verb1: "organize",
+            verb2: "arrive",
+            hint: "Look at 'while'. Which form usually follows it for the longer ongoing action?",
+            clue: "While + arrive (sudden)",
+            clueExplain: "'While' typically introduces a longer ongoing action (Past Continuous). The interrupting event uses Past Simple.",
+            options: [
+                "organized / arrived",
+                "were organizing / arrived",
+                "were organizing / was arriving"
+            ],
+            correct: "were organizing / arrived",
+            feedback: {
+                "organized / arrived": { errorType: "Wrong form after 'while'", explanation: "After 'while', we typically use Past Continuous (the longer ongoing action). Both verbs in Past Simple describe a sequence, not an interruption.", rule: "while + Past Continuous" },
+                "were organizing / was arriving": { errorType: "Two ongoing actions", explanation: "'Was arriving' suggests an ongoing action, but 'arrive' is a short, sudden event. It must be Past Simple to mark the interruption point.", rule: "Sudden events → Past Simple" }
+            },
+            correctReason: "'While' introduces the longer ongoing action (were organizing → Past Continuous). The arrival is a sudden event that interrupts (arrived → Past Simple).",
+            ruleFormula: "While + PC, + PS"
+        },
+        {
+            id: 3,
+            sentence: "Marcos _____ his card when his phone suddenly _____.",
+            translation: "Marcos estaba pagando con su tarjeta cuando su teléfono sonó repentinamente.",
+            verb1: "pay",
+            verb2: "ring",
+            hint: "The word 'suddenly' is a strong clue about the type of action that follows.",
+            clue: "suddenly + ring",
+            clueExplain: "'Suddenly' indicates a quick, unexpected event — Past Simple. The action it interrupts is in Past Continuous.",
+            options: [
+                "paid / was ringing",
+                "paid / rang",
+                "was paying / rang"
+            ],
+            correct: "was paying / rang",
+            feedback: {
+                "paid / was ringing": { errorType: "Tenses reversed", explanation: "The paying was the longer ongoing process. The ringing was the sudden interruption. The tenses here are inverted.", rule: "Ongoing process: PC / Sudden event: PS" },
+                "paid / rang": { errorType: "Both Past Simple", explanation: "Two Past Simple verbs describe a sequence of finished actions. But the context shows paying was IN PROGRESS when the phone interrupted.", rule: "Action in progress + interruption → PC + PS" }
+            },
+            correctReason: "Paying with a card takes time (longer action → was paying). The phone ringing was a sudden, unexpected event (rang). 'Suddenly' confirms Past Simple for the interruption.",
+            ruleFormula: "subject + was/were + -ing + when + suddenly + PS"
+        },
+        {
+            id: 4,
+            sentence: "Last night at 9 PM, Carlos _____ his monthly budget at the kitchen table.",
+            translation: "Anoche a las 9 PM, Carlos estaba revisando su presupuesto mensual en la mesa de la cocina.",
+            verb1: "review",
+            verb2: null,
+            hint: "A specific past time + an action that was in progress at that exact moment.",
+            clue: "at 9 PM",
+            clueExplain: "A specific past moment ('at 9 PM') with a single action focuses on what was IN PROGRESS at that time → Past Continuous.",
+            options: [
+                "was reviewing",
+                "reviewed",
+                "is reviewing"
+            ],
+            correct: "was reviewing",
+            feedback: {
+                "reviewed": { errorType: "Wrong tense — Past Simple", explanation: "Past Simple describes a complete action. But 'at 9 PM' focuses on the moment of action, asking 'what was happening at that moment?' — Past Continuous.", rule: "At a specific past moment → action in progress → PC" },
+                "is reviewing": { errorType: "Wrong tense — Present Continuous", explanation: "'Is reviewing' is Present Continuous (happening now). 'Last night' is past, so we need Past Continuous: 'was reviewing'.", rule: "Last night + PC = was/were + -ing" }
+            },
+            correctReason: "'At 9 PM last night' marks a specific past moment. We focus on what was IN PROGRESS at that moment, which uses Past Continuous: was reviewing.",
+            ruleFormula: "At + specific past time → was/were + verb-ing"
+        },
+        {
+            id: 5,
+            sentence: "When the bank _____ at 6 PM, all the customers _____ for service.",
+            translation: "Cuando el banco cerró a las 6 PM, todos los clientes estaban esperando ser atendidos.",
+            verb1: "close",
+            verb2: "wait",
+            hint: "One action is a sudden defined moment (closing time), the other was an ongoing situation at that moment.",
+            clue: "When closed + wait (background)",
+            clueExplain: "'When closed' is a defined moment (Past Simple). The waiting was an ongoing situation already in progress at that moment (Past Continuous).",
+            options: [
+                "was closing / waited",
+                "closed / were waiting",
+                "closed / waited"
+            ],
+            correct: "closed / were waiting",
+            feedback: {
+                "was closing / waited": { errorType: "Tenses reversed", explanation: "Closing at 6 PM is a defined moment, not a long process — Past Simple. The waiting was the ongoing situation — Past Continuous.", rule: "Defined moment: PS / Background situation: PC" },
+                "closed / waited": { errorType: "Both Past Simple", explanation: "Both verbs in Past Simple suggest a sequence. But 'were waiting' shows the customers' waiting was ALREADY in progress when the bank closed.", rule: "Background situation in progress → PC" }
+            },
+            correctReason: "Closing at 6 PM is a defined event (Past Simple: closed). The customers' waiting was already happening at that moment (Past Continuous: were waiting).",
+            ruleFormula: "When + PS, + PC (background)"
+        },
+        {
+            id: 6,
+            sentence: "I _____ the manager and then I _____ to a different counter.",
+            translation: "Le hablé al gerente y luego me moví a un mostrador diferente.",
+            verb1: "speak",
+            verb2: "move",
+            hint: "Two finished actions happening one after the other in the past — quick sequence.",
+            clue: "and then",
+            clueExplain: "'And then' connects two complete actions in sequence — both finished events, both Past Simple.",
+            options: [
+                "was speaking / was moving",
+                "spoke / was moving",
+                "spoke / moved"
+            ],
+            correct: "spoke / moved",
+            feedback: {
+                "was speaking / was moving": { errorType: "Both Past Continuous", explanation: "Past Continuous describes ongoing actions. But 'and then' shows two finished events in sequence — both need Past Simple.", rule: "Sequence of finished events → PS + PS" },
+                "spoke / was moving": { errorType: "Mixed tenses unjustified", explanation: "There's no interruption or background here — just a sequence of two finished actions. Both should be in Past Simple.", rule: "Two completed sequential events → both PS" }
+            },
+            correctReason: "Both actions are complete and follow each other in time. There's no ongoing action and no interruption — just a sequence: spoke, then moved.",
+            ruleFormula: "PS + and then + PS (sequence)"
+        },
+        {
+            id: 7,
+            sentence: "While Sofía _____ at the chart, the clerk _____ each option to her.",
+            translation: "Mientras Sofía estaba mirando la tabla, la cajera le explicaba cada opción.",
+            verb1: "look",
+            verb2: "explain",
+            hint: "Two simultaneous ongoing actions in the past linked by 'while'.",
+            clue: "While + explain (parallel)",
+            clueExplain: "'While' connects two ongoing actions happening at the same time. Both can be Past Continuous (parallel actions).",
+            options: [
+                "was looking / was explaining",
+                "looked / explained",
+                "was looking / explained"
+            ],
+            correct: "was looking / was explaining",
+            feedback: {
+                "looked / explained": { errorType: "Both Past Simple", explanation: "Both verbs in Past Simple describe finished sequential actions. But the context shows TWO simultaneous ongoing actions — both Past Continuous.", rule: "Parallel ongoing actions → PC + PC" },
+                "was looking / explained": { errorType: "Tense mismatch", explanation: "If both actions are in progress at the same time (under 'while'), both should be Past Continuous. 'Explained' (Past Simple) breaks the parallel.", rule: "While → both clauses can be PC" }
+            },
+            correctReason: "Two parallel ongoing actions: Sofía was looking and the clerk was explaining at the same time. Both use Past Continuous (was looking / was explaining).",
+            ruleFormula: "While + PC, + PC (parallel actions)"
+        },
+        {
+            id: 8,
+            sentence: "Yesterday morning, Marcos _____ his bills before he _____ to work.",
+            translation: "Ayer por la mañana, Marcos pagó sus recibos antes de irse al trabajo.",
+            verb1: "pay",
+            verb2: "go",
+            hint: "Two completed actions where one happened BEFORE the other — clear order in time.",
+            clue: "before",
+            clueExplain: "'Before' marks a clear time order of two finished actions. Both need Past Simple.",
+            options: [
+                "was paying / went",
+                "paid / went",
+                "was paying / was going"
+            ],
+            correct: "paid / went",
+            feedback: {
+                "was paying / went": { errorType: "Wrong first tense", explanation: "'Paid bills' is a complete action, not an ongoing process. 'Before' marks a clear sequence: he finished paying, then he left.", rule: "Complete actions in order → PS + PS" },
+                "was paying / was going": { errorType: "Both Past Continuous", explanation: "Past Continuous describes ongoing actions. 'Before' shows finished actions in sequence — both need Past Simple.", rule: "Sequence with 'before' → PS + PS" }
+            },
+            correctReason: "Two finished actions in order: first he paid, then he went. 'Before' marks a clear time sequence — both verbs in Past Simple.",
+            ruleFormula: "PS + before + PS (sequence)"
+        },
+        {
+            id: 9,
+            sentence: "The customers _____ in the waiting room when the security guard _____ them.",
+            translation: "Los clientes estaban esperando en la sala de espera cuando el guardia de seguridad los saludó.",
+            verb1: "wait",
+            verb2: "greet",
+            hint: "An ongoing situation that was interrupted by a sudden, defined event.",
+            clue: "when + greet (sudden)",
+            clueExplain: "The greeting is a defined short event — Past Simple. The waiting was the ongoing background — Past Continuous.",
+            options: [
+                "waited / was greeting",
+                "waited / greeted",
+                "were waiting / greeted"
+            ],
+            correct: "were waiting / greeted",
+            feedback: {
+                "waited / was greeting": { errorType: "Tenses reversed", explanation: "The waiting was the longer ongoing situation (background). The greeting was the sudden defined event. The tenses are inverted.", rule: "Background: PC / Sudden event: PS" },
+                "waited / greeted": { errorType: "Both Past Simple", explanation: "Both Past Simple suggests two finished sequential events. But the context shows the customers were ALREADY waiting when the guard greeted them.", rule: "Background already in progress → PC" }
+            },
+            correctReason: "Customers were already waiting (ongoing → were waiting). The guard's greeting was a sudden defined event (greeted). The greeting interrupted the waiting.",
+            ruleFormula: "PC + when + PS"
+        },
+        {
+            id: 10,
+            sentence: "Sofía _____ her PIN when the screen suddenly _____ dark.",
+            translation: "Sofía estaba creando su PIN cuando la pantalla repentinamente se oscureció.",
+            verb1: "create",
+            verb2: "go",
+            hint: "An ongoing process interrupted by a sudden unexpected event.",
+            clue: "suddenly + go dark",
+            clueExplain: "'Suddenly' marks a quick unexpected event (Past Simple). The PIN creation was already in progress (Past Continuous).",
+            options: [
+                "was creating / went",
+                "created / went",
+                "created / was going"
+            ],
+            correct: "was creating / went",
+            feedback: {
+                "created / went": { errorType: "Both Past Simple", explanation: "Both Past Simple suggests two finished events in sequence. But the PIN creation was IN PROGRESS when the screen interrupted.", rule: "Action in progress + interruption → PC + PS" },
+                "created / was going": { errorType: "Tenses reversed", explanation: "The creation was the ongoing action. The screen going dark was the sudden interruption. The tenses here are inverted.", rule: "Ongoing: PC / Sudden: PS" }
+            },
+            correctReason: "Sofía was in the process of creating her PIN (ongoing → was creating). The screen going dark was a sudden interruption (went dark). 'Suddenly' confirms Past Simple.",
+            ruleFormula: "PC + when + suddenly + PS"
+        },
+        {
+            id: 11,
+            sentence: "Carlos _____ TV last night when his wife _____ to talk about the budget.",
+            translation: "Carlos estaba viendo televisión anoche cuando su esposa entró para hablar del presupuesto.",
+            verb1: "watch",
+            verb2: "come in",
+            hint: "An ongoing background activity interrupted by someone arriving.",
+            clue: "when + come in",
+            clueExplain: "Coming in is a defined short action that interrupts an ongoing activity. Past Simple for the arrival, Past Continuous for the watching.",
+            options: [
+                "watched / came in",
+                "was watching / came in",
+                "watched / was coming in"
+            ],
+            correct: "was watching / came in",
+            feedback: {
+                "watched / came in": { errorType: "Both Past Simple", explanation: "Both Past Simple suggests a sequence: he watched, then she came in. But the context shows the watching was IN PROGRESS when she interrupted.", rule: "Background in progress → PC" },
+                "watched / was coming in": { errorType: "Tenses reversed", explanation: "The watching was the longer ongoing action. The coming in was the sudden interrupting event. The tenses are inverted.", rule: "Longer action: PC / Interruption: PS" }
+            },
+            correctReason: "Carlos was already watching TV (ongoing background → was watching). His wife coming in was a sudden defined event that interrupted (came in).",
+            ruleFormula: "PC + when + PS (sudden arrival)"
+        },
+        {
+            id: 12,
+            sentence: "I _____ the manager and he _____ me to wait for five minutes.",
+            translation: "Le hablé al gerente y él me pidió esperar cinco minutos.",
+            verb1: "call",
+            verb2: "ask",
+            hint: "Two short defined actions in sequence — first one happened, then the other.",
+            clue: "and + ask (sequence)",
+            clueExplain: "Two finished short actions connected by 'and' — both Past Simple, no ongoing background.",
+            options: [
+                "was calling / was asking",
+                "was calling / asked",
+                "called / asked"
+            ],
+            correct: "called / asked",
+            feedback: {
+                "was calling / was asking": { errorType: "Both Past Continuous", explanation: "Past Continuous describes ongoing actions. But these are two short, finished actions in sequence — both need Past Simple.", rule: "Two finished actions → PS + PS" },
+                "was calling / asked": { errorType: "Mixed tenses unjustified", explanation: "There's no interruption here — both calling and asking are short defined actions. Both should be in Past Simple.", rule: "Sequence without interruption → both PS" }
+            },
+            correctReason: "Both actions are short, finished, and happen in sequence. No ongoing background — just one event after another. Both Past Simple.",
+            ruleFormula: "PS + and + PS (sequential events)"
+        },
+        {
+            id: 13,
+            sentence: "While Marcos _____ for his card to be produced, he _____ his bank statement.",
+            translation: "Mientras Marcos estaba esperando que produjeran su tarjeta, él estaba revisando su estado de cuenta.",
+            verb1: "wait",
+            verb2: "review",
+            hint: "Two ongoing actions happening simultaneously — both filled the same waiting time.",
+            clue: "While + simultaneous activity",
+            clueExplain: "'While' often introduces two parallel ongoing actions in the past — both Past Continuous.",
+            options: [
+                "was waiting / was reviewing",
+                "waited / reviewed",
+                "was waiting / reviewed"
+            ],
+            correct: "was waiting / was reviewing",
+            feedback: {
+                "waited / reviewed": { errorType: "Both Past Simple", explanation: "Both Past Simple suggests sequential complete actions. But the context shows TWO parallel ongoing activities filling the same waiting time.", rule: "Parallel activities → PC + PC" },
+                "was waiting / reviewed": { errorType: "Tense mismatch", explanation: "If the waiting was ongoing, the reviewing was also an ongoing parallel activity. Both should be Past Continuous.", rule: "Parallel ongoing actions → both PC" }
+            },
+            correctReason: "Both actions filled the same period of time. Marcos was waiting AND reviewing his statement simultaneously. Both ongoing → both Past Continuous.",
+            ruleFormula: "While + PC, + PC (simultaneous activities)"
+        },
+        {
+            id: 14,
+            sentence: "When Sofía _____ her debit card, she _____ very happy about it.",
+            translation: "Cuando Sofía recibió su tarjeta de débito, se sintió muy feliz por ello.",
+            verb1: "get",
+            verb2: "feel",
+            hint: "Two short finished actions in immediate sequence — getting the card caused the feeling.",
+            clue: "When + feel (immediate cause)",
+            clueExplain: "Two finished sequential actions where one immediately follows the other. Both Past Simple.",
+            options: [
+                "was getting / was feeling",
+                "got / felt",
+                "got / was feeling"
+            ],
+            correct: "got / felt",
+            feedback: {
+                "was getting / was feeling": { errorType: "Both Past Continuous", explanation: "These are two short finished actions, not ongoing processes. Past Continuous is for actions in progress, not for cause-effect events.", rule: "Cause-effect events → PS + PS" },
+                "got / was feeling": { errorType: "Wrong second tense", explanation: "The feeling was a complete reaction to getting the card, not an ongoing process. 'Felt' (Past Simple) describes the reaction better.", rule: "Reaction = Past Simple" }
+            },
+            correctReason: "Both actions are short, complete events: getting the card caused her to feel happy. No ongoing action involved — both Past Simple.",
+            ruleFormula: "When + PS, + PS (immediate cause-effect)"
+        },
+        {
+            id: 15,
+            sentence: "The clerks _____ paperwork all morning, but the manager _____ from his office only at noon.",
+            translation: "Las cajeras estaban organizando el papeleo toda la mañana, pero el gerente salió de su oficina solo al mediodía.",
+            verb1: "organize",
+            verb2: "come out",
+            hint: "An extended ongoing situation contrasted with a single defined event at a specific time.",
+            clue: "all morning vs only at noon",
+            clueExplain: "'All morning' marks an extended ongoing period (PC). 'Only at noon' marks a single defined moment (PS).",
+            options: [
+                "organized / was coming out",
+                "organized / came out",
+                "were organizing / came out"
+            ],
+            correct: "were organizing / came out",
+            feedback: {
+                "organized / was coming out": { errorType: "Tenses reversed", explanation: "The organizing was the extended ongoing process (all morning → PC). The coming out was a defined event (at noon → PS). The tenses are inverted.", rule: "Extended duration: PC / Defined moment: PS" },
+                "organized / came out": { errorType: "Both Past Simple", explanation: "Both Past Simple suggests two finished sequential events. But 'all morning' shows the organizing was an extended ongoing activity, not a single complete event.", rule: "All morning → ongoing → PC" }
+            },
+            correctReason: "'All morning' marks a long ongoing activity (were organizing → Past Continuous). 'Only at noon' marks a single defined event (came out → Past Simple).",
+            ruleFormula: "PC (extended) + but + PS (specific moment)"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, index) => container.appendChild(createQuestionCard(q, index)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createQuestionCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const shuffled = shuffle(q.options);
+        const verbsLabel = q.verb2 ? `verbs: ${q.verb1} / ${q.verb2}` : `verb: ${q.verb1}`;
+
+        // Replace blanks: count how many _____ are in sentence
+        let displaySentence = q.sentence;
+        let blankCount = 0;
+        displaySentence = displaySentence.replace(/_____/g, () => {
+            const idx = blankCount++;
+            return `<span class="blank" id="blank-${index}-${idx}">?</span>`;
+        });
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge">⚖️ PS vs PC</span>
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <p class="question-text">${displaySentence}<span class="verb-label">${verbsLabel}</span></p>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation" id="translation-${index}">${q.translation}</div>
+            <div class="options-grid" id="options-${index}">
+                ${shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectAnswer(${index}, ${i}, this)">${opt}</button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        card._shuffled = shuffled;
+        card._blankCount = blankCount;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectAnswer(qi, optIdx, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const card = document.getElementById(`question-${qi}`);
+        const shuffled = card._shuffled;
+        const selected = shuffled[optIdx];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+
+        // Fill the blanks with the parts of the answer (split by " / ")
+        const parts = selected.split(' / ');
+        for (let i = 0; i < card._blankCount; i++) {
+            const blank = document.getElementById(`blank-${qi}-${i}`);
+            if (blank && parts[i]) {
+                blank.textContent = parts[i];
+                blank.className = `blank ${isCorrect ? 'correct' : 'incorrect'}`;
+            }
+        }
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach(b => {
+            b.disabled = true;
+            const idx = parseInt(b.getAttribute('data-idx'));
+            const t = shuffled[idx];
+            if (t === q.correct) b.classList.add('correct');
+            else if (idx === optIdx) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct!</div>
+                        <div class="fb-subtitle">You chose the right combination of tenses</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal">
+                        <div class="fb-block-title">🔍 The key signal you spotted</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is it correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            const err = q.feedback[selected] || { errorType: 'Error', explanation: 'Incorrect answer.', rule: '' };
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect</div>
+                        <div class="fb-subtitle">Let's review what happened</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal wrong">
+                        <div class="fb-block-title">🔍 The key signal you needed to spot</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag red">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-compare">
+                        <div class="fb-block-title" style="color:#64748B;">🔄 Your answer vs. correct</div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label wrong">You chose</span>
+                            <span class="compare-text"><span class="word-wrong">${selected}</span></span>
+                        </div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label right">Correct</span>
+                            <span class="compare-text"><span class="word-right">${q.correct}</span></span>
+                        </div>
+                    </div>
+                    <div class="fb-error">
+                        <div class="fb-block-title">⚠️ Error type: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="error-rule">${err.explanation}</div>
+                        ${err.rule ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">📌 ${err.rule}</div>` : ''}
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is the correct answer right?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+
+    function nextQuestion(i) {
+        if (i < quizData.length - 1) showQuestion(i + 1);
+        else showResults();
+    }
+
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        const rs = document.getElementById('resultsScreen');
+        rs.classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master Past Simple vs Past Continuous. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the patterns and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

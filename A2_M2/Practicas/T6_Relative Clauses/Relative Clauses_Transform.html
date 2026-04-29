@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A2 M2 · Relative Clauses | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange: #F59E0B; --orange-light: #FEF3C7; --orange-dark: #B45309;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .ref-panel { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--info); }
+        .ref-title { font-family:'Fredoka',sans-serif; font-size:0.95rem; font-weight:600; color:var(--info-dark); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem; }
+        .ref-card { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:10px; padding:0.5rem 0.85rem; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.75rem; }
+        .ref-card.who { background:#DBEAFE; border-color:#93C5FD; }
+        .ref-card.which { background:#EDE9FE; border-color:#C4B5FD; }
+        .ref-card.where { background:#D1FAE5; border-color:#86EFAC; }
+        .ref-card.when { background:#FFE4E6; border-color:#FECACA; }
+        .ref-icon { font-size:1.5rem; flex-shrink:0; }
+        .ref-content { flex:1; }
+        .ref-word { font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.85rem; display:block; color:var(--text-dark); }
+        .ref-text { font-size:0.74rem; color:var(--text-medium); line-height:1.4; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#EDE9FE; color:#6D28D9; }
+
+        .transform-visual { margin:1rem 0; }
+        .transform-box { padding:0.9rem 1rem; border-radius:12px; margin-bottom:0.4rem; }
+        .transform-box.base { background:#FEF3C7; border:1.5px solid #FCD34D; }
+        .transform-box.goal { background:var(--info-light); border:1.5px solid #BFDBFE; }
+        .transform-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.4rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:1.02rem; line-height:1.55; font-weight:600; color:var(--text-dark); }
+        .transform-arrow { text-align:center; font-size:0.85rem; font-weight:700; color:var(--text-medium); padding:0.3rem; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.3rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:0.8rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation-block { display:none; padding:0.7rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); margin-bottom:0.8rem; font-style:italic; color:var(--text-light); font-size:0.85rem; }
+        .translation-block.show { display:block; animation:fadeUp .3s ease; }
+        .translation-block strong { color:var(--text-medium); font-weight:700; font-style:normal; }
+
+        .options-container { display:flex; flex-direction:column; gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { display:flex; align-items:center; gap:0.85rem; padding:1rem 1.1rem; border:2.5px solid #E5E7EB; border-radius:14px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; cursor:pointer; transition:all .2s; color:var(--text-dark); text-align:left; width:100%; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:#F0FDF4; transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:32px; height:32px; flex-shrink:0; border-radius:50%; background:#E5E7EB; color:var(--text-medium); display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.9rem; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { flex:1; font-weight:600; line-height:1.45; }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { padding:0.9rem 1rem; border-radius:12px; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.4rem; }
+        .tf-step { padding:0.55rem 0.8rem; border-radius:10px; font-size:0.92rem; line-height:1.45; border:1.5px solid; }
+        .tf-step.present { background:#FEF3C7; border-color:#FCD34D; color:var(--text-dark); }
+        .tf-step.past-wrong { background:var(--error-light); border-color:var(--error); color:var(--error-dark); text-decoration:line-through; }
+        .tf-step.past-correct { background:var(--success-light); border-color:var(--success); color:var(--success-dark); font-weight:700; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; display:inline-block; margin-right:0.4rem; padding:0.1rem 0.4rem; background:rgba(0,0,0,0.06); border-radius:5px; }
+        .tf-arrow { text-align:center; font-size:0.95rem; color:var(--text-medium); }
+
+        .fb-error { background:var(--error-light); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.92rem; color:var(--info-dark); font-weight:600; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · Relative Clauses</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Transform the sentence</div>
+                <div class="instructions-text">Read the original and the goal. Choose the option that correctly combines or restructures using a relative pronoun. Tap 🇪🇸 to see Spanish translations.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // Transform mechanics:
+    // Type 1: Combine 2 simple sentences into 1 with relative clause
+    // Type 2: Fix incorrect relative pronoun structure
+    // Type 3: Identify the correct combination
+    // Goals NEUTRAL — never reveal which exact relative pronoun
+    const quizData = [
+        {
+            id: 1,
+            base: "I have a friend. The friend speaks five languages.",
+            baseEs: "Tengo un amigo. El amigo habla cinco idiomas.",
+            goal: "Combine into ONE sentence using a relative pronoun",
+            goalEs: "Combinar en UNA oración usando un pronombre relativo",
+            hint: "The repeated noun is a PERSON. Choose the relative pronoun that fits people.",
+            options: [
+                { text: "I have a friend who speaks five languages.", textEs: "Tengo un amigo que habla cinco idiomas.", correct: true },
+                { text: "I have a friend which speaks five languages.", textEs: "Tengo un amigo que habla cinco idiomas.", correct: false,
+                  errorType: "Wrong pronoun — which for people",
+                  explanation: "'Which' is for THINGS only. A friend is a PERSON — use 'who' (or 'that')." },
+                { text: "I have a friend who he speaks five languages.", textEs: "Tengo un amigo que él habla cinco idiomas.", correct: false,
+                  errorType: "Wrong structure — double subject",
+                  explanation: "After 'who' we don't repeat the subject ('he'). 'Who' IS the subject. Correct: 'who speaks' (NOT 'who he speaks')." }
+            ],
+            ruleFormula: "person + who + verb",
+            correctReason: "The repeated noun ('friend') is a PERSON. Use 'who' to combine — the relative pronoun replaces the subject and is not repeated."
+        },
+        {
+            id: 2,
+            base: "The book is on the table. I bought the book yesterday.",
+            baseEs: "El libro está en la mesa. Compré el libro ayer.",
+            goal: "Combine into ONE sentence using a relative pronoun",
+            goalEs: "Combinar en UNA oración usando un pronombre relativo",
+            hint: "The repeated noun is a THING. Choose the relative pronoun that fits things.",
+            options: [
+                { text: "The book who I bought yesterday is on the table.", textEs: "El libro que compré ayer está en la mesa.", correct: false,
+                  errorType: "Wrong pronoun — who for things",
+                  explanation: "'Who' is for PEOPLE only. A book is a THING — use 'which' (or 'that')." },
+                { text: "The book which I bought yesterday is on the table.", textEs: "El libro que compré ayer está en la mesa.", correct: true },
+                { text: "The book which I bought it yesterday is on the table.", textEs: "El libro que lo compré ayer está en la mesa.", correct: false,
+                  errorType: "Wrong structure — double object",
+                  explanation: "After 'which' we don't repeat the object ('it'). 'Which' refers to 'the book'. Correct: 'which I bought yesterday'." }
+            ],
+            ruleFormula: "thing + which + S + V (no double object)",
+            correctReason: "The repeated noun ('book') is a THING. Use 'which' (or 'that') — the relative pronoun replaces the object and is not repeated."
+        },
+        {
+            id: 3,
+            base: "Carlos works at a bank. The bank is in the city center.",
+            baseEs: "Carlos trabaja en un banco. El banco está en el centro de la ciudad.",
+            goal: "Combine into ONE sentence using a relative pronoun for location",
+            goalEs: "Combinar en UNA oración usando un pronombre relativo de lugar",
+            hint: "The repeated noun is a PLACE. Choose the relative pronoun that fits locations.",
+            options: [
+                { text: "The bank which Carlos works is in the city center.", textEs: "El banco que Carlos trabaja está en el centro de la ciudad.", correct: false,
+                  errorType: "Wrong pronoun — which without preposition",
+                  explanation: "'Which' for places needs a preposition ('in which'). The simpler, natural option is 'where' (which already includes 'in/at')." },
+                { text: "The bank where Carlos works there is in the city center.", textEs: "El banco donde Carlos trabaja allí está en el centro de la ciudad.", correct: false,
+                  errorType: "Wrong structure — double location",
+                  explanation: "'Where' already includes the location reference. We don't add 'there'. Correct: 'where Carlos works' (not 'where Carlos works there')." },
+                { text: "The bank where Carlos works is in the city center.", textEs: "El banco donde trabaja Carlos está en el centro de la ciudad.", correct: true }
+            ],
+            ruleFormula: "place + where + clause",
+            correctReason: "The repeated noun ('bank') is a PLACE. Use 'where' to combine — it already includes the preposition meaning, so no 'there' is added."
+        },
+        {
+            id: 4,
+            base: "I remember the day. We met at the conference on that day.",
+            baseEs: "Recuerdo el día. Nos conocimos en la conferencia ese día.",
+            goal: "Combine into ONE sentence using a relative pronoun for time",
+            goalEs: "Combinar en UNA oración usando un pronombre relativo de tiempo",
+            hint: "The repeated noun is a TIME/MOMENT. Choose the pronoun that fits times.",
+            options: [
+                { text: "I remember the day when we met at the conference.", textEs: "Recuerdo el día cuando nos conocimos en la conferencia.", correct: true },
+                { text: "I remember the day where we met at the conference.", textEs: "Recuerdo el día donde nos conocimos en la conferencia.", correct: false,
+                  errorType: "Wrong pronoun — where for time",
+                  explanation: "'Where' is for PLACES. A 'day' is a TIME — use 'when'." },
+                { text: "I remember the day when we met at the conference then.", textEs: "Recuerdo el día cuando nos conocimos en la conferencia entonces.", correct: false,
+                  errorType: "Wrong structure — double time reference",
+                  explanation: "'When' already includes the time meaning. We don't add 'then'. Correct: 'when we met' (not 'when we met then')." }
+            ],
+            ruleFormula: "time + when + clause",
+            correctReason: "The repeated noun ('day') is a TIME. Use 'when' to combine — it already includes 'on that day', so no 'then' is added."
+        },
+        {
+            id: 5,
+            base: "The teacher is from Canada. The teacher teaches us English.",
+            baseEs: "El profesor es de Canadá. El profesor nos enseña inglés.",
+            goal: "Combine into ONE sentence describing the teacher",
+            goalEs: "Combinar en UNA oración describiendo al profesor",
+            hint: "The repeated noun is a PERSON. Use the appropriate relative pronoun.",
+            options: [
+                { text: "The teacher what teaches us English is from Canada.", textEs: "El profesor que nos enseña inglés es de Canadá.", correct: false,
+                  errorType: "Wrong word — what (Spanish que)",
+                  explanation: "'What' is NOT a relative pronoun for defining clauses. Spanish 'que' = 'who/which/that', NEVER 'what'. For people, use 'who'." },
+                { text: "The teacher who teaches us English is from Canada.", textEs: "El profesor que nos enseña inglés es de Canadá.", correct: true },
+                { text: "The teacher which teaches us English is from Canada.", textEs: "El profesor que nos enseña inglés es de Canadá.", correct: false,
+                  errorType: "Wrong pronoun — which for people",
+                  explanation: "'Which' is for THINGS only, never for people. A teacher is a PERSON — use 'who' (or 'that')." }
+            ],
+            ruleFormula: "person + who + verb",
+            correctReason: "The repeated noun ('teacher') is a PERSON. Use 'who'. Never use 'what' (not a relative pronoun) or 'which' (only for things)."
+        },
+        {
+            id: 6,
+            base: "Sofía bought a phone last week. The phone has an excellent camera.",
+            baseEs: "Sofía compró un teléfono la semana pasada. El teléfono tiene una cámara excelente.",
+            goal: "Combine into ONE sentence describing the phone",
+            goalEs: "Combinar en UNA oración describiendo el teléfono",
+            hint: "The repeated noun is a THING. Use the appropriate relative pronoun.",
+            options: [
+                { text: "The phone what Sofía bought last week has an excellent camera.", textEs: "El teléfono que Sofía compró la semana pasada tiene una cámara excelente.", correct: false,
+                  errorType: "Wrong word — what (Spanish que)",
+                  explanation: "'What' is NOT a relative pronoun for defining clauses. For things, use 'which' or 'that'. Spanish 'que' ≠ 'what' here." },
+                { text: "The phone which Sofía bought it last week has an excellent camera.", textEs: "El teléfono que Sofía lo compró la semana pasada tiene una cámara excelente.", correct: false,
+                  errorType: "Wrong structure — double object",
+                  explanation: "After 'which' we don't repeat the object ('it'). 'Which' refers to 'the phone'. Correct: 'which Sofía bought' (not 'which Sofía bought it')." },
+                { text: "The phone which Sofía bought last week has an excellent camera.", textEs: "El teléfono que Sofía compró la semana pasada tiene una cámara excelente.", correct: true }
+            ],
+            ruleFormula: "thing + which + S + V",
+            correctReason: "The repeated noun ('phone') is a THING. Use 'which' (or 'that'). Never add 'it' after the verb (the object is already replaced by 'which')."
+        },
+        {
+            id: 7,
+            base: "The hospital is in Madrid. Marcos was born at the hospital.",
+            baseEs: "El hospital está en Madrid. Marcos nació en el hospital.",
+            goal: "Combine into ONE sentence describing the hospital",
+            goalEs: "Combinar en UNA oración describiendo el hospital",
+            hint: "The repeated noun is a PLACE. Use the relative pronoun that fits locations.",
+            options: [
+                { text: "The hospital where Marcos was born is in Madrid.", textEs: "El hospital donde nació Marcos está en Madrid.", correct: true },
+                { text: "The hospital who Marcos was born is in Madrid.", textEs: "El hospital que Marcos nació está en Madrid.", correct: false,
+                  errorType: "Wrong pronoun — who for places",
+                  explanation: "'Who' is for PEOPLE only. A hospital is a PLACE — use 'where'." },
+                { text: "The hospital when Marcos was born is in Madrid.", textEs: "El hospital cuando nació Marcos está en Madrid.", correct: false,
+                  errorType: "Wrong pronoun — when for place",
+                  explanation: "'When' is for TIMES. Although the action 'was born' happened in time, the NOUN modified ('hospital') is a PLACE — use 'where'." }
+            ],
+            ruleFormula: "place + where + clause",
+            correctReason: "The repeated noun ('hospital') is a PLACE. Use 'where' to introduce the relative clause about the location."
+        },
+        {
+            id: 8,
+            base: "2026 is the year. I started learning English seriously in 2026.",
+            baseEs: "2026 es el año. Empecé a aprender inglés en serio en 2026.",
+            goal: "Combine into ONE sentence describing the year",
+            goalEs: "Combinar en UNA oración describiendo el año",
+            hint: "The repeated noun is a TIME. Use the relative pronoun that fits times.",
+            options: [
+                { text: "2026 is the year where I started learning English seriously.", textEs: "2026 es el año donde empecé a aprender inglés en serio.", correct: false,
+                  errorType: "Wrong pronoun — where for time",
+                  explanation: "'Where' is for PLACES. A year is a TIME — use 'when'." },
+                { text: "2026 is the year when I started learning English seriously.", textEs: "2026 es el año cuando empecé a aprender inglés en serio.", correct: true },
+                { text: "2026 is the year that I started learning English seriously then.", textEs: "2026 es el año que empecé a aprender inglés en serio entonces.", correct: false,
+                  errorType: "Wrong structure — redundant time",
+                  explanation: "'That' (or 'when') already includes the time reference. Adding 'then' is redundant. Correct: 'when I started' (not 'when I started then')." }
+            ],
+            ruleFormula: "time + when + clause",
+            correctReason: "The repeated noun ('year') is a TIME. Use 'when' to combine — it already includes 'in 2026', so no 'then' is added."
+        },
+        {
+            id: 9,
+            base: "The car is parked outside. The car belongs to Marcos.",
+            baseEs: "El coche está estacionado afuera. El coche pertenece a Marcos.",
+            goal: "Combine into ONE sentence describing the car",
+            goalEs: "Combinar en UNA oración describiendo el coche",
+            hint: "The repeated noun is a THING. Use the relative pronoun that fits things.",
+            options: [
+                { text: "The car who is parked outside belongs to Marcos.", textEs: "El coche que está estacionado afuera pertenece a Marcos.", correct: false,
+                  errorType: "Wrong pronoun — who for things",
+                  explanation: "'Who' is for PEOPLE only. A car is a THING — use 'which' (or 'that')." },
+                { text: "The car which it is parked outside belongs to Marcos.", textEs: "El coche que él está estacionado afuera pertenece a Marcos.", correct: false,
+                  errorType: "Wrong structure — double subject",
+                  explanation: "After 'which' we don't repeat the subject ('it'). 'Which' IS the subject. Correct: 'which is parked' (not 'which it is parked')." },
+                { text: "The car which is parked outside belongs to Marcos.", textEs: "El coche que está estacionado afuera pertenece a Marcos.", correct: true }
+            ],
+            ruleFormula: "thing + which + verb (no double subject)",
+            correctReason: "The repeated noun ('car') is a THING. Use 'which' (or 'that') — and 'which' IS the subject of the clause, so no 'it' is added."
+        },
+        {
+            id: 10,
+            base: "The restaurant was very expensive. We had dinner at the restaurant last night.",
+            baseEs: "El restaurante era muy caro. Cenamos en el restaurante anoche.",
+            goal: "Combine into ONE sentence describing the restaurant",
+            goalEs: "Combinar en UNA oración describiendo el restaurante",
+            hint: "The repeated noun is a PLACE. Use the appropriate relative pronoun.",
+            options: [
+                { text: "The restaurant where we had dinner last night was very expensive.", textEs: "El restaurante donde cenamos anoche era muy caro.", correct: true },
+                { text: "The restaurant when we had dinner last night was very expensive.", textEs: "El restaurante cuando cenamos anoche era muy caro.", correct: false,
+                  errorType: "Wrong pronoun — when for place",
+                  explanation: "'When' is for TIMES. The noun modified ('restaurant') is a PLACE — use 'where'." },
+                { text: "The restaurant where we had dinner there last night was very expensive.", textEs: "El restaurante donde cenamos allí anoche era muy caro.", correct: false,
+                  errorType: "Wrong structure — double location",
+                  explanation: "'Where' already includes the location meaning. We don't add 'there'. Correct: 'where we had dinner' (not 'where we had dinner there')." }
+            ],
+            ruleFormula: "place + where + clause (no double location)",
+            correctReason: "The repeated noun ('restaurant') is a PLACE. Use 'where' — it already replaces 'at the restaurant', so no 'there' is needed."
+        },
+        {
+            id: 11,
+            base: "The manager who he helped me open my account is Carlos.",
+            baseEs: "El gerente que él me ayudó a abrir mi cuenta es Carlos.",
+            goal: "Fix the incorrect structure in the relative clause",
+            goalEs: "Corregir la estructura incorrecta en la cláusula relativa",
+            hint: "The relative pronoun has a problem with the subject of the clause. Find the correct version.",
+            options: [
+                { text: "The manager which helped me open my account is Carlos.", textEs: "El gerente que me ayudó a abrir mi cuenta es Carlos.", correct: false,
+                  errorType: "Wrong pronoun — which for people",
+                  explanation: "Removing 'he' is correct, but 'which' is for things only. A manager is a PERSON — use 'who'." },
+                { text: "The manager who helped me open my account is Carlos.", textEs: "El gerente que me ayudó a abrir mi cuenta es Carlos.", correct: true },
+                { text: "The manager he helped me open my account is Carlos.", textEs: "El gerente él me ayudó a abrir mi cuenta es Carlos.", correct: false,
+                  errorType: "Wrong structure — missing relative pronoun",
+                  explanation: "When the relative pronoun is the SUBJECT, it CANNOT be omitted. Correct: 'manager WHO helped me' (not 'manager he helped me')." }
+            ],
+            ruleFormula: "person + who + verb (no double subject, pronoun required)",
+            correctReason: "Remove 'he' (the relative pronoun 'who' IS the subject). The relative pronoun cannot be omitted when it's the subject. Correct: 'who helped me'."
+        },
+        {
+            id: 12,
+            base: "Saturday is the day where I usually visit my grandmother.",
+            baseEs: "El sábado es el día donde suelo visitar a mi abuela.",
+            goal: "Fix the incorrect relative pronoun",
+            goalEs: "Corregir el pronombre relativo incorrecto",
+            hint: "The wrong pronoun is used for the type of noun. Choose the right relative pronoun.",
+            options: [
+                { text: "Saturday is the day what I usually visit my grandmother.", textEs: "El sábado es el día que suelo visitar a mi abuela.", correct: false,
+                  errorType: "Wrong word — what (Spanish que)",
+                  explanation: "'What' is NOT a relative pronoun for defining clauses. For times, use 'when'. Spanish 'que' ≠ 'what'." },
+                { text: "Saturday is the day which I usually visit my grandmother.", textEs: "El sábado es el día que suelo visitar a mi abuela.", correct: false,
+                  errorType: "Wrong pronoun — which without preposition for time",
+                  explanation: "'Which' for times needs preposition ('on which'). The simpler, natural option is 'when'." },
+                { text: "Saturday is the day when I usually visit my grandmother.", textEs: "El sábado es el día cuando suelo visitar a mi abuela.", correct: true }
+            ],
+            ruleFormula: "time + when + clause",
+            correctReason: "Change 'where' (place) to 'when' (time). A 'day' is a TIME, not a place. The natural option for times is 'when'."
+        },
+        {
+            id: 13,
+            base: "The movie won the Oscar last year. The movie was a documentary.",
+            baseEs: "La película ganó el Oscar el año pasado. La película fue un documental.",
+            goal: "Combine into ONE sentence describing the movie",
+            goalEs: "Combinar en UNA oración describiendo la película",
+            hint: "The repeated noun is a THING. Use the appropriate relative pronoun.",
+            options: [
+                { text: "The movie which won the Oscar last year was a documentary.", textEs: "La película que ganó el Oscar el año pasado fue un documental.", correct: true },
+                { text: "The movie who won the Oscar last year was a documentary.", textEs: "La película que ganó el Oscar el año pasado fue un documental.", correct: false,
+                  errorType: "Wrong pronoun — who for things",
+                  explanation: "'Who' is for PEOPLE only. A movie is a THING (work of art) — use 'which' (or 'that')." },
+                { text: "The movie what won the Oscar last year was a documentary.", textEs: "La película que ganó el Oscar el año pasado fue un documental.", correct: false,
+                  errorType: "Wrong word — what (Spanish que)",
+                  explanation: "'What' is NOT a relative pronoun for defining clauses. For things, use 'which' or 'that'. Spanish 'que' = 'which/that', NOT 'what'." }
+            ],
+            ruleFormula: "thing + which + verb",
+            correctReason: "The repeated noun ('movie') is a THING. Use 'which' (or 'that') — never 'who' (people) or 'what' (not a relative pronoun)."
+        },
+        {
+            id: 14,
+            base: "The park which children play in is near my house.",
+            baseEs: "El parque en el cual los niños juegan está cerca de mi casa.",
+            goal: "Rewrite using a simpler relative pronoun for places",
+            goalEs: "Reescribir usando un pronombre relativo más simple para lugares",
+            hint: "Replace the formal structure with the natural pronoun for places. Remove the unnecessary preposition.",
+            options: [
+                { text: "The park where children play in is near my house.", textEs: "El parque donde los niños juegan en está cerca de mi casa.", correct: false,
+                  errorType: "Wrong structure — extra preposition",
+                  explanation: "When using 'where', we don't need 'in' (or any preposition) — 'where' already includes that meaning. Correct: 'where children play' (not 'where children play in')." },
+                { text: "The park where children play is near my house.", textEs: "El parque donde juegan los niños está cerca de mi casa.", correct: true },
+                { text: "The park who children play is near my house.", textEs: "El parque que los niños juegan está cerca de mi casa.", correct: false,
+                  errorType: "Wrong pronoun — who for places",
+                  explanation: "'Who' is for PEOPLE only. A park is a PLACE — use 'where'." }
+            ],
+            ruleFormula: "place + where + clause (no extra preposition)",
+            correctReason: "Replace 'which... in' with 'where' (which already includes the preposition meaning). The natural form is simpler: 'where children play'."
+        },
+        {
+            id: 15,
+            base: "The doctor what works at the hospital is Sofía.",
+            baseEs: "La doctora que trabaja en el hospital es Sofía.",
+            goal: "Fix the incorrect relative pronoun",
+            goalEs: "Corregir el pronombre relativo incorrecto",
+            hint: "'What' is incorrect here. Replace it with the appropriate relative pronoun for the type of noun.",
+            options: [
+                { text: "The doctor which works at the hospital is Sofía.", textEs: "La doctora que trabaja en el hospital es Sofía.", correct: false,
+                  errorType: "Wrong pronoun — which for people",
+                  explanation: "Removing 'what' is correct, but 'which' is for THINGS only. A doctor is a PERSON — use 'who' (or 'that')." },
+                { text: "The doctor where works at the hospital is Sofía.", textEs: "La doctora donde trabaja en el hospital es Sofía.", correct: false,
+                  errorType: "Wrong pronoun — where for people",
+                  explanation: "'Where' is for PLACES only. A doctor is a PERSON — use 'who'." },
+                { text: "The doctor who works at the hospital is Sofía.", textEs: "La doctora que trabaja en el hospital es Sofía.", correct: true }
+            ],
+            ruleFormula: "person + who + verb",
+            correctReason: "Replace 'what' with 'who' for people. 'What' is never a relative pronoun for defining clauses — for people, the correct option is 'who' (or 'that')."
+        }
+    ];
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="q-label">Transform the sentence:</span>
+                <span class="topic-badge">🔗 relative</span>
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">🔶 Original</span>
+                    <div class="transform-sentence">${q.base}</div>
+                </div>
+                <div class="transform-arrow">⬇ Transform to...</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Goal</span>
+                    <div class="transform-sentence">${q.goal}</div>
+                </div>
+            </div>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation-block" id="translation-${index}">
+                <div><strong>Original:</strong> ${q.baseEs}</div>
+                <div style="margin-top:0.3rem;"><strong>Goal:</strong> ${q.goalEs}</div>
+                <div style="margin-top:0.3rem;border-top:1px dashed #BBF7D0;padding-top:0.3rem;"><strong>Options:</strong></div>
+                ${q.shuffled.map((opt, i) => `<div style="margin-top:0.2rem;">${letters[i]}. ${opt.textEs}</div>`).join('')}
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${opt.text}</div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        const correctIdx = q.shuffled.indexOf(correctOpt);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (i === correctIdx) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const transformFlow = (showWrong) => `
+            <div class="transform-flow">
+                <div class="tf-step present"><span class="tf-label">Original</span>${q.base}</div>
+                <div class="tf-arrow">⬇</div>
+                ${showWrong ? `<div class="tf-step past-wrong"><span class="tf-label">Your answer</span>${selected.text}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correct</span>${correctOpt.text}</div>
+            </div>
+        `;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct transformation!</div>
+                        <div class="fb-subtitle">You chose the right relative pronoun</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Transformation done</div>
+                        ${transformFlow(false)}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the transformation correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect transformation</div>
+                        <div class="fb-subtitle">Let's review what went wrong</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Your transformation vs. correct</div>
+                        ${transformFlow(true)}
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ The error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 How should the transformation be done?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You transform relative clauses perfectly. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the patterns and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

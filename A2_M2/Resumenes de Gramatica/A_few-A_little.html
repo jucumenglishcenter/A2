@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — A few / Few / A little / Little | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">⚖️ A Few / Few · A Little / Little</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>A FEW / FEW:</b> solo con sustantivos CONTABLES plurales (books, friends)", "<b>A LITTLE / LITTLE:</b> solo con sustantivos INCONTABLES (water, time, money)", "<b>A few / A little (con \"a\"):</b> sentido POSITIVO \u2014 algunos, un poco (suficiente)", "<b>Few / Little (sin \"a\"):</b> sentido NEGATIVO \u2014 pocos, poco (no suficiente)", "\"I have <b>a few</b> friends\" \u2705 (tengo algunos) vs \"I have <b>few</b> friends\" \ud83d\ude22 (tengo pocos)", "\"<b>A little</b> sugar, please\" \u2705 (un poquito) vs \"I have <b>little</b> time\" \ud83d\ude22 (apenas tengo)", "Truco: si puedes contar con n\u00fameros (1, 2, 3...) \u2192 few. Si no \u2192 little."], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol usamos <b>\"unos pocos\"</b>, <b>\"un poco de\"</b>, <b>\"pocos\"</b> y <b>\"poco\"</b> seg\u00fan el sustantivo y el tono. El ingl\u00e9s distingue lo mismo pero con reglas m\u00e1s estrictas.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83d\udd22 Contable (plural)</h4><ul>\n<li><b>Unos pocos</b> amigos \u2192 positivo</li>\n<li><b>Pocos</b> amigos \u2192 negativo</li>\n<li><b>Algunos</b> libros</li>\n<li><b>Pocos</b> d\u00edas quedan</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83d\udcab Incontable (masa)</h4><ul>\n<li><b>Un poco de</b> agua \u2192 positivo</li>\n<li><b>Poca</b> agua \u2192 negativo</li>\n<li><b>Un poco de</b> tiempo</li>\n<li><b>Poco</b> dinero \u2192 negativo</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\ude0a</div><div><div class=\"en\">\"Tengo <b>unos pocos</b> amigos\" \u2192 tengo algunos, est\u00e1 bien.</div><div class=\"es\">Tono positivo: es suficiente</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\ude1e</div><div><div class=\"en\">\"Tengo <b>pocos</b> amigos\" \u2192 casi no tengo, me faltan.</div><div class=\"es\">Tono negativo: no es suficiente</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> La misma palabra con o sin \"unos/un\" cambia completamente el sentido. En ingl\u00e9s pasa igual con \"a\": a few/a little son positivos, few/little son negativos.</div>", "exercises": [{"q": "\"Tengo unos pocos amigos\" \u2014 \u00bfel tono es:?", "a": "a", "o": ["Positivo (suficiente)", "Negativo (no suficiente)"], "fc": "\"Unos pocos\" = algunos, tono positivo.", "fi": "El tono negativo ser\u00eda \"pocos\" (sin \"unos\").", "ex": "Tengo unos pocos amigos \u2192 I have a few friends", "tip": "Unos pocos = a few (positivo)"}, {"q": "\"Tengo pocos amigos\" \u2014 \u00bfel tono es:?", "a": "b", "o": ["Positivo", "Negativo (me faltan)"], "fc": "\"Pocos\" (sin \"unos\") tiene tono negativo \u2014 me faltan.", "fi": "El tono positivo ser\u00eda \"unos pocos\".", "ex": "Tengo pocos amigos \u2192 I have few friends", "tip": "Pocos = few (negativo)"}, {"q": "\u00bfQu\u00e9 usas con \"agua\" (incontable)?", "a": "b", "o": ["Unos pocos", "Un poco de"], "fc": "\"Agua\" no se cuenta \u2192 \"un poco de agua\".", "fi": "\"Unos pocos\" se usa con contables plurales (libros, amigos).", "ex": "Un poco de agua \u2192 A little water", "tip": "Incontable \u2192 un poco de / a little"}, {"q": "\u00bfContable o incontable: \"tiempo\"?", "a": "a", "o": ["Incontable", "Contable"], "fc": "\"Tiempo\" (cantidad abstracta) \u2192 incontable.", "fi": "\"Veces\" ser\u00eda contable, pero \"tiempo\" no.", "ex": "Un poco de tiempo \u2192 A little time", "tip": "Tiempo = incontable (masa)"}, {"q": "\"Un poco de sal\" vs \"Poca sal\" \u2014 \u00bfigual sentido?", "a": "b", "o": ["S\u00ed, son iguales", "No, tonos opuestos"], "fc": "\"Un poco\" es positivo (suficiente); \"poca\" es negativo (insuficiente).", "fi": "Son MUY distintos en tono aunque suenen parecidos.", "tip": "\"Un\" cambia el tono \u2192 positivo/negativo"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">El mapeo es casi perfecto entre los dos idiomas. Same nuance, same logic.</div>\n\n<table class=\"g-table\">\n<tr><th>Sentido</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Contable + positivo</td><td>unos pocos amigos</td><td><span class=\"g-comp\">a few</span> friends</td></tr>\n<tr><td>Contable + negativo</td><td>pocos amigos</td><td><span class=\"g-neg\">few</span> friends</td></tr>\n<tr><td>Incontable + positivo</td><td>un poco de agua</td><td><span class=\"g-comp\">a little</span> water</td></tr>\n<tr><td>Incontable + negativo</td><td>poca agua</td><td><span class=\"g-neg\">little</span> water</td></tr>\n<tr><td>La clave: \"a\"</td><td>\"unos/un\" = positivo</td><td>\"a\" = positivo</td></tr>\n</table>\n\n<div class=\"section-label\">Mapa visual</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">Contable +</div><div class=\"vrb\">a few</div><div class=\"meaning\">unos pocos</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Contable \u2212</div><div class=\"vrb\">few</div><div class=\"meaning\">pocos</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Incontable +</div><div class=\"vrb\">a little</div><div class=\"meaning\">un poco de</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Incontable \u2212</div><div class=\"vrb\">little</div><div class=\"meaning\">poco/a</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> En ambos idiomas la presencia de un art\u00edculo indefinido (\"a\" en ingl\u00e9s, \"un/unos\" en espa\u00f1ol) convierte el sentido de negativo a positivo.</div>", "exercises": [{"q": "\"I have ___ books in my bag.\"", "a": "a", "o": ["a few", "a little"], "fc": "\"Books\" es contable plural \u2192 <b>a few</b>.", "fi": "\"A little\" se usa solo con incontables (water, time).", "ex": "I have a few books \u2192 Tengo unos pocos libros", "tip": "Contable plural \u2192 a few"}, {"q": "\"She drinks ___ coffee every morning.\"", "a": "b", "o": ["a few", "a little"], "fc": "\"Coffee\" es incontable \u2192 <b>a little</b>.", "fi": "\"A few\" se usa solo con contables plurales.", "ex": "She drinks a little coffee \u2192 Toma un poco de caf\u00e9", "tip": "Incontable \u2192 a little"}, {"q": "\"We need ___ eggs for the cake.\"", "a": "a", "o": ["a few", "a little"], "fc": "\"Eggs\" es contable plural (1 egg, 2 eggs...) \u2192 <b>a few</b>.", "fi": "\"A little\" no va con sustantivos que se cuentan.", "ex": "We need a few eggs \u2192 Necesitamos unos pocos huevos", "tip": "Si se cuenta con n\u00fameros \u2192 a few"}, {"q": "\"He has ___ money left.\"", "a": "b", "o": ["a few", "a little"], "fc": "\"Money\" es incontable \u2192 <b>a little</b> (un poco).", "fi": "\"A few\" no va con money; money no se cuenta (dollars s\u00ed, pero money no).", "ex": "He has a little money \u2192 Tiene un poco de dinero", "tip": "Money = incontable"}, {"q": "\"Can I ask you ___ questions?\"", "a": "a", "o": ["a few", "a little"], "fc": "\"Questions\" es contable plural \u2192 <b>a few</b>.", "fi": "\"A little questions\" no existe.", "ex": "Can I ask you a few questions? \u2192 \u00bfPuedo hacerte unas preguntas?", "tip": "Questions = contable plural"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">La sutileza est\u00e1 en el TONO: positivo (con \"a\") vs negativo (sin \"a\").</div>\n\n<table class=\"g-table\">\n<tr><th>Con \"a\" \u2014 positivo</th><th>Sin \"a\" \u2014 negativo</th><th>\ud83d\udca1 Nuance</th></tr>\n<tr><td>I have <span class=\"g-comp\">a few</span> friends \ud83d\ude0a</td><td>I have <span class=\"g-neg\">few</span> friends \ud83d\ude22</td><td>Algunos / Casi ninguno</td></tr>\n<tr><td>She has <span class=\"g-comp\">a little</span> time \ud83d\ude0a</td><td>She has <span class=\"g-neg\">little</span> time \ud83d\ude22</td><td>Un poco / Apenas</td></tr>\n<tr><td>Sentido: <b>alg\u00fan/suficiente</b></td><td>Sentido: <b>insuficiente</b></td><td>La \"a\" cambia todo</td></tr>\n<tr><td>\u2713 Tono positivo</td><td>\u2717 Tono negativo (queja)</td><td>Es lo opuesto</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f La \"a\" marca toda la diferencia</div>\n<p>Las 4 frases siguientes son gramaticalmente correctas pero tienen SENTIDOS OPUESTOS:<br><br>\n\u2705 \"I have <b>a few</b> friends\" \u2192 Tengo unos pocos amigos (est\u00e1 bien)<br>\n\u2620\ufe0f \"I have <b>few</b> friends\" \u2192 Tengo pocos amigos (me siento solo)<br><br>\n\u2705 \"She speaks <b>a little</b> English\" \u2192 Habla un poco (suficiente)<br>\n\u2620\ufe0f \"She speaks <b>little</b> English\" \u2192 Habla muy poco (no entender\u00e1)</p></div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\ude0a</div><div><div class=\"en\">There are <span class=\"g-comp\">a few</span> chairs. Sit down!</div><div class=\"es\">Hay unas pocas sillas. \u00a1Si\u00e9ntate! (positivo: hay)</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\ud83d\ude22</div><div><div class=\"en\">There are <span class=\"g-neg\">few</span> chairs. We have to stand.</div><div class=\"es\">Hay pocas sillas. Tenemos que estar de pie. (negativo: no alcanzan)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2615</div><div><div class=\"en\">I have <span class=\"g-comp\">a little</span> milk for my coffee.</div><div class=\"es\">Tengo un poco de leche para mi caf\u00e9. (suficiente)</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\ud83d\ude41</div><div><div class=\"en\">I have <span class=\"g-neg\">little</span> milk. I can't make breakfast.</div><div class=\"es\">Tengo poca leche. No puedo hacer el desayuno. (insuficiente)</div></div></div>", "exercises": [{"q": "\"Don't worry, we still have ___ minutes.\"", "a": "a", "o": ["a few", "few"], "fc": "\"Don't worry\" sugiere tono positivo \u2192 <b>a few</b> (a\u00fan tenemos algunos).", "fi": "\"Few minutes\" dar\u00eda tono negativo (\"apenas minutos\"), contradice \"don't worry\".", "ex": "We have a few minutes \u2192 Tenemos unos pocos minutos", "tip": "Con \"don't worry\" \u2192 positivo \u2192 a few"}, {"q": "\"Only ___ students passed the exam. It was very hard.\"", "a": "b", "o": ["a few", "few"], "fc": "\"Only\" + tono negativo (examen dif\u00edcil) \u2192 <b>few</b> (pocos aprobaron).", "fi": "\"A few\" ser\u00eda tono positivo, no encaja con \"only\" ni con la queja.", "ex": "Few students passed \u2192 Pocos estudiantes aprobaron", "tip": "\"Only\" \u2192 few (negativo)"}, {"q": "\"Can you give me ___ help? Just a bit.\"", "a": "a", "o": ["a little", "little"], "fc": "\"Just a bit\" = solo un poquito (positivo) \u2192 <b>a little</b>.", "fi": "\"Little help\" dar\u00eda tono negativo, contradice \"just a bit\".", "ex": "Can you give me a little help? \u2192 \u00bfPuedes darme un poco de ayuda?", "tip": "\"Just a bit\" \u2192 a little"}, {"q": "\"She has ___ patience with rude people.\" (se enoja f\u00e1cil)", "a": "b", "o": ["a little", "little"], "fc": "El contexto es negativo (se enoja) \u2192 <b>little patience</b> (apenas paciencia).", "fi": "\"A little patience\" sugerir\u00eda que tiene algo de paciencia, contradice el contexto.", "ex": "She has little patience \u2192 Tiene poca paciencia", "tip": "Quejas \u2192 little"}, {"q": "\"I have ___ time before class starts. Let's chat.\"", "a": "a", "o": ["a little", "little"], "fc": "\"Let's chat\" sugiere que hay tiempo suficiente \u2192 <b>a little</b>.", "fi": "\"Little time\" ser\u00eda negativo, no encaja con invitar a conversar.", "ex": "I have a little time \u2192 Tengo un poco de tiempo", "tip": "Invitaci\u00f3n \u2192 positivo \u2192 a little"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 El test del n\u00famero:</strong> \u00bfPuedes contar con n\u00fameros? (1 book, 2 books, 3 books...) \u2192 <b>few / a few</b>. \u00bfNo puedes? (agua, aire, tiempo, dinero como concepto) \u2192 <b>little / a little</b>.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 El test del tono:</strong> Si a\u00f1adir \"solo\" o \"apenas\" tiene sentido \u2192 NEGATIVO \u2192 <b>few / little</b>. Si a\u00f1adir \"algunos\" o \"un poquito\" tiene sentido \u2192 POSITIVO \u2192 <b>a few / a little</b>.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Se\u00f1ales de contexto:</strong> \"only\", \"very\", \"too\", \"so\" suelen acompa\u00f1ar el tono NEGATIVO (only few, very little). \"Don't worry\", \"just\", \"still\" sugieren tono POSITIVO.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Sustantivos incontables t\u00edpicos:</strong> water, tea, coffee, milk, sugar, rice, bread, money, time, information, advice, work, help, music, news, luck.</div>\n\n<div class=\"formula-box\">\n\ud83d\udd22 Contable plural: <span class=\"g-comp\">a few</span> (+) / <span class=\"g-neg\">few</span> (\u2212)<br>\n\ud83d\udcab Incontable: <span class=\"g-comp\">a little</span> (+) / <span class=\"g-neg\">little</span> (\u2212)<br>\n\ud83d\udcac La \"a\" = tono positivo (suficiente)<br>\n\u274c Sin \"a\" = tono negativo (insuficiente)\n</div>\n\n<table class=\"g-table\">\n<tr><th>Contable (few/a few)</th><th>Incontable (little/a little)</th></tr>\n<tr><td>friends, books, cars</td><td>water, milk, coffee</td></tr>\n<tr><td>eggs, apples, chairs</td><td>sugar, rice, bread</td></tr>\n<tr><td>days, weeks, years</td><td>time, music, news</td></tr>\n<tr><td>questions, problems</td><td>advice, help, work</td></tr>\n<tr><td>dollars, euros</td><td>money (general)</td></tr>\n</table>", "exercises": [{"q": "\"There is ___ sugar in the jar. Let's buy more.\"", "a": "b", "o": ["a little", "little"], "fc": "\"Let's buy more\" indica insuficiencia \u2192 <b>little sugar</b> (casi no hay).", "fi": "\"A little\" ser\u00eda positivo, no encaja con la necesidad de comprar m\u00e1s.", "ex": "There is little sugar; let's buy more", "tip": "Necesidad de m\u00e1s \u2192 little (negativo)"}, {"q": "\"I'll have ___ coffee, please. Not a lot.\"", "a": "a", "o": ["a little", "a few"], "fc": "\"Coffee\" = incontable. \"Not a lot\" = un poco \u2192 <b>a little</b>.", "fi": "\"A few\" no va con coffee (incontable).", "ex": "I'll have a little coffee, please", "tip": "Coffee = incontable \u2192 a little"}, {"q": "\"___ students attended the lecture. The classroom was almost empty.\"", "a": "b", "o": ["A few", "Few"], "fc": "\"Almost empty\" marca tono negativo (casi nadie) \u2192 <b>few</b> (apenas, insuficiente).", "fi": "\"A few students\" sugerir\u00eda cantidad aceptable, contradice \"almost empty\".", "ex": "Few students attended the lecture", "tip": "Classroom almost empty \u2192 tono negativo \u2192 few"}, {"q": "\"She needs ___ minutes to finish.\" (casi listo)", "a": "a", "o": ["a few", "few"], "fc": "\"Casi listo\" = positivo, le quedan algunos minutos \u2192 <b>a few</b>.", "fi": "\"Few\" ser\u00eda negativo, no encaja con estar casi listo.", "ex": "She needs a few minutes \u2192 Le quedan unos pocos minutos", "tip": "\"Casi listo\" \u2192 a few"}, {"q": "\"He speaks ___ Spanish. You can practice with him.\"", "a": "b", "o": ["little", "a little"], "fc": "\"You can practice with him\" = s\u00ed sabe algo \u2192 <b>a little Spanish</b>.", "fi": "\"Little Spanish\" significar\u00eda que casi no sabe, contradice \"you can practice\".", "ex": "He speaks a little Spanish", "tip": "Suficiente para practicar \u2192 a little"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Combina los 2 criterios: <b>contable/incontable</b> + <b>positivo/negativo</b>.</div>\n\n<div class=\"formula-box\">\n\u2705 Contable + positivo: <span class=\"g-comp\">a few</span> <span class=\"g-subj\">friends</span><br>\n\u274c Contable + negativo: <span class=\"g-neg\">few</span> <span class=\"g-subj\">friends</span><br>\n\u2705 Incontable + positivo: <span class=\"g-comp\">a little</span> <span class=\"g-subj\">water</span><br>\n\u274c Incontable + negativo: <span class=\"g-neg\">little</span> <span class=\"g-subj\">water</span>\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udc65</div><div><div class=\"en\">I have <span class=\"g-comp\">a few</span> <span class=\"g-subj\">close friends</span> and I'm happy.</div><div class=\"es\">Tengo unos pocos amigos cercanos y estoy feliz. (positivo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcb0</div><div><div class=\"en\">She has <span class=\"g-neg\">little</span> <span class=\"g-subj\">money</span>, so she can't travel.</div><div class=\"es\">Tiene poco dinero, as\u00ed que no puede viajar. (negativo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u23f1\ufe0f</div><div><div class=\"en\">We still have <span class=\"g-comp\">a little</span> <span class=\"g-subj\">time</span> before the train.</div><div class=\"es\">Todav\u00eda tenemos un poco de tiempo antes del tren. (positivo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcda</div><div><div class=\"en\">Only <span class=\"g-neg\">few</span> <span class=\"g-subj\">students</span> studied for the exam.</div><div class=\"es\">Solo pocos estudiantes estudiaron para el examen. (negativo)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"I have a few water\" \u2192 \u2705 \"I have <b>a little</b> water\" (water = incontable)<br>\n\u274c \"She needs a little books\" \u2192 \u2705 \"She needs <b>a few</b> books\" (books = contable)<br>\n\u274c \"I have few friends, I'm happy\" \u2192 \u2705 \"I have <b>a few</b> friends, I'm happy\" (tono positivo)<br>\n\u274c \"Only a few people came; it was awful\" \u2192 mejor \"Only <b>few</b> people came\" si enfatizas el tono negativo fuerte\n</p></div>", "exercises": [{"q": "\"Give me ___ rice, please. I'm not very hungry.\"", "a": "a", "o": ["a little", "a few"], "fc": "\"Rice\" = incontable. \"Not very hungry\" \u2192 positivo (un poquito) \u2192 <b>a little</b>.", "fi": "\"A few\" no va con rice (incontable).", "ex": "Give me a little rice, please", "tip": "Rice = incontable \u2192 a little"}, {"q": "\"There are ___ apples in the kitchen. Take some.\"", "a": "b", "o": ["few", "a few"], "fc": "\"Take some\" = hay algunos disponibles \u2192 <b>a few</b> (positivo).", "fi": "\"Few\" ser\u00eda negativo (casi no hay), contradice \"take some\".", "ex": "There are a few apples; take some", "tip": "Invitaci\u00f3n a tomar \u2192 a few"}, {"q": "\"I speak ___ French, not enough for a conversation.\"", "a": "b", "o": ["a little", "little"], "fc": "\"Not enough\" = insuficiente \u2192 <b>little French</b> (negativo).", "fi": "\"A little\" ser\u00eda suficiente, contradice \"not enough\".", "ex": "I speak little French", "tip": "\"Not enough\" \u2192 little"}, {"q": "\"He made ___ mistakes, but the essay is good.\"", "a": "a", "o": ["a few", "few"], "fc": "\"But the essay is good\" \u2192 los errores no son graves \u2192 <b>a few</b> (positivo).", "fi": "\"Few mistakes\" tambi\u00e9n es posible pero \"a few\" encaja mejor con el contraste positivo.", "ex": "He made a few mistakes, but the essay is good", "tip": "Contraste con positivo \u2192 a few"}, {"q": "\"There is ___ information about the new policy. We need more.\"", "a": "b", "o": ["a little", "little"], "fc": "\"We need more\" = insuficiente \u2192 <b>little information</b> (negativo). Information es incontable.", "fi": "\"A little\" ser\u00eda suficiente, contradice \"we need more\".", "ex": "There is little information", "tip": "Information = incontable + necesidad \u2192 little"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

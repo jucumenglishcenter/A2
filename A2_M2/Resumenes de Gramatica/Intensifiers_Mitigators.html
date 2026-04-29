@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Intensifiers & Mitigators | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">📊 Intensifiers & Mitigators (quite/rather/pretty/really)</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>REALLY / VERY:</b> intensificadores FUERTES \u2014 \"really tired\", \"very hot\"", "<b>PRETTY / QUITE:</b> intensificadores MEDIOS (informal) \u2014 \"pretty good\", \"quite nice\"", "<b>FAIRLY:</b> intensificador MODERADO, m\u00e1s neutro \u2014 \"fairly easy\"", "<b>RATHER:</b> a menudo con sorpresa o matiz negativo \u2014 \"rather expensive\"", "<b>A BIT / A LITTLE:</b> mitigadores \u2014 reducen la intensidad de un adjetivo (generalmente negativo)", "<b>Orden:</b> intensifier + adjective \u2014 \"She is <b>really</b> smart\"", "<b>Pretty</b> como intensificador es muy com\u00fan en ingl\u00e9s americano informal"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol tenemos una escala de palabras para medir qu\u00e9 tan intensa es una cualidad: desde <b>\"un poco\"</b> (bajo) hasta <b>\"muy/realmente\"</b> (alto). El ingl\u00e9s tiene esa misma escala.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83d\udd3b Intensidad BAJA</h4><ul>\n<li><b>Un poco</b> cansado</li>\n<li><b>Un poquito</b> fr\u00edo</li>\n<li>Algo cansado</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83d\udd3c Intensidad ALTA</h4><ul>\n<li><b>Bastante</b> interesante</li>\n<li><b>Muy</b> cansado</li>\n<li><b>Realmente</b> bueno</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83e\udd76</div><div><div class=\"en\">\"Hace <b>un poco de</b> fr\u00edo\" \u2192 intensidad baja, no es grave.</div><div class=\"es\">Mitigador: baja el tono</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udd25</div><div><div class=\"en\">\"Estoy <b>realmente</b> cansado\" \u2192 intensidad muy alta, lo enfatiza.</div><div class=\"es\">Intensificador fuerte: sube el tono</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\u2696\ufe0f</div><div><div class=\"en\">\"El examen fue <b>bastante</b> dif\u00edcil\" \u2192 intensidad media, ni poco ni demasiado.</div><div class=\"es\">Intensidad media: punto intermedio</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> En espa\u00f1ol elegimos entre \"un poco / algo / bastante / muy / realmente\" seg\u00fan qu\u00e9 tanto queremos enfatizar. En ingl\u00e9s funciona igual, solo cambian las palabras.</div>", "exercises": [{"q": "\"Estoy <b>muy</b> cansado\" vs \"Estoy <b>un poco</b> cansado\" \u2014 \u00bfcu\u00e1l es m\u00e1s intenso?", "a": "b", "o": ["Un poco cansado", "Muy cansado"], "fc": "\"Muy\" es un intensificador fuerte; \"un poco\" es mitigador.", "fi": "\"Un poco cansado\" indica baja intensidad, menos que \"muy\".", "ex": "Muy cansado \u2192 Very tired \u00b7 Un poco cansado \u2192 A little tired", "tip": "Muy = intensidad alta \u00b7 Un poco = baja"}, {"q": "\u00bfCu\u00e1l es un <b>mitigador</b> (baja la intensidad)?", "a": "a", "o": ["Un poco", "Realmente"], "fc": "\"Un poco\" reduce el grado del adjetivo.", "fi": "\"Realmente\" es intensificador fuerte, aumenta.", "ex": "Un poco fr\u00edo \u2192 A bit cold", "tip": "Mitigador = baja la intensidad"}, {"q": "\"El examen fue <b>bastante</b> dif\u00edcil\" indica intensidad:", "a": "b", "o": ["M\u00e1xima", "Media"], "fc": "\"Bastante\" es intensidad media: m\u00e1s que poco, menos que mucho.", "fi": "M\u00e1xima ser\u00eda \"extremadamente\" o \"muy\".", "ex": "Bastante dif\u00edcil \u2192 Quite difficult / Pretty difficult", "tip": "Bastante = intensidad media"}, {"q": "\u00bfQu\u00e9 palabra NO es un intensificador?", "a": "a", "o": ["Lentamente", "Muy"], "fc": "\"Lentamente\" es adverbio de modo (describe c\u00f3mo), no de intensidad.", "fi": "\"Muy\" s\u00ed es intensificador (describe cu\u00e1nto).", "ex": "Ella camina lentamente (modo) \u00b7 Ella est\u00e1 muy cansada (intensidad)", "tip": "Modo \u2260 Intensidad"}, {"q": "\"Este caf\u00e9 est\u00e1 <b>algo</b> amargo\" \u2014 el tono es:", "a": "b", "o": ["Intensidad m\u00e1xima", "Intensidad baja/media"], "fc": "\"Algo\" suaviza una posible queja \u2014 reconoce amargor pero lo baja.", "fi": "M\u00e1xima ser\u00eda \"muy amargo\" o \"super amargo\".", "ex": "Algo amargo \u2192 A bit bitter", "tip": "Algo/un poco \u2192 baja intensidad"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Both languages have a scale of intensity words. The position (before the adjective) is the same.</div>\n\n<table class=\"g-table\">\n<tr><th>Intensidad</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Baja (mitigador)</td><td>un poco / algo</td><td><span class=\"g-neg\">a bit</span> / <span class=\"g-neg\">a little</span></td></tr>\n<tr><td>Moderada</td><td>algo / razonablemente</td><td><span class=\"g-comp\">fairly</span></td></tr>\n<tr><td>Media</td><td>bastante</td><td><span class=\"g-comp\">pretty</span> / <span class=\"g-comp\">quite</span></td></tr>\n<tr><td>Alta</td><td>muy</td><td><span class=\"g-verb\">very</span></td></tr>\n<tr><td>Muy alta</td><td>realmente / de verdad</td><td><span class=\"g-verb\">really</span></td></tr>\n</table>\n\n<div class=\"section-label\">Orden de las palabras</div>\n<div class=\"formula-box\">\n<span class=\"g-subj\">Subject</span> + <span class=\"g-verb\">be</span> + <span class=\"g-comp\">intensifier</span> + <span class=\"g-subj\">adjective</span><br>\nShe is <span class=\"g-comp\">really</span> smart \u00b7 The movie was <span class=\"g-comp\">pretty</span> good\n</div>\n\n<div class=\"section-label\">Mapa de intensidad</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">a bit</div><div class=\"vrb\">\u25b0\u25b1\u25b1\u25b1\u25b1</div><div class=\"meaning\">un poco</div></div>\n<div class=\"conj-item\"><div class=\"pron\">fairly</div><div class=\"vrb\">\u25b0\u25b0\u25b1\u25b1\u25b1</div><div class=\"meaning\">razonablemente</div></div>\n<div class=\"conj-item\"><div class=\"pron\">pretty / quite</div><div class=\"vrb\">\u25b0\u25b0\u25b0\u25b1\u25b1</div><div class=\"meaning\">bastante</div></div>\n<div class=\"conj-item\"><div class=\"pron\">very</div><div class=\"vrb\">\u25b0\u25b0\u25b0\u25b0\u25b1</div><div class=\"meaning\">muy</div></div>\n<div class=\"conj-item\"><div class=\"pron\">really</div><div class=\"vrb\">\u25b0\u25b0\u25b0\u25b0\u25b0</div><div class=\"meaning\">realmente</div></div>\n<div class=\"conj-item\"><div class=\"pron\">extremely</div><div class=\"vrb\">\u25b0\u25b0\u25b0\u25b0\u25b0+</div><div class=\"meaning\">extremadamente</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> En ambos idiomas el intensificador va ANTES del adjetivo: \"muy cansado\" \u2194 \"very tired\". La posici\u00f3n es la misma.</div>", "exercises": [{"q": "\"She is ___ tired after work.\" (muy cansada, intensidad alta)", "a": "a", "o": ["very", "a bit"], "fc": "\"Muy\" = intensidad alta \u2192 <b>very tired</b>.", "fi": "\"A bit tired\" ser\u00eda solo un poco cansada, baja intensidad.", "ex": "She is very tired \u2192 Ella est\u00e1 muy cansada", "tip": "Muy = very (alta intensidad)"}, {"q": "\"I'm ___ cold. Can you close the window?\" (un poco fr\u00edo)", "a": "b", "o": ["really", "a bit"], "fc": "\"Un poco\" = mitigador \u2192 <b>a bit cold</b>.", "fi": "\"Really cold\" ser\u00eda muy fr\u00edo, no justifica apenas cerrar la ventana.", "ex": "I'm a bit cold \u2192 Tengo un poco de fr\u00edo", "tip": "A bit = un poco (mitigador)"}, {"q": "\u00bfCu\u00e1l expresa intensidad MEDIA?", "a": "a", "o": ["pretty", "extremely"], "fc": "\"Pretty\" = bastante, intensidad media.", "fi": "\"Extremely\" es la intensidad m\u00e1s alta.", "ex": "Pretty good \u2192 Bastante bueno", "tip": "Pretty = bastante (medio)"}, {"q": "\"The movie was ___ interesting.\" (muy, intensidad alta)", "a": "b", "o": ["a bit", "really"], "fc": "\"Muy interesante\" = intensidad alta \u2192 <b>really interesting</b>.", "fi": "\"A bit interesting\" restar\u00eda el entusiasmo.", "ex": "The movie was really interesting", "tip": "Really = muy (enf\u00e1tico)"}, {"q": "\u00bfD\u00f3nde va el intensificador en la oraci\u00f3n?", "a": "a", "o": ["Antes del adjetivo", "Despu\u00e9s del adjetivo"], "fc": "Orden: intensificador + adjetivo \u2192 \"very tired\", \"really nice\".", "fi": "\"Tired very\" no es natural en ingl\u00e9s.", "ex": "Very + tired \u2192 very tired", "tip": "Intensifier + adjective (en ese orden)"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Los matices entre intensificadores ingleses \u2014 no todos son intercambiables.</div>\n\n<table class=\"g-table\">\n<tr><th>Intensificador</th><th>Registro / Uso</th><th>Ejemplo</th></tr>\n<tr><td><span class=\"g-verb\">very</span></td><td>Neutro, fuerte</td><td>very tired (muy cansado)</td></tr>\n<tr><td><span class=\"g-verb\">really</span></td><td>Informal, enf\u00e1tico</td><td>really good (realmente bueno)</td></tr>\n<tr><td><span class=\"g-comp\">pretty</span></td><td>Informal (AmE), medio</td><td>pretty nice (bastante bueno)</td></tr>\n<tr><td><span class=\"g-comp\">quite</span></td><td>Medio; en BrE suaviza</td><td>quite good (bastante bueno)</td></tr>\n<tr><td><span class=\"g-comp\">fairly</span></td><td>Moderado, neutro</td><td>fairly easy (razonablemente f\u00e1cil)</td></tr>\n<tr><td><span class=\"g-neg\">rather</span></td><td>Medio, a veces sorpresa</td><td>rather expensive (m\u00e1s caro de lo esperado)</td></tr>\n<tr><td><span class=\"g-neg\">a bit / a little</span></td><td>Mitigador, informal</td><td>a bit tired (un poco cansado)</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Quite: un caso especial</div>\n<p>\"<b>Quite</b>\" tiene significados diferentes seg\u00fan el ingl\u00e9s:<br>\n\u2022 <b>En ingl\u00e9s americano:</b> similar a \"very\" \u2014 \"It's quite cold\" = Es muy fr\u00edo<br>\n\u2022 <b>En ingl\u00e9s brit\u00e1nico:</b> similar a \"fairly\" \u2014 \"It's quite cold\" = Es bastante fr\u00edo (pero no mucho)<br><br>\nPor seguridad, usa <b>pretty</b> o <b>very</b> hasta que tengas m\u00e1s experiencia con el tema.</p></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f A bit vs A little con adjetivos</div>\n<p>Con adjetivos, \"a bit\" y \"a little\" funcionan igual, pero:<br>\n\u2022 <b>Positivos:</b> Se prefiere <b>\"a little\"</b> \u2014 \"a little nice\" suena raro<br>\n\u2022 <b>Negativos:</b> Funcionan ambos \u2014 \"a bit tired\" \u2705 / \"a little tired\" \u2705<br><br>\nPor eso estos mitigadores suelen ir con adj. negativos (tired, cold, annoyed, sad).</p></div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">The movie was <span class=\"g-comp\">really</span> boring.</div><div class=\"es\">La peli fue realmente aburrida. (intensidad alta + adj negativo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">I'm <span class=\"g-neg\">a bit</span> hungry.</div><div class=\"es\">Tengo un poco de hambre. (mitigador)</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I'm a bit happy today.</div><div class=\"es\">\"A bit\" raro con positivos \u2192 usa \"pretty happy\" o \"really happy\"</div></div></div>", "exercises": [{"q": "\"This exercise is ___ easy.\" (razonablemente, intensidad moderada)", "a": "a", "o": ["fairly", "a bit"], "fc": "\"Razonablemente\" = moderado/neutro \u2192 <b>fairly easy</b>.", "fi": "\"A bit easy\" es raro; \"a bit\" mitiga pero con adjetivos positivos no es natural.", "ex": "This exercise is fairly easy \u2192 Este ejercicio es razonablemente f\u00e1cil", "tip": "Fairly = moderado neutro"}, {"q": "\"I'm ___ annoyed with him.\" (un poco molesto)", "a": "b", "o": ["very", "a bit"], "fc": "\"Un poco\" + adj negativo (annoyed) \u2192 <b>a bit annoyed</b>.", "fi": "\"Very annoyed\" ser\u00eda muy molesto, no \"un poco\".", "ex": "I'm a bit annoyed \u2192 Estoy un poco molesto", "tip": "A bit + adj negativo = mitigador"}, {"q": "\"Your presentation was ___ good!\" (muy bueno, enf\u00e1tico)", "a": "a", "o": ["really", "a bit"], "fc": "Con elogios fuertes usamos <b>really good</b>.", "fi": "\"A bit good\" no es natural; se usa pretty/really con adj positivos.", "ex": "Your presentation was really good", "tip": "Elogios \u2192 really / pretty / very"}, {"q": "\u00bfQu\u00e9 intensificador suele tener matiz de SORPRESA?", "a": "b", "o": ["very", "rather"], "fc": "\"Rather\" a menudo indica que algo es m\u00e1s de lo esperado.", "fi": "\"Very\" es neutro, solo intensidad sin matiz emocional.", "ex": "It was rather expensive \u2192 Result\u00f3 (sorprendentemente) caro", "tip": "Rather \u2192 sorpresa / m\u00e1s de lo esperado"}, {"q": "\"This coffee is ___ hot. Be careful!\" (muy caliente)", "a": "a", "o": ["really", "a little"], "fc": "Advertencia fuerte \u2192 intensidad alta \u2192 <b>really hot</b>.", "fi": "\"A little hot\" no justifica la advertencia de tener cuidado.", "ex": "This coffee is really hot", "tip": "Advertencia \u2192 really / very"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 La escala pr\u00e1ctica:</strong> Memoriza esta progresi\u00f3n de menor a mayor intensidad: <b>a bit \u2192 fairly \u2192 pretty/quite \u2192 very \u2192 really \u2192 extremely</b>.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Mitigadores con adj. negativos:</strong> \"a bit\" y \"a little\" funcionan naturalmente con adjetivos de tono negativo: <b>a bit tired, a bit cold, a bit annoyed, a bit sad</b>. Con positivos no suenan naturales.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 \"Really\" es muy vers\u00e1til:</strong> Combina con casi cualquier adjetivo y verbo (really good, really like it, really want to). Es tu mejor opci\u00f3n cuando dudes del intensificador correcto.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 \"Pretty\" es muy com\u00fan en ingl\u00e9s informal:</strong> especialmente en ingl\u00e9s americano. \"Pretty good\", \"pretty nice\", \"pretty hard\". No se refiere a \"bonito\" aqu\u00ed.</div>\n\n<div class=\"formula-box\">\n\ud83d\udd3b MITIGADORES: <span class=\"g-neg\">a bit / a little</span> + adj (usualmente negativo)<br>\n\u2696\ufe0f MODERADOS: <span class=\"g-comp\">fairly</span> (neutro)<br>\n\u2696\ufe0f MEDIOS: <span class=\"g-comp\">pretty / quite</span> (bastante)<br>\n\ud83d\udd3c FUERTES: <span class=\"g-verb\">very / really</span> (muy / realmente)<br>\n\ud83d\udd25 MUY FUERTES: <span class=\"g-verb\">extremely / incredibly</span>\n</div>\n\n<table class=\"g-table\">\n<tr><th>Adjetivo</th><th>Con mitigador</th><th>Con fuerte</th></tr>\n<tr><td>tired</td><td>a bit tired</td><td>really tired</td></tr>\n<tr><td>cold</td><td>a bit cold</td><td>very cold</td></tr>\n<tr><td>good</td><td>pretty good</td><td>really good</td></tr>\n<tr><td>interesting</td><td>fairly interesting</td><td>really interesting</td></tr>\n<tr><td>expensive</td><td>rather expensive</td><td>very expensive</td></tr>\n</table>", "exercises": [{"q": "\"The book is ___ interesting; I'm learning a lot.\" (muy interesante)", "a": "a", "o": ["really", "a little"], "fc": "\"Learning a lot\" confirma intensidad alta \u2192 <b>really interesting</b>.", "fi": "\"A little interesting\" no justifica estar aprendiendo mucho.", "ex": "The book is really interesting", "tip": "Alta intensidad con entusiasmo \u2192 really"}, {"q": "\"I'm ___ hungry. Can we get a snack?\" (un poco)", "a": "b", "o": ["extremely", "a bit"], "fc": "Pedir un snack = hambre ligera \u2192 <b>a bit hungry</b>.", "fi": "\"Extremely hungry\" ser\u00eda pedir una comida completa, no un snack.", "ex": "I'm a bit hungry \u2192 Tengo un poco de hambre", "tip": "Petici\u00f3n moderada \u2192 a bit"}, {"q": "\"This math problem is ___ complicated; I need help.\" (intensidad alta)", "a": "a", "o": ["pretty", "fairly"], "fc": "\"Need help\" = es bastante o muy complicado \u2192 <b>pretty complicated</b> (medio-alto informal).", "fi": "\"Fairly complicated\" ser\u00eda moderadamente, no tan fuerte como para pedir ayuda.", "ex": "This is pretty complicated; I need help", "tip": "Pretty = bastante (informal)"}, {"q": "\"The weather today is ___ nice; perfect for a walk.\"", "a": "b", "o": ["a bit", "really"], "fc": "\"Perfect for a walk\" = muy agradable \u2192 <b>really nice</b>.", "fi": "\"A bit nice\" es raro; con adj positivos no usamos mitigadores.", "ex": "The weather is really nice", "tip": "Adj positivos fuertes \u2192 really/very"}, {"q": "\"The movie was ___ good, but not amazing.\" (bastante, no extremo)", "a": "a", "o": ["pretty", "extremely"], "fc": "\"But not amazing\" marca intensidad MEDIA, no m\u00e1xima \u2192 <b>pretty good</b>.", "fi": "\"Extremely good\" contradice \"not amazing\".", "ex": "The movie was pretty good, but not amazing", "tip": "Medio + contraste \u2192 pretty"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Elige el intensificador que encaja con el contexto (alta/media/baja intensidad).</div>\n\n<div class=\"formula-box\">\n\ud83d\udd3b BAJA: <span class=\"g-neg\">a bit / a little</span> (un poco)<br>\n\u2696\ufe0f MODERADA: <span class=\"g-comp\">fairly</span> (razonablemente)<br>\n\ud83d\udfe9 MEDIA: <span class=\"g-comp\">pretty / quite</span> (bastante)<br>\n\ud83d\udd3c ALTA: <span class=\"g-verb\">very / really</span> (muy)\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\ude0a</div><div><div class=\"en\">She is <span class=\"g-verb\">really</span> kind to everyone.</div><div class=\"es\">Ella es realmente amable con todos. (intensidad alta)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udf27\ufe0f</div><div><div class=\"en\">It's <span class=\"g-neg\">a bit</span> cold outside; take a jacket.</div><div class=\"es\">Hace un poco de fr\u00edo afuera; lleva un abrigo. (mitigador)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcda</div><div><div class=\"en\">The course was <span class=\"g-comp\">pretty</span> useful for my job.</div><div class=\"es\">El curso fue bastante \u00fatil para mi trabajo. (intensidad media)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcca</div><div><div class=\"en\">The report is <span class=\"g-comp\">fairly</span> complete, but needs details.</div><div class=\"es\">El informe est\u00e1 razonablemente completo, pero faltan detalles. (moderado)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"I'm a bit happy\" \u2192 \u2705 \"I'm <b>really</b> happy\" (adj positivos \u2192 evita mitigadores)<br>\n\u274c \"Very really tired\" \u2192 \u2705 \"<b>Really</b> tired\" (un solo intensificador)<br>\n\u274c \"He is really very kind\" \u2192 \u2705 \"He is <b>really</b> kind\" (no combines)<br>\n\u274c \"Tired very\" \u2192 \u2705 \"<b>Very</b> tired\" (intensificador ANTES del adj)<br>\n\u274c \"It's rather not bad\" \u2192 \u2705 \"It's <b>not bad</b>\" / \"It's <b>rather good</b>\"\n</p></div>", "exercises": [{"q": "\"I'm ___ tired. Let's go to bed early.\" (bastante, no extremo)", "a": "a", "o": ["pretty", "a little"], "fc": "\"Go to bed early\" = cansancio notable \u2192 <b>pretty tired</b> (medio-alto informal).", "fi": "\"A little tired\" no justificar\u00eda querer acostarse temprano.", "ex": "I'm pretty tired; let's go to bed", "tip": "Pretty tired = bastante cansado"}, {"q": "\"This exam was ___ difficult; I studied a lot but still failed.\" (muy dif\u00edcil)", "a": "b", "o": ["a bit", "really"], "fc": "\"Failed a pesar de estudiar mucho\" = intensidad m\u00e1xima \u2192 <b>really difficult</b>.", "fi": "\"A bit difficult\" no explicar\u00eda haber reprobado tras estudiar mucho.", "ex": "This exam was really difficult", "tip": "Intensidad fuerte + justificaci\u00f3n \u2192 really"}, {"q": "\"The restaurant is ___ expensive; nothing under $30.\" (m\u00e1s de lo esperado, sorpresa)", "a": "a", "o": ["rather", "fairly"], "fc": "\"Nada por debajo de $30\" indica sorpresa por el precio \u2192 <b>rather expensive</b>.", "fi": "\"Fairly expensive\" es moderado, no captura la sorpresa.", "ex": "The restaurant is rather expensive", "tip": "Rather \u2192 matiz de sorpresa"}, {"q": "\"I'm ___ sad about what happened.\" (un poco)", "a": "b", "o": ["extremely", "a little"], "fc": "\"Un poco\" + adj negativo (sad) \u2192 <b>a little sad</b>.", "fi": "\"Extremely sad\" ser\u00eda devastado, intensidad m\u00e1xima.", "ex": "I'm a little sad about what happened", "tip": "A little + negativo = mitigador"}, {"q": "\"Her English is ___ good for a beginner.\" (razonablemente, neutro)", "a": "a", "o": ["fairly", "a bit"], "fc": "\"For a beginner\" sugiere evaluaci\u00f3n neutra y moderada \u2192 <b>fairly good</b>.", "fi": "\"A bit good\" no es natural con adjetivos positivos.", "ex": "Her English is fairly good for a beginner", "tip": "Evaluaci\u00f3n neutra moderada \u2192 fairly"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

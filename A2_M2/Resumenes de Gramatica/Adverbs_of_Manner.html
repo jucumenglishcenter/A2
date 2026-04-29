@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Adverbs of Manner & Position | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">🎨 Adverbs of Manner & Position</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>Adverbios de modo:</b> describen C\u00d3MO se hace algo \u2014 quickly, slowly, well, badly", "<b>Formaci\u00f3n:</b> adjetivo + <b>-ly</b> \u2014 quick \u2192 quickly, careful \u2192 carefully", "<b>Irregulares:</b> good \u2192 well \u00b7 fast \u2192 fast \u00b7 hard \u2192 hard (sin -ly)", "<b>Posici\u00f3n t\u00edpica:</b> al FINAL de la oraci\u00f3n \u2014 \"She speaks <b>quickly</b>\"", "<b>Otra opci\u00f3n:</b> antes del verbo principal \u2014 \"She <b>quickly</b> finished her work\"", "<b>Nunca</b> entre verbo y objeto: NO \"She speaks <b>quickly</b> English\"", "Spelling: happy \u2192 happi<b>ly</b>, easy \u2192 easi<b>ly</b>, terrible \u2192 terrib<b>ly</b>"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol, los <b>adverbios de modo</b> terminan en <b>-mente</b> (r\u00e1pido \u2192 r\u00e1pidamente). En ingl\u00e9s terminan en <b>-ly</b> (quick \u2192 quickly). Funcionan igual: describen C\u00d3MO se hace algo.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83c\uddea\ud83c\uddf8 Adjetivo</h4><ul>\n<li>r\u00e1pid<b>o</b></li>\n<li>cuidados<b>o</b></li>\n<li>fel<b>iz</b></li>\n<li>perfect<b>o</b></li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83c\uddea\ud83c\uddf8 Adverbio (-mente)</h4><ul>\n<li>r\u00e1pida<b>mente</b></li>\n<li>cuidadosa<b>mente</b></li>\n<li>feliz<b>mente</b></li>\n<li>perfecta<b>mente</b></li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83c\udfc3</div><div><div class=\"en\">\"Ella corre <b>r\u00e1pidamente</b>\" \u2192 describe C\u00d3MO corre.</div><div class=\"es\">El adverbio modifica al verbo \"corre\"</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udcdd</div><div><div class=\"en\">\"\u00c9l escribe <b>cuidadosamente</b>\" \u2192 describe C\u00d3MO escribe.</div><div class=\"es\">Adverbios de modo siempre describen acciones</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> Diferencia entre adjetivo y adverbio: el ADJETIVO describe una cosa o persona (\"ella es r\u00e1pida\"), el ADVERBIO describe c\u00f3mo se hace una acci\u00f3n (\"ella corre r\u00e1pidamente\"). En ingl\u00e9s pasa exactamente igual.</div>", "exercises": [{"q": "\"Ella canta hermosamente\" \u2014 \u00bfqu\u00e9 modifica \"hermosamente\"?", "a": "a", "o": ["Al verbo \"canta\"", "Al sujeto \"ella\""], "fc": "\"Hermosamente\" describe C\u00d3MO canta \u2192 modifica al verbo.", "fi": "Si modificara al sujeto ser\u00eda \"ella es hermosa\" (adjetivo).", "ex": "Ella canta hermosamente \u2192 She sings beautifully", "tip": "Adverbio de modo \u2192 modifica verbo"}, {"q": "\u00bfCu\u00e1l es ADJETIVO?", "a": "b", "o": ["r\u00e1pidamente", "r\u00e1pido"], "fc": "\"R\u00e1pido\" es adjetivo (describe una persona/cosa).", "fi": "\"R\u00e1pidamente\" es adverbio (termina en -mente).", "ex": "R\u00e1pido = quick \u00b7 R\u00e1pidamente = quickly", "tip": "Adjetivo \u2192 cosa/persona \u00b7 Adverbio \u2192 acci\u00f3n"}, {"q": "\"\u00c9l es cuidadoso\" vs \"\u00c9l trabaja cuidadosamente\" \u2014 \u00bfdiferencia?", "a": "a", "o": ["Adjetivo describe \u00e9l; adverbio describe c\u00f3mo trabaja", "Son lo mismo"], "fc": "\"Cuidadoso\" describe a \u00e9l (adjetivo); \"cuidadosamente\" describe c\u00f3mo trabaja (adverbio).", "fi": "Son palabras distintas con funciones distintas.", "ex": "He is careful \u00b7 He works carefully", "tip": "Persona = adj \u00b7 Verbo = adv"}, {"q": "En espa\u00f1ol, los adverbios de modo terminan en:", "a": "b", "o": ["-ido / -ado", "-mente"], "fc": "Adverbios de modo en espa\u00f1ol terminan en <b>-mente</b>.", "fi": "\"-ido / -ado\" son terminaciones de participios pasados.", "ex": "R\u00e1pidamente, cuidadosamente, felizmente", "tip": "-mente = adverbio de modo (esp\u00f1ol)"}, {"q": "\u00bfQu\u00e9 palabra es adverbio de modo en espa\u00f1ol?", "a": "a", "o": ["Lentamente", "Lentitud"], "fc": "\"Lentamente\" termina en <b>-mente</b> \u2192 adverbio de modo.", "fi": "\"Lentitud\" es sustantivo (la cualidad), no adverbio.", "ex": "Lentamente = adverbio \u00b7 Lentitud = sustantivo", "tip": "-mente al final \u2192 adverbio de modo"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Both languages form most adverbs from adjectives by adding a suffix.</div>\n\n<table class=\"g-table\">\n<tr><th>Adjetivo</th><th>\ud83c\uddea\ud83c\uddf8 Adverbio (-mente)</th><th>\ud83c\uddec\ud83c\udde7 Adverb (-ly)</th></tr>\n<tr><td>quick / r\u00e1pido</td><td>r\u00e1pida<b>mente</b></td><td>quick<b>ly</b></td></tr>\n<tr><td>slow / lento</td><td>lenta<b>mente</b></td><td>slow<b>ly</b></td></tr>\n<tr><td>careful / cuidadoso</td><td>cuidadosa<b>mente</b></td><td>careful<b>ly</b></td></tr>\n<tr><td>perfect / perfecto</td><td>perfecta<b>mente</b></td><td>perfect<b>ly</b></td></tr>\n<tr><td>quiet / silencioso</td><td>silenciosa<b>mente</b></td><td>quiet<b>ly</b></td></tr>\n</table>\n\n<div class=\"section-label\">F\u00f3rmula</div>\n<div class=\"formula-box\">\n<span class=\"g-comp\">adjective</span> + <span class=\"g-verb\">-ly</span> = <span class=\"g-comp\">adverb of manner</span><br>\nquick \u2192 quick<b>ly</b> \u00b7 careful \u2192 careful<b>ly</b> \u00b7 perfect \u2192 perfect<b>ly</b>\n</div>\n\n<div class=\"section-label\">Reglas de spelling</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">Mayor\u00eda</div><div class=\"vrb\">+ ly</div><div class=\"meaning\">slow\u2192slowly</div></div>\n<div class=\"conj-item\"><div class=\"pron\">-y</div><div class=\"vrb\">y\u2192ily</div><div class=\"meaning\">happy\u2192happily</div></div>\n<div class=\"conj-item\"><div class=\"pron\">-le</div><div class=\"vrb\">e\u2192y</div><div class=\"meaning\">terrible\u2192terribly</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> Igual que en espa\u00f1ol \"-mente\" se a\u00f1ade al adjetivo, en ingl\u00e9s \"-ly\" se a\u00f1ade al adjetivo. La l\u00f3gica es id\u00e9ntica, solo cambia el sufijo.</div>", "exercises": [{"q": "\u00bfCu\u00e1l es el adverbio de \"quick\"?", "a": "a", "o": ["quickly", "quickily"], "fc": "Mayor\u00eda de adjetivos: solo a\u00f1adir <b>-ly</b> \u2192 quick<b>ly</b>.", "fi": "\"Quickily\" no existe; no hay doble \"i\".", "ex": "She runs quickly \u2192 Ella corre r\u00e1pidamente", "tip": "adj + ly (caso normal)"}, {"q": "\u00bfCu\u00e1l es el adverbio de \"happy\"?", "a": "b", "o": ["happyly", "happily"], "fc": "Adjetivos en -y: cambia y \u2192 i + ly \u2192 <b>happily</b>.", "fi": "\"Happyly\" mantendr\u00eda la \"y\", no es la regla.", "ex": "She smiled happily \u2192 Ella sonri\u00f3 felizmente", "tip": "y \u2192 ily (happy, easy, lucky)"}, {"q": "\u00bfCu\u00e1l es el adverbio de \"careful\"?", "a": "a", "o": ["carefully", "carefuly"], "fc": "Doble L: <b>careful + ly</b> = carefully (con dos L).", "fi": "\"Carefuly\" con una sola L es incorrecto.", "ex": "He drives carefully \u2192 \u00c9l maneja cuidadosamente", "tip": "adj termina en -l + ly = -lly"}, {"q": "\u00bfCu\u00e1l es el adverbio de \"terrible\"?", "a": "b", "o": ["terriblely", "terribly"], "fc": "Adjetivos en -le: cambia e \u2192 y \u2192 <b>terribly</b>.", "fi": "\"Terriblely\" no existe; se quita la -e.", "ex": "He sang terribly \u2192 \u00c9l cant\u00f3 terriblemente", "tip": "-le \u2192 -ly (terrible, possible, simple)"}, {"q": "\u00bfCu\u00e1l es adverbio?", "a": "a", "o": ["slowly", "slow"], "fc": "\"Slowly\" termina en -ly \u2192 adverbio (modifica verbo).", "fi": "\"Slow\" termina sin -ly \u2192 adjetivo (modifica sustantivo).", "ex": "A slow car (adj) \u00b7 He drives slowly (adv)", "tip": "-ly = adverbio en ingl\u00e9s"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Hay adverbios IRREGULARES y reglas de POSICI\u00d3N que debes dominar.</div>\n\n<table class=\"g-table\">\n<tr><th>Adjetivo</th><th>Adverbio</th><th>\ud83d\udca1 Tipo</th></tr>\n<tr><td>good (bueno)</td><td><span class=\"g-verb\">well</span> (bien)</td><td>IRREGULAR \u2014 forma totalmente distinta</td></tr>\n<tr><td>fast (r\u00e1pido)</td><td><span class=\"g-verb\">fast</span> (r\u00e1pidamente)</td><td>Igual al adjetivo (sin -ly)</td></tr>\n<tr><td>hard (duro)</td><td><span class=\"g-verb\">hard</span> (duramente)</td><td>Igual al adjetivo (sin -ly)</td></tr>\n<tr><td>late (tarde)</td><td><span class=\"g-verb\">late</span></td><td>Igual al adjetivo</td></tr>\n<tr><td>early (temprano)</td><td><span class=\"g-verb\">early</span></td><td>Igual al adjetivo</td></tr>\n<tr><td>hardly</td><td>(apenas)</td><td>\u26a0\ufe0f NO es adverbio de \"hard\"; significa otra cosa</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f \u00a1Trampa cl\u00e1sica! \"Hardly\" no significa \"duramente\"</div>\n<p>\"<b>Hardly</b>\" significa \"apenas / casi no\" \u2014 NO es el adverbio de \"hard\".<br>\n\u2705 \"He works <b>hard</b>\" = Trabaja duro / mucho<br>\n\u2705 \"He <b>hardly</b> works\" = Apenas trabaja (casi no trabaja)<br><br>\nLo mismo pasa con <b>late / lately</b>:<br>\n\u2705 \"She arrived <b>late</b>\" = Lleg\u00f3 tarde<br>\n\u2705 \"She has been busy <b>lately</b>\" = Ha estado ocupada \u00daLTIMAMENTE</p></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Posici\u00f3n: NUNCA entre verbo y objeto</div>\n<p>El adverbio de modo NUNCA va entre el verbo y su objeto directo.<br>\n\u274c \"She speaks <b>quickly</b> English\" \u2192 \u2705 \"She speaks English <b>quickly</b>\"<br>\n\u274c \"I read <b>carefully</b> the book\" \u2192 \u2705 \"I read the book <b>carefully</b>\"<br><br>\nPosiciones v\u00e1lidas:<br>\n\u2705 Final: She speaks English quickly.<br>\n\u2705 Inicial (\u00e9nfasis): Quickly, she finished her homework.<br>\n\u2705 Antes del verbo: She <b>quickly</b> finished her homework.</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">She speaks fluently English.</div><div class=\"es\">Adverbio entre verbo y objeto \u274c</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">She speaks <span class=\"g-verb\">English</span> <span class=\"g-comp\">fluently</span>.</div><div class=\"es\">Ella habla ingl\u00e9s fluidamente.</div></div></div>", "exercises": [{"q": "\u00bfCu\u00e1l es el adverbio de \"good\"?", "a": "b", "o": ["goodly", "well"], "fc": "\"Good\" es irregular: su adverbio es <b>well</b>.", "fi": "\"Goodly\" es muy raro y arcaico, no se usa.", "ex": "She sings well \u2192 Ella canta bien", "tip": "good \u2192 well (irregular)"}, {"q": "\"He runs ___.\" (r\u00e1pidamente)", "a": "a", "o": ["fast", "fastly"], "fc": "\"Fast\" es igual como adj y como adv: <b>fast</b>.", "fi": "\"Fastly\" no existe en ingl\u00e9s.", "ex": "He runs fast \u2192 \u00c9l corre r\u00e1pido", "tip": "fast \u2192 fast (sin -ly)"}, {"q": "\"She works ___.\" (duramente, mucho)", "a": "a", "o": ["hard", "hardly"], "fc": "\"Hard\" como adverbio = duramente, intensamente.", "fi": "\"Hardly\" significa \"apenas / casi no\", lo opuesto.", "ex": "She works hard \u2192 Trabaja duro", "tip": "hard = mucho \u00b7 hardly = apenas"}, {"q": "\"___ English fluently.\" \u2014 \u00bforden correcto?", "a": "b", "o": ["She speaks fluently", "She speaks English fluently"], "fc": "Adverbio de modo va al FINAL, no entre verbo y objeto.", "fi": "\"Speaks fluently English\" pone adv entre verbo y objeto \u2192 incorrecto.", "ex": "She speaks English fluently", "tip": "Verbo + objeto + adverbio"}, {"q": "\"They arrived ___.\" (tarde en la noche)", "a": "a", "o": ["late", "lately"], "fc": "\"Late\" = tarde (hora). \"Lately\" = \u00faltimamente (per\u00edodo).", "fi": "\"Lately\" significa \"recientemente\", no la hora de llegada.", "ex": "They arrived late \u2192 Llegaron tarde", "tip": "late = hora \u00b7 lately = \u00faltimamente"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 Regla general:</strong> Adjetivo + <b>-ly</b> = adverbio. quick \u2192 quickly, careful \u2192 carefully. Si dudas con un adjetivo nuevo, prueba a\u00f1adir -ly.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Memoriza los IRREGULARES m\u00e1s comunes:</strong> good \u2192 well \u00b7 fast \u2192 fast \u00b7 hard \u2192 hard \u00b7 late \u2192 late \u00b7 early \u2192 early. Ojo: \"hardly\" y \"lately\" NO son adverbios de hard/late \u2014 significan otra cosa.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Posici\u00f3n preferida:</strong> al FINAL de la oraci\u00f3n. \"She drives <b>carefully</b>\". \"He sings <b>well</b>\". \"They work <b>hard</b>\". Es la posici\u00f3n m\u00e1s natural.</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Posici\u00f3n adelantada:</strong> antes del VERBO PRINCIPAL para enfatizar la manera. \"She <b>quickly</b> finished\". \"He <b>quietly</b> closed the door\". Funciona pero es menos com\u00fan que al final.</div>\n\n<div class=\"formula-box\">\n\u2705 <span class=\"g-subj\">Subject</span> + <span class=\"g-verb\">verb</span> [+ object] + <span class=\"g-comp\">adverb</span><br>\n\u2705 <span class=\"g-subj\">Subject</span> + <span class=\"g-comp\">adverb</span> + <span class=\"g-verb\">verb</span> [+ object] (\u00e9nfasis)<br>\n\u274c <span class=\"g-subj\">Subject</span> + <span class=\"g-verb\">verb</span> + <span class=\"g-comp\">adverb</span> + <span class=\"g-neg\">object</span> (NO entre verbo y objeto)\n</div>\n\n<table class=\"g-table\">\n<tr><th>Spelling rule</th><th>Adjective</th><th>Adverb</th></tr>\n<tr><td>+ ly (mayor\u00eda)</td><td>quick, slow, perfect</td><td>quickly, slowly, perfectly</td></tr>\n<tr><td>y \u2192 ily</td><td>happy, easy, lucky</td><td>happily, easily, luckily</td></tr>\n<tr><td>-le \u2192 -ly</td><td>terrible, possible, simple</td><td>terribly, possibly, simply</td></tr>\n<tr><td>-ic \u2192 -ically</td><td>basic, automatic</td><td>basically, automatically</td></tr>\n<tr><td>Irregulares</td><td>good, fast, hard, late</td><td>well, fast, hard, late</td></tr>\n</table>", "exercises": [{"q": "\u00bfCu\u00e1l es el adverbio de \"easy\"?", "a": "b", "o": ["easyly", "easily"], "fc": "Adjetivos en -y: y \u2192 i + ly \u2192 <b>easily</b>.", "fi": "\"Easyly\" no sigue la regla ortogr\u00e1fica.", "ex": "She speaks Spanish easily \u2192 Habla espa\u00f1ol f\u00e1cilmente", "tip": "-y \u2192 -ily"}, {"q": "\"He plays the guitar ___.\" (bien)", "a": "a", "o": ["well", "good"], "fc": "\"Well\" es el adverbio (modifica al verbo \"plays\").", "fi": "\"Good\" es adjetivo (modificar\u00eda un sustantivo: \"a good guitar\").", "ex": "He plays well \u2192 \u00c9l toca bien", "tip": "good = adj \u00b7 well = adv"}, {"q": "\"She finished the test ___.\" (orden correcto)", "a": "b", "o": ["quickly the test", "the test quickly"], "fc": "Adverbio AL FINAL, despu\u00e9s del objeto: <b>finished the test quickly</b>.", "fi": "\"Quickly the test\" pone el adverbio entre verbo y objeto \u2014 incorrecto.", "ex": "She finished the test quickly", "tip": "V + objeto + adverbio"}, {"q": "\u00bfCu\u00e1l es adverbio de \"automatic\"?", "a": "a", "o": ["automatically", "automaticly"], "fc": "Adjetivos en -ic a\u00f1aden -ally \u2192 <b>automatically</b>.", "fi": "\"Automaticly\" sin la \"a\" extra es incorrecto.", "ex": "It works automatically \u2192 Funciona autom\u00e1ticamente", "tip": "-ic \u2192 -ically"}, {"q": "\"He has been working ___ recently.\" (mucho)", "a": "b", "o": ["hardly", "hard"], "fc": "\"Hard\" significa intensamente/mucho \u2192 trabaja mucho.", "fi": "\"Hardly\" = apenas/casi no, opuesto a \"mucho\".", "ex": "He has been working hard \u2192 Ha estado trabajando duro", "tip": "hard \u2260 hardly"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Combina formaci\u00f3n + posici\u00f3n + irregulares.</div>\n\n<div class=\"formula-box\">\n\u2705 Adj + <span class=\"g-verb\">-ly</span> = adverbio (quick \u2192 quickly)<br>\n\u2705 Posici\u00f3n: al FINAL o antes del verbo principal<br>\n\u26a0\ufe0f Irregulares: good\u2192well, fast, hard, late, early<br>\n\u26a0\ufe0f hardly = apenas \u00b7 lately = \u00faltimamente\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfb5</div><div><div class=\"en\"><span class=\"g-subj\">She</span> <span class=\"g-verb\">sings</span> <span class=\"g-comp\">beautifully</span>.</div><div class=\"es\">Ella canta hermosamente. (formaci\u00f3n regular: beautiful + ly)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfc3</div><div><div class=\"en\"><span class=\"g-subj\">He</span> <span class=\"g-verb\">runs</span> <span class=\"g-comp\">fast</span>.</div><div class=\"es\">\u00c9l corre r\u00e1pido. (irregular sin -ly)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcd6</div><div><div class=\"en\"><span class=\"g-subj\">I</span> <span class=\"g-verb\">read</span> <span class=\"g-subj\">the book</span> <span class=\"g-comp\">carefully</span>.</div><div class=\"es\">Le\u00ed el libro cuidadosamente. (adverbio al final, despu\u00e9s del objeto)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfa8</div><div><div class=\"en\"><span class=\"g-subj\">She</span> <span class=\"g-comp\">quickly</span> <span class=\"g-verb\">painted</span> the wall.</div><div class=\"es\">R\u00e1pidamente pint\u00f3 la pared. (adverbio antes del verbo, \u00e9nfasis)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"She sings good\" \u2192 \u2705 \"She sings <b>well</b>\" (good \u2192 well)<br>\n\u274c \"He runs fastly\" \u2192 \u2705 \"He runs <b>fast</b>\" (no existe \"fastly\")<br>\n\u274c \"I read carefully the book\" \u2192 \u2705 \"I read the book <b>carefully</b>\" (no entre V y O)<br>\n\u274c \"She speaks fluently English\" \u2192 \u2705 \"She speaks English <b>fluently</b>\"<br>\n\u274c \"He works hardly\" (cuando se quiere decir \"duro\") \u2192 \u2705 \"He works <b>hard</b>\"\n</p></div>", "exercises": [{"q": "\"She drives ___ in the city.\" (cuidadosamente)", "a": "a", "o": ["carefully", "carefuly"], "fc": "Spelling correcto: <b>carefully</b> con doble L (careful + ly).", "fi": "\"Carefuly\" con una sola L es incorrecto.", "ex": "She drives carefully \u2192 Maneja cuidadosamente", "tip": "-l + ly = -lly"}, {"q": "\"He didn't study ___ for the exam. That's why he failed.\"", "a": "b", "o": ["hardly", "hard"], "fc": "\"Study hard\" = estudiar intensamente. El contexto (reprob\u00f3) confirma que no estudi\u00f3 lo suficiente.", "fi": "\"Hardly\" significa \"apenas\" \u2014 \"he hardly studied\" dir\u00eda que estudi\u00f3 casi nada, que tambi\u00e9n encaja, pero \"didn't study hard\" es m\u00e1s natural en este contexto.", "ex": "He didn't study hard for the exam \u2192 No estudi\u00f3 duro", "tip": "Study hard = estudiar intensamente (colocaci\u00f3n fija)"}, {"q": "\"My grandmother walks ___.\" (lentamente)", "a": "a", "o": ["slowly", "slow"], "fc": "\"Slow\" es adjetivo. \"Slowly\" es adverbio (modifica \"walks\").", "fi": "\"Slow\" se usar\u00eda con sustantivo: \"a slow walk\".", "ex": "She walks slowly \u2192 Ella camina lentamente", "tip": "V + adverbio (-ly)"}, {"q": "\"___ , she opened the door.\" (silenciosamente)", "a": "b", "o": ["Quiet", "Quietly"], "fc": "Adverbio al inicio para \u00e9nfasis: <b>Quietly</b>, she opened the door.", "fi": "\"Quiet\" es adjetivo, no funciona al inicio sin sustantivo.", "ex": "Quietly, she opened the door \u2192 Silenciosamente, abri\u00f3 la puerta", "tip": "Adv al inicio + coma"}, {"q": "\"They have been busy ___.\" (\u00faltimamente)", "a": "a", "o": ["lately", "late"], "fc": "\"Lately\" = \u00faltimamente, recientemente. \"Late\" = tarde (hora).", "fi": "\"Late\" indicar\u00eda hora, no per\u00edodo reciente.", "ex": "They have been busy lately \u2192 Han estado ocupados \u00faltimamente", "tip": "lately = recientemente"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

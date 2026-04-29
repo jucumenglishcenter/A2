@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M2 · Partitives | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .ref-panel { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--info); }
+        .ref-title { font-family:'Fredoka',sans-serif; font-size:0.95rem; font-weight:600; color:var(--info-dark); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem; }
+        .ref-formula { background:#F0F9FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:0.6rem 0.9rem; margin-bottom:0.6rem; text-align:center; font-family:'Fredoka',sans-serif; font-weight:600; color:var(--info-dark); font-size:0.92rem; }
+        .ref-section-title { font-size:0.78rem; font-weight:700; color:var(--text-medium); margin:0.5rem 0 0.35rem; text-transform:uppercase; letter-spacing:.4px; }
+        .ref-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; }
+        .ref-card { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:10px; padding:0.5rem 0.7rem; }
+        .ref-card.containers { background:#EFF6FF; border-color:#BFDBFE; }
+        .ref-card.pieces { background:#FEF3C7; border-color:#FCD34D; }
+        .ref-card.measure { background:#EDE9FE; border-color:#DDD6FE; }
+        .ref-word { font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.85rem; display:block; margin-bottom:0.15rem; color:var(--text-dark); }
+        .ref-text { font-size:0.72rem; color:var(--text-medium); line-height:1.35; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .topic-badge.container { background:#DBEAFE; color:#1D4ED8; }
+        .topic-badge.piece { background:#FEF3C7; color:#B45309; }
+        .topic-badge.measure { background:#EDE9FE; color:#6D28D9; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:110px; padding:0.2rem 0.6rem; background:var(--primary-light); border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:1rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation { display:none; color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; padding:0.6rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); }
+        .translation.show { display:block; animation:fadeUp .3s ease; }
+
+        .options-grid { display:grid; grid-template-columns:1fr; gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.9rem 0.8rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); text-align:center; }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-light); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-signal-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+
+        .fb-error { background:var(--error-light); border-radius:12px; padding:0.9rem 1rem; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ew-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">📝 Fill in the Blanks</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · Partitives</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">📦</div>
+            <div>
+                <div class="instructions-title">Choose the correct partitive (measure word)</div>
+                <div class="instructions-text">Uncountable nouns need a partitive to express specific quantities. Choose the right measure word for each context. Tap 🇪🇸 to see Spanish.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // ============================================================
+    // PARTITIVES with uncountable nouns
+    // a/an + partitive + of + uncountable noun
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            sentence: "Carlos drinks a _____ water before breakfast every day.",
+            translation: "Carlos toma un vaso de agua antes del desayuno cada día.",
+            type: "container",
+            hint: "Water is uncountable. Which container is typical for drinking water in the morning?",
+            clue: "drinking water (typical container)",
+            clueExplain: "For drinking water, milk, or juice, we use 'glass of'. The structure is: a + partitive + of + noun.",
+            options: ["glass of", "cup of", "bottle of", "bowl of"],
+            correct: "glass of",
+            feedback: {
+                "cup of": { errorType: "Wrong container", explanation: "'A cup of' is typically for HOT drinks (coffee, tea). For cold water in the morning, use 'a glass of water'.", rule: "cup of → coffee, tea / glass of → water, juice" },
+                "bottle of": { errorType: "Wrong container size", explanation: "'A bottle of water' is possible, but for drinking ONE serving in the morning, 'a glass of water' is more typical.", rule: "glass = single serving / bottle = whole container" },
+                "bowl of": { errorType: "Wrong container", explanation: "'A bowl of' is for soup, cereal, rice — not for drinking water. Use 'a glass of water'.", rule: "bowl of → soup, cereal, rice" }
+            },
+            correctReason: "Water is uncountable. To express one serving of water, we use 'a glass of water'.",
+            ruleFormula: "a glass of + uncountable (typical for cold drinks)"
+        },
+        {
+            id: 2,
+            sentence: "Sofía bought a _____ bread at the bakery this morning.",
+            translation: "Sofía compró una hogaza de pan en la panadería esta mañana.",
+            type: "piece",
+            hint: "Bread is uncountable. Which partitive refers to a WHOLE bread (not just one slice)?",
+            clue: "the whole bread (not a slice)",
+            clueExplain: "For a whole bread, we use 'loaf of'. For a single piece cut from it, we use 'slice of'.",
+            options: ["slice of", "loaf of", "piece of", "bowl of"],
+            correct: "loaf of",
+            feedback: {
+                "slice of": { errorType: "Wrong size — too small", explanation: "'A slice of bread' is just ONE piece cut from the bread. The context says she BOUGHT bread at the bakery — that's a whole loaf.", rule: "slice = one piece / loaf = whole bread" },
+                "piece of": { errorType: "Wrong partitive for bread", explanation: "'A piece of bread' is informal/general but not specific to the whole bread. The standard partitive for whole bread is 'a loaf of'.", rule: "loaf of → whole bread / slice of → cut piece" },
+                "bowl of": { errorType: "Wrong category", explanation: "'A bowl of' is for soup, cereal, or rice — never for bread. Use 'a loaf of bread'.", rule: "bowl of → liquid/grain food, not bread" }
+            },
+            correctReason: "Buying a whole bread at the bakery uses 'a loaf of bread' — the standard partitive for unsliced bread.",
+            ruleFormula: "a loaf of + bread (whole, unsliced)"
+        },
+        {
+            id: 3,
+            sentence: "The bank clerk gave me a useful _____ advice about my account.",
+            translation: "La cajera del banco me dio un consejo útil sobre mi cuenta.",
+            type: "piece",
+            hint: "'Advice' is ALWAYS uncountable in English. Which partitive expresses 'one item of advice'?",
+            clue: "advice (always uncountable)",
+            clueExplain: "'Advice' is uncountable, so we can't say 'an advice'. We use 'a piece of advice' for one specific item.",
+            options: ["slice of", "loaf of", "piece of", "glass of"],
+            correct: "piece of",
+            feedback: {
+                "slice of": { errorType: "Wrong partitive for abstract", explanation: "'A slice of' is only for things you can physically cut (bread, cheese, pizza). 'Advice' is abstract — use 'a piece of'.", rule: "slice of → physical cuts / piece of → abstract items" },
+                "loaf of": { errorType: "Wrong partitive — only for bread", explanation: "'A loaf of' is specifically for bread. For 'advice', we use 'a piece of advice'.", rule: "loaf of → bread only" },
+                "glass of": { errorType: "Wrong category", explanation: "'A glass of' is for liquids. 'Advice' is abstract — use 'a piece of'.", rule: "glass of → liquids only" }
+            },
+            correctReason: "'Advice' is always uncountable. 'A piece of advice' is the standard partitive for one specific recommendation.",
+            ruleFormula: "a piece of + advice (abstract uncountable)"
+        },
+        {
+            id: 4,
+            sentence: "Marcos made a _____ coffee for his morning meeting at work.",
+            translation: "Marcos hizo una taza de café para su reunión matinal en el trabajo.",
+            type: "container",
+            hint: "Coffee is uncountable. Which container is typical for hot drinks like coffee?",
+            clue: "coffee (typical hot drink container)",
+            clueExplain: "For hot drinks (coffee, tea, hot chocolate), we use 'cup of'.",
+            options: ["glass of", "bottle of", "bowl of", "cup of"],
+            correct: "cup of",
+            feedback: {
+                "glass of": { errorType: "Wrong container", explanation: "'A glass of' is typically for COLD drinks (water, juice). For hot coffee, use 'a cup of'.", rule: "cup of → hot drinks / glass of → cold drinks" },
+                "bottle of": { errorType: "Wrong container", explanation: "'A bottle of' is for liquids in bottles (water, oil, wine). Coffee is served in cups: 'a cup of coffee'.", rule: "bottle of → bottled liquids / cup of → hot drinks" },
+                "bowl of": { errorType: "Wrong container", explanation: "'A bowl of' is for soup, cereal, or rice. Coffee is in a cup: 'a cup of coffee'.", rule: "bowl of → soup, cereal, rice" }
+            },
+            correctReason: "Coffee is uncountable. The typical container for hot drinks is 'a cup of coffee'.",
+            ruleFormula: "a cup of + uncountable (typical for hot drinks)"
+        },
+        {
+            id: 5,
+            sentence: "Sofía ate a _____ pizza for lunch with her friends.",
+            translation: "Sofía comió una porción de pizza para el almuerzo con sus amigas.",
+            type: "piece",
+            hint: "Pizza is uncountable when it refers to the food in general. Which partitive means 'one cut piece'?",
+            clue: "one cut piece of pizza",
+            clueExplain: "For things cut into flat sections (bread, pizza, cheese, cake), we use 'slice of'.",
+            options: ["slice of", "piece of", "loaf of", "kilo of"],
+            correct: "slice of",
+            feedback: {
+                "piece of": { errorType: "Less specific partitive", explanation: "'A piece of pizza' is acceptable but less specific. 'A slice of pizza' is the standard partitive — pizza is cut into slices.", rule: "slice of → cut sections (pizza, bread, cake)" },
+                "loaf of": { errorType: "Wrong partitive — only for bread", explanation: "'A loaf of' is specifically for whole bread. For pizza we use 'a slice of pizza'.", rule: "loaf of → bread only" },
+                "kilo of": { errorType: "Wrong category", explanation: "'A kilo of' is a weight measurement (1000g). For one serving of pizza we use 'a slice of pizza'.", rule: "kilo of → weight measurement, not serving" }
+            },
+            correctReason: "Pizza is cut into slices. 'A slice of pizza' is the standard partitive for one serving.",
+            ruleFormula: "a slice of + uncountable (cut sections)"
+        },
+        {
+            id: 6,
+            sentence: "Carlos bought a _____ chocolate at the supermarket for his daughter.",
+            translation: "Carlos compró una barra de chocolate en el supermercado para su hija.",
+            type: "piece",
+            hint: "Chocolate is uncountable. Which partitive describes the typical packaging shape?",
+            clue: "chocolate (typical packaging)",
+            clueExplain: "Chocolate is sold in bars. We use 'a bar of' for chocolate or soap.",
+            options: ["piece of", "bar of", "slice of", "loaf of"],
+            correct: "bar of",
+            feedback: {
+                "piece of": { errorType: "Less specific partitive", explanation: "'A piece of chocolate' could be any small piece. For the whole packaged unit, we use 'a bar of chocolate'.", rule: "bar of → whole packaged unit / piece of → small portion" },
+                "slice of": { errorType: "Wrong partitive", explanation: "'A slice of' is for things you cut flat (bread, pizza). Chocolate comes in BARS, not slices.", rule: "slice of → cut flat sections" },
+                "loaf of": { errorType: "Wrong partitive — only for bread", explanation: "'A loaf of' is specifically for whole bread. For chocolate, use 'a bar of chocolate'.", rule: "loaf of → bread only" }
+            },
+            correctReason: "Chocolate is packaged in bars. 'A bar of chocolate' is the standard partitive.",
+            ruleFormula: "a bar of + chocolate/soap (packaged unit)"
+        },
+        {
+            id: 7,
+            sentence: "Sofía added a _____ sugar to her coffee to make it sweeter.",
+            translation: "Sofía añadió una cucharada de azúcar a su café para hacerlo más dulce.",
+            type: "measure",
+            hint: "Sugar is uncountable. The amount added comes from a small utensil.",
+            clue: "small amount with a utensil",
+            clueExplain: "For small amounts measured with a spoon (sugar, salt, oil), we use 'spoonful of'.",
+            options: ["kilo of", "bottle of", "spoonful of", "loaf of"],
+            correct: "spoonful of",
+            feedback: {
+                "kilo of": { errorType: "Wrong amount", explanation: "'A kilo of' is 1000 grams — too much for a coffee. For a small amount in coffee, use 'a spoonful of'.", rule: "kilo of → large weight / spoonful of → small portion" },
+                "bottle of": { errorType: "Wrong container", explanation: "'A bottle of' is for liquids in bottles. Sugar isn't bottled — it's added in spoonfuls.", rule: "bottle of → bottled liquids" },
+                "loaf of": { errorType: "Wrong partitive — only for bread", explanation: "'A loaf of' is specifically for whole bread. For sugar in coffee, use 'a spoonful of'.", rule: "loaf of → bread only" }
+            },
+            correctReason: "Adding sugar to coffee uses a spoon. 'A spoonful of sugar' is the standard partitive for this small amount.",
+            ruleFormula: "a spoonful of + uncountable (small measured amount)"
+        },
+        {
+            id: 8,
+            sentence: "Marcos bought a _____ flour to bake bread at home this weekend.",
+            translation: "Marcos compró un kilo de harina para hornear pan en casa este fin de semana.",
+            type: "measure",
+            hint: "Flour is uncountable. The shopping amount is a weight measurement.",
+            clue: "shopping amount (weight)",
+            clueExplain: "For shopping quantities by weight (flour, sugar, meat, fruit), we use 'kilo of' (or 'pound of' in some countries).",
+            options: ["spoonful of", "glass of", "slice of", "kilo of"],
+            correct: "kilo of",
+            feedback: {
+                "spoonful of": { errorType: "Wrong amount — too small", explanation: "'A spoonful of' is just enough for one serving. For SHOPPING amounts to bake bread, we need a 'kilo of flour'.", rule: "spoonful of → small serving / kilo of → shopping weight" },
+                "glass of": { errorType: "Wrong category — only liquids", explanation: "'A glass of' is for drinking liquids. Flour is a powder — we measure it by weight: 'a kilo of flour'.", rule: "glass of → liquids only" },
+                "slice of": { errorType: "Wrong category", explanation: "'A slice of' is for cut sections (bread, pizza). Flour is a powder — measure by weight: 'a kilo of flour'.", rule: "slice of → cut flat sections" }
+            },
+            correctReason: "Flour is sold by weight. 'A kilo of flour' is the standard shopping quantity.",
+            ruleFormula: "a kilo of + uncountable (weight measurement)"
+        },
+        {
+            id: 9,
+            sentence: "Sofía wrote her notes on a _____ paper from her notebook.",
+            translation: "Sofía escribió sus notas en una hoja de papel de su cuaderno.",
+            type: "piece",
+            hint: "Paper is uncountable. Which partitive describes one flat rectangular page?",
+            clue: "one flat page from a notebook",
+            clueExplain: "For one flat page of paper, we use 'sheet of'. ('Piece of paper' is also common but 'sheet of' is more specific.)",
+            options: ["sheet of", "slice of", "loaf of", "kilo of"],
+            correct: "sheet of",
+            feedback: {
+                "slice of": { errorType: "Wrong partitive", explanation: "'A slice of' is for things you cut for eating (bread, pizza, cake). For paper, use 'a sheet of paper'.", rule: "slice of → food cut into sections" },
+                "loaf of": { errorType: "Wrong partitive — only for bread", explanation: "'A loaf of' is specifically for whole bread. For paper, use 'a sheet of paper'.", rule: "loaf of → bread only" },
+                "kilo of": { errorType: "Wrong measurement", explanation: "'A kilo of' is a weight measurement. We don't measure individual pages of paper by weight — use 'a sheet of paper'.", rule: "kilo of → weight measurement" }
+            },
+            correctReason: "One page of paper is called 'a sheet of paper'. This is the standard partitive for flat rectangular paper.",
+            ruleFormula: "a sheet of + paper (flat rectangular)"
+        },
+        {
+            id: 10,
+            sentence: "Carlos drinks a _____ water every day to stay hydrated.",
+            translation: "Carlos toma un litro de agua cada día para mantenerse hidratado.",
+            type: "measure",
+            hint: "Water is uncountable. The amount is a volume measurement (1000 ml).",
+            clue: "volume measurement",
+            clueExplain: "For volume measurements of liquids (water, milk, juice), we use 'litre of' (1000 ml).",
+            options: ["kilo of", "litre of", "spoonful of", "loaf of"],
+            correct: "litre of",
+            feedback: {
+                "kilo of": { errorType: "Wrong unit — weight not volume", explanation: "'A kilo of' is for WEIGHT (solids like flour, meat). For LIQUIDS like water, we use 'a litre of'.", rule: "kilo = weight (1000g) / litre = volume (1000ml)" },
+                "spoonful of": { errorType: "Wrong amount — too small", explanation: "'A spoonful of' is too small to stay hydrated for a day. For daily water intake, we use 'a litre of water'.", rule: "spoonful of → tiny amount" },
+                "loaf of": { errorType: "Wrong partitive — only for bread", explanation: "'A loaf of' is specifically for whole bread. For water, use 'a litre of water'.", rule: "loaf of → bread only" }
+            },
+            correctReason: "Water is a liquid measured by volume. 'A litre of water' is the standard partitive for 1000 ml.",
+            ruleFormula: "a litre of + liquid uncountable (volume)"
+        },
+        {
+            id: 11,
+            sentence: "The waiter brought a _____ soup to start our dinner.",
+            translation: "El camarero trajo un tazón de sopa para empezar nuestra cena.",
+            type: "container",
+            hint: "Soup is uncountable. Which container is typical for soup?",
+            clue: "soup (typical container)",
+            clueExplain: "For soup, cereal, or rice, we use 'bowl of'.",
+            options: ["glass of", "cup of", "bowl of", "slice of"],
+            correct: "bowl of",
+            feedback: {
+                "glass of": { errorType: "Wrong container", explanation: "'A glass of' is for cold drinks (water, juice). Soup is served in a deeper container: 'a bowl of soup'.", rule: "glass of → cold drinks / bowl of → soup, cereal" },
+                "cup of": { errorType: "Wrong container", explanation: "'A cup of' is for hot drinks (coffee, tea). Soup is served in 'a bowl of soup'.", rule: "cup of → hot drinks / bowl of → soup" },
+                "slice of": { errorType: "Wrong category — solid only", explanation: "'A slice of' is for solid foods cut flat (bread, pizza). Soup is a liquid — we use 'a bowl of soup'.", rule: "slice of → cut solids only" }
+            },
+            correctReason: "Soup is uncountable. The typical serving container is 'a bowl of soup'.",
+            ruleFormula: "a bowl of + soup, cereal, rice"
+        },
+        {
+            id: 12,
+            sentence: "Sofía heard an interesting _____ news about the new bank policy.",
+            translation: "Sofía escuchó una noticia interesante sobre la nueva política del banco.",
+            type: "piece",
+            hint: "'News' is ALWAYS uncountable in English (despite ending in 's'). Which partitive expresses 'one item of news'?",
+            clue: "news (always uncountable)",
+            clueExplain: "'News' is uncountable, so we can't say 'a news'. We use 'a piece of news' for one specific item.",
+            options: ["slice of", "bowl of", "kilo of", "piece of"],
+            correct: "piece of",
+            feedback: {
+                "slice of": { errorType: "Wrong partitive for abstract", explanation: "'A slice of' is for things you cut physically (bread, pizza). 'News' is abstract — use 'a piece of news'.", rule: "slice of → physical cuts / piece of → abstract items" },
+                "bowl of": { errorType: "Wrong category", explanation: "'A bowl of' is for soup, cereal, or rice. 'News' is abstract — use 'a piece of news'.", rule: "bowl of → liquid/grain food" },
+                "kilo of": { errorType: "Wrong measurement", explanation: "'A kilo of' is for weight (solids). 'News' is abstract — we use 'a piece of news'.", rule: "kilo of → weight measurement" }
+            },
+            correctReason: "'News' is always uncountable. 'A piece of news' is the standard partitive for one specific item of news.",
+            ruleFormula: "a piece of + abstract uncountable (news, advice, information)"
+        },
+        {
+            id: 13,
+            sentence: "Marcos cut a thin _____ cheese for his sandwich at lunch.",
+            translation: "Marcos cortó una rebanada fina de queso para su sándwich en el almuerzo.",
+            type: "piece",
+            hint: "Cheese is uncountable. The action 'cut' suggests a flat cut piece.",
+            clue: "cut a thin piece (flat cut)",
+            clueExplain: "For things cut into flat sections (cheese, bread, ham), we use 'slice of'.",
+            options: ["slice of", "piece of", "bar of", "kilo of"],
+            correct: "slice of",
+            feedback: {
+                "piece of": { errorType: "Less specific partitive", explanation: "'A piece of cheese' is acceptable but less specific. The verb 'cut' + 'thin' specifically suggests 'a slice of cheese'.", rule: "slice of → thin flat cut / piece of → general portion" },
+                "bar of": { errorType: "Wrong partitive — packaging", explanation: "'A bar of' is for whole packaged units (chocolate, soap). For a CUT piece of cheese, use 'a slice of cheese'.", rule: "bar of → whole packaged unit / slice of → cut" },
+                "kilo of": { errorType: "Wrong measurement", explanation: "'A kilo of' is a weight measurement (1000g). For one cut piece for a sandwich, use 'a slice of cheese'.", rule: "kilo of → weight, not single serving" }
+            },
+            correctReason: "Cheese cut thin for a sandwich uses 'a slice of cheese' — the standard partitive for cut flat sections.",
+            ruleFormula: "a slice of + uncountable food (cut flat section)"
+        },
+        {
+            id: 14,
+            sentence: "Carlos drinks a _____ wine with dinner on special occasions.",
+            translation: "Carlos toma una botella de vino con la cena en ocasiones especiales.",
+            type: "container",
+            hint: "Wine is uncountable. The typical container for wine is...?",
+            clue: "wine (typical container)",
+            clueExplain: "Wine, oil, and water are commonly sold and stored in bottles. We use 'bottle of' for these.",
+            options: ["glass of", "bottle of", "cup of", "kilo of"],
+            correct: "bottle of",
+            feedback: {
+                "glass of": { errorType: "Wrong size — single serving", explanation: "'A glass of wine' is one serving. The context says 'with dinner on special occasions' — that's typically 'a bottle of wine' shared.", rule: "glass = single serving / bottle = whole container" },
+                "cup of": { errorType: "Wrong container", explanation: "'A cup of' is for hot drinks (coffee, tea). Wine isn't typically served in cups — use 'a bottle of wine'.", rule: "cup of → hot drinks" },
+                "kilo of": { errorType: "Wrong unit — weight not volume", explanation: "'A kilo of' is a weight measurement (solids). Wine is a liquid in bottles — use 'a bottle of wine'.", rule: "kilo = weight / bottle = wine container" }
+            },
+            correctReason: "Wine is uncountable. The standard container for wine is 'a bottle of wine'.",
+            ruleFormula: "a bottle of + uncountable liquid (wine, oil, water)"
+        },
+        {
+            id: 15,
+            sentence: "Sofía bought a _____ soap at the supermarket yesterday.",
+            translation: "Sofía compró una pastilla de jabón en el supermercado ayer.",
+            type: "piece",
+            hint: "Soap is uncountable. The typical packaging shape is the same as for chocolate.",
+            clue: "soap (typical packaging)",
+            clueExplain: "Soap and chocolate are sold in bars. We use 'a bar of' for these solid rectangular units.",
+            options: ["piece of", "slice of", "bar of", "kilo of"],
+            correct: "bar of",
+            feedback: {
+                "piece of": { errorType: "Less specific partitive", explanation: "'A piece of soap' could be any portion. For the standard packaged unit, we use 'a bar of soap'.", rule: "bar of → packaged unit / piece of → small portion" },
+                "slice of": { errorType: "Wrong partitive — food only", explanation: "'A slice of' is for food cut flat (bread, pizza, cheese). Soap isn't food — use 'a bar of soap'.", rule: "slice of → cut food only" },
+                "kilo of": { errorType: "Wrong measurement", explanation: "'A kilo of' is a weight measurement. Soap is sold by the bar (single unit), not by weight at the supermarket.", rule: "kilo of → weight, not single unit" }
+            },
+            correctReason: "Soap is sold in bars. 'A bar of soap' is the standard partitive for the rectangular packaged unit.",
+            ruleFormula: "a bar of + chocolate/soap (rectangular unit)"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, index) => container.appendChild(createQuestionCard(q, index)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createQuestionCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const shuffled = shuffle(q.options);
+        let badgeClass, badgeText;
+        if (q.type === 'container') { badgeClass = 'container'; badgeText = '📦 Container'; }
+        else if (q.type === 'piece') { badgeClass = 'piece'; badgeText = '🍞 Piece'; }
+        else { badgeClass = 'measure'; badgeText = '⚖️ Measure'; }
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge ${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <p class="question-text">${q.sentence.replace('_____', `<span class="blank" id="blank-${index}">?</span>`)}</p>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation" id="translation-${index}">${q.translation}</div>
+            <div class="options-grid" id="options-${index}">
+                ${shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectAnswer(${index}, ${i}, this)">${opt}</button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        card._shuffled = shuffled;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectAnswer(qi, optIdx, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const card = document.getElementById(`question-${qi}`);
+        const shuffled = card._shuffled;
+        const selected = shuffled[optIdx];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+
+        const blank = document.getElementById(`blank-${qi}`);
+        blank.textContent = selected;
+        blank.className = `blank ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach(b => {
+            b.disabled = true;
+            const idx = parseInt(b.getAttribute('data-idx'));
+            const t = shuffled[idx];
+            if (t === q.correct) b.classList.add('correct');
+            else if (idx === optIdx) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct!</div>
+                        <div class="fb-subtitle">You chose the right partitive</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal">
+                        <div class="fb-block-title">🔍 The key signal you spotted</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is it correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            const err = q.feedback[selected] || { errorType: 'Error', explanation: 'Incorrect answer.', rule: '' };
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect</div>
+                        <div class="fb-subtitle">Let's review what happened</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal wrong">
+                        <div class="fb-block-title">🔍 The key signal you needed to spot</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag red">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-compare">
+                        <div class="fb-block-title" style="color:#64748B;">🔄 Your answer vs. correct</div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label wrong">You wrote</span>
+                            <span class="compare-text"><span class="word-wrong">${selected}</span></span>
+                        </div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label right">Correct</span>
+                            <span class="compare-text"><span class="word-right">${q.correct}</span></span>
+                        </div>
+                    </div>
+                    <div class="fb-error">
+                        <div class="fb-block-title">⚠️ Error type: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="error-word-row">
+                            <span class="ew-box ew-wrong">${selected}</span>
+                            <span class="ew-arrow">→</span>
+                            <span class="ew-box ew-right">${q.correct}</span>
+                        </div>
+                        <div class="error-rule">${err.explanation}</div>
+                        ${err.rule ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">📌 ${err.rule}</div>` : ''}
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is the correct answer right?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+
+    function nextQuestion(i) {
+        if (i < quizData.length - 1) showQuestion(i + 1);
+        else showResults();
+    }
+
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        const rs = document.getElementById('resultsScreen');
+        rs.classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master partitives perfectly. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the partitives and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Enough / Too | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">⚖️ Enough / Too — Adjectives & Nouns</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>TOO:</b> demasiado (sentido NEGATIVO, exceso) \u2014 \"too cold\", \"too much noise\"", "<b>ENOUGH:</b> suficiente (sentido NEUTRO/POSITIVO) \u2014 \"warm enough\", \"enough money\"", "<b>TOO + adjetivo</b>: \"It's <b>too cold</b>\" (precede al adj)", "<b>Adjetivo + ENOUGH</b>: \"It's <b>warm enough</b>\" (sigue al adj)", "<b>ENOUGH + sustantivo</b>: \"<b>enough</b> water\" / \"<b>enough</b> books\"", "<b>TOO MUCH</b> + incontable \u00b7 <b>TOO MANY</b> + contable plural", "Para infinitivo de prop\u00f3sito: too/enough + adj + <b>to + verb</b>"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol usamos <b>\"demasiado\"</b> (exceso, negativo) y <b>\"suficiente / bastante\"</b> (cantidad correcta). Son conceptos opuestos en cuanto a tono.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83d\udd34 DEMASIADO (exceso)</h4><ul>\n<li>Hace <b>demasiado</b> fr\u00edo</li>\n<li>Hay <b>demasiado</b> ruido</li>\n<li>Comiste <b>demasiado</b></li>\n<li>Es <b>demasiado</b> caro</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83d\udfe2 SUFICIENTE (correcto)</h4><ul>\n<li>Tengo <b>suficiente</b> dinero</li>\n<li>Es lo <b>bastante</b> grande</li>\n<li>No hay <b>suficientes</b> sillas</li>\n<li>Tienes <b>suficiente</b> tiempo</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83e\udd76</div><div><div class=\"en\">\"Hace demasiado fr\u00edo para salir\" \u2192 el fr\u00edo es EXCESIVO, problem\u00e1tico.</div><div class=\"es\">Demasiado = m\u00e1s de lo deseable</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\u2705</div><div><div class=\"en\">\"Tengo suficiente dinero para el bus\" \u2192 la cantidad es la NECESARIA.</div><div class=\"es\">Suficiente = la cantidad correcta</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> \"Demasiado\" y \"suficiente\" son OPUESTOS en sentido. \"Demasiado\" suena a queja; \"suficiente\" suena a OK. En ingl\u00e9s pasa igual con \"too\" y \"enough\".</div>", "exercises": [{"q": "\"Hace demasiado fr\u00edo\" \u2014 \u00bfel tono es:?", "a": "a", "o": ["Negativo (queja)", "Positivo (OK)"], "fc": "\"Demasiado\" implica exceso indeseable.", "fi": "El tono positivo ser\u00eda \"hace bastante fr\u00edo\" o \"perfecto\".", "ex": "Hace demasiado fr\u00edo \u2192 It's too cold", "tip": "Demasiado = too (negativo)"}, {"q": "\"Tengo suficiente comida\" \u2014 \u00bfla cantidad es:?", "a": "b", "o": ["Excesiva", "Adecuada"], "fc": "\"Suficiente\" = la cantidad correcta, ni m\u00e1s ni menos.", "fi": "Excesiva ser\u00eda \"demasiada\".", "ex": "Tengo suficiente comida \u2192 I have enough food", "tip": "Suficiente = enough (neutro)"}, {"q": "\"Esta sopa est\u00e1 demasiado salada\" \u2014 \u00bfqu\u00e9 quiere decir?", "a": "a", "o": ["Tiene m\u00e1s sal de lo que deber\u00eda", "Tiene la sal perfecta"], "fc": "\"Demasiado salada\" = exceso de sal, no se puede comer bien.", "fi": "La cantidad perfecta no se describir\u00eda con \"demasiado\".", "tip": "Demasiado + adj \u2192 problema"}, {"q": "\"\u00bfHay suficientes sillas?\" \u2014 \u00bfqu\u00e9 pregunto?", "a": "b", "o": ["Si sobran sillas", "Si alcanzan para todos"], "fc": "Suficientes = la cantidad necesaria para todos.", "fi": "Que sobren ser\u00eda \"demasiadas\".", "ex": "\u00bfHay suficientes sillas? \u2192 Are there enough chairs?", "tip": "Suficiente = la cantidad justa"}, {"q": "\"Es bastante grande\" en espa\u00f1ol significa:", "a": "a", "o": ["Es lo suficientemente grande", "Es demasiado grande"], "fc": "\"Bastante\" aqu\u00ed = suficientemente, no exceso.", "fi": "Para exceso ser\u00eda \"demasiado grande\".", "ex": "Es bastante grande \u2192 It's big enough", "tip": "Bastante = enough (sin\u00f3nimo)"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Both languages use the same logic: opposite tones, same uses.</div>\n\n<table class=\"g-table\">\n<tr><th>Concepto</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Exceso (negativo)</td><td>demasiado fr\u00edo</td><td><span class=\"g-neg\">too</span> cold</td></tr>\n<tr><td>Cantidad correcta</td><td>suficiente / bastante</td><td><span class=\"g-comp\">enough</span></td></tr>\n<tr><td>Demasiado + sustantivo</td><td>demasiada agua / demasiados libros</td><td><span class=\"g-neg\">too much</span> water / <span class=\"g-neg\">too many</span> books</td></tr>\n<tr><td>Suficiente + sustantivo</td><td>suficiente agua / suficientes libros</td><td><span class=\"g-comp\">enough</span> water / <span class=\"g-comp\">enough</span> books</td></tr>\n<tr><td>Para + infinitivo</td><td>demasiado caro <b>para</b> comprar</td><td>too expensive <b>to</b> buy</td></tr>\n</table>\n\n<div class=\"section-label\">Mapa visual de uso</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">Too + adj</div><div class=\"vrb\">too cold</div><div class=\"meaning\">demasiado fr\u00edo</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Adj + enough</div><div class=\"vrb\">cold enough</div><div class=\"meaning\">bastante fr\u00edo</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Enough + noun</div><div class=\"vrb\">enough food</div><div class=\"meaning\">suficiente comida</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Too much + Unc.</div><div class=\"vrb\">too much water</div><div class=\"meaning\">demasiada agua</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Too many + Plu.</div><div class=\"vrb\">too many cars</div><div class=\"meaning\">demasiados autos</div></div>\n<div class=\"conj-item\"><div class=\"pron\">+ to + verb</div><div class=\"vrb\">too tired to walk</div><div class=\"meaning\">muy cansado para caminar</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> Si dom\u00ednas \"demasiado/suficiente\" en espa\u00f1ol, ya entiendes el concepto. Solo necesitas memorizar D\u00d3NDE va cada palabra (antes o despu\u00e9s del adj/sust).</div>", "exercises": [{"q": "\"It's ___ hot today!\" (queja por calor)", "a": "a", "o": ["too", "enough"], "fc": "Queja por exceso \u2192 <b>too hot</b>.", "fi": "\"Hot enough\" ser\u00eda positivo (lo necesario), no encaja con queja.", "ex": "It's too hot \u2192 Hace demasiado calor", "tip": "Queja \u2192 too (exceso)"}, {"q": "\"Are you ___ to lift this box?\" (capacidad)", "a": "b", "o": ["too strong", "strong enough"], "fc": "\u00bfTienes la fuerza necesaria? \u2192 <b>strong enough</b>.", "fi": "\"Too strong\" ser\u00eda exceso de fuerza, no es la pregunta.", "ex": "Are you strong enough? \u2192 \u00bfEres lo bastante fuerte?", "tip": "Capacidad necesaria \u2192 enough"}, {"q": "\"There's ___ noise here. I can't think.\" (exceso)", "a": "a", "o": ["too much", "enough"], "fc": "\"Noise\" es incontable + queja por exceso \u2192 <b>too much noise</b>.", "fi": "\"Enough noise\" suena raro como queja.", "ex": "There's too much noise \u2192 Hay demasiado ruido", "tip": "Incontable + exceso \u2192 too much"}, {"q": "\"We have ___ chairs for everyone.\" (suficientes)", "a": "b", "o": ["too many", "enough"], "fc": "Cantidad correcta para todos \u2192 <b>enough chairs</b>.", "fi": "\"Too many chairs\" ser\u00eda exceso (sobran sillas).", "ex": "We have enough chairs \u2192 Tenemos suficientes sillas", "tip": "Cantidad justa \u2192 enough"}, {"q": "\"The coffee is ___ hot to drink right now.\" (no se puede)", "a": "a", "o": ["too", "enough"], "fc": "No se puede tomar = exceso de calor \u2192 <b>too hot</b>.", "fi": "\"Hot enough\" ser\u00eda perfecto para beber, no encaja.", "ex": "The coffee is too hot to drink \u2192 El caf\u00e9 est\u00e1 demasiado caliente para beber", "tip": "Too + adj + to = no se puede"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">La gran diferencia: la POSICI\u00d3N de \"enough\" cambia seg\u00fan a qu\u00e9 acompa\u00f1e.</div>\n\n<table class=\"g-table\">\n<tr><th>Estructura</th><th>\u2705 Correcto</th><th>\u274c Incorrecto</th></tr>\n<tr><td>Too + adj</td><td><span class=\"g-neg\">too</span> cold</td><td>cold too</td></tr>\n<tr><td>Adj + enough</td><td>cold <span class=\"g-comp\">enough</span></td><td>enough cold</td></tr>\n<tr><td>Enough + noun</td><td><span class=\"g-comp\">enough</span> water</td><td>water enough</td></tr>\n<tr><td>Too much + Unc.</td><td><span class=\"g-neg\">too much</span> water</td><td>too many water</td></tr>\n<tr><td>Too many + Plu.</td><td><span class=\"g-neg\">too many</span> books</td><td>too much books</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f \u00a1Cuidado con la posici\u00f3n!</div>\n<p>Los hispanohablantes tienden a poner \"enough\" siempre antes (como \"suficiente\"). Pero:<br>\n\u2022 <b>Antes de ADJETIVO:</b> No \u2192 \"enough cold\" \u274c \u2192 \"<b>cold enough</b>\" \u2705<br>\n\u2022 <b>Antes de SUSTANTIVO:</b> S\u00ed \u2192 \"<b>enough money</b>\" \u2705<br>\n\u2022 <b>Antes de ADVERBIO:</b> No \u2192 \"enough fast\" \u274c \u2192 \"<b>fast enough</b>\" \u2705</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">She is enough tall to play basketball.</div><div class=\"es\">\"Enough\" va DESPU\u00c9S del adj</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">She is <span class=\"g-comp\">tall enough</span> to play basketball.</div><div class=\"es\">Es lo bastante alta para jugar baloncesto.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">There are too much cars in the city.</div><div class=\"es\">\"Cars\" es plural \u2192 too many</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">There are <span class=\"g-neg\">too many</span> cars in the city.</div><div class=\"es\">Hay demasiados coches en la ciudad.</div></div></div>", "exercises": [{"q": "\"He runs fast ___ to win the race.\"", "a": "b", "o": ["enough", "too"], "fc": "Adverbio + <b>enough</b>: \"fast enough\" = lo bastante r\u00e1pido.", "fi": "\"Too\" no funciona aqu\u00ed; ser\u00eda \"demasiado r\u00e1pido para ganar\" (sin l\u00f3gica).", "ex": "He runs fast enough to win", "tip": "Adverbio/adj + enough"}, {"q": "\"She has ___ patience for kids.\" (cantidad correcta)", "a": "a", "o": ["enough", "too much"], "fc": "Cantidad adecuada de paciencia \u2192 <b>enough patience</b>.", "fi": "\"Too much patience\" ser\u00eda exceso, raro y casi nunca aplica.", "ex": "She has enough patience for kids", "tip": "Sustantivo + cantidad correcta \u2192 enough + noun"}, {"q": "\"There are ___ people in the elevator. It's full.\" (exceso plural)", "a": "a", "o": ["too many", "too much"], "fc": "\"People\" es plural contable \u2192 <b>too many</b>.", "fi": "\"Too much\" se usa con incontables (water, time, money).", "ex": "Too many people in the elevator", "tip": "Plural \u2192 too many"}, {"q": "\"This soup is too ___.\"", "a": "b", "o": ["salty enough", "salty"], "fc": "\"Too\" siempre va antes del adjetivo solo: <b>too salty</b>.", "fi": "\"Too salty enough\" no existe; usa una u otra, no ambas.", "ex": "This soup is too salty \u2192 Esta sopa est\u00e1 demasiado salada", "tip": "Too + adj (sin enough)"}, {"q": "\"I don't have ___ time to finish.\" (no suficiente)", "a": "a", "o": ["enough", "too much"], "fc": "Falta de tiempo (incontable) \u2192 <b>enough time</b> en negativo = no suficiente.", "fi": "\"Too much time\" ser\u00eda demasiado tiempo (exceso), no falta.", "ex": "I don't have enough time \u2192 No tengo suficiente tiempo", "tip": "Falta \u2192 don't have enough"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 La regla de oro de POSICI\u00d3N:</strong> ENOUGH va <b>despu\u00e9s</b> de adjetivo/adverbio (cold enough, fast enough), pero <b>antes</b> de sustantivo (enough money, enough time).</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 Too: SIEMPRE antes del adjetivo:</strong> too cold, too tired, too expensive. Nunca al final (\"cold too\" \u274c).</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Much vs Many con TOO:</strong> Recuerda la regla cl\u00e1sica: TOO <b>MUCH</b> + incontable (water, time, money). TOO <b>MANY</b> + contable plural (cars, people, books).</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Para infinitivo:</strong> <b>too + adj + to + verb</b> = \"demasiado X para Y\". <b>adj + enough + to + verb</b> = \"lo bastante X para Y\". \"Too tired <b>to</b> walk\" / \"Old enough <b>to</b> drive\".</div>\n\n<div class=\"formula-box\">\n\ud83d\udd34 <span class=\"g-neg\">TOO</span> + adj/adv: too cold, too fast<br>\n\ud83d\udd34 <span class=\"g-neg\">TOO MUCH</span> + incontable: too much water<br>\n\ud83d\udd34 <span class=\"g-neg\">TOO MANY</span> + plural: too many cars<br>\n\ud83d\udfe2 adj/adv + <span class=\"g-comp\">ENOUGH</span>: cold enough, fast enough<br>\n\ud83d\udfe2 <span class=\"g-comp\">ENOUGH</span> + noun: enough water, enough cars\n</div>\n\n<table class=\"g-table\">\n<tr><th>Posici\u00f3n</th><th>Estructura</th><th>Ejemplo</th></tr>\n<tr><td>TOO + ADJ</td><td>antes del adjetivo</td><td>too <b>tired</b></td></tr>\n<tr><td>ADJ + ENOUGH</td><td>despu\u00e9s del adjetivo</td><td><b>tired</b> enough</td></tr>\n<tr><td>ENOUGH + N</td><td>antes del sustantivo</td><td>enough <b>money</b></td></tr>\n<tr><td>TOO MUCH + N</td><td>incontable</td><td>too much <b>noise</b></td></tr>\n<tr><td>TOO MANY + N</td><td>plural contable</td><td>too many <b>questions</b></td></tr>\n</table>", "exercises": [{"q": "\"He is ___ young to drive a car.\"", "a": "a", "o": ["too", "enough"], "fc": "No puede manejar = exceso de juventud \u2192 <b>too young</b>.", "fi": "\"Young enough\" ser\u00eda lo contrario (positivo).", "ex": "He is too young to drive \u2192 Es muy joven para manejar", "tip": "Too + adj + to = no puede"}, {"q": "\"Is your house big ___ for 5 people?\"", "a": "b", "o": ["too", "enough"], "fc": "\u00bfTiene el tama\u00f1o necesario? \u2192 <b>big enough</b>.", "fi": "\"Too big\" ser\u00eda exceso, no es la pregunta.", "ex": "Is your house big enough? \u2192 \u00bfEs lo bastante grande?", "tip": "Capacidad necesaria \u2192 enough"}, {"q": "\"There is ___ sugar in this coffee. It's sweet!\"", "a": "a", "o": ["too much", "too many"], "fc": "\"Sugar\" es incontable \u2192 <b>too much sugar</b>.", "fi": "\"Too many\" se usa con plurales contables.", "ex": "Too much sugar", "tip": "Incontable \u2192 too much"}, {"q": "\"She bought ___ shoes last month. Her closet is full.\"", "a": "b", "o": ["too much", "too many"], "fc": "\"Shoes\" es plural contable \u2192 <b>too many shoes</b>.", "fi": "\"Too much shoes\" no es correcto.", "ex": "She bought too many shoes \u2192 Compr\u00f3 demasiados zapatos", "tip": "Plural contable \u2192 too many"}, {"q": "\"I'm ___ to go out tonight. I just want to sleep.\"", "a": "a", "o": ["too tired", "tired enough"], "fc": "\"I just want to sleep\" confirma exceso de cansancio \u2192 <b>too tired</b>.", "fi": "\"Tired enough\" significar\u00eda \"lo bastante cansado para algo\" \u2014 no encaja con querer dormir.", "ex": "I'm too tired to go out tonight \u2192 Estoy muy cansado para salir", "tip": "Too + adj + to = exceso que impide"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Combina too/enough con adjetivos, sustantivos e infinitivos.</div>\n\n<div class=\"formula-box\">\n\ud83d\udd34 <span class=\"g-neg\">too</span> + <span class=\"g-comp\">adj</span> [+ to + verb] \u2192 exceso<br>\n\ud83d\udfe2 <span class=\"g-comp\">adj</span> + <span class=\"g-comp\">enough</span> [+ to + verb] \u2192 suficiente<br>\n\ud83d\udd34 <span class=\"g-neg\">too much/many</span> + <span class=\"g-subj\">noun</span> \u2192 exceso de cantidad<br>\n\ud83d\udfe2 <span class=\"g-comp\">enough</span> + <span class=\"g-subj\">noun</span> \u2192 cantidad correcta\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2615</div><div><div class=\"en\">This coffee is <span class=\"g-neg\">too hot</span> <span class=\"g-verb\">to drink</span>.</div><div class=\"es\">Este caf\u00e9 est\u00e1 demasiado caliente para beber. (exceso + infinitivo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\ude97</div><div><div class=\"en\">She is <span class=\"g-comp\">old enough</span> <span class=\"g-verb\">to drive</span>.</div><div class=\"es\">Tiene la edad suficiente para manejar. (suficiente + infinitivo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfd9\ufe0f</div><div><div class=\"en\">There are <span class=\"g-neg\">too many</span> <span class=\"g-subj\">tourists</span> in summer.</div><div class=\"es\">Hay demasiados turistas en verano. (exceso + plural)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcb0</div><div><div class=\"en\">I have <span class=\"g-comp\">enough</span> <span class=\"g-subj\">money</span> for the bus.</div><div class=\"es\">Tengo suficiente dinero para el bus. (cantidad correcta)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"She is enough tall\" \u2192 \u2705 \"She is <b>tall enough</b>\" (adj + enough)<br>\n\u274c \"Too many water\" \u2192 \u2705 \"<b>Too much</b> water\" (incontable)<br>\n\u274c \"Too much books\" \u2192 \u2705 \"<b>Too many</b> books\" (plural contable)<br>\n\u274c \"He has enough not money\" \u2192 \u2705 \"He <b>doesn't have enough</b> money\" (orden negativo)<br>\n\u274c \"It's too cold for go out\" \u2192 \u2705 \"It's too cold <b>to</b> go out\" (infinitivo con to)\n</p></div>", "exercises": [{"q": "\"This bag is ___ heavy for me to carry.\" (no puedo)", "a": "a", "o": ["too", "enough"], "fc": "No puedo cargar = exceso de peso \u2192 <b>too heavy</b>.", "fi": "\"Heavy enough\" ser\u00eda lo bastante pesada (positivo), no encaja.", "ex": "This bag is too heavy to carry", "tip": "No puedo + razon \u2192 too + adj + to"}, {"q": "\"Do we have ___ bread for breakfast?\" (suficiente)", "a": "b", "o": ["too much", "enough"], "fc": "Pregunta por cantidad necesaria \u2192 <b>enough bread</b>.", "fi": "\"Too much bread\" ser\u00eda demasiado pan, no encaja con la pregunta.", "ex": "Do we have enough bread?", "tip": "\u00bfTenemos lo necesario? \u2192 enough"}, {"q": "\"My grandfather is ___ old to climb stairs.\"", "a": "b", "o": ["enough", "too"], "fc": "No puede subir escaleras = exceso de edad para esa actividad \u2192 <b>too old</b>.", "fi": "\"Old enough\" ser\u00eda positivo (capaz por edad), no encaja con limitaci\u00f3n.", "ex": "He is too old to climb stairs", "tip": "Limitaci\u00f3n por exceso \u2192 too"}, {"q": "\"There were ___ mistakes in your essay. Be careful.\"", "a": "a", "o": ["too many", "too much"], "fc": "\"Mistakes\" es plural contable \u2192 <b>too many</b>.", "fi": "\"Too much mistakes\" no es correcto; \"too much\" se usa con incontables.", "ex": "Too many mistakes", "tip": "Mistakes = plural contable \u2192 too many"}, {"q": "\"She didn't study ___ to pass the exam.\"", "a": "b", "o": ["too", "enough"], "fc": "No estudi\u00f3 lo necesario \u2192 <b>didn't study enough</b>. Aqu\u00ed enough es adverbio (despu\u00e9s del verbo).", "fi": "\"Too\" no funciona; ser\u00eda exceso de estudio.", "ex": "She didn't study enough \u2192 No estudi\u00f3 lo suficiente", "tip": "Verbo + enough (despu\u00e9s del verbo)"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

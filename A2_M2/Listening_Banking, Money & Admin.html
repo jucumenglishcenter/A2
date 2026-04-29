@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎧 Banking Adventure | A2 — Listening Quest</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ============ PALETA OFICIAL A2 🟢 ============ */
+:root {
+  --lvl: #66BB6A;
+  --lvl-dark: #2E7D32;
+  --lvl-darker: #1B5E20;
+  --lvl-light: #E8F5E9;
+  --lvl-mid: #C8E6C9;
+  --lvl-grad: linear-gradient(135deg, #388E3C, #66BB6A, #81C784);
+  --lvl-glow: rgba(102, 187, 106, 0.12);
+  
+  /* Colores de acento educativo */
+  --gold: #FFB300;
+  --gold-light: #FFE082;
+  --gold-dark: #F57F17;
+  --coral: #FF7043;
+  --coral-light: #FFAB91;
+  --purple: #9575CD;
+  --purple-light: #D1C4E9;
+  --blue: #42A5F5;
+  --red: #EF5350;
+  
+  --ink: #1B5E20;
+  --ink-soft: #2E7D32;
+  --text: #263238;
+  --text-soft: #546E7A;
+  --paper: #FAFDF8;
+  --card: #FFFFFF;
+  --line: #DCEDC8;
+}
+
+body {
+  font-family: -apple-system, 'Segoe UI', 'Nunito', system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(129, 199, 132, 0.18), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 179, 0, 0.12), transparent 40%),
+    linear-gradient(180deg, #F1F8E9 0%, #E8F5E9 100%);
+  min-height: 100vh;
+  padding: 16px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container { max-width: 880px; margin: 0 auto; }
+
+/* ============ HERO HEADER ============ */
+.hero {
+  background: var(--lvl-grad);
+  border-radius: 28px;
+  padding: 28px 24px 24px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 40px rgba(46, 125, 50, 0.3);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '🎧';
+  position: absolute;
+  bottom: -20px; right: 20px;
+  font-size: 140px;
+  opacity: 0.1;
+  transform: rotate(-15deg);
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+/* Global stats strip inside hero */
+.hero-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.hero-stat {
+  flex: 1;
+  min-width: 95px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-stat-icon {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+.hero-stat-info { flex: 1; min-width: 0; }
+.hero-stat-label {
+  font-size: 0.68rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.hero-stat-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ============ BOTÓN HOME ============ */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: var(--ink);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--lvl-mid);
+  transition: all 0.25s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.home-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--lvl);
+  box-shadow: 0 6px 18px rgba(102, 187, 106, 0.3);
+}
+.accent-pills {
+  display: flex;
+  gap: 6px;
+  background: white;
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.accent-pill {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.accent-pill:hover { background: var(--lvl-light); }
+.accent-pill.active {
+  background: var(--lvl-grad);
+  color: white;
+  box-shadow: 0 3px 10px rgba(102, 187, 106, 0.35);
+}
+
+/* ============ QUEST MAP (TABS) ============ */
+.quest-map {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid var(--line);
+}
+.quest-map-title {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-soft);
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.quest-map-title::before {
+  content: '🗺️';
+  font-size: 1rem;
+}
+.quest-path {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  position: relative;
+}
+@media (max-width: 620px) {
+  .quest-path { grid-template-columns: repeat(2, 1fr); }
+}
+
+.quest-stop {
+  background: var(--lvl-light);
+  border: 3px solid transparent;
+  border-radius: 20px;
+  padding: 14px 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.quest-stop:hover {
+  transform: translateY(-4px);
+  border-color: var(--lvl);
+  box-shadow: 0 10px 24px rgba(102, 187, 106, 0.25);
+}
+.quest-stop.active {
+  background: var(--lvl-grad);
+  border-color: var(--lvl-darker);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(56, 142, 60, 0.4);
+}
+.quest-stop.completed {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-color: var(--gold-dark);
+}
+.quest-stop.completed::after {
+  content: '✓';
+  position: absolute;
+  top: 6px; right: 8px;
+  background: white;
+  color: var(--gold-dark);
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.quest-stop-icon {
+  font-size: 2rem;
+  margin-bottom: 4px;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.12));
+}
+.quest-stop-num {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+.quest-stop-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: inherit;
+  line-height: 1.25;
+}
+.quest-stop-progress {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.45);
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.quest-stop.active .quest-stop-progress {
+  background: rgba(255,255,255,0.3);
+  color: white;
+}
+
+/* ============ PROGRESS BAR ============ */
+.progress-section {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  border: 1px solid var(--line);
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.progress-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.progress-count {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--lvl-dark);
+}
+.progress-bar-track {
+  height: 14px;
+  background: var(--lvl-light);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--lvl-grad);
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  width: 0%;
+}
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Mini badges row */
+.mini-badges {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.mini-badge {
+  flex: 1;
+  min-width: 95px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: #F5F5F5;
+  color: var(--text-soft);
+  transition: all 0.3s;
+}
+.mini-badge.correct { background: #E8F5E9; color: var(--lvl-darker); }
+.mini-badge.incorrect { background: #FFEBEE; color: #B71C1C; }
+.mini-badge.streak {
+  background: linear-gradient(135deg, #FFE082, #FFB300);
+  color: #5D4037;
+  animation: pulseGlow 1.5s ease-in-out;
+}
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255, 179, 0, 0); }
+  50% { transform: scale(1.08); box-shadow: 0 0 18px rgba(255, 179, 0, 0.5); }
+}
+.mini-badge-icon { font-size: 1.2rem; }
+.mini-badge-text { line-height: 1.1; }
+.mini-badge-value { font-size: 1rem; font-weight: 800; display: block; }
+.mini-badge-label { font-size: 0.68rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ============ INSTRUCTIONS CARD ============ */
+.tips-card {
+  background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+  border-radius: 20px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  border-left: 5px solid var(--gold);
+  box-shadow: 0 4px 14px rgba(255, 179, 0, 0.15);
+}
+.tips-card h3 {
+  font-size: 0.95rem;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tips-card p {
+  font-size: 0.85rem;
+  color: #5D4037;
+  line-height: 1.55;
+}
+
+/* ============ LEVEL BANNER ============ */
+.level-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  margin: 22px 0 14px;
+  font-weight: 800;
+}
+.level-banner.easy {
+  background: linear-gradient(90deg, #C8E6C9, #E8F5E9);
+  color: #1B5E20;
+  border-left: 5px solid #43A047;
+}
+.level-banner.medium {
+  background: linear-gradient(90deg, #FFECB3, #FFF8E1);
+  color: #E65100;
+  border-left: 5px solid #FB8C00;
+}
+.level-banner.hard {
+  background: linear-gradient(90deg, #FFCDD2, #FFEBEE);
+  color: #B71C1C;
+  border-left: 5px solid #E53935;
+}
+.level-banner-icon { font-size: 1.6rem; }
+.level-banner-info { flex: 1; }
+.level-banner-title { font-size: 1rem; line-height: 1.2; }
+.level-banner-sub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.75;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.level-banner-xp {
+  background: rgba(255,255,255,0.6);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* ============ QUESTION CARD ============ */
+.q-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+  border: 1px solid var(--line);
+  transition: all 0.3s;
+  position: relative;
+}
+.q-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.q-card.done.correct { border-color: var(--lvl); background: linear-gradient(135deg, #F1F8E9, #FFFFFF); }
+.q-card.done.incorrect { border-color: var(--coral); background: linear-gradient(135deg, #FFF3E0, #FFFFFF); }
+
+.q-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.q-num-badge {
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.q-num-badge.easy { background: linear-gradient(135deg, #66BB6A, #43A047); }
+.q-num-badge.medium { background: linear-gradient(135deg, #FFB74D, #FB8C00); }
+.q-num-badge.hard { background: linear-gradient(135deg, #EF5350, #E53935); }
+.q-num-badge.done::after {
+  content: '✓';
+  position: absolute;
+  top: 17px; left: 50px;
+  background: var(--gold);
+  color: white;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+.q-info { flex: 1; min-width: 0; }
+.q-title { font-size: 1.02rem; font-weight: 800; color: var(--ink); line-height: 1.3; }
+.q-desc { font-size: 0.8rem; color: var(--text-soft); margin-top: 3px; }
+
+/* ============ AUDIO PLAYER ============ */
+.player-area {
+  background: linear-gradient(135deg, #F1F8E9, #E8F5E9);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 14px;
+  text-align: center;
+  border: 2px dashed var(--lvl-mid);
+}
+.play-btn {
+  width: 78px; height: 78px;
+  border: none;
+  border-radius: 50%;
+  background: var(--lvl-grad);
+  color: white;
+  font-size: 1.9rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(102, 187, 106, 0.4), inset 0 -4px 10px rgba(0,0,0,0.15);
+  transition: all 0.2s;
+  position: relative;
+}
+.play-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(102, 187, 106, 0.55), inset 0 -4px 10px rgba(0,0,0,0.15);
+}
+.play-btn:active { transform: scale(0.97); }
+.play-btn.playing {
+  background: linear-gradient(135deg, #EF5350, #E53935);
+  box-shadow: 0 8px 24px rgba(229, 57, 53, 0.4), inset 0 -4px 10px rgba(0,0,0,0.15);
+  animation: pulseBtn 1s infinite;
+}
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: 0 8px 24px rgba(229, 57, 53, 0.4), inset 0 -4px 10px rgba(0,0,0,0.15), 0 0 0 0 rgba(229,57,53,0.4); }
+  50% { box-shadow: 0 8px 24px rgba(229, 57, 53, 0.4), inset 0 -4px 10px rgba(0,0,0,0.15), 0 0 0 12px rgba(229,57,53,0); }
+}
+
+.player-hint {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Speed slider */
+.speed-slider-wrap {
+  margin-top: 14px;
+  background: white;
+  border-radius: 18px;
+  padding: 12px 16px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.speed-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.speed-slider-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.speed-slider-value {
+  background: var(--lvl-grad);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  min-width: 46px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(102,187,106,0.35);
+  transition: all 0.2s;
+}
+.speed-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--lvl-mid) 0%, var(--lvl) 100%);
+  outline: none;
+  cursor: pointer;
+  margin: 4px 0 2px;
+}
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--lvl-dark);
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(46, 125, 50, 0.4);
+  transition: transform 0.15s;
+}
+.speed-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.speed-slider::-webkit-slider-thumb:active { transform: scale(1.25); background: var(--lvl-light); }
+.speed-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--lvl-dark);
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(46, 125, 50, 0.4);
+  transition: transform 0.15s;
+}
+.speed-slider::-moz-range-thumb:hover { transform: scale(1.15); }
+.speed-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 0 2px;
+  font-size: 0.68rem;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+.speed-tick {
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: all 0.15s;
+  user-select: none;
+}
+.speed-tick:hover { color: var(--lvl-dark); background: var(--lvl-light); }
+.speed-tick.active { color: var(--lvl-dark); font-weight: 800; }
+
+/* Help toggles */
+.help-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.help-btn {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.help-btn.en { border-color: var(--blue); color: var(--blue); }
+.help-btn.en:hover { background: #E3F2FD; }
+.help-btn.en.active { background: var(--blue); color: white; }
+.help-btn.es { border-color: var(--gold); color: var(--gold-dark); }
+.help-btn.es:hover { background: #FFF8E1; }
+.help-btn.es.active { background: var(--gold); color: white; }
+
+.text-box {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: none;
+  font-size: 0.87rem;
+  line-height: 1.6;
+  text-align: left;
+}
+.text-box.show { display: block; animation: slideIn 0.3s ease; }
+.text-box.en { background: #E3F2FD; border-left: 4px solid var(--blue); color: #0D47A1; }
+.text-box.es { background: #FFF8E1; border-left: 4px solid var(--gold); color: #5D4037; }
+.text-box-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.75;
+  margin-bottom: 5px;
+  display: block;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ REVEAL QUESTION BUTTON ============ */
+.reveal-q-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #9575CD, #7E57C2);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 18px rgba(149, 117, 205, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.reveal-q-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(149, 117, 205, 0.45);
+}
+.reveal-q-btn.shown {
+  background: linear-gradient(135deg, #B0BEC5, #78909C);
+  box-shadow: 0 4px 12px rgba(120, 144, 156, 0.3);
+}
+
+/* ============ QUESTION SECTION ============ */
+.q-section {
+  margin-top: 14px;
+  display: none;
+  animation: slideDown 0.4s ease;
+}
+.q-section.show { display: block; }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.q-prompt {
+  background: linear-gradient(135deg, #F3E5F5, #EDE7F6);
+  border-left: 5px solid var(--purple);
+  padding: 14px 18px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #4A148C;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.q-prompt::before {
+  content: '❓';
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.options-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #FAFAFA;
+  border: 2.5px solid #E0E0E0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.92rem;
+}
+.option:hover:not(.disabled) {
+  border-color: var(--lvl);
+  background: var(--lvl-light);
+  transform: translateX(4px);
+}
+.option.disabled { pointer-events: none; }
+.option.correct {
+  border-color: var(--lvl-dark);
+  background: linear-gradient(135deg, #C8E6C9, #E8F5E9);
+  animation: correctPop 0.5s ease;
+}
+@keyframes correctPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.option.incorrect {
+  border-color: #E53935;
+  background: linear-gradient(135deg, #FFCDD2, #FFEBEE);
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.option.show-correct {
+  border-color: var(--lvl-dark);
+  background: linear-gradient(135deg, #C8E6C9, #E8F5E9);
+}
+.opt-letter {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: white;
+  border: 2px solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.option.correct .opt-letter,
+.option.show-correct .opt-letter {
+  background: var(--lvl-dark);
+  color: white;
+  border-color: var(--lvl-darker);
+}
+.option.incorrect .opt-letter {
+  background: #E53935;
+  color: white;
+  border-color: #C62828;
+}
+.opt-text { flex: 1; color: var(--text); font-weight: 600; line-height: 1.35; }
+
+/* ============ FEEDBACK ============ */
+.fb {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: none;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  font-weight: 500;
+  animation: slideIn 0.4s ease;
+}
+.fb.show { display: flex; gap: 10px; align-items: flex-start; }
+.fb.correct {
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  border-left: 5px solid var(--lvl-dark);
+  color: var(--lvl-darker);
+}
+.fb.incorrect {
+  background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+  border-left: 5px solid #C62828;
+  color: #B71C1C;
+}
+.fb-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.fb em { font-style: italic; font-weight: 800; background: rgba(255,255,255,0.5); padding: 1px 6px; border-radius: 5px; }
+
+/* ============ RESULTS PANEL ============ */
+.results {
+  display: none;
+  background: var(--lvl-grad);
+  border-radius: 28px;
+  padding: 32px 24px;
+  text-align: center;
+  color: white;
+  margin-top: 24px;
+  box-shadow: 0 16px 50px rgba(46, 125, 50, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.results.show { display: block; animation: celebrateIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes celebrateIn {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.results::before,
+.results::after {
+  content: '✨';
+  position: absolute;
+  font-size: 80px;
+  opacity: 0.15;
+}
+.results::before { top: -20px; left: -20px; transform: rotate(-20deg); }
+.results::after { bottom: -30px; right: -20px; transform: rotate(15deg); }
+
+.results-trophy {
+  font-size: 5rem;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+  animation: bounceTrophy 1s ease;
+}
+@keyframes bounceTrophy {
+  0% { transform: translateY(-40px); opacity: 0; }
+  60% { transform: translateY(10px); opacity: 1; }
+  100% { transform: translateY(0); }
+}
+.results h2 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.results-score {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 12px 0;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  letter-spacing: -2px;
+}
+.results-score-total { font-size: 2rem; opacity: 0.7; }
+.results-breakdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+.breakdown-chip {
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: 16px;
+  min-width: 100px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.breakdown-name {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.breakdown-value { font-size: 1.5rem; font-weight: 900; }
+.results-msg {
+  font-size: 0.98rem;
+  margin-top: 14px;
+  opacity: 0.95;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.btn-retry {
+  margin-top: 22px;
+  padding: 14px 38px;
+  background: white;
+  color: var(--lvl-dark);
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-retry:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+/* XP floating animation */
+.xp-float {
+  position: fixed;
+  pointer-events: none;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--gold-dark);
+  text-shadow: 0 2px 6px rgba(255,255,255,0.8);
+  z-index: 9999;
+  animation: xpRise 1.4s ease-out forwards;
+}
+@keyframes xpRise {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  15% { opacity: 1; transform: translateY(-10px) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-80px) scale(1); }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.5rem; }
+  .hero-stat { min-width: 0; }
+  .results-score { font-size: 2.8rem; }
+  .results h2 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- TOP NAV -->
+  <div class="top-nav">
+    <a href="https://jucumenglishcenter.github.io/A2/A2_M2/Panel.html" class="home-btn">
+      <span>🏠</span> <span>Panel</span>
+    </a>
+    <div class="accent-pills">
+      <button class="accent-pill active" onclick="setAccent('american')" data-accent="american">
+        <span>🇺🇸</span><span>US</span>
+      </button>
+      <button class="accent-pill" onclick="setAccent('british')" data-accent="british">
+        <span>🇬🇧</span><span>UK</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-label">🎧 Listening Quest · A2 💚</span>
+      <h1>Banking Adventure</h1>
+      <p class="hero-subtitle">Módulo 2 · Banking, Money &amp; Admin — 4 misiones · 40 preguntas</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-icon">⭐</span>
+          <div class="hero-stat-info">
+            <div class="hero-stat-label">XP Total</div>
+            <div class="hero-stat-value" id="totalXp">0</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🏅</span>
+          <div class="hero-stat-info">
+            <div class="hero-stat-label">Misiones</div>
+            <div class="hero-stat-value" id="missionsDone">0/4</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-icon">🔥</span>
+          <div class="hero-stat-info">
+            <div class="hero-stat-label">Racha</div>
+            <div class="hero-stat-value" id="streakCount">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUEST MAP -->
+  <div class="quest-map">
+    <div class="quest-map-title">Tu ruta de aprendizaje</div>
+    <div class="quest-path" id="questPath">
+      <button class="quest-stop active" data-tab="t1" onclick="switchStory('t1')">
+        <span class="quest-stop-icon">🏦</span>
+        <div class="quest-stop-num">Misión 1</div>
+        <div class="quest-stop-name">Abrir una cuenta</div>
+        <span class="quest-stop-progress" id="prog-t1">0/10</span>
+      </button>
+      <button class="quest-stop" data-tab="t2" onclick="switchStory('t2')">
+        <span class="quest-stop-icon">💳</span>
+        <div class="quest-stop-num">Misión 2</div>
+        <div class="quest-stop-name">Cargo extraño</div>
+        <span class="quest-stop-progress" id="prog-t2">0/10</span>
+      </button>
+      <button class="quest-stop" data-tab="t3" onclick="switchStory('t3')">
+        <span class="quest-stop-icon">💰</span>
+        <div class="quest-stop-num">Misión 3</div>
+        <div class="quest-stop-name">Presupuesto</div>
+        <span class="quest-stop-progress" id="prog-t3">0/10</span>
+      </button>
+      <button class="quest-stop" data-tab="t4" onclick="switchStory('t4')">
+        <span class="quest-stop-icon">🔒</span>
+        <div class="quest-stop-num">Misión 4</div>
+        <div class="quest-stop-name">Tarjeta perdida</div>
+        <span class="quest-stop-progress" id="prog-t4">0/10</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-section">
+    <div class="progress-header">
+      <div class="progress-label">
+        <span>📊</span> <span>Progreso de la misión actual</span>
+      </div>
+      <div class="progress-count" id="progressCount">0/10</div>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+    <div class="mini-badges">
+      <div class="mini-badge correct">
+        <span class="mini-badge-icon">✅</span>
+        <div class="mini-badge-text">
+          <span class="mini-badge-value" id="correctCount">0</span>
+          <span class="mini-badge-label">Correctas</span>
+        </div>
+      </div>
+      <div class="mini-badge incorrect">
+        <span class="mini-badge-icon">❌</span>
+        <div class="mini-badge-text">
+          <span class="mini-badge-value" id="incorrectCount">0</span>
+          <span class="mini-badge-label">Erradas</span>
+        </div>
+      </div>
+      <div class="mini-badge streak" id="streakBadge" style="display:none;">
+        <span class="mini-badge-icon">🔥</span>
+        <div class="mini-badge-text">
+          <span class="mini-badge-value" id="streakMini">0</span>
+          <span class="mini-badge-label">En racha</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIP -->
+  <div class="tips-card">
+    <h3>💡 Cómo jugar</h3>
+    <p>Escucha cada audio 🎧, ajusta la <strong>velocidad</strong> si lo necesitas, revela la pregunta ❓ y elige tu respuesta. Gana <strong>XP</strong> por cada acierto y construye rachas para conseguir bonos. ¡Completa las 4 misiones!</p>
+  </div>
+
+  <!-- ACTIVITIES -->
+  <div id="activitiesContainer"></div>
+
+  <!-- RESULTS -->
+  <div class="results" id="resultsPanel">
+    <div class="results-trophy" id="trophy">🏆</div>
+    <h2 id="resultsTitle">¡Misión completada!</h2>
+    <div class="results-score"><span id="resultsScore">0</span><span class="results-score-total">/10</span></div>
+    <div class="results-breakdown">
+      <div class="breakdown-chip">
+        <div class="breakdown-name">🟢 Fácil</div>
+        <div class="breakdown-value" id="easyScore">0/4</div>
+      </div>
+      <div class="breakdown-chip">
+        <div class="breakdown-name">🟡 Medio</div>
+        <div class="breakdown-value" id="mediumScore">0/3</div>
+      </div>
+      <div class="breakdown-chip">
+        <div class="breakdown-name">🔴 Difícil</div>
+        <div class="breakdown-value" id="hardScore">0/3</div>
+      </div>
+    </div>
+    <p class="results-msg" id="resultsMessage"></p>
+    <button class="btn-retry" onclick="retryTab()">
+      <span>🔄</span> <span>Intentar de nuevo</span>
+    </button>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// DATOS DE LAS 4 MISIONES (reutilizados del archivo original)
+// ============================================================
+
+const TABS = {
+
+  // ============ PESTAÑA 1: Sofía opens her first account ============
+  t1: {
+    title: 'Opening an Account',
+    activities: [
+
+      // ---------- FÁCIL (4) - 2 oraciones ----------
+      {
+        id: 1, level: 'easy',
+        title: 'El escondite del dinero',
+        desc: 'Dónde guardaba Sofía sus billetes',
+        audio: 'Sofía had been saving money at home for many years. She kept her bills hidden inside a small box under her bed.',
+        spanish: 'Sofía había estado ahorrando dinero en casa durante muchos años. Guardaba sus billetes escondidos dentro de una pequeña caja debajo de su cama.',
+        question: '¿Dónde guardaba Sofía sus billetes?',
+        options: [
+          'En una caja debajo de su cama',
+          'En un cajón de la cocina',
+          'En una bolsa en el armario'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"inside a small box under her bed"* — en una caja debajo de su cama.',
+          incorrect: '✗ La respuesta correcta es "En una caja debajo de su cama". El audio dice: *"a small box under her bed"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 2, level: 'easy',
+        title: 'Los documentos necesarios',
+        desc: 'Lo que pidió la cajera',
+        audio: 'I need to see your ID and a recent utility bill with your address. I have both right here.',
+        spanish: 'Necesito ver tu documento de identidad y un recibo reciente con tu dirección. Tengo ambos aquí mismo.',
+        question: '¿Qué dos documentos pidió la cajera?',
+        options: [
+          'Pasaporte y contrato de trabajo',
+          'Documento de identidad y recibo de servicios',
+          'Licencia de conducir y estado de cuenta'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"your ID and a recent utility bill"* — documento de identidad y recibo de servicios.',
+          incorrect: '✗ La respuesta correcta es "Documento de identidad y recibo de servicios". El audio dice: *"your ID and a recent utility bill"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 3, level: 'easy',
+        title: 'El monto mínimo',
+        desc: 'Cuánto se necesita para abrir la cuenta',
+        audio: 'What is the minimum amount to open a basic account? For this type of account, the minimum is fifty soles to start.',
+        spanish: '¿Cuál es el monto mínimo para abrir una cuenta básica? Para este tipo de cuenta, el mínimo es cincuenta soles para empezar.',
+        question: '¿Cuál es el monto mínimo para abrir la cuenta básica?',
+        options: [
+          'Cien soles',
+          'Veinte soles',
+          'Cincuenta soles'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"the minimum is fifty soles to start"* — cincuenta soles.',
+          incorrect: '✗ La respuesta correcta es "Cincuenta soles". El audio dice claramente: *"fifty soles to start"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 4, level: 'easy',
+        title: 'Duración del proceso',
+        desc: 'Cuánto toma abrir la cuenta',
+        audio: 'How long does the whole opening process usually take? About twenty minutes.',
+        spanish: '¿Cuánto tiempo toma todo el proceso de apertura usualmente? Unos veinte minutos.',
+        question: '¿Cuánto tiempo tarda todo el proceso de apertura?',
+        options: [
+          'Unos veinte minutos',
+          'Unos cinco minutos',
+          'Una hora entera'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"About twenty minutes"* — unos veinte minutos.',
+          incorrect: '✗ La respuesta correcta es "Unos veinte minutos". El audio dice: *"About twenty minutes"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- MEDIO (3) - 2-3 oraciones ----------
+      {
+        id: 5, level: 'medium',
+        title: 'El límite del cajero',
+        desc: 'Retiros diarios desde ATM',
+        audio: 'What is the daily limit for withdrawals from ATMs? The standard limit is one thousand soles per day from any ATM. And if I need to take out more for a real emergency one day?',
+        spanish: '¿Cuál es el límite diario para retiros desde los cajeros? El límite estándar es mil soles por día desde cualquier cajero. ¿Y si necesito sacar más por una verdadera emergencia algún día?',
+        question: '¿Cuál es el límite diario estándar en los cajeros automáticos?',
+        options: [
+          'Quinientos soles por día',
+          'Dos mil soles por día',
+          'Mil soles por día'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"one thousand soles per day from any ATM"* — mil soles por día.',
+          incorrect: '✗ La respuesta correcta es "Mil soles por día". El audio dice: *"one thousand soles per day from any ATM"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 6, level: 'medium',
+        title: 'La tarjeta de débito',
+        desc: 'Cuándo la recibirá Sofía',
+        audio: 'Will I get a debit card today, or does it come later by mail? We produce the card here in the office. You will leave with it today.',
+        spanish: '¿Recibiré una tarjeta de débito hoy, o llega luego por correo? Producimos la tarjeta aquí en la oficina. Saldrás con ella hoy.',
+        question: '¿Cuándo recibirá Sofía su tarjeta de débito?',
+        options: [
+          'Llega por correo en una semana',
+          'El mismo día, en la oficina',
+          'Tiene que regresar al día siguiente'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"You will leave with it today"* — saldrá con ella el mismo día.',
+          incorrect: '✗ La respuesta correcta es "El mismo día, en la oficina". El audio dice: *"We produce the card here in the office. You will leave with it today"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 7, level: 'medium',
+        title: 'Consejo sobre el PIN',
+        desc: 'Qué patrones evitar',
+        audio: 'Good. I want something I can remember easily but nobody can guess. Please avoid your birthday or simple patterns. Those are too easy to guess.',
+        spanish: 'Bien. Quiero algo que pueda recordar fácilmente pero que nadie pueda adivinar. Por favor evita tu cumpleaños o patrones simples. Esos son demasiado fáciles de adivinar.',
+        question: '¿Qué patrones le aconseja evitar la cajera para el PIN?',
+        options: [
+          'Su cumpleaños o patrones simples',
+          'Números pares o consecutivos',
+          'El número de su casa o su edad'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"avoid your birthday or simple patterns"* — el cumpleaños o patrones simples.',
+          incorrect: '✗ La respuesta correcta es "Su cumpleaños o patrones simples". El audio dice: *"avoid your birthday or simple patterns"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- DIFÍCIL (3) - párrafo entero ----------
+      {
+        id: 8, level: 'hard',
+        title: 'La mañana del banco',
+        desc: 'La llegada de Sofía al banco',
+        audio: 'One cold morning, she walked to the bank office near the main park. She was a little nervous because everything felt new and complex. The guard greeted her in a friendly voice and opened the door. She sat down and waited for a clerk to call her. The waiting room was clean, warm, and very quiet.',
+        spanish: 'Una mañana fría, ella caminó a la oficina del banco cerca del parque principal. Estaba un poco nerviosa porque todo se sentía nuevo y complejo. El guardia la saludó con una voz amigable y abrió la puerta. Se sentó y esperó a que un cajero la llamara. La sala de espera estaba limpia, cálida y muy silenciosa.',
+        question: '¿Cómo se sentía Sofía y cómo era la sala de espera?',
+        options: [
+          'Tranquila; la sala era ruidosa y llena',
+          'Enojada; la sala estaba sucia y fría',
+          'Un poco nerviosa; la sala estaba limpia, cálida y silenciosa'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"She was a little nervous"* y *"The waiting room was clean, warm, and very quiet"*.',
+          incorrect: '✗ La respuesta correcta es "Un poco nerviosa; la sala estaba limpia, cálida y silenciosa". El audio dice: *"a little nervous"* y *"clean, warm, and very quiet"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 9, level: 'hard',
+        title: 'El primer depósito',
+        desc: 'Lo que pasó durante el proceso',
+        audio: 'The whole process took about twenty minutes from start to finish. Sofía deposited her first fifty soles into her brand new account. She created a simple PIN that she could remember but nobody could guess. The clerk warned her never to share it with any family member. Safety was the most important thing when dealing with real money.',
+        spanish: 'Todo el proceso tomó unos veinte minutos de principio a fin. Sofía depositó sus primeros cincuenta soles en su cuenta nueva. Creó un PIN simple que pudiera recordar pero que nadie pudiera adivinar. La cajera le advirtió que nunca lo compartiera con ningún familiar. La seguridad era lo más importante al manejar dinero real.',
+        question: 'Según el audio, ¿con quién le advirtieron que nunca compartiera su PIN?',
+        options: [
+          'Con ningún familiar',
+          'Solo con su madre',
+          'Solo con personas del banco'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"never to share it with any family member"* — con ningún familiar.',
+          incorrect: '✗ La respuesta correcta es "Con ningún familiar". El audio dice: *"never to share it with any family member"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 10, level: 'hard',
+        title: 'La salida del banco',
+        desc: 'Cómo se sentía Sofía al final',
+        audio: 'Sofía walked out of the bank with her new debit card in her pocket. The morning sun felt warmer than it had just an hour ago. She was no longer just a girl with a box of bills under her bed. She was now a real client of a modern bank with a real account. Today was the first step of a much longer financial journey ahead.',
+        spanish: 'Sofía salió del banco con su nueva tarjeta de débito en el bolsillo. El sol de la mañana se sentía más cálido que hacía apenas una hora. Ya no era solo una chica con una caja de billetes debajo de su cama. Ahora era una verdadera clienta de un banco moderno con una cuenta real. Hoy era el primer paso de un viaje financiero mucho más largo por delante.',
+        question: 'Al salir del banco, ¿qué representaba ese día para Sofía?',
+        options: [
+          'El fin de sus problemas económicos',
+          'El primer paso de un viaje financiero más largo',
+          'El último día que usaría dinero en efectivo'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"Today was the first step of a much longer financial journey ahead"*.',
+          incorrect: '✗ La respuesta correcta es "El primer paso de un viaje financiero más largo". El audio dice: *"the first step of a much longer financial journey ahead"*. ¡Escucha otra vez!'
+        }
+      }
+    ]
+  },
+
+  // ============ PESTAÑA 2: Carlos and the Strange Charge ============
+  t2: {
+    title: 'The Strange Charge',
+    activities: [
+
+      // ---------- FÁCIL (4) ----------
+      {
+        id: 1, level: 'easy',
+        title: 'El hábito de Carlos',
+        desc: 'Lo que hacía Carlos cada mes',
+        audio: 'Carlos had a simple habit every month on the last day. He would sit at his kitchen table with a hot cup of coffee.',
+        spanish: 'Carlos tenía un hábito simple cada mes en el último día. Se sentaba en la mesa de su cocina con una taza de café caliente.',
+        question: '¿Dónde se sentaba Carlos a revisar sus cuentas?',
+        options: [
+          'En el sofá de la sala',
+          'En la mesa de la cocina',
+          'En la oficina del banco'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"He would sit at his kitchen table"* — en la mesa de la cocina.',
+          incorrect: '✗ La respuesta correcta es "En la mesa de la cocina". El audio dice: *"at his kitchen table"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 2, level: 'easy',
+        title: 'La fecha del cargo',
+        desc: 'Cuándo apareció el cargo extraño',
+        audio: 'The date is October fifteenth, and the amount is two hundred soles.',
+        spanish: 'La fecha es el quince de octubre, y la cantidad es doscientos soles.',
+        question: '¿En qué fecha apareció el cargo extraño?',
+        options: [
+          'Quince de octubre',
+          'Cinco de noviembre',
+          'Veinticinco de septiembre'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"The date is October fifteenth"* — quince de octubre.',
+          incorrect: '✗ La respuesta correcta es "Quince de octubre". El audio dice: *"October fifteenth"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 3, level: 'easy',
+        title: 'El nombre de la tienda',
+        desc: 'La tienda del cargo misterioso',
+        audio: 'I can see the charge here. It was made at a store called North Market.',
+        spanish: 'Puedo ver el cargo aquí. Se hizo en una tienda llamada North Market.',
+        question: '¿Cómo se llama la tienda donde se hizo el cargo?',
+        options: [
+          'South Plaza',
+          'North Market',
+          'East Mall'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"a store called North Market"*.',
+          incorrect: '✗ La respuesta correcta es "North Market". El audio dice: *"a store called North Market"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 4, level: 'easy',
+        title: 'El crédito temporal',
+        desc: 'Cuándo aparece el reembolso',
+        audio: 'Will I lose that money, or does the bank return it while you investigate? We return the amount as a temporary credit within five business days.',
+        spanish: '¿Perderé ese dinero, o el banco lo devuelve mientras investigan? Devolvemos el monto como un crédito temporal dentro de cinco días hábiles.',
+        question: '¿En cuántos días hábiles aparece el crédito temporal?',
+        options: [
+          'Cinco días hábiles',
+          'Treinta días hábiles',
+          'Dos días hábiles'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"a temporary credit within five business days"* — cinco días hábiles.',
+          incorrect: '✗ La respuesta correcta es "Cinco días hábiles". El audio dice: *"within five business days"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- MEDIO (3) ----------
+      {
+        id: 5, level: 'medium',
+        title: 'Dónde estaba Carlos',
+        desc: 'Su ubicación ese día',
+        audio: 'Do you remember where your card was on that day in the afternoon? I was at my office the whole day. My card was in my wallet at my desk.',
+        spanish: '¿Recuerdas dónde estaba tu tarjeta ese día en la tarde? Estuve en mi oficina todo el día. Mi tarjeta estaba en mi billetera en mi escritorio.',
+        question: '¿Dónde estuvo Carlos todo ese día?',
+        options: [
+          'En su oficina, con la tarjeta en su escritorio',
+          'De viaje en otra ciudad',
+          'De compras en el centro'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"I was at my office the whole day. My card was in my wallet at my desk"*.',
+          incorrect: '✗ La respuesta correcta es "En su oficina, con la tarjeta en su escritorio". El audio dice: *"at my office the whole day"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 6, level: 'medium',
+        title: 'Cómo copiaron su tarjeta',
+        desc: 'La explicación de la agente',
+        audio: 'How is that possible if the physical card never left my bag? Sometimes thieves copy card data from websites or ATMs without you noticing.',
+        spanish: '¿Cómo es posible si la tarjeta física nunca salió de mi bolso? A veces los ladrones copian datos de la tarjeta desde sitios web o cajeros sin que te des cuenta.',
+        question: 'Según la agente, ¿de dónde copian los ladrones los datos de la tarjeta?',
+        options: [
+          'De recibos en papel y cartas del banco',
+          'De sitios web o cajeros automáticos',
+          'De tiendas físicas solamente'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"thieves copy card data from websites or ATMs"*.',
+          incorrect: '✗ La respuesta correcta es "De sitios web o cajeros automáticos". El audio dice: *"from websites or ATMs"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 7, level: 'medium',
+        title: 'Duración de la investigación',
+        desc: 'Tiempo del proceso',
+        audio: 'How long does the full investigation usually take in cases like mine? About thirty days on average. Sometimes we close them more quickly.',
+        spanish: '¿Cuánto tiempo toma la investigación completa normalmente en casos como el mío? Unos treinta días en promedio. A veces los cerramos más rápido.',
+        question: '¿Cuánto tiempo toma la investigación completa en promedio?',
+        options: [
+          'Unos sesenta días',
+          'Unos diez días',
+          'Unos treinta días'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"About thirty days on average"*.',
+          incorrect: '✗ La respuesta correcta es "Unos treinta días". El audio dice: *"About thirty days on average"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- DIFÍCIL (3) ----------
+      {
+        id: 8, level: 'hard',
+        title: 'El hallazgo extraño',
+        desc: 'Lo que encontró en su estado de cuenta',
+        audio: 'But this time, he found something truly strange on the second page. A charge of two hundred soles appeared under the date of October fifteenth. The store was called North Market, a name Carlos did not know. He had never been to that shop in his entire life before. His heart started to beat a little faster at that moment.',
+        spanish: 'Pero esta vez, encontró algo verdaderamente extraño en la segunda página. Un cargo de doscientos soles apareció bajo la fecha del quince de octubre. La tienda se llamaba North Market, un nombre que Carlos no conocía. Nunca había estado en esa tienda en toda su vida. Su corazón empezó a latir un poco más rápido en ese momento.',
+        question: 'Según el audio, ¿cuál fue el monto del cargo extraño y qué sabía Carlos de la tienda?',
+        options: [
+          'Doscientos soles; nunca había estado en esa tienda',
+          'Doscientos soles; era una tienda que visitaba a menudo',
+          'Cien soles; era una tienda cercana a su casa'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"A charge of two hundred soles"* y *"He had never been to that shop in his entire life before"*.',
+          incorrect: '✗ La respuesta correcta es "Doscientos soles; nunca había estado en esa tienda". El audio dice: *"two hundred soles"* y *"He had never been to that shop"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 9, level: 'hard',
+        title: 'La llamada al banco',
+        desc: 'Lo que ocurrió al llamar',
+        audio: 'Carlos called the bank immediately and waited for an agent to pick up the phone. A calm voice on the other end listened to his whole story carefully. The agent did not assume he was lying, which made Carlos feel much better. She explained that thieves sometimes copy card numbers through the internet. Carlos did not understand every technical term, but he understood the basic idea.',
+        spanish: 'Carlos llamó al banco inmediatamente y esperó a que un agente contestara el teléfono. Una voz calmada al otro lado escuchó toda su historia cuidadosamente. La agente no asumió que estaba mintiendo, lo que hizo que Carlos se sintiera mucho mejor. Ella explicó que los ladrones a veces copian números de tarjetas por internet. Carlos no entendió cada término técnico, pero entendió la idea básica.',
+        question: '¿Por qué se sintió mucho mejor Carlos durante la llamada?',
+        options: [
+          'Porque la agente le devolvió el dinero inmediatamente',
+          'Porque la agente no asumió que estaba mintiendo',
+          'Porque la agente le ofreció un descuento especial'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"The agent did not assume he was lying, which made Carlos feel much better"*.',
+          incorrect: '✗ La respuesta correcta es "Porque la agente no asumió que estaba mintiendo". El audio dice: *"The agent did not assume he was lying, which made Carlos feel much better"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 10, level: 'hard',
+        title: 'La lección aprendida',
+        desc: 'Lo que hizo al recibir la nueva tarjeta',
+        audio: 'A new card arrived at his home three days later, exactly as promised. Carlos set a new PIN, avoiding common patterns like birthdays and phone numbers. He also activated text alerts for every single purchase on the card. Now he would know about any movement within seconds, day or night. This experience taught him a real lesson about staying alert in modern times.',
+        spanish: 'Una nueva tarjeta llegó a su casa tres días después, exactamente como prometieron. Carlos estableció un nuevo PIN, evitando patrones comunes como cumpleaños y números de teléfono. También activó alertas de texto para cada compra en la tarjeta. Ahora sabría de cualquier movimiento en segundos, de día o de noche. Esta experiencia le enseñó una verdadera lección sobre mantenerse alerta en los tiempos modernos.',
+        question: '¿Qué hizo Carlos para protegerse en el futuro?',
+        options: [
+          'Canceló todas sus tarjetas y solo usó efectivo',
+          'Guardó la tarjeta en una caja fuerte en el banco',
+          'Activó alertas de texto para cada compra'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"He also activated text alerts for every single purchase on the card"*.',
+          incorrect: '✗ La respuesta correcta es "Activó alertas de texto para cada compra". El audio dice: *"activated text alerts for every single purchase"*. ¡Escucha otra vez!'
+        }
+      }
+    ]
+  },
+
+  // ============ PESTAÑA 3: Diana's Monthly Budget ============
+  t3: {
+    title: 'Monthly Budget',
+    activities: [
+
+      // ---------- FÁCIL (4) ----------
+      {
+        id: 1, level: 'easy',
+        title: 'El consejo del amigo',
+        desc: 'Quién le habló del método',
+        audio: 'She never really understood what her real problem was until recently. A friend at the office told her about a simple monthly planning method.',
+        spanish: 'Ella nunca entendió realmente cuál era su verdadero problema hasta hace poco. Un amigo de la oficina le habló sobre un método simple de planificación mensual.',
+        question: '¿Quién le habló a Diana sobre el método de planificación?',
+        options: [
+          'Un amigo de la oficina',
+          'Su madre',
+          'Un asesor del banco'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"A friend at the office told her about a simple monthly planning method"*.',
+          incorrect: '✗ La respuesta correcta es "Un amigo de la oficina". El audio dice: *"A friend at the office"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 2, level: 'easy',
+        title: 'El ahorro por cancelar',
+        desc: 'Cuánto ahorró al cancelar suscripciones',
+        audio: 'She canceled all three on the same day, without feeling any real loss. That small step saved her almost eighty soles per month without any effort.',
+        spanish: 'Canceló las tres el mismo día, sin sentir ninguna pérdida real. Ese pequeño paso le ahorró casi ochenta soles al mes sin ningún esfuerzo.',
+        question: '¿Cuánto ahorró Diana al cancelar las suscripciones?',
+        options: [
+          'Casi doscientos soles al mes',
+          'Casi ochenta soles al mes',
+          'Casi quince soles al mes'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"saved her almost eighty soles per month"*.',
+          incorrect: '✗ La respuesta correcta es "Casi ochenta soles al mes". El audio dice: *"almost eighty soles per month"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 3, level: 'easy',
+        title: 'El porcentaje de ahorro',
+        desc: 'Regla de oro mensual',
+        audio: 'Is there a good ratio between saving and spending for people like us? Ten percent of our income. That is a healthy average for most families.',
+        spanish: '¿Hay una buena proporción entre ahorrar y gastar para personas como nosotros? Diez por ciento de nuestros ingresos. Ese es un promedio saludable para la mayoría de familias.',
+        question: '¿Qué porcentaje del ingreso recomiendan ahorrar?',
+        options: [
+          'Cinco por ciento',
+          'Veinte por ciento',
+          'Diez por ciento'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"Ten percent of our income"*.',
+          incorrect: '✗ La respuesta correcta es "Diez por ciento". El audio dice: *"Ten percent of our income"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 4, level: 'easy',
+        title: 'Gasto más grande',
+        desc: 'El mayor gasto mensual',
+        audio: 'Rent is our biggest expense, followed by food and basic utilities. That is normal for most families.',
+        spanish: 'El alquiler es nuestro gasto más grande, seguido por la comida y los servicios básicos. Eso es normal para la mayoría de las familias.',
+        question: '¿Cuál es el gasto más grande de la pareja?',
+        options: [
+          'La comida',
+          'El alquiler',
+          'Los servicios básicos'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"Rent is our biggest expense"* — el alquiler.',
+          incorrect: '✗ La respuesta correcta es "El alquiler". El audio dice: *"Rent is our biggest expense"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- MEDIO (3) ----------
+      {
+        id: 5, level: 'medium',
+        title: 'El verdadero hallazgo',
+        desc: 'Lo que más gastaba Diana',
+        audio: 'Rent, food, transport, and utilities were the biggest, fixed items each month. The real surprise was how much she spent on small daily purchases. Coffee, snacks, and little treats added up to a shocking amount every month.',
+        spanish: 'Alquiler, comida, transporte y servicios eran los ítems fijos más grandes cada mes. La verdadera sorpresa fue cuánto gastaba en pequeñas compras diarias. Café, bocadillos y pequeños caprichos sumaban una cantidad impactante cada mes.',
+        question: '¿Cuál fue la verdadera sorpresa que descubrió Diana?',
+        options: [
+          'Cuánto gastaba en pequeñas compras diarias',
+          'Cuánto gastaba en alquiler y transporte',
+          'Cuánto gastaba en ropa nueva'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"The real surprise was how much she spent on small daily purchases"*.',
+          incorrect: '✗ La respuesta correcta es "Cuánto gastaba en pequeñas compras diarias". El audio dice: *"small daily purchases"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 6, level: 'medium',
+        title: 'El plan telefónico',
+        desc: 'Ahorro con plan prepago',
+        audio: 'I compared plans last week. A prepaid option would save us fifty soles monthly. But with prepaid, we have to pay attention to how much data we use each day.',
+        spanish: 'Comparé planes la semana pasada. Una opción prepago nos ahorraría cincuenta soles al mes. Pero con prepago, tenemos que poner atención a cuánta data usamos cada día.',
+        question: '¿Cuánto ahorrarían al mes con el plan prepago?',
+        options: [
+          'Cien soles al mes',
+          'Veinte soles al mes',
+          'Cincuenta soles al mes'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"would save us fifty soles monthly"*.',
+          incorrect: '✗ La respuesta correcta es "Cincuenta soles al mes". El audio dice: *"fifty soles monthly"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 7, level: 'medium',
+        title: 'Cuándo mover el dinero',
+        desc: 'Momento clave del ahorro',
+        audio: 'The trick is to move that money immediately after we get paid each month. Otherwise, we will spend it on small things without even noticing. Exactly. I set up an automatic transfer to a separate savings account.',
+        spanish: 'El truco es mover ese dinero inmediatamente después de que nos paguen cada mes. De lo contrario, lo gastaremos en cosas pequeñas sin siquiera notarlo. Exacto. Configuré una transferencia automática a una cuenta de ahorros separada.',
+        question: '¿Cuándo se debe mover el dinero a la cuenta de ahorros?',
+        options: [
+          'Inmediatamente después del pago',
+          'Al final del mes',
+          'Solo cuando sobra dinero'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"move that money immediately after we get paid each month"*.',
+          incorrect: '✗ La respuesta correcta es "Inmediatamente después del pago". El audio dice: *"immediately after we get paid"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- DIFÍCIL (3) ----------
+      {
+        id: 8, level: 'hard',
+        title: 'Las suscripciones',
+        desc: 'El problema con las apps',
+        audio: 'She also discovered that she was paying for four different subscriptions. She only used one of them regularly for her weekly entertainment. The other three, including a french recipe app she never opened, were a weak reason to waste money. She canceled all three on the same day, without feeling any real loss. That small step saved her almost eighty soles per month without any effort.',
+        spanish: 'También descubrió que pagaba por cuatro suscripciones diferentes. Solo usaba una regularmente para su entretenimiento semanal. Las otras tres, incluyendo una app de recetas francesas que nunca abría, eran una razón débil para gastar dinero. Canceló las tres el mismo día, sin sentir ninguna pérdida real. Ese pequeño paso le ahorró casi ochenta soles al mes sin ningún esfuerzo.',
+        question: '¿Cuántas suscripciones pagaba Diana y cuántas usaba regularmente?',
+        options: [
+          'Pagaba tres, usaba todas las tres',
+          'Pagaba cuatro, usaba solo una',
+          'Pagaba cinco, usaba tres regularmente'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"paying for four different subscriptions"* y *"She only used one of them regularly"*.',
+          incorrect: '✗ La respuesta correcta es "Pagaba cuatro, usaba solo una". El audio dice: *"four different subscriptions"* y *"only used one of them regularly"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 9, level: 'hard',
+        title: 'La regla de hierro',
+        desc: 'Diana crea su sistema de ahorro',
+        audio: 'The most important step was setting up an automatic transfer every payday. Ten percent of her salary moved into a separate savings account immediately. This became her iron rule, one she refused to break for any small excuse. She could not see that money in her main account, so she could not spend it. After a few weeks, she did not even miss the amount she was saving.',
+        spanish: 'El paso más importante fue configurar una transferencia automática cada día de pago. El diez por ciento de su salario se movía a una cuenta de ahorros separada inmediatamente. Esto se convirtió en su regla de hierro, una que se negaba a romper por cualquier pequeña excusa. No podía ver ese dinero en su cuenta principal, así que no podía gastarlo. Después de unas semanas, ni siquiera extrañaba la cantidad que estaba ahorrando.',
+        question: '¿Por qué Diana no podía gastar el dinero que ahorraba?',
+        options: [
+          'Porque lo guardaba en efectivo en su casa',
+          'Porque no podía verlo en su cuenta principal',
+          'Porque lo prestaba a sus amigos cada mes'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"She could not see that money in her main account, so she could not spend it"*.',
+          incorrect: '✗ La respuesta correcta es "Porque no podía verlo en su cuenta principal". El audio dice: *"could not see that money in her main account"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 10, level: 'hard',
+        title: 'El cuaderno de Diana',
+        desc: 'Lo que descubrió anotando sus gastos',
+        audio: 'Diana also started to track every purchase in a small notebook every night. It took only five minutes, but the patterns it showed her were priceless. She noticed that she spent the most money when she was tired or upset. Understanding that weakness helped her avoid the same trap again and again. The notebook slowly taught her to make better choices step by step.',
+        spanish: 'Diana también empezó a anotar cada compra en un pequeño cuaderno cada noche. Le tomaba solo cinco minutos, pero los patrones que le mostraba no tenían precio. Notó que gastaba más dinero cuando estaba cansada o molesta. Entender esa debilidad le ayudó a evitar la misma trampa una y otra vez. El cuaderno lentamente le enseñó a tomar mejores decisiones paso a paso.',
+        question: '¿Cuándo gastaba más dinero Diana, según descubrió con su cuaderno?',
+        options: [
+          'Cuando estaba cansada o molesta',
+          'Cuando estaba feliz y descansada',
+          'Cuando salía con sus amigos los fines de semana'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"she spent the most money when she was tired or upset"*.',
+          incorrect: '✗ La respuesta correcta es "Cuando estaba cansada o molesta". El audio dice: *"when she was tired or upset"*. ¡Escucha otra vez!'
+        }
+      }
+    ]
+  },
+
+  // ============ PESTAÑA 4: Marcos and the Lost Wallet ============
+  t4: {
+    title: 'Lost Card',
+    activities: [
+
+      // ---------- FÁCIL (4) ----------
+      {
+        id: 1, level: 'easy',
+        title: 'La razón del viaje',
+        desc: 'Por qué viajó Marcos',
+        audio: 'Marcos had traveled to another city last week to visit his aunt. She was in the hospital after a small accident in her garden.',
+        spanish: 'Marcos había viajado a otra ciudad la semana pasada para visitar a su tía. Ella estaba en el hospital después de un pequeño accidente en su jardín.',
+        question: '¿Por qué viajó Marcos a otra ciudad?',
+        options: [
+          'Para visitar a su tía en el hospital',
+          'Para asistir a una conferencia de trabajo',
+          'Para recoger un paquete importante'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"to visit his aunt"* y *"She was in the hospital"*.',
+          incorrect: '✗ La respuesta correcta es "Para visitar a su tía en el hospital". El audio dice: *"visit his aunt"* y *"in the hospital"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 2, level: 'easy',
+        title: 'La fecha de nacimiento',
+        desc: 'El cumpleaños de Marcos',
+        audio: 'My name is Marcos Delgado. My birthday is March second, nineteen ninety.',
+        spanish: 'Me llamo Marcos Delgado. Mi cumpleaños es el dos de marzo de mil novecientos noventa.',
+        question: '¿Cuándo es el cumpleaños de Marcos?',
+        options: [
+          'Dos de marzo de 1990',
+          'Doce de mayo de 1992',
+          'Dos de mayo de 1995'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"March second, nineteen ninety"* — dos de marzo de 1990.',
+          incorrect: '✗ La respuesta correcta es "Dos de marzo de 1990". El audio dice: *"March second, nineteen ninety"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 3, level: 'easy',
+        title: 'El crédito de emergencia',
+        desc: 'Cuándo aparecerá el dinero',
+        audio: 'How quickly, exactly? I have bills to pay at the end of this week. Within twenty-four hours. The money will appear in your account tomorrow morning.',
+        spanish: '¿Qué tan rápido, exactamente? Tengo cuentas que pagar al final de esta semana. Dentro de veinticuatro horas. El dinero aparecerá en tu cuenta mañana en la mañana.',
+        question: '¿En cuánto tiempo aparecerá el crédito temporal?',
+        options: [
+          'Dentro de una semana',
+          'Dentro de veinticuatro horas',
+          'Dentro de tres días hábiles'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"Within twenty-four hours"*.',
+          incorrect: '✗ La respuesta correcta es "Dentro de veinticuatro horas". El audio dice: *"Within twenty-four hours"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 4, level: 'easy',
+        title: 'La nueva tarjeta',
+        desc: 'Dónde recibe la tarjeta',
+        audio: 'I can produce a new card right here at this office in about fifteen minutes. That is the fastest option.',
+        spanish: 'Puedo producir una nueva tarjeta aquí mismo en esta oficina en unos quince minutos. Esa es la opción más rápida.',
+        question: '¿Dónde y en cuánto tiempo producen la nueva tarjeta?',
+        options: [
+          'En la oficina, en unos quince minutos',
+          'Por correo, en tres días',
+          'En otra sucursal, en una hora'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"right here at this office in about fifteen minutes"*.',
+          incorrect: '✗ La respuesta correcta es "En la oficina, en unos quince minutos". El audio dice: *"at this office in about fifteen minutes"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- MEDIO (3) ----------
+      {
+        id: 5, level: 'medium',
+        title: 'Lo que contenía la billetera',
+        desc: 'El contenido perdido',
+        audio: 'The next morning, Marcos discovered that his wallet was no longer with him. He checked every pocket, every bag, every corner of the small hospital room. The wallet had his cards, his ID, and some cash from the last week.',
+        spanish: 'A la mañana siguiente, Marcos descubrió que su billetera ya no estaba con él. Revisó cada bolsillo, cada bolsa, cada rincón de la pequeña habitación del hospital. La billetera tenía sus tarjetas, su documento de identidad y algo de efectivo de la semana pasada.',
+        question: '¿Qué contenía la billetera de Marcos?',
+        options: [
+          'Solo su pasaporte y dinero en dólares',
+          'Solo un cheque y las llaves de su casa',
+          'Sus tarjetas, su documento de identidad y efectivo'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"his cards, his ID, and some cash from the last week"*.',
+          incorrect: '✗ La respuesta correcta es "Sus tarjetas, su documento de identidad y efectivo". El audio dice: *"his cards, his ID, and some cash"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 6, level: 'medium',
+        title: 'Los dos cargos sospechosos',
+        desc: 'Dónde ocurrieron los cargos',
+        audio: 'Oh, I see two charges last night. One at a gas station and one at a shop. Those are not mine. I was already at the hospital visiting my aunt last night.',
+        spanish: 'Oh, veo dos cargos anoche. Uno en una gasolinera y otro en una tienda. Esos no son míos. Yo ya estaba en el hospital visitando a mi tía anoche.',
+        question: '¿Dónde se hicieron los dos cargos sospechosos?',
+        options: [
+          'En un restaurante y un supermercado',
+          'En dos gasolineras diferentes',
+          'En una gasolinera y una tienda'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"One at a gas station and one at a shop"*.',
+          incorrect: '✗ La respuesta correcta es "En una gasolinera y una tienda". El audio dice: *"One at a gas station and one at a shop"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 7, level: 'medium',
+        title: 'Consejos del gerente',
+        desc: 'Cómo protegerse en el futuro',
+        audio: 'You can set a lower daily limit on the card for extra safety each day. I also advise you to activate text alerts for every single purchase you make.',
+        spanish: 'Puedes establecer un límite diario más bajo en la tarjeta para mayor seguridad cada día. También te aconsejo activar alertas de texto para cada compra que hagas.',
+        question: 'Según el gerente, ¿qué dos cosas puede hacer Marcos para protegerse?',
+        options: [
+          'Bajar el límite diario y activar alertas de texto',
+          'Usar solo efectivo y cancelar la cuenta',
+          'Compartir el PIN con la familia y cerrar la tarjeta'
+        ],
+        correct: 0,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"set a lower daily limit"* y *"activate text alerts for every single purchase"*.',
+          incorrect: '✗ La respuesta correcta es "Bajar el límite diario y activar alertas de texto". El audio dice: *"lower daily limit"* y *"activate text alerts"*. ¡Escucha otra vez!'
+        }
+      },
+
+      // ---------- DIFÍCIL (3) ----------
+      {
+        id: 8, level: 'hard',
+        title: 'El accidente de la tía',
+        desc: 'Qué le pasó a la tía',
+        audio: 'Marcos had traveled to another city last week to visit his aunt. She was in the hospital after a small accident in her garden. A mole had made holes in her path, and she had tripped on one. The trip was long, and he was tired by the time he finally arrived. He spent the whole night talking with her and her old neighbor.',
+        spanish: 'Marcos había viajado a otra ciudad la semana pasada para visitar a su tía. Ella estaba en el hospital después de un pequeño accidente en su jardín. Un topo había hecho hoyos en su camino, y ella se había tropezado con uno. El viaje fue largo, y él estaba cansado cuando finalmente llegó. Pasó toda la noche hablando con ella y su vecina vieja.',
+        question: '¿Qué causó el accidente de la tía de Marcos?',
+        options: [
+          'Se resbaló en un charco de agua',
+          'Se tropezó con un hoyo hecho por un topo',
+          'Se cayó de una escalera en su casa'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"A mole had made holes in her path, and she had tripped on one"*.',
+          incorrect: '✗ La respuesta correcta es "Se tropezó con un hoyo hecho por un topo". El audio dice: *"A mole had made holes in her path, and she had tripped on one"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 9, level: 'hard',
+        title: 'La llegada al banco',
+        desc: 'Cómo lo atendieron',
+        audio: 'Marcos quickly walked to the nearest bank branch to report the problem. A friendly teller greeted him at the counter and asked for his details. She looked at his account and noticed two charges made during the night. One charge was at a gas station, the other at an electronics store called Ion Volt. Marcos had been at the hospital the whole time, so those charges were not his.',
+        spanish: 'Marcos caminó rápidamente a la sucursal bancaria más cercana para reportar el problema. Una cajera amigable lo saludó en el mostrador y le pidió sus datos. Ella miró su cuenta y notó dos cargos hechos durante la noche. Un cargo fue en una gasolinera, el otro en una tienda de electrónica llamada Ion Volt. Marcos había estado en el hospital todo el tiempo, así que esos cargos no eran suyos.',
+        question: '¿Cómo se llamaba la tienda de electrónica donde se hizo el cargo?',
+        options: [
+          'Electro World',
+          'Ion Volt',
+          'Power Shop'
+        ],
+        correct: 1,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"an electronics store called Ion Volt"*.',
+          incorrect: '✗ La respuesta correcta es "Ion Volt". El audio dice: *"an electronics store called Ion Volt"*. ¡Escucha otra vez!'
+        }
+      },
+      {
+        id: 10, level: 'hard',
+        title: 'La lección final',
+        desc: 'Qué aprendió Marcos',
+        audio: 'Marcos walked out of the bank feeling tired but much more relaxed. The bank staff had turned a bad situation into a real lesson for him. He now understood that modern banks have strong systems to protect their clients. The law itself was on his side during any fraud investigation. And from now on, he would watch his money and his wallet much more closely.',
+        spanish: 'Marcos salió del banco sintiéndose cansado pero mucho más relajado. El personal del banco había convertido una mala situación en una verdadera lección para él. Ahora entendía que los bancos modernos tienen sistemas fuertes para proteger a sus clientes. La ley misma estaba de su lado durante cualquier investigación de fraude. Y a partir de ahora, cuidaría su dinero y su billetera mucho más cerca.',
+        question: 'Según el audio, ¿qué entendió Marcos sobre los bancos modernos?',
+        options: [
+          'Que cobran muchas comisiones escondidas',
+          'Que son más lentos que los bancos antiguos',
+          'Que tienen sistemas fuertes para proteger a sus clientes'
+        ],
+        correct: 2,
+        feedback: {
+          correct: '✓ ¡Correcto! Se escucha: *"modern banks have strong systems to protect their clients"*.',
+          incorrect: '✗ La respuesta correcta es "Que tienen sistemas fuertes para proteger a sus clientes". El audio dice: *"strong systems to protect their clients"*. ¡Escucha otra vez!'
+        }
+      }
+    ]
+  }
+};
+
+// ============================================================
+// ESTADO GLOBAL
+// ============================================================
+let currentTab = 't1';
+let currentAccent = 'american';
+const tabState = {
+  t1: { answered:0, correct:0, incorrect:0, easy:0, medium:0, hard:0, done:{}, speeds:{}, streak:0, maxStreak:0, xp:0 },
+  t2: { answered:0, correct:0, incorrect:0, easy:0, medium:0, hard:0, done:{}, speeds:{}, streak:0, maxStreak:0, xp:0 },
+  t3: { answered:0, correct:0, incorrect:0, easy:0, medium:0, hard:0, done:{}, speeds:{}, streak:0, maxStreak:0, xp:0 },
+  t4: { answered:0, correct:0, incorrect:0, easy:0, medium:0, hard:0, done:{}, speeds:{}, streak:0, maxStreak:0, xp:0 }
+};
+const shuffledOptions = { t1:{}, t2:{}, t3:{}, t4:{} };
+let synthesis = window.speechSynthesis;
+let voices = [];
+let currentVoice = null;
+let isPlaying = false;
+
+const voicePreferences = {
+  american: ['Google US English', 'Microsoft Zira', 'Samantha', 'Alex', 'en-US', 'English (United States)'],
+  british:  ['Google UK English Female', 'Google UK English Male', 'Microsoft Hazel', 'Daniel', 'Serena', 'en-GB', 'English (United Kingdom)']
+};
+
+// XP por nivel de dificultad
+const XP_REWARDS = { easy: 10, medium: 15, hard: 20 };
+
+// ============================================================
+// FISHER-YATES SHUFFLE
+// ============================================================
+function shuffle(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ============================================================
+// VOCES
+// ============================================================
+function loadVoices() {
+  voices = synthesis.getVoices();
+  if (voices.length === 0) { setTimeout(loadVoices, 100); return; }
+  selectVoiceByAccent(currentAccent);
+}
+function selectVoiceByAccent(accent) {
+  const prefs = voicePreferences[accent];
+  for (const name of prefs) {
+    const v = voices.find(x => x.name.includes(name));
+    if (v) { currentVoice = v; return; }
+  }
+  const langCode = accent === 'american' ? 'en-US' : 'en-GB';
+  currentVoice = voices.find(v => v.lang === langCode) || voices.find(v => v.lang.startsWith('en')) || voices[0];
+}
+if (synthesis) { loadVoices(); synthesis.onvoiceschanged = loadVoices; }
+
+function setAccent(accent) {
+  currentAccent = accent;
+  selectVoiceByAccent(accent);
+  document.querySelectorAll('.accent-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.accent === accent);
+  });
+  stopAudio();
+}
+
+function stopAudio() {
+  if (isPlaying) {
+    synthesis.cancel();
+    isPlaying = false;
+    document.querySelectorAll('.play-btn').forEach(b => {
+      b.classList.remove('playing');
+      b.textContent = '▶';
+    });
+  }
+}
+
+// ============================================================
+// INIT SHUFFLED OPTIONS
+// ============================================================
+function initShuffledOptions() {
+  for (const tabKey of Object.keys(TABS)) {
+    for (const act of TABS[tabKey].activities) {
+      const labeled = act.options.map((text, i) => ({ text, isCorrect: i === act.correct }));
+      shuffledOptions[tabKey][act.id] = shuffle(labeled);
+    }
+  }
+}
+
+// ============================================================
+// SWITCH STORY
+// ============================================================
+function switchStory(tabKey) {
+  currentTab = tabKey;
+  document.querySelectorAll('.quest-stop').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.tab === tabKey);
+  });
+  document.getElementById('resultsPanel').classList.remove('show');
+  stopAudio();
+  renderTab(tabKey);
+  updateScore();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// RENDER TAB
+// ============================================================
+function renderTab(tabKey) {
+  const container = document.getElementById('activitiesContainer');
+  const activities = TABS[tabKey].activities;
+  const state = tabState[tabKey];
+  let html = '';
+  let currentLevel = '';
+
+  activities.forEach(activity => {
+    if (activity.level !== currentLevel) {
+      currentLevel = activity.level;
+      const levelInfo = {
+        easy:   ['🟢', 'Nivel Fácil', 'Preguntas 1-4 · 2 oraciones por audio', '+10 XP'],
+        medium: ['🟡', 'Nivel Intermedio', 'Preguntas 5-7 · 2-3 oraciones por audio', '+15 XP'],
+        hard:   ['🔴', 'Nivel Difícil', 'Preguntas 8-10 · Párrafo completo', '+20 XP']
+      }[activity.level];
+      html += `
+        <div class="level-banner ${activity.level}">
+          <span class="level-banner-icon">${levelInfo[0]}</span>
+          <div class="level-banner-info">
+            <div class="level-banner-title">${levelInfo[1]}</div>
+            <div class="level-banner-sub">${levelInfo[2]}</div>
+          </div>
+          <div class="level-banner-xp">${levelInfo[3]}</div>
+        </div>
+      `;
+    }
+
+    const speed = state.speeds[activity.id] || 1;
+    const isDone = state.done[activity.id];
+    const isCorrect = isDone === 'correct';
+    const opts = shuffledOptions[tabKey][activity.id];
+
+    html += `
+      <div class="q-card ${isDone ? 'done ' + isDone : ''}" id="card-${tabKey}-${activity.id}">
+        <div class="q-head">
+          <div class="q-num-badge ${activity.level}">${activity.id}</div>
+          <div class="q-info">
+            <div class="q-title">${activity.title}</div>
+            <div class="q-desc">${activity.desc}</div>
+          </div>
+        </div>
+        <div class="player-area">
+          <button class="play-btn" onclick="playAudio('${tabKey}', ${activity.id})" id="playBtn-${tabKey}-${activity.id}">▶</button>
+          <div class="player-hint">Toca para escuchar · ajusta la velocidad abajo</div>
+          <div class="speed-slider-wrap">
+            <div class="speed-slider-header">
+              <span class="speed-slider-label">🎚️ Velocidad</span>
+              <span class="speed-slider-value" id="speedVal-${tabKey}-${activity.id}">${speed.toFixed(2)}x</span>
+            </div>
+            <input type="range" class="speed-slider"
+                   id="speedSlider-${tabKey}-${activity.id}"
+                   min="0.5" max="1.5" step="0.05" value="${speed}"
+                   oninput="setQSpeed('${tabKey}', ${activity.id}, parseFloat(this.value))">
+            <div class="speed-ticks">
+              <span class="speed-tick" onclick="setQSpeedFromTick('${tabKey}', ${activity.id}, 0.5)">🐢 0.5x</span>
+              <span class="speed-tick" onclick="setQSpeedFromTick('${tabKey}', ${activity.id}, 0.75)">0.75x</span>
+              <span class="speed-tick" onclick="setQSpeedFromTick('${tabKey}', ${activity.id}, 1)">🚶 1x</span>
+              <span class="speed-tick" onclick="setQSpeedFromTick('${tabKey}', ${activity.id}, 1.25)">1.25x</span>
+              <span class="speed-tick" onclick="setQSpeedFromTick('${tabKey}', ${activity.id}, 1.5)">🏃 1.5x</span>
+            </div>
+          </div>
+          <div class="help-row">
+            <button class="help-btn en" onclick="toggleText('${tabKey}', ${activity.id})" id="textBtn-${tabKey}-${activity.id}">
+              <span>🔤</span><span>Ver inglés</span>
+            </button>
+            <button class="help-btn es" onclick="toggleSpanish('${tabKey}', ${activity.id})" id="spanishBtn-${tabKey}-${activity.id}">
+              <span>🇪🇸</span><span>Ver español</span>
+            </button>
+          </div>
+          <div class="text-box en" id="englishText-${tabKey}-${activity.id}">
+            <span class="text-box-label">🔤 Audio en inglés</span>
+            <span>${activity.audio}</span>
+          </div>
+          <div class="text-box es" id="spanishText-${tabKey}-${activity.id}">
+            <span class="text-box-label">🇪🇸 Traducción al español</span>
+            <span>${activity.spanish}</span>
+          </div>
+        </div>
+        <button class="reveal-q-btn" id="showQ-${tabKey}-${activity.id}" onclick="toggleQuestion('${tabKey}', ${activity.id})">
+          <span>❓</span><span>Revelar pregunta</span>
+        </button>
+        <div class="q-section" id="questionSection-${tabKey}-${activity.id}">
+          <div class="q-prompt">${activity.question}</div>
+          <div class="options-stack" id="options-${tabKey}-${activity.id}">
+            ${opts.map((opt, idx) => `
+              <div class="option ${isDone ? 'disabled' : ''}" onclick="selectAnswer('${tabKey}', ${activity.id}, ${idx})">
+                <span class="opt-letter">${['A','B','C'][idx]}</span>
+                <span class="opt-text">${opt.text}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="fb" id="fb-${tabKey}-${activity.id}"></div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+// ============================================================
+// AUDIO PLAYER
+// ============================================================
+function playAudio(tabKey, id) {
+  const btn = document.getElementById(`playBtn-${tabKey}-${id}`);
+  if (isPlaying) { stopAudio(); return; }
+  const activity = TABS[tabKey].activities.find(a => a.id === id);
+  const speed = tabState[tabKey].speeds[id] || 1;
+  const utterance = new SpeechSynthesisUtterance(activity.audio);
+  utterance.voice = currentVoice;
+  utterance.rate = speed;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+  isPlaying = true;
+  btn.classList.add('playing');
+  btn.textContent = '⏸';
+  utterance.onend = () => { isPlaying = false; btn.classList.remove('playing'); btn.textContent = '▶'; };
+  utterance.onerror = () => { isPlaying = false; btn.classList.remove('playing'); btn.textContent = '▶'; };
+  synthesis.speak(utterance);
+}
+
+function setQSpeed(tabKey, id, speed) {
+  tabState[tabKey].speeds[id] = speed;
+  const valEl = document.getElementById(`speedVal-${tabKey}-${id}`);
+  if (valEl) valEl.textContent = speed.toFixed(2) + 'x';
+  // Marcar el tick más cercano como activo
+  const ticks = document.querySelectorAll(`#card-${tabKey}-${id} .speed-tick`);
+  const tickValues = [0.5, 0.75, 1, 1.25, 1.5];
+  ticks.forEach((t, i) => {
+    t.classList.toggle('active', Math.abs(tickValues[i] - speed) < 0.025);
+  });
+}
+
+function setQSpeedFromTick(tabKey, id, speed) {
+  const slider = document.getElementById(`speedSlider-${tabKey}-${id}`);
+  if (slider) slider.value = speed;
+  setQSpeed(tabKey, id, speed);
+}
+
+// ============================================================
+// TOGGLES
+// ============================================================
+function toggleText(tabKey, id) {
+  const txt = document.getElementById(`englishText-${tabKey}-${id}`);
+  const btn = document.getElementById(`textBtn-${tabKey}-${id}`);
+  txt.classList.toggle('show');
+  btn.classList.toggle('active');
+  btn.innerHTML = txt.classList.contains('show')
+    ? '<span>🔤</span><span>Ocultar inglés</span>'
+    : '<span>🔤</span><span>Ver inglés</span>';
+}
+function toggleSpanish(tabKey, id) {
+  const txt = document.getElementById(`spanishText-${tabKey}-${id}`);
+  const btn = document.getElementById(`spanishBtn-${tabKey}-${id}`);
+  txt.classList.toggle('show');
+  btn.classList.toggle('active');
+  btn.innerHTML = txt.classList.contains('show')
+    ? '<span>🇪🇸</span><span>Ocultar español</span>'
+    : '<span>🇪🇸</span><span>Ver español</span>';
+}
+function toggleQuestion(tabKey, id) {
+  const sec = document.getElementById(`questionSection-${tabKey}-${id}`);
+  const btn = document.getElementById(`showQ-${tabKey}-${id}`);
+  sec.classList.toggle('show');
+  const open = sec.classList.contains('show');
+  btn.classList.toggle('shown', !open);
+  btn.innerHTML = open
+    ? '<span>❓</span><span>Ocultar pregunta</span>'
+    : '<span>❓</span><span>Revelar pregunta</span>';
+}
+
+// ============================================================
+// FLOATING XP ANIMATION
+// ============================================================
+function floatXP(element, amount, isCorrect) {
+  const rect = element.getBoundingClientRect();
+  const float = document.createElement('div');
+  float.className = 'xp-float';
+  float.textContent = isCorrect ? `+${amount} XP ⭐` : '❌';
+  float.style.left = (rect.left + rect.width / 2 - 30) + 'px';
+  float.style.top = (rect.top + 10) + 'px';
+  if (!isCorrect) float.style.color = '#C62828';
+  document.body.appendChild(float);
+  setTimeout(() => float.remove(), 1400);
+}
+
+// ============================================================
+// SELECT ANSWER
+// ============================================================
+function selectAnswer(tabKey, id, optionIndex) {
+  const state = tabState[tabKey];
+  if (state.done[id]) return;
+
+  const activity = TABS[tabKey].activities.find(a => a.id === id);
+  const options = shuffledOptions[tabKey][id];
+  const isCorrect = options[optionIndex].isCorrect;
+  const correctIndex = options.findIndex(o => o.isCorrect);
+
+  state.done[id] = isCorrect ? 'correct' : 'incorrect';
+  state.answered++;
+
+  if (isCorrect) {
+    state.correct++;
+    state.streak++;
+    if (state.streak > state.maxStreak) state.maxStreak = state.streak;
+    const xpGained = XP_REWARDS[activity.level];
+    const bonus = state.streak >= 3 ? Math.floor(xpGained * 0.5) : 0;
+    state.xp += xpGained + bonus;
+    if (activity.level === 'easy') state.easy++;
+    else if (activity.level === 'medium') state.medium++;
+    else state.hard++;
+  } else {
+    state.incorrect++;
+    state.streak = 0;
+  }
+
+  // Update card visual
+  const card = document.getElementById(`card-${tabKey}-${id}`);
+  card.classList.add('done', isCorrect ? 'correct' : 'incorrect');
+
+  const optionEls = document.querySelectorAll(`#options-${tabKey}-${id} .option`);
+  optionEls.forEach((el, idx) => {
+    el.classList.add('disabled');
+    if (idx === optionIndex) el.classList.add(isCorrect ? 'correct' : 'incorrect');
+    if (idx === correctIndex && !isCorrect) el.classList.add('show-correct');
+  });
+
+  // Floating XP
+  const clickedEl = optionEls[optionIndex];
+  if (isCorrect) {
+    const bonus = state.streak >= 3 ? Math.floor(XP_REWARDS[activity.level] * 0.5) : 0;
+    floatXP(clickedEl, XP_REWARDS[activity.level] + bonus, true);
+  } else {
+    floatXP(clickedEl, 0, false);
+  }
+
+  // Feedback
+  const fb = document.getElementById(`fb-${tabKey}-${id}`);
+  const feedbackText = isCorrect ? activity.feedback.correct : activity.feedback.incorrect;
+  // Remove leading ✓ or ✗ since we'll use our own icon
+  const cleanText = feedbackText.replace(/^[✓✗]\s*/, '').replace(/\*(.*?)\*/g, '<em>$1</em>');
+  fb.innerHTML = `
+    <div class="fb-icon">${isCorrect ? '🎉' : '💡'}</div>
+    <div>${cleanText}</div>
+  `;
+  fb.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+
+  updateScore();
+
+  if (state.answered === TABS[tabKey].activities.length) {
+    setTimeout(() => showResults(tabKey), 1100);
+  }
+}
+
+// ============================================================
+// UPDATE SCORE / PROGRESS
+// ============================================================
+function updateScore() {
+  const state = tabState[currentTab];
+  const total = TABS[currentTab].activities.length;
+  document.getElementById('progressCount').textContent = `${state.answered}/${total}`;
+  document.getElementById('progressBar').style.width = (state.answered / total * 100) + '%';
+  document.getElementById('correctCount').textContent = state.correct;
+  document.getElementById('incorrectCount').textContent = state.incorrect;
+
+  // Streak
+  const streakBadge = document.getElementById('streakBadge');
+  const streakMini = document.getElementById('streakMini');
+  if (state.streak >= 2) {
+    streakBadge.style.display = 'flex';
+    streakMini.textContent = state.streak;
+  } else {
+    streakBadge.style.display = 'none';
+  }
+
+  // Global stats
+  let totalXp = 0, completedMissions = 0, globalStreak = 0;
+  for (const k of ['t1','t2','t3','t4']) {
+    totalXp += tabState[k].xp;
+    if (tabState[k].answered === TABS[k].activities.length) completedMissions++;
+    if (tabState[k].maxStreak > globalStreak) globalStreak = tabState[k].maxStreak;
+  }
+  document.getElementById('totalXp').textContent = totalXp;
+  document.getElementById('missionsDone').textContent = `${completedMissions}/4`;
+  document.getElementById('streakCount').textContent = globalStreak;
+
+  // Quest stop progress
+  for (const k of ['t1','t2','t3','t4']) {
+    const prog = document.getElementById(`prog-${k}`);
+    const ts = tabState[k];
+    const tot = TABS[k].activities.length;
+    prog.textContent = `${ts.answered}/${tot}`;
+    const stop = document.querySelector(`.quest-stop[data-tab="${k}"]`);
+    if (ts.answered === tot && !stop.classList.contains('active')) {
+      stop.classList.add('completed');
+    } else if (ts.answered < tot) {
+      stop.classList.remove('completed');
+    }
+  }
+}
+
+// ============================================================
+// RESULTS
+// ============================================================
+function showResults(tabKey) {
+  const state = tabState[tabKey];
+  const total = TABS[tabKey].activities.length;
+  const pct = (state.correct / total) * 100;
+  const panel = document.getElementById('resultsPanel');
+
+  document.getElementById('resultsScore').textContent = state.correct;
+  document.getElementById('easyScore').textContent = `${state.easy}/4`;
+  document.getElementById('mediumScore').textContent = `${state.medium}/3`;
+  document.getElementById('hardScore').textContent = `${state.hard}/3`;
+
+  const trophy = document.getElementById('trophy');
+  const title = document.getElementById('resultsTitle');
+  const msg = document.getElementById('resultsMessage');
+
+  if (pct >= 90) {
+    trophy.textContent = '🏆';
+    title.textContent = '¡Misión Dominada!';
+    msg.innerHTML = `Ganaste <strong>${state.xp} XP</strong> · racha máxima: <strong>${state.maxStreak} 🔥</strong>. ¡Eres una estrella del listening!`;
+  } else if (pct >= 70) {
+    trophy.textContent = '🥈';
+    title.textContent = '¡Muy bien hecho!';
+    msg.innerHTML = `Ganaste <strong>${state.xp} XP</strong>. Repasa los audios que fallaste y vuelve a intentar para subir tu puntaje.`;
+  } else if (pct >= 50) {
+    trophy.textContent = '🥉';
+    title.textContent = '¡Buen intento!';
+    msg.innerHTML = `Ganaste <strong>${state.xp} XP</strong>. Escucha los audios de nuevo — usa la traducción cuando la necesites.`;
+  } else {
+    trophy.textContent = '📚';
+    title.textContent = 'Sigue practicando';
+    msg.innerHTML = `Ganaste <strong>${state.xp} XP</strong>. No te rindas — cada intento te acerca más. ¡Escucha cada audio varias veces!`;
+  }
+
+  panel.classList.add('show');
+  panel.scrollIntoView({ behavior: 'smooth' });
+}
+
+function retryTab() {
+  const tk = currentTab;
+  tabState[tk] = { answered:0, correct:0, incorrect:0, easy:0, medium:0, hard:0, done:{}, speeds:{}, streak:0, maxStreak:0, xp:0 };
+  for (const act of TABS[tk].activities) {
+    const labeled = act.options.map((text, i) => ({ text, isCorrect: i === act.correct }));
+    shuffledOptions[tk][act.id] = shuffle(labeled);
+  }
+  document.getElementById('resultsPanel').classList.remove('show');
+  stopAudio();
+  renderTab(tk);
+  updateScore();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// INIT
+// ============================================================
+initShuffledOptions();
+renderTab('t1');
+updateScore();
+</script>
+</body>
+</html>

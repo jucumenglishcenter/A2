@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Partitives with Uncountables | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">🧃 Partitives with Uncountables</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>Partitivos:</b> palabras que dan FORMA o UNIDAD a un incontable \u2014 \"a glass <b>of</b> water\"", "<b>Estructura:</b> a/two/some + partitive + <b>of</b> + uncountable noun", "<b>L\u00edquidos:</b> a glass of, a bottle of, a cup of, a litre of", "<b>Comida:</b> a slice of (pan/pizza), a piece of (cake), a bar of (chocolate)", "<b>Materiales:</b> a piece of (paper, advice, news, information)", "Para PLURALIZAR un incontable se usa el partitivo: <b>two glasses</b> of water (no \"two waters\")", "<b>A piece of</b> es el partitivo m\u00e1s vers\u00e1til para abstractos (advice, news, information)"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol decimos \"<b>un vaso de</b> agua\", \"<b>una rebanada de</b> pan\", \"<b>un trozo de</b> queso\". Estos son <b>partitivos</b>: palabras que cuentan o porcionan algo que normalmente no se cuenta. En ingl\u00e9s funcionan igual.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83c\udf76 L\u00edquidos</h4><ul>\n<li><b>Un vaso de</b> agua</li>\n<li><b>Una taza de</b> caf\u00e9</li>\n<li><b>Una botella de</b> vino</li>\n<li><b>Un litro de</b> leche</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83c\udf5e Comida s\u00f3lida</h4><ul>\n<li><b>Una rebanada de</b> pan</li>\n<li><b>Un trozo de</b> torta</li>\n<li><b>Una barra de</b> chocolate</li>\n<li><b>Un kilo de</b> arroz</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udca7</div><div><div class=\"en\">\"Quiero agua\" \u2192 cantidad indefinida.<br>\"Quiero <b>un vaso de</b> agua\" \u2192 cantidad espec\u00edfica con forma.</div><div class=\"es\">El partitivo le da una unidad medible</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83c\udf5e</div><div><div class=\"en\">\"P\u00e1same pan\" \u2192 vago.<br>\"P\u00e1same <b>una rebanada de</b> pan\" \u2192 una unidad clara.</div><div class=\"es\">\"Rebanada\" hace contable lo incontable</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> No se puede decir \"dos panes\" para referirse a dos rebanadas, ni \"dos aguas\" para dos vasos. Usamos el partitivo para CONTAR lo que normalmente no se cuenta. La l\u00f3gica es id\u00e9ntica en ingl\u00e9s.</div>", "exercises": [{"q": "\"Un vaso de agua\" \u2014 \u00bfqu\u00e9 hace \"vaso\"?", "a": "b", "o": ["Es el l\u00edquido", "Da forma/unidad al agua"], "fc": "\"Vaso\" es la unidad/recipiente que contiene el agua.", "fi": "El l\u00edquido es el agua; el vaso es solo el partitivo (la unidad).", "ex": "Un vaso de agua \u2192 A glass of water", "tip": "Partitivo = la unidad o forma"}, {"q": "\u00bfPor qu\u00e9 no decimos \"dos aguas\" en espa\u00f1ol?", "a": "b", "o": ["Por gram\u00e1tica", "Porque agua es incontable"], "fc": "\"Agua\" no se cuenta directamente; necesitamos un partitivo: \"dos vasos de agua\".", "fi": "No es por gram\u00e1tica abstracta sino por la naturaleza incontable del agua.", "ex": "Two glasses of water (no \"two waters\")", "tip": "Incontable + n\u00famero \u2192 necesita partitivo"}, {"q": "\u00bfQu\u00e9 partitivo usar\u00edas para chocolate?", "a": "a", "o": ["Una barra de", "Un vaso de"], "fc": "Chocolate s\u00f3lido se mide en \"barras\" o \"trozos\".", "fi": "\"Vaso\" se usa para l\u00edquidos.", "ex": "Una barra de chocolate \u2192 A bar of chocolate", "tip": "Cada incontable tiene su partitivo t\u00edpico"}, {"q": "\"Un poco de informaci\u00f3n\" \u2014 \u00bfla informaci\u00f3n se cuenta directamente?", "a": "b", "o": ["S\u00ed, dos informaciones", "No, necesita partitivo"], "fc": "\"Informaci\u00f3n\" es incontable; no se dice \"dos informaciones\".", "fi": "\"Dos informaciones\" es incorrecto en espa\u00f1ol y en ingl\u00e9s.", "ex": "Una pieza de informaci\u00f3n \u2192 A piece of information", "tip": "Information \u2192 a piece of"}, {"q": "\u00bfCu\u00e1l es contable directamente?", "a": "a", "o": ["manzana (apple)", "leche (milk)"], "fc": "\"Manzana\" es contable: una manzana, dos manzanas.", "fi": "\"Leche\" es incontable: necesitas \"un vaso de leche\".", "ex": "Two apples \u00b7 Two glasses of milk", "tip": "Manzana = contable \u00b7 Leche = incontable"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">Los dos idiomas usan los mismos partitivos en la misma estructura. Direct mapping.</div>\n\n<table class=\"g-table\">\n<tr><th>Cosa incontable</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>agua / water</td><td><b>un vaso de</b> agua</td><td><span class=\"g-comp\">a glass of</span> water</td></tr>\n<tr><td>caf\u00e9 / coffee</td><td><b>una taza de</b> caf\u00e9</td><td><span class=\"g-comp\">a cup of</span> coffee</td></tr>\n<tr><td>pan / bread</td><td><b>una rebanada de</b> pan</td><td><span class=\"g-comp\">a slice of</span> bread</td></tr>\n<tr><td>torta / cake</td><td><b>un trozo de</b> torta</td><td><span class=\"g-comp\">a piece of</span> cake</td></tr>\n<tr><td>chocolate</td><td><b>una barra de</b> chocolate</td><td><span class=\"g-comp\">a bar of</span> chocolate</td></tr>\n<tr><td>arroz / rice</td><td><b>un kilo de</b> arroz</td><td><span class=\"g-comp\">a kilo of</span> rice</td></tr>\n</table>\n\n<div class=\"section-label\">F\u00f3rmula universal</div>\n<div class=\"formula-box\">\n<span class=\"g-quest\">N\u00famero/art\u00edculo</span> + <span class=\"g-comp\">partitivo</span> + <span class=\"g-neg\">of</span> + <span class=\"g-subj\">incontable</span><br>\n\u2192 a glass <b>of</b> water \u00b7 two slices <b>of</b> pizza \u00b7 some pieces <b>of</b> advice\n</div>\n\n<div class=\"section-label\">Para pluralizar incontables</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">1 unidad</div><div class=\"vrb\">a glass</div><div class=\"meaning\">un vaso</div></div>\n<div class=\"conj-item\"><div class=\"pron\">2 unidades</div><div class=\"vrb\">two glasses</div><div class=\"meaning\">dos vasos</div></div>\n<div class=\"conj-item\"><div class=\"pron\">Indefinido</div><div class=\"vrb\">some pieces</div><div class=\"meaning\">algunos trozos</div></div>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> Para pluralizar \"lo que no se cuenta\", se pluraliza el PARTITIVO, no el sustantivo: \"two glasses of water\" (no \"two waters\"). Igual en ambos idiomas.</div>", "exercises": [{"q": "\"I'd like ___ water, please.\"", "a": "a", "o": ["a glass of", "a piece of"], "fc": "Agua = l\u00edquido \u2192 <b>a glass of</b> water.", "fi": "\"A piece of\" se usa para s\u00f3lidos o abstractos, no l\u00edquidos.", "ex": "A glass of water, please \u2192 Un vaso de agua, por favor", "tip": "L\u00edquido \u2192 a glass/cup/bottle of"}, {"q": "\"She had ___ pizza for lunch.\"", "a": "b", "o": ["a glass of", "a slice of"], "fc": "Pizza se corta en rebanadas \u2192 <b>a slice of</b> pizza.", "fi": "\"A glass of\" no se usa con s\u00f3lidos.", "ex": "A slice of pizza \u2192 Una rebanada de pizza", "tip": "Pizza/pan \u2192 a slice of"}, {"q": "\"Can I have ___ coffee?\"", "a": "a", "o": ["a cup of", "a slice of"], "fc": "Caf\u00e9 = bebida caliente \u2192 <b>a cup of</b> coffee.", "fi": "\"A slice of\" se usa con cosas s\u00f3lidas planas (pan, pizza, jam\u00f3n).", "ex": "A cup of coffee \u2192 Una taza de caf\u00e9", "tip": "Bebida caliente \u2192 a cup of"}, {"q": "\"He gave me ___ advice.\" (un consejo)", "a": "b", "o": ["an advice", "a piece of advice"], "fc": "\"Advice\" es incontable \u2192 <b>a piece of advice</b>. NUNCA \"an advice\".", "fi": "\"An advice\" es incorrecto; advice no se cuenta directamente.", "ex": "A piece of advice \u2192 Un consejo", "tip": "Advice = a piece of (incontable cl\u00e1sico)"}, {"q": "\"There is ___ paper on the table.\"", "a": "a", "o": ["a piece of", "a slice of"], "fc": "Papel = material plano \u2192 <b>a piece of</b> paper.", "fi": "\"A slice of\" se usa para alimentos cortados, no para papel.", "ex": "A piece of paper \u2192 Un trozo de papel", "tip": "Paper \u2192 a piece of"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Los partitivos no son intercambiables: cada incontable tiene su partitivo t\u00edpico, y algunos no aceptan partitivos directos.</div>\n\n<table class=\"g-table\">\n<tr><th>Incontable</th><th>\u2705 Partitivo correcto</th><th>\u274c Error t\u00edpico</th></tr>\n<tr><td>information</td><td><span class=\"g-comp\">a piece of</span> information</td><td>an information</td></tr>\n<tr><td>news</td><td><span class=\"g-comp\">a piece of</span> news</td><td>a news / many news</td></tr>\n<tr><td>furniture</td><td><span class=\"g-comp\">a piece of</span> furniture</td><td>a furniture / two furnitures</td></tr>\n<tr><td>bread</td><td><span class=\"g-comp\">a slice of / a loaf of</span> bread</td><td>a bread (no como objeto)</td></tr>\n<tr><td>luggage</td><td><span class=\"g-comp\">a piece of</span> luggage</td><td>a luggage / many luggages</td></tr>\n<tr><td>work</td><td><span class=\"g-comp\">a piece of</span> work</td><td>a work (no en este sentido)</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Incontables que SUELEN confundir</div>\n<p>Estos incontables NO se pueden usar con \"a/an\" ni en plural sin partitivo:<br>\n\u2022 <b>information</b> \u2192 \"a piece of information\" (no \"an information\")<br>\n\u2022 <b>advice</b> \u2192 \"a piece of advice\" (no \"an advice\")<br>\n\u2022 <b>news</b> \u2192 \"a piece of news\" (a pesar de la \"s\" final, es singular)<br>\n\u2022 <b>furniture</b> \u2192 \"a piece of furniture\" (no \"a furniture\")<br>\n\u2022 <b>luggage / baggage</b> \u2192 \"a piece of luggage\" (no \"a luggage\")<br>\n\u2022 <b>research</b> \u2192 \"a piece of research\" (no \"a research\")</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">She gave me an advice about my career.</div><div class=\"es\">\"Advice\" no acepta \"an\"</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">She gave me <span class=\"g-comp\">a piece of advice</span> about my career.</div><div class=\"es\">Me dio un consejo sobre mi carrera.</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">\u274c</div><div><div class=\"en\">I bought two furnitures for my room.</div><div class=\"es\">\"Furniture\" no se pluraliza directo</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2705</div><div><div class=\"en\">I bought <span class=\"g-comp\">two pieces of furniture</span> for my room.</div><div class=\"es\">Compr\u00e9 dos muebles para mi cuarto.</div></div></div>", "exercises": [{"q": "\"I have some good ___ for you.\"", "a": "a", "o": ["news", "newses"], "fc": "\"News\" es incontable y SIEMPRE singular en forma, aunque termine en \"s\".", "fi": "\"Newses\" no existe en ingl\u00e9s.", "ex": "I have some good news \u2192 Tengo buenas noticias", "tip": "News = incontable singular siempre"}, {"q": "\"He needs ___ furniture for his apartment.\"", "a": "b", "o": ["a", "\u00d8 (some)"], "fc": "\"Furniture\" es incontable \u2192 sin \"a\"; usa <b>some furniture</b> o sin art\u00edculo.", "fi": "\"A furniture\" es incorrecto; necesita partitivo: \"a piece of furniture\".", "ex": "He needs some furniture \u2192 Necesita muebles", "tip": "Furniture \u2192 incontable, sin \"a\""}, {"q": "\"She has three ___ luggage.\" (tres maletas)", "a": "a", "o": ["pieces of", "\u00d8"], "fc": "Para contar luggage usamos <b>pieces of</b>: \"three pieces of luggage\".", "fi": "\"Three luggage\" sin partitivo no es correcto.", "ex": "Three pieces of luggage \u2192 Tres maletas", "tip": "Luggage \u2192 piece of"}, {"q": "\"Could you give me ___ information about the course?\"", "a": "b", "o": ["an", "some"], "fc": "\"Information\" es incontable \u2192 <b>some</b> (o \"a piece of\"). NUNCA \"an\".", "fi": "\"An information\" es uno de los errores m\u00e1s frecuentes en ingl\u00e9s.", "ex": "Some information about the course \u2192 Algo de informaci\u00f3n del curso", "tip": "Information = some / a piece of"}, {"q": "\"I'd like ___ chocolate, please.\"", "a": "a", "o": ["a bar of", "a slice of"], "fc": "Chocolate viene en barras \u2192 <b>a bar of</b> chocolate.", "fi": "\"A slice of\" se usa con pan, pizza o queso plano.", "ex": "A bar of chocolate \u2192 Una barra de chocolate", "tip": "Chocolate \u2192 a bar of"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 La f\u00f3rmula universal:</strong> \"<b>n\u00famero/a + partitivo + of + incontable</b>\". Por ejemplo: \"two slices of bread\", \"a cup of tea\", \"some pieces of advice\".</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 \"A piece of\" es el comod\u00edn:</strong> Si dudas con un abstracto o un material (information, advice, news, furniture, paper, work, music, art), usa \"<b>a piece of</b>\". Es el m\u00e1s vers\u00e1til.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Pluralizaci\u00f3n:</strong> El plural va en el PARTITIVO, no en el sustantivo: \"<b>two glasses</b> of water\" \u2705 (no \"two waters\"). \"<b>Three pieces</b> of advice\" \u2705 (no \"three advices\").</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Memoriza por categor\u00edas:</strong><br>\n\u2022 <b>L\u00edquidos:</b> a glass / a cup / a bottle / a litre of<br>\n\u2022 <b>Comida plana:</b> a slice of (bread, pizza, cheese)<br>\n\u2022 \u2022 <b>Comida s\u00f3lida:</b> a piece of (cake), a bar of (chocolate, soap)<br>\n\u2022 <b>Material/abstracto:</b> a piece of (paper, advice, information, news)<br>\n\u2022 <b>Cantidad/masa:</b> a kilo of, a litre of, a bag of</div>\n\n<div class=\"formula-box\">\n\ud83d\udca7 L\u00edquidos: <span class=\"g-comp\">a glass/cup/bottle</span> of...<br>\n\ud83c\udf5e Comida plana: <span class=\"g-comp\">a slice</span> of...<br>\n\ud83c\udf6b Barras: <span class=\"g-comp\">a bar</span> of...<br>\n\ud83d\udcc4 Materiales/abstractos: <span class=\"g-comp\">a piece</span> of...<br>\n\u2696\ufe0f Peso/medida: <span class=\"g-comp\">a kilo/litre</span> of...\n</div>\n\n<table class=\"g-table\">\n<tr><th>Partitivo</th><th>Va con</th><th>Ejemplos</th></tr>\n<tr><td>a glass of</td><td>l\u00edquidos fr\u00edos</td><td>water, juice, milk</td></tr>\n<tr><td>a cup of</td><td>l\u00edquidos calientes</td><td>coffee, tea</td></tr>\n<tr><td>a bottle of</td><td>l\u00edquidos en botella</td><td>wine, water, beer</td></tr>\n<tr><td>a slice of</td><td>cosas planas</td><td>bread, pizza, cheese</td></tr>\n<tr><td>a piece of</td><td>abstractos / s\u00f3lidos</td><td>advice, news, paper, cake</td></tr>\n<tr><td>a bar of</td><td>cosas en barra</td><td>chocolate, soap</td></tr>\n<tr><td>a kilo of</td><td>peso</td><td>rice, sugar, meat</td></tr>\n</table>", "exercises": [{"q": "\"Could I have ___ tea, please?\"", "a": "b", "o": ["a slice of", "a cup of"], "fc": "T\u00e9 = bebida caliente \u2192 <b>a cup of</b> tea.", "fi": "\"A slice of\" se usa con cosas planas s\u00f3lidas (pan, pizza), no con bebidas.", "ex": "A cup of tea \u2192 Una taza de t\u00e9", "tip": "Bebida caliente \u2192 a cup of"}, {"q": "\"She bought ___ wine for the dinner.\"", "a": "b", "o": ["a glass of", "a bottle of"], "fc": "\"Buy\" + comprar para la cena = <b>a bottle of</b> wine (entera).", "fi": "\"A glass of wine\" ser\u00eda para servir, no para comprar.", "ex": "A bottle of wine \u2192 Una botella de vino", "tip": "Comprar bebida \u2192 bottle of"}, {"q": "\"He told me ___ news about the project.\"", "a": "a", "o": ["a piece of", "an"], "fc": "\"News\" es incontable \u2192 <b>a piece of news</b>. Nunca \"a news\" o \"an news\".", "fi": "\"An news\" es incorrecto.", "ex": "A piece of news \u2192 Una noticia", "tip": "News \u2192 a piece of"}, {"q": "\"I bought ___ rice at the market.\" (cantidad espec\u00edfica)", "a": "b", "o": ["a slice of", "a kilo of"], "fc": "Arroz se mide por peso \u2192 <b>a kilo of</b> rice.", "fi": "\"A slice of rice\" no tiene sentido; arroz no se rebana.", "ex": "A kilo of rice \u2192 Un kilo de arroz", "tip": "Arroz/az\u00facar \u2192 a kilo/bag of"}, {"q": "\"Can you give me ___ paper?\" (una hoja)", "a": "a", "o": ["a piece of", "a glass of"], "fc": "Papel = material \u2192 <b>a piece of</b> paper.", "fi": "\"A glass of\" es para l\u00edquidos.", "ex": "A piece of paper \u2192 Un trozo/hoja de papel", "tip": "Paper \u2192 a piece of (o a sheet of)"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Aplica los partitivos en contextos reales: bebidas, comida, materiales y abstractos.</div>\n\n<div class=\"formula-box\">\n\u2705 <span class=\"g-quest\">N\u00famero</span> + <span class=\"g-comp\">partitivo</span> + <span class=\"g-neg\">of</span> + <span class=\"g-subj\">incontable</span><br>\n\u2705 Para pluralizar: el PARTITIVO va en plural<br>\n\u2705 \"A piece of\" para abstractos: advice, news, info, work\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2615</div><div><div class=\"en\">I drink <span class=\"g-comp\">two cups of</span> <span class=\"g-subj\">coffee</span> every morning.</div><div class=\"es\">Bebo dos tazas de caf\u00e9 cada ma\u00f1ana. (l\u00edquido caliente, plural)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udf55</div><div><div class=\"en\">She ate <span class=\"g-comp\">three slices of</span> <span class=\"g-subj\">pizza</span>.</div><div class=\"es\">Comi\u00f3 tres rebanadas de pizza. (s\u00f3lido plano, plural)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcac</div><div><div class=\"en\">My teacher gave me <span class=\"g-comp\">some pieces of</span> <span class=\"g-subj\">advice</span>.</div><div class=\"es\">Mi profesor me dio algunos consejos. (abstracto, plural)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udecd\ufe0f</div><div><div class=\"en\">We need <span class=\"g-comp\">a kilo of</span> <span class=\"g-subj\">sugar</span> for the cake.</div><div class=\"es\">Necesitamos un kilo de az\u00facar para la torta. (peso)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"Two waters, please\" \u2192 \u2705 \"<b>Two glasses of water</b>, please\"<br>\n\u274c \"An advice\" \u2192 \u2705 \"<b>A piece of advice</b>\"<br>\n\u274c \"Many informations\" \u2192 \u2705 \"<b>Much information</b>\" / \"<b>A lot of information</b>\"<br>\n\u274c \"I bought a furniture\" \u2192 \u2705 \"I bought <b>a piece of furniture</b>\"<br>\n\u274c \"Three breads\" \u2192 \u2705 \"<b>Three slices/loaves of bread</b>\"\n</p></div>", "exercises": [{"q": "\"At the bar she ordered ___ beer.\"", "a": "a", "o": ["a bottle of", "a piece of"], "fc": "Cerveza en bar = botella o vaso \u2192 <b>a bottle of</b> beer.", "fi": "\"A piece of beer\" no tiene sentido; cerveza es l\u00edquido.", "ex": "A bottle of beer \u2192 Una botella de cerveza", "tip": "Cerveza \u2192 a bottle/glass of"}, {"q": "\"He gave me ___ work to do this weekend.\"", "a": "b", "o": ["many", "a lot of"], "fc": "\"Work\" es incontable \u2192 <b>a lot of work</b> o \"much work\".", "fi": "\"Many work\" es incorrecto; \"many\" se usa con plurales contables.", "ex": "A lot of work \u2192 Mucho trabajo", "tip": "Work = incontable \u2192 much/a lot of"}, {"q": "\"I cut ___ cheese for the sandwich.\"", "a": "a", "o": ["a slice of", "a glass of"], "fc": "Queso plano cortado \u2192 <b>a slice of</b> cheese.", "fi": "\"A glass of cheese\" no tiene sentido.", "ex": "A slice of cheese \u2192 Una rebanada de queso", "tip": "Cosa plana \u2192 a slice of"}, {"q": "\"How ___ luggage do you have?\"", "a": "b", "o": ["many", "much"], "fc": "\"Luggage\" es incontable \u2192 <b>much</b> luggage.", "fi": "\"Many luggage\" es incorrecto; many va con plurales contables.", "ex": "How much luggage do you have? \u2192 \u00bfCu\u00e1nto equipaje tienes?", "tip": "Luggage = incontable \u2192 much"}, {"q": "\"Could you bring me ___ water from the kitchen?\"", "a": "b", "o": ["a piece of", "a glass of"], "fc": "Agua = l\u00edquido para beber \u2192 <b>a glass of</b> water.", "fi": "\"A piece of water\" no tiene sentido; el agua no es un s\u00f3lido que se corte.", "ex": "A glass of water \u2192 Un vaso de agua", "tip": "L\u00edquido para beber \u2192 a glass of"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

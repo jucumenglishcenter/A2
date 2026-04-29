@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Comprehension | Module 2 | A2 | Banking, Money &amp; Admin | JUCUM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green: #66BB6A;
+  --green-dark: #2E7D32;
+  --green-darker: #1B5E20;
+  --green-light: #E8F5E9;
+  --green-mid: #C8E6C9;
+  --green-grad: linear-gradient(135deg, #388E3C, #66BB6A, #81C784);
+  --green-glow: rgba(102, 187, 106, 0.12);
+  --text: #1A1A1A;
+  --text-mid: #555;
+  --text-soft: #888;
+  --bg-card: #ffffff;
+  --bg-soft: #f7faf7;
+  --danger: #d32f2f;
+  --warn: #f57c00;
+}
+
+body {
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(129, 199, 132, 0.18), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(56, 142, 60, 0.10), transparent 40%),
+    linear-gradient(180deg, #F1F8E9 0%, #E8F5E9 100%);
+  min-height: 100vh;
+  padding: 15px;
+  padding-bottom: 40px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container { max-width: 720px; margin: 0 auto; }
+
+/* HEADER */
+.header {
+  background: var(--green-grad);
+  border-radius: 22px;
+  padding: 28px 22px;
+  text-align: center;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  animation: shimmer 4s infinite;
+}
+@keyframes shimmer { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(180deg); } }
+
+.header h1 {
+  color: #fff;
+  font-size: 1.85rem;
+  margin-bottom: 6px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+  font-weight: 800;
+}
+.header .subtitle {
+  color: rgba(255,255,255,0.95);
+  font-size: 1rem;
+  margin-bottom: 12px;
+  position: relative;
+  font-weight: 600;
+}
+.level-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  padding: 7px 18px;
+  border-radius: 22px;
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+/* KRASHEN BOX (always blue per spec) */
+.krashen-box {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  border-radius: 15px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  border-left: 5px solid #1976D2;
+}
+.krashen-box .icon-title { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.krashen-box .icon { font-size: 1.5rem; }
+.krashen-box h4 { color: #0D47A1; font-size: 1rem; font-weight: 800; }
+.krashen-box p { color: #333; font-size: 0.9rem; line-height: 1.6; }
+
+/* STORY SELECTOR (2x2 grid) */
+.selector-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+}
+.selector-section h3 {
+  text-align: center;
+  color: var(--green-dark);
+  font-size: 1rem;
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+.selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.selector-card {
+  padding: 16px 12px;
+  border: 3px solid var(--green);
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.selector-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(102, 187, 106, 0.3); background: var(--green-light); }
+.selector-card.active { background: var(--green-grad); border-color: var(--green-dark); }
+.selector-card .emoji { font-size: 1.8rem; margin-bottom: 5px; }
+.selector-card .num { font-size: 0.7rem; color: var(--text-soft); font-weight: 700; letter-spacing: 0.5px; }
+.selector-card .title { font-size: 0.82rem; font-weight: 700; color: var(--green-dark); line-height: 1.25; margin-top: 3px; }
+.selector-card.active .num, .selector-card.active .title { color: #fff; }
+.selector-card .badge {
+  position: absolute;
+  top: 6px; right: 6px;
+  font-size: 0.95rem;
+  display: none;
+}
+.selector-card.completed .badge { display: inline; }
+
+/* MODE SELECTOR */
+.mode-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+}
+.mode-section h3 {
+  text-align: center;
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.mode-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mode-btn {
+  padding: 14px 10px;
+  border: 3px solid var(--green);
+  border-radius: 13px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  font-family: inherit;
+}
+.mode-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(102, 187, 106, 0.25); }
+.mode-btn.active { background: var(--green-grad); border-color: var(--green-dark); }
+.mode-btn .flags { font-size: 1.3rem; margin-bottom: 4px; }
+.mode-btn .mode-title { font-weight: 700; color: var(--green-dark); font-size: 0.85rem; }
+.mode-btn .mode-desc { font-size: 0.72rem; color: var(--text-soft); margin-top: 2px; }
+.mode-btn.active .mode-title, .mode-btn.active .mode-desc { color: #fff; }
+
+/* ACHIEVEMENTS */
+.ach-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+}
+.ach-section h3 {
+  text-align: center;
+  color: var(--green-dark);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.ach-section .sub {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  margin-bottom: 14px;
+}
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.ach {
+  text-align: center;
+  padding: 11px 4px;
+  border-radius: 11px;
+  background: #f3f3f3;
+  opacity: 0.55;
+  transition: all 0.3s ease;
+}
+.ach.unlocked {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  opacity: 1;
+  box-shadow: 0 3px 10px rgba(102, 187, 106, 0.3);
+}
+.ach .icon { font-size: 1.4rem; margin-bottom: 3px; }
+.ach .name { font-size: 0.65rem; color: var(--text-mid); line-height: 1.25; font-weight: 600; }
+.ach.unlocked .name { color: var(--green-darker); font-weight: 700; }
+
+/* STORY PANEL */
+.story-section {
+  background: #fff;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.story-header {
+  background: var(--green-grad);
+  padding: 14px 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: filter 0.25s ease;
+}
+.story-header:hover { filter: brightness(1.06); }
+.story-header h3 { color: #fff; font-size: 1rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+.story-toggle { color: #fff; font-size: 1.1rem; transition: transform 0.3s ease; }
+.story-toggle.open { transform: rotate(180deg); }
+
+.story-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.story-content.open { max-height: 2600px; }
+
+.story-actions {
+  padding: 12px 18px 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.story-btn {
+  padding: 8px 14px;
+  background: var(--green-light);
+  border: 2px solid var(--green);
+  color: var(--green-darker);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.story-btn:hover { background: var(--green-mid); }
+.story-btn.stop { background: #FFEBEE; border-color: var(--danger); color: var(--danger); }
+.story-btn.stop:hover { background: #ffcdd2; }
+.story-btn.hidden { display: none; }
+
+.story-title {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--green-darker);
+  padding: 6px 18px 0;
+}
+
+.story-inner {
+  padding: 10px 18px 20px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+.story-inner::-webkit-scrollbar { width: 8px; }
+.story-inner::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.story-inner::-webkit-scrollbar-thumb { background: var(--green); border-radius: 4px; }
+
+.story-para {
+  margin-top: 14px;
+  padding: 13px 15px;
+  background: #f5fff5;
+  border-radius: 12px;
+  border-left: 4px solid var(--green);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.story-para:hover { background: var(--green-light); }
+.story-para.playing { background: var(--green-mid); transform: translateX(4px); }
+.story-para .english {
+  font-family: 'Lora', serif;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 4px;
+}
+.story-para .spanish {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-style: italic;
+  display: none;
+}
+.story-para.show-es .spanish { display: block; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #c8e6c9; }
+.para-es-toggle {
+  display: inline-block;
+  margin-top: 6px;
+  background: none;
+  border: none;
+  color: var(--green-dark);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 0;
+  font-family: inherit;
+}
+.para-es-toggle:hover { text-decoration: underline; }
+
+/* QUIZ */
+.quiz-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+}
+.quiz-header { text-align: center; margin-bottom: 16px; }
+.quiz-header h3 { color: var(--green-dark); font-size: 1.15rem; font-weight: 800; }
+.quiz-header .mode-indicator { color: var(--text-soft); font-size: 0.85rem; margin-top: 3px; }
+
+.progress-container { margin-bottom: 18px; }
+.progress-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
+.progress-fill {
+  height: 100%;
+  background: var(--green-grad);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+.progress-text { text-align: center; font-size: 0.85rem; color: var(--text-soft); margin-top: 7px; font-weight: 600; }
+
+.q-card {
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+.q-card.correct { border-color: #4caf50; background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%); }
+.q-card.incorrect { border-color: #ef5350; background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%); }
+
+.q-badge {
+  display: inline-block;
+  background: var(--green-grad);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+.q-text {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.opt-grid { display: flex; flex-direction: column; gap: 9px; }
+.opt-btn {
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 11px;
+  background: #fff;
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: inherit;
+  line-height: 1.4;
+}
+.opt-btn:hover:not(:disabled) { border-color: var(--green); background: var(--green-light); transform: translateX(3px); }
+.opt-btn:disabled { cursor: not-allowed; }
+.opt-btn.picked-right { background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%); color: #fff; border-color: #388E3C; }
+.opt-btn.picked-wrong { background: linear-gradient(135deg, #e53935 0%, #ef5350 100%); color: #fff; border-color: #c62828; }
+.opt-btn.show-right { background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%); color: #fff; border-color: #388E3C; }
+
+.fb {
+  margin-top: 13px;
+  padding: 13px;
+  border-radius: 11px;
+  display: none;
+  animation: fadeIn 0.3s ease;
+  font-size: 0.88rem;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.fb.show { display: block; }
+.fb.correct-fb { background: #E8F5E9; border: 2px solid #A5D6A7; }
+.fb.incorrect-fb { background: #FFEBEE; border: 2px solid #EF9A9A; }
+.fb-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 5px; }
+.fb.correct-fb .fb-title { color: #2E7D32; }
+.fb.incorrect-fb .fb-title { color: #C62828; }
+.fb-text { color: var(--text-mid); line-height: 1.5; }
+.fb-text em { color: var(--green-darker); font-style: italic; font-weight: 600; }
+
+/* RESULT BUTTON */
+.results-section { display: none; text-align: center; margin-top: 18px; }
+.results-section.show { display: block; }
+.results-btn {
+  padding: 14px 36px;
+  background: var(--green-grad);
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 4px 18px rgba(46, 125, 50, 0.4);
+  transition: transform 0.2s ease;
+}
+.results-btn:hover { transform: scale(1.04); }
+
+/* COMPLETION */
+.completion {
+  display: none;
+  background: var(--green-grad);
+  border-radius: 20px;
+  padding: 28px 22px;
+  text-align: center;
+  margin-top: 18px;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.35);
+  color: #fff;
+  animation: bounceIn 0.5s ease;
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.04); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.completion.show { display: block; }
+.completion .icon { font-size: 3.5rem; margin-bottom: 10px; }
+.completion .title { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+.completion .score { font-size: 2.6rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+.completion .msg { font-size: 0.95rem; margin: 12px 0; opacity: 0.95; line-height: 1.5; }
+.completion .stats {
+  background: rgba(255,255,255,0.18);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 16px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.completion .stat { text-align: center; }
+.completion .stat-num { font-size: 1.5rem; font-weight: 800; }
+.completion .stat-label { font-size: 0.72rem; opacity: 0.9; }
+.reset-btn {
+  background: #fff;
+  color: var(--green-darker);
+  border: none;
+  padding: 13px 34px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+  font-family: inherit;
+}
+.reset-btn:hover { transform: scale(1.04); }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+.modal-overlay.show { display: flex; }
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  max-width: 320px;
+  margin: 18px;
+  animation: bounceIn 0.4s ease;
+}
+.modal-icon { font-size: 3.5rem; margin-bottom: 10px; }
+.modal-title { color: var(--green-dark); font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+.modal-text { color: var(--text-mid); font-size: 0.9rem; margin-bottom: 18px; }
+.modal-btn {
+  background: var(--green-grad);
+  color: #fff;
+  border: none;
+  padding: 11px 30px;
+  border-radius: 22px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hidden { display: none !important; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 22px;
+  padding: 14px;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.footer strong { color: var(--green-dark); }
+
+@media (max-width: 420px) {
+  .selector-card .title { font-size: 0.75rem; }
+  .mode-btn .mode-title { font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>📚 Reading Comprehension</h1>
+    <div class="subtitle">Module 2 · Banking, Money &amp; Admin</div>
+    <span class="level-badge">💚 A2</span>
+  </header>
+
+  <!-- KRASHEN -->
+  <div class="krashen-box">
+    <div class="icon-title">
+      <span class="icon">🧠</span>
+      <h4>Input Comprensible (Krashen)</h4>
+    </div>
+    <p>Según el lingüista Stephen Krashen, adquirimos un idioma cuando entendemos mensajes significativos un poco por encima de nuestro nivel actual. Lee cada historia sin presión — tu cerebro está absorbiendo patrones naturales del inglés financiero mientras sigues la narrativa.</p>
+  </div>
+
+  <!-- STORY SELECTOR -->
+  <div class="selector-section">
+    <h3>Selecciona una historia</h3>
+    <div class="selector-grid" id="selector-grid"></div>
+  </div>
+
+  <!-- MODE SELECTOR -->
+  <div class="mode-section">
+    <h3>Selecciona el modo de práctica</h3>
+    <div class="mode-buttons">
+      <button class="mode-btn active" data-mode="es-es" onclick="setMode('es-es')">
+        <div class="flags">🇪🇸➡️🇪🇸</div>
+        <div class="mode-title">Español → Español</div>
+        <div class="mode-desc">Comprensión total</div>
+      </button>
+      <button class="mode-btn" data-mode="en-en" onclick="setMode('en-en')">
+        <div class="flags">🇬🇧➡️🇬🇧</div>
+        <div class="mode-title">English → English</div>
+        <div class="mode-desc">Desafío A2</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="ach-section">
+    <h3>🏆 Logros por Desbloquear</h3>
+    <p class="sub">Responde correctamente para ganar insignias</p>
+    <div class="ach-grid">
+      <div class="ach" id="ach-first"><div class="icon">🌱</div><div class="name">Primera Respuesta</div></div>
+      <div class="ach" id="ach-streak"><div class="icon">🔥</div><div class="name">3 Correctas Seguidas</div></div>
+      <div class="ach" id="ach-literal"><div class="icon">📖</div><div class="name">Comprensión Literal</div></div>
+      <div class="ach" id="ach-inferential"><div class="icon">🔍</div><div class="name">Comprensión Inferencial</div></div>
+      <div class="ach" id="ach-critical"><div class="icon">🎓</div><div class="name">Pensamiento Crítico</div></div>
+      <div class="ach" id="ach-perfect"><div class="icon">⭐</div><div class="name">Perfección</div></div>
+      <div class="ach" id="ach-saver"><div class="icon">💰</div><div class="name">Ahorrador</div></div>
+      <div class="ach" id="ach-allfour"><div class="icon">🏦</div><div class="name">Cuatro Historias</div></div>
+    </div>
+  </div>
+
+  <!-- STORY PANEL -->
+  <div class="story-section">
+    <div class="story-header" onclick="toggleStory()">
+      <h3>📖 <span id="story-header-label">Historia</span></h3>
+      <span class="story-toggle open" id="story-toggle">▼</span>
+    </div>
+    <div class="story-content open" id="story-content">
+      <div class="story-actions">
+        <button class="story-btn" id="audio-play-btn" onclick="playAllAudio()">🔊 <span id="audio-play-label">Escuchar toda la historia</span></button>
+        <button class="story-btn stop hidden" id="audio-stop-btn" onclick="stopAudio()">⏹ Detener</button>
+        <button class="story-btn" onclick="toggleAllEs()">🇪🇸 <span id="all-es-label">Mostrar traducción completa</span></button>
+      </div>
+      <div class="story-title" id="story-title">Historia</div>
+      <div class="story-inner" id="story-inner"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <h3>✏️ Quiz de Comprensión</h3>
+      <div class="mode-indicator" id="mode-display">Modo: Español → Español</div>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-text" id="progress-text">0 de 7 preguntas</div>
+    </div>
+    <div id="quiz-container"></div>
+    <div class="results-section" id="results-section">
+      <button class="results-btn" onclick="showCompletion()">📊 Ver Resultados</button>
+    </div>
+    <div class="completion" id="completion">
+      <div class="icon">🏆</div>
+      <div class="title">¡Historia completada!</div>
+      <div class="score" id="final-score">0/7</div>
+      <div class="msg" id="completion-msg"></div>
+      <div class="stats">
+        <div class="stat"><div class="stat-num" id="stat-literal">0/3</div><div class="stat-label">LITERAL</div></div>
+        <div class="stat"><div class="stat-num" id="stat-inferential">0/3</div><div class="stat-label">INFERENCIAL</div></div>
+      </div>
+      <button class="reset-btn" onclick="resetQuiz()">🔄 Intentar de Nuevo</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Module 2 · <strong>A2 Banking, Money &amp; Admin</strong> · JUCUM English Center</p>
+    <p>Approach: Stories-based · Krashen's comprehensible input</p>
+  </footer>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="ach-modal">
+  <div class="modal-content">
+    <div class="modal-icon" id="modal-icon">🏆</div>
+    <h3 class="modal-title">¡Logro Desbloqueado!</h3>
+    <p class="modal-text" id="modal-text"></p>
+    <button class="modal-btn" onclick="closeModal()">¡Genial!</button>
+  </div>
+</div>
+
+<script>
+const S = {"1": {"title_en": "Sofía's First Bank Account", "title_es": "La primera cuenta bancaria de Sofía", "emoji": "🏦", "paragraphs": [{"uid": "s1-0", "en": "Sofía had been saving money at home for many years. She kept her bills hidden inside a small box under her bed. Her grandmother used to follow the same pattern in her old house on the hill. The concept of a bank felt strange and far away to Sofía before now. But modern life required a real account to pay rent, water, and many other bills.", "es": "Sofía había estado ahorrando dinero en casa durante muchos años. Guardaba sus billetes escondidos dentro de una pequeña caja debajo de su cama. Su abuela solía seguir el mismo patrón en su vieja casa en la colina. El concepto de un banco se sentía extraño y lejano para Sofía antes de ahora. Pero la vida moderna requería una cuenta real para pagar alquiler, agua, y muchas otras cuentas."}, {"uid": "s1-1", "en": "One cold morning, she walked to the bank office near the main park. She was a little nervous because everything felt new and complex. The guard greeted her in a friendly voice and opened the door. She sat down and waited for a clerk to call her. The waiting room was clean, warm, and very quiet.", "es": "Una mañana fría, caminó al banco cerca del parque principal. Estaba un poco nerviosa porque todo se sentía nuevo y complejo. El guardia la saludó con voz amable y le abrió la puerta. Ella se sentó y esperó a que un empleado la llamara. La sala de espera estaba limpia, cálida, y muy silenciosa."}, {"uid": "s1-2", "en": "A kind woman called her number and invited her to approach the counter. Sofía explained that she wanted to open a basic savings account. The clerk asked for her ID and a recent utility bill. Sofía had brought both documents with her, just in case. She was proud of being ready for the process.", "es": "Una mujer amable llamó su número y la invitó a acercarse al mostrador. Sofía explicó que quería abrir una cuenta de ahorros básica. La empleada pidió su documento de identidad y una factura reciente de servicios. Sofía había traído ambos documentos con ella, por si acaso. Estaba orgullosa de estar lista para el proceso."}, {"uid": "s1-3", "en": "The clerk began to organize the paperwork with quick, practiced hands. She showed Sofía a clear chart with the different types of accounts. Each one had its own fees, its own limits, and its own small rules. The clerk continued to speak calmly about every basic detail of the process. Sofía asked many questions, and the clerk answered without making her feel slow.", "es": "La empleada comenzó a organizar el papeleo con manos rápidas y practicadas. Le mostró a Sofía un gráfico claro con los diferentes tipos de cuentas. Cada una tenía sus propias comisiones, sus propios límites, y sus propias pequeñas reglas. La empleada continuó hablando con calma sobre cada detalle básico del proceso. Sofía hizo muchas preguntas, y la empleada respondió sin hacerla sentir lenta."}, {"uid": "s1-4", "en": "The whole process took about twenty minutes from start to finish. Sofía deposited her first fifty soles into her brand new account. She created a simple PIN that she could remember but nobody could guess. The clerk warned her never to share it with any family member. Safety was the most important thing when dealing with real money.", "es": "Todo el proceso tomó unos veinte minutos de principio a fin. Sofía depositó sus primeros cincuenta soles en su nueva cuenta. Creó un PIN simple que podía recordar pero que nadie podía adivinar. La empleada le advirtió que nunca lo compartiera con ningún miembro de la familia. La seguridad era lo más importante al tratar con dinero real."}, {"uid": "s1-5", "en": "Before she left, the clerk helped her connect the account to her phone. A small green app appeared on her screen in a few seconds. She could now check her balance, pay bills, and move money quickly. Sofía assumed it would be much harder, but the clerk made it easy. She felt a real sense of pride growing inside her chest.", "es": "Antes de irse, la empleada la ayudó a conectar la cuenta con su teléfono. Una pequeña aplicación verde apareció en su pantalla en pocos segundos. Ahora podía ver su saldo, pagar cuentas, y mover dinero rápidamente. Sofía suponía que sería mucho más difícil, pero la empleada lo hizo fácil. Sintió una verdadera sensación de orgullo creciendo dentro de su pecho."}, {"uid": "s1-6", "en": "Sofía walked out of the bank with her new debit card in her pocket. The morning sun felt warmer than it had just an hour ago. She was no longer just a girl with a box of bills under her bed. She was now a real client of a modern bank with a real account. Today was the first step of a much longer financial journey ahead.", "es": "Sofía salió del banco con su nueva tarjeta de débito en el bolsillo. El sol de la mañana se sentía más cálido que hacía solo una hora. Ya no era solo una chica con una caja de billetes debajo de su cama. Ahora era una cliente real de un banco moderno con una cuenta real. Hoy era el primer paso de un viaje financiero mucho más largo por delante."}], "qs": [{"type": "literal", "q_es": "¿Dónde guardaba Sofía su dinero antes de abrir una cuenta bancaria?", "q_en": "Where did Sofía keep her money before opening a bank account?", "opt_es": ["Con su abuela en la colina", "En un banco cerca del parque", "En su teléfono móvil", "En una pequeña caja debajo de su cama"], "opt_en": ["With her grandmother on the hill", "In a bank near the park", "On her mobile phone", "In a small box under her bed"], "correct": 3, "ev_es": "La historia dice: \"She kept her bills hidden inside a small box under her bed.\"", "ev_en": "The story says: \"She kept her bills hidden inside a small box under her bed.\""}, {"type": "literal", "q_es": "¿Qué documentos pidió la cajera a Sofía para abrir la cuenta?", "q_en": "Which documents did the clerk ask Sofía for to open the account?", "opt_es": ["Una carta de recomendación y dinero", "Su pasaporte y un contrato de trabajo", "Solo su tarjeta de débito", "Su ID y un recibo de servicio reciente"], "opt_en": ["A recommendation letter and money", "Her passport and a work contract", "Only her debit card", "Her ID and a recent utility bill"], "correct": 3, "ev_es": "La historia dice: \"The clerk asked for her ID and a recent utility bill. Sofía had brought both documents with her.\"", "ev_en": "The story says: \"The clerk asked for her ID and a recent utility bill. Sofía had brought both documents with her.\""}, {"type": "literal", "q_es": "¿Cuánto dinero depositó Sofía en su nueva cuenta?", "q_en": "How much money did Sofía deposit into her new account?", "opt_es": ["Doscientos soles", "Cien soles", "Veinte soles", "Cincuenta soles"], "opt_en": ["Two hundred soles", "One hundred soles", "Twenty soles", "Fifty soles"], "correct": 3, "ev_es": "La historia dice: \"Sofía deposited her first fifty soles into her brand new account.\"", "ev_en": "The story says: \"Sofía deposited her first fifty soles into her brand new account.\""}, {"type": "inferential", "q_es": "¿Cómo se sentía Sofía al llegar al banco esa mañana fría?", "q_en": "How did Sofía feel when she arrived at the bank that cold morning?", "opt_es": ["Enojada con el guardia", "Un poco nerviosa porque todo era nuevo", "Segura de sí misma y experta", "Aburrida y cansada"], "opt_en": ["Angry with the guard", "A little nervous because everything was new", "Confident and expert", "Bored and tired"], "correct": 1, "ev_es": "La historia dice: \"She was a little nervous because everything felt new and complex.\"", "ev_en": "The story says: \"She was a little nervous because everything felt new and complex.\""}, {"type": "inferential", "q_es": "¿Por qué la cajera advirtió a Sofía que nunca compartiera su PIN con la familia?", "q_en": "Why did the clerk warn Sofía never to share her PIN with family?", "opt_es": ["Porque la familia no entiende de bancos", "Porque el PIN cambia cada semana", "Porque la seguridad es lo más importante con el dinero real", "Porque el banco lo prohíbe por ley"], "opt_en": ["Because family doesn't understand banks", "Because the PIN changes every week", "Because safety is the most important thing with real money", "Because the bank forbids it by law"], "correct": 2, "ev_es": "La historia dice: \"Safety was the most important thing when dealing with real money.\"", "ev_en": "The story says: \"Safety was the most important thing when dealing with real money.\""}, {"type": "inferential", "q_es": "¿Qué podía hacer Sofía con la aplicación del banco en su teléfono?", "q_en": "What could Sofía do with the bank app on her phone?", "opt_es": ["Llamar a su abuela gratis", "Consultar su balance, pagar cuentas y mover dinero rápido", "Solo ver su balance sin hacer más nada", "Jugar y ver videos en el banco"], "opt_en": ["Call her grandmother for free", "Check her balance, pay bills, and move money quickly", "Only check her balance and nothing else", "Play games and watch videos at the bank"], "correct": 1, "ev_es": "La historia dice: \"She could now check her balance, pay bills, and move money quickly.\"", "ev_en": "The story says: \"She could now check her balance, pay bills, and move money quickly.\""}, {"type": "critical", "q_es": "¿Cuál es la lección principal que muestra la experiencia de Sofía?", "q_en": "What is the main lesson that Sofía's experience shows?", "opt_es": ["Los bancos son lugares peligrosos que se deben evitar", "Solo las personas ricas deben tener cuentas bancarias", "Guardar dinero en casa es igual de seguro que en un banco", "Dar un primer paso pequeño puede abrir una nueva etapa financiera"], "opt_en": ["Banks are dangerous places that should be avoided", "Only rich people should have bank accounts", "Keeping money at home is as safe as keeping it in a bank", "Taking one small first step can open a new financial stage"], "correct": 3, "ev_es": "La historia termina: \"Today was the first step of a much longer financial journey ahead.\" Sofía pasa del miedo al orgullo con un solo paso.", "ev_en": "The story ends: \"Today was the first step of a much longer financial journey ahead.\" Sofía moves from fear to pride with a single step."}]}, "2": {"title_en": "The Strange Charge", "title_es": "El cargo extraño", "emoji": "🔍", "paragraphs": [{"uid": "s2-0", "en": "Carlos had a simple habit every month on the last day. He would sit at his kitchen table with a hot cup of coffee. He would open his bank statement and count every charge carefully. This small activity helped him understand where his money really went. Most months, everything made sense, and he would close the file quickly.", "es": "Carlos tenía un hábito simple cada mes el último día. Se sentaba en la mesa de su cocina con una taza de café caliente. Abría su estado de cuenta bancario y contaba cada cargo con cuidado. Esta pequeña actividad le ayudaba a entender a dónde iba realmente su dinero. La mayoría de los meses, todo tenía sentido, y cerraba el archivo rápidamente."}, {"uid": "s2-1", "en": "But this time, he found something truly strange on the second page. A charge of two hundred soles appeared under the date of October fifteenth. The store was called North Market, a name Carlos did not know. He had never been to that shop in his entire life before. His heart started to beat a little faster at that moment.", "es": "Pero esta vez, encontró algo verdaderamente extraño en la segunda página. Un cargo de doscientos soles apareció bajo la fecha del quince de octubre. La tienda se llamaba North Market, un nombre que Carlos no conocía. Nunca había estado en esa tienda en toda su vida. Su corazón empezó a latir un poco más rápido en ese momento."}, {"uid": "s2-2", "en": "He remembered that day very clearly because it was a test day at the office. He had been at his desk from early morning until late in the afternoon. His card had been in his wallet, which lay inside his bag the whole time. There was no real way somebody could have used his card in person. The dead silence of his empty kitchen felt strange as he rubbed his nose in confusion.", "es": "Recordaba ese día muy claramente porque era un día de examen en la oficina. Había estado en su escritorio desde temprano en la mañana hasta tarde en la tarde. Su tarjeta había estado en su billetera, que yacía dentro de su bolso todo el tiempo. No había manera real de que alguien hubiera usado su tarjeta en persona. El silencio muerto de su cocina vacía se sentía extraño mientras se frotaba la nariz en confusión."}, {"uid": "s2-3", "en": "Carlos called the bank immediately and waited for an agent to pick up the phone. A calm voice on the other end listened to his whole story carefully. The agent did not assume he was lying, which made Carlos feel much better. She explained that thieves sometimes copy card numbers through the internet. Carlos did not understand every technical term, but he understood the basic idea.", "es": "Carlos llamó al banco inmediatamente y esperó a que un agente contestara el teléfono. Una voz calmada al otro lado escuchó toda su historia con cuidado. La agente no supuso que estaba mintiendo, lo que hizo sentir a Carlos mucho mejor. Ella explicó que los ladrones a veces copian los números de tarjetas a través de internet. Carlos no entendió cada término técnico, pero entendió la idea básica."}, {"uid": "s2-4", "en": "The agent blocked his card right away and opened a formal dispute file. She told him to stay calm because the law protected customers in cases like his. A temporary credit would appear in his account within five business days. That gave Carlos a real sense of relief he had not expected. He had assumed he would have to fight for weeks to get his money back.", "es": "La agente bloqueó su tarjeta enseguida y abrió un expediente formal de disputa. Le dijo que mantuviera la calma porque la ley protegía a los clientes en casos como el suyo. Un crédito temporal aparecería en su cuenta dentro de cinco días hábiles. Eso le dio a Carlos una verdadera sensación de alivio que no esperaba. Había supuesto que tendría que luchar durante semanas para recuperar su dinero."}, {"uid": "s2-5", "en": "The full investigation would take about thirty days on average. During that time, Carlos would receive updates by email every week. If the bank proved the charge was fraud, the credit became permanent automatically. He would not lose a single sol of his hard-earned money. The whole process was much more organized than he had ever imagined.", "es": "La investigación completa tomaría unos treinta días en promedio. Durante ese tiempo, Carlos recibiría actualizaciones por correo cada semana. Si el banco demostraba que el cargo era fraude, el crédito se volvía permanente automáticamente. No perdería ni un sol de su dinero ganado con esfuerzo. Todo el proceso era mucho más organizado de lo que había imaginado."}, {"uid": "s2-6", "en": "A new card arrived at his home three days later, exactly as promised. Carlos set a new PIN, avoiding common patterns like birthdays and phone numbers. He also activated text alerts for every single purchase on the card. Now he would know about any movement within seconds, day or night. This experience taught him a real lesson about staying alert in modern times.", "es": "Una tarjeta nueva llegó a su casa tres días después, exactamente como prometieron. Carlos estableció un nuevo PIN, evitando patrones comunes como cumpleaños y números de teléfono. También activó alertas de texto para cada compra en la tarjeta. Ahora sabría sobre cualquier movimiento en segundos, de día o de noche. Esta experiencia le enseñó una verdadera lección sobre mantenerse alerta en tiempos modernos."}], "qs": [{"type": "literal", "q_es": "¿Qué hacía Carlos cada mes el último día?", "q_en": "What did Carlos do every month on the last day?", "opt_es": ["Visitaba a su familia en otra ciudad", "Iba al banco a depositar dinero", "Se sentaba con café y revisaba su estado de cuenta", "Llamaba al banco para reclamar"], "opt_en": ["He visited his family in another city", "He went to the bank to deposit money", "He sat with coffee and reviewed his bank statement", "He called the bank to complain"], "correct": 2, "ev_es": "La historia dice: \"He would sit at his kitchen table with a hot cup of coffee. He would open his bank statement and count every charge carefully.\"", "ev_en": "The story says: \"He would sit at his kitchen table with a hot cup of coffee. He would open his bank statement and count every charge carefully.\""}, {"type": "literal", "q_es": "¿De cuánto era el cargo extraño que encontró Carlos?", "q_en": "How much was the strange charge Carlos found?", "opt_es": ["Doscientos soles", "Cincuenta soles", "Cien soles", "Quinientos soles"], "opt_en": ["Two hundred soles", "Fifty soles", "One hundred soles", "Five hundred soles"], "correct": 0, "ev_es": "La historia dice: \"A charge of two hundred soles appeared under the date of October fifteenth.\"", "ev_en": "The story says: \"A charge of two hundred soles appeared under the date of October fifteenth.\""}, {"type": "literal", "q_es": "¿Cuánto tiempo dura la investigación completa del banco en promedio?", "q_en": "How long does the full bank investigation take on average?", "opt_es": ["Aproximadamente treinta días", "Cinco días hábiles", "Dos meses enteros", "Una semana"], "opt_en": ["About thirty days", "Five business days", "Two full months", "One week"], "correct": 0, "ev_es": "La historia dice: \"The full investigation would take about thirty days on average.\"", "ev_en": "The story says: \"The full investigation would take about thirty days on average.\""}, {"type": "inferential", "q_es": "¿Por qué Carlos estaba seguro de que él no había hecho el cargo en persona?", "q_en": "Why was Carlos sure that he hadn't made the charge in person?", "opt_es": ["Porque ese día estuvo en su escritorio en la oficina con la tarjeta en su bolsa", "Porque no le gusta la tienda North Market", "Porque su esposa tenía su tarjeta ese día", "Porque nunca gasta doscientos soles en una sola tienda"], "opt_en": ["Because that day he was at his desk at the office with the card in his bag", "Because he does not like the store North Market", "Because his wife had his card that day", "Because he never spends two hundred soles in a single store"], "correct": 0, "ev_es": "La historia dice: \"He had been at his desk from early morning until late in the afternoon. His card had been in his wallet, which lay inside his bag the whole time.\"", "ev_en": "The story says: \"He had been at his desk from early morning until late in the afternoon. His card had been in his wallet, which lay inside his bag the whole time.\""}, {"type": "inferential", "q_es": "¿Cómo reaccionó la agente del banco cuando Carlos llamó?", "q_en": "How did the bank agent react when Carlos called?", "opt_es": ["Le dijo que tendría que ir al banco en persona", "Lo escuchó con calma, no supuso que mentía y bloqueó la tarjeta", "Le pidió que esperara un mes para reclamar", "Lo acusó de estar mintiendo y cerró el caso"], "opt_en": ["She told him he would have to go to the bank in person", "She listened calmly, didn't assume he was lying, and blocked the card", "She asked him to wait a month to file the claim", "She accused him of lying and closed the case"], "correct": 1, "ev_es": "La historia dice: \"A calm voice on the other end listened to his whole story carefully. The agent did not assume he was lying... The agent blocked his card right away.\"", "ev_en": "The story says: \"A calm voice on the other end listened to his whole story carefully. The agent did not assume he was lying... The agent blocked his card right away.\""}, {"type": "inferential", "q_es": "¿Qué medidas tomó Carlos para proteger su nueva tarjeta?", "q_en": "What steps did Carlos take to protect his new card?", "opt_es": ["Usó su cumpleaños como PIN y guardó la tarjeta en casa", "Solo compró con efectivo desde ese día", "Eligió un PIN evitando patrones comunes y activó alertas de texto para cada compra", "Canceló la cuenta y cambió de banco"], "opt_en": ["He used his birthday as PIN and kept the card at home", "He only paid with cash from that day on", "He chose a PIN avoiding common patterns and activated text alerts for every purchase", "He cancelled the account and changed bank"], "correct": 2, "ev_es": "La historia dice: \"Carlos set a new PIN, avoiding common patterns like birthdays and phone numbers. He also activated text alerts for every single purchase on the card.\"", "ev_en": "The story says: \"Carlos set a new PIN, avoiding common patterns like birthdays and phone numbers. He also activated text alerts for every single purchase on the card.\""}, {"type": "critical", "q_es": "¿Cuál es la lección principal de la experiencia de Carlos?", "q_en": "What is the main lesson from Carlos's experience?", "opt_es": ["Es mejor guardar todo el dinero en efectivo en la casa", "Nunca se debe usar tarjeta porque siempre es peligroso", "Los bancos son inútiles cuando hay fraude", "Revisar con cuidado el estado de cuenta y actuar rápido puede proteger tu dinero"], "opt_en": ["It is better to keep all money in cash at home", "You should never use a card because it is always dangerous", "Banks are useless when there is fraud", "Checking your statement carefully and acting fast can protect your money"], "correct": 3, "ev_es": "La historia muestra que la revisión mensual (\"count every charge carefully\") y la acción rápida (\"Carlos called the bank immediately\") permitieron resolver el fraude sin pérdidas.", "ev_en": "The story shows that the monthly review (\"count every charge carefully\") and quick action (\"Carlos called the bank immediately\") allowed him to resolve the fraud without losses."}]}, "3": {"title_en": "A Month of Smart Saving", "title_es": "Un mes de ahorro inteligente", "emoji": "💰", "paragraphs": [{"uid": "s3-0", "en": "Diana had a stable job, but her money seemed to disappear every single month. She worked hard, and yet her bank balance was always low by the end. She never really understood what her real problem was until recently. A friend at the office told her about a simple monthly planning method. Diana decided to try it for one full month, with no excuses allowed.", "es": "Diana tenía un trabajo estable, pero su dinero parecía desaparecer cada mes. Trabajaba duro, y aún así su saldo bancario siempre estaba bajo al final. Nunca entendió realmente cuál era su problema real hasta hace poco. Una amiga en la oficina le contó sobre un método simple de planificación mensual. Diana decidió probarlo por un mes completo, sin excusas permitidas."}, {"uid": "s3-1", "en": "The first step was to look at her last three months of statements carefully. She made a simple chart with every expense grouped into basic categories. Rent, food, transport, and utilities were the biggest, fixed items each month. The real surprise was how much she spent on small daily purchases. Coffee, snacks, and little treats added up to a shocking amount every month.", "es": "El primer paso fue mirar sus últimos tres meses de estados de cuenta con cuidado. Hizo un gráfico simple con cada gasto agrupado en categorías básicas. Alquiler, comida, transporte, y servicios eran los rubros más grandes y fijos cada mes. La verdadera sorpresa fue cuánto gastaba en pequeñas compras diarias. El café, los bocadillos, y pequeños gustos sumaban un monto impactante cada mes."}, {"uid": "s3-2", "en": "She also discovered that she was paying for four different subscriptions. She only used one of them regularly for her weekly entertainment. The other three, including a french recipe app she never opened, were a weak reason to waste money. She canceled all three on the same day, without feeling any real loss. That small step saved her almost eighty soles per month without any effort.", "es": "También descubrió que estaba pagando por cuatro suscripciones diferentes. Solo usaba una de ellas regularmente para su entretenimiento semanal. Las otras tres, incluyendo una aplicación francesa de recetas que nunca abría, eran una razón débil para malgastar dinero. Canceló las tres el mismo día, sin sentir ninguna pérdida real. Ese pequeño paso le ahorró casi ochenta soles al mes sin ningún esfuerzo."}, {"uid": "s3-3", "en": "Next, Diana set a monthly budget for every category on her chart. She gave herself a reasonable amount for fun, food, and small treats. She put a hard limit on eating out, no more than six times per month. She started cooking fresh meals at home on weekends in large batches. Those home meals tasted better and cost a fraction of restaurant food.", "es": "Luego, Diana fijó un presupuesto mensual para cada categoría en su gráfico. Se dio a sí misma un monto razonable para diversión, comida, y pequeños gustos. Puso un límite firme en comer fuera, no más de seis veces al mes. Empezó a cocinar comidas frescas en casa los fines de semana en grandes cantidades. Esas comidas caseras sabían mejor y costaban una fracción de la comida del restaurante."}, {"uid": "s3-4", "en": "The most important step was setting up an automatic transfer every payday. Ten percent of her salary moved into a separate savings account immediately. This became her iron rule, one she refused to break for any small excuse. She could not see that money in her main account, so she could not spend it. After a few weeks, she did not even miss the amount she was saving.", "es": "El paso más importante fue configurar una transferencia automática cada día de pago. El diez por ciento de su salario se movía a una cuenta de ahorros separada inmediatamente. Esta se convirtió en su regla de hierro, una que se negaba a romper por cualquier pequeña excusa. No podía ver ese dinero en su cuenta principal, así que no podía gastarlo. Después de unas semanas, ni siquiera extrañaba el monto que estaba ahorrando."}, {"uid": "s3-5", "en": "Diana also started to track every purchase in a small notebook every night. It took only five minutes, but the patterns it showed her were priceless. She noticed that she spent the most money when she was tired or upset. Understanding that weakness helped her avoid the same trap again and again. The notebook slowly taught her to make better choices step by step.", "es": "Diana también empezó a rastrear cada compra en un pequeño cuaderno cada noche. Tomaba solo cinco minutos, pero los patrones que le mostraba no tenían precio. Notó que gastaba más dinero cuando estaba cansada o molesta. Entender esa debilidad le ayudó a evitar la misma trampa una y otra vez. El cuaderno lentamente le enseñó a tomar mejores decisiones paso a paso."}, {"uid": "s3-6", "en": "By the end of the month, her savings account had a real balance for once. It was not a huge amount, but it was a true stepping stone toward something solid. She felt stronger, more in control, and proud of what she had built. Diana assumed this was just the start of a much better financial life. Next month, she would aim to save a little more, one small step at a time.", "es": "Al final del mes, su cuenta de ahorros tenía un saldo real por una vez. No era un monto enorme, pero era un verdadero trampolín hacia algo sólido. Se sentía más fuerte, más en control, y orgullosa de lo que había construido. Diana suponía que esto era solo el comienzo de una vida financiera mucho mejor. El próximo mes, apuntaría a ahorrar un poco más, un pequeño paso a la vez."}], "qs": [{"type": "literal", "q_es": "¿Cuál era el problema de Diana al inicio de la historia?", "q_en": "What was Diana's problem at the beginning of the story?", "opt_es": ["Debía dinero al banco", "Su amiga no quería hablar con ella", "Trabajaba pero su dinero parecía desaparecer cada mes", "No tenía trabajo estable"], "opt_en": ["She owed money to the bank", "Her friend didn't want to talk to her", "She worked but her money seemed to disappear every month", "She didn't have a stable job"], "correct": 2, "ev_es": "La historia dice: \"Diana had a stable job, but her money seemed to disappear every single month.\"", "ev_en": "The story says: \"Diana had a stable job, but her money seemed to disappear every single month.\""}, {"type": "literal", "q_es": "¿Cuántas suscripciones tenía Diana y cuántas usaba regularmente?", "q_en": "How many subscriptions did Diana have and how many did she regularly use?", "opt_es": ["Cinco suscripciones y no usaba ninguna", "Tres suscripciones y usaba dos", "Cuatro suscripciones pero solo usaba una", "Dos suscripciones y usaba ambas"], "opt_en": ["Five subscriptions and used none", "Three subscriptions and used two", "Four subscriptions but only used one", "Two subscriptions and used both"], "correct": 2, "ev_es": "La historia dice: \"She was paying for four different subscriptions. She only used one of them regularly.\"", "ev_en": "The story says: \"She was paying for four different subscriptions. She only used one of them regularly.\""}, {"type": "literal", "q_es": "¿Qué porcentaje de su salario transfería Diana automáticamente a la cuenta de ahorros?", "q_en": "What percentage of her salary did Diana automatically transfer to her savings account?", "opt_es": ["Cincuenta por ciento", "Diez por ciento", "Cinco por ciento", "Veinte por ciento"], "opt_en": ["Fifty percent", "Ten percent", "Five percent", "Twenty percent"], "correct": 1, "ev_es": "La historia dice: \"Ten percent of her salary moved into a separate savings account immediately.\"", "ev_en": "The story says: \"Ten percent of her salary moved into a separate savings account immediately.\""}, {"type": "inferential", "q_es": "¿Qué descubrió Diana al revisar sus tres meses de estados de cuenta?", "q_en": "What did Diana discover when she reviewed her three months of statements?", "opt_es": ["Que su alquiler era demasiado alto", "Que pequeñas compras diarias sumaban una cantidad sorprendente", "Que el banco le cobraba cargos extras", "Que ganaba más dinero del que pensaba"], "opt_en": ["That her rent was too high", "That small daily purchases added up to a shocking amount", "That the bank charged her extra fees", "That she earned more money than she thought"], "correct": 1, "ev_es": "La historia dice: \"Coffee, snacks, and little treats added up to a shocking amount every month.\"", "ev_en": "The story says: \"Coffee, snacks, and little treats added up to a shocking amount every month.\""}, {"type": "inferential", "q_es": "¿Cómo redujo Diana los gastos en comida?", "q_en": "How did Diana reduce her food expenses?", "opt_es": ["Puso un límite para comer fuera y cocinó comida fresca en casa los fines de semana", "Solo comía en restaurantes baratos", "Dejó de comer durante la semana", "Dejó el café por completo"], "opt_en": ["She set a limit on eating out and cooked fresh meals at home on weekends", "She only ate at cheap restaurants", "She stopped eating during the week", "She completely gave up coffee"], "correct": 0, "ev_es": "La historia dice: \"She put a hard limit on eating out, no more than six times per month. She started cooking fresh meals at home on weekends in large batches.\"", "ev_en": "The story says: \"She put a hard limit on eating out, no more than six times per month. She started cooking fresh meals at home on weekends in large batches.\""}, {"type": "inferential", "q_es": "¿Qué patrón notó Diana al anotar sus compras cada noche?", "q_en": "What pattern did Diana notice when tracking her purchases every night?", "opt_es": ["Que solo gastaba los domingos", "Que compraba lo mismo cada día", "Que gastaba más cuando estaba cansada o disgustada", "Que no gastaba nada fuera del presupuesto"], "opt_en": ["That she only spent on Sundays", "That she bought the same thing every day", "That she spent more when tired or upset", "That she never spent outside the budget"], "correct": 2, "ev_es": "La historia dice: \"She noticed that she spent the most money when she was tired or upset.\"", "ev_en": "The story says: \"She noticed that she spent the most money when she was tired or upset.\""}, {"type": "critical", "q_es": "¿Cuál es la lección principal del mes de ahorro de Diana?", "q_en": "What is the main lesson of Diana's month of saving?", "opt_es": ["Pequeños hábitos consistentes pueden transformar tu vida financiera", "Es necesario ganar mucho más dinero para ahorrar", "Los presupuestos solo funcionan para personas ricas", "Cancelar todas las suscripciones es la única forma de ahorrar"], "opt_en": ["Small consistent habits can transform your financial life", "You need to earn much more money to save", "Budgets only work for rich people", "Canceling all subscriptions is the only way to save"], "correct": 0, "ev_es": "La historia termina: \"She felt stronger, more in control... Next month, she would aim to save a little more, one small step at a time.\" Los pequeños pasos constantes crean el cambio.", "ev_en": "The story ends: \"She felt stronger, more in control... Next month, she would aim to save a little more, one small step at a time.\" Small consistent steps create the change."}]}, "4": {"title_en": "Marcos and the Lost Wallet", "title_es": "Marcos y la billetera perdida", "emoji": "🪪", "paragraphs": [{"uid": "s4-0", "en": "Marcos had traveled to another city last week to visit his aunt. She was in the hospital after a small accident in her garden. A mole had made holes in her path, and she had tripped on one. The trip was long, and he was tired by the time he finally arrived. He spent the whole night talking with her and her old neighbor.", "es": "Marcos había viajado a otra ciudad la semana pasada para visitar a su tía. Ella estaba en el hospital después de un pequeño accidente en su jardín. Un topo había hecho agujeros en su camino, y ella se había tropezado con uno. El viaje fue largo, y estaba cansado cuando finalmente llegó. Pasó toda la noche hablando con ella y su vieja vecina."}, {"uid": "s4-1", "en": "The next morning, Marcos discovered that his wallet was no longer with him. He checked every pocket, every bag, every corner of the small hospital room. The wallet had his cards, his ID, and some cash from the last week. He tried to remember the last time he had actually seen it with himself. His memory of the night before was a little foggy because of the tiredness.", "es": "A la mañana siguiente, Marcos descubrió que su billetera ya no estaba con él. Revisó cada bolsillo, cada bolso, cada rincón de la pequeña habitación del hospital. La billetera tenía sus tarjetas, su documento, y algo de efectivo de la semana pasada. Trató de recordar la última vez que realmente la había visto consigo mismo. Su memoria de la noche anterior era un poco borrosa por el cansancio."}, {"uid": "s4-2", "en": "Marcos quickly walked to the nearest bank branch to report the problem. A friendly teller greeted him at the counter and asked for his details. She looked at his account and noticed two charges made during the night. One charge was at a gas station, the other at an electronics store called Ion Volt. Marcos had been at the hospital the whole time, so those charges were not his.", "es": "Marcos caminó rápidamente a la sucursal bancaria más cercana para reportar el problema. Una empleada amable lo saludó en el mostrador y le pidió sus datos. Ella miró su cuenta y notó dos cargos hechos durante la noche. Un cargo fue en una gasolinera, el otro en una tienda de electrónica llamada Ion Volt. Marcos había estado en el hospital todo el tiempo, así que esos cargos no eran suyos."}, {"uid": "s4-3", "en": "The teller understood that the case was more complex than a simple lost card. She called the branch manager to help handle the fraud properly. The manager arrived quickly and treated Marcos with real warmth and respect. Together, they opened a formal dispute and blocked the old card immediately. The whole team wanted to prove to Marcos that his money was truly safe.", "es": "La empleada entendió que el caso era más complejo que una simple tarjeta perdida. Llamó al gerente de la sucursal para ayudar a manejar el fraude correctamente. El gerente llegó rápidamente y trató a Marcos con verdadera calidez y respeto. Juntos, abrieron una disputa formal y bloquearon la tarjeta vieja inmediatamente. Todo el equipo quería demostrarle a Marcos que su dinero estaba verdaderamente seguro."}, {"uid": "s4-4", "en": "They told him that a temporary credit would appear within twenty-four hours. The investigation itself would take about thirty days from start to end. During that time, the money would stay in his account without any issue. If the bank proved that the charges were fraud, the credit became permanent. Marcos felt like a great weight had lifted from his heavy shoulders.", "es": "Le dijeron que un crédito temporal aparecería dentro de veinticuatro horas. La investigación en sí tomaría unos treinta días de principio a fin. Durante ese tiempo, el dinero se quedaría en su cuenta sin ningún problema. Si el banco demostraba que los cargos eran fraude, el crédito se volvía permanente. Marcos sintió como si un gran peso se hubiera levantado de sus pesados hombros."}, {"uid": "s4-5", "en": "The teller produced a new card right there in the office in fifteen minutes. Marcos chose a new PIN, avoiding common patterns like his birthday or his phone. The manager advised him to activate text alerts for every single purchase he made. That way, any strange movement would reach his phone within a few seconds. Marcos promised himself he would never be so careless with his wallet again.", "es": "La empleada produjo una nueva tarjeta allí mismo en la oficina en quince minutos. Marcos eligió un nuevo PIN, evitando patrones comunes como su cumpleaños o su teléfono. El gerente le aconsejó activar alertas de texto para cada compra que hiciera. De esa manera, cualquier movimiento extraño llegaría a su teléfono en pocos segundos. Marcos se prometió a sí mismo que nunca sería tan descuidado con su billetera de nuevo."}, {"uid": "s4-6", "en": "Marcos walked out of the bank feeling tired but much more relaxed. The bank staff had turned a bad situation into a real lesson for him. He now understood that modern banks have strong systems to protect their clients. The law itself was on his side during any fraud investigation. And from now on, he would watch his money and his wallet much more closely.", "es": "Marcos salió del banco sintiéndose cansado pero mucho más relajado. El personal del banco había convertido una mala situación en una lección real para él. Ahora entendía que los bancos modernos tienen sistemas fuertes para proteger a sus clientes. La ley misma estaba de su lado durante cualquier investigación de fraude. Y de ahora en adelante, vigilaría su dinero y su billetera mucho más de cerca."}], "qs": [{"type": "literal", "q_es": "¿Por qué Marcos había viajado a otra ciudad?", "q_en": "Why had Marcos traveled to another city?", "opt_es": ["Para trabajar en una oficina nueva", "Para ir de vacaciones con amigos", "Para conocer a un cliente del banco", "Para visitar a su tía que estaba en el hospital"], "opt_en": ["To work at a new office", "To go on vacation with friends", "To meet a bank client", "To visit his aunt who was in the hospital"], "correct": 3, "ev_es": "La historia dice: \"Marcos had traveled to another city last week to visit his aunt. She was in the hospital after a small accident in her garden.\"", "ev_en": "The story says: \"Marcos had traveled to another city last week to visit his aunt. She was in the hospital after a small accident in her garden.\""}, {"type": "literal", "q_es": "¿Dónde se hicieron los dos cargos extraños en la cuenta de Marcos?", "q_en": "Where were the two strange charges made on Marcos's account?", "opt_es": ["En una gasolinera y una tienda de electrónica llamada Ion Volt", "En el hospital y una farmacia", "En una tienda de ropa y un supermercado", "En un restaurante y un hotel"], "opt_en": ["At a gas station and an electronics store called Ion Volt", "At the hospital and a pharmacy", "At a clothing store and a supermarket", "At a restaurant and a hotel"], "correct": 0, "ev_es": "La historia dice: \"One charge was at a gas station, the other at an electronics store called Ion Volt.\"", "ev_en": "The story says: \"One charge was at a gas station, the other at an electronics store called Ion Volt.\""}, {"type": "literal", "q_es": "¿Cuánto tiempo tardó la cajera en producir la nueva tarjeta de Marcos?", "q_en": "How long did the teller take to produce Marcos's new card?", "opt_es": ["Una hora", "Dos semanas", "Quince minutos", "Tres días"], "opt_en": ["One hour", "Two weeks", "Fifteen minutes", "Three days"], "correct": 2, "ev_es": "La historia dice: \"The teller produced a new card right there in the office in fifteen minutes.\"", "ev_en": "The story says: \"The teller produced a new card right there in the office in fifteen minutes.\""}, {"type": "inferential", "q_es": "¿Por qué Marcos tenía problemas para recordar dónde había visto su billetera por última vez?", "q_en": "Why did Marcos have trouble remembering where he last saw his wallet?", "opt_es": ["Porque el hospital no tenía buena iluminación", "Porque su memoria estaba un poco borrosa por el cansancio", "Porque nunca presta atención a sus cosas", "Porque la tía se lo había escondido"], "opt_en": ["Because the hospital didn't have good lighting", "Because his memory was a little foggy from tiredness", "Because he never pays attention to his things", "Because his aunt had hidden it"], "correct": 1, "ev_es": "La historia dice: \"His memory of the night before was a little foggy because of the tiredness.\"", "ev_en": "The story says: \"His memory of the night before was a little foggy because of the tiredness.\""}, {"type": "inferential", "q_es": "¿Por qué la cajera llamó al gerente de la sucursal?", "q_en": "Why did the teller call the branch manager?", "opt_es": ["Porque no tenía tiempo para atender a Marcos", "Porque el caso era más complejo que una simple tarjeta perdida", "Porque Marcos se había enojado con ella", "Porque quería que el gerente conociera a Marcos personalmente"], "opt_en": ["Because she didn't have time to attend to Marcos", "Because the case was more complex than a simple lost card", "Because Marcos had become angry with her", "Because she wanted the manager to meet Marcos personally"], "correct": 1, "ev_es": "La historia dice: \"The teller understood that the case was more complex than a simple lost card. She called the branch manager to help handle the fraud properly.\"", "ev_en": "The story says: \"The teller understood that the case was more complex than a simple lost card. She called the branch manager to help handle the fraud properly.\""}, {"type": "inferential", "q_es": "¿Qué alivio le dieron a Marcos sobre el dinero durante la investigación?", "q_en": "What relief did they give Marcos about the money during the investigation?", "opt_es": ["Que no pagaría intereses durante un año entero", "Que el banco le prestaría dinero extra para sus gastos", "Que podía retirar todo el dinero y cerrar la cuenta", "Que tendría un crédito temporal en 24 horas mientras duraba la investigación"], "opt_en": ["That he wouldn't pay interest for a whole year", "That the bank would lend him extra money for his expenses", "That he could withdraw all the money and close the account", "That he would have a temporary credit within 24 hours while the investigation lasted"], "correct": 3, "ev_es": "La historia dice: \"They told him that a temporary credit would appear within twenty-four hours... During that time, the money would stay in his account without any issue.\"", "ev_en": "The story says: \"They told him that a temporary credit would appear within twenty-four hours... During that time, the money would stay in his account without any issue.\""}, {"type": "critical", "q_es": "¿Cuál es el mensaje principal de la historia de Marcos?", "q_en": "What is the main message of Marcos's story?", "opt_es": ["Los bancos modernos tienen sistemas fuertes para proteger al cliente y la ley está de tu lado", "Nunca se debe viajar porque siempre pasan cosas malas", "Perder la billetera siempre arruina la vida para siempre", "Es mejor llevar siempre miles de soles en efectivo"], "opt_en": ["Modern banks have strong systems to protect the customer and the law is on your side", "You should never travel because bad things always happen", "Losing your wallet always ruins your life forever", "It is better to always carry thousands of soles in cash"], "correct": 0, "ev_es": "La historia termina: \"He now understood that modern banks have strong systems to protect their clients. The law itself was on his side during any fraud investigation.\"", "ev_en": "The story ends: \"He now understood that modern banks have strong systems to protect their clients. The law itself was on his side during any fraud investigation.\""}]}};
+
+// State
+let cur = 1;
+let mode = 'es-es';
+let answered = {};      // { storyNum: Set of qIndex }
+let correctSet = {};    // { storyNum: Set of qIndex }
+let streak = 0;
+let completedStories = new Set();
+let achModalQueue = [];
+let audioUtterance = null;
+let audioPlaying = false;
+
+// Init per-story state
+[1,2,3,4].forEach(n => {
+  answered[n] = new Set();
+  correctSet[n] = new Set();
+});
+
+// =============== RENDERING ===============
+
+function renderSelector() {
+  const grid = document.getElementById('selector-grid');
+  grid.innerHTML = '';
+  [1,2,3,4].forEach(n => {
+    const s = S[String(n)];
+    const isActive = (n === cur);
+    const isDone = completedStories.has(n);
+    const card = document.createElement('div');
+    card.className = 'selector-card' + (isActive ? ' active' : '') + (isDone ? ' completed' : '');
+    card.onclick = () => selectStory(n);
+    card.innerHTML = `
+      <span class="badge">✅</span>
+      <div class="emoji">${s.emoji}</div>
+      <div class="num">HISTORIA ${n}</div>
+      <div class="title">${s.title_es}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderStory() {
+  const s = S[String(cur)];
+  document.getElementById('story-title').textContent = s.title_es + (mode === 'en-en' ? ' — ' + s.title_en : '');
+  document.getElementById('story-header-label').textContent = 'Historia ' + cur + ': ' + s.title_es;
+
+  const inner = document.getElementById('story-inner');
+  inner.innerHTML = '';
+  s.paragraphs.forEach((p, idx) => {
+    const div = document.createElement('div');
+    div.className = 'story-para';
+    div.dataset.idx = idx;
+    div.onclick = () => playParagraph(idx);
+    div.innerHTML = `
+      <div class="english">${escapeHtml(p.en)}</div>
+      <button class="para-es-toggle" onclick="event.stopPropagation(); this.parentElement.classList.toggle('show-es'); this.textContent = this.parentElement.classList.contains('show-es') ? '🇪🇸 Ocultar traducción' : '🇪🇸 Ver traducción';">🇪🇸 Ver traducción</button>
+      <div class="spanish">${escapeHtml(p.es)}</div>
+    `;
+    inner.appendChild(div);
+  });
+}
+
+function renderQuiz() {
+  const s = S[String(cur)];
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  const isEs = (mode === 'es-es');
+
+  s.qs.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = 'q-' + i;
+
+    const typeLabels = {
+      literal: 'Literal 📖',
+      inferential: 'Inferencial 🔍',
+      critical: 'Pensamiento Crítico 🎓'
+    };
+    const qText = isEs ? q.q_es : q.q_en;
+    const opts = isEs ? q.opt_es : q.opt_en;
+
+    let optsHtml = '';
+    opts.forEach((txt, oi) => {
+      const letter = String.fromCharCode(97 + oi);
+      optsHtml += `<button class="opt-btn" onclick="answer(${i}, ${oi})">${letter}) ${escapeHtml(txt)}</button>`;
+    });
+
+    card.innerHTML = `
+      <span class="q-badge">Pregunta ${i+1}/7 · ${typeLabels[q.type] || q.type}</span>
+      <div class="q-text">${escapeHtml(qText)}</div>
+      <div class="opt-grid">${optsHtml}</div>
+      <div class="fb correct-fb" id="fb-${i}-c">
+        <div class="fb-title">${isEs ? '✅ ¡Correcto!' : '✅ Correct!'}</div>
+        <div class="fb-text">${isEs ? q.ev_es : q.ev_en}</div>
+      </div>
+      <div class="fb incorrect-fb" id="fb-${i}-w">
+        <div class="fb-title">${isEs ? '❌ Incorrecto' : '❌ Incorrect'}</div>
+        <div class="fb-text">${isEs ? q.ev_es : q.ev_en}</div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  // Restore already-answered states if any
+  answered[cur].forEach(idx => {
+    restoreAnsweredState(idx);
+  });
+  updateProgress();
+}
+
+function restoreAnsweredState(i) {
+  // After re-rendering, reapply disabled + feedback for answered questions
+  const s = S[String(cur)];
+  const q = s.qs[i];
+  const card = document.getElementById('q-' + i);
+  if (!card) return;
+  const buttons = card.querySelectorAll('.opt-btn');
+  buttons.forEach(b => b.disabled = true);
+  const isCorrect = correctSet[cur].has(i);
+  if (isCorrect) {
+    buttons[q.correct].classList.add('picked-right');
+    card.classList.add('correct');
+    document.getElementById('fb-' + i + '-c').classList.add('show');
+  } else {
+    // We don't know which wrong one was picked after re-render; just mark correct
+    buttons[q.correct].classList.add('show-right');
+    card.classList.add('incorrect');
+    document.getElementById('fb-' + i + '-w').classList.add('show');
+  }
+}
+
+// =============== INTERACTIONS ===============
+
+function selectStory(n) {
+  stopAudio();
+  cur = n;
+  renderSelector();
+  renderStory();
+  renderQuiz();
+  hideCompletion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === m));
+  document.getElementById('mode-display').textContent = m === 'es-es' ? 'Modo: Español → Español' : 'Mode: English → English';
+  document.getElementById('audio-play-label').textContent = m === 'es-es' ? 'Escuchar toda la historia' : 'Listen to the whole story';
+  // Re-render quiz with new language
+  renderQuiz();
+  hideCompletion();
+}
+
+function toggleStory() {
+  const content = document.getElementById('story-content');
+  const toggle = document.getElementById('story-toggle');
+  content.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+function toggleAllEs() {
+  const paras = document.querySelectorAll('.story-para');
+  const anyHidden = Array.from(paras).some(p => !p.classList.contains('show-es'));
+  paras.forEach(p => {
+    if (anyHidden) {
+      p.classList.add('show-es');
+      const btn = p.querySelector('.para-es-toggle');
+      if (btn) btn.textContent = '🇪🇸 Ocultar traducción';
+    } else {
+      p.classList.remove('show-es');
+      const btn = p.querySelector('.para-es-toggle');
+      if (btn) btn.textContent = '🇪🇸 Ver traducción';
+    }
+  });
+  document.getElementById('all-es-label').textContent = anyHidden ? 'Ocultar traducción completa' : 'Mostrar traducción completa';
+}
+
+function answer(qIdx, optIdx) {
+  if (answered[cur].has(qIdx)) return;
+  answered[cur].add(qIdx);
+
+  const s = S[String(cur)];
+  const q = s.qs[qIdx];
+  const isCorrect = (optIdx === q.correct);
+  const card = document.getElementById('q-' + qIdx);
+  const buttons = card.querySelectorAll('.opt-btn');
+  buttons.forEach(b => b.disabled = true);
+
+  buttons[optIdx].classList.add(isCorrect ? 'picked-right' : 'picked-wrong');
+  if (!isCorrect) buttons[q.correct].classList.add('show-right');
+
+  document.getElementById(`fb-${qIdx}-${isCorrect ? 'c' : 'w'}`).classList.add('show');
+  card.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    correctSet[cur].add(qIdx);
+    streak++;
+  } else {
+    streak = 0;
+  }
+
+  checkAch(qIdx, isCorrect);
+  updateProgress();
+
+  if (answered[cur].size === 7) {
+    document.getElementById('results-section').classList.add('show');
+    completedStories.add(cur);
+    renderSelector();
+    if (completedStories.size === 4) unlock('ach-allfour', '🏦', '¡Has completado las 4 historias del módulo Banking!');
+    setTimeout(() => {
+      document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 400);
+  }
+}
+
+function updateProgress() {
+  const n = answered[cur].size;
+  const pct = (n / 7) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${n} de 7 preguntas`;
+}
+
+// =============== ACHIEVEMENTS ===============
+
+function checkAch(qIdx, isCorrect) {
+  const totalCorrect = Object.values(correctSet).reduce((a, set) => a + set.size, 0);
+  if (isCorrect && totalCorrect === 1) unlock('ach-first', '🌱', '¡Primera respuesta correcta!');
+  if (streak >= 3) unlock('ach-streak', '🔥', '¡3 respuestas correctas seguidas!');
+
+  // Literal mastery: 3 literal questions correct in current story
+  const s = S[String(cur)];
+  const litCount = s.qs.filter((q, i) => q.type === 'literal' && correctSet[cur].has(i)).length;
+  if (litCount >= 3) unlock('ach-literal', '📖', '¡Dominas la comprensión literal!');
+  const infCount = s.qs.filter((q, i) => q.type === 'inferential' && correctSet[cur].has(i)).length;
+  if (infCount >= 3) unlock('ach-inferential', '🔍', '¡Dominas la comprensión inferencial!');
+  const critCount = s.qs.filter((q, i) => q.type === 'critical' && correctSet[cur].has(i)).length;
+  if (critCount >= 1) unlock('ach-critical', '🎓', '¡Excelente pensamiento crítico!');
+
+  // Saver: complete story 3 (Diana saving) fully correct
+  if (cur === 3 && correctSet[3].size === 7) unlock('ach-saver', '💰', '¡Has aprendido el arte de ahorrar!');
+}
+
+function unlock(id, icon, text) {
+  const el = document.getElementById(id);
+  if (!el || el.classList.contains('unlocked')) return;
+  el.classList.add('unlocked');
+  achModalQueue.push({ icon, text });
+  processModalQueue();
+}
+
+function processModalQueue() {
+  if (document.getElementById('ach-modal').classList.contains('show')) return;
+  if (achModalQueue.length === 0) return;
+  const next = achModalQueue.shift();
+  document.getElementById('modal-icon').textContent = next.icon;
+  document.getElementById('modal-text').textContent = next.text;
+  document.getElementById('ach-modal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('ach-modal').classList.remove('show');
+  setTimeout(processModalQueue, 250);
+}
+
+// =============== COMPLETION ===============
+
+function showCompletion() {
+  const s = S[String(cur)];
+  const score = correctSet[cur].size;
+  document.getElementById('final-score').textContent = `${score}/7`;
+
+  const litTotal = s.qs.filter(q => q.type === 'literal').length;
+  const litScore = s.qs.filter((q, i) => q.type === 'literal' && correctSet[cur].has(i)).length;
+  const infTotal = s.qs.filter(q => q.type === 'inferential').length;
+  const infScore = s.qs.filter((q, i) => q.type === 'inferential' && correctSet[cur].has(i)).length;
+  document.getElementById('stat-literal').textContent = `${litScore}/${litTotal}`;
+  document.getElementById('stat-inferential').textContent = `${infScore}/${infTotal}`;
+
+  let msg;
+  if (score === 7) {
+    msg = '¡Excelente! Dominas esta historia completamente. 🌟';
+    unlock('ach-perfect', '⭐', `¡Puntaje perfecto en "${s.title_es}"!`);
+  } else if (score >= 5) {
+    msg = 'Muy bien. Tienes una base sólida — revisa lo que fallaste y súbelo. 👍';
+  } else if (score >= 3) {
+    msg = 'Buen intento. Relee la historia con calma y vuelve a intentar. 📖';
+  } else {
+    msg = 'No te rindas. Usa la traducción como apoyo e inténtalo otra vez. 💪';
+  }
+  document.getElementById('completion-msg').textContent = msg;
+
+  document.getElementById('results-section').classList.remove('show');
+  const c = document.getElementById('completion');
+  c.classList.add('show');
+  setTimeout(() => c.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+function hideCompletion() {
+  document.getElementById('completion').classList.remove('show');
+  document.getElementById('results-section').classList.remove('show');
+}
+
+function resetQuiz() {
+  stopAudio();
+  answered[cur].clear();
+  correctSet[cur].clear();
+  streak = 0;
+  completedStories.delete(cur);
+  renderSelector();
+  renderQuiz();
+  hideCompletion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// =============== AUDIO (Web Speech API) ===============
+
+function getEnglishVoice() {
+  const voices = speechSynthesis.getVoices();
+  return voices.find(v => /^en[-_]?(US|GB)/i.test(v.lang)) || voices.find(v => v.lang.startsWith('en')) || null;
+}
+
+function playParagraph(idx) {
+  stopAudio();
+  const s = S[String(cur)];
+  const text = s.paragraphs[idx].en;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  const v = getEnglishVoice();
+  if (v) u.voice = v;
+  highlightPara(idx);
+  u.onend = () => { highlightPara(-1); };
+  audioUtterance = u;
+  speechSynthesis.speak(u);
+}
+
+function playAllAudio() {
+  stopAudio();
+  audioPlaying = true;
+  document.getElementById('audio-play-btn').classList.add('hidden');
+  document.getElementById('audio-stop-btn').classList.remove('hidden');
+  const s = S[String(cur)];
+  let i = 0;
+  const next = () => {
+    if (!audioPlaying || i >= s.paragraphs.length) {
+      finishAudio();
+      return;
+    }
+    const u = new SpeechSynthesisUtterance(s.paragraphs[i].en);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    const v = getEnglishVoice();
+    if (v) u.voice = v;
+    highlightPara(i);
+    u.onend = () => { i++; next(); };
+    u.onerror = () => { i++; next(); };
+    audioUtterance = u;
+    speechSynthesis.speak(u);
+  };
+  // Some browsers need voices to load
+  if (speechSynthesis.getVoices().length === 0) {
+    speechSynthesis.onvoiceschanged = () => { speechSynthesis.onvoiceschanged = null; next(); };
+  } else {
+    next();
+  }
+}
+
+function stopAudio() {
+  audioPlaying = false;
+  if (speechSynthesis.speaking || speechSynthesis.pending) {
+    speechSynthesis.cancel();
+  }
+  highlightPara(-1);
+  finishAudio();
+}
+
+function finishAudio() {
+  audioPlaying = false;
+  document.getElementById('audio-play-btn').classList.remove('hidden');
+  document.getElementById('audio-stop-btn').classList.add('hidden');
+  highlightPara(-1);
+}
+
+function highlightPara(idx) {
+  document.querySelectorAll('.story-para').forEach((p, i) => {
+    p.classList.toggle('playing', i === idx);
+  });
+  if (idx >= 0) {
+    const el = document.querySelectorAll('.story-para')[idx];
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// =============== UTIL ===============
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+// Stop audio when user leaves page
+window.addEventListener('beforeunload', () => stopAudio());
+
+// =============== INIT ===============
+
+renderSelector();
+renderStory();
+renderQuiz();
+</script>
+</body>
+</html>

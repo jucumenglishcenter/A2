@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Past Simple vs Past Continuous | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid{grid-template-columns:1fr}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">⚖️ Past Simple vs Past Continuous</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>Past Simple:</b> acci\u00f3n COMPLETADA y puntual \u2014 \"She called me\"", "<b>Past Continuous:</b> acci\u00f3n EN PROGRESO en un momento \u2014 \"She was calling\"", "<b>Combo cl\u00e1sico:</b> past continuous (larga) + past simple (corta que interrumpe)", "<b>WHEN</b> suele marcar la acci\u00f3n CORTA \u2014 \"When he arrived, I was cooking\"", "<b>WHILE</b> suele marcar la acci\u00f3n LARGA \u2014 \"While I was cooking, he arrived\"", "Dos acciones LARGAS simult\u00e1neas \u2192 ambas en past continuous", "Dos acciones CORTAS en secuencia \u2192 ambas en past simple"], "steps": [{"icon": "\ud83c\uddea\ud83c\uddf8", "title": "Repaso en Espa\u00f1ol", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: \ud83c\uddea\ud83c\uddf8 Repaso en Espa\u00f1ol</div>\n<div class=\"section-desc\">En espa\u00f1ol distinguimos entre el <b>preterito indefinido</b> (\"com\u00ed\", \"llam\u00f3\") y el <b>preterito imperfecto continuo</b> (\"estaba comiendo\", \"estaba llamando\"). Esa misma l\u00f3gica existe en ingl\u00e9s.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>\ud83d\udd39 Acci\u00f3n completada</h4><ul>\n<li>Ayer <b>com\u00ed</b> pizza</li>\n<li>Ella <b>llam\u00f3</b> a las 5</li>\n<li>\u00c9l <b>sali\u00f3</b> temprano</li>\n<li>Nosotros <b>vimos</b> la peli</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>\ud83d\udd38 Acci\u00f3n en progreso</h4><ul>\n<li>Ayer <b>estaba comiendo</b> pizza</li>\n<li>Ella <b>estaba llamando</b> a las 5</li>\n<li>\u00c9l <b>estaba saliendo</b> cuando...</li>\n<li>Nosotros <b>est\u00e1bamos viendo</b> la peli</li>\n</ul></div></div>\n\n<div class=\"ex-row\"><div class=\"icon\">\u23f1\ufe0f</div><div><div class=\"en\">\"Ayer com\u00ed pizza\" \u2192 acci\u00f3n terminada. \u00bfCu\u00e1ndo? Ayer, ya pas\u00f3.</div><div class=\"es\">Past Simple: un punto en el tiempo, completado</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">\ud83d\udcf9</div><div><div class=\"en\">\"Cuando me llamaste, yo estaba cocinando\" \u2192 cocinar era acci\u00f3n larga en curso.</div><div class=\"es\">Past Continuous: algo en medio, no terminado en ese momento</div></div></div>\n<div class=\"tip-card\"><strong>\ud83d\udca1 Clave:</strong> La diferencia es la misma en ambos idiomas: \u00bfla acci\u00f3n se complet\u00f3 (punto) o estaba en desarrollo (l\u00ednea)? Eso determina qu\u00e9 tiempo usar.</div>", "exercises": [{"q": "\"Ayer com\u00ed pizza\" \u2014 \u00bfla acci\u00f3n est\u00e1 completada?", "a": "a", "o": ["S\u00ed, termin\u00f3", "No, sigue"], "fc": "\"Com\u00ed\" indica una acci\u00f3n terminada en el pasado.", "fi": "Si siguiera, dir\u00edamos \"estaba comiendo\".", "ex": "Ayer com\u00ed pizza \u2192 Yesterday I ate pizza", "tip": "Pasado completo \u2192 past simple"}, {"q": "\"Estaba viendo TV cuando son\u00f3 el tel\u00e9fono\" \u2014 la acci\u00f3n LARGA es:", "a": "b", "o": ["Son\u00f3 el tel\u00e9fono", "Estaba viendo TV"], "fc": "\"Estaba viendo TV\" es la acci\u00f3n larga en progreso.", "fi": "\"Son\u00f3\" es la acci\u00f3n CORTA que interrumpe.", "ex": "I was watching TV when the phone rang", "tip": "Larga \u2192 past cont. \u00b7 Corta \u2192 past simple"}, {"q": "\u00bfQu\u00e9 describe \"estaba corriendo\"?", "a": "b", "o": ["Acci\u00f3n puntual", "Acci\u00f3n en progreso"], "fc": "\"Estaba + gerundio\" = acci\u00f3n en desarrollo.", "fi": "Puntual ser\u00eda \"corri\u00f3\".", "ex": "He was running \u2192 \u00c9l estaba corriendo"}, {"q": "\"A las 8 cen\u00e9\" vs \"A las 8 estaba cenando\" \u2014 \u00bfson iguales?", "a": "a", "o": ["No, significan diferente", "S\u00ed, es lo mismo"], "fc": "\"Cen\u00e9\" = termin\u00e9 de cenar a las 8. \"Estaba cenando\" = a las 8 estaba en medio de la cena.", "fi": "Son conceptualmente diferentes.", "tip": "Past simple = hecho \u00b7 Past cont. = proceso"}, {"q": "\"Mientras cocinaba, cantaba\" \u2014 \u00bfcu\u00e1ntas acciones en progreso?", "a": "b", "o": ["Una, la otra es corta", "Dos, simult\u00e1neas"], "fc": "Ambas son acciones largas simult\u00e1neas \u2192 ambas van en past continuous.", "fi": "No hay acci\u00f3n corta aqu\u00ed; \"cocinar\" y \"cantar\" ocurr\u00edan juntas.", "ex": "While I was cooking, I was singing", "tip": "While + 2 past cont. = simult\u00e1neas"}]}, {"icon": "\ud83e\udd1d", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: \ud83e\udd1d Similitudes ESP \u2194 ENG</div>\n<div class=\"section-desc\">La l\u00f3gica es id\u00e9ntica en ambos idiomas. Only the forms change.</div>\n\n<table class=\"g-table\">\n<tr><th>Situaci\u00f3n</th><th>\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol</th><th>\ud83c\uddec\ud83c\udde7 English</th></tr>\n<tr><td>Acci\u00f3n completa</td><td><b>Com\u00ed</b> pizza</td><td>I <span class=\"g-verb\">ate</span> pizza</td></tr>\n<tr><td>Acci\u00f3n en progreso</td><td><b>Estaba comiendo</b></td><td>I <span class=\"g-verb\">was eating</span></td></tr>\n<tr><td>Larga + corta</td><td>Cocinaba cuando lleg\u00f3</td><td>I <span class=\"g-verb\">was cooking</span> when he <span class=\"g-verb\">arrived</span></td></tr>\n<tr><td>2 simult\u00e1neas</td><td>Cocinaba mientras cantaba</td><td>I <span class=\"g-verb\">was cooking</span> while I <span class=\"g-verb\">was singing</span></td></tr>\n<tr><td>Secuencia puntual</td><td>Sali\u00f3, cen\u00f3 y durmi\u00f3</td><td>He <span class=\"g-verb\">left</span>, <span class=\"g-verb\">ate</span> and <span class=\"g-verb\">slept</span></td></tr>\n</table>\n\n<div class=\"section-label\">L\u00ednea del tiempo</div>\n<div class=\"formula-box\" style=\"text-align:left;font-size:.88rem\">\n\ud83d\udd38 <b>Past Continuous</b> = ============ (l\u00ednea larga)<br>\n\ud83d\udd39 <b>Past Simple</b> = \u2022 (punto)<br><br>\nEjemplo: <span class=\"g-verb\">I was cooking</span> ====\u2022==== <span class=\"g-verb\">when he called</span>\n</div>\n\n<div class=\"tip-card\"><strong>\ud83d\udca1 Key similarity:</strong> En ambos idiomas, cuando una acci\u00f3n INTERRUMPE a otra, la larga va en continuo y la corta en simple. Same principle.</div>", "exercises": [{"q": "\"Yesterday I ___ a book.\" (acci\u00f3n completa, verbo \"read\")", "a": "a", "o": ["read", "was reading"], "fc": "Acci\u00f3n completada \u2192 past simple: <b>read</b>.", "fi": "\"Was reading\" indicar\u00eda que estaba en medio, sin terminar.", "ex": "Yesterday I read a book \u2192 Ayer le\u00ed un libro", "tip": "Completa = past simple"}, {"q": "\"At 9 PM, she ___ dinner.\" (en progreso a las 9)", "a": "b", "o": ["cooked", "was cooking"], "fc": "\"At 9 PM\" indica un momento espec\u00edfico \u2192 en progreso \u2192 <b>was cooking</b>.", "fi": "\"Cooked\" ser\u00eda acci\u00f3n completa, no progreso.", "ex": "She was cooking at 9 \u2192 A las 9 estaba cocinando", "tip": "At + hora \u2192 past cont."}, {"q": "\"When he arrived, I ___ TV.\"", "a": "b", "o": ["watched", "was watching"], "fc": "Acci\u00f3n larga interrumpida \u2192 <b>was watching</b>.", "fi": "\"Watched\" no expresa la interrupci\u00f3n.", "ex": "When he arrived, I was watching TV", "tip": "Interrumpida \u2192 past cont."}, {"q": "\"While she ___ music, I read the news.\"", "a": "a", "o": ["was listening to", "listened to"], "fc": "\"While\" + acci\u00f3n larga \u2192 <b>was listening</b>. La otra (read) es m\u00e1s corta.", "fi": "\"Listened\" no expresa la simultaneidad larga.", "ex": "While she was listening to music, I read the news", "tip": "While + past cont."}, {"q": "\"He ___ and left.\" (dos acciones cortas en secuencia)", "a": "a", "o": ["smiled", "was smiling"], "fc": "Dos acciones puntuales en secuencia \u2192 ambas en <b>past simple</b>.", "fi": "\"Was smiling\" no encaja en una secuencia de acciones terminadas.", "ex": "He smiled and left \u2192 Sonri\u00f3 y se fue", "tip": "Secuencia = past simple + past simple"}]}, {"icon": "\u26a1", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: \u26a1 Diferencias Importantes</div>\n<div class=\"section-desc\">Las trampas cl\u00e1sicas al elegir entre los dos tiempos.</div>\n\n<table class=\"g-table\">\n<tr><th>Situaci\u00f3n</th><th>\ud83d\udd39 Past Simple</th><th>\ud83d\udd38 Past Continuous</th></tr>\n<tr><td>Acci\u00f3n terminada</td><td>\u2705 She <span class=\"g-verb\">called</span> me</td><td>\u274c No aplica</td></tr>\n<tr><td>Acci\u00f3n en progreso</td><td>\u274c No aplica</td><td>\u2705 She <span class=\"g-verb\">was calling</span></td></tr>\n<tr><td>Con \"when\" corto</td><td>\u2705 <span class=\"g-verb\">called</span> (interrumpe)</td><td>\u274c</td></tr>\n<tr><td>Con \"while\" largo</td><td>\u274c</td><td>\u2705 <span class=\"g-verb\">was calling</span> (simult\u00e1neo)</td></tr>\n<tr><td>Secuencia de eventos</td><td>\u2705 entered, sat, opened...</td><td>\u274c No narra eventos</td></tr>\n<tr><td>Estados (like, know, have)</td><td>\u2705 I <span class=\"g-verb\">knew</span> him</td><td>\u274c No se usa en cont.</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Verbos de estado NO van en continuo</div>\n<p>Verbos como <b>know, like, love, want, believe, understand, have (posesi\u00f3n), need</b> generalmente NO se usan en past continuous.<br>\n\u274c \"I was knowing him\" \u2192 \u2705 \"I <b>knew</b> him\"<br>\n\u274c \"She was liking it\" \u2192 \u2705 \"She <b>liked</b> it\"</p></div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udd39</div><div><div class=\"en\">She <span class=\"g-verb\">called</span> me at 6 PM.</div><div class=\"es\">Acci\u00f3n completa: me llam\u00f3, punto.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udd38</div><div><div class=\"en\">She <span class=\"g-verb\">was calling</span> me when I saw her.</div><div class=\"es\">Estaba llamando (en progreso) cuando la vi.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfaf</div><div><div class=\"en\">While I <span class=\"g-verb\">was studying</span>, my phone <span class=\"g-verb\">rang</span>.</div><div class=\"es\">Mientras estudiaba (larga), son\u00f3 el tel\u00e9fono (corta).</div></div></div>", "exercises": [{"q": "\"I ___ my homework last night.\" (acci\u00f3n completa, verbo \"finish\")", "a": "b", "o": ["was finishing", "finished"], "fc": "Acci\u00f3n completada en el pasado \u2192 <b>finished</b> (past simple).", "fi": "\"Was finishing\" implicar\u00eda que estaba en medio, sin terminar.", "ex": "I finished my homework \u2192 Termin\u00e9 mi tarea", "tip": "\"Last night\" + completa \u2192 past simple"}, {"q": "\"When she entered, I ___ a book.\"", "a": "a", "o": ["was reading", "read"], "fc": "\"When she entered\" = corta que interrumpe. La acci\u00f3n larga \u2192 <b>was reading</b>.", "fi": "\"Read\" no expresa la continuidad al momento de la interrupci\u00f3n.", "ex": "When she entered, I was reading", "tip": "When + past simple \u2192 past cont."}, {"q": "\"I ___ him for years.\" (verbo de estado \"know\")", "a": "a", "o": ["knew", "was knowing"], "fc": "\"Know\" es verbo de estado \u2192 no se usa en continuo \u2192 <b>knew</b>.", "fi": "\"Was knowing\" es incorrecto; estados no van en continuo.", "ex": "I knew him for years \u2192 Lo conoc\u00eda hace a\u00f1os", "tip": "know/like/love \u2192 past simple"}, {"q": "\"He ___ up, ___ breakfast, and ___ to work.\"", "a": "b", "o": ["was waking / was eating / was going", "woke / ate / went"], "fc": "Secuencia de acciones completas en orden \u2192 todas en <b>past simple</b>.", "fi": "Past continuous no narra secuencias de eventos.", "ex": "He woke up, ate breakfast, and went to work", "tip": "Secuencia = past simple \u00d7 3"}, {"q": "\"The kids ___ in the garden all morning.\"", "a": "a", "o": ["were playing", "played"], "fc": "\"All morning\" + acci\u00f3n de duraci\u00f3n extendida \u2192 <b>were playing</b>.", "fi": "\"Played\" indicar\u00eda un punto terminado, no duraci\u00f3n.", "ex": "The kids were playing all morning \u2192 Jugaron toda la ma\u00f1ana"}]}, {"icon": "\ud83d\udca1", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: \ud83d\udca1 Consejos Pr\u00e1cticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 \u2014 La pregunta clave:</strong> \u00bfLa acci\u00f3n estaba COMPLETA o EN MEDIO en ese momento del pasado? Completa \u2192 past simple. En medio \u2192 past continuous.</div>\n<div class=\"tip-card\"><strong>Tip 2 \u2014 WHEN vs WHILE:</strong> \"When\" suele introducir la acci\u00f3n corta (past simple). \"While\" introduce la acci\u00f3n larga (past continuous). No es regla r\u00edgida pero ayuda mucho.</div>\n<div class=\"tip-card\"><strong>Tip 3 \u2014 Time markers:</strong><br>\n\u2022 Past simple: yesterday, last week, in 2020, 3 days ago, then<br>\n\u2022 Past continuous: at 8 PM, while, all day, when + past simple</div>\n<div class=\"tip-card\"><strong>Tip 4 \u2014 Secuencia vs simultaneidad:</strong> 2 acciones seguidas y completas \u2192 past simple x 2 (\"He opened the door and smiled\"). 2 acciones largas al mismo tiempo \u2192 past cont. x 2 (\"I was cooking while she was reading\").</div>\n\n<div class=\"formula-box\">\n\ud83d\udd39 Past Simple: acci\u00f3n <b>completa</b>, puntual, secuencial<br>\n\ud83d\udd38 Past Continuous: acci\u00f3n <b>en progreso</b>, duraci\u00f3n, interrumpida<br>\n\ud83c\udfaf Combo: past cont. (larga) + past simple (corta) + \"when\"\n</div>\n\n<table class=\"g-table\">\n<tr><th>Conector</th><th>Va con</th><th>Ejemplo</th></tr>\n<tr><td>when</td><td>\u21d2 past simple (corta)</td><td>When he <b>arrived</b>, I was cooking</td></tr>\n<tr><td>while</td><td>\u21d2 past cont. (larga)</td><td>While I <b>was cooking</b>, he arrived</td></tr>\n<tr><td>as</td><td>\u21d2 past cont. (larga)</td><td>As I <b>was walking</b> home...</td></tr>\n<tr><td>at + hora</td><td>\u21d2 past cont.</td><td>At 8 PM, she <b>was studying</b></td></tr>\n<tr><td>all day/night</td><td>\u21d2 past cont.</td><td>It <b>was raining</b> all day</td></tr>\n</table>", "exercises": [{"q": "\"When the bell ___, students ___ their books.\"", "a": "a", "o": ["rang / opened", "was ringing / were opening"], "fc": "Evento puntual + acci\u00f3n r\u00e1pida consecutiva \u2192 ambos en <b>past simple</b>.", "fi": "Past continuous no encaja en eventos puntuales ni secuencias.", "ex": "When the bell rang, students opened their books", "tip": "Eventos puntuales \u2192 past simple"}, {"q": "\"I ___ TV while my sister ___ homework.\"", "a": "b", "o": ["watched / did", "was watching / was doing"], "fc": "Dos acciones largas simult\u00e1neas \u2192 ambas en <b>past continuous</b>.", "fi": "\"Watched/did\" expresar\u00edan acciones terminadas, no simultaneidad.", "ex": "I was watching TV while my sister was doing homework", "tip": "While + 2 largas \u2192 past cont. \u00d7 2"}, {"q": "\"It ___ all day yesterday.\"", "a": "b", "o": ["rained", "was raining"], "fc": "\"All day\" + duraci\u00f3n extendida \u2192 <b>was raining</b>.", "fi": "\"Rained\" no enfatiza la duraci\u00f3n continua.", "ex": "It was raining all day \u2192 Llovi\u00f3 todo el d\u00eda", "tip": "\"All day/night\" \u2192 past cont."}, {"q": "\"She ___ him last summer.\" (verbo \"meet\")", "a": "a", "o": ["met", "was meeting"], "fc": "Acci\u00f3n puntual y completa en el pasado \u2192 <b>met</b> (past simple).", "fi": "\"Was meeting\" sugerir\u00eda proceso, no encaje con \"last summer\".", "ex": "She met him last summer \u2192 Lo conoci\u00f3 el verano pasado"}, {"q": "\"As I ___ to the bus stop, I saw my neighbor.\"", "a": "b", "o": ["walked", "was walking"], "fc": "\"As\" + acci\u00f3n larga en progreso \u2192 <b>was walking</b>. \"Saw\" es la puntual.", "fi": "\"Walked\" (past simple) no expresa el proceso interrumpido.", "ex": "As I was walking to the bus stop, I saw my neighbor", "tip": "As + past cont. (igual que while)"}]}, {"icon": "\u2728", "title": "Pr\u00e1ctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: \u2728 Pr\u00e1ctica Final</div>\n<div class=\"section-desc\">Aplica la distinci\u00f3n en contextos reales y combinados.</div>\n\n<div class=\"formula-box\">\n\ud83d\udd39 <span class=\"g-subj\">S</span> + <span class=\"g-verb\">past simple</span> \u2192 acci\u00f3n completa<br>\n\ud83d\udd38 <span class=\"g-subj\">S</span> + <span class=\"g-verb\">was/were + ing</span> \u2192 acci\u00f3n en progreso<br>\n\ud83c\udfaf <span class=\"g-verb\">was/were + ing</span> + WHEN + <span class=\"g-verb\">past simple</span>\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">\u2615</div><div><div class=\"en\"><span class=\"g-subj\">I</span> <span class=\"g-verb\">was having</span> <span class=\"g-comp\">coffee</span> when <span class=\"g-subj\">she</span> <span class=\"g-verb\">called</span>.</div><div class=\"es\">Tomaba caf\u00e9 cuando ella llam\u00f3. (larga + corta)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83d\udcd6</div><div><div class=\"en\">While <span class=\"g-subj\">I</span> <span class=\"g-verb\">was studying</span>, <span class=\"g-subj\">my brother</span> <span class=\"g-verb\">was watching</span> TV.</div><div class=\"es\">Mientras yo estudiaba, mi hermano ve\u00eda TV. (2 largas simult\u00e1neas)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udfc3</div><div><div class=\"en\"><span class=\"g-subj\">She</span> <span class=\"g-verb\">woke up</span>, <span class=\"g-verb\">got dressed</span> and <span class=\"g-verb\">left</span>.</div><div class=\"es\">Se despert\u00f3, se visti\u00f3 y sali\u00f3. (3 cortas en secuencia)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">\ud83c\udf27\ufe0f</div><div><div class=\"en\"><span class=\"g-subj\">It</span> <span class=\"g-verb\">was raining</span> <span class=\"g-comp\">when we arrived</span>.</div><div class=\"es\">Estaba lloviendo cuando llegamos.</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">\u26a0\ufe0f Errores Comunes</div><p>\n\u274c \"I was knowing him\" \u2192 \u2705 \"I <b>knew</b> him\" (know = estado)<br>\n\u274c \"When he arrived, I cooked\" \u2192 \u2705 \"When he arrived, I <b>was cooking</b>\" (interrumpido)<br>\n\u274c \"She was calling me at 6 yesterday and I answered\" \u2192 \u2705 \"She <b>called</b> me at 6\" (si se complet\u00f3)<br>\n\u274c \"I watched TV while he was sleeping for 2 hours\" \u2192 \u2705 \"I <b>was watching</b> TV while he was sleeping\" (simult\u00e1neas)\n</p></div>", "exercises": [{"q": "\"The kids ___ in the park when it ___ to rain.\"", "a": "a", "o": ["were playing / started", "played / was starting"], "fc": "Acci\u00f3n larga (were playing) interrumpida por una puntual (started) \u2192 past cont. + past simple.", "fi": "\"Played / was starting\" invierte la l\u00f3gica: \"empezar a llover\" es puntual, \"jugar\" es largo.", "ex": "The kids were playing when it started to rain", "tip": "Larga + when + puntual (comenzar a + verbo)"}, {"q": "\"While they ___ dinner, the lights ___ out.\"", "a": "b", "o": ["had / went", "were having / went"], "fc": "\"While + larga\" \u2192 <b>were having</b>. \"Went out\" (corta que interrumpe) en past simple.", "fi": "\"Had\" no expresa la duraci\u00f3n interrumpida.", "ex": "While they were having dinner, the lights went out", "tip": "While + past cont. + past simple"}, {"q": "\"He ___ the keys on the table and ___ the door.\"", "a": "a", "o": ["put / closed", "was putting / was closing"], "fc": "Dos acciones puntuales en secuencia \u2192 ambas en <b>past simple</b>.", "fi": "Past continuous no narra acciones seguidas y terminadas.", "ex": "He put the keys on the table and closed the door", "tip": "Secuencia \u2192 past simple \u00d7 2"}, {"q": "\"I ___ Maria yesterday; she ___ beautiful.\"", "a": "b", "o": ["was seeing / was looking", "saw / looked"], "fc": "\"See\" como percepci\u00f3n y \"look\" describiendo apariencia \u2192 <b>past simple</b>.", "fi": "\"Was seeing/was looking\" no encajan con percepciones y estados.", "ex": "I saw Maria yesterday; she looked beautiful", "tip": "Percepciones (see, hear, look) \u2192 past simple"}, {"q": "\"They ___ soccer when it ___ to rain.\"", "a": "a", "o": ["were playing / started", "played / was starting"], "fc": "Acci\u00f3n larga (playing) + corta que interrumpe (started) \u2192 past cont. + past simple.", "fi": "\"Played / was starting\" invierte la l\u00f3gica: lluvia es puntual, jugar es largo.", "ex": "They were playing soccer when it started to rain", "tip": "Larga + when + corta"}]}]};
+
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>

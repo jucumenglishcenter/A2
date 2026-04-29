@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M2 · Adverbs of Manner | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .ref-panel { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--info); }
+        .ref-title { font-family:'Fredoka',sans-serif; font-size:0.95rem; font-weight:600; color:var(--info-dark); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem; }
+        .ref-section-title { font-size:0.78rem; font-weight:700; color:var(--text-medium); margin:0.5rem 0 0.35rem; text-transform:uppercase; letter-spacing:.4px; }
+        .ref-card { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:10px; padding:0.5rem 0.75rem; margin-bottom:0.4rem; }
+        .ref-card.spelling { background:#FEF3C7; border-color:#FCD34D; }
+        .ref-card.irregular { background:#FFE4E6; border-color:#FECACA; }
+        .ref-card.position { background:#EFF6FF; border-color:#BFDBFE; }
+        .ref-text { font-size:0.78rem; color:var(--text-medium); line-height:1.4; }
+        .ref-text strong { color:var(--text-dark); font-weight:700; }
+        .ref-arrow { display:inline-block; padding:0.05rem 0.35rem; border-radius:4px; background:white; font-family:'Fredoka',sans-serif; font-size:0.7rem; font-weight:700; margin:0 2px; border:1px solid #E5E7EB; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .topic-badge.regular { background:#D1FAE5; color:#059669; }
+        .topic-badge.spelling { background:#FEF3C7; color:#B45309; }
+        .topic-badge.irregular { background:#FEE2E2; color:#DC2626; }
+        .topic-badge.position { background:#DBEAFE; color:#1D4ED8; }
+
+        .verb-label { display:inline-flex; align-items:center; gap:0.4rem; background:#EDE9FE; color:#6D28D9; padding:0.3rem 0.7rem; border-radius:20px; font-family:'Fredoka',sans-serif; font-size:0.85rem; font-weight:700; margin-bottom:0.7rem; border:1.5px solid #DDD6FE; }
+        .verb-label::before { content:'✏️'; font-size:0.95rem; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:90px; padding:0.2rem 0.6rem; background:var(--primary-light); border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:1rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation { display:none; color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; padding:0.6rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); }
+        .translation.show { display:block; animation:fadeUp .3s ease; }
+
+        .options-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .options-grid.col-1 { grid-template-columns:1fr; }
+        .option-btn { padding:0.9rem 0.6rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-light); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-signal-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+
+        .fb-error { background:var(--error-light); border-radius:12px; padding:0.9rem 1rem; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ew-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">📝 Fill in the Blanks</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · Adverbs of Manner</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">⚡</div>
+            <div>
+                <div class="instructions-title">Choose the correct adverb of manner</div>
+                <div class="instructions-text">Adverbs of manner describe HOW an action happens. Most are formed adjective + -ly. Pay attention to spelling rules and irregular forms. Tap 🇪🇸 to see Spanish.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // ============================================================
+    // ADVERBS OF MANNER & POSITION
+    // - Regular: adj + ly (slow→slowly, quick→quickly)
+    // - Spelling: -y→-ily (happy→happily) / -le→-ly (simple→simply)
+    // - Irregular: good→well, fast→fast, hard→hard, late→late
+    // - Position: after verb / after object (NOT between verb and object)
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            sentence: "Sofía speaks _____ when she explains things to her grandmother.",
+            translation: "Sofía habla despacio cuando explica cosas a su abuela.",
+            type: "regular",
+            adjective: "slow",
+            hint: "We need an ADVERB (describes HOW she speaks). The adjective is 'slow'. What's the adverb form?",
+            clue: "describes how she speaks (verb + adverb)",
+            clueExplain: "After the verb 'speaks', we need an ADVERB to describe HOW she speaks. Most adverbs are formed: adjective + -ly.",
+            options: ["slowly", "slow", "slow-ly", "slowely"],
+            correct: "slowly",
+            feedback: {
+                "slow": { errorType: "Wrong form — adjective", explanation: "'Slow' is an ADJECTIVE (describes a noun: 'a slow car'). To describe a VERB ('speaks'), we need an ADVERB: 'slowly'.", rule: "adjective + ly = adverb" },
+                "slow-ly": { errorType: "Wrong spelling — no hyphen", explanation: "We don't use hyphens to form adverbs. The correct form is 'slowly' (one word, no hyphen).", rule: "adjective + ly (no hyphen)" },
+                "slowely": { errorType: "Wrong spelling — extra 'e'", explanation: "When 'slow' ends in a consonant, we just add '-ly' (slow + ly). Don't add an extra 'e': 'slowly'.", rule: "consonant + ly (no extra letter)" }
+            },
+            correctReason: "'Speaks' is a verb. To describe HOW she speaks, we need an adverb. The adjective 'slow' becomes 'slowly' by adding -ly.",
+            ruleFormula: "verb + adverb (adj + ly)"
+        },
+        {
+            id: 2,
+            sentence: "Marcos drives _____ on the highway to be safe.",
+            translation: "Marcos conduce con cuidado en la autopista para estar seguro.",
+            type: "regular",
+            adjective: "careful",
+            hint: "The adjective is 'careful'. What's the adverb form to describe HOW he drives?",
+            clue: "describes how he drives",
+            clueExplain: "After 'drives', we need an adverb. 'Careful' becomes 'carefully' by adding -ly.",
+            options: ["careful", "carefully", "carely", "carefuly"],
+            correct: "carefully",
+            feedback: {
+                "careful": { errorType: "Wrong form — adjective", explanation: "'Careful' is an ADJECTIVE. To describe a VERB ('drives'), we need an ADVERB: 'carefully'.", rule: "verb needs adverb (adj + ly)" },
+                "carely": { errorType: "Wrong spelling — missing 'ful'", explanation: "We don't drop letters. The base adjective is 'careful' (with -ful). Add -ly to get 'carefully'.", rule: "Keep the full adjective + ly" },
+                "carefuly": { errorType: "Wrong spelling — single 'l'", explanation: "When the adjective ends in -ful, we still add -ly normally. 'Careful' + 'ly' = 'carefully' (with double l).", rule: "careful + ly = carefully (double l)" }
+            },
+            correctReason: "'Drives' is a verb. The adverb 'carefully' describes how Marcos drives. Adjective 'careful' + -ly = 'carefully'.",
+            ruleFormula: "verb + adverb (careful → carefully)"
+        },
+        {
+            id: 3,
+            sentence: "The children laughed _____ at the funny clown's jokes.",
+            translation: "Los niños rieron felizmente con los chistes del payaso divertido.",
+            type: "spelling",
+            adjective: "happy",
+            hint: "The adjective 'happy' ends in -y. What happens with the spelling when forming the adverb?",
+            clue: "adjective ending in -y (spelling change)",
+            clueExplain: "When the adjective ends in -y, we change y → i and add -ly: happy → happily.",
+            options: ["happyly", "happy", "happily", "happlily"],
+            correct: "happily",
+            feedback: {
+                "happyly": { errorType: "Wrong spelling — y→i", explanation: "When the adjective ends in -y, we MUST change y → i before adding -ly. 'Happy' becomes 'happily' (NOT 'happyly').", rule: "-y → -ily (consonant + y)" },
+                "happy": { errorType: "Wrong form — adjective", explanation: "'Happy' is an ADJECTIVE. After the verb 'laughed', we need an ADVERB: 'happily'.", rule: "verb needs adverb" },
+                "happlily": { errorType: "Wrong spelling — extra letter", explanation: "We just change y → i and add -ly. 'Happy' → 'happi' + 'ly' = 'happily' (no extra 'l').", rule: "happy → happi → happily" }
+            },
+            correctReason: "'Happy' ends in -y. The spelling rule: y → i + ly. So 'happy' becomes 'happily' to describe the action of laughing.",
+            ruleFormula: "-y → -ily (happy → happily)"
+        },
+        {
+            id: 4,
+            sentence: "Carlos sings _____ in the church choir every Sunday.",
+            translation: "Carlos canta bien en el coro de la iglesia cada domingo.",
+            type: "irregular",
+            adjective: "good",
+            hint: "The adjective is 'good'. What's the IRREGULAR adverb form? It's NOT 'goodly'.",
+            clue: "good → ??? (irregular)",
+            clueExplain: "'Good' has an IRREGULAR adverb form: 'well' (not 'goodly'). This is one of the most common irregulars.",
+            options: ["good", "goodly", "goodlly", "well"],
+            correct: "well",
+            feedback: {
+                "good": { errorType: "Wrong form — adjective", explanation: "'Good' is an ADJECTIVE ('a good singer'). To describe HOW he sings (the verb), we need the IRREGULAR adverb 'well'.", rule: "good (adj) → well (adv)" },
+                "goodly": { errorType: "Wrong form — doesn't exist", explanation: "'Goodly' is NOT a standard adverb in modern English. The correct adverb form of 'good' is 'well' (irregular).", rule: "good → well (irregular, NOT goodly)" },
+                "goodlly": { errorType: "Wrong spelling — doesn't exist", explanation: "Even with double 'l', this form doesn't exist. The irregular adverb of 'good' is 'well'.", rule: "good → well (irregular)" }
+            },
+            correctReason: "'Good' has an IRREGULAR adverb form. We say 'sings well' (NOT 'sings goodly' or 'sings good'). Memorize: good → well.",
+            ruleFormula: "good (adj) → well (irregular adv)"
+        },
+        {
+            id: 5,
+            sentence: "Sofía explained the bank rules _____ so everyone understood.",
+            translation: "Sofía explicó las reglas del banco simplemente para que todos entendieran.",
+            type: "spelling",
+            adjective: "simple",
+            hint: "The adjective 'simple' ends in -le. What happens with the spelling?",
+            clue: "adjective ending in -le (spelling change)",
+            clueExplain: "When the adjective ends in -le, we drop the 'e' and add -y: simple → simply (NOT 'simplely').",
+            options: ["simply", "simplely", "simple", "simplly"],
+            correct: "simply",
+            feedback: {
+                "simplely": { errorType: "Wrong spelling — keep 'le'", explanation: "When the adjective ends in -le, we drop the 'e' and add -y. 'Simple' → 'simpl' + 'y' = 'simply' (NOT 'simplely').", rule: "-le → -ly (drop 'e', add 'y')" },
+                "simple": { errorType: "Wrong form — adjective", explanation: "'Simple' is an ADJECTIVE. To describe HOW she explained (verb), we need an adverb: 'simply'.", rule: "verb needs adverb" },
+                "simplly": { errorType: "Wrong spelling — extra 'l'", explanation: "We don't add an extra 'l'. The rule is: drop 'e', add 'y'. 'Simple' → 'simply' (one l).", rule: "simple → simply (drop e, add y)" }
+            },
+            correctReason: "'Simple' ends in -le. The spelling rule: drop -e, add -y. So 'simple' becomes 'simply'.",
+            ruleFormula: "-le → -ly (simple → simply)"
+        },
+        {
+            id: 6,
+            sentence: "Marcos finished his project _____ before the deadline.",
+            translation: "Marcos terminó su proyecto fácilmente antes de la fecha límite.",
+            type: "spelling",
+            adjective: "easy",
+            hint: "The adjective 'easy' ends in -y. Apply the spelling rule for forming the adverb.",
+            clue: "easy → ??? (spelling change)",
+            clueExplain: "When the adjective ends in -y, we change y → i and add -ly: easy → easily.",
+            options: ["easyly", "easily", "easy", "easely"],
+            correct: "easily",
+            feedback: {
+                "easyly": { errorType: "Wrong spelling — y→i", explanation: "When the adjective ends in -y, we change y → i. 'Easy' becomes 'easi' + 'ly' = 'easily' (NOT 'easyly').", rule: "-y → -ily" },
+                "easy": { errorType: "Wrong form — adjective", explanation: "'Easy' is an ADJECTIVE ('easy work'). To describe how he finished (verb), we need adverb 'easily'.", rule: "verb needs adverb" },
+                "easely": { errorType: "Wrong spelling — change y to i", explanation: "We don't change to 'e'. The rule is y → i. 'Easy' → 'easi' → 'easily'.", rule: "y → i (NOT y → e)" }
+            },
+            correctReason: "'Easy' ends in -y. The spelling rule: y → i + ly. So 'easy' becomes 'easily' to describe how he finished the project.",
+            ruleFormula: "-y → -ily (easy → easily)"
+        },
+        {
+            id: 7,
+            sentence: "Sofía runs _____ to catch the bus every morning.",
+            translation: "Sofía corre rápido para alcanzar el autobús cada mañana.",
+            type: "irregular",
+            adjective: "fast",
+            hint: "The adjective is 'fast'. What's the adverb form? Be careful — it's IRREGULAR.",
+            clue: "fast → ??? (irregular — same form)",
+            clueExplain: "'Fast' has an IRREGULAR adverb form: it stays the SAME ('fast', not 'fastly'). Same applies to 'hard' and 'late'.",
+            options: ["fastly", "fastely", "fast", "faster"],
+            correct: "fast",
+            feedback: {
+                "fastly": { errorType: "Wrong form — doesn't exist", explanation: "'Fastly' does NOT exist in modern English. 'Fast' is irregular — the adverb has the SAME form as the adjective.", rule: "fast → fast (NOT fastly)" },
+                "fastely": { errorType: "Wrong spelling — doesn't exist", explanation: "There's no 'fastely' form. 'Fast' is irregular — adjective and adverb are identical.", rule: "fast → fast (irregular)" },
+                "faster": { errorType: "Wrong form — comparative", explanation: "'Faster' is the COMPARATIVE form ('runs faster than him'). Here we need the simple adverb form: 'fast'.", rule: "fast (adv) ≠ faster (comparative)" }
+            },
+            correctReason: "'Fast' is IRREGULAR — the adverb has the same form as the adjective. We say 'runs fast' (NOT 'runs fastly').",
+            ruleFormula: "fast (adj/adv same form, irregular)"
+        },
+        {
+            id: 8,
+            sentence: "The team worked _____ to finish the report on time.",
+            translation: "El equipo trabajó duro para terminar el informe a tiempo.",
+            type: "irregular",
+            adjective: "hard",
+            hint: "The adjective is 'hard'. What's the adverb form? Same case as 'fast'.",
+            clue: "hard → ??? (irregular — same form)",
+            clueExplain: "'Hard' is IRREGULAR — the adverb has the same form as the adjective ('hard', not 'hardly'). Note: 'hardly' EXISTS but means something different (almost not).",
+            options: ["hardly", "hardely", "harder", "hard"],
+            correct: "hard",
+            feedback: {
+                "hardly": { errorType: "Wrong meaning — different word", explanation: "'Hardly' DOES exist but means 'almost not' (e.g., 'I hardly know him'). To express working with effort, we use 'hard' (irregular adverb).", rule: "hard = with effort / hardly = almost not" },
+                "hardely": { errorType: "Wrong spelling — doesn't exist", explanation: "There's no 'hardely' form. 'Hard' is irregular — adjective and adverb are identical.", rule: "hard → hard (irregular)" },
+                "harder": { errorType: "Wrong form — comparative", explanation: "'Harder' is the COMPARATIVE form. Here we need the simple adverb form: 'hard'.", rule: "hard (adv) ≠ harder (comparative)" }
+            },
+            correctReason: "'Hard' is IRREGULAR — the adverb has the same form as the adjective. 'Hardly' exists but means 'almost not' — completely different meaning.",
+            ruleFormula: "hard (adj/adv same form) ≠ hardly (= almost not)"
+        },
+        {
+            id: 9,
+            sentence: "Carlos drives the car _____ when his children are inside.",
+            translation: "Carlos conduce el coche con cuidado cuando sus hijos están dentro.",
+            type: "position",
+            adjective: "careful",
+            hint: "Position: where does the adverb go in 'drives the car ___'? After the OBJECT or between verb and object?",
+            clue: "verb + object + adverb",
+            clueExplain: "Adverbs of manner go AFTER the object, never between the verb and the object. ❌ 'drives carefully the car' — ✅ 'drives the car carefully'.",
+            options: ["carefully", "careful", "very carefully", "much carefully"],
+            correct: "carefully",
+            feedback: {
+                "careful": { errorType: "Wrong form — adjective", explanation: "'Careful' is an ADJECTIVE. To describe HOW he drives (verb), we need an ADVERB: 'carefully'.", rule: "verb + object + ADVERB" },
+                "very carefully": { errorType: "Adds intensifier not asked", explanation: "Although grammatically correct, 'very' adds emphasis not requested. The simple adverb 'carefully' fits the blank.", rule: "Just adverb is enough" },
+                "much carefully": { errorType: "Wrong intensifier", explanation: "'Much' doesn't intensify adverbs in modern English (use 'very'). Plus, the simple adverb 'carefully' is sufficient here.", rule: "much + adverb (incorrect in modern English)" }
+            },
+            correctReason: "Adverbs of manner go AFTER the object: 'drives the car carefully' (NOT 'drives carefully the car'). The position is fixed.",
+            ruleFormula: "subject + verb + object + adverb"
+        },
+        {
+            id: 10,
+            sentence: "Sofía answered the question _____ during the interview.",
+            translation: "Sofía respondió la pregunta nerviosamente durante la entrevista.",
+            type: "spelling",
+            adjective: "nervous",
+            hint: "The adjective is 'nervous'. Standard formation rule applies.",
+            clue: "nervous → ??? (regular formation)",
+            clueExplain: "'Nervous' ends in a consonant (-us), so we just add -ly normally: nervous → nervously.",
+            options: ["nervous", "nervously", "nerviously", "nervous-ly"],
+            correct: "nervously",
+            feedback: {
+                "nervous": { errorType: "Wrong form — adjective", explanation: "'Nervous' is an ADJECTIVE. To describe HOW she answered, we need adverb: 'nervously'.", rule: "verb needs adverb" },
+                "nerviously": { errorType: "Wrong spelling — extra 'i'", explanation: "We just add -ly to 'nervous'. There's no extra 'i'. The correct form is 'nervously'.", rule: "nervous + ly = nervously" },
+                "nervous-ly": { errorType: "Wrong spelling — no hyphen", explanation: "We don't use hyphens to form adverbs. The correct form is 'nervously' (one word).", rule: "no hyphens in adverbs" }
+            },
+            correctReason: "'Nervous' is a regular adjective ending in -us. We just add -ly: 'nervously'.",
+            ruleFormula: "regular: adj + ly (nervous → nervously)"
+        },
+        {
+            id: 11,
+            sentence: "Marcos arrived _____ to the meeting and missed the first part.",
+            translation: "Marcos llegó tarde a la reunión y se perdió la primera parte.",
+            type: "irregular",
+            adjective: "late",
+            hint: "The adjective is 'late'. What's the adverb form? Be careful with 'lately' — it means something different.",
+            clue: "late → ??? (irregular — same form)",
+            clueExplain: "'Late' is IRREGULAR — the adverb has the same form. Note: 'lately' exists but means 'recently' (different meaning).",
+            options: ["lately", "latly", "late", "later"],
+            correct: "late",
+            feedback: {
+                "lately": { errorType: "Wrong meaning — different word", explanation: "'Lately' DOES exist but means 'recently' (e.g., 'I've been busy lately'). To say he arrived after the time, we use 'late' (irregular).", rule: "late = after time / lately = recently" },
+                "latly": { errorType: "Wrong spelling — doesn't exist", explanation: "'Latly' is not a word. 'Late' is irregular — adjective and adverb are identical.", rule: "late → late (irregular)" },
+                "later": { errorType: "Wrong form — comparative", explanation: "'Later' is the COMPARATIVE form ('arrived later than expected'). Here we just need the simple adverb: 'late'.", rule: "late (adv) ≠ later (comparative)" }
+            },
+            correctReason: "'Late' is IRREGULAR — the adverb has the same form as the adjective. 'Lately' means 'recently' — different meaning.",
+            ruleFormula: "late (adj/adv same form) ≠ lately (= recently)"
+        },
+        {
+            id: 12,
+            sentence: "The waiter brought our food _____ to our table.",
+            translation: "El camarero trajo nuestra comida rápidamente a nuestra mesa.",
+            type: "regular",
+            adjective: "quick",
+            hint: "The adjective is 'quick'. Standard regular formation.",
+            clue: "quick → ??? (regular)",
+            clueExplain: "'Quick' is regular: just add -ly to form the adverb 'quickly'.",
+            options: ["quick", "quikly", "quickely", "quickly"],
+            correct: "quickly",
+            feedback: {
+                "quick": { errorType: "Wrong form — adjective", explanation: "'Quick' is an ADJECTIVE. To describe HOW he brought the food, we need adverb 'quickly'.", rule: "verb needs adverb" },
+                "quikly": { errorType: "Wrong spelling — missing 'c'", explanation: "We keep the full base adjective. 'Quick' + 'ly' = 'quickly' (with the 'c'). Don't drop letters.", rule: "Keep full adjective + ly" },
+                "quickely": { errorType: "Wrong spelling — extra 'e'", explanation: "When 'quick' ends in a consonant, we just add '-ly'. Don't add an extra 'e': 'quickly'.", rule: "consonant + ly (no extra e)" }
+            },
+            correctReason: "'Quick' is regular. We add -ly: 'quickly'. This describes how the waiter brought the food.",
+            ruleFormula: "regular: adj + ly (quick → quickly)"
+        },
+        {
+            id: 13,
+            sentence: "Sofía opened the package _____ to see what was inside.",
+            translation: "Sofía abrió el paquete despacio para ver qué había dentro.",
+            type: "regular",
+            adjective: "slow",
+            hint: "Same adjective family as Q1. Standard formation.",
+            clue: "slow → ??? (regular)",
+            clueExplain: "'Slow' is regular: just add -ly to form 'slowly'.",
+            options: ["slowly", "slow", "slowely", "slowily"],
+            correct: "slowly",
+            feedback: {
+                "slow": { errorType: "Wrong form — adjective", explanation: "'Slow' is an ADJECTIVE. To describe HOW she opened the package, we need adverb 'slowly'.", rule: "verb needs adverb" },
+                "slowely": { errorType: "Wrong spelling — extra 'e'", explanation: "When 'slow' ends in a consonant, we just add '-ly'. The correct form is 'slowly' (no extra 'e').", rule: "consonant + ly (no extra e)" },
+                "slowily": { errorType: "Wrong spelling — wrong rule", explanation: "The y→i rule applies only when the adjective ENDS in -y. 'Slow' doesn't end in -y, so we just add -ly: 'slowly'.", rule: "-ily only for -y endings" }
+            },
+            correctReason: "'Slow' is regular. We just add -ly: 'slowly'. This describes how she opened the package.",
+            ruleFormula: "regular: adj + ly (slow → slowly)"
+        },
+        {
+            id: 14,
+            sentence: "Carlos read the contract _____ before signing it.",
+            translation: "Carlos leyó el contrato cuidadosamente antes de firmarlo.",
+            type: "position",
+            adjective: "careful",
+            hint: "Verb + object + adverb. The adverb 'carefully' goes after which part?",
+            clue: "verb + object + adverb position",
+            clueExplain: "Adverbs go AFTER the object, never between the verb and object. ✅ 'read the contract carefully' — ❌ 'read carefully the contract'.",
+            options: ["careful", "carefully", "with care", "very careful"],
+            correct: "carefully",
+            feedback: {
+                "careful": { errorType: "Wrong form — adjective", explanation: "'Careful' is an ADJECTIVE. To describe how he read (verb), we need adverb 'carefully'.", rule: "verb needs adverb" },
+                "with care": { errorType: "Different structure", explanation: "'With care' (preposition + noun) is grammatically correct but uses a different structure. The adverb form is simpler: 'carefully'.", rule: "Adverb form: adj + ly (single word)" },
+                "very careful": { errorType: "Wrong form — adjective + intensifier", explanation: "'Very careful' is still an ADJECTIVE phrase. We need the ADVERB form: 'carefully' (or 'very carefully' with -ly).", rule: "verb needs adverb (very + adverb is OK)" }
+            },
+            correctReason: "After the object 'the contract', we use the adverb 'carefully' to describe how Carlos read it. Subject + verb + object + adverb.",
+            ruleFormula: "subject + verb + object + adverb"
+        },
+        {
+            id: 15,
+            sentence: "Sofía answered the difficult question _____ in the exam.",
+            translation: "Sofía respondió la pregunta difícil correctamente en el examen.",
+            type: "regular",
+            adjective: "correct",
+            hint: "The adjective is 'correct'. Standard regular formation.",
+            clue: "correct → ??? (regular)",
+            clueExplain: "'Correct' is regular: add -ly to form the adverb 'correctly'.",
+            options: ["correct", "correcty", "correctly", "correctely"],
+            correct: "correctly",
+            feedback: {
+                "correct": { errorType: "Wrong form — adjective", explanation: "'Correct' is an ADJECTIVE. To describe HOW she answered, we need adverb 'correctly'.", rule: "verb needs adverb" },
+                "correcty": { errorType: "Wrong spelling — missing 'l'", explanation: "We add -LY (with l). 'Correct' + 'ly' = 'correctly' (with the 'l').", rule: "correct + ly = correctly" },
+                "correctely": { errorType: "Wrong spelling — extra 'e'", explanation: "When 'correct' ends in a consonant, we just add '-ly'. The correct form is 'correctly' (no extra 'e').", rule: "consonant + ly (no extra e)" }
+            },
+            correctReason: "'Correct' is regular. We add -ly: 'correctly'. This describes how she answered the question.",
+            ruleFormula: "regular: adj + ly (correct → correctly)"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, index) => container.appendChild(createQuestionCard(q, index)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createQuestionCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const shuffled = shuffle(q.options);
+        let badgeClass, badgeText;
+        if (q.type === 'regular') { badgeClass = 'regular'; badgeText = '⚡ Regular -ly'; }
+        else if (q.type === 'spelling') { badgeClass = 'spelling'; badgeText = '🔤 Spelling change'; }
+        else if (q.type === 'irregular') { badgeClass = 'irregular'; badgeText = '⚠️ Irregular'; }
+        else { badgeClass = 'position'; badgeText = '📍 Position'; }
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge ${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="verb-label">Adjective: ${q.adjective}</div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <p class="question-text">${q.sentence.replace('_____', `<span class="blank" id="blank-${index}">?</span>`)}</p>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation" id="translation-${index}">${q.translation}</div>
+            <div class="options-grid" id="options-${index}">
+                ${shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectAnswer(${index}, ${i}, this)">${opt}</button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        card._shuffled = shuffled;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectAnswer(qi, optIdx, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const card = document.getElementById(`question-${qi}`);
+        const shuffled = card._shuffled;
+        const selected = shuffled[optIdx];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+
+        const blank = document.getElementById(`blank-${qi}`);
+        blank.textContent = selected;
+        blank.className = `blank ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach(b => {
+            b.disabled = true;
+            const idx = parseInt(b.getAttribute('data-idx'));
+            const t = shuffled[idx];
+            if (t === q.correct) b.classList.add('correct');
+            else if (idx === optIdx) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct!</div>
+                        <div class="fb-subtitle">You chose the right adverb form</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal">
+                        <div class="fb-block-title">🔍 The key signal you spotted</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is it correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            const err = q.feedback[selected] || { errorType: 'Error', explanation: 'Incorrect answer.', rule: '' };
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect</div>
+                        <div class="fb-subtitle">Let's review what happened</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal wrong">
+                        <div class="fb-block-title">🔍 The key signal you needed to spot</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag red">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-compare">
+                        <div class="fb-block-title" style="color:#64748B;">🔄 Your answer vs. correct</div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label wrong">You wrote</span>
+                            <span class="compare-text"><span class="word-wrong">${selected}</span></span>
+                        </div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label right">Correct</span>
+                            <span class="compare-text"><span class="word-right">${q.correct}</span></span>
+                        </div>
+                    </div>
+                    <div class="fb-error">
+                        <div class="fb-block-title">⚠️ Error type: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="error-word-row">
+                            <span class="ew-box ew-wrong">${selected}</span>
+                            <span class="ew-arrow">→</span>
+                            <span class="ew-box ew-right">${q.correct}</span>
+                        </div>
+                        <div class="error-rule">${err.explanation}</div>
+                        ${err.rule ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">📌 ${err.rule}</div>` : ''}
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is the correct answer right?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+
+    function nextQuestion(i) {
+        if (i < quizData.length - 1) showQuestion(i + 1);
+        else showResults();
+    }
+
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        const rs = document.getElementById('resultsScreen');
+        rs.classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master adverbs of manner perfectly. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A2 M2 · A few / few · A little / little | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981; --primary-light: #6EE7B7; --primary-dark: #059669;
+            --accent: #34D399; --bg-gradient-start: #ECFDF5; --bg-gradient-end: #D1FAE5;
+            --text-dark: #064E3B; --text-medium: #065F46; --text-light: #047857;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(16,185,129,0.15);
+            --shadow-strong: 0 8px 30px rgba(16,185,129,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .ref-panel { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--info); }
+        .ref-title { font-family:'Fredoka',sans-serif; font-size:0.95rem; font-weight:600; color:var(--info-dark); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem; }
+        .ref-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
+        .ref-card { background:#F0F9FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:0.6rem 0.8rem; }
+        .ref-card.positive { background:#F0FDF4; border-color:#BBF7D0; }
+        .ref-card.negative { background:#FEF2F2; border-color:#FECACA; }
+        .ref-word { font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; display:block; margin-bottom:0.2rem; }
+        .ref-card.positive .ref-word { color:var(--success-dark); }
+        .ref-card.negative .ref-word { color:var(--error-dark); }
+        .ref-text { font-size:0.75rem; color:var(--text-medium); line-height:1.4; }
+        .ref-section-title { font-size:0.8rem; font-weight:700; color:var(--text-medium); margin:0.6rem 0 0.4rem; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .topic-badge.positive { background:#D1FAE5; color:#059669; }
+        .topic-badge.negative { background:#FEE2E2; color:#DC2626; }
+
+        .hint-box { background:#F0FDF4; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; }
+        .blank { display:inline-block; min-width:90px; padding:0.2rem 0.6rem; background:var(--primary-light); border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+
+        .translate-toggle { display:flex; align-items:center; gap:0.4rem; background:#FFF; border:1.5px solid #E5E7EB; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:700; color:var(--text-medium); cursor:pointer; margin-bottom:1rem; transition:all .2s; }
+        .translate-toggle:hover { border-color:var(--primary); color:var(--primary-dark); background:#F0FDF4; }
+        .translate-toggle.active { background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); }
+        .translation { display:none; color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; padding:0.6rem 0.9rem; background:#F0FDF4; border-radius:10px; border-left:3px solid var(--primary-light); }
+        .translation.show { display:block; animation:fadeUp .3s ease; }
+
+        .options-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .options-grid.col-1 { grid-template-columns:1fr; }
+        .option-btn { padding:0.9rem 0.6rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-light); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-signal-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+
+        .fb-error { background:var(--error-light); border-radius:12px; padding:0.9rem 1rem; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; margin-left:auto; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ew-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">📝 Fill in the Blanks</div>
+            <div class="header-subtitle">💚 A2 · Module 2 · A few / few · A little / little</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">⚖️</div>
+            <div>
+                <div class="instructions-title">Choose between a few/few and a little/little</div>
+                <div class="instructions-text">Look at the noun (countable or uncountable) and the meaning (positive or negative). Tap 🇪🇸 to see Spanish.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Completed!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A2/A2_M1/Panel.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // ============================================================
+    // A FEW / FEW + countable plural
+    // A LITTLE / LITTLE + uncountable
+    // (a/an before = positive, without "a/an" = negative meaning)
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            sentence: "Sofía has _____ coins in her wallet, so she can pay for the bus.",
+            translation: "Sofía tiene algunas monedas en su billetera, así que puede pagar el autobús.",
+            hint: "The noun 'coins' is countable. The meaning is positive: she has SOME and it's ENOUGH.",
+            clue: "coins (countable plural) + positive meaning",
+            clueExplain: "'Coins' is countable plural, and the context is positive (enough to pay). We use 'a few' for some/enough countable items.",
+            options: ["a few", "a little", "few", "little"],
+            correct: "a few",
+            type: "positive_countable",
+            feedback: {
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns (money, time, water). 'Coins' is countable plural — we need 'a few'.", rule: "a little = uncountable / a few = countable plural" },
+                "few": { errorType: "Wrong nuance", explanation: "'Few' (without 'a') means 'almost none, not enough' — a negative meaning. The context says she CAN pay, so it's positive: 'a few'.", rule: "a few = some (positive) / few = almost none (negative)" },
+                "little": { errorType: "Wrong category and nuance", explanation: "'Little' is for uncountable nouns AND has a negative meaning. 'Coins' is countable, and the context is positive. We need 'a few'.", rule: "Countable + positive → a few" }
+            },
+            correctReason: "'Coins' is a countable plural noun. The context is positive (she has enough to pay), so we use 'a few' = some, enough.",
+            ruleFormula: "a few + countable plural noun (positive)"
+        },
+        {
+            id: 2,
+            sentence: "I have _____ money in my account, so I can't pay this bill.",
+            translation: "Tengo poco dinero en mi cuenta, por eso no puedo pagar este recibo.",
+            hint: "The noun 'money' is uncountable. The meaning is negative: not enough money.",
+            clue: "money (uncountable) + can't pay (negative)",
+            clueExplain: "'Money' is uncountable, and 'can't pay' shows insufficient quantity. 'Little' (without 'a') means 'not much, not enough'.",
+            options: ["few", "little", "a little", "a few"],
+            correct: "little",
+            type: "negative_uncountable",
+            feedback: {
+                "few": { errorType: "Wrong category", explanation: "'Few' is for countable plural nouns. 'Money' is uncountable — we need 'little'.", rule: "money = uncountable → little / a little" },
+                "a little": { errorType: "Wrong nuance", explanation: "'A little' has a positive meaning (some, enough). The context says she CAN'T pay, so it's negative: 'little'.", rule: "a little = some (positive) / little = not enough (negative)" },
+                "a few": { errorType: "Wrong category and nuance", explanation: "'A few' is for countable plural AND has a positive meaning. 'Money' is uncountable, and the context is negative. We need 'little'.", rule: "Uncountable + negative → little" }
+            },
+            correctReason: "'Money' is an uncountable noun. The context is negative (can't pay), so we use 'little' = not much, not enough.",
+            ruleFormula: "little + uncountable noun (negative)"
+        },
+        {
+            id: 3,
+            sentence: "Marcos has _____ minutes before the bank closes, but he can still get there.",
+            translation: "A Marcos le quedan algunos minutos antes de que el banco cierre, pero todavía puede llegar.",
+            hint: "The noun 'minutes' is countable. The meaning is positive: enough time to make it.",
+            clue: "minutes (countable plural) + can still (positive)",
+            clueExplain: "'Minutes' is countable plural, and 'can still get there' shows sufficient time. We use 'a few' for some/enough countable items.",
+            options: ["few", "a little", "a few", "little"],
+            correct: "a few",
+            type: "positive_countable",
+            feedback: {
+                "few": { errorType: "Wrong nuance", explanation: "'Few' means 'not enough, almost none' — negative. The context says he CAN still make it, so it's positive: 'a few'.", rule: "a few = some (positive) / few = almost none (negative)" },
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns. 'Minutes' is countable plural — we need 'a few'.", rule: "minutes = countable → a few" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'Minutes' is countable plural — we need 'a few'.", rule: "Countable + positive → a few" }
+            },
+            correctReason: "'Minutes' is a countable plural noun. The context is positive (enough time to make it), so we use 'a few'.",
+            ruleFormula: "a few + countable plural (positive)"
+        },
+        {
+            id: 4,
+            sentence: "There is _____ time left, so we should hurry before the office closes.",
+            translation: "Queda poco tiempo, así que deberíamos darnos prisa antes de que cierre la oficina.",
+            hint: "The noun 'time' is uncountable. The meaning is negative: not enough — they need to hurry.",
+            clue: "time (uncountable) + should hurry (negative)",
+            clueExplain: "'Time' is uncountable, and 'should hurry' implies not enough time. 'Little' (without 'a') means 'not much, not enough'.",
+            options: ["a little", "few", "a few", "little"],
+            correct: "little",
+            type: "negative_uncountable",
+            feedback: {
+                "a little": { errorType: "Wrong nuance", explanation: "'A little' is positive (some, enough). The need to hurry shows time is INSUFFICIENT — negative meaning. Use 'little'.", rule: "Need to hurry → little (not enough)" },
+                "few": { errorType: "Wrong category", explanation: "'Few' is for countable plural nouns. 'Time' is uncountable — we need 'little'.", rule: "time = uncountable → little" },
+                "a few": { errorType: "Wrong category", explanation: "'A few' is for countable plural. 'Time' is uncountable — we need 'little'.", rule: "Uncountable + negative → little" }
+            },
+            correctReason: "'Time' is an uncountable noun. 'Should hurry' shows the time is insufficient (negative), so we use 'little' = not enough.",
+            ruleFormula: "little + uncountable noun (negative)"
+        },
+        {
+            id: 5,
+            sentence: "Carlos has _____ water in his bottle, just enough for a quick walk.",
+            translation: "Carlos tiene un poco de agua en su botella, justo lo suficiente para una caminata corta.",
+            hint: "The noun 'water' is uncountable. The meaning is positive: enough for a short walk.",
+            clue: "water (uncountable) + just enough (positive)",
+            clueExplain: "'Water' is uncountable, and 'just enough' shows sufficient quantity. 'A little' means 'some, enough'.",
+            options: ["a little", "little", "a few", "few"],
+            correct: "a little",
+            type: "positive_uncountable",
+            feedback: {
+                "little": { errorType: "Wrong nuance", explanation: "'Little' (without 'a') is negative — not enough. The context says 'just enough', so it's positive: 'a little'.", rule: "Just enough → a little (positive)" },
+                "a few": { errorType: "Wrong category", explanation: "'A few' is for countable plural. 'Water' is uncountable — we need 'a little'.", rule: "water = uncountable → a little / little" },
+                "few": { errorType: "Wrong category and nuance", explanation: "'Few' is for countable plural AND negative. 'Water' is uncountable, and the context is positive. We need 'a little'.", rule: "Uncountable + positive → a little" }
+            },
+            correctReason: "'Water' is an uncountable noun. The context is positive (just enough for the walk), so we use 'a little' = some, enough.",
+            ruleFormula: "a little + uncountable noun (positive)"
+        },
+        {
+            id: 6,
+            sentence: "Sofía has _____ friends who work at the bank, but she still feels lonely there.",
+            translation: "Sofía tiene pocos amigos que trabajan en el banco, pero aun así se siente sola allí.",
+            hint: "The noun 'friends' is countable. The meaning is negative: not enough friends — she feels lonely.",
+            clue: "friends (countable plural) + still feels lonely (negative)",
+            clueExplain: "'Friends' is countable plural. 'Still feels lonely' implies the friends are not enough. 'Few' (without 'a') means 'not many, not enough'.",
+            options: ["a few", "few", "little", "a little"],
+            correct: "few",
+            type: "negative_countable",
+            feedback: {
+                "a few": { errorType: "Wrong nuance", explanation: "'A few' is positive (some, enough). 'Still feels lonely' shows the friends are NOT enough — negative meaning. Use 'few'.", rule: "Feels lonely → few (not enough)" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'Friends' is countable plural — we need 'few'.", rule: "friends = countable → few / a few" },
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns. 'Friends' is countable plural — we need 'few'.", rule: "Countable + negative → few" }
+            },
+            correctReason: "'Friends' is a countable plural noun. 'Still feels lonely' shows the friends are not enough (negative), so we use 'few'.",
+            ruleFormula: "few + countable plural (negative)"
+        },
+        {
+            id: 7,
+            sentence: "I bought _____ apples at the market, enough for a small breakfast.",
+            translation: "Compré algunas manzanas en el mercado, suficientes para un pequeño desayuno.",
+            hint: "The noun 'apples' is countable. The meaning is positive: enough for breakfast.",
+            clue: "apples (countable plural) + enough (positive)",
+            clueExplain: "'Apples' is countable plural, and 'enough for breakfast' shows sufficient quantity. We use 'a few' for some/enough.",
+            options: ["few", "a little", "a few", "little"],
+            correct: "a few",
+            type: "positive_countable",
+            feedback: {
+                "few": { errorType: "Wrong nuance", explanation: "'Few' is negative — not enough. The context says 'enough for breakfast', so it's positive: 'a few'.", rule: "a few = enough / few = not enough" },
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns. 'Apples' is countable plural — we need 'a few'.", rule: "apples = countable → a few" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'Apples' is countable plural — we need 'a few'.", rule: "Countable + positive → a few" }
+            },
+            correctReason: "'Apples' is a countable plural noun. The context is positive (enough for breakfast), so we use 'a few'.",
+            ruleFormula: "a few + countable plural (positive)"
+        },
+        {
+            id: 8,
+            sentence: "We have _____ bread for the sandwiches — let's buy more before lunch.",
+            translation: "Tenemos poco pan para los sándwiches — compremos más antes del almuerzo.",
+            hint: "The noun 'bread' is uncountable. The meaning is negative: not enough, need to buy more.",
+            clue: "bread (uncountable) + buy more (negative)",
+            clueExplain: "'Bread' is uncountable, and 'buy more' shows the current amount is insufficient. 'Little' (without 'a') means 'not enough'.",
+            options: ["a little", "few", "a few", "little"],
+            correct: "little",
+            type: "negative_uncountable",
+            feedback: {
+                "a little": { errorType: "Wrong nuance", explanation: "'A little' is positive (some, enough). The need to buy more shows the bread is INSUFFICIENT — negative. Use 'little'.", rule: "Buy more → little (not enough)" },
+                "few": { errorType: "Wrong category", explanation: "'Few' is for countable plural nouns. 'Bread' is uncountable — we need 'little'.", rule: "bread = uncountable → little" },
+                "a few": { errorType: "Wrong category", explanation: "'A few' is for countable plural. 'Bread' is uncountable — we need 'little'.", rule: "Uncountable + negative → little" }
+            },
+            correctReason: "'Bread' is an uncountable noun. The need to buy more shows the bread is not enough (negative), so we use 'little'.",
+            ruleFormula: "little + uncountable noun (negative)"
+        },
+        {
+            id: 9,
+            sentence: "There were _____ customers in the bank this morning, so it was very quiet.",
+            translation: "Había pocos clientes en el banco esta mañana, así que estaba muy silencioso.",
+            hint: "The noun 'customers' is countable. The meaning is negative: very quiet because of low number.",
+            clue: "customers (countable) + very quiet (negative)",
+            clueExplain: "'Customers' is countable plural. 'Very quiet' implies almost no customers were there. 'Few' (without 'a') means 'not many, almost none'.",
+            options: ["few", "a few", "little", "a little"],
+            correct: "few",
+            type: "negative_countable",
+            feedback: {
+                "a few": { errorType: "Wrong nuance", explanation: "'A few' is positive (some, enough). 'Very quiet' implies almost no customers — negative meaning. Use 'few'.", rule: "Quiet/empty → few (almost none)" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'Customers' is countable plural — we need 'few'.", rule: "customers = countable → few" },
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns. 'Customers' is countable plural — we need 'few'.", rule: "Countable + negative → few" }
+            },
+            correctReason: "'Customers' is a countable plural noun. 'Very quiet' shows there were almost none (negative), so we use 'few'.",
+            ruleFormula: "few + countable plural (negative)"
+        },
+        {
+            id: 10,
+            sentence: "Carlos saved _____ money each month, just enough for his vacation.",
+            translation: "Carlos ahorró un poco de dinero cada mes, justo lo suficiente para sus vacaciones.",
+            hint: "The noun 'money' is uncountable. The meaning is positive: enough for vacation.",
+            clue: "money (uncountable) + just enough (positive)",
+            clueExplain: "'Money' is uncountable, and 'just enough for vacation' shows sufficient quantity. 'A little' means 'some, enough'.",
+            options: ["little", "a little", "a few", "few"],
+            correct: "a little",
+            type: "positive_uncountable",
+            feedback: {
+                "little": { errorType: "Wrong nuance", explanation: "'Little' (without 'a') is negative — not enough. The context says 'just enough for vacation', so it's positive: 'a little'.", rule: "Just enough → a little (positive)" },
+                "a few": { errorType: "Wrong category", explanation: "'A few' is for countable plural. 'Money' is uncountable — we need 'a little'.", rule: "money = uncountable → a little / little" },
+                "few": { errorType: "Wrong category", explanation: "'Few' is for countable plural. 'Money' is uncountable — we need 'a little'.", rule: "Uncountable + positive → a little" }
+            },
+            correctReason: "'Money' is an uncountable noun. The context is positive (enough for vacation), so we use 'a little' = some, enough.",
+            ruleFormula: "a little + uncountable noun (positive)"
+        },
+        {
+            id: 11,
+            sentence: "The clerk gave me _____ advice about my account, and it was very helpful.",
+            translation: "La cajera me dio un poco de consejo sobre mi cuenta, y fue muy útil.",
+            hint: "The noun 'advice' is uncountable in English (always singular). The meaning is positive: very helpful.",
+            clue: "advice (uncountable) + very helpful (positive)",
+            clueExplain: "'Advice' is always uncountable in English (we never say 'advices'). 'Very helpful' shows the advice was sufficient. 'A little' means 'some, useful amount'.",
+            options: ["little", "a few", "a little", "few"],
+            correct: "a little",
+            type: "positive_uncountable",
+            feedback: {
+                "little": { errorType: "Wrong nuance", explanation: "'Little' is negative — not useful, not enough. The context says 'very helpful', so it's positive: 'a little'.", rule: "Very helpful → a little (positive)" },
+                "a few": { errorType: "Wrong category — common mistake", explanation: "'Advice' is ALWAYS uncountable in English (never 'advices'). We say 'a piece of advice' for one item. We need 'a little advice'.", rule: "advice = uncountable → a little" },
+                "few": { errorType: "Wrong category", explanation: "'Few' is for countable plural. 'Advice' is uncountable in English — we need 'a little'.", rule: "advice = uncountable noun" }
+            },
+            correctReason: "'Advice' is an uncountable noun in English (no plural form). The context is positive (very helpful), so we use 'a little' = some, useful amount.",
+            ruleFormula: "a little + uncountable noun (advice = always uncountable)"
+        },
+        {
+            id: 12,
+            sentence: "Sofía knows _____ people in this neighborhood, but she's making new friends.",
+            translation: "Sofía conoce a algunas personas en este barrio, pero está haciendo nuevos amigos.",
+            hint: "The noun 'people' is countable plural. The meaning is positive: she knows some, and that's a starting point.",
+            clue: "people (countable plural) + making new friends (positive)",
+            clueExplain: "'People' is countable plural. The context is positive (she has a base and is growing). 'A few' means 'some, enough as a starting point'.",
+            options: ["few", "a little", "little", "a few"],
+            correct: "a few",
+            type: "positive_countable",
+            feedback: {
+                "few": { errorType: "Wrong nuance", explanation: "'Few' is negative — implies isolation. The context shows she's progressing (making new friends), so it's positive: 'a few'.", rule: "Progressing → a few (positive)" },
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns. 'People' is countable plural (one person, two people) — we need 'a few'.", rule: "people = countable plural → a few" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'People' is countable plural — we need 'a few'.", rule: "Countable + positive → a few" }
+            },
+            correctReason: "'People' is a countable plural noun (one person, two people). The context is positive, so we use 'a few' = some.",
+            ruleFormula: "a few + countable plural (positive)"
+        },
+        {
+            id: 13,
+            sentence: "There was _____ traffic this morning, so I arrived to the bank very fast.",
+            translation: "Había poco tráfico esta mañana, así que llegué al banco muy rápido.",
+            hint: "The noun 'traffic' is uncountable. The meaning is positive (light traffic = good for arrival).",
+            clue: "traffic (uncountable) + arrived very fast (positive context but negative quantity)",
+            clueExplain: "'Traffic' is uncountable. The context describes a SMALL amount of traffic. Even though arriving fast is good, we're describing how the traffic itself was minimal: 'little traffic' = not much traffic.",
+            options: ["little", "a little", "few", "a few"],
+            correct: "little",
+            type: "negative_uncountable",
+            feedback: {
+                "a little": { errorType: "Wrong nuance", explanation: "'A little traffic' means 'some traffic, but normal'. The context here describes traffic was almost absent — that's 'little'. Compare: 'There was little traffic' = empty roads, fast arrival.", rule: "Almost no traffic → little / Some normal traffic → a little" },
+                "few": { errorType: "Wrong category", explanation: "'Few' is for countable plural. 'Traffic' is uncountable — we need 'little'.", rule: "traffic = uncountable → little" },
+                "a few": { errorType: "Wrong category", explanation: "'A few' is for countable plural. 'Traffic' is uncountable — we need 'little'.", rule: "Uncountable + minimal quantity → little" }
+            },
+            correctReason: "'Traffic' is uncountable. 'Little traffic' (without 'a') describes minimal/almost no traffic, which is why she arrived fast.",
+            ruleFormula: "little + uncountable noun (minimal quantity)"
+        },
+        {
+            id: 14,
+            sentence: "Marcos has _____ free hours this week, but he can still meet you for coffee.",
+            translation: "Marcos tiene algunas horas libres esta semana, pero todavía puede verte para un café.",
+            hint: "The noun 'hours' is countable. The meaning is positive: enough hours to meet for coffee.",
+            clue: "hours (countable plural) + can still meet (positive)",
+            clueExplain: "'Hours' is countable plural, and 'can still meet for coffee' shows sufficient time. We use 'a few' for some/enough countable items.",
+            options: ["few", "a few", "a little", "little"],
+            correct: "a few",
+            type: "positive_countable",
+            feedback: {
+                "few": { errorType: "Wrong nuance", explanation: "'Few' is negative — not enough hours. The context says he CAN still meet, so it's positive: 'a few'.", rule: "Can still do → a few (positive)" },
+                "a little": { errorType: "Wrong category — common mistake", explanation: "'Hours' is COUNTABLE (one hour, two hours). 'A little' is for uncountable nouns like 'time'. We need 'a few hours' (or 'a little time').", rule: "hours = countable / time = uncountable" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'Hours' is countable plural — we need 'a few'.", rule: "Countable + positive → a few" }
+            },
+            correctReason: "'Hours' is a countable plural noun. The context is positive (can still meet), so we use 'a few' = some, enough.",
+            ruleFormula: "a few + countable plural (positive)"
+        },
+        {
+            id: 15,
+            sentence: "The bank received _____ complaints this month, but most customers were satisfied.",
+            translation: "El banco recibió pocas quejas este mes, pero la mayoría de los clientes estaban satisfechos.",
+            hint: "The noun 'complaints' is countable. The meaning here is positive (few complaints = good for the bank).",
+            clue: "complaints (countable) + most satisfied (positive context, low quantity)",
+            clueExplain: "'Complaints' is countable plural. The context says MOST customers were satisfied, meaning very few complained. 'Few' (without 'a') means 'not many, almost none'.",
+            options: ["a few", "little", "few", "a little"],
+            correct: "few",
+            type: "negative_countable",
+            feedback: {
+                "a few": { errorType: "Wrong nuance", explanation: "'A few complaints' means 'some complaints' — a noticeable amount. But 'most customers were satisfied' implies almost no complaints — that's 'few'.", rule: "Almost none → few / Some noticeable → a few" },
+                "little": { errorType: "Wrong category", explanation: "'Little' is for uncountable nouns. 'Complaints' is countable plural — we need 'few'.", rule: "complaints = countable → few" },
+                "a little": { errorType: "Wrong category", explanation: "'A little' is for uncountable nouns. 'Complaints' is countable plural — we need 'few'.", rule: "Countable + minimal → few" }
+            },
+            correctReason: "'Complaints' is countable plural. 'Most customers were satisfied' means almost no complaints (minimal quantity). 'Few' captures this 'almost none' nuance.",
+            ruleFormula: "few + countable plural (minimal/almost none)"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, index) => container.appendChild(createQuestionCard(q, index)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createQuestionCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const shuffled = shuffle(q.options);
+        const isPositive = q.type.startsWith('positive');
+        const badgeClass = isPositive ? 'positive' : 'negative';
+        const badgeText = isPositive ? '➕ Positive' : '➖ Negative';
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge ${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Hint</div>
+                ${q.hint}
+            </div>
+            <p class="question-text">${q.sentence.replace('_____', `<span class="blank" id="blank-${index}">?</span>`)}</p>
+            <button class="translate-toggle" onclick="toggleTranslation(${index}, this)">🇪🇸 <span>Show Spanish</span></button>
+            <div class="translation" id="translation-${index}">${q.translation}</div>
+            <div class="options-grid" id="options-${index}">
+                ${shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectAnswer(${index}, ${i}, this)">${opt}</button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        card._shuffled = shuffled;
+        return card;
+    }
+
+    function toggleTranslation(qi, btn) {
+        const tr = document.getElementById(`translation-${qi}`);
+        const span = btn.querySelector('span');
+        if (tr.classList.contains('show')) {
+            tr.classList.remove('show');
+            btn.classList.remove('active');
+            span.textContent = 'Show Spanish';
+        } else {
+            tr.classList.add('show');
+            btn.classList.add('active');
+            span.textContent = 'Hide Spanish';
+        }
+    }
+
+    function selectAnswer(qi, optIdx, btn) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const card = document.getElementById(`question-${qi}`);
+        const shuffled = card._shuffled;
+        const selected = shuffled[optIdx];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+
+        const blank = document.getElementById(`blank-${qi}`);
+        blank.textContent = selected;
+        blank.className = `blank ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach(b => {
+            b.disabled = true;
+            const idx = parseInt(b.getAttribute('data-idx'));
+            const t = shuffled[idx];
+            if (t === q.correct) b.classList.add('correct');
+            else if (idx === optIdx) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct!</div>
+                        <div class="fb-subtitle">You chose the right quantifier and nuance</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal">
+                        <div class="fb-block-title">🔍 The key signal you spotted</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 Pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is it correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            const err = q.feedback[selected] || { errorType: 'Error', explanation: 'Incorrect answer.', rule: '' };
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect</div>
+                        <div class="fb-subtitle">Let's review what happened</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-signal wrong">
+                        <div class="fb-block-title">🔍 The key signal you needed to spot</div>
+                        <div class="fb-signal-text">
+                            <span class="signal-tag red">${q.clue}</span> — ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-compare">
+                        <div class="fb-block-title" style="color:#64748B;">🔄 Your answer vs. correct</div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label wrong">You wrote</span>
+                            <span class="compare-text"><span class="word-wrong">${selected}</span></span>
+                        </div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label right">Correct</span>
+                            <span class="compare-text"><span class="word-right">${q.correct}</span></span>
+                        </div>
+                    </div>
+                    <div class="fb-error">
+                        <div class="fb-block-title">⚠️ Error type: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="error-word-row">
+                            <span class="ew-box ew-wrong">${selected}</span>
+                            <span class="ew-arrow">→</span>
+                            <span class="ew-box ew-right">${q.correct}</span>
+                        </div>
+                        <div class="error-rule">${err.explanation}</div>
+                        ${err.rule ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">📌 ${err.rule}</div>` : ''}
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 The correct pattern</div>
+                        <div class="rule-formula">${q.ruleFormula}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is the correct answer right?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+
+    function nextQuestion(i) {
+        if (i < quizData.length - 1) showQuestion(i + 1);
+        else showResults();
+    }
+
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        const rs = document.getElementById('resultsScreen');
+        rs.classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master a few/few and a little/little. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
