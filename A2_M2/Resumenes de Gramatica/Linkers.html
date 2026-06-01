@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Linkers of Contrast & Reason | A2 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#4CAF50;--ld:#1B5E20;--ll:#E8F5E9;--lm:#C8E6C9;
+--lg:linear-gradient(135deg,#388E3C,#4CAF50);--lglow:rgba(76,175,80,.15);
+--badge-text:#1A3D1C;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.85;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.illus{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;background:var(--ll);border:1.5px solid var(--lm);border-radius:14px;padding:1rem;margin:0 0 1rem;font-size:2.1rem;line-height:1}
+.illus .cap{flex-basis:100%;text-align:center;font-family:'Fredoka',sans-serif;font-size:.9rem;font-weight:600;color:var(--ld);margin-top:.2rem}
+.art-box{background:var(--card);border:2px dashed var(--lm);border-radius:14px;padding:1.2rem;margin:.8rem 0;text-align:center}
+.art-box .art-hero{font-family:'Fredoka',sans-serif;font-size:1.25rem;color:var(--ld);line-height:1.7}
+.viz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.8rem 0}
+.viz-item{padding:.7rem .5rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--lm);font-size:.82rem}
+.viz-item .ico{font-size:1.6rem;display:block;margin-bottom:.3rem}
+.viz-item .lbl{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.95rem;display:block}
+.viz-item .es{font-style:italic;color:var(--text-soft);font-size:.74rem;display:block;margin-top:2px}
+.rule-grid{display:grid;grid-template-columns:1fr;gap:.5rem;margin:.8rem 0}
+.rule-item{padding:.7rem 1rem;border-radius:10px;background:var(--card);border:1.5px solid var(--lm);display:flex;align-items:flex-start;gap:.7rem}
+.rule-item .rnum{font-family:'Fredoka',sans-serif;background:var(--lp);color:#fff;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem}
+.rule-item .info{flex:1;font-size:.85rem;line-height:1.6}
+.rule-item .info strong{color:var(--ld);display:block;margin-bottom:2px}
+.timeline{display:flex;align-items:center;justify-content:space-between;margin:1rem 0;padding:.8rem;background:var(--ll);border-radius:12px;border:1.5px solid var(--lm);gap:.4rem;flex-wrap:wrap}
+.tl-point{flex:1;min-width:75px;text-align:center;padding:.5rem .3rem;background:#fff;border-radius:8px;border:2px solid var(--lm)}
+.tl-point .ico{font-size:1.3rem;display:block}
+.tl-point .lbl{font-family:'Fredoka',sans-serif;font-size:.78rem;color:var(--ld);margin-top:2px;display:block}
+.tl-arrow{color:var(--lp);font-size:1.2rem;font-weight:700}
+.info-illus{display:flex;align-items:flex-start;gap:.6rem;background:var(--ll);border-radius:10px;padding:.7rem .9rem;margin:.6rem 0;font-size:.84rem;border-left:3px solid var(--lp)}
+.info-illus .ico{font-size:1.3rem;flex-shrink:0;line-height:1.3}
+.eg-card{background:var(--card);border:1.5px solid var(--lm);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0}
+.eg-card .badge{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-bottom:.4rem}
+.eg-card .badge.eg{background:var(--note-bg);color:#6D4C00;border:1px solid var(--note-border)}
+.eg-card .badge.good{background:var(--ok-bg);color:var(--ok);border:1px solid #A5D6A7}
+.eg-card .badge.bad{background:var(--err-bg);color:var(--err);border:1px solid #EF9A9A}
+.eg-card .eg-en{font-weight:700;color:var(--text);font-size:.9rem}
+.eg-card .eg-es{font-family:'Lora',serif;font-style:italic;color:var(--text-soft);font-size:.82rem;margin-top:2px}
+.why-box{background:var(--ok-bg);border:1.5px solid #A5D6A7;border-radius:12px;padding:.8rem 1rem;margin:.8rem 0;font-size:.84rem}
+.why-box .wt{font-family:'Fredoka',sans-serif;color:var(--ok);font-size:.85rem;margin-bottom:.25rem}
+.note-box{background:var(--note-bg);border:1.5px solid var(--note-border);border-radius:12px;padding:.8rem 1rem;margin:.8rem 0;font-size:.84rem;color:#6D4C00}
+.note-box .wt{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.85rem;margin-bottom:.25rem}
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;line-height:1.4}
+.ex-row .body{flex:1;min-width:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.85}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#6D4C00}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 22px;position:relative;font-size:.83rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700}
+.summary-final .total-score{margin-top:1rem;padding:.8rem;background:var(--ll);border-radius:10px;text-align:center;font-family:'Fredoka',sans-serif}
+.summary-final .total-score .big{font-size:1.6rem;color:var(--ld)}
+.summary-final .total-score .small{font-size:.8rem;color:var(--text-soft);font-weight:600}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.card{padding:1.2rem}.compare-grid,.conj-grid,.viz-grid{grid-template-columns:1fr}.timeline{flex-direction:column}.tl-arrow{transform:rotate(90deg)}.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<span class="level-badge">💚 A2 · Module 7</span>
+<h1>📝 Grammar Summary</h1>
+<div class="module-name">🔗 Linkers of Contrast & Reason (although / however / because / so)</div>
+<p class="subtitle">A2 · Module 7 · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+<div class="total-score" id="totalScore"></div>
+</div>
+</div>
+<script>
+
+let curStep=0;const scores={};const answered={};
+const DATA={"summary": ["<b>BECAUSE:</b> razon / causa — \"She stayed home <b>because</b> she was sick\"", "<b>SO:</b> consecuencia / resultado — \"She was sick, <b>so</b> she stayed home\"", "<b>ALTHOUGH:</b> contraste — \"<b>Although</b> it rained, we played\" (introduce cláusula)", "<b>HOWEVER:</b> contraste entre oraciones — \"It rained. <b>However</b>, we played\" (con comas)", "<b>Because + cláusula</b> (sujeto + verbo) · <b>Because of + sustantivo</b>", "<b>Although</b> puede ir al inicio (con coma) o en medio (sin coma inicial)", "<b>However</b> suele ir al inicio de la segunda oración, con coma después"], "steps": [{"icon": "🇪🇸", "title": "Repaso en Español", "html": "<div class=\"illus\">🔗 ➕ ↔️<div class=\"cap\">Conectar ideas: and, but, because, so</div></div><div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: 🇪🇸 Repaso en Español</div>\n<div class=\"section-desc\">En español usamos conectores para expresar <b>causa</b> (\"porque\"), <b>consecuencia</b> (\"así que\"), y <b>contraste</b> (\"aunque\", \"sin embargo\"). Estos mismos conceptos existen en inglés con palabras específicas.</div>\n\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>🔵 Causa / Consecuencia</h4><ul>\n<li>Se quedó <b>porque</b> estaba enferma</li>\n<li>Estaba enferma, <b>así que</b> se quedó</li>\n<li>No fui <b>porque</b> llovía</li>\n</ul></div>\n<div class=\"compare-card esp\"><h4>🔴 Contraste</h4><ul>\n<li><b>Aunque</b> llovía, jugamos</li>\n<li><b>Sin embargo</b>, no vino</li>\n<li>Era tarde, <b>pero</b> salió</li>\n</ul></div></div>\n\n<div class=\"section-label\">Conectores básicos</div><div class=\"viz-grid\"><div class=\"viz-item\"><span class=\"ico\">➕</span><span class=\"lbl\">and</span><span class=\"es\">y (suma)</span></div><div class=\"viz-item\"><span class=\"ico\">⚖️</span><span class=\"lbl\">but</span><span class=\"es\">pero (contraste)</span></div><div class=\"viz-item\"><span class=\"ico\">🎯</span><span class=\"lbl\">so</span><span class=\"es\">entonces (resultado)</span></div><div class=\"viz-item\"><span class=\"ico\">💭</span><span class=\"lbl\">because</span><span class=\"es\">porque (causa)</span></div></div><div class=\"ex-row\"><div class=\"icon\">🤒</div><div><div class=\"en\">\"No fui a la fiesta <b>porque</b> estaba enfermo\" → \"porque\" explica la RAZÓN.</div><div class=\"es\">Porque = causa</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">➡️</div><div><div class=\"en\">\"Estaba enfermo, <b>así que</b> no fui\" → \"así que\" introduce la CONSECUENCIA.</div><div class=\"es\">Así que = resultado</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">🔄</div><div><div class=\"en\">\"<b>Aunque</b> estaba enfermo, fui\" → \"aunque\" marca contraste esperado vs real.</div><div class=\"es\">Aunque = contraste</div></div></div>\n<div class=\"tip-card\"><strong>💡 Clave:</strong> \"Porque\" y \"así que\" son casi inversos: \"A porque B\" = \"B así que A\". El orden cambia pero el significado total es el mismo. \"Aunque\" introduce algo inesperado.</div>", "exercises": [{"q": "\"No fui al gimnasio <b>porque</b> estaba cansado\" — ¿qué expresa \"porque\"?", "a": "a", "o": ["La razón de no ir", "La consecuencia de cansarse"], "fc": "\"Porque\" introduce la CAUSA o razón de la acción principal.", "fi": "La consecuencia sería con \"así que\": \"Estaba cansado, así que no fui\".", "ex": "No fui porque estaba cansado → I didn't go because I was tired", "tip": "Porque = causa/razón"}, {"q": "\"Llovía, <b>así que</b> tomamos taxi\" — ¿qué expresa \"así que\"?", "a": "b", "o": ["La causa de la lluvia", "La consecuencia de que llovía"], "fc": "\"Así que\" introduce la CONSECUENCIA de la situación anterior.", "fi": "La causa de la lluvia no se menciona; \"así que\" no explica por qué llueve.", "ex": "Llovía, así que tomamos taxi → It was raining, so we took a taxi", "tip": "Así que = consecuencia/resultado"}, {"q": "\"<b>Aunque</b> estaba cansado, salió a correr\" — ¿qué esperarías?", "a": "a", "o": ["Que NO saliera a correr", "Que saliera a correr"], "fc": "\"Aunque\" marca CONTRASTE: lo normal/esperado sería no correr cansado, pero aun así corrió.", "fi": "Si esperamos que corra, no usaríamos \"aunque\".", "ex": "Aunque estaba cansado, salió a correr → Although he was tired, he went running", "tip": "Aunque = contraste con lo esperado"}, {"q": "\"Estudió mucho; <b>sin embargo</b>, reprobó\" — el matiz es:", "a": "b", "o": ["Lógico (estudio → aprobar)", "Contraste inesperado"], "fc": "\"Sin embargo\" marca un contraste inesperado: estudió pero aún así reprobó.", "fi": "Lo lógico sería aprobar tras estudiar, pero el resultado fue el opuesto.", "ex": "Estudió mucho; sin embargo, reprobó → He studied a lot; however, he failed", "tip": "Sin embargo = contraste entre oraciones"}, {"q": "\"Estaba enferma, <b>por eso</b> se quedó en casa\" — \"por eso\" equivale a:", "a": "a", "o": ["Así que", "Aunque"], "fc": "\"Por eso\" = \"así que\" en sentido: ambos introducen CONSECUENCIA.", "fi": "\"Aunque\" marcaría contraste, no consecuencia.", "ex": "Estaba enferma, por eso se quedó → She was sick, so she stayed home", "tip": "Por eso / Así que = consecuencia"}]}, {"icon": "🤝", "title": "Similitudes", "html": "<div class=\"illus\">🇪🇸 y/pero  🤝  🇬🇧 and/but<div class=\"cap\">Conectores que coinciden</div></div><div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>\n<div class=\"section-desc\">Each Spanish connector maps to one or more English connectors with the same meaning.</div>\n\n<table class=\"g-table\">\n<tr><th>Función</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>\n<tr><td>Razón / Causa</td><td>porque</td><td><span class=\"g-verb\">because</span></td></tr>\n<tr><td>Consecuencia</td><td>así que / por eso</td><td><span class=\"g-verb\">so</span></td></tr>\n<tr><td>Contraste (cláusula)</td><td>aunque</td><td><span class=\"g-neg\">although</span> / <span class=\"g-neg\">even though</span></td></tr>\n<tr><td>Contraste (entre oraciones)</td><td>sin embargo</td><td><span class=\"g-neg\">however</span></td></tr>\n<tr><td>Contraste básico</td><td>pero</td><td><span class=\"g-neg\">but</span></td></tr>\n</table>\n\n<div class=\"section-label\">La lógica causa ↔ consecuencia</div>\n<div class=\"eg-card\"><span class=\"badge good\">✅ Bien</span><div class=\"eg-en\">I was tired, <b>so</b> I slept.</div><div class=\"eg-es\">Estaba cansado, así que dormí.</div></div><div class=\"eg-card\"><span class=\"badge bad\">❌ Mal</span><div class=\"eg-en\">I was tired, <b>because</b> I slept.</div><div class=\"eg-es\">(causa y resultado invertidos)</div></div><div class=\"formula-box\" style=\"text-align:left;font-size:.88rem\">\nObservación clave: <b>porque</b> y <b>así que</b> cuentan la misma historia, en orden inverso:<br><br>\n🔵 <b>CAUSA</b> + <span class=\"g-verb\">so</span> + <b>EFECTO</b>: \"I was tired, <span class=\"g-verb\">so</span> I went to bed\"<br>\n🔵 <b>EFECTO</b> + <span class=\"g-verb\">because</span> + <b>CAUSA</b>: \"I went to bed <span class=\"g-verb\">because</span> I was tired\"<br><br>\n🟩 Las dos son correctas; solo cambia qué ponemos primero.\n</div>\n\n<div class=\"tip-card\"><strong>💡 Key similarity:</strong> La lógica es idéntica. En ambos idiomas puedes invertir el orden: \"no fui porque llovía\" = \"llovía así que no fui\" ↔ \"I didn't go because it rained\" = \"it rained so I didn't go\".</div>", "exercises": [{"q": "\"I'm studying English ___ I want to travel.\" (porque)", "a": "a", "o": ["because", "so"], "fc": "\"Porque\" introduce la razón → <b>because</b>.", "fi": "\"So\" introduciría la consecuencia, no la razón.", "ex": "I'm studying English because I want to travel → Estudio inglés porque quiero viajar", "tip": "Porque = because"}, {"q": "\"It was raining, ___ we stayed home.\" (así que)", "a": "b", "o": ["because", "so"], "fc": "\"Así que\" introduce la consecuencia → <b>so</b>.", "fi": "\"Because\" introduciría la causa de quedarse en casa, no la consecuencia de la lluvia.", "ex": "It was raining, so we stayed home → Llovía, así que nos quedamos", "tip": "Así que = so"}, {"q": "\"___ I was tired, I finished my homework.\" (aunque)", "a": "a", "o": ["Although", "Because"], "fc": "\"Aunque\" marca contraste → <b>Although</b>.", "fi": "\"Because\" daría razón: \"porque estaba cansado, terminé mi tarea\" no tiene sentido lógico.", "ex": "Although I was tired, I finished my homework → Aunque estaba cansado, terminé la tarea", "tip": "Aunque = although (contraste)"}, {"q": "\"The test was hard. ___, most students passed.\" (sin embargo)", "a": "b", "o": ["Because", "However"], "fc": "\"Sin embargo\" entre oraciones → <b>However</b>.", "fi": "\"Because\" sería causa; \"most students passed\" no es causa de que fuera difícil.", "ex": "The test was hard. However, most students passed → Fue difícil. Sin embargo, la mayoría aprobó", "tip": "Sin embargo = however (entre oraciones)"}, {"q": "\"I had lunch ___ I was hungry.\" (porque)", "a": "a", "o": ["because", "although"], "fc": "Tener hambre es la razón de almorzar → <b>because</b>.", "fi": "\"Although\" no tiene sentido lógico aquí (implicaría contraste).", "ex": "I had lunch because I was hungry → Almorcé porque tenía hambre", "tip": "Razón → because"}]}, {"icon": "⚡", "title": "Diferencias", "html": "<div class=\"illus\">➕ and  ⚖️ but  🎯 so<div class=\"cap\">Sumar, contrastar, concluir</div></div><div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: ⚡ Diferencias Importantes</div>\n<div class=\"section-desc\">Los detalles que importan: <b>because vs because of</b>, y la <b>puntuación</b> con however y although.</div>\n\n<table class=\"g-table\">\n<tr><th>Estructura</th><th>Uso</th><th>Ejemplo</th></tr>\n<tr><td><span class=\"g-verb\">because</span> + sujeto + verbo</td><td>Cláusula completa</td><td>I stayed because <b>I was</b> tired</td></tr>\n<tr><td><span class=\"g-verb\">because of</span> + sustantivo</td><td>Solo sustantivo / -ing</td><td>I stayed because of <b>the rain</b></td></tr>\n<tr><td><span class=\"g-neg\">Although</span>, cláusula</td><td>Al INICIO + coma</td><td><b>Although</b> it rained, we played</td></tr>\n<tr><td>cláusula, <span class=\"g-neg\">although</span></td><td>En el MEDIO, sin coma antes</td><td>We played <b>although</b> it rained</td></tr>\n<tr><td>Oración. <span class=\"g-neg\">However</span>,</td><td>Nueva oración, con coma</td><td>It rained. <b>However,</b> we played</td></tr>\n</table>\n\n<div class=\"alert-card\"><div class=\"atitle\">⚠️ Because vs Because of</div>\n<p>Esta es una trampa clásica. La diferencia es qué VA después:<br><br>\n• <b>Because</b> + <b>cláusula completa</b> (sujeto + verbo):<br>\n&nbsp;&nbsp;✅ \"I stayed home <b>because</b> <u>it was raining</u>\" (sujeto + verbo)<br><br>\n• <b>Because of</b> + <b>sustantivo o frase sustantiva</b>:<br>\n&nbsp;&nbsp;✅ \"I stayed home <b>because of</b> <u>the rain</u>\" (solo sustantivo)<br><br>\n❌ \"I stayed home because the rain\" (falta of)<br>\n❌ \"I stayed home because of it was raining\" (sobra of)</p></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">⚠️ However vs Although</div>\n<p>Ambos expresan contraste pero con <b>puntuación distinta</b>:<br><br>\n• <b>Although</b> conecta DOS CLÁUSULAS en una oración, con UNA coma si va al inicio:<br>\n&nbsp;&nbsp;✅ \"<b>Although</b> it rained, we played.\"<br>\n&nbsp;&nbsp;✅ \"We played <b>although</b> it rained.\"<br><br>\n• <b>However</b> va en NUEVA ORACIÓN, con DOS comas:<br>\n&nbsp;&nbsp;✅ \"It rained. <b>However</b>, we played.\"<br><br>\n❌ \"Although it rained. We played.\" (corta la cláusula)<br>\n❌ \"It rained however we played.\" (sin comas ni punto)</p></div>\n\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">❌</div><div><div class=\"en\">We canceled the trip because of the flight was canceled.</div><div class=\"es\">Falla: \"because of\" + cláusula (necesita sustantivo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">✅</div><div><div class=\"en\">We canceled the trip <span class=\"g-verb\">because</span> the flight was canceled.</div><div class=\"es\">Cancelamos el viaje porque el vuelo fue cancelado.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">✅</div><div><div class=\"en\">We canceled the trip <span class=\"g-verb\">because of</span> the flight cancellation.</div><div class=\"es\">Cancelamos el viaje por la cancelación del vuelo.</div></div></div>", "exercises": [{"q": "\"She was late ___ heavy traffic.\" (sustantivo)", "a": "b", "o": ["because", "because of"], "fc": "\"Heavy traffic\" es sustantivo (no verbo) → <b>because of</b>.", "fi": "\"Because\" necesita sujeto + verbo después.", "ex": "She was late because of heavy traffic", "tip": "Because of + sustantivo"}, {"q": "\"She was late ___ the traffic was heavy.\" (cláusula completa)", "a": "b", "o": ["because of", "because"], "fc": "\"The traffic was heavy\" es cláusula completa → <b>because</b>.", "fi": "\"Because of\" no va con cláusulas completas.", "ex": "She was late because the traffic was heavy", "tip": "Because + cláusula (sujeto + verbo)"}, {"q": "\"___ it was cold, he went out without a jacket.\" (contraste al inicio)", "a": "a", "o": ["Although", "However"], "fc": "Al inicio de la oración, con contraste + cláusula → <b>Although</b>.", "fi": "\"However\" no introduce cláusula; va en nueva oración con punto.", "ex": "Although it was cold, he went out without a jacket", "tip": "Inicio + cláusula → Although"}, {"q": "\"The meeting was long. ___, we solved the problem.\" (entre oraciones)", "a": "b", "o": ["Although", "However"], "fc": "Entre dos oraciones separadas por punto → <b>However</b> con coma.", "fi": "\"Although\" conecta cláusulas en una sola oración, no entre oraciones separadas.", "ex": "The meeting was long. However, we solved the problem", "tip": "Entre oraciones → However"}, {"q": "\"I couldn't attend ___ I had an important meeting.\" (razón + cláusula)", "a": "b", "o": ["because of", "because"], "fc": "\"I had an important meeting\" es cláusula completa → <b>because</b>.", "fi": "\"Because of\" necesita sustantivo, no cláusula.", "ex": "I couldn't attend because I had an important meeting", "tip": "Razón + cláusula → because"}]}, {"icon": "💡", "title": "Consejos", "html": "<div class=\"illus\">🧠 💬 ➡️<div class=\"cap\">Tips para enlazar con naturalidad</div></div><div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: 💡 Consejos Prácticos</div>\n\n<div class=\"tip-card\"><strong>Tip 1 — La regla de Because:</strong> ¿Lo que sigue tiene <b>sujeto + verbo</b>? Usa <b>because</b>. ¿Es solo un <b>sustantivo / frase</b>? Usa <b>because of</b>. Hacer esta pregunta antes de escribir resuelve 95% de las dudas.</div>\n<div class=\"tip-card\"><strong>Tip 2 — Because ↔ So son espejos:</strong> \"A <b>because</b> B\" equivale a \"B <b>so</b> A\". Si dudas, próba invertir: si tiene sentido, el conector era el correcto. \"I stayed because it rained\" = \"It rained, so I stayed\".</div>\n<div class=\"tip-card\"><strong>Tip 3 — Although vs However: la pista es la puntuación:</strong><br>\n• <b>Although</b> → UNA oración (con coma si va al inicio)<br>\n• <b>However</b> → DOS oraciones separadas por punto</div>\n<div class=\"tip-card\"><strong>Tip 4 — Even though es más enfático que Although:</strong> Misma gramática, pero \"even though\" refuerza el contraste. \"<b>Even though</b> he was tired, he ran\" suena más sorprendente que \"Although he was tired, he ran\".</div>\n\n<div class=\"formula-box\">\n➡️ CAUSA: <span class=\"g-verb\">because</span> + cláusula · <span class=\"g-verb\">because of</span> + sustantivo<br>\n⬅️ CONSECUENCIA: cláusula, <span class=\"g-verb\">so</span> + cláusula<br>\n🔄 CONTRASTE (1 oración): <span class=\"g-neg\">although</span> + cláusula<br>\n🔄 CONTRASTE (2 oraciones): ... . <span class=\"g-neg\">However</span>, ...\n</div>\n\n<table class=\"g-table\">\n<tr><th>Conector</th><th>Qué conecta</th><th>Puntuación</th></tr>\n<tr><td><b>because</b></td><td>causa + efecto (1 oración)</td><td>sin coma antes normalmente</td></tr>\n<tr><td><b>because of</b></td><td>efecto + sustantivo causa</td><td>sin coma</td></tr>\n<tr><td><b>so</b></td><td>causa + consecuencia</td><td>coma antes de so</td></tr>\n<tr><td><b>although</b></td><td>contraste en una oración</td><td>coma al final de la cláusula inicial</td></tr>\n<tr><td><b>however</b></td><td>contraste entre oraciones</td><td>. However, (punto antes + coma)</td></tr>\n<tr><td><b>but</b></td><td>contraste simple en una oración</td><td>coma antes de but</td></tr>\n</table>", "exercises": [{"q": "\"The game was canceled ___ the bad weather.\" (razon + sustantivo)", "a": "a", "o": ["because of", "because"], "fc": "\"The bad weather\" es sustantivo → <b>because of</b>.", "fi": "\"Because\" necesita cláusula: \"because the weather was bad\".", "ex": "The game was canceled because of the bad weather", "tip": "Sustantivo → because of"}, {"q": "\"He loves that restaurant, ___ he goes every week.\" (consecuencia)", "a": "b", "o": ["although", "so"], "fc": "\"Loves\" + \"goes every week\" = causa-efecto natural → <b>so</b>.", "fi": "\"Although\" sería contraste, pero amar un lugar y visitarlo es coherente, no contrario.", "ex": "He loves that restaurant, so he goes every week", "tip": "Causa coherente + efecto → so"}, {"q": "\"___ the restaurant was expensive, we enjoyed the food.\" (contraste)", "a": "a", "o": ["Although", "Because"], "fc": "Caro + disfrutar = contraste inesperado → <b>Although</b>.", "fi": "\"Because\" daría causalidad, pero ser caro no explica disfrutar.", "ex": "Although the restaurant was expensive, we enjoyed the food", "tip": "Contraste inesperado → although"}, {"q": "\"I wanted to go out. ___, my car broke down.\" (contraste entre oraciones)", "a": "b", "o": ["Although", "However"], "fc": "Dos oraciones separadas por punto → <b>However</b> con coma.", "fi": "\"Although\" no puede ir al inicio de una segunda oración separada por punto.", "ex": "I wanted to go out. However, my car broke down", "tip": "Nueva oración + contraste → However"}, {"q": "\"She speaks three languages ___ she studied abroad.\" (razón)", "a": "a", "o": ["because", "because of"], "fc": "\"She studied abroad\" es cláusula (sujeto + verbo) → <b>because</b>.", "fi": "\"Because of\" necesita sustantivo: \"because of her studies abroad\".", "ex": "She speaks three languages because she studied abroad", "tip": "Cláusula → because"}]}, {"icon": "✨", "title": "Práctica Final", "html": "<div class=\"illus\">📝 🔗 🏁<div class=\"cap\">Une frases en un texto fluido</div></div><div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: ✨ Práctica Final</div>\n<div class=\"section-desc\">Elige el conector correcto según la relación (causa, consecuencia, contraste) y la estructura (cláusula vs sustantivo).</div>\n\n<div class=\"formula-box\">\n➡️ <span class=\"g-verb\">because</span> + cláusula · <span class=\"g-verb\">because of</span> + sustantivo<br>\n⬅️ <span class=\"g-verb\">so</span> + cláusula (consecuencia)<br>\n🔄 <span class=\"g-neg\">although</span> + cláusula (contraste en una oración)<br>\n🔄 . <span class=\"g-neg\">However</span>, ... (contraste en oración nueva)\n</div>\n\n<div class=\"ex-row ex-right\"><div class=\"icon\">🌧️</div><div><div class=\"en\">We stayed home <span class=\"g-verb\">because</span> it was raining heavily.</div><div class=\"es\">Nos quedamos en casa porque llovía fuerte. (because + cláusula)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">✈️</div><div><div class=\"en\">The flight was delayed <span class=\"g-verb\">because of</span> the storm.</div><div class=\"es\">El vuelo se retrasó por la tormenta. (because of + sustantivo)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">☁️</div><div><div class=\"en\"><span class=\"g-neg\">Although</span> it was cloudy, we went to the beach.</div><div class=\"es\">Aunque estaba nublado, fuimos a la playa. (although al inicio)</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">💪</div><div><div class=\"en\">She was exhausted. <span class=\"g-neg\">However</span>, she finished the race.</div><div class=\"es\">Estaba exhausta. Sin embargo, terminó la carrera. (however en nueva oración)</div></div></div>\n\n<div class=\"alert-card\"><div class=\"atitle\">⚠️ Errores Comunes</div><p>\n❌ \"Because the rain\" → ✅ \"<b>Because of</b> the rain\" (sustantivo necesita \"of\")<br>\n❌ \"Because of it was raining\" → ✅ \"<b>Because</b> it was raining\" (cláusula no lleva \"of\")<br>\n❌ \"Although it rained. We played\" → ✅ \"<b>Although</b> it rained, we played\" (una oración)<br>\n❌ \"It rained however we played\" → ✅ \"It rained. <b>However</b>, we played\" (necesita punto y coma)<br>\n❌ \"I was tired, because I slept\" → coma no necesaria, revisa tu oración\n</p></div>", "exercises": [{"q": "\"The concert was postponed ___ technical problems.\" (sustantivo)", "a": "a", "o": ["because of", "because"], "fc": "\"Technical problems\" es frase sustantiva → <b>because of</b>.", "fi": "\"Because\" requiere cláusula: \"because there were technical problems\".", "ex": "The concert was postponed because of technical problems", "tip": "Sustantivo/frase nominal → because of"}, {"q": "\"___ he studied very hard, he didn't get the scholarship.\" (contraste al inicio)", "a": "b", "o": ["Because", "Although"], "fc": "Estudiar duro + no obtener beca = contraste inesperado → <b>Although</b>.", "fi": "\"Because\" daría causalidad, pero estudiar no causa no obtener la beca.", "ex": "Although he studied very hard, he didn't get the scholarship", "tip": "Contraste al inicio → Although"}, {"q": "\"She missed the bus, ___ she walked to work.\" (consecuencia)", "a": "a", "o": ["so", "although"], "fc": "Perder el bus → caminar = causa-consecuencia → <b>so</b>.", "fi": "\"Although\" indicaría contraste, pero caminar es consecuencia lógica de perder el bus.", "ex": "She missed the bus, so she walked to work", "tip": "Causa lógica → consecuencia = so"}, {"q": "\"The exam was difficult. ___, everyone passed.\" (contraste entre oraciones)", "a": "b", "o": ["Although", "However"], "fc": "Dos oraciones completas separadas por punto → <b>However</b>.", "fi": "\"Although\" conecta cláusulas dentro de una sola oración, no oraciones separadas.", "ex": "The exam was difficult. However, everyone passed", "tip": "Punto anterior + contraste → However"}, {"q": "\"I don't eat meat ___ I'm vegetarian.\" (razón + cláusula)", "a": "a", "o": ["because", "because of"], "fc": "\"I'm vegetarian\" es cláusula (sujeto + verbo) → <b>because</b>.", "fi": "\"Because of\" necesita sustantivo, no una cláusula con \"I am\".", "ex": "I don't eat meat because I'm vegetarian", "tip": "Cláusula completa → because"}]}]};
+function renderStepTabs(){
+  const c=document.getElementById("stepTabs");c.innerHTML="";
+  DATA.steps.forEach(function(s,i){
+    const b=document.createElement("button");
+    b.className="step-tab"+(i===curStep?" active":"");
+    const k="s"+i;
+    if(scores[k]!==undefined && answered["s"+i+"e0"] && answered["s"+i+"e1"] && answered["s"+i+"e2"] && answered["s"+i+"e3"] && answered["s"+i+"e4"] && i!==curStep){b.classList.add("done");}
+    b.textContent=(i+1)+". "+s.icon+" "+s.title;
+    b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show");});
+    c.appendChild(b);
+  });
+}
+
+function renderCard(){
+  const s=DATA.steps[curStep];
+  const k="s"+curStep;
+  if(scores[k]===undefined)scores[k]=0;
+  const card=document.createElement("div");
+  card.className="card active";
+  card.innerHTML=s.html;
+
+  const exSection=document.createElement("div");
+  exSection.className="ex-section";
+  const h3=document.createElement("h3");
+  h3.textContent="✏️ Ejercicios — "+s.title;
+  exSection.appendChild(h3);
+
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    const exDiv=document.createElement("div");
+    exDiv.className="exercise";
+    exDiv.id=eid;
+
+    const q=document.createElement("div");
+    q.className="exercise-q";
+    q.innerHTML=(i+1)+". "+e.q;
+    exDiv.appendChild(q);
+
+    const opts=document.createElement("div");
+    opts.className="opts";
+    ["a","b"].forEach(function(letter,idx){
+      const btn=document.createElement("button");
+      btn.className="opt-btn";
+      btn.textContent=letter+") "+e.o[idx];
+      btn.addEventListener("click",function(){chk(eid,letter,e.a,e,btn);});
+      opts.appendChild(btn);
+    });
+    exDiv.appendChild(opts);
+
+    const correctIdx=(e.a==="a"?0:1);
+    const wrongIdx=(e.a==="a"?1:0);
+
+    const fbOk=document.createElement("div");
+    fbOk.className="fb fb-ok";
+    fbOk.id="fbok-"+eid;
+    let okHtml='<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div><div class="fb-body">';
+    okHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    okHtml+='<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: '+e.fi+'</div></div>';
+    if(e.ex){okHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){okHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    okHtml+='</div>';
+    fbOk.innerHTML=okHtml;
+    exDiv.appendChild(fbOk);
+
+    const fbBad=document.createElement("div");
+    fbBad.className="fb fb-bad";
+    fbBad.id="fbbad-"+eid;
+    let badHtml='<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div><div class="fb-body">';
+    badHtml+='<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">'+e.fi+'</span></div></div>';
+    badHtml+='<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">'+e.o[correctIdx]+'</span> — '+e.fc+'</div></div>';
+    if(e.ex){badHtml+='<div class="fb-example">📝 '+e.ex+'</div>';}
+    if(e.tip){badHtml+='<div class="fb-tip"><strong>💡 Recuerda:</strong> '+e.tip+'</div>';}
+    badHtml+='</div>';
+    fbBad.innerHTML=badHtml;
+    exDiv.appendChild(fbBad);
+
+    exSection.appendChild(exDiv);
+  });
+
+  const score=document.createElement("div");
+  score.className="score-bar";
+  score.innerHTML='<div class="num" id="sc-'+k+'">'+scores[k]+'/5</div><div class="lbl">Puntuación</div>';
+  exSection.appendChild(score);
+
+  card.appendChild(exSection);
+
+  const area=document.getElementById("cardArea");
+  area.innerHTML="";
+  area.appendChild(card);
+
+  // Restore previously answered
+  s.exercises.forEach(function(e,i){
+    const eid=k+"e"+i;
+    if(answered[eid]){
+      const ex=document.getElementById(eid);
+      const btns=ex.querySelectorAll(".opt-btn");
+      btns.forEach(function(b){b.disabled=true;});
+      const userPick=answered[eid];
+      const correctIdx=(e.a==="a"?0:1);
+      if(userPick===e.a){
+        ex.classList.add("correct");
+        btns.forEach(function(b){if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-ok");});
+        document.getElementById("fbok-"+eid).classList.add("show");
+      }else{
+        ex.classList.add("incorrect");
+        btns.forEach(function(b){
+          if(b.textContent.indexOf(userPick+")")===0)b.classList.add("sel-bad");
+          if(b.textContent.indexOf(e.a+")")===0)b.classList.add("show-ok");
+        });
+        document.getElementById("fbbad-"+eid).classList.add("show");
+      }
+    }
+  });
+}
+
+function chk(eid,sel,correct,e,btn){
+  if(answered[eid])return;
+  answered[eid]=sel;
+  const ex=document.getElementById(eid);
+  const btns=ex.querySelectorAll(".opt-btn");
+  btns.forEach(function(b){b.disabled=true;});
+  const k=eid.match(/s\d+/)[0];
+  if(sel===correct){
+    ex.classList.add("correct");
+    btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok");});
+    document.getElementById("fbok-"+eid).classList.add("show");
+    scores[k]++;
+  }else{
+    ex.classList.add("incorrect");
+    btns.forEach(function(b){
+      if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+      if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+    });
+    document.getElementById("fbbad-"+eid).classList.add("show");
+  }
+  document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+  const allDone=[0,1,2,3,4].every(function(i){return answered[k+"e"+i];});
+  if(allDone && curStep===4){
+    setTimeout(function(){
+      const sf=document.getElementById("summaryFinal");
+      const sl=document.getElementById("summaryList");
+      sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
+      var tot=0;Object.keys(scores).forEach(function(kk){tot+=scores[kk];});var ts=document.getElementById("totalScore");if(ts)ts.innerHTML="<div class=\"big\">"+tot+"/25</div><div class=\"small\">Total de aciertos</div>";
+      sf.classList.add("show");
+      sf.scrollIntoView({behavior:"smooth"});
+    },600);
+  }
+}
+
+renderStepTabs();renderCard();
+
+</script>
+</body>
+</html>
