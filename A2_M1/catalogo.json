@@ -33,6 +33,20 @@
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html"
     },
     {
+      "id": "sum-countable-uncountable",
+      "type": "summary",
+      "name": "Resumen · Countable & Uncountable",
+      "group": "T1 · Countable & How much-many",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Countable-Uncountable.html"
+    },
+    {
+      "id": "sum-how-much-many",
+      "type": "summary",
+      "name": "Resumen · How much / How many",
+      "group": "T1 · Countable & How much-many",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/How_much-many.html"
+    },
+    {
       "id": "t1-fill",
       "type": "grammar",
       "name": "Fill in",
@@ -52,6 +66,20 @@
       "name": "Transform",
       "group": "T1 · Countable & How much-many",
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T1_Countable%20%26%20How%20much-many/Countable%20%26%20How%20much-many_Transform.html"
+    },
+    {
+      "id": "sum-a-few-a-little",
+      "type": "summary",
+      "name": "Resumen · A few / A little",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/A_few-A_little.html"
+    },
+    {
+      "id": "sum-too-many-too-much",
+      "type": "summary",
+      "name": "Resumen · Too many / Too much",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Too_many-Too_much.html"
     },
     {
       "id": "t2-fill",
@@ -75,6 +103,20 @@
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T2_A%20few-A%20little%20%26%20Too%20many-Too%20much/A%20few-A%20little%20%26%20Too%20many-Too%20much_Transform.html"
     },
     {
+      "id": "sum-modals-deduction",
+      "type": "summary",
+      "name": "Resumen · Modals of Deduction",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Modals_Deduction.html"
+    },
+    {
+      "id": "sum-obligation-spectrum",
+      "type": "summary",
+      "name": "Resumen · Obligation Spectrum",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Obligation_Spectrum.html"
+    },
+    {
       "id": "t3-fill",
       "type": "grammar",
       "name": "Fill in",
@@ -94,6 +136,20 @@
       "name": "Transform",
       "group": "T3 · Modals Deduction & Obligation",
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T3_Modals%20Deduction%20%26%20Obligation/Modals%20Deduction%20%26%20Obligation_Transform.html"
+    },
+    {
+      "id": "sum-present-perfect",
+      "type": "summary",
+      "name": "Resumen · Present Perfect",
+      "group": "T4 · Present Perfect & Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Present_Perfect.html"
+    },
+    {
+      "id": "sum-present-perfect-vs-past-simple",
+      "type": "summary",
+      "name": "Resumen · Present Perfect vs Past Simple",
+      "group": "T4 · Present Perfect & Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Present_Perfect_vs_Past_Simple.html"
     },
     {
       "id": "t4-fill",
@@ -117,6 +173,13 @@
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T4_Present%20Perfect%20%26%20Past%20Simple/Present%20Perfect%20%26%20Past%20Simple_Transform.html"
     },
     {
+      "id": "sum-indirect-questions",
+      "type": "summary",
+      "name": "Resumen · Indirect Questions",
+      "group": "T5 · Indirect Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Indirect_Questions.html"
+    },
+    {
       "id": "t5-fill",
       "type": "grammar",
       "name": "Fill in",
@@ -136,6 +199,13 @@
       "name": "Transform",
       "group": "T5 · Indirect Questions",
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T5_Indirect%20Questions/Indirect%20Questions_Transform.html"
+    },
+    {
+      "id": "sum-punctuation",
+      "type": "summary",
+      "name": "Resumen · Punctuation",
+      "group": "T6 · Punctuation",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Punctuation.html"
     },
     {
       "id": "t6-fill",
@@ -159,6 +229,13 @@
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T6_Punctuation/Punctuation_Transform.html"
     },
     {
+      "id": "sum-tag-questions",
+      "type": "summary",
+      "name": "Resumen · Tag Questions",
+      "group": "T7 · Tag Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Tag_Questions.html"
+    },
+    {
       "id": "t7-fill",
       "type": "grammar",
       "name": "Fill in",
@@ -178,6 +255,13 @@
       "name": "Transform",
       "group": "T7 · Tag Questions",
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T7_Tag%20Questions/Tag%20Questions_Transform.html"
+    },
+    {
+      "id": "sum-used-to",
+      "type": "summary",
+      "name": "Resumen · Used to",
+      "group": "T8 · Used to",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Used_to.html"
     },
     {
       "id": "t8-fill",
@@ -201,6 +285,20 @@
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T8_Used%20to/Used%20to_Transform.html"
     },
     {
+      "id": "sum-much-many-a-lot",
+      "type": "summary",
+      "name": "Resumen · Much / Many / A lot",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Much-Many-A_lot.html"
+    },
+    {
+      "id": "sum-some-any-no",
+      "type": "summary",
+      "name": "Resumen · Some / Any / No",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Some-Any-No.html"
+    },
+    {
       "id": "t9-fill",
       "type": "grammar",
       "name": "Fill in",
@@ -220,104 +318,6 @@
       "name": "Transform",
       "group": "T9 · Quantifiers",
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T9_Quantifiers/Quantifiers_Transform.html"
-    },
-    {
-      "id": "sum-countable-uncountable",
-      "type": "summary",
-      "name": "Countable & Uncountable",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Countable-Uncountable.html"
-    },
-    {
-      "id": "sum-how-much-many",
-      "type": "summary",
-      "name": "How much / How many",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/How_much-many.html"
-    },
-    {
-      "id": "sum-much-many-a-lot",
-      "type": "summary",
-      "name": "Much / Many / A lot",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Much-Many-A_lot.html"
-    },
-    {
-      "id": "sum-some-any-no",
-      "type": "summary",
-      "name": "Some / Any / No",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Some-Any-No.html"
-    },
-    {
-      "id": "sum-a-few-a-little",
-      "type": "summary",
-      "name": "A few / A little",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/A_few-A_little.html"
-    },
-    {
-      "id": "sum-too-many-too-much",
-      "type": "summary",
-      "name": "Too many / Too much",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Too_many-Too_much.html"
-    },
-    {
-      "id": "sum-modals-deduction",
-      "type": "summary",
-      "name": "Modals of Deduction",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Modals_Deduction.html"
-    },
-    {
-      "id": "sum-obligation-spectrum",
-      "type": "summary",
-      "name": "Obligation Spectrum",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Obligation_Spectrum.html"
-    },
-    {
-      "id": "sum-present-perfect",
-      "type": "summary",
-      "name": "Present Perfect",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Present_Perfect.html"
-    },
-    {
-      "id": "sum-present-perfect-vs-past-simple",
-      "type": "summary",
-      "name": "Present Perfect vs Past Simple",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Present_Perfect_vs_Past_Simple.html"
-    },
-    {
-      "id": "sum-indirect-questions",
-      "type": "summary",
-      "name": "Indirect Questions",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Indirect_Questions.html"
-    },
-    {
-      "id": "sum-punctuation",
-      "type": "summary",
-      "name": "Punctuation",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Punctuation.html"
-    },
-    {
-      "id": "sum-tag-questions",
-      "type": "summary",
-      "name": "Tag Questions",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Tag_Questions.html"
-    },
-    {
-      "id": "sum-used-to",
-      "type": "summary",
-      "name": "Used to",
-      "group": "Resúmenes de Gramática",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Used_to.html"
     }
   ]
 }
