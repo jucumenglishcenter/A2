@@ -24,20 +24,23 @@
       "id": "reading",
       "type": "reading",
       "name": "Comprensión lectora · Services & Support",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Reading%20Comprehension_Services%20%26%20Support.html"
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Reading%20Comprehension_Services%20%26%20Support.html",
+      "open": true
     },
     {
       "id": "listening",
       "type": "listening",
       "name": "Comprensión auditiva · Services & Support",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html"
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html",
+      "open": true
     },
     {
       "id": "sum-countable-uncountable",
       "type": "summary",
       "name": "Resumen · Countable & Uncountable",
       "group": "T1 · Countable & How much-many",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Countable-Uncountable.html"
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Countable-Uncountable.html",
+      "open": true
     },
     {
       "id": "sum-how-much-many",
