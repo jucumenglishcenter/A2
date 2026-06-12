@@ -289,6 +289,7 @@ function chk(eid, sel) {
     document.getElementById("sc-" + k).textContent = scores[k] + "/5";
     var allDone = [0,1,2,3,4].every(function(i){ return answered[k + "e" + i]; });
     if (allDone && curStep === 4) {
+        try { var _t=0,_c=0,_k2; for (_k2 in answered) { if (answered[_k2]) _t++; } for (_k2 in scores) { _c += scores[_k2]; } window.dispatchEvent(new CustomEvent('jucum:done', { detail: { score: Math.round(_c / Math.max(_t, 1) * 100) } })); } catch (e) {} // JUCUM seguimiento
         setTimeout(function() {
             var sf = document.getElementById("summaryFinal");
             document.getElementById("summaryList").innerHTML = SUMMARY.map(function(s){ return "<li>" + s + "</li>"; }).join("");
@@ -301,5 +302,7 @@ function chk(eid, sel) {
 renderStepTabs();
 renderCard();
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>
