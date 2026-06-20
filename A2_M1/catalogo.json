@@ -24,15 +24,15 @@
       "id": "reading",
       "type": "reading",
       "name": "Comprensión lectora · Services & Support",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Reading%20Comprehension_Services%20%26%20Support.html",
-      "open": true
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Reading%20Comprehension_Services%20%26%20Support.html"
     },
     {
       "id": "listening",
       "type": "listening",
       "name": "Comprensión auditiva · Services & Support",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html",
-      "open": true
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html"
     },
     {
       "id": "sum-countable-uncountable",
