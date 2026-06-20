@@ -316,6 +316,7 @@ function chk(eid,sel,correct,e,btn){
       var ts=document.getElementById("totalScore");
       if(ts)ts.innerHTML='<div class="big">'+total+'/25</div><div class="small">Total del tema</div>';
       sf.classList.add("show");
+window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:(function(){var _t=0;Object.keys(scores).forEach(function(_k){_t+=scores[_k];});return Math.round(_t/25*100);})()}})); // JUCUM seguimiento
       sf.scrollIntoView({behavior:"smooth"});
     },600);
   }
@@ -324,5 +325,7 @@ function chk(eid,sel,correct,e,btn){
 renderStepTabs();renderCard();
 
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>

@@ -935,6 +935,7 @@ function showCompletion() {
   const s = S[String(cur)];
   const score = correctSet[cur].size;
   document.getElementById('final-score').textContent = `${score}/7`;
+  window.dispatchEvent(new CustomEvent('jucum:done', { detail: { score: Math.round(score / 7 * 100) } })); // JUCUM seguimiento
 
   const litTotal = s.qs.filter(q => q.type === 'literal').length;
   const litScore = s.qs.filter((q, i) => q.type === 'literal' && correctSet[cur].has(i)).length;
@@ -1073,5 +1074,7 @@ renderSelector();
 renderStory();
 renderQuiz();
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>

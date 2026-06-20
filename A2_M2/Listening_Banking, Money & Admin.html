@@ -1406,6 +1406,7 @@ function updateTotalPts() {
 function showResults(s) {
   const st = state[s];
   const pct = (st.cor / 10) * 100;
+  window.dispatchEvent(new CustomEvent('jucum:done', { detail: { score: Math.round(pct) } })); // JUCUM seguimiento
   let trophy = '📚', title = 'Sigue practicando', msg = 'Escucha los audios de nuevo. ¡Tú puedes! 💪', gif = '🙏';
   if (pct >= 90) { trophy = '🏆'; title = '¡Excelente!'; msg = '¡Comprendes muy bien los audios! ¡Sigue así!'; gif = '🎉🎊🌟'; }
   else if (pct >= 70) { trophy = '🥇'; title = '¡Muy bien!'; msg = 'Buen progreso. ¡Sigue practicando!'; gif = '🌟⭐✨'; }
@@ -1704,5 +1705,7 @@ function playStoryNext(accent) {
 // ══════════════════════════════════════════════════
 buildAll();
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>

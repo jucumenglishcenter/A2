@@ -339,6 +339,7 @@ function chk(eid,sel,correct,e,btn){
       sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>";}).join("");
       var tot=0;Object.keys(scores).forEach(function(kk){tot+=scores[kk];});var ts=document.getElementById("totalScore");if(ts)ts.innerHTML="<div class=\"big\">"+tot+"/25</div><div class=\"small\">Total de aciertos</div>";
       sf.classList.add("show");
+window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:(function(){var _t=0;Object.keys(scores).forEach(function(_k){_t+=scores[_k];});return Math.round(_t/25*100);})()}})); // JUCUM seguimiento
       sf.scrollIntoView({behavior:"smooth"});
     },600);
   }
@@ -347,5 +348,7 @@ function chk(eid,sel,correct,e,btn){
 renderStepTabs();renderCard();
 
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>

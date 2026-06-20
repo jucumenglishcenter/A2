@@ -171,17 +171,6 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line
 
   <div id="voice-status">⚠️ Tu navegador tiene voces limitadas. Para mejor experiencia usa <strong>Google Chrome</strong> o <strong>Microsoft Edge</strong>.</div>
 
-  <div class="speed-control">
-    <span class="speed-label">🐢 Velocidad</span>
-    <input type="range" id="speedSlider" min="0.5" max="1.2" step="0.05" value="0.82" oninput="updateSpeed(this.value)">
-    <span class="speed-value" id="speedValue">0.82×</span>
-    <div class="speed-presets">
-      <button class="speed-preset" onclick="setSpeed(0.6,this)">Lento</button>
-      <button class="speed-preset active" onclick="setSpeed(0.82,this)">Normal</button>
-      <button class="speed-preset" onclick="setSpeed(1.0,this)">Rápido</button>
-    </div>
-  </div>
-
   <div class="parallel-toggle">
     <input type="checkbox" id="parallelCheck" onchange="toggleParallel(this.checked)">
     <label for="parallelCheck">🔄 Show English + Spanish side by side</label>
@@ -2999,5 +2988,7 @@ document.addEventListener('click', e=>{
 });
 
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>
