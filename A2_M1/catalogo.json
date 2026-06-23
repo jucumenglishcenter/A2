@@ -35,6 +35,16 @@
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html"
     },
     {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario Services & Support",
+      "open": true,
+      "quizVocabulario": "",
+      "quizVocabulario2": "",
+      "quizTraducir": "",
+      "quizOrdenar": ""
+    },
+    {
       "id": "sum-countable-uncountable",
       "type": "summary",
       "name": "Resumen · Countable & Uncountable",
@@ -173,6 +183,7 @@
       "type": "grammar",
       "name": "Transform",
       "group": "T4 · Present Perfect & Past Simple",
+      "latent": true,
       "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T4_Present%20Perfect%20%26%20Past%20Simple/Present%20Perfect%20%26%20Past%20Simple_Transform.html"
     },
     {
