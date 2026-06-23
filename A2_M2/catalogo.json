@@ -1,327 +1,417 @@
 {
-  "module": "Services, Support & Problem Solving",
-  "emoji": "🛠️",
+  "module": "Banking, Money & Admin",
+  "emoji": "🏦",
   "level": "a2",
   "topics": [
-    "Countable & How much-many",
-    "A few-A little & Too many-Too much",
-    "Modals Deduction & Obligation",
-    "Present Perfect & Past Simple",
-    "Indirect Questions",
-    "Punctuation",
-    "Tag Questions",
-    "Used to",
-    "Quantifiers"
+    "A few / A little",
+    "Adverbs of Manner",
+    "Comparatives",
+    "Enough / Too",
+    "Intensifiers & Mitigators",
+    "Linkers",
+    "Partitives",
+    "Past Continuous",
+    "Past Simple",
+    "Past Simple vs Continuous",
+    "Relative Clauses",
+    "Time Linkers (When / While)",
+    "Zero Article"
   ],
   "activities": [
     {
       "id": "story",
       "type": "story",
-      "name": "Stories y Diálogos · Services & Support",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Story_Services%20%26%20Support.html"
+      "name": "Stories y Diálogos · Banking, Money & Admin",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Story_Banking%2C%20Money%20%26%20Admin.html"
     },
     {
       "id": "reading",
       "type": "reading",
-      "name": "Comprensión lectora · Services & Support",
+      "name": "Comprensión lectora · Banking, Money & Admin",
       "open": true,
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Reading%20Comprehension_Services%20%26%20Support.html"
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Reading%20Comprehension_Banking%2C%20Money%20%26%20Admin.html"
     },
     {
       "id": "listening",
       "type": "listening",
-      "name": "Comprensión auditiva · Services & Support",
+      "name": "Comprensión auditiva · Banking, Money & Admin",
       "open": true,
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Listening_Services%20%26%20Support.html"
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Listening_Banking%2C%20Money%20%26%20Admin.html"
     },
     {
-      "id": "sum-countable-uncountable",
-      "type": "summary",
-      "name": "Resumen · Countable & Uncountable",
-      "group": "T1 · Countable & How much-many",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Countable-Uncountable.html",
-      "open": true
-    },
-    {
-      "id": "sum-how-much-many",
-      "type": "summary",
-      "name": "Resumen · How much / How many",
-      "group": "T1 · Countable & How much-many",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/How_much-many.html"
-    },
-    {
-      "id": "t1-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T1 · Countable & How much-many",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T1_Countable%20%26%20How%20much-many/Countable%20%26%20How%20much-many_Fill%20in.html"
-    },
-    {
-      "id": "t1-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T1 · Countable & How much-many",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T1_Countable%20%26%20How%20much-many/Countable%20%26%20How%20much-many_Identification.html"
-    },
-    {
-      "id": "t1-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T1 · Countable & How much-many",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T1_Countable%20%26%20How%20much-many/Countable%20%26%20How%20much-many_Transform.html"
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario Banking, Money & Admin",
+      "open": true,
+      "quizVocabulario": "",
+      "quizVocabulario2": "",
+      "quizTraducir": "",
+      "quizOrdenar": ""
     },
     {
       "id": "sum-a-few-a-little",
       "type": "summary",
       "name": "Resumen · A few / A little",
-      "group": "T2 · A few-A little & Too many-Too much",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/A_few-A_little.html"
+      "group": "T1 · A few / A little",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/A_few-A_little.html",
+      "open": true
     },
     {
-      "id": "sum-too-many-too-much",
+      "id": "t1-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T1 · A few / A little",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T1_A%20few-A%20little/A%20few-A%20little_Fill%20in.html"
+    },
+    {
+      "id": "t1-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T1 · A few / A little",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T1_A%20few-A%20little/A%20few-A%20little_Identification.html"
+    },
+    {
+      "id": "t1-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T1 · A few / A little",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T1_A%20few-A%20little/A%20few-A%20little_Transform.html"
+    },
+    {
+      "id": "sum-adverbs-manner",
       "type": "summary",
-      "name": "Resumen · Too many / Too much",
-      "group": "T2 · A few-A little & Too many-Too much",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Too_many-Too_much.html"
+      "name": "Resumen · Adverbs of Manner",
+      "group": "T2 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Adverbs_of_Manner.html"
     },
     {
       "id": "t2-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T2 · A few-A little & Too many-Too much",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T2_A%20few-A%20little%20%26%20Too%20many-Too%20much/A%20few-A%20little%20%26%20Too%20many-Too%20much_Fill%20in.html"
+      "group": "T2 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T2_Adverbs%20of%20Manner/Adverbs%20of%20Manner_Fill%20in.html"
     },
     {
       "id": "t2-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T2 · A few-A little & Too many-Too much",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T2_A%20few-A%20little%20%26%20Too%20many-Too%20much/A%20few-A%20little%20%26%20Too%20many-Too%20much_Identification.html"
+      "group": "T2 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T2_Adverbs%20of%20Manner/Adverbs%20of%20Manner_Identification.html"
     },
     {
       "id": "t2-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T2 · A few-A little & Too many-Too much",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T2_A%20few-A%20little%20%26%20Too%20many-Too%20much/A%20few-A%20little%20%26%20Too%20many-Too%20much_Transform.html"
+      "group": "T2 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T2_Adverbs%20of%20Manner/Adverbs%20of%20Manner_Transform.html"
     },
     {
-      "id": "sum-modals-deduction",
+      "id": "sum-comparatives",
       "type": "summary",
-      "name": "Resumen · Modals of Deduction",
-      "group": "T3 · Modals Deduction & Obligation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Modals_Deduction.html"
-    },
-    {
-      "id": "sum-obligation-spectrum",
-      "type": "summary",
-      "name": "Resumen · Obligation Spectrum",
-      "group": "T3 · Modals Deduction & Obligation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Obligation_Spectrum.html"
+      "name": "Resumen · Comparatives",
+      "group": "T3 · Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Comparatives.html"
     },
     {
       "id": "t3-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T3 · Modals Deduction & Obligation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T3_Modals%20Deduction%20%26%20Obligation/Modals%20Deduction%20%26%20Obligation_Fill%20in.html"
+      "group": "T3 · Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T3_Comparatives/Comparatives_Fill%20in.html"
     },
     {
       "id": "t3-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T3 · Modals Deduction & Obligation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T3_Modals%20Deduction%20%26%20Obligation/Modals%20Deduction%20%26%20Obligation_Identification.html"
+      "group": "T3 · Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T3_Comparatives/Comparatives_Identification.html"
     },
     {
       "id": "t3-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T3 · Modals Deduction & Obligation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T3_Modals%20Deduction%20%26%20Obligation/Modals%20Deduction%20%26%20Obligation_Transform.html"
+      "group": "T3 · Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T3_Comparatives/Comparatives_Transform.html"
     },
     {
-      "id": "sum-present-perfect",
+      "id": "sum-enough-too",
       "type": "summary",
-      "name": "Resumen · Present Perfect",
-      "group": "T4 · Present Perfect & Past Simple",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Present_Perfect.html"
-    },
-    {
-      "id": "sum-present-perfect-vs-past-simple",
-      "type": "summary",
-      "name": "Resumen · Present Perfect vs Past Simple",
-      "group": "T4 · Present Perfect & Past Simple",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Present_Perfect_vs_Past_Simple.html"
+      "name": "Resumen · Enough / Too",
+      "group": "T4 · Enough / Too",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Enough-Too.html"
     },
     {
       "id": "t4-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T4 · Present Perfect & Past Simple",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T4_Present%20Perfect%20%26%20Past%20Simple/Present%20Perfect%20%26%20Past%20Simple_Fill%20in.html"
+      "group": "T4 · Enough / Too",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T4_Enough-Too/Enough-Too_Fill%20in.html"
     },
     {
       "id": "t4-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T4 · Present Perfect & Past Simple",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T4_Present%20Perfect%20%26%20Past%20Simple/Present%20Perfect%20%26%20Past%20Simple_Identification.html"
+      "group": "T4 · Enough / Too",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T4_Enough-Too/Enough-Too_Identification.html"
     },
     {
       "id": "t4-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T4 · Present Perfect & Past Simple",
-      "latent": true,
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T4_Present%20Perfect%20%26%20Past%20Simple/Present%20Perfect%20%26%20Past%20Simple_Transform.html"
+      "group": "T4 · Enough / Too",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T4_Enough-Too/Enough-Too_Transform.html"
     },
     {
-      "id": "sum-indirect-questions",
+      "id": "sum-intensifiers",
       "type": "summary",
-      "name": "Resumen · Indirect Questions",
-      "group": "T5 · Indirect Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Indirect_Questions.html"
+      "name": "Resumen · Intensifiers & Mitigators",
+      "group": "T5 · Intensifiers & Mitigators",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Intensifiers_Mitigators.html"
     },
     {
       "id": "t5-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T5 · Indirect Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T5_Indirect%20Questions/Indirect%20Questions_Fill%20in.html"
+      "group": "T5 · Intensifiers & Mitigators",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T5_Intensifiers%20%26%20Mitigators/Intensifiers%20%26%20Mitigators_Fill%20in.html"
     },
     {
       "id": "t5-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T5 · Indirect Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T5_Indirect%20Questions/Indirect%20Questions_Identification.html"
+      "group": "T5 · Intensifiers & Mitigators",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T5_Intensifiers%20%26%20Mitigators/Intensifiers%20%26%20Mitigators_Identification.html"
     },
     {
       "id": "t5-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T5 · Indirect Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T5_Indirect%20Questions/Indirect%20Questions_Transform.html"
+      "group": "T5 · Intensifiers & Mitigators",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T5_Intensifiers%20%26%20Mitigators/Intensifiers%20%26%20Mitigators_Transform.html"
     },
     {
-      "id": "sum-punctuation",
+      "id": "sum-linkers",
       "type": "summary",
-      "name": "Resumen · Punctuation",
-      "group": "T6 · Punctuation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Punctuation.html"
+      "name": "Resumen · Linkers",
+      "group": "T6 · Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Linkers.html"
     },
     {
       "id": "t6-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T6 · Punctuation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T6_Punctuation/Punctuation_Fill%20in.html"
+      "group": "T6 · Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T6_Linkers/Linkers_Fill%20in.html"
     },
     {
       "id": "t6-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T6 · Punctuation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T6_Punctuation/Punctuation_Identification.html"
+      "group": "T6 · Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T6_Linkers/Linkers_Identification.html"
     },
     {
       "id": "t6-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T6 · Punctuation",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T6_Punctuation/Punctuation_Transform.html"
+      "group": "T6 · Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T6_Linkers/Linkers_Transform.html"
     },
     {
-      "id": "sum-tag-questions",
+      "id": "sum-partitives",
       "type": "summary",
-      "name": "Resumen · Tag Questions",
-      "group": "T7 · Tag Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Tag_Questions.html"
+      "name": "Resumen · Partitives",
+      "group": "T7 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Partitives.html"
     },
     {
       "id": "t7-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T7 · Tag Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T7_Tag%20Questions/Tag%20Questions_Fill%20in.html"
+      "group": "T7 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T7_Partitives/Partitives_Fill%20in.html"
     },
     {
       "id": "t7-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T7 · Tag Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T7_Tag%20Questions/Tag%20Questions_Identification.html"
+      "group": "T7 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T7_Partitives/Partitives_Identification.html"
     },
     {
       "id": "t7-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T7 · Tag Questions",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T7_Tag%20Questions/Tag%20Questions_Transform.html"
+      "group": "T7 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T7_Partitives/Partitives_Transform.html"
     },
     {
-      "id": "sum-used-to",
+      "id": "sum-past-continuous",
       "type": "summary",
-      "name": "Resumen · Used to",
-      "group": "T8 · Used to",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Used_to.html"
+      "name": "Resumen · Past Continuous",
+      "group": "T8 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Past_Continuous.html"
     },
     {
       "id": "t8-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T8 · Used to",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T8_Used%20to/Used%20to_Fill%20in.html"
+      "group": "T8 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T8_Past%20Continuous/Past%20Continuous_Fill%20in.html"
     },
     {
       "id": "t8-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T8 · Used to",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T8_Used%20to/Used%20to_Identification.html"
+      "group": "T8 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T8_Past%20Continuous/Past%20Continuous_Identification.html"
     },
     {
       "id": "t8-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T8 · Used to",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T8_Used%20to/Used%20to_Transform.html"
+      "group": "T8 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T8_Past%20Continuous/Past%20Continuous_Transform.html"
     },
     {
-      "id": "sum-much-many-a-lot",
+      "id": "sum-past-simple",
       "type": "summary",
-      "name": "Resumen · Much / Many / A lot",
-      "group": "T9 · Quantifiers",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Much-Many-A_lot.html"
-    },
-    {
-      "id": "sum-some-any-no",
-      "type": "summary",
-      "name": "Resumen · Some / Any / No",
-      "group": "T9 · Quantifiers",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Resumenes%20de%20Gramatica/Some-Any-No.html"
+      "name": "Resumen · Past Simple",
+      "group": "T9 · Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Past_Simple.html"
     },
     {
       "id": "t9-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T9 · Quantifiers",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T9_Quantifiers/Quantifiers_Fill%20in.html"
+      "group": "T9 · Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T9_Past%20Simple/Past%20Simple_Fill%20in.html"
     },
     {
       "id": "t9-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T9 · Quantifiers",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T9_Quantifiers/Quantifiers_Identification.html"
+      "group": "T9 · Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T9_Past%20Simple/Past%20Simple_Identification.html"
     },
     {
       "id": "t9-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T9 · Quantifiers",
-      "url": "https://jucumenglishcenter.github.io/A2/A2_M1/Practicas/T9_Quantifiers/Quantifiers_Transform.html"
+      "group": "T9 · Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T9_Past%20Simple/Past%20Simple_Transform.html"
+    },
+    {
+      "id": "sum-past-simple-vs-cont",
+      "type": "summary",
+      "name": "Resumen · Past Simple vs Continuous",
+      "group": "T10 · Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Past_Simple_vs_Continuous.html"
+    },
+    {
+      "id": "t10-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T10 · Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T10_Past%20Simple%20vs%20Continuous/Past%20Simple%20vs%20Continuous_Fill%20in.html"
+    },
+    {
+      "id": "t10-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T10 · Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T10_Past%20Simple%20vs%20Continuous/Past%20Simple%20vs%20Continuous_Identification.html"
+    },
+    {
+      "id": "t10-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T10 · Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T10_Past%20Simple%20vs%20Continuous/Past%20Simple%20vs%20Continuous_Transform.html"
+    },
+    {
+      "id": "sum-relative-clauses",
+      "type": "summary",
+      "name": "Resumen · Relative Clauses",
+      "group": "T11 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Relative_Clauses.html"
+    },
+    {
+      "id": "t11-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T11 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T11_Relative%20Clauses/Relative%20Clauses_Fill%20in.html"
+    },
+    {
+      "id": "t11-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T11 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T11_Relative%20Clauses/Relative%20Clauses_Identification.html"
+    },
+    {
+      "id": "t11-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T11 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T11_Relative%20Clauses/Relative%20Clauses_Transform.html"
+    },
+    {
+      "id": "sum-time-linkers",
+      "type": "summary",
+      "name": "Resumen · Time Linkers (When / While)",
+      "group": "T12 · Time Linkers (When / While)",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Time_Linkers_When-While.html"
+    },
+    {
+      "id": "t12-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T12 · Time Linkers (When / While)",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T12_Time%20Linkers%20When-While/Time%20Linkers%20When-While_Fill%20in.html"
+    },
+    {
+      "id": "t12-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T12 · Time Linkers (When / While)",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T12_Time%20Linkers%20When-While/Time%20Linkers%20When-While_Identification.html"
+    },
+    {
+      "id": "t12-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T12 · Time Linkers (When / While)",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T12_Time%20Linkers%20When-While/Time%20Linkers%20When-While_Transform.html"
+    },
+    {
+      "id": "sum-zero-article",
+      "type": "summary",
+      "name": "Resumen · Zero Article",
+      "group": "T13 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Resumenes%20de%20Gramatica/Zero_Article.html"
+    },
+    {
+      "id": "t13-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T13 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T13_Zero%20Article/Zero%20Article_Fill%20in.html"
+    },
+    {
+      "id": "t13-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T13 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T13_Zero%20Article/Zero%20Article_Identification.html"
+    },
+    {
+      "id": "t13-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T13 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/A2_M2/Practicas/T13_Zero%20Article/Zero%20Article_Transform.html"
     }
   ]
 }
