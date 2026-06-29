@@ -1,0 +1,339 @@
+{
+  "module": "Services, Support & Problem Solving",
+  "emoji": "🛠️",
+  "level": "a2",
+  "topics": [
+    "Countable & How much-many",
+    "A few-A little & Too many-Too much",
+    "Modals Deduction & Obligation",
+    "Present Perfect & Past Simple",
+    "Indirect Questions",
+    "Punctuation",
+    "Tag Questions",
+    "Used to",
+    "Quantifiers"
+  ],
+  "activities": [
+    {
+      "id": "story",
+      "type": "story",
+      "name": "Stories y Diálogos · Services, Support & Problem Solving",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m1/story.html"
+    },
+    {
+      "id": "reading",
+      "type": "reading",
+      "name": "Comprensión lectora · Services, Support & Problem Solving",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m1/reading.html"
+    },
+    {
+      "id": "listening",
+      "type": "listening",
+      "name": "Comprensión auditiva · Services, Support & Problem Solving",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m1/listening.html"
+    },
+    {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario Services, Support & Problem Solving",
+      "open": true,
+      "quizVocabulario": "https://quizlet.com/pe/1159981996/a2-vocabulario-1-eng-es-flash-cards/?funnelUUID=c5927b30-9a13-4aad-8135-1374e6a20b0b",
+      "quizVocabulario2": "https://quizlet.com/pe/1157845545/a2-vocabulario-2-eng-es-flash-cards/?funnelUUID=65945627-1296-4bae-a6a3-10d6dab411cd",
+      "quizTraducir": "https://quizlet.com/pe/1157845768/a2-escritura-traducir-flash-cards/?funnelUUID=a5142eeb-9ac1-4794-bb9b-1097ea496aed",
+      "quizOrdenar": "https://quizlet.com/pe/1157845650/a2-escritura-ordenar-flash-cards/?funnelUUID=a847822d-9fef-4f44-baad-7c0324575e4d"
+    },
+    {
+      "id": "sum-countable-uncountable",
+      "type": "summary",
+      "name": "Resumen · Countable & Uncountable",
+      "group": "T1 · Countable & How much-many",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t1-countable-1.html"
+    },
+    {
+      "id": "sum-how-much-many",
+      "type": "summary",
+      "name": "Resumen · How much / How many",
+      "group": "T1 · Countable & How much-many",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t1-countable-2.html"
+    },
+    {
+      "id": "t1-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T1 · Countable & How much-many",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t1-countable/fill.html"
+    },
+    {
+      "id": "t1-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T1 · Countable & How much-many",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t1-countable/identify.html"
+    },
+    {
+      "id": "t1-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T1 · Countable & How much-many",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t1-countable/transform.html"
+    },
+    {
+      "id": "sum-a-few-a-little",
+      "type": "summary",
+      "name": "Resumen · A few / A little",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t2-a-few-too-many-1.html"
+    },
+    {
+      "id": "sum-too-many-too-much",
+      "type": "summary",
+      "name": "Resumen · Too many / Too much",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t2-a-few-too-many-2.html"
+    },
+    {
+      "id": "t2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t2-a-few-too-many/fill.html"
+    },
+    {
+      "id": "t2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t2-a-few-too-many/identify.html"
+    },
+    {
+      "id": "t2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T2 · A few-A little & Too many-Too much",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t2-a-few-too-many/transform.html"
+    },
+    {
+      "id": "sum-modals-deduction",
+      "type": "summary",
+      "name": "Resumen · Modals of Deduction",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t3-modals-deduction-obligation-1.html"
+    },
+    {
+      "id": "sum-obligation-spectrum",
+      "type": "summary",
+      "name": "Resumen · Obligation Spectrum",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t3-modals-deduction-obligation-2.html"
+    },
+    {
+      "id": "t3-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t3-modals-deduction-obligation/fill.html"
+    },
+    {
+      "id": "t3-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t3-modals-deduction-obligation/identify.html"
+    },
+    {
+      "id": "t3-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T3 · Modals Deduction & Obligation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t3-modals-deduction-obligation/transform.html"
+    },
+    {
+      "id": "sum-present-perfect",
+      "type": "summary",
+      "name": "Resumen · Present Perfect",
+      "group": "T4 · Present Perfect & Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t4-present-perfect-past-simple-1.html"
+    },
+    {
+      "id": "sum-present-perfect-vs-past-simple",
+      "type": "summary",
+      "name": "Resumen · Present Perfect vs Past Simple",
+      "group": "T4 · Present Perfect & Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t4-present-perfect-past-simple-2.html"
+    },
+    {
+      "id": "t4-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Present Perfect & Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t4-present-perfect-past-simple/fill.html"
+    },
+    {
+      "id": "t4-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Present Perfect & Past Simple",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t4-present-perfect-past-simple/identify.html"
+    },
+    {
+      "id": "t4-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Present Perfect & Past Simple",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t4-present-perfect-past-simple/transform.html"
+    },
+    {
+      "id": "sum-indirect-questions",
+      "type": "summary",
+      "name": "Resumen · Indirect Questions",
+      "group": "T5 · Indirect Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t5-indirect-questions.html"
+    },
+    {
+      "id": "t5-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T5 · Indirect Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t5-indirect-questions/fill.html"
+    },
+    {
+      "id": "t5-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T5 · Indirect Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t5-indirect-questions/identify.html"
+    },
+    {
+      "id": "t5-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T5 · Indirect Questions",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t5-indirect-questions/transform.html"
+    },
+    {
+      "id": "sum-punctuation",
+      "type": "summary",
+      "name": "Resumen · Punctuation",
+      "group": "T6 · Punctuation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t6-punctuation.html"
+    },
+    {
+      "id": "t6-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T6 · Punctuation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t6-punctuation/fill.html"
+    },
+    {
+      "id": "t6-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T6 · Punctuation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t6-punctuation/identify.html"
+    },
+    {
+      "id": "t6-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T6 · Punctuation",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t6-punctuation/transform.html"
+    },
+    {
+      "id": "sum-tag-questions",
+      "type": "summary",
+      "name": "Resumen · Tag Questions",
+      "group": "T7 · Tag Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t7-tag-questions.html"
+    },
+    {
+      "id": "t7-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T7 · Tag Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t7-tag-questions/fill.html"
+    },
+    {
+      "id": "t7-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T7 · Tag Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t7-tag-questions/identify.html"
+    },
+    {
+      "id": "t7-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T7 · Tag Questions",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t7-tag-questions/transform.html"
+    },
+    {
+      "id": "sum-used-to",
+      "type": "summary",
+      "name": "Resumen · Used to",
+      "group": "T8 · Used to",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t8-used-to.html"
+    },
+    {
+      "id": "t8-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T8 · Used to",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t8-used-to/fill.html"
+    },
+    {
+      "id": "t8-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T8 · Used to",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t8-used-to/identify.html"
+    },
+    {
+      "id": "t8-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T8 · Used to",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t8-used-to/transform.html"
+    },
+    {
+      "id": "sum-much-many-a-lot",
+      "type": "summary",
+      "name": "Resumen · Much / Many / A lot",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t9-quantifiers-1.html"
+    },
+    {
+      "id": "sum-some-any-no",
+      "type": "summary",
+      "name": "Resumen · Some / Any / No",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/gramatica/t9-quantifiers-2.html"
+    },
+    {
+      "id": "t9-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t9-quantifiers/fill.html"
+    },
+    {
+      "id": "t9-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t9-quantifiers/identify.html"
+    },
+    {
+      "id": "t9-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T9 · Quantifiers",
+      "url": "https://jucumenglishcenter.github.io/A2/m1/practicas/t9-quantifiers/transform.html"
+    }
+  ]
+}
