@@ -8,7 +8,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transform · A few/A little & Too many/Too much · JUCUM English Center</title>
+<title>Transform · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -124,821 +124,571 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Transform', subtitle:"A2 · Módulo 1 · A few/A little & Too many/Too much", langDefault:'es', reportId:"A2_M1_t2-tr" };
-const PASS = 75;
+const MAT = {"title":"Transform","subtitle":"A2 · Módulo 1 · A few / A little & Too many / Too much","langDefault":"es","reportId":"A2_M1_t2-tr"};
+const PASS = 85;
 const QS = [
  {
   "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
+   "es": "a little",
+   "en": "a little"
   },
   "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "There are some cars.",
-  "answer": [
-   "There",
-   "are",
-   "too",
-   "many",
-   "cars",
-   "."
-  ],
-  "tr": "Hay demasiados coches.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>too many</b> cars.",
-   "en": "countable → <b>too many</b> cars."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "is",
-   "much"
-  ]
- },
- {
-  "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There is some traffic.",
+  "src": "There are a few bottles.",
   "answer": [
    "There",
    "is",
-   "too",
-   "much",
-   "traffic",
+   "a",
+   "little",
+   "water",
    "."
   ],
-  "tr": "Hay demasiado tráfico.",
+  "tr": "Hay un poco de agua.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
   "story": null,
   "change": {
-   "es": "incontable → <b>too much</b> traffic.",
-   "en": "uncountable → <b>too much</b> traffic."
+   "es": "Cámbialo a incontable con <b>water</b>.",
+   "en": "Switch to uncountable with <b>water</b>."
   },
   "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
   },
   "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "are",
-   "many"
-  ]
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
  },
  {
   "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
+   "es": "a few",
+   "en": "a few"
   },
   "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "We have some problems.",
+  "src": "There is a little money.",
   "answer": [
-   "We",
-   "have",
+   "There",
+   "are",
+   "a",
+   "few",
+   "coins",
+   "."
+  ],
+  "tr": "Hay unas cuantas monedas.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Cámbialo a contable con <b>coins</b>.",
+   "en": "Switch to countable with <b>coins</b>."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "too many",
+   "en": "too many"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "He has a few problems.",
+  "answer": [
+   "He",
+   "has",
    "too",
    "many",
    "problems",
    "."
   ],
-  "tr": "Tenemos demasiados problemas.",
+  "tr": "Tiene demasiados problemas.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
   "story": null,
   "change": {
-   "es": "contable → <b>too many</b> problems.",
-   "en": "countable → <b>too many</b> problems."
+   "es": "Conviértelo en <b>exceso</b>.",
+   "en": "Turn it into <b>excess</b>."
   },
   "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
   },
   "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "has",
-   "much"
-  ]
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
  },
  {
   "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
+   "es": "too much",
+   "en": "too much"
   },
   "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "There is some noise.",
+  "src": "She drinks a little coffee.",
   "answer": [
-   "There",
-   "is",
+   "She",
+   "drinks",
    "too",
    "much",
-   "noise",
+   "coffee",
    "."
   ],
-  "tr": "Hay demasiado ruido.",
+  "tr": "Toma demasiado café.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
   "story": null,
   "change": {
-   "es": "incontable → <b>too much</b> noise.",
-   "en": "uncountable → <b>too much</b> noise."
+   "es": "Conviértelo en <b>exceso</b>.",
+   "en": "Turn it into <b>excess</b>."
   },
   "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
   },
   "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "are",
-   "many"
-  ]
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
  },
  {
   "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
+   "es": "a few",
+   "en": "a few"
   },
   "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "There are some people.",
+  "src": "There are too many charges.",
   "answer": [
    "There",
    "are",
-   "too",
-   "many",
-   "people",
+   "a",
+   "few",
+   "charges",
    "."
   ],
-  "tr": "Hay demasiada gente.",
+  "tr": "Hay unos cuantos cargos.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
   "story": null,
   "change": {
-   "es": "contable → <b>too many</b> people.",
-   "en": "countable → <b>too many</b> people."
+   "es": "Suavízalo a <b>cantidad pequeña</b> positiva.",
+   "en": "Soften it to a <b>small positive amount</b>."
   },
   "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
   },
   "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "is",
-   "much"
-  ]
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
  },
  {
   "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
+   "es": "a little",
+   "en": "a little"
   },
   "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "We have some work.",
+  "src": "We have too much work.",
   "answer": [
    "We",
    "have",
-   "too",
-   "much",
+   "a",
+   "little",
    "work",
    "."
   ],
-  "tr": "Tenemos demasiado trabajo.",
+  "tr": "Tenemos un poco de trabajo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
   "story": null,
   "change": {
-   "es": "incontable → <b>too much</b> work.",
-   "en": "uncountable → <b>too much</b> work."
+   "es": "Suavízalo a <b>cantidad pequeña</b>.",
+   "en": "Soften it to a <b>small amount</b>."
   },
   "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
   },
   "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a little",
+   "en": "a little"
   },
-  "examples": {
-   "es": [],
-   "en": []
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "es": {
-   "es": "",
-   "en": ""
+  "src": "They need a few days.",
+  "answer": [
+   "They",
+   "need",
+   "a",
+   "little",
+   "time",
+   "."
+  ],
+  "tr": "Necesitan un poco de tiempo.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
-  "lit": {
-   "es": "",
-   "en": ""
+  "story": null,
+  "change": {
+   "es": "Cámbialo a incontable con <b>time</b>.",
+   "en": "Switch to uncountable with <b>time</b>."
   },
-  "distractors": [
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a few",
+   "en": "a few"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "I ate a little bread.",
+  "answer": [
+   "I",
+   "ate",
+   "a",
+   "few",
+   "snacks",
+   "."
+  ],
+  "tr": "Comí unos cuantos bocaditos.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Cámbialo a contable con <b>snacks</b>.",
+   "en": "Switch to countable with <b>snacks</b>."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "too many",
+   "en": "too many"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The office got a few calls.",
+  "answer": [
+   "The",
+   "office",
+   "got",
+   "too",
+   "many",
+   "calls",
+   "."
+  ],
+  "tr": "La oficina recibió demasiadas llamadas.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Conviértelo en <b>exceso</b>.",
+   "en": "Turn it into <b>excess</b>."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "too much",
+   "en": "too much"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The heater uses a little electricity.",
+  "answer": [
+   "The",
+   "heater",
+   "uses",
+   "too",
+   "much",
+   "electricity",
+   "."
+  ],
+  "tr": "El calentador usa demasiada electricidad.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Conviértelo en <b>exceso</b>.",
+   "en": "Turn it into <b>excess</b>."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a few",
+   "en": "a few"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "There were too many forms.",
+  "answer": [
+   "There",
+   "were",
+   "a",
+   "few",
+   "forms",
+   "."
+  ],
+  "tr": "Había unos cuantos formularios.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo a <b>cantidad pequeña</b>.",
+   "en": "Soften it."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a little",
+   "en": "a little"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "He spent too much money.",
+  "answer": [
+   "He",
+   "spent",
+   "a",
+   "little",
+   "money",
+   "."
+  ],
+  "tr": "Gastó un poco de dinero.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo a <b>cantidad pequeña</b>.",
+   "en": "Soften it."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "too many",
+   "en": "too many"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "She has a few questions.",
+  "answer": [
+   "She",
    "has",
-   "many"
-  ]
- },
- {
-  "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There are some emails.",
-  "answer": [
-   "There",
-   "are",
-   "too",
-   "many",
-   "emails",
-   "."
-  ],
-  "tr": "Hay demasiados correos.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>too many</b> emails.",
-   "en": "countable → <b>too many</b> emails."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "is",
-   "much"
-  ]
- },
- {
-  "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There is some sugar.",
-  "answer": [
-   "There",
-   "is",
-   "too",
-   "much",
-   "sugar",
-   "."
-  ],
-  "tr": "Hay demasiada azúcar.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>too much</b> sugar.",
-   "en": "uncountable → <b>too much</b> sugar."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "are",
-   "many"
-  ]
- },
- {
-  "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There are some customers.",
-  "answer": [
-   "There",
-   "are",
-   "too",
-   "many",
-   "customers",
-   "."
-  ],
-  "tr": "Hay demasiados clientes.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>too many</b> customers.",
-   "en": "countable → <b>too many</b> customers."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "is",
-   "much"
-  ]
- },
- {
-  "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There is some homework.",
-  "answer": [
-   "There",
-   "is",
-   "too",
-   "much",
-   "homework",
-   "."
-  ],
-  "tr": "Hay demasiada tarea.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>too much</b> homework.",
-   "en": "uncountable → <b>too much</b> homework."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "are",
-   "many"
-  ]
- },
- {
-  "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "We have some mistakes.",
-  "answer": [
-   "We",
-   "have",
-   "too",
-   "many",
-   "mistakes",
-   "."
-  ],
-  "tr": "Tenemos demasiados errores.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>too many</b> mistakes.",
-   "en": "countable → <b>too many</b> mistakes."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "has",
-   "much"
-  ]
- },
- {
-  "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There is some information.",
-  "answer": [
-   "There",
-   "is",
-   "too",
-   "much",
-   "information",
-   "."
-  ],
-  "tr": "Hay demasiada información.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>too much</b> information.",
-   "en": "uncountable → <b>too much</b> information."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "are",
-   "many"
-  ]
- },
- {
-  "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There are some chairs.",
-  "answer": [
-   "There",
-   "are",
-   "too",
-   "many",
-   "chairs",
-   "."
-  ],
-  "tr": "Hay demasiadas sillas.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>too many</b> chairs.",
-   "en": "countable → <b>too many</b> chairs."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "is",
-   "much"
-  ]
- },
- {
-  "reinf": {
-   "es": "too much (incontable)",
-   "en": "too much (incontable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There is some salt.",
-  "answer": [
-   "There",
-   "is",
-   "too",
-   "much",
-   "salt",
-   "."
-  ],
-  "tr": "Hay demasiada sal.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>too much</b> salt.",
-   "en": "uncountable → <b>too much</b> salt."
-  },
-  "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
-  },
-  "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "They",
-   "are",
-   "many"
-  ]
- },
- {
-  "reinf": {
-   "es": "too many (contable)",
-   "en": "too many (contable)"
-  },
-  "task": {
-   "es": "Transforma para expresar <b>exceso</b> (too many / too much) y ordena las fichas.",
-   "en": "Transform to show <b>excess</b> (too many / too much) and order the tiles."
-  },
-  "src": "There are some questions.",
-  "answer": [
-   "There",
-   "are",
    "too",
    "many",
    "questions",
    "."
   ],
-  "tr": "Hay demasiadas preguntas.",
+  "tr": "Tiene demasiadas preguntas.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
   },
   "story": null,
   "change": {
-   "es": "contable → <b>too many</b> questions.",
-   "en": "countable → <b>too many</b> questions."
+   "es": "Conviértelo en <b>exceso</b>.",
+   "en": "Turn it into <b>excess</b>."
   },
   "formula": {
-   "es": "… too many/too much + sustantivo",
-   "en": "… too many/too much + noun"
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
   },
   "rule": {
-   "es": "too many → contables · too much → incontables.",
-   "en": "too many → countables · too much → uncountables."
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "too much",
+   "en": "too much"
   },
-  "examples": {
-   "es": [],
-   "en": []
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
+  "src": "They used a little data.",
+  "answer": [
    "They",
-   "is",
-   "much"
-  ]
+   "used",
+   "too",
+   "much",
+   "data",
+   "."
+  ],
+  "tr": "Usaron demasiados datos.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Conviértelo en <b>exceso</b>.",
+   "en": "Turn it into <b>excess</b>."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a few",
+   "en": "a few"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "Too many people called today.",
+  "answer": [
+   "A",
+   "few",
+   "people",
+   "called",
+   "today",
+   "."
+  ],
+  "tr": "Unas cuantas personas llamaron hoy.",
+  "hint": {
+   "es": "¿El sustantivo se cuenta o se mide? Luego decide: ¿cantidad pequeña positiva o exceso?",
+   "en": "Is the noun counted or measured? Then decide: small positive amount or excess?"
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo a <b>cantidad pequeña</b>.",
+   "en": "Soften it."
+  },
+  "formula": {
+   "es": "a few/too many + contable · a little/too much + incontable",
+   "en": "a few/too many + countable · a little/too much + uncountable"
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo', check:'Comprobar', trayPh:'Toca las fichas para construir aquí…', original:'Original:',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bAnswer:'✔ Forma correcta', bChange:'🔧 El cambio paso a paso', bForm:'🧩 Estructura', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -947,7 +697,7 @@ const T = {
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran fichas','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca las fichas en orden para armar la oración.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help', check:'Check', trayPh:'Tap the tiles to build here…', original:'Original:',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bAnswer:'✔ Correct form', bChange:'🔧 The change, step by step', bForm:'🧩 Structure', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -971,8 +721,8 @@ function buildTr(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <div class="tprompt"><span class="po">${t.original}</span><span class="src">${it.src}</span></div>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="tray" id="tray${i}" data-ph="${t.trayPh}"></div>
     <div class="bank" id="bank${i}"></div>
@@ -982,16 +732,15 @@ function buildTr(it,i){ const t=T[lang];
     <div class="rdone" id="rd${i}"><div style="font-weight:800;font-size:13px;color:#1B5E20;">${t.rDone}</div><div style="font-size:11.5px;color:#555;margin-top:3px;" id="rcl${i}">${t.rCodeLab}</div><div class="rcode" id="rc${i}" onclick="copyCode(${i})"></div></div>
     <div class="nav"><button class="nb prev" onclick="nav(${i},-1)" ${i===0?'disabled':''}>${t.prev}</button><button class="nb next" id="nx${i}" onclick="nav(${i},1)" disabled>${i===QS.length-1?t.seeRes:t.next}</button></div></div>`;
 }
-function tilesOf(it){ return [...it.answer, ...((it.distractors)||[])]; }
 function initTr(i){ const it=QS[i]; trState[i]={order:[]};
-  trState[i].bankOrder=tilesOf(it).map((w,idx)=>idx).sort(()=>Math.random()-.5);
+  trState[i].bankOrder=[...it.answer].map((w,idx)=>idx).sort(()=>Math.random()-.5);
   renderBank(i); renderTray(i); }
 function renderBank(i){ const it=QS[i], st=trState[i];
-  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${tilesOf(it)[idx]}</button>`).join(''); }
+  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${it.answer[idx]}</button>`).join(''); }
 function renderTray(i){ const it=QS[i], st=trState[i]; const tray=document.getElementById('tray'+i);
-  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${tilesOf(it)[idx]}</button>`).join('');
+  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${it.answer[idx]}</button>`).join('');
   if(!locked[i]) tray.querySelectorAll('.tile').forEach(el=>attachDrag(i,el));
-  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length===0; }
+  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length!==it.answer.length; }
 function placeTile(i,idx){ if(locked[i])return; startTimer(); const st=trState[i]; if(st.order.includes(idx))return; st.order.push(idx); renderBank(i); renderTray(i); }
 function removeTile(i,idx){ if(locked[i])return; const st=trState[i]; st.order=st.order.filter(x=>x!==idx); renderBank(i); renderTray(i); }
 function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])return; e.preventDefault();
@@ -1006,7 +755,7 @@ function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])r
     if(!moved){ removeTile(i,+el.dataset.idx); } };
   tray.addEventListener('pointermove',move); document.addEventListener('pointerup',up); }); }
 function checkTr(i){ if(locked[i])return; locked[i]=true; const it=QS[i], st=trState[i];
-  const ok=st.order.map(x=>tilesOf(it)[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
+  const ok=st.order.map(x=>it.answer[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
   if(ok){score++;xpTotal+=XPQ;toast('+'+XPQ+' XP ⭐');} else wrongTags.push(it.reinf[lang]); if(it._tr)usedTr++;
   document.getElementById('chk'+i).style.display='none'; document.querySelectorAll('#tray'+i+' .tile').forEach(x=>x.style.pointerEvents='none');
   renderFb(i,ok,it); document.getElementById('nx'+i).disabled=false; bump(); }
@@ -1022,7 +771,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

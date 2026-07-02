@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Identification · Modals Deduction & Obligation · JUCUM English Center</title>
+<title>Identification · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -121,798 +121,690 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Identification', subtitle:"A2 · Módulo 1 · Modals Deduction & Obligation", langDefault:'es', reportId:"A2_M1_t3-id" };
-const PASS = 75;
+const MAT = {"title":"Identification","subtitle":"A2 · Módulo 1 · Modals: Deduction & Obligation","langDefault":"es","reportId":"A2_M1_t3-id"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "must",
+  "clue": "must · deducción",
   "target": 1,
   "tap": [
    1,
-   2
+   4,
+   5
   ],
   "reinf": {
-   "es": "deducción (seguro)",
-   "en": "deducción (seguro)"
+   "es": "must · deducción",
+   "en": "must · deducción"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "She",
-   "must",
-   "be",
-   "tired."
-  ],
-  "tr": "Debe de estar cansada.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>must</b> = deducción casi segura.",
-   "en": "<b>must</b> = a confident deduction."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "can't",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "deducción (imposible)",
-   "en": "deducción (imposible)"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "That",
-   "can't",
-   "be",
-   "true."
-  ],
-  "tr": "Eso no puede ser verdad.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>can't</b> = deducción de imposibilidad.",
-   "en": "<b>can't</b> = deduction of impossibility."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "might",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "posibilidad",
-   "en": "posibilidad"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
   },
   "words": [
    "He",
-   "might",
-   "come",
-   "later."
-  ],
-  "tr": "Quizá venga más tarde.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>might</b> = posibilidad.",
-   "en": "<b>might</b> = possibility."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "must",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "obligación",
-   "en": "obligación"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "You",
    "must",
-   "wear",
-   "a",
-   "helmet."
+   "be",
+   "the",
+   "new",
+   "technician."
   ],
-  "tr": "Debes usar casco.",
+  "tr": "Debe de ser el técnico nuevo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
-  "story": null,
+  "story": {
+   "q": "\"One of the workers knocked on her door\"",
+   "es": ""
+  },
   "why": {
-   "es": "<b>must</b> = obligación fuerte.",
-   "en": "<b>must</b> = strong obligation."
+   "es": "«must» deduce con casi total seguridad.",
+   "en": "“must” deduces with near certainty."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "have to",
+  "clue": "might · posible",
   "target": 1,
   "tap": [
    1,
-   2
+   3,
+   4
   ],
   "reinf": {
-   "es": "obligación",
-   "en": "obligación"
+   "es": "might · posible",
+   "en": "might · posible"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "We",
-   "have",
-   "to",
-   "finish",
-   "today."
-  ],
-  "tr": "Tenemos que terminar hoy.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>have</b> to = obligación.",
-   "en": "<b>have</b> to = obligation."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "mustn't",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "prohibición",
-   "en": "prohibición"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "You",
-   "mustn't",
-   "smoke",
-   "here."
-  ],
-  "tr": "No debes fumar aquí.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>mustn't</b> = prohibición.",
-   "en": "<b>mustn't</b> = prohibition."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "could",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "posibilidad",
-   "en": "posibilidad"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
   },
   "words": [
    "They",
-   "could",
+   "might",
    "be",
-   "at",
-   "home."
+   "waiting",
+   "outside."
   ],
-  "tr": "Podrían estar en casa.",
+  "tr": "Podrían estar esperando afuera.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
   "story": null,
   "why": {
-   "es": "<b>could</b> = posibilidad.",
-   "en": "<b>could</b> = possibility."
+   "es": "«might» = posible, sin seguridad.",
+   "en": "“might” = possible, not sure."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "should",
+  "clue": "can’t · imposible",
   "target": 1,
   "tap": [
    1,
-   2
+   5,
+   6
   ],
   "reinf": {
-   "es": "consejo",
-   "en": "consejo"
+   "es": "can’t · imposible",
+   "en": "can’t · imposible"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
   },
   "words": [
-   "You",
-   "should",
-   "call",
-   "them."
+   "She",
+   "can't",
+   "be",
+   "at",
+   "the",
+   "bank",
+   "now."
   ],
-  "tr": "Deberías llamarlos.",
+  "tr": "No puede estar en el banco ahora.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
   "story": null,
   "why": {
-   "es": "<b>should</b> = consejo/recomendación.",
-   "en": "<b>should</b> = advice."
+   "es": "«can’t» = conclusión imposible.",
+   "en": "“can’t” = impossible conclusion."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "must",
+  "clue": "must · deducción",
   "target": 1,
   "tap": [
    1,
-   2
+   4,
+   5
   ],
   "reinf": {
-   "es": "deducción (seguro)",
-   "en": "deducción (seguro)"
+   "es": "must · deducción",
+   "en": "must · deducción"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
   },
   "words": [
    "It",
    "must",
    "be",
-   "expensive."
+   "a",
+   "system",
+   "error."
   ],
-  "tr": "Debe de ser caro.",
+  "tr": "Debe de ser un error del sistema.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
-  "story": null,
+  "story": {
+   "q": "\"It was a system error on our side.\"",
+   "es": ""
+  },
   "why": {
-   "es": "<b>must</b> = deducción segura.",
-   "en": "<b>must</b> = sure deduction."
+   "es": "«must»: la evidencia obliga a esa conclusión.",
+   "en": "“must”: evidence forces that conclusion."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "can't",
-  "target": 1,
+  "clue": "might · posible",
+  "target": 2,
   "tap": [
    1,
-   2
+   2,
+   5
   ],
   "reinf": {
-   "es": "deducción (imposible)",
-   "en": "deducción (imposible)"
+   "es": "might · posible",
+   "en": "might · posible"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
   },
   "words": [
-   "She",
-   "can't",
-   "be",
-   "serious."
-  ],
-  "tr": "No puede estar hablando en serio.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>can't</b> = imposibilidad.",
-   "en": "<b>can't</b> = impossibility."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "might",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "posibilidad",
-   "en": "posibilidad"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "We",
+   "The",
+   "part",
    "might",
-   "need",
-   "help."
+   "arrive",
+   "on",
+   "Friday."
   ],
-  "tr": "Quizá necesitemos ayuda.",
+  "tr": "El repuesto podría llegar el viernes.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
-  "story": null,
+  "story": {
+   "q": "\"the part needed to be ordered\"",
+   "es": ""
+  },
   "why": {
-   "es": "<b>might</b> = posibilidad.",
-   "en": "<b>might</b> = possibility."
+   "es": "«might»: posibilidad abierta.",
+   "en": "“might”: open possibility."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "have to",
+  "clue": "must · obligación",
   "target": 1,
   "tap": [
    1,
-   2
+   5,
+   6
   ],
   "reinf": {
-   "es": "obligación",
-   "en": "obligación"
+   "es": "must · obligación",
+   "en": "must · obligación"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
   },
   "words": [
    "You",
+   "must",
+   "fill",
+   "in",
+   "the",
+   "claim",
+   "form."
+  ],
+  "tr": "Debes llenar el formulario de reclamo.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": {
+   "q": "\"she found a claim form on the building's website\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«must»: obligación dura.",
+   "en": "“must”: hard obligation."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "should · consejo",
+  "target": 1,
+  "tap": [
+   1,
+   2,
+   4
+  ],
+  "reinf": {
+   "es": "should · consejo",
+   "en": "should · consejo"
+  },
+  "task": {
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
+  },
+  "words": [
+   "You",
+   "should",
+   "read",
+   "every",
+   "contract."
+  ],
+  "tr": "Deberías leer todo contrato.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": {
+   "q": "\"She read it carefully this time.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«should»: consejo, no imposición.",
+   "en": "“should”: advice, not imposition."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "mustn’t · prohibido",
+  "target": 1,
+  "tap": [
+   0,
+   1,
+   4
+  ],
+  "reinf": {
+   "es": "mustn’t · prohibido",
+   "en": "mustn’t · prohibido"
+  },
+  "task": {
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
+  },
+  "words": [
+   "Tenants",
+   "mustn't",
+   "block",
+   "the",
+   "courtyard."
+  ],
+  "tr": "Los inquilinos no deben bloquear el patio.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": null,
+  "why": {
+   "es": "«mustn’t»: prohibición.",
+   "en": "“mustn’t”: prohibition."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "have to · externa",
+  "target": 1,
+  "tap": [
+   1,
+   3,
+   6
+  ],
+  "reinf": {
+   "es": "have to · externa",
+   "en": "have to · externa"
+  },
+  "task": {
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
+  },
+  "words": [
+   "Visitors",
    "have",
    "to",
    "sign",
-   "here."
+   "at",
+   "the",
+   "entrance."
   ],
-  "tr": "Tienes que firmar aquí.",
+  "tr": "Las visitas tienen que firmar en la entrada.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
   "story": null,
   "why": {
-   "es": "<b>have</b> to = obligación.",
-   "en": "<b>have</b> to = obligation."
+   "es": "«have (to)»: obligación de regla externa.",
+   "en": "“have (to)”: external-rule obligation."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "mustn't",
+  "clue": "have to · externa",
+  "target": 1,
+  "tap": [
+   0,
+   1,
+   5
+  ],
+  "reinf": {
+   "es": "have to · externa",
+   "en": "have to · externa"
+  },
+  "task": {
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
+  },
+  "words": [
+   "Passengers",
+   "have",
+   "to",
+   "show",
+   "their",
+   "tickets."
+  ],
+  "tr": "Los pasajeros tienen que mostrar sus boletos.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": null,
+  "why": {
+   "es": "«have (to)»: regla externa.",
+   "en": "“have (to)”: external rule."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "should · consejo",
   "target": 1,
   "tap": [
    1,
-   2
+   3,
+   6
   ],
   "reinf": {
-   "es": "prohibición",
-   "en": "prohibición"
+   "es": "should · consejo",
+   "en": "should · consejo"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
-  },
-  "words": [
-   "He",
-   "mustn't",
-   "be",
-   "late."
-  ],
-  "tr": "No debe llegar tarde.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>mustn't</b> = prohibición.",
-   "en": "<b>mustn't</b> = prohibition."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "don't have to",
-  "target": 2,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "no necesario",
-   "en": "no necesario"
-  },
-  "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
   },
   "words": [
    "You",
-   "don't",
-   "have",
-   "to",
-   "wait."
+   "should",
+   "keep",
+   "copies",
+   "of",
+   "your",
+   "emails."
   ],
-  "tr": "No tienes que esperar.",
+  "tr": "Deberías guardar copias de tus correos.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
-  "story": null,
+  "story": {
+   "q": "\"He kept a copy of everything he sent.\"",
+   "es": ""
+  },
   "why": {
-   "es": "don't <b>have</b> to = no es necesario.",
-   "en": "don't <b>have</b> to = not necessary."
+   "es": "«should»: consejo (el de James).",
+   "en": "“should”: advice (James’s)."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  },
  {
-  "clue": "could",
+  "clue": "can’t · imposible",
   "target": 1,
   "tap": [
    1,
-   2
+   4,
+   8
   ],
   "reinf": {
-   "es": "posibilidad",
-   "en": "posibilidad"
+   "es": "can’t · imposible",
+   "en": "can’t · imposible"
   },
   "task": {
-   "es": "Toca el <b>verbo modal</b>.",
-   "en": "Tap the <b>modal verb</b>."
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
   },
   "words": [
-   "That",
-   "could",
-   "work."
+   "He",
+   "can't",
+   "be",
+   "the",
+   "manager",
+   "—",
+   "he's",
+   "too",
+   "young."
   ],
-  "tr": "Eso podría funcionar.",
+  "tr": "No puede ser el gerente: es demasiado joven.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
   },
   "story": null,
   "why": {
-   "es": "<b>could</b> = posibilidad.",
-   "en": "<b>could</b> = possibility."
+   "es": "«can’t»: imposible por la evidencia.",
+   "en": "“can’t”: impossible given evidence."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Deducción: must · can't · might/could. Obligación: must/have to · mustn't · don't have to.",
-   "en": "Deduction: must · can't · might/could. Obligation: must/have to · mustn't · don't have to."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "mustn’t · prohibido",
+  "target": 1,
+  "tap": [
+   1,
+   2,
+   4
+  ],
+  "reinf": {
+   "es": "mustn’t · prohibido",
+   "en": "mustn’t · prohibido"
   },
-  "examples": {
-   "es": [],
-   "en": []
+  "task": {
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
   },
-  "es": {
+  "words": [
+   "You",
+   "mustn't",
+   "sign",
+   "without",
+   "reading."
+  ],
+  "tr": "No debes firmar sin leer.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": {
+   "q": "\"She glanced at it briefly and clicked accept.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«mustn’t»: prohibición (lección de Nadia).",
+   "en": "“mustn’t”: prohibition (Nadia’s lesson)."
+  },
+  "others": {
    "es": "",
    "en": ""
   },
-  "lit": {
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "must · obligación",
+  "target": 1,
+  "tap": [
+   1,
+   3,
+   6
+  ],
+  "reinf": {
+   "es": "must · obligación",
+   "en": "must · obligación"
+  },
+  "task": {
+   "es": "Toca la palabra que expresa <b>obligación, consejo o prohibición</b>.",
+   "en": "Tap the word expressing <b>obligation, advice or prohibition</b>."
+  },
+  "words": [
+   "We",
+   "must",
+   "stay",
+   "calm",
+   "on",
+   "the",
+   "phone."
+  ],
+  "tr": "Debemos mantener la calma al teléfono.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": {
+   "q": "\"She kept her tone calm and focused on facts\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«must»: obligación que la story premia.",
+   "en": "“must”: obligation the story rewards."
+  },
+  "others": {
    "es": "",
    "en": ""
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  }
+ },
+ {
+  "clue": "might · posible",
+  "target": 2,
+  "tap": [
+   1,
+   2,
+   5
+  ],
+  "reinf": {
+   "es": "might · posible",
+   "en": "might · posible"
+  },
+  "task": {
+   "es": "Toca el modal de <b>deducción</b> (la conclusión).",
+   "en": "Tap the <b>deduction</b> modal (the conclusion)."
+  },
+  "words": [
+   "The",
+   "refund",
+   "might",
+   "take",
+   "five",
+   "days."
+  ],
+  "tr": "El reembolso podría tardar cinco días.",
+  "hint": {
+   "es": "Pregúntate qué hace la palabra: ¿saca una conclusión (deducción) o impone/aconseja (obligación)? ¿Y con qué fuerza?",
+   "en": "Ask what the word does: does it conclude (deduction) or impose/advise (obligation)? With what strength?"
+  },
+  "story": {
+   "q": "\"it takes about five business days to appear.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«might»: posible, sin promesa.",
+   "en": "“might”: possible, no promise."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔍 Por qué esa palabra', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -921,7 +813,7 @@ const T = {
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La respuesta marcada parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','No concuerda con la historia','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca la palabra que cumple la consigna.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔍 Why that word', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -946,8 +838,8 @@ function buildId(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <p class="sent" id="sent${i}">${ws}</p>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="fb" id="fb${i}"></div>
     <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
@@ -971,7 +863,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

@@ -239,13 +239,15 @@ const STEPS = [
         ${ii('🔑','<b>Tip 1 — Palabras señal:</b> ever, never, just, already, yet, so far, for, since → casi siempre present perfect.')}
         ${ii('📍','<b>Tip 2 — yet / already:</b> «already» (ya, afirmativo): I have already eaten. «yet» (todavía/ya, en preguntas y negativas, al final): Have you finished yet? / Not yet.')}
         ${ii('🗣️','<b>Tip 3 — Preguntas de experiencia:</b> «Have you ever + participio?» → Have you ever been to Brazil?')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I have went» → ✅ «I <b>have gone</b>» (participio, no pasado).<br>❌ «She have eaten» → ✅ «She <b>has</b> eaten».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I have went» → ✅ «I <b>have gone</b>» (participio, no pasado).<br>❌ «She have eaten» → ✅ «She <b>has</b> eaten».</p></div>
+        ${ii('⚡','Con tiempo terminado (yesterday, last year, in 2020) NO va present perfect: usa pasado simple.')}`,
       en:`<div class="gdesc">The structure and the companions of the present perfect:</div>
         <div class="fbox"><div class="frm"><span class="pill s">have/has</span><span class="plus">+</span><span class="pill v">participle</span><span class="plus">(+ key word)</span></div><div class="fex"><span class="s">have</span> <span class="v">been</span> · already · yet · ever · for · since</div></div>
         ${ii('🔑','<b>Tip 1 — Signal words:</b> ever, never, just, already, yet, so far, for, since → almost always present perfect.')}
         ${ii('📍','<b>Tip 2 — yet / already:</b> «already» (yes, affirmative): I have already eaten. «yet» (questions and negatives, at the end): Have you finished yet? / Not yet.')}
         ${ii('🗣️','<b>Tip 3 — Experience questions:</b> «Have you ever + participle?» → Have you ever been to Brazil?')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I have went» → ✅ «I <b>have gone</b>» (participle, not past).<br>❌ «She have eaten» → ✅ «She <b>has</b> eaten».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I have went» → ✅ «I <b>have gone</b>» (participle, not past).<br>❌ «She have eaten» → ✅ «She <b>has</b> eaten».</p></div>
+        ${ii('⚡','With finished time (yesterday, last year, in 2020) do NOT use present perfect: use past simple.')}`
     },
     checks:[
       { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['I have gone','I have went'],en:['I have gone','I have went']}, correct:0, fb:{ why:{es:'Participio de go = gone (no «went»).',en:'Participle of go = gone (not «went»).'}, ex:{es:'I have gone → He ido',en:'I have gone'}, tip:{es:'go-went-gone',en:'go-went-gone'}} },

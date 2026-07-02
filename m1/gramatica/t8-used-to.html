@@ -223,13 +223,15 @@ const STEPS = [
         ${ii('✅','<b>Tip 1 — Afirmativa con «d»:</b> I used to play. Negativa y pregunta SIN «d»: didn\'t use to / Did you use to?')}
         ${ii('🆚','<b>Tip 2 — used to ≠ usually:</b> used to = pasado que cambió · usually = hábito que sigue ahora.')}
         ${ii('🚫','<b>Tip 3 — No es para una sola vez:</b> «used to» es un hábito repetido, no «ayer fui al cine» (eso es pasado simple).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I use to play» (afirmativa) → ✅ «I <b>used</b> to play» (afirmativa SÍ lleva «d»).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I use to play» (afirmativa) → ✅ «I <b>used</b> to play» (afirmativa SÍ lleva «d»).</p></div>
+        ${ii('⚡','En negativa y pregunta pierde la -d: «didn’t use to», «Did you use to…?».')}`,
       en:`<div class="gdesc">The three forms, side by side:</div>
         <div class="fbox"><div class="frm"><span class="pill s">used to</span><span class="plus">·</span><span class="pill v">didn't use to</span><span class="plus">·</span><span class="pill o">Did … use to?</span></div><div class="fex">+ base verb (play, live, like)</div></div>
         ${ii('✅','<b>Tip 1 — Affirmative with «d»:</b> I used to play. Negative and question WITHOUT «d»: didn\'t use to / Did you use to?')}
         ${ii('🆚','<b>Tip 2 — used to ≠ usually:</b> used to = past that changed · usually = habit that still holds.')}
         ${ii('🚫','<b>Tip 3 — Not for a one-time event:</b> «used to» is a repeated habit, not «I went to the cinema yesterday» (that\'s past simple).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I use to play» (affirmative) → ✅ «I <b>used</b> to play» (the affirmative DOES take «d»).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I use to play» (affirmative) → ✅ «I <b>used</b> to play» (the affirmative DOES take «d»).</p></div>
+        ${ii('⚡','In negatives and questions it loses the -d: «didn’t use to», «Did you use to…?».')}`
     },
     checks:[
       { q:{es:'Afirmativa correcta:',en:'Correct affirmative:'}, opts:{es:['I used to walk to school','I use to walk to school'],en:['I used to walk to school','I use to walk to school']}, correct:0, fb:{ why:{es:'La afirmativa lleva «used» (con d).',en:'The affirmative takes «used» (with d).'}, ex:{es:'used to walk → antes caminaba',en:'used to walk'}, tip:{es:'afirmativa → used to',en:'affirmative → used to'}} },

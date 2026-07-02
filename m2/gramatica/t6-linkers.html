@@ -213,13 +213,15 @@ const STEPS = [
         ${ii('💡','<b>Tip 1 — Razón vs resultado:</b> «because + causa» · «so + consecuencia». ¡Son el espejo uno del otro!')}
         ${ii('✍️','<b>Tip 2 — Puntuación:</b> antes de «so» y «but» suele ir coma cuando unen dos frases completas: «I was late, but I caught the bus».')}
         ${ii('➕','<b>Tip 3 — también:</b> «also» va antes del verbo principal; «too» va al final: «I like it too».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I was tired because I slept» (si el resultado fue dormir) → ✅ «I was tired, <b>so</b> I slept».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I was tired because I slept» (si el resultado fue dormir) → ✅ «I was tired, <b>so</b> I slept».</p></div>
+        ${ii('⚡','however abre oración nueva y lleva coma; but une dentro de la misma oración.')}`,
       en:`<div class="gdesc">Each connector in its relationship:</div>
         <div class="fbox"><div class="frm"><span class="pill s">and ➕</span><span class="plus">·</span><span class="pill v">but ↔️</span><span class="plus">·</span><span class="pill o">because 💡</span><span class="plus">·</span><span class="pill p">so ➡️</span></div><div class="fex">idea 1 + connector + idea 2</div></div>
         ${ii('💡','<b>Tip 1 — Reason vs result:</b> «because + cause» · «so + consequence». They are mirror images!')}
         ${ii('✍️','<b>Tip 2 — Punctuation:</b> a comma usually goes before «so» and «but» when they join two full sentences: «I was late, but I caught the bus».')}
         ${ii('➕','<b>Tip 3 — also/too:</b> «also» goes before the main verb; «too» goes at the end: «I like it too».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I was tired because I slept» (if the result was sleeping) → ✅ «I was tired, <b>so</b> I slept».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I was tired because I slept» (if the result was sleeping) → ✅ «I was tired, <b>so</b> I slept».</p></div>
+        ${ii('⚡','however starts a new sentence with a comma; but joins inside the same sentence.')}`
     },
     checks:[
       { q:{es:'«She studied hard, ___ she passed.» (resultado):',en:'«She studied hard, ___ she passed.» (result):'}, opts:{es:['so','because'],en:['so','because']}, correct:0, fb:{ why:{es:'Resultado → so.',en:'Result → so.'}, ex:{es:'so she passed → así que aprobó',en:'so she passed'}, tip:{es:'resultado → so',en:'result → so'}}, tr:{es:'Estudió mucho, así que aprobó.',en:'She studied hard, so she passed.'} },

@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Identification · Present Perfect & Past Simple · JUCUM English Center</title>
+<title>Identification · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -121,806 +121,675 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Identification', subtitle:"A2 · Módulo 1 · Present Perfect & Past Simple", langDefault:'es', reportId:"A2_M1_t4-id" };
-const PASS = 75;
+const MAT = {"title":"Identification","subtitle":"A2 · Módulo 1 · Present Perfect vs Past Simple","langDefault":"es","reportId":"A2_M1_t4-id"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "have finished",
-  "target": 2,
+  "clue": "yesterday · cerrado",
+  "target": 4,
   "tap": [
    1,
-   2
+   3,
+   4
   ],
   "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
+   "es": "yesterday · cerrado",
+   "en": "yesterday · cerrado"
   },
   "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "I",
-   "have",
-   "finished",
-   "my",
-   "homework."
-  ],
-  "tr": "He terminado mi tarea.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>finished</b> tras have = present perfect.",
-   "en": "<b>finished</b> after have = present perfect."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "has gone",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
   },
   "words": [
    "She",
-   "has",
-   "gone",
-   "home."
+   "called",
+   "the",
+   "office",
+   "yesterday."
   ],
-  "tr": "Se ha ido a casa.",
+  "tr": "Llamó a la oficina ayer.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
   },
   "story": null,
   "why": {
-   "es": "<b>gone</b> tras has = present perfect.",
-   "en": "<b>gone</b> after has = present perfect."
+   "es": "«yesterday» cierra el periodo → past simple.",
+   "en": "“yesterday” closes the period → past simple."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   }
  },
  {
-  "clue": "have eaten",
-  "target": 2,
+  "clue": "since · abierto",
+  "target": 4,
   "tap": [
    1,
-   2
+   4,
+   5
   ],
   "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
+   "es": "since · abierto",
+   "en": "since · abierto"
   },
   "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
   },
   "words": [
    "They",
-   "have",
-   "eaten",
-   "lunch."
-  ],
-  "tr": "Han comido el almuerzo.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>eaten</b> es el participio.",
-   "en": "<b>eaten</b> is the participle."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "have seen",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "We",
-   "have",
-   "seen",
-   "that",
-   "movie."
-  ],
-  "tr": "Hemos visto esa película.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>seen</b> tras have = present perfect.",
-   "en": "<b>seen</b> after have = present perfect."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "has lost",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "He",
-   "has",
-   "lost",
-   "his",
-   "keys."
-  ],
-  "tr": "Ha perdido sus llaves.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>lost</b> es el participio.",
-   "en": "<b>lost</b> is the participle."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "have been",
-  "target": 3,
-  "tap": [
-   1,
-   3
-  ],
-  "reinf": {
-   "es": "never + participio",
-   "en": "never + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "I",
-   "have",
-   "never",
-   "been",
-   "there."
-  ],
-  "tr": "Nunca he estado allí.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>been</b> es el participio (con never).",
-   "en": "<b>been</b> is the participle (with never)."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "has left",
-  "target": 3,
-  "tap": [
-   1,
-   3
-  ],
-  "reinf": {
-   "es": "already + participio",
-   "en": "already + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "She",
-   "has",
-   "already",
-   "left."
-  ],
-  "tr": "Ya se ha ido.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>left</b> es el participio (con already).",
-   "en": "<b>left</b> is the participle (with already)."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "have lived",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "We",
    "have",
    "lived",
    "here",
-   "for",
-   "years."
+   "since",
+   "March."
   ],
-  "tr": "Hemos vivido aquí durante años.",
+  "tr": "Viven aquí desde marzo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
   },
   "story": null,
   "why": {
-   "es": "<b>lived</b> tras have (con for) = present perfect.",
-   "en": "<b>lived</b> after have (with for) = present perfect."
+   "es": "«since» abre el periodo hasta hoy → perfect.",
+   "en": "“since” opens the period → perfect."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   }
  },
  {
-  "clue": "have arrived",
-  "target": 3,
+  "clue": "ago · cerrado",
+  "target": 6,
   "tap": [
    1,
-   3
+   5,
+   6
   ],
   "reinf": {
-   "es": "just + participio",
-   "en": "just + participio"
+   "es": "ago · cerrado",
+   "en": "ago · cerrado"
   },
   "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "They",
-   "have",
-   "just",
-   "arrived."
-  ],
-  "tr": "Acaban de llegar.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>arrived</b> es el participio (con just).",
-   "en": "<b>arrived</b> is the participle (with just)."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "has broken",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
   },
   "words": [
    "He",
-   "has",
-   "broken",
+   "sent",
    "the",
-   "screen."
+   "form",
+   "two",
+   "days",
+   "ago."
   ],
-  "tr": "Ha roto la pantalla.",
+  "tr": "Envió el formulario hace dos días.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
   },
   "story": null,
   "why": {
-   "es": "<b>broken</b> es el participio.",
-   "en": "<b>broken</b> is the participle."
+   "es": "«ago» cierra el momento → past simple.",
+   "en": "“ago” closes the moment."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   }
  },
  {
-  "clue": "have read",
+  "clue": "already · abierto",
   "target": 2,
   "tap": [
    1,
-   2
+   2,
+   5
   ],
   "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
+   "es": "already · abierto",
+   "en": "already · abierto"
   },
   "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
   },
   "words": [
    "I",
    "have",
-   "read",
-   "that",
-   "book."
-  ],
-  "tr": "He leído ese libro.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>read</b> (participio) tras have.",
-   "en": "<b>read</b> (participle) after have."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "has written",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "She",
-   "has",
-   "written",
-   "the",
-   "report."
-  ],
-  "tr": "Ha escrito el informe.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>written</b> es el participio.",
-   "en": "<b>written</b> is the participle."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "have made",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "We",
-   "have",
-   "made",
-   "a",
-   "decision."
-  ],
-  "tr": "Hemos tomado una decisión.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>made</b> es el participio.",
-   "en": "<b>made</b> is the participle."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "have paid",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
-  },
-  "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
-  },
-  "words": [
-   "They",
-   "have",
+   "already",
    "paid",
    "the",
    "bill."
   ],
-  "tr": "Han pagado la cuenta.",
+  "tr": "Ya pagué la cuenta.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
   },
   "story": null,
   "why": {
-   "es": "<b>paid</b> es el participio.",
-   "en": "<b>paid</b> is the participle."
+   "es": "«already»: resultado presente → perfect.",
+   "en": "“already”: present result."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   }
  },
  {
-  "clue": "has taken",
+  "clue": "yet · abierto",
+  "target": 5,
+  "tap": [
+   2,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "yet · abierto",
+   "en": "yet · abierto"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "We",
+   "haven't",
+   "received",
+   "the",
+   "part",
+   "yet."
+  ],
+  "tr": "Todavía no recibimos el repuesto.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": {
+   "q": "\"the part needed to be ordered\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«yet»: espera abierta → perfect.",
+   "en": "“yet”: open wait."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "ever · abierto",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   5
+  ],
+  "reinf": {
+   "es": "ever · abierto",
+   "en": "ever · abierto"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "Have",
+   "you",
+   "ever",
+   "disputed",
+   "a",
+   "charge?"
+  ],
+  "tr": "¿Alguna vez has reclamado un cargo?",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": {
+   "q": "\"I saw a charge on my last bill\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«ever»: experiencia de vida (abierta).",
+   "en": "“ever”: life experience (open)."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "last · cerrado",
+  "target": 4,
+  "tap": [
+   2,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "last · cerrado",
+   "en": "last · cerrado"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "The",
+   "team",
+   "fixed",
+   "it",
+   "last",
+   "Friday."
+  ],
+  "tr": "El equipo lo arregló el viernes pasado.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": null,
+  "why": {
+   "es": "«last…» cierra el periodo → past simple.",
+   "en": "“last…” closes the period."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "just · abierto",
   "target": 2,
   "tap": [
    1,
-   2
+   2,
+   5
   ],
   "reinf": {
-   "es": "have/has + participio",
-   "en": "have/has + participio"
+   "es": "just · abierto",
+   "en": "just · abierto"
   },
   "task": {
-   "es": "Toca el <b>verbo en present perfect</b> (el participio que sigue a have/has).",
-   "en": "Tap the <b>present perfect verb</b> (the participle after have/has)."
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "She",
+   "has",
+   "just",
+   "confirmed",
+   "the",
+   "refund."
+  ],
+  "tr": "Acaba de confirmar el reembolso.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": {
+   "q": "\"I'll process the full refund for you right now.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«just»: recién ocurrido, resultado presente.",
+   "en": "“just”: just happened, present result."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "in + año · cerrado",
+  "target": 6,
+  "tap": [
+   1,
+   4,
+   6
+  ],
+  "reinf": {
+   "es": "in + año · cerrado",
+   "en": "in + año · cerrado"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "They",
+   "moved",
+   "to",
+   "the",
+   "city",
+   "in",
+   "2019."
+  ],
+  "tr": "Se mudaron a la ciudad en el 2019.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": null,
+  "why": {
+   "es": "«in 2019»: año cerrado → past simple.",
+   "en": "“in 2019”: closed year."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "for · abierto",
+  "target": 5,
+  "tap": [
+   2,
+   5,
+   6
+  ],
+  "reinf": {
+   "es": "for · abierto",
+   "en": "for · abierto"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "I",
+   "have",
+   "known",
+   "the",
+   "manager",
+   "for",
+   "years."
+  ],
+  "tr": "Conozco al gerente desde hace años.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": null,
+  "why": {
+   "es": "«for + periodo» hasta hoy → perfect.",
+   "en": "“for + period” until today."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "this week · abierto",
+  "target": 4,
+  "tap": [
+   2,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "this week · abierto",
+   "en": "this week · abierto"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "We",
+   "have",
+   "called",
+   "twice",
+   "this",
+   "week."
+  ],
+  "tr": "Hemos llamado dos veces esta semana.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": null,
+  "why": {
+   "es": "«this week»: la semana sigue abierta.",
+   "en": "“this week”: still open."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "never · abierto",
+  "target": 2,
+  "tap": [
+   1,
+   2,
+   5
+  ],
+  "reinf": {
+   "es": "never · abierto",
+   "en": "never · abierto"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
   },
   "words": [
    "He",
    "has",
-   "taken",
-   "the",
-   "bus."
+   "never",
+   "ignored",
+   "an",
+   "email."
   ],
-  "tr": "Ha tomado el autobús.",
+  "tr": "Nunca ha ignorado un correo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
   },
-  "story": null,
+  "story": {
+   "q": "\"someone responded within 24 hours\"",
+   "es": ""
+  },
   "why": {
-   "es": "<b>taken</b> es el participio.",
-   "en": "<b>taken</b> is the participle."
+   "es": "«never»: experiencia (abierta, negada).",
+   "en": "“never”: open, negated experience."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "have/has + participio (done, gone, seen) · just/already/yet/ever/never/since/for.",
-   "en": "have/has + participle (done, gone, seen) · just/already/yet/ever/never/since/for."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "on + día · cerrado",
+  "target": 4,
+  "tap": [
+   1,
+   2,
+   4
+  ],
+  "reinf": {
+   "es": "on + día · cerrado",
+   "en": "on + día · cerrado"
   },
-  "examples": {
-   "es": [],
-   "en": []
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
   },
-  "es": {
+  "words": [
+   "The",
+   "refund",
+   "arrived",
+   "on",
+   "Monday."
+  ],
+  "tr": "El reembolso llegó el lunes.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": null,
+  "why": {
+   "es": "«on Monday»: día cerrado → past simple.",
+   "en": "“on Monday”: closed day."
+  },
+  "others": {
    "es": "",
    "en": ""
   },
-  "lit": {
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "ever · abierto",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   5
+  ],
+  "reinf": {
+   "es": "ever · abierto",
+   "en": "ever · abierto"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "Has",
+   "she",
+   "ever",
+   "visited",
+   "the",
+   "branch?"
+  ],
+  "tr": "¿Alguna vez ha visitado la sucursal?",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": null,
+  "why": {
+   "es": "«ever»: pregunta de experiencia.",
+   "en": "“ever”: experience question."
+  },
+  "others": {
    "es": "",
    "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "clue": "ago · cerrado",
+  "target": 5,
+  "tap": [
+   2,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "ago · cerrado",
+   "en": "ago · cerrado"
+  },
+  "task": {
+   "es": "Toca la <b>señal de tiempo</b> que decide el tiempo verbal.",
+   "en": "Tap the <b>time signal</b> that decides the tense."
+  },
+  "words": [
+   "The",
+   "team",
+   "arrived",
+   "two",
+   "hours",
+   "ago."
+  ],
+  "tr": "El equipo llegó hace dos horas.",
+  "hint": {
+   "es": "Cada oración esconde una señal de tiempo: ella decide si el periodo está cerrado o sigue abierto.",
+   "en": "Each sentence hides a time signal: it decides whether the period is closed or still open."
+  },
+  "story": {
+   "q": "\"On the third day, the team arrived.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«ago»: cerrado → past simple.",
+   "en": "“ago”: closed."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔍 Por qué esa palabra', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -929,7 +798,7 @@ const T = {
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La respuesta marcada parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','No concuerda con la historia','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca la palabra que cumple la consigna.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔍 Why that word', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -954,8 +823,8 @@ function buildId(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <p class="sent" id="sent${i}">${ws}</p>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="fb" id="fb${i}"></div>
     <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
@@ -979,7 +848,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

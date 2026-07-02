@@ -8,7 +8,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transform · Countable & How much/many · JUCUM English Center</title>
+<title>Transform · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -124,181 +124,441 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Transform', subtitle:"A2 · Módulo 1 · Countable & How much/many", langDefault:'es', reportId:"A2_M1_t1-tr" };
-const PASS = 75;
+const MAT = {"title":"Transform","subtitle":"A2 · Módulo 1 · Countable & How much/many","langDefault":"es","reportId":"A2_M1_t1-tr"};
+const PASS = 85;
 const QS = [
  {
   "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
+   "es": "How much · precio",
+   "en": "How much · precio"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "We need some chairs.",
+  "src": "The plan costs a lot of money.",
   "answer": [
    "How",
-   "many",
-   "chairs",
-   "do",
-   "we",
-   "need",
+   "much",
+   "does",
+   "the",
+   "plan",
+   "cost",
    "?"
   ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántas sillas necesitamos?",
+  "tr": "¿Cuánto cuesta el plan?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
-  "story": null,
+  "story": "\"How much will the credit be?\"",
   "change": {
-   "es": "contable → <b>How many</b> chairs.",
-   "en": "countable → <b>How many</b> chairs."
+   "es": "Pásala a <b>pregunta de precio</b>.",
+   "en": "Turn it into a <b>price question</b>."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
   "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
+   "es": "How many · contable",
+   "en": "How many · contable"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "She wants some water.",
+  "src": "She has many bills to pay.",
+  "answer": [
+   "How",
+   "many",
+   "bills",
+   "does",
+   "she",
+   "have",
+   "to",
+   "pay",
+   "?"
+  ],
+  "tr": "¿Cuántas boletas tiene que pagar?",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": null,
+  "change": {
+   "es": "Pregunta por la <b>cantidad</b>.",
+   "en": "Ask about the <b>quantity</b>."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "much · incontable",
+   "en": "much · incontable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "There is a lot of information online.",
+  "answer": [
+   "There",
+   "isn't",
+   "much",
+   "information",
+   "online",
+   "."
+  ],
+  "tr": "No hay mucha información en línea.",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": null,
+  "change": {
+   "es": "Pásala a <b>negativa</b> con la palabra de cantidad correcta.",
+   "en": "Make it <b>negative</b> with the right quantity word."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "many · contable",
+   "en": "many · contable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "They sent many emails.",
+  "answer": [
+   "They",
+   "didn't",
+   "send",
+   "many",
+   "emails",
+   "."
+  ],
+  "tr": "No enviaron muchos correos.",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": "\"He sent an email asking for an update\"",
+  "change": {
+   "es": "Pásala a <b>negativa</b> en pasado.",
+   "en": "Make it <b>negative</b> in the past."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "How much · incontable",
+   "en": "How much · incontable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "We need water for cooking.",
   "answer": [
    "How",
    "much",
    "water",
-   "does",
-   "she",
-   "want",
+   "do",
+   "we",
+   "need",
+   "for",
+   "cooking",
    "?"
   ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánta agua quiere?",
+  "tr": "¿Cuánta agua necesitamos para cocinar?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
-  "story": null,
+  "story": "\"the things she needed water for: cooking, cleaning\"",
   "change": {
-   "es": "incontable → <b>How much</b> water.",
-   "en": "uncountable → <b>How much</b> water."
+   "es": "Pregunta por la <b>cantidad</b>.",
+   "en": "Ask about the <b>quantity</b>."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
   "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
+   "es": "How many · contable",
+   "en": "How many · contable"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "They have some books.",
+  "src": "He bought three models.",
   "answer": [
    "How",
    "many",
-   "books",
-   "do",
-   "they",
-   "have",
+   "models",
+   "did",
+   "he",
+   "buy",
    "?"
   ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántos libros tienen?",
+  "tr": "¿Cuántos modelos compró?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
-  "story": null,
+  "story": "\"building model ships\"",
   "change": {
-   "es": "contable → <b>How many</b> books.",
-   "en": "countable → <b>How many</b> books."
+   "es": "Pregunta por la <b>cantidad</b> en pasado.",
+   "en": "Ask about the <b>quantity</b> in the past."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
   "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
+   "es": "much · incontable",
+   "en": "much · incontable"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "He drinks some coffee.",
+  "src": "There is a lot of noise in the building.",
+  "answer": [
+   "There",
+   "isn't",
+   "much",
+   "noise",
+   "in",
+   "the",
+   "building",
+   "."
+  ],
+  "tr": "No hay mucho ruido en el edificio.",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": "\"The pipes made a strange sound\"",
+  "change": {
+   "es": "Pásala a <b>negativa</b>.",
+   "en": "Make it <b>negative</b>."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a lot of · afirmativa",
+   "en": "a lot of · afirmativa"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "She doesn't have many coins.",
+  "answer": [
+   "She",
+   "has",
+   "a",
+   "lot",
+   "of",
+   "coins",
+   "."
+  ],
+  "tr": "Tiene un montón de monedas.",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": null,
+  "change": {
+   "es": "Pásala a <b>afirmativa</b> con cantidad grande.",
+   "en": "Make it <b>affirmative</b> with a large quantity."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "much · incontable",
+   "en": "much · incontable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "How much time do we have?",
+  "answer": [
+   "We",
+   "don't",
+   "have",
+   "much",
+   "time",
+   "."
+  ],
+  "tr": "No tenemos mucho tiempo.",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": null,
+  "change": {
+   "es": "Conviértela en <b>negación</b>.",
+   "en": "Turn it into a <b>negative statement</b>."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "How many · contable",
+   "en": "How many · contable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The form needs a lot of details.",
+  "answer": [
+   "How",
+   "many",
+   "details",
+   "does",
+   "the",
+   "form",
+   "need",
+   "?"
+  ],
+  "tr": "¿Cuántos detalles necesita el formulario?",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": "\"She described the issue, the timeline, and the impact\"",
+  "change": {
+   "es": "Pregunta por la <b>cantidad</b>.",
+   "en": "Ask about the <b>quantity</b>."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "many · contable",
+   "en": "many · contable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "There are many fees in the contract.",
+  "answer": [
+   "There",
+   "aren't",
+   "many",
+   "fees",
+   "in",
+   "the",
+   "contract",
+   "."
+  ],
+  "tr": "No hay muchos cargos en el contrato.",
+  "hint": {
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
+  },
+  "story": "\"certain fees listed at the bottom\"",
+  "change": {
+   "es": "Pásala a <b>negativa</b>.",
+   "en": "Make it <b>negative</b>."
+  },
+  "formula": {
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "reinf": {
+   "es": "How much · incontable",
+   "en": "How much · incontable"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "He drinks a lot of coffee.",
   "answer": [
    "How",
    "much",
@@ -308,640 +568,144 @@ const QS = [
    "drink",
    "?"
   ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánto café bebe?",
+  "tr": "¿Cuánto café toma?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
   "story": null,
   "change": {
-   "es": "incontable → <b>How much</b> coffee.",
-   "en": "uncountable → <b>How much</b> coffee."
+   "es": "Pregunta por la <b>cantidad</b>.",
+   "en": "Ask about the <b>quantity</b>."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
   "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
+   "es": "How many · contable",
+   "en": "How many · contable"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "We buy some apples.",
+  "src": "The team fixed many pipes.",
   "answer": [
    "How",
    "many",
-   "apples",
-   "do",
-   "we",
-   "buy",
+   "pipes",
+   "did",
+   "the",
+   "team",
+   "fix",
    "?"
   ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántas manzanas compramos?",
+  "tr": "¿Cuántas tuberías arregló el equipo?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
   "story": null,
   "change": {
-   "es": "contable → <b>How many</b> apples.",
-   "en": "countable → <b>How many</b> apples."
+   "es": "Pregunta por la <b>cantidad</b> en pasado.",
+   "en": "Ask about the <b>quantity</b> in the past."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
   "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
+   "es": "How much · incontable",
+   "en": "How much · incontable"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "She needs some sugar.",
+  "src": "The heater uses a lot of electricity.",
   "answer": [
    "How",
    "much",
-   "sugar",
+   "electricity",
    "does",
-   "she",
-   "need",
+   "the",
+   "heater",
+   "use",
    "?"
   ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánta azúcar necesita?",
+  "tr": "¿Cuánta electricidad usa el calentador?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
-  "story": null,
+  "story": "\"arranged for a portable electric heater\"",
   "change": {
-   "es": "incontable → <b>How much</b> sugar.",
-   "en": "uncountable → <b>How much</b> sugar."
+   "es": "Pregunta por la <b>cantidad</b>.",
+   "en": "Ask about the <b>quantity</b>."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
   "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
+   "es": "How many · sujeto",
+   "en": "How many · sujeto"
   },
   "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "They send some emails.",
+  "src": "Many neighbors complained.",
   "answer": [
    "How",
    "many",
-   "emails",
-   "do",
-   "they",
-   "send",
+   "neighbors",
+   "complained",
    "?"
   ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántos correos envían?",
+  "tr": "¿Cuántos vecinos reclamaron?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.",
+   "en": "Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."
   },
-  "story": null,
+  "story": "\"A few neighbors mentioned that they had also complained.\"",
   "change": {
-   "es": "contable → <b>How many</b> emails.",
-   "en": "countable → <b>How many</b> emails."
+   "es": "Pregunta de <b>sujeto</b>: ojo, sin auxiliar.",
+   "en": "<b>Subject</b> question: no auxiliary needed."
   },
   "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
+   "es": "How much/many + sustantivo + auxiliar + sujeto + verbo …",
+   "en": "How much/many + noun + auxiliary + subject + verb …"
   },
   "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "He has some money.",
-  "answer": [
-   "How",
-   "much",
-   "money",
-   "does",
-   "he",
-   "have",
-   "?"
-  ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánto dinero tiene?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>How much</b> money.",
-   "en": "uncountable → <b>How much</b> money."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "We have some tickets.",
-  "answer": [
-   "How",
-   "many",
-   "tickets",
-   "do",
-   "we",
-   "have",
-   "?"
-  ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántos tickets tenemos?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>How many</b> tickets.",
-   "en": "countable → <b>How many</b> tickets."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "She drinks some milk.",
-  "answer": [
-   "How",
-   "much",
-   "milk",
-   "does",
-   "she",
-   "drink",
-   "?"
-  ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánta leche bebe?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>How much</b> milk.",
-   "en": "uncountable → <b>How much</b> milk."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "They want some chairs.",
-  "answer": [
-   "How",
-   "many",
-   "chairs",
-   "do",
-   "they",
-   "want",
-   "?"
-  ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántas sillas quieren?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>How many</b> chairs.",
-   "en": "countable → <b>How many</b> chairs."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "He needs some help.",
-  "answer": [
-   "How",
-   "much",
-   "help",
-   "does",
-   "he",
-   "need",
-   "?"
-  ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánta ayuda necesita?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>How much</b> help.",
-   "en": "uncountable → <b>How much</b> help."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "We make some mistakes.",
-  "answer": [
-   "How",
-   "many",
-   "mistakes",
-   "do",
-   "we",
-   "make",
-   "?"
-  ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántos errores cometemos?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>How many</b> mistakes.",
-   "en": "countable → <b>How many</b> mistakes."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "She has some information.",
-  "answer": [
-   "How",
-   "much",
-   "information",
-   "does",
-   "she",
-   "have",
-   "?"
-  ],
-  "distractors": [
-   "many",
-   "do"
-  ],
-  "tr": "¿Cuánta información tiene?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "incontable → <b>How much</b> information.",
-   "en": "uncountable → <b>How much</b> information."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
-  },
-  "task": {
-   "es": "Transforma en <b>pregunta</b> con How much / How many y ordena las fichas.",
-   "en": "Transform into a <b>question</b> with How much / How many and order the tiles."
-  },
-  "src": "They have some questions.",
-  "answer": [
-   "How",
-   "many",
-   "questions",
-   "do",
-   "they",
-   "have",
-   "?"
-  ],
-  "distractors": [
-   "much",
-   "does"
-  ],
-  "tr": "¿Cuántas preguntas tienen?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "contable → <b>How many</b> questions.",
-   "en": "countable → <b>How many</b> questions."
-  },
-  "formula": {
-   "es": "How much/many + sustantivo + do/does + sujeto + verbo?",
-   "en": "How much/many + noun + do/does + subject + verb?"
-  },
-  "rule": {
-   "es": "How many + contables · How much + incontables · + do/does + sujeto + verbo.",
-   "en": "How many + countables · How much + uncountables · + do/does + subject + verb."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. <b>Algunas fichas sobran</b> (son trampas): usa solo las correctas. Arrastra para reordenar. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo', check:'Comprobar', trayPh:'Toca las fichas para construir aquí…', original:'Original:',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bAnswer:'✔ Forma correcta', bChange:'🔧 El cambio paso a paso', bForm:'🧩 Estructura', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -949,8 +713,8 @@ const T = {
     hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota', reinf:'📌 A reforzar', xp:'+15 XP por aprobar', xpSub:'Sumaste a tu Liga Semanal. Mantén la racha.', back:'↩ Volver a la plataforma', retry:'🔁 Intentar de nuevo',
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
-    rFormH:'⚠ Reportar un error', rOpts:['La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran fichas','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca las fichas en orden para armar la oración.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>Ojo a las trampas:</b> algunas fichas sobran; usa solo las correctas.','<b>💡 Pista:</b> aparece solo cuando una pregunta necesita contexto extra (no revela la respuesta).','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. <b>Some tiles are extra</b> (traps): use only the right ones. Drag to reorder. Stuck? Use Translation.',
+    rFormH:'⚠ Reportar un error', rOpts:['La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran fichas','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca las fichas en orden para armar la oración.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
+  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help', check:'Check', trayPh:'Tap the tiles to build here…', original:'Original:',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bAnswer:'✔ Correct form', bChange:'🔧 The change, step by step', bForm:'🧩 Structure', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -958,7 +722,7 @@ const T = {
     hits:'Correct', time:'Time', timeNote:'does not affect your grade', reinf:'📌 To review', xp:'+15 XP for passing', xpSub:'Added to your Weekly League. Keep your streak.', back:'↩ Back to the platform', retry:'🔁 Try again',
     ph:['Excellent! You\'ve got it. 🌟','Great job, passed! Review the few slips. 💪','Almost — review and come back to top '+PASS+'%. 🌱'],
     supp:n=>n+' answered with translation help (doesn\'t lower your grade; your teacher will see it).',
-    rFormH:'⚠ Report a problem', rOpts:['The correct form looks wrong','Typo / spelling error','The translation doesn\'t match','The task is confusing','Missing or extra tiles','Other'], rPlace:'Tell us what you saw (optional)...', rSend:'Send to support', rCancel:'Cancel', rDone:'✓ Report sent to support', rCodeLab:'Code (copy it if your teacher asks):', xpEarned:'XP earned', exitT:'Are you sure you want to leave? 🚪', exitP:x=>'If you leave now, <b>you\'ll lose the '+x+' XP</b> you\'ve earned and your progress here. Finish it to claim them. 💪', exitStay:'Keep practicing', exitLeave:'Leave and lose my XP', helpT:'How do I use this material?', tipsT:'What each button is for:', tips:['<b>How to solve it:</b> tap the tiles in order to build the sentence.','<b>🌐 Español/English:</b> language of instructions and explanations (the exercise stays in English).','<b>Watch the traps:</b> some tiles are extra; use only the right ones.','<b>💡 Hint:</b> only shows when a question needs extra context (never reveals the answer).','<b>🔤 Translation:</b> the sentence in Spanish (help, doesn\'t lower your grade).','<b>⚠ Report:</b> tell us if something is wrong in the question.','<b>At the end:</b> you\'ll see your grade, hits, time and topics to review.','<b>≥75% passes</b> and unlocks the next activity.'] }
+    rFormH:'⚠ Report a problem', rOpts:['The correct form looks wrong','Typo / spelling error','The translation doesn\'t match','The task is confusing','Missing or extra tiles','Other'], rPlace:'Tell us what you saw (optional)...', rSend:'Send to support', rCancel:'Cancel', rDone:'✓ Report sent to support', rCodeLab:'Code (copy it if your teacher asks):', xpEarned:'XP earned', exitT:'Are you sure you want to leave? 🚪', exitP:x=>'If you leave now, <b>you\'ll lose the '+x+' XP</b> you\'ve earned and your progress here. Finish it to claim them. 💪', exitStay:'Keep practicing', exitLeave:'Leave and lose my XP', helpT:'How do I use this material?', tipsT:'What each button is for:', tips:['<b>How to solve it:</b> tap the tiles in order to build the sentence.','<b>🌐 Español/English:</b> language of instructions and explanations (the exercise stays in English).','<b>💡 Hint:</b> a context clue, below the sentence.','<b>🔤 Translation:</b> the sentence in Spanish (help, doesn\'t lower your grade).','<b>⚠ Report:</b> tell us if something is wrong in the question.','<b>At the end:</b> you\'ll see your grade, hits, time and topics to review.','<b>≥75% passes</b> and unlocks the next activity.'] }
 };
 let lang=MAT.langDefault, cur=0, score=0, locked=[], picked=[], usedTr=0, wrongTags=[], sec=0, timer=null; const trState={};
 let xpTotal=0; const XPQ=2;
@@ -974,8 +738,8 @@ function buildTr(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <div class="tprompt"><span class="po">${t.original}</span><span class="src">${it.src}</span></div>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="tray" id="tray${i}" data-ph="${t.trayPh}"></div>
     <div class="bank" id="bank${i}"></div>
@@ -985,16 +749,15 @@ function buildTr(it,i){ const t=T[lang];
     <div class="rdone" id="rd${i}"><div style="font-weight:800;font-size:13px;color:#1B5E20;">${t.rDone}</div><div style="font-size:11.5px;color:#555;margin-top:3px;" id="rcl${i}">${t.rCodeLab}</div><div class="rcode" id="rc${i}" onclick="copyCode(${i})"></div></div>
     <div class="nav"><button class="nb prev" onclick="nav(${i},-1)" ${i===0?'disabled':''}>${t.prev}</button><button class="nb next" id="nx${i}" onclick="nav(${i},1)" disabled>${i===QS.length-1?t.seeRes:t.next}</button></div></div>`;
 }
-function tilesOf(it){ return [...it.answer, ...((it.distractors)||[])]; }
 function initTr(i){ const it=QS[i]; trState[i]={order:[]};
-  trState[i].bankOrder=tilesOf(it).map((w,idx)=>idx).sort(()=>Math.random()-.5);
+  trState[i].bankOrder=[...it.answer].map((w,idx)=>idx).sort(()=>Math.random()-.5);
   renderBank(i); renderTray(i); }
-function renderBank(i){ const it=QS[i], st=trState[i], TL=tilesOf(it);
-  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${TL[idx]}</button>`).join(''); }
-function renderTray(i){ const it=QS[i], st=trState[i], TL=tilesOf(it); const tray=document.getElementById('tray'+i);
-  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${TL[idx]}</button>`).join('');
+function renderBank(i){ const it=QS[i], st=trState[i];
+  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${it.answer[idx]}</button>`).join(''); }
+function renderTray(i){ const it=QS[i], st=trState[i]; const tray=document.getElementById('tray'+i);
+  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${it.answer[idx]}</button>`).join('');
   if(!locked[i]) tray.querySelectorAll('.tile').forEach(el=>attachDrag(i,el));
-  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length===0; }
+  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length!==it.answer.length; }
 function placeTile(i,idx){ if(locked[i])return; startTimer(); const st=trState[i]; if(st.order.includes(idx))return; st.order.push(idx); renderBank(i); renderTray(i); }
 function removeTile(i,idx){ if(locked[i])return; const st=trState[i]; st.order=st.order.filter(x=>x!==idx); renderBank(i); renderTray(i); }
 function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])return; e.preventDefault();
@@ -1009,7 +772,7 @@ function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])r
     if(!moved){ removeTile(i,+el.dataset.idx); } };
   tray.addEventListener('pointermove',move); document.addEventListener('pointerup',up); }); }
 function checkTr(i){ if(locked[i])return; locked[i]=true; const it=QS[i], st=trState[i];
-  const ok=st.order.map(x=>tilesOf(it)[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
+  const ok=st.order.map(x=>it.answer[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
   if(ok){score++;xpTotal+=XPQ;toast('+'+XPQ+' XP ⭐');} else wrongTags.push(it.reinf[lang]); if(it._tr)usedTr++;
   document.getElementById('chk'+i).style.display='none'; document.querySelectorAll('#tray'+i+' .tile').forEach(x=>x.style.pointerEvents='none');
   renderFb(i,ok,it); document.getElementById('nx'+i).disabled=false; bump(); }
@@ -1025,7 +788,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

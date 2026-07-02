@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fill in · Present Perfect & Past Simple · JUCUM English Center</title>
+<title>Fill in · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -179,37 +179,32 @@
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║  EDITA AQUÍ · METADATOS DEL MATERIAL                                   ║
    ╚══════════════════════════════════════════════════════════════════════╝ */
-const MAT = {
-  title:'Fill in the Blanks',
-  subtitle:"A2 · Módulo 1 · Present Perfect & Past Simple",
-  langDefault:'es',
-  reportId:"A2_M1_t4-fill"
-};
-const PASS = 75;
+const MAT = {"title":"Fill in the Blanks","subtitle":"A2 · Módulo 1 · Present Perfect vs Past Simple","langDefault":"es","reportId":"A2_M1_t4-fill"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "already → present perfect",
+  "clue": "abierto",
   "opts": [
-   "have",
-   "did",
-   "was"
+   "has called",
+   "called",
+   "calls"
   ],
-  "correct": "have",
+  "correct": "has called",
   "reinf": {
-   "es": "already → present perfect",
-   "en": "already → present perfect"
+   "es": "perfect · this week",
+   "en": "perfect · this week"
   },
-  "sentence": "I _____ already finished.",
-  "tr": "Ya he terminado.",
-  "hint": "",
-  "story": "I have already finished.",
+  "sentence": "Lucia _____ the office three times this week.",
+  "tr": "Lucia ha llamado a la oficina tres veces esta semana.",
+  "hint": "Busca la señal de tiempo: ¿el periodo sigue ABIERTO (todavía cuenta hoy)? 📖 La regla completa aparece al responder.",
+  "story": "\"Lucia called again the next morning\"",
   "storyWhy": {
-   "es": "already → present perfect: have.",
-   "en": "already → present perfect: have."
+   "es": "En la story el día ya cerró (pasado); aquí “this week” sigue abierto.",
+   "en": "In the story the day is closed; here “this week” is still open."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -221,28 +216,28 @@ const QS = [
   }
  },
  {
-  "clue": "last year → pasado simple",
+  "clue": "cerrado",
   "opts": [
-   "went",
-   "has gone",
-   "goes"
+   "ordered",
+   "has ordered",
+   "orders"
   ],
-  "correct": "went",
+  "correct": "ordered",
   "reinf": {
-   "es": "last year → pasado simple",
-   "en": "last year → pasado simple"
+   "es": "simple · ago",
+   "en": "simple · ago"
   },
-  "sentence": "She _____ to Lima last year.",
-  "tr": "Fue a Lima el año pasado.",
-  "hint": "",
-  "story": "She went to Lima last year.",
+  "sentence": "James _____ the model two weeks ago.",
+  "tr": "James pidió el modelo hace dos semanas.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"He ordered it without much hesitation.\"",
   "storyWhy": {
-   "es": "last year → pasado simple: went.",
-   "en": "last year → past simple: went."
+   "es": "“Ago” cierra el momento: pasado puntual.",
+   "en": "“Ago” closes the moment: simple past."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -254,73 +249,7 @@ const QS = [
   }
  },
  {
-  "clue": "just → present perfect",
-  "opts": [
-   "have",
-   "did",
-   "were"
-  ],
-  "correct": "have",
-  "reinf": {
-   "es": "just → present perfect",
-   "en": "just → present perfect"
-  },
-  "sentence": "They _____ just arrived.",
-  "tr": "Acaban de llegar.",
-  "hint": "",
-  "story": "They have just arrived.",
-  "storyWhy": {
-   "es": "just → present perfect: have.",
-   "en": "just → present perfect: have."
-  },
-  "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "yesterday → pasado simple",
-  "opts": [
-   "saw",
-   "have seen",
-   "see"
-  ],
-  "correct": "saw",
-  "reinf": {
-   "es": "yesterday → pasado simple",
-   "en": "yesterday → pasado simple"
-  },
-  "sentence": "We _____ that movie yesterday.",
-  "tr": "Vimos esa película ayer.",
-  "hint": "",
-  "story": "We saw that movie yesterday.",
-  "storyWhy": {
-   "es": "yesterday → pasado simple: saw.",
-   "en": "yesterday → past simple: saw."
-  },
-  "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "never → present perfect",
+  "clue": "abierto",
   "opts": [
    "has",
    "did",
@@ -328,20 +257,20 @@ const QS = [
   ],
   "correct": "has",
   "reinf": {
-   "es": "never → present perfect",
-   "en": "never → present perfect"
+   "es": "perfect · already",
+   "en": "perfect · already"
   },
-  "sentence": "He _____ never been there.",
-  "tr": "Nunca ha estado allí.",
-  "hint": "",
-  "story": "He has never been there.",
+  "sentence": "The team _____ already fixed the pipe.",
+  "tr": "El equipo ya arregló la tubería.",
+  "hint": "Busca la señal de tiempo: ¿el periodo sigue ABIERTO (todavía cuenta hoy)? 📖 La regla completa aparece al responder.",
+  "story": "\"the repair was complete\"",
   "storyWhy": {
-   "es": "never → present perfect: has.",
-   "en": "never → present perfect: has."
+   "es": "“Already” acompaña al resultado presente.",
+   "en": "“Already” goes with the present result."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -353,28 +282,28 @@ const QS = [
   }
  },
  {
-  "clue": "ago → pasado simple",
+  "clue": "cerrado",
   "opts": [
-   "lost",
-   "have lost",
-   "lose"
+   "came",
+   "has come",
+   "comes"
   ],
-  "correct": "lost",
+  "correct": "came",
   "reinf": {
-   "es": "ago → pasado simple",
-   "en": "ago → pasado simple"
+   "es": "simple · yesterday",
+   "en": "simple · yesterday"
   },
-  "sentence": "I _____ my keys an hour ago.",
-  "tr": "Perdí mis llaves hace una hora.",
-  "hint": "",
-  "story": "I lost my keys an hour ago.",
+  "sentence": "The water _____ back by evening yesterday.",
+  "tr": "El agua volvió por la noche ayer.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"By evening, the water was running normally again.\"",
   "storyWhy": {
-   "es": "ago → pasado simple: lost.",
-   "en": "ago → past simple: lost."
+   "es": "“Yesterday” cierra el periodo.",
+   "en": "“Yesterday” closes the period."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -386,28 +315,28 @@ const QS = [
   }
  },
  {
-  "clue": "yet → present perfect",
+  "clue": "forma",
   "opts": [
-   "Have",
-   "Did",
-   "Were"
+   "requested",
+   "request",
+   "requesting"
   ],
-  "correct": "Have",
+  "correct": "requested",
   "reinf": {
-   "es": "yet → present perfect",
-   "en": "yet → present perfect"
+   "es": "perfect · ever",
+   "en": "perfect · ever"
   },
-  "sentence": "_____ you finished yet?",
-  "tr": "¿Ya has terminado?",
-  "hint": "",
-  "story": "Have you finished yet?",
+  "sentence": "Have you ever _____ a refund?",
+  "tr": "¿Alguna vez has pedido un reembolso?",
+  "hint": "El auxiliar ya está puesto: ¿qué forma del verbo lo acompaña? 📖 La regla completa aparece al responder.",
+  "story": "\"He said he preferred a refund\"",
   "storyWhy": {
-   "es": "yet → present perfect: Have.",
-   "en": "yet → present perfect: Have."
+   "es": "Tras have/has va el participio.",
+   "en": "After have/has comes the participle."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -419,28 +348,160 @@ const QS = [
   }
  },
  {
-  "clue": "since → present perfect",
+  "clue": "cerrado",
   "opts": [
-   "have lived",
+   "sent",
+   "has sent",
+   "sends"
+  ],
+  "correct": "sent",
+  "reinf": {
+   "es": "simple · ago",
+   "en": "simple · ago"
+  },
+  "sentence": "Carlos _____ an email an hour ago.",
+  "tr": "Carlos envió un correo hace una hora.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"He sent a second message flagging it as urgent\"",
+  "storyWhy": {
+   "es": "“An hour ago”: momento cerrado.",
+   "en": "“An hour ago”: closed moment."
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "abierto",
+  "opts": [
+   "haven't received",
+   "didn't receive",
+   "don't receive"
+  ],
+  "correct": "haven't received",
+  "reinf": {
+   "es": "perfect · yet",
+   "en": "perfect · yet"
+  },
+  "sentence": "They _____ the spare part yet.",
+  "tr": "Todavía no han recibido el repuesto.",
+  "hint": "Busca la señal de tiempo: ¿el periodo sigue ABIERTO (todavía cuenta hoy)? 📖 La regla completa aparece al responder.",
+  "story": "\"the part needed to be ordered\"",
+  "storyWhy": {
+   "es": "“Yet” = la espera sigue abierta.",
+   "en": "“Yet” = the wait is still open."
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "cerrado",
+  "opts": [
+   "reviewed",
+   "has reviewed",
+   "reviews"
+  ],
+  "correct": "reviewed",
+  "reinf": {
+   "es": "simple · last",
+   "en": "simple · last"
+  },
+  "sentence": "The manager _____ the claim last Friday.",
+  "tr": "El gerente revisó el reclamo el viernes pasado.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"promising to review their response process\"",
+  "storyWhy": {
+   "es": "“Last Friday”: cerrado.",
+   "en": "“Last Friday”: closed."
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "abierto",
+  "opts": [
+   "have found",
+   "found",
+   "find"
+  ],
+  "correct": "have found",
+  "reinf": {
+   "es": "perfect · resultado",
+   "en": "perfect · resultado"
+  },
+  "sentence": "I _____ my receipt — it's right here!",
+  "tr": "¡Encontré mi comprobante — está justo aquí!",
+  "hint": "Busca la señal de tiempo: ¿el periodo sigue ABIERTO (todavía cuenta hoy)? 📖 La regla completa aparece al responder.",
+  "story": null,
+  "storyWhy": {
+   "es": "El resultado importa AHORA: lo tengo aquí.",
+   "en": "The result matters NOW: it is right here."
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "abierto",
+  "opts": [
+   "has lived",
    "lived",
-   "live"
+   "lives"
   ],
-  "correct": "have lived",
+  "correct": "has lived",
   "reinf": {
-   "es": "since → present perfect",
-   "en": "since → present perfect"
+   "es": "perfect · since",
+   "en": "perfect · since"
   },
-  "sentence": "We _____ here since 2020.",
-  "tr": "Vivimos aquí desde 2020.",
-  "hint": "",
-  "story": "We have lived here since 2020.",
+  "sentence": "She _____ in that building since 2020.",
+  "tr": "Vive en ese edificio desde el 2020.",
+  "hint": "Busca la señal de tiempo: ¿el periodo sigue ABIERTO (todavía cuenta hoy)? 📖 La regla completa aparece al responder.",
+  "story": "\"The whole building was without water.\"",
   "storyWhy": {
-   "es": "since → present perfect: have lived.",
-   "en": "since → present perfect: have lived."
+   "es": "“Since” abre el periodo hasta hoy.",
+   "en": "“Since” opens the period until today."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -452,28 +513,28 @@ const QS = [
   }
  },
  {
-  "clue": "last week → pasado simple",
+  "clue": "cerrado",
   "opts": [
-   "paid",
-   "have paid",
-   "pay"
+   "changed",
+   "has changed",
+   "changes"
   ],
-  "correct": "paid",
+  "correct": "changed",
   "reinf": {
-   "es": "last week → pasado simple",
-   "en": "last week → pasado simple"
+   "es": "simple · in + año",
+   "en": "simple · in + año"
   },
-  "sentence": "They _____ the bill last week.",
-  "tr": "Pagaron la cuenta la semana pasada.",
-  "hint": "",
-  "story": "They paid the bill last week.",
+  "sentence": "The company _____ its fees in 2023.",
+  "tr": "La empresa cambió sus tarifas en el 2023.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"certain fees listed at the bottom of the document\"",
   "storyWhy": {
-   "es": "last week → pasado simple: paid.",
-   "en": "last week → past simple: paid."
+   "es": "“In 2023”: año cerrado.",
+   "en": "“In 2023”: closed year."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -485,28 +546,28 @@ const QS = [
   }
  },
  {
-  "clue": "ever → present perfect",
+  "clue": "abierto",
   "opts": [
-   "Has",
-   "Did",
-   "Was"
+   "have sent",
+   "sent",
+   "send"
   ],
-  "correct": "Has",
+  "correct": "have sent",
   "reinf": {
-   "es": "ever → present perfect",
-   "en": "ever → present perfect"
+   "es": "perfect · so far",
+   "en": "perfect · so far"
   },
-  "sentence": "_____ he ever eaten sushi?",
-  "tr": "¿Ha comido sushi alguna vez?",
-  "hint": "",
-  "story": "Has he ever eaten sushi?",
+  "sentence": "We _____ two complaints so far.",
+  "tr": "Hemos enviado dos reclamos hasta ahora.",
+  "hint": "Busca la señal de tiempo: ¿el periodo sigue ABIERTO (todavía cuenta hoy)? 📖 La regla completa aparece al responder.",
+  "story": "\"A few neighbors mentioned that they had also complained.\"",
   "storyWhy": {
-   "es": "ever → present perfect: Has.",
-   "en": "ever → present perfect: Has."
+   "es": "“So far” = el conteo sigue abierto.",
+   "en": "“So far” = the count is still open."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -518,28 +579,28 @@ const QS = [
   }
  },
  {
-  "clue": "ago → pasado simple",
+  "clue": "cerrado",
   "opts": [
-   "met",
-   "have met",
-   "meet"
+   "read",
+   "has read",
+   "reads"
   ],
-  "correct": "met",
+  "correct": "read",
   "reinf": {
-   "es": "ago → pasado simple",
-   "en": "ago → pasado simple"
+   "es": "simple · momento",
+   "en": "simple · momento"
   },
-  "sentence": "I _____ him two days ago.",
-  "tr": "Lo conocí hace dos días.",
-  "hint": "",
-  "story": "I met him two days ago.",
+  "sentence": "He _____ the contract when it arrived by email.",
+  "tr": "Leyó el contrato cuando llegó por correo.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"When the digital contract arrived by email\"",
   "storyWhy": {
-   "es": "ago → pasado simple: met.",
-   "en": "ago → past simple: met."
+   "es": "“When it arrived”: momento puntual del pasado.",
+   "en": "“When it arrived”: specific past moment."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -551,28 +612,28 @@ const QS = [
   }
  },
  {
-  "clue": "just → present perfect",
+  "clue": "forma",
   "opts": [
-   "has",
-   "did",
-   "was"
+   "finished",
+   "finish",
+   "finishing"
   ],
-  "correct": "has",
+  "correct": "finished",
   "reinf": {
-   "es": "just → present perfect",
-   "en": "just → present perfect"
+   "es": "perfect · just",
+   "en": "perfect · just"
   },
-  "sentence": "She _____ just left.",
-  "tr": "Acaba de irse.",
-  "hint": "",
-  "story": "She has just left.",
+  "sentence": "The technician has just _____ the repair.",
+  "tr": "El técnico acaba de terminar la reparación.",
+  "hint": "El auxiliar ya está puesto: ¿qué forma del verbo lo acompaña? 📖 La regla completa aparece al responder.",
+  "story": "\"the repair was complete\"",
   "storyWhy": {
-   "es": "just → present perfect: has.",
-   "en": "just → present perfect: has."
+   "es": "Tras has + just va el participio.",
+   "en": "After has + just comes the participle."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -584,94 +645,28 @@ const QS = [
   }
  },
  {
-  "clue": "in 2019 → pasado simple",
+  "clue": "cerrado",
   "opts": [
-   "went",
-   "have gone",
-   "go"
+   "called",
+   "has called",
+   "calls"
   ],
-  "correct": "went",
+  "correct": "called",
   "reinf": {
-   "es": "in 2019 → pasado simple",
-   "en": "in 2019 → pasado simple"
+   "es": "simple · last",
+   "en": "simple · last"
   },
-  "sentence": "We _____ to Paris in 2019.",
-  "tr": "Fuimos a París en 2019.",
-  "hint": "",
-  "story": "We went to Paris in 2019.",
+  "sentence": "Nobody _____ during the outage last month.",
+  "tr": "Nadie llamó durante el corte del mes pasado.",
+  "hint": "Busca la señal de tiempo: ¿el momento ya se CERRÓ por completo? 📖 La regla completa aparece al responder.",
+  "story": "\"there's a known outage in your area this week\"",
   "storyWhy": {
-   "es": "año dado → pasado simple: went.",
-   "en": "given year → past simple: went."
+   "es": "“Last month”: periodo cerrado.",
+   "en": "“Last month”: closed period."
   },
   "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "already → present perfect",
-  "opts": [
-   "have",
-   "did",
-   "were"
-  ],
-  "correct": "have",
-  "reinf": {
-   "es": "already → present perfect",
-   "en": "already → present perfect"
-  },
-  "sentence": "They _____ already eaten.",
-  "tr": "Ya han comido.",
-  "hint": "",
-  "story": "They have already eaten.",
-  "storyWhy": {
-   "es": "already → present perfect: have.",
-   "en": "already → present perfect: have."
-  },
-  "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "ago → pasado simple",
-  "opts": [
-   "took",
-   "has taken",
-   "take"
-  ],
-  "correct": "took",
-  "reinf": {
-   "es": "ago → pasado simple",
-   "en": "ago → pasado simple"
-  },
-  "sentence": "He _____ the bus an hour ago.",
-  "tr": "Tomó el bus hace una hora.",
-  "hint": "",
-  "story": "He took the bus an hour ago.",
-  "storyWhy": {
-   "es": "ago → pasado simple: took.",
-   "en": "ago → past simple: took."
-  },
-  "rule": {
-   "es": "have/has + participio (marcadores no terminados) · pasado simple (tiempos terminados).",
-   "en": "have/has + participle (unfinished markers) · past simple (finished times)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
   },
   "es": {
    "es": "",
@@ -687,7 +682,7 @@ const QS = [
 /* ════════ FIN DE LO EDITABLE — debajo es el motor (no necesitas tocarlo) ════════ */
 
 const T = {
-  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
+  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Pista</b> o <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
        lswLab:'Instrucciones y ayuda', qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
        fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📝 Oración completa', bSig:'🔍 La señal', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Traducción: literal vs natural', sigTxt:'te indica la preposición.',
        prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉', unlock:'🔓 ¡Desbloqueaste la siguiente actividad!', pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas 75% para aprobar. ¡Inténtalo de nuevo!', hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota',
@@ -696,7 +691,7 @@ const T = {
        supp:n=>n+' pregunta'+(n>1?'s':'')+' con apoyo de traducción (no baja tu nota; tu teacher lo verá).',
        rFormH:'⚠ Reportar un error en esta pregunta', rOpts:['La respuesta correcta parece equivocada','Hay un error de tipeo / ortografía','La traducción no coincide','La pista confunde','La oración no concuerda con la historia','Otro'],
        rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> elige la opción correcta del hueco.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Translation</b> below the sentence. Each answer explains why.',
+  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Hint</b> or <b>Translation</b> below the sentence. Each answer explains why.',
        lswLab:'Instructions & help', qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
        fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📝 Full sentence', bSig:'🔍 The clue', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Translation: literal vs natural', sigTxt:'tells you the preposition.',
        prev:'← Back', next:'Next →', seeRes:'See results 🎉', unlock:'🔓 You unlocked the next activity!', pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need 75% to pass. Try again!', hits:'Correct', time:'Time', timeNote:'does not affect your grade',
@@ -718,8 +713,8 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
   return `<div class="qcard${i!==0?' hidden':''}" id="q${i}">
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <p class="qtext">${sentence}</p>
-    <div class="support">${q.hint?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
-    ${q.hint?`<div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>
     <div class="reveal trbox" id="trb${i}"><span class="lab">${t.trLab}</span>${q.tr}</div>
     <div class="opts" id="op${i}">${shuf.map(o=>`<button class="opt" onclick="pick(${i},this)">${o}</button>`).join('')}</div>
     <div class="fb" id="fb${i}"></div>
@@ -730,7 +725,7 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
 }
 function render(){ document.getElementById('qbox').innerHTML=QS.map(buildQ).join(''); document.getElementById('tot').textContent=QS.length; }
 function reveal(i,which){ startTimer();
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); QS[i]._tr=true; } } }
 function feedbackHTML(i){ const q=QS[i], t=T[lang], ok=picked[i]===q.correct;
   let b=`<div class="fblk story"><b>${t.bStory}</b><span class="qquote">${q.story}</span><br>${q.storyWhy[lang]}</div>`;

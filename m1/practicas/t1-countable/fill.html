@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fill in · Countable & How much/many · JUCUM English Center</title>
+<title>Fill in · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -179,136 +179,32 @@
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║  EDITA AQUÍ · METADATOS DEL MATERIAL                                   ║
    ╚══════════════════════════════════════════════════════════════════════╝ */
-const MAT = {
-  title:'Fill in the Blanks',
-  subtitle:"A2 · Módulo 1 · Countable & How much/many",
-  langDefault:'es',
-  reportId:"A2_M1_t1-fill"
-};
-const PASS = 75;
+const MAT = {"title":"Fill in the Blanks","subtitle":"A2 · Módulo 1 · Countable & How much/many","langDefault":"es","reportId":"A2_M1_t1-fill"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "money · incontable",
-  "opts": [
-   "much",
-   "many",
-   "a few"
-  ],
-  "correct": "much",
-  "reinf": {
-   "es": "money · incontable",
-   "en": "money · incontable"
-  },
-  "sentence": "I don't have _____ money.",
-  "tr": "No tengo mucho dinero.",
-  "hint": "",
-  "story": "I don't have much money.",
-  "storyWhy": {
-   "es": "money es incontable: much.",
-   "en": "money is uncountable: much."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "tickets · contable",
-  "opts": [
-   "How many",
-   "How much",
-   "How"
-  ],
-  "correct": "How many",
-  "reinf": {
-   "es": "tickets · contable",
-   "en": "tickets · contable"
-  },
-  "sentence": "_____ tickets do you have?",
-  "tr": "¿Cuántos tickets tienes?",
-  "hint": "",
-  "story": "How many tickets do you have?",
-  "storyWhy": {
-   "es": "tickets se cuenta: How many.",
-   "en": "tickets are countable: How many."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "problems · contable",
-  "opts": [
-   "many",
-   "much",
-   "a little"
-  ],
-  "correct": "many",
-  "reinf": {
-   "es": "problems · contable",
-   "en": "problems · contable"
-  },
-  "sentence": "There aren't _____ problems.",
-  "tr": "No hay muchos problemas.",
-  "hint": "",
-  "story": "There aren't many problems.",
-  "storyWhy": {
-   "es": "problems se cuenta: many.",
-   "en": "problems are countable: many."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "water · incontable",
+  "clue": "pregunta · precio",
   "opts": [
    "How much",
    "How many",
-   "How"
+   "How often"
   ],
   "correct": "How much",
   "reinf": {
-   "es": "water · incontable",
-   "en": "water · incontable"
+   "es": "How much · precio",
+   "en": "How much · precio"
   },
-  "sentence": "_____ water do we need?",
-  "tr": "¿Cuánta agua necesitamos?",
-  "hint": "",
-  "story": "How much water do we need?",
+  "sentence": "_____ will the repair cost?",
+  "tr": "¿Cuánto costará la reparación?",
+  "hint": "Preguntas un PRECIO (dinero): ¿eso se cuenta en unidades o se mide como cantidad? 📖 La regla completa aparece al responder.",
+  "story": "\"How much will the credit be?\"",
   "storyWhy": {
-   "es": "water es incontable: How much.",
-   "en": "water is uncountable: How much."
+   "es": "En el diálogo, el cliente pregunta el monto del crédito con esta misma estructura.",
+   "en": "In the dialogue, the customer asks the credit amount with this same structure."
   },
   "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   },
   "es": {
    "es": "",
@@ -320,94 +216,28 @@ const QS = [
   }
  },
  {
-  "clue": "advice · incontable",
-  "opts": [
-   "advice",
-   "advices",
-   "an advice"
-  ],
-  "correct": "advice",
-  "reinf": {
-   "es": "advice · incontable",
-   "en": "advice · incontable"
-  },
-  "sentence": "She gave me useful _____.",
-  "tr": "Me dio consejos útiles.",
-  "hint": "",
-  "story": "She gave me useful advice.",
-  "storyWhy": {
-   "es": "advice no lleva plural ni a/an.",
-   "en": "advice has no plural and no a/an."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "time · incontable",
-  "opts": [
-   "much",
-   "many",
-   "a few"
-  ],
-  "correct": "much",
-  "reinf": {
-   "es": "time · incontable",
-   "en": "time · incontable"
-  },
-  "sentence": "We don't have _____ time.",
-  "tr": "No tenemos mucho tiempo.",
-  "hint": "",
-  "story": "We don't have much time.",
-  "storyWhy": {
-   "es": "time es incontable: much.",
-   "en": "time is uncountable: much."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "people · contable",
+  "clue": "contable · pregunta",
   "opts": [
    "How many",
    "How much",
-   "How"
+   "How long"
   ],
   "correct": "How many",
   "reinf": {
-   "es": "people · contable",
-   "en": "people · contable"
+   "es": "How many · contable",
+   "en": "How many · contable"
   },
-  "sentence": "_____ people work here?",
-  "tr": "¿Cuántas personas trabajan aquí?",
-  "hint": "",
-  "story": "How many people work here?",
+  "sentence": "_____ neighbors had the same problem with the water?",
+  "tr": "¿Cuántos vecinos tenían el mismo problema con el agua?",
+  "hint": "“Neighbors” se cuenta de uno en uno y está en plural: ¿qué pregunta de cantidad le toca? 📖 La regla completa aparece al responder.",
+  "story": "\"A few neighbors mentioned that they had also complained.\"",
   "storyWhy": {
-   "es": "people se cuenta: How many.",
-   "en": "people is countable: How many."
+   "es": "La story cuenta vecinos (contable plural): su cantidad se pregunta en plural.",
+   "en": "The story counts neighbors (plural countable): asked in plural."
   },
   "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   },
   "es": {
    "es": "",
@@ -419,7 +249,7 @@ const QS = [
   }
  },
  {
-  "clue": "coffee · incontable",
+  "clue": "incontable · negativa",
   "opts": [
    "much",
    "many",
@@ -427,20 +257,20 @@ const QS = [
   ],
   "correct": "much",
   "reinf": {
-   "es": "coffee · incontable",
-   "en": "coffee · incontable"
+   "es": "much · incontable",
+   "en": "much · incontable"
   },
-  "sentence": "He doesn't drink _____ coffee.",
-  "tr": "No bebe mucho café.",
-  "hint": "",
-  "story": "He doesn't drink much coffee.",
+  "sentence": "There isn't _____ information on the tracking page.",
+  "tr": "No hay mucha información en la página de seguimiento.",
+  "hint": "La oración NIEGA y “information” no acepta plural: decide con esas dos señales. 📖 La regla completa aparece al responder.",
+  "story": "\"the status had not changed since the day he placed the order\"",
   "storyWhy": {
-   "es": "coffee es incontable: much.",
-   "en": "coffee is uncountable: much."
+   "es": "James revisa el tracking y encuentra poca información: incontable en negativa.",
+   "en": "James checks the tracking and finds little information: uncountable in a negative."
   },
   "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   },
   "es": {
    "es": "",
@@ -452,172 +282,7 @@ const QS = [
   }
  },
  {
-  "clue": "emails · contable",
-  "opts": [
-   "How many",
-   "How much",
-   "How"
-  ],
-  "correct": "How many",
-  "reinf": {
-   "es": "emails · contable",
-   "en": "emails · contable"
-  },
-  "sentence": "_____ emails did you send?",
-  "tr": "¿Cuántos correos enviaste?",
-  "hint": "",
-  "story": "How many emails did you send?",
-  "storyWhy": {
-   "es": "emails se cuenta: How many.",
-   "en": "emails are countable: How many."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "sugar · incontable",
-  "opts": [
-   "much",
-   "many",
-   "a few"
-  ],
-  "correct": "much",
-  "reinf": {
-   "es": "sugar · incontable",
-   "en": "sugar · incontable"
-  },
-  "sentence": "There isn't _____ sugar left.",
-  "tr": "No queda mucha azúcar.",
-  "hint": "",
-  "story": "There isn't much sugar left.",
-  "storyWhy": {
-   "es": "sugar es incontable: much.",
-   "en": "sugar is uncountable: much."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "How many + contable",
-  "opts": [
-   "chairs",
-   "furniture",
-   "water"
-  ],
-  "correct": "chairs",
-  "reinf": {
-   "es": "How many + contable",
-   "en": "How many + contable"
-  },
-  "sentence": "How many _____ are there?",
-  "tr": "¿Cuántas sillas hay?",
-  "hint": "",
-  "story": "How many chairs are there?",
-  "storyWhy": {
-   "es": "How many va con contable: chairs.",
-   "en": "How many takes a countable: chairs."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "How much + incontable",
-  "opts": [
-   "help",
-   "books",
-   "tickets"
-  ],
-  "correct": "help",
-  "reinf": {
-   "es": "How much + incontable",
-   "en": "How much + incontable"
-  },
-  "sentence": "How much _____ do you need?",
-  "tr": "¿Cuánta ayuda necesitas?",
-  "hint": "",
-  "story": "How much help do you need?",
-  "storyWhy": {
-   "es": "How much va con incontable: help.",
-   "en": "How much takes an uncountable: help."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "work · incontable",
-  "opts": [
-   "much",
-   "many",
-   "a few"
-  ],
-  "correct": "much",
-  "reinf": {
-   "es": "work · incontable",
-   "en": "work · incontable"
-  },
-  "sentence": "We have too _____ work today.",
-  "tr": "Tenemos demasiado trabajo hoy.",
-  "hint": "",
-  "story": "We have too much work today.",
-  "storyWhy": {
-   "es": "work es incontable: too much.",
-   "en": "work is uncountable: too much."
-  },
-  "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "complaints · contable",
+  "clue": "contable · negativa",
   "opts": [
    "many",
    "much",
@@ -625,20 +290,20 @@ const QS = [
   ],
   "correct": "many",
   "reinf": {
-   "es": "complaints · contable",
-   "en": "complaints · contable"
+   "es": "many · contable",
+   "en": "many · contable"
   },
-  "sentence": "They received too _____ complaints.",
-  "tr": "Recibieron demasiadas quejas.",
-  "hint": "",
-  "story": "They received too many complaints.",
+  "sentence": "James didn't get _____ answers from the company.",
+  "tr": "James no recibió muchas respuestas de la empresa.",
+  "hint": "“Answers” está en plural y la oración niega: ¿qué palabra de cantidad concuerda? 📖 La regla completa aparece al responder.",
+  "story": "\"He sent an email asking for an update, but received no response.\"",
   "storyWhy": {
-   "es": "complaints se cuenta: too many.",
-   "en": "complaints are countable: too many."
+   "es": "La story muestra los correos sin respuesta: respuestas contables en negativa.",
+   "en": "The story shows unanswered emails: countable answers in a negative."
   },
   "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   },
   "es": {
    "es": "",
@@ -650,28 +315,358 @@ const QS = [
   }
  },
  {
-  "clue": "information · incontable",
+  "clue": "incontable",
   "opts": [
-   "information",
-   "informations",
-   "an information"
+   "much",
+   "many",
+   "a few"
   ],
-  "correct": "information",
+  "correct": "much",
   "reinf": {
-   "es": "information · incontable",
-   "en": "information · incontable"
+   "es": "much · incontable",
+   "en": "much · incontable"
   },
-  "sentence": "I need some _____ about it.",
-  "tr": "Necesito información al respecto.",
-  "hint": "",
-  "story": "I need some information about it.",
+  "sentence": "Nadia was using too _____ data after she started working from home.",
+  "tr": "Nadia usaba demasiados datos desde que empezó a trabajar en casa.",
+  "hint": "¿“Data” se cuenta en unidades o se mide? El exceso sigue la misma regla que la cantidad. 📖 La regla completa aparece al responder.",
+  "story": "\"was using much more data than before\"",
   "storyWhy": {
-   "es": "information no lleva plural ni a/an.",
-   "en": "information has no plural and no a/an."
+   "es": "La story lo dice con la misma palabra: data se mide como cantidad.",
+   "en": "The story says it with the same word: data is measured."
   },
   "rule": {
-   "es": "Contables → many / How many · Incontables → much / How much · sin plural ni a/an.",
-   "en": "Countables → many / How many · Uncountables → much / How much · no plural, no a/an."
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "contable · pregunta",
+  "opts": [
+   "How many",
+   "How much",
+   "How far"
+  ],
+  "correct": "How many",
+  "reinf": {
+   "es": "How many · contable",
+   "en": "How many · contable"
+  },
+  "sentence": "_____ fees were hidden at the bottom of the contract?",
+  "tr": "¿Cuántos cargos estaban escondidos al final del contrato?",
+  "hint": "“Fees” es un plural que se cuenta: ¿cómo se pregunta su cantidad? 📖 La regla completa aparece al responder.",
+  "story": "\"certain fees listed at the bottom of the document\"",
+  "storyWhy": {
+   "es": "Los cargos del contrato de Nadia son contables: se preguntan en plural.",
+   "en": "The fees in Nadia’s contract are countable."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "incontable · negativa",
+  "opts": [
+   "much",
+   "many",
+   "a few"
+  ],
+  "correct": "much",
+  "reinf": {
+   "es": "much · incontable",
+   "en": "much · incontable"
+  },
+  "sentence": "There wasn't _____ heat in the apartment that Thursday.",
+  "tr": "No había mucha calefacción en el departamento ese jueves.",
+  "hint": "¿El calor se cuenta por unidades o se siente/mide? Además la oración niega. 📖 La regla completa aparece al responder.",
+  "story": "\"not just cool, but genuinely cold\"",
+  "storyWhy": {
+   "es": "El frío del departamento de Carlos: heat es incontable.",
+   "en": "The cold in Carlos’s apartment: heat is uncountable."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "contable · pregunta",
+  "opts": [
+   "How many",
+   "How much",
+   "How soon"
+  ],
+  "correct": "How many",
+  "reinf": {
+   "es": "How many · contable",
+   "en": "How many · contable"
+  },
+  "sentence": "_____ days did the spare part take to arrive?",
+  "tr": "¿Cuántos días tardó el repuesto en llegar?",
+  "hint": "Los días se cuentan uno por uno: elige la pregunta de los contables. 📖 La regla completa aparece al responder.",
+  "story": "\"the part needed to be ordered and would take a few days to arrive.\"",
+  "storyWhy": {
+   "es": "La story cuenta los días de espera del repuesto.",
+   "en": "The story counts the waiting days."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "incontable · negativa",
+  "opts": [
+   "much",
+   "many",
+   "several"
+  ],
+  "correct": "much",
+  "reinf": {
+   "es": "much · incontable",
+   "en": "much · incontable"
+  },
+  "sentence": "Keeping records doesn't take _____ time.",
+  "tr": "Guardar registros no toma mucho tiempo.",
+  "hint": "“Time” aquí es tiempo en general: ¿se mide o se cuenta? Y la frase niega. 📖 La regla completa aparece al responder.",
+  "story": "\"Staying calm, keeping records, and communicating clearly made a real difference.\"",
+  "storyWhy": {
+   "es": "El consejo final de la story: guardar registros toma poco tiempo.",
+   "en": "The story’s final advice: keeping records takes little time."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "contable · afirmativa",
+  "opts": [
+   "many",
+   "much",
+   "a little"
+  ],
+  "correct": "many",
+  "reinf": {
+   "es": "many · contable",
+   "en": "many · contable"
+  },
+  "sentence": "The building has _____ apartments, and all of them were without water.",
+  "tr": "El edificio tiene muchos departamentos, y todos estaban sin agua.",
+  "hint": "¿“Apartments” se cuenta? La oración además afirma una cantidad grande. 📖 La regla completa aparece al responder.",
+  "story": "\"The whole building was without water.\"",
+  "storyWhy": {
+   "es": "Todo el edificio de Lucia quedó sin agua: departamentos contables.",
+   "en": "Lucia’s whole building lost water: countable apartments."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "pregunta · precio",
+  "opts": [
+   "How much",
+   "How many",
+   "How heavy"
+  ],
+  "correct": "How much",
+  "reinf": {
+   "es": "How much · precio",
+   "en": "How much · precio"
+  },
+  "sentence": "_____ is the data fee on this month's bill?",
+  "tr": "¿De cuánto es el cargo de datos en la boleta de este mes?",
+  "hint": "Preguntas el monto de un cargo: la pregunta de los precios. 📖 La regla completa aparece al responder.",
+  "story": "\"There's a data fee of fifteen dollars\"",
+  "storyWhy": {
+   "es": "El diálogo reclama exactamente ese cargo de la boleta.",
+   "en": "The dialogue disputes exactly that fee."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "incontable · pregunta",
+  "opts": [
+   "How much",
+   "How many",
+   "How often"
+  ],
+  "correct": "How much",
+  "reinf": {
+   "es": "How much · incontable",
+   "en": "How much · incontable"
+  },
+  "sentence": "_____ bottled water should I keep for emergencies?",
+  "tr": "¿Cuánta agua embotellada debería guardar para emergencias?",
+  "hint": "“Water” va sola (sin “botellas de”): ¿se mide o se cuenta? 📖 La regla completa aparece al responder.",
+  "story": "\"keep a small supply of bottled water at home for situations like this\"",
+  "storyWhy": {
+   "es": "La nota que se hace Lucia: el agua se mide como provisión.",
+   "en": "Lucia’s note: water is measured as a supply."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "contable · afirmativa",
+  "opts": [
+   "many",
+   "much",
+   "a great deal"
+  ],
+  "correct": "many",
+  "reinf": {
+   "es": "many · contable",
+   "en": "many · contable"
+  },
+  "sentence": "He sent _____ emails before the company finally answered.",
+  "tr": "Envió muchos correos antes de que la empresa por fin respondiera.",
+  "hint": "Los correos se cuentan; la oración afirma que fueron bastantes. 📖 La regla completa aparece al responder.",
+  "story": "\"He tried again three days later. Still nothing.\"",
+  "storyWhy": {
+   "es": "La story muestra intento tras intento: correos contables.",
+   "en": "The story shows try after try: countable emails."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "incontable · negativa",
+  "opts": [
+   "much",
+   "many",
+   "plenty"
+  ],
+  "correct": "much",
+  "reinf": {
+   "es": "much · incontable",
+   "en": "much · incontable"
+  },
+  "sentence": "James didn't lose _____ money in the end — he got a full refund.",
+  "tr": "Al final James no perdió mucho dinero: recibió un reembolso completo.",
+  "hint": "El dinero se mide, no se cuenta — y la frase niega. 📖 La regla completa aparece al responder.",
+  "story": "\"He preferred a refund to his original payment method.\"",
+  "storyWhy": {
+   "es": "El final de la story: el reembolso evitó la pérdida.",
+   "en": "The refund avoided the loss (uncountable money)."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "contable · pregunta",
+  "opts": [
+   "How many",
+   "How much",
+   "How long"
+  ],
+  "correct": "How many",
+  "reinf": {
+   "es": "How many · contable",
+   "en": "How many · contable"
+  },
+  "sentence": "_____ calls did Lucia make before the team arrived?",
+  "tr": "¿Cuántas llamadas hizo Lucia antes de que llegara el equipo?",
+  "hint": "Las llamadas se cuentan una por una. 📖 La regla completa aparece al responder.",
+  "story": "\"Lucia called again the next morning\"",
+  "storyWhy": {
+   "es": "La story registra cada llamada de Lucia: contables.",
+   "en": "The story logs each of Lucia’s calls."
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   },
   "es": {
    "es": "",
@@ -687,7 +682,7 @@ const QS = [
 /* ════════ FIN DE LO EDITABLE — debajo es el motor (no necesitas tocarlo) ════════ */
 
 const T = {
-  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés y elige la opción correcta. ¿Necesitas apoyo? Toca <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
+  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Pista</b> o <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
        lswLab:'Instrucciones y ayuda', qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
        fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📝 Oración completa', bSig:'🔍 La señal', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Traducción: literal vs natural', sigTxt:'te indica la preposición.',
        prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉', unlock:'🔓 ¡Desbloqueaste la siguiente actividad!', pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas 75% para aprobar. ¡Inténtalo de nuevo!', hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota',
@@ -696,7 +691,7 @@ const T = {
        supp:n=>n+' pregunta'+(n>1?'s':'')+' con apoyo de traducción (no baja tu nota; tu teacher lo verá).',
        rFormH:'⚠ Reportar un error en esta pregunta', rOpts:['La respuesta correcta parece equivocada','Hay un error de tipeo / ortografía','La traducción no coincide','La pista confunde','La oración no concuerda con la historia','Otro'],
        rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> elige la opción correcta del hueco.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence and choose the right option. Need support? Tap <b>Translation</b> below the sentence. Each answer explains why.',
+  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Hint</b> or <b>Translation</b> below the sentence. Each answer explains why.',
        lswLab:'Instructions & help', qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
        fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📝 Full sentence', bSig:'🔍 The clue', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Translation: literal vs natural', sigTxt:'tells you the preposition.',
        prev:'← Back', next:'Next →', seeRes:'See results 🎉', unlock:'🔓 You unlocked the next activity!', pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need 75% to pass. Try again!', hits:'Correct', time:'Time', timeNote:'does not affect your grade',
@@ -718,8 +713,8 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
   return `<div class="qcard${i!==0?' hidden':''}" id="q${i}">
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <p class="qtext">${sentence}</p>
-    <div class="support">${q.hint?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
-    ${q.hint?`<div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>
     <div class="reveal trbox" id="trb${i}"><span class="lab">${t.trLab}</span>${q.tr}</div>
     <div class="opts" id="op${i}">${shuf.map(o=>`<button class="opt" onclick="pick(${i},this)">${o}</button>`).join('')}</div>
     <div class="fb" id="fb${i}"></div>
@@ -730,7 +725,7 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
 }
 function render(){ document.getElementById('qbox').innerHTML=QS.map(buildQ).join(''); document.getElementById('tot').textContent=QS.length; }
 function reveal(i,which){ startTimer();
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); QS[i]._tr=true; } } }
 function feedbackHTML(i){ const q=QS[i], t=T[lang], ok=picked[i]===q.correct;
   let b=`<div class="fblk story"><b>${t.bStory}</b><span class="qquote">${q.story}</span><br>${q.storyWhy[lang]}</div>`;

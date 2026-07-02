@@ -223,13 +223,15 @@ const STEPS = [
         ${ii('🎯','<b>Tip 1 — Pregúntate:</b> ¿hablo de UNOS específicos (the) o de TODOS en general (nada)?')}
         ${ii('🗣️','<b>Tip 2 — Listas sin artículo:</b> idiomas, comidas, deportes, días, school/home/work/bed (en sentido general).')}
         ${ii('📌','<b>Tip 3 — «a/an»</b> solo con contable singular: «a cat», nunca «a water» ni «a cats».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «The life is hard» (en general) → ✅ «<b>Life</b> is hard».<br>❌ «I study the English» → ✅ «I study <b>English</b>».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «The life is hard» (en general) → ✅ «<b>Life</b> is hard».<br>❌ «I study the English» → ✅ «I study <b>English</b>».</p></div>
+        ${ii('⚡','Generalizas SIN the: «I like coffee»; the solo si es uno específico: «the coffee you made».')}`,
       en:`<div class="gdesc">Specific or general?</div>
         <div class="fbox"><div class="frm"><span class="pill s">specific → the</span><span class="plus">·</span><span class="pill v">general → no article</span></div><div class="fex"><span class="s">the cats next door</span> · <span class="v">cats in general</span></div></div>
         ${ii('🎯','<b>Tip 1 — Ask yourself:</b> am I talking about SOME specific ones (the) or about ALL in general (nothing)?')}
         ${ii('🗣️','<b>Tip 2 — No-article lists:</b> languages, meals, sports, days, school/home/work/bed (in a general sense).')}
         ${ii('📌','<b>Tip 3 — «a/an»</b> only with a singular countable: «a cat», never «a water» or «a cats».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «The life is hard» (in general) → ✅ «<b>Life</b> is hard».<br>❌ «I study the English» → ✅ «I study <b>English</b>».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «The life is hard» (in general) → ✅ «<b>Life</b> is hard».<br>❌ «I study the English» → ✅ «I study <b>English</b>».</p></div>
+        ${ii('⚡','Generalize WITHOUT the: «I like coffee»; the only for a specific one: «the coffee you made».')}`
     },
     checks:[
       { q:{es:'«___ is important.» (vida, en general):',en:'«___ is important.» (life, in general):'}, opts:{es:['Life','The life'],en:['Life','The life']}, correct:0, fb:{ why:{es:'General → sin artículo.',en:'General → no article.'}, ex:{es:'Life is important → La vida es importante',en:'Life is important'}, tip:{es:'general → sin artículo',en:'general → no article'}}, tr:{es:'La vida es importante.',en:'Life is important.'} },

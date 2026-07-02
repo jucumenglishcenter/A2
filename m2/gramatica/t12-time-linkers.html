@@ -211,13 +211,15 @@ const STEPS = [
         ${ii('🔁','<b>Tip 1 — Dos posiciones:</b> «When it rains, I stay home» = «I stay home when it rains». Si va al inicio, lleva coma.')}
         ${ii('⏳','<b>Tip 2 — when vs while:</b> acción corta/puntual → when · acción larga/en paralelo → while.')}
         ${ii('🚫','<b>Tip 3 — Para el futuro:</b> tras when/before/after/until usa el presente, no «will».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I\'ll go out when the rain will stop» → ✅ «… when the rain <b>stops</b>».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I\'ll go out when the rain will stop» → ✅ «… when the rain <b>stops</b>».</p></div>
+        ${ii('⚡','while + acción en progreso, when + momento puntual: «While I was paying, the lights went out».')}`,
       en:`<div class="gdesc">How to fit the two ideas:</div>
         <div class="fbox"><div class="frm"><span class="pill s">Connector</span><span class="plus">+</span><span class="pill v">idea 1</span><span class="plus">,</span><span class="pill o">idea 2</span></div><div class="fex"><span class="s">When</span> <span class="v">it rains</span>, <span class="o">I stay home</span>.</div></div>
         ${ii('🔁','<b>Tip 1 — Two positions:</b> «When it rains, I stay home» = «I stay home when it rains». If it starts the sentence, add a comma.')}
         ${ii('⏳','<b>Tip 2 — when vs while:</b> short/specific action → when · long/parallel action → while.')}
         ${ii('🚫','<b>Tip 3 — For the future:</b> after when/before/after/until use the present, not «will».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I\'ll go out when the rain will stop» → ✅ «… when the rain <b>stops</b>».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I\'ll go out when the rain will stop» → ✅ «… when the rain <b>stops</b>».</p></div>
+        ${ii('⚡','while + action in progress, when + specific moment: «While I was paying, the lights went out».')}`
     },
     checks:[
       { q:{es:'«___ you cook, I\'ll set the table.» (en paralelo):',en:'«___ you cook, I\'ll set the table.» (in parallel):'}, opts:{es:['While','Until'],en:['While','Until']}, correct:0, fb:{ why:{es:'Acción en paralelo → while.',en:'Parallel action → while.'}, ex:{es:'While you cook → Mientras cocinas',en:'While you cook'}, tip:{es:'paralelo → while',en:'parallel → while'}}, tr:{es:'Mientras cocinas, pongo la mesa.',en:'While you cook, I\'ll set the table.'} },

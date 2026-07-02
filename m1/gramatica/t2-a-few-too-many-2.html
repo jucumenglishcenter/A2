@@ -224,14 +224,16 @@ const STEPS = [
         ${ii('🔎','<b>Tip 1 — ¿Hay sustantivo?</b> Sí → too much/many (mira si se cuenta). ¿Solo adjetivo? → too.')}
         ${ii('⚠️','<b>Tip 2 — too = problema.</b> Si quieres decir solo «muy», usa «very», no «too».')}
         ${ii('🗣️','<b>Tip 3 — Patrón útil:</b> «too + adjetivo + to + verbo»: too tired to study (demasiado cansado para estudiar).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I\'m too much tired» → ✅ «I\'m <b>too tired</b>» (tired es adjetivo → solo «too»).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I\'m too much tired» → ✅ «I\'m <b>too tired</b>» (tired es adjetivo → solo «too»).</p></div>
+        ${ii('⚡','too = exceso (negativo). Para «muy» usa very: «very good», no ✗ «too good» si es elogio.')}`,
       en:`<div class="gdesc">How to choose between too / too much / too many with no doubt:</div>
         <div class="fbox"><div class="frm"><span class="pill s">too</span><span class="plus">+</span><span class="pill o">adjective</span></div><div class="fex">too <span class="o">expensive / loud / late</span></div></div>
         <div class="fbox"><div class="frm"><span class="pill v">too much</span><span class="plus">+</span><span class="pill p">mass</span> <span class="plus">/</span> <span class="pill o">too many + plural</span></div><div class="fex">too much <span class="p">traffic</span> · too many <span class="o">cars</span></div></div>
         ${ii('🔎','<b>Tip 1 — Is there a noun?</b> Yes → too much/many (check countable). Only an adjective? → too.')}
         ${ii('⚠️','<b>Tip 2 — too = problem.</b> If you only mean «very», use «very», not «too».')}
         ${ii('🗣️','<b>Tip 3 — Useful pattern:</b> «too + adjective + to + verb»: too tired to study.')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I'm too much tired» → ✅ «I'm <b>too tired</b>» (tired is an adjective → just «too»).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I'm too much tired» → ✅ «I'm <b>too tired</b>» (tired is an adjective → just «too»).</p></div>
+        ${ii('⚡','too = excess (negative). For plain «very» use very: «very good», not ✗ «too good» as praise.')}`
     },
     checks:[
       { q:{es:'«This bag is ___ heavy.» (demasiado pesada):',en:'«This bag is ___ heavy.»'}, opts:{es:['too','too much'],en:['too','too much']}, correct:0, fb:{ why:{es:'«heavy» es adjetivo → too.',en:'«heavy» is an adjective → too.'}, ex:{es:'too heavy → demasiado pesada',en:'too heavy'}, tip:{es:'too + adjetivo',en:'too + adjective'}}, tr:{es:'Esta bolsa es demasiado pesada.',en:'This bag is too heavy.'} },

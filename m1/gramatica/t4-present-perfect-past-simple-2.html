@@ -224,14 +224,16 @@ const STEPS = [
         ${ii('🔎','<b>Tip 1 — Caza el marcador:</b> si ves «yesterday/ago/last…/in + año/when?» → pasado. Si ves «ever/never/just/already/yet/for/since» → perfecto.')}
         ${ii('🎬','<b>Tip 2 — Patrón de conversación:</b> abre con el perfecto («I\'ve been to Italy») y sigue con pasado para los detalles («I went in 2018, the food was great»).')}
         ${ii('❓','<b>Tip 3 — La pregunta del cuándo:</b> «When…?» SIEMPRE va con pasado (When did you…?).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I have seen her yesterday» → ✅ «I <b>saw</b> her yesterday».<br>❌ «When have you arrived?» → ✅ «When <b>did</b> you arrive?».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I have seen her yesterday» → ✅ «I <b>saw</b> her yesterday».<br>❌ «When have you arrived?» → ✅ «When <b>did</b> you arrive?».</p></div>
+        ${ii('⚡','¿La oración dice CUÁNDO exactamente? → past simple. ¿Importa el resultado de hoy? → present perfect.')}`,
       en:`<div class="gdesc">The quick detector: look at the time marker and decide.</div>
         <div class="fbox"><div class="frm"><span class="pill s">Present Perfect</span><span class="plus">←</span><span class="pill v">ever/never/just/yet/for/since</span></div><div class="fex"><span class="s">have seen</span> · no closed date</div></div>
         <div class="fbox"><div class="frm"><span class="pill o">Past Simple</span><span class="plus">←</span><span class="pill p">yesterday/ago/in 2010/when?</span></div><div class="fex"><span class="o">saw</span> · finished moment</div></div>
         ${ii('🔎','<b>Tip 1 — Hunt the marker:</b> «yesterday/ago/last…/in + year/when?» → past. «ever/never/just/already/yet/for/since» → perfect.')}
         ${ii('🎬','<b>Tip 2 — Conversation pattern:</b> open with the perfect («I\'ve been to Italy») and continue in the past for the details («I went in 2018, the food was great»).')}
         ${ii('❓','<b>Tip 3 — The when-question:</b> «When…?» ALWAYS uses the past (When did you…?).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I have seen her yesterday» → ✅ «I <b>saw</b> her yesterday».<br>❌ «When have you arrived?» → ✅ «When <b>did</b> you arrive?».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I have seen her yesterday» → ✅ «I <b>saw</b> her yesterday».<br>❌ «When have you arrived?» → ✅ «When <b>did</b> you arrive?».</p></div>
+        ${ii('⚡','Does the sentence say exactly WHEN? → past simple. Does today’s result matter? → present perfect.')}`
     },
     checks:[
       { q:{es:'«They ___ to Cusco last summer.»',en:'«They ___ to Cusco last summer.»'}, opts:{es:['went','have gone'],en:['went','have gone']}, correct:0, fb:{ why:{es:'«last summer» = cerrado → pasado.',en:'«last summer» = closed → past.'}, ex:{es:'went last summer → fueron el verano pasado',en:'went last summer'}, tip:{es:'last … → pasado',en:'last … → past'}}, tr:{es:'Fueron a Cusco el verano pasado.',en:'They went to Cusco last summer.'} },

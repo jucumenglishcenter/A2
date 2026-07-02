@@ -225,13 +225,15 @@ const STEPS = [
         ${ii('🧠','<b>Tip 1 — Aprende los irregulares más comunes:</b> go→went, have→had, do→did, see→saw, make→made, take→took.')}
         ${ii('✂️','<b>Tip 2 — En negativa y pregunta, vuelve a la base:</b> el «did» ya lleva el pasado.')}
         ${ii('✅','<b>Tip 3 — Respuesta corta:</b> «Yes, I did» / «No, I didn\'t».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I didn\'t went» → ✅ «I didn\'t <b>go</b>».<br>❌ «Did you saw it?» → ✅ «Did you <b>see</b> it?»</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I didn\'t went» → ✅ «I didn\'t <b>go</b>».<br>❌ «Did you saw it?» → ✅ «Did you <b>see</b> it?»</p></div>
+        ${ii('⚡','En pregunta y negativa el verbo vuelve a base: ✗ «Did you went?» → ✓ «Did you go?».')}`,
       en:`<div class="gdesc">The three forms, clear:</div>
         <div class="fbox"><div class="frm"><span class="pill s">+</span><span class="plus">past verb</span><span class="pill v">−</span><span class="plus">didn't + base</span><span class="pill o">?</span><span class="plus">Did + base</span></div><div class="fex"><span class="s">I went</span> · <span class="v">I didn't go</span> · <span class="o">Did you go?</span></div></div>
         ${ii('🧠','<b>Tip 1 — Learn the most common irregulars:</b> go→went, have→had, do→did, see→saw, make→made, take→took.')}
         ${ii('✂️','<b>Tip 2 — In negative and question, go back to base:</b> «did» already carries the past.')}
         ${ii('✅','<b>Tip 3 — Short answer:</b> «Yes, I did» / «No, I didn\'t».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I didn\'t went» → ✅ «I didn\'t <b>go</b>».<br>❌ «Did you saw it?» → ✅ «Did you <b>see</b> it?»</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I didn\'t went» → ✅ «I didn\'t <b>go</b>».<br>❌ «Did you saw it?» → ✅ «Did you <b>see</b> it?»</p></div>
+        ${ii('⚡','In questions and negatives the verb returns to base: ✗ «Did you went?» → ✓ «Did you go?».')}`
     },
     checks:[
       { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['I didn\'t go','I didn\'t went'],en:['I didn\'t go','I didn\'t went']}, correct:0, fb:{ why:{es:'didn\'t + base.',en:'didn\'t + base.'}, ex:{es:'I didn\'t go → No fui',en:'I didn\'t go'}, tip:{es:'didn\'t + base',en:'didn\'t + base'}} },

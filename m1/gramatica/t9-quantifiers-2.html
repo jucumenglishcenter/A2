@@ -229,7 +229,8 @@ const STEPS = [
         ${ii('✅','<b>Tip 1 — Afirmativa:</b> some / something / someone. «I saw something».')}
         ${ii('❓','<b>Tip 2 — Negativa y pregunta:</b> any / anything / anyone. «I don\'t see anything», «Did you see anyone?».')}
         ${ii('0️⃣','<b>Tip 3 — «no-» con verbo afirmativo:</b> «I saw <b>nothing</b>» = «I didn\'t see anything». No mezcles las dos negaciones.')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I don\'t want nothing» → ✅ «I don\'t want <b>anything</b>» (o «I want nothing»).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I don\'t want nothing» → ✅ «I don\'t want <b>anything</b>» (o «I want nothing»).</p></div>
+        ${ii('⚡','any para negativas y preguntas; no + sustantivo ya niega solo: «There is no water».')}`,
       en:`<div class="gdesc">The compound words follow the same rule: some- / any- / no-.</div>
         <table class="dtab"><tr><th></th><th>some-</th><th>any-</th><th>no-</th></tr>
           <tr><td>things</td><td class="en">something</td><td class="en">anything</td><td class="en">nothing</td></tr>
@@ -239,7 +240,8 @@ const STEPS = [
         ${ii('✅','<b>Tip 1 — Affirmative:</b> some / something / someone. «I saw something».')}
         ${ii('❓','<b>Tip 2 — Negative and question:</b> any / anything / anyone. «I don\'t see anything», «Did you see anyone?».')}
         ${ii('0️⃣','<b>Tip 3 — «no-» with an affirmative verb:</b> «I saw <b>nothing</b>» = «I didn\'t see anything». Don\'t mix the two negatives.')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I don\'t want nothing» → ✅ «I don\'t want <b>anything</b>» (or «I want nothing»).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I don\'t want nothing» → ✅ «I don\'t want <b>anything</b>» (or «I want nothing»).</p></div>
+        ${ii('⚡','any for negatives and questions; no + noun negates alone: «There is no water».')}`
     },
     checks:[
       { q:{es:'Afirmativa: «I need ___.» (algo):',en:'Affirmative: «I need ___.» (something):'}, opts:{es:['something','anything'],en:['something','anything']}, correct:0, fb:{ why:{es:'Afirmativa → something.',en:'Affirmative → something.'}, ex:{es:'something → algo',en:'something'}, tip:{es:'afirmar → some-',en:'affirm → some-'}} },

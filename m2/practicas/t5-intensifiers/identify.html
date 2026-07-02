@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Identification · Intensifiers & Mitigators · JUCUM English Center</title>
+<title>Identification · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -121,793 +121,680 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Identification', subtitle:"A2 · Módulo 2 · Intensifiers & Mitigators", langDefault:'es', reportId:"A2_M2_t5-id" };
-const PASS = 75;
+const MAT = {"title":"Identification","subtitle":"A2 · Módulo 2 · Intensifiers & Mitigators","langDefault":"es","reportId":"A2_M2_t5-id"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "very",
+  "clue": "absolutely",
   "target": 3,
   "tap": [
+   1,
    3,
    4
   ],
   "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
+   "es": "absolutely",
+   "en": "absolutely"
   },
   "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
   },
   "words": [
-   "This",
-   "coffee",
+   "The",
+   "vault",
    "is",
-   "very",
-   "hot."
+   "absolutely",
+   "secure."
   ],
-  "tr": "Este café está muy caliente.",
+  "tr": "La bóveda es absolutamente segura.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
   },
   "story": null,
   "why": {
-   "es": "<b>very</b> intensifica hot.",
-   "en": "<b>very</b> intensifies hot."
+   "es": "«absolutely»: intensificador total.",
+   "en": "“absolutely”: total intensifier."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   }
  },
  {
   "clue": "really",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "She's",
-   "really",
-   "kind."
-  ],
-  "tr": "Es muy amable.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>really</b> intensifica kind.",
-   "en": "<b>really</b> intensifies kind."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "quite",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "It's",
-   "quite",
-   "cold",
-   "today."
-  ],
-  "tr": "Hace bastante frío hoy.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>quite</b> atenúa cold.",
-   "en": "<b>quite</b> tones down cold."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "so",
-  "target": 2,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "He",
-   "was",
-   "so",
-   "tired."
-  ],
-  "tr": "Estaba tan cansado.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>so</b> intensifica tired.",
-   "en": "<b>so</b> intensifies tired."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "too",
   "target": 3,
   "tap": [
+   1,
    3,
    4
   ],
   "reinf": {
-   "es": "intensifica (exceso)",
-   "en": "intensifica (exceso)"
+   "es": "really",
+   "en": "really"
   },
   "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "This",
-   "box",
-   "is",
-   "too",
-   "heavy."
-  ],
-  "tr": "Esta caja es demasiado pesada.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>too</b> marca un exceso de heavy.",
-   "en": "<b>too</b> marks an excess of heavy."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "fairly",
-  "target": 3,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
   },
   "words": [
    "The",
-   "test",
-   "was",
-   "fairly",
-   "easy."
-  ],
-  "tr": "El examen fue bastante fácil.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>fairly</b> atenúa easy.",
-   "en": "<b>fairly</b> tones down easy."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "rather",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "It's",
-   "rather",
-   "expensive."
-  ],
-  "tr": "Es algo caro.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>rather</b> matiza expensive.",
-   "en": "<b>rather</b> moderates expensive."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "slightly",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "I'm",
-   "slightly",
-   "confused."
-  ],
-  "tr": "Estoy un poco confundido.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>slightly</b> atenúa confused.",
-   "en": "<b>slightly</b> tones down confused."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "very",
-  "target": 2,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "They",
-   "were",
-   "very",
-   "happy."
-  ],
-  "tr": "Estaban muy felices.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>very</b> intensifica happy.",
-   "en": "<b>very</b> intensifies happy."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "really",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "It's",
+   "line",
+   "moved",
    "really",
-   "useful."
+   "slowly."
   ],
-  "tr": "Es muy útil.",
+  "tr": "La fila avanzaba realmente lento.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
   },
-  "story": null,
+  "story": {
+   "q": "\"The waiting room was clean, warm, and very quiet.\"",
+   "es": ""
+  },
   "why": {
-   "es": "<b>really</b> intensifica useful.",
-   "en": "<b>really</b> intensifies useful."
+   "es": "«really»: intensificador normal.",
+   "en": "“really”: normal intensifier."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "quite",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "She's",
-   "quite",
-   "busy",
-   "now."
-  ],
-  "tr": "Está bastante ocupada ahora.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>quite</b> matiza busy.",
-   "en": "<b>quite</b> moderates busy."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "so",
-  "target": 3,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "The",
-   "room",
-   "is",
-   "so",
-   "small."
-  ],
-  "tr": "La sala es tan pequeña.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>so</b> intensifica small.",
-   "en": "<b>so</b> intensifies small."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "too",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "intensifica (exceso)",
-   "en": "intensifica (exceso)"
-  },
-  "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
-  },
-  "words": [
-   "It's",
-   "too",
-   "late",
-   "now."
-  ],
-  "tr": "Ya es demasiado tarde.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "<b>too</b> marca exceso de late.",
-   "en": "<b>too</b> marks excess of late."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   }
  },
  {
   "clue": "a bit",
-  "target": 2,
+  "target": 3,
   "tap": [
-   1,
-   2
+   3,
+   4,
+   7
   ],
   "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
+   "es": "a bit",
+   "en": "a bit"
   },
   "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
   },
   "words": [
-   "I'm",
+   "She",
+   "was",
    "a",
    "bit",
-   "tired."
+   "worried",
+   "about",
+   "the",
+   "fee."
   ],
-  "tr": "Estoy un poco cansado.",
+  "tr": "Estaba un poco preocupada por el cargo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
   },
   "story": null,
   "why": {
-   "es": "a <b>bit</b> atenúa tired.",
-   "en": "a <b>bit</b> tones down tired."
+   "es": "«a bit»: mitigador (baja el tono).",
+   "en": "“a bit”: mitigator."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   }
  },
  {
-  "clue": "rather",
-  "target": 1,
+  "clue": "quite",
+  "target": 3,
   "tap": [
    1,
-   2
+   3,
+   4
   ],
   "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
+   "es": "quite",
+   "en": "quite"
   },
   "task": {
-   "es": "Toca el <b>intensificador o atenuante</b> (gradúa el adjetivo).",
-   "en": "Tap the <b>intensifier or mitigator</b> (it grades the adjective)."
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
   },
   "words": [
-   "He's",
-   "rather",
-   "quiet."
+   "The",
+   "contract",
+   "was",
+   "quite",
+   "clear."
   ],
-  "tr": "Es algo callado.",
+  "tr": "El contrato era bastante claro.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
   },
-  "story": null,
+  "story": {
+   "q": "\"She showed Sofía a clear chart\"",
+   "es": ""
+  },
   "why": {
-   "es": "<b>rather</b> matiza quiet.",
-   "en": "<b>rather</b> moderates quiet."
+   "es": "«quite»: grado medio.",
+   "en": "“quite”: middle degree."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Intensifican (very/really/so/too) · atenúan (quite/a bit/fairly/rather) — antes del adjetivo.",
-   "en": "Intensifiers (very/really/so/too) · mitigators (quite/a bit/fairly/rather) — before the adjective."
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "completely",
+  "target": 3,
+  "tap": [
+   1,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "completely",
+   "en": "completely"
   },
-  "examples": {
-   "es": [],
-   "en": []
+  "task": {
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
   },
-  "es": {
+  "words": [
+   "His",
+   "card",
+   "was",
+   "completely",
+   "useless",
+   "without",
+   "the",
+   "PIN."
+  ],
+  "tr": "Su tarjeta era completamente inútil sin el PIN.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"He tapped it, and the card was frozen\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«completely»: total, con adjetivo extremo.",
+   "en": "“completely”: total, with an extreme adjective."
+  },
+  "others": {
    "es": "",
    "en": ""
   },
-  "lit": {
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "extremely",
+  "target": 3,
+  "tap": [
+   1,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "extremely",
+   "en": "extremely"
+  },
+  "task": {
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
+  },
+  "words": [
+   "The",
+   "manager",
+   "was",
+   "extremely",
+   "helpful."
+  ],
+  "tr": "El gerente fue extremadamente atento.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"I am the branch manager.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«extremely»: intensificador fuerte.",
+   "en": "“extremely”: strong intensifier."
+  },
+  "others": {
    "es": "",
    "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "very",
+  "target": 3,
+  "tap": [
+   1,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "very",
+   "en": "very"
+  },
+  "task": {
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
+  },
+  "words": [
+   "The",
+   "app",
+   "is",
+   "very",
+   "simple."
+  ],
+  "tr": "La aplicación es muy simple.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": null,
+  "why": {
+   "es": "«very»: intensificador normal.",
+   "en": "“very”: normal intensifier."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "slightly",
+  "target": 3,
+  "tap": [
+   1,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "slightly",
+   "en": "slightly"
+  },
+  "task": {
+   "es": "Toca el <b>intensificador o mitigador</b> de la oración.",
+   "en": "Tap the <b>intensifier or mitigator</b>."
+  },
+  "words": [
+   "The",
+   "report",
+   "was",
+   "slightly",
+   "late."
+  ],
+  "tr": "El informe llegó ligeramente tarde.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": null,
+  "why": {
+   "es": "«slightly»: mitigador fino.",
+   "en": "“slightly”: fine mitigator."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "freezing · extremo",
+  "target": 4,
+  "tap": [
+   1,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "freezing · extremo",
+   "en": "freezing · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "The",
+   "morning",
+   "was",
+   "absolutely",
+   "freezing."
+  ],
+  "tr": "La mañana estaba absolutamente helada.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"One cold morning, she walked to the bank office\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«freezing» = heladísimo: extremo.",
+   "en": "“freezing” = extremely cold: extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "furious · extremo",
+  "target": 5,
+  "tap": [
+   1,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "furious · extremo",
+   "en": "furious · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "The",
+   "news",
+   "left",
+   "him",
+   "absolutely",
+   "furious."
+  ],
+  "tr": "La noticia lo dejó absolutamente furioso.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"A charge of two hundred soles appeared\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«furious» = furibundo: extremo.",
+   "en": "“furious”: extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "exhausted · extremo",
+  "target": 5,
+  "tap": [
+   2,
+   3,
+   5
+  ],
+  "reinf": {
+   "es": "exhausted · extremo",
+   "en": "exhausted · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "After",
+   "two",
+   "shifts",
+   "she",
+   "was",
+   "exhausted."
+  ],
+  "tr": "Después de dos turnos estaba agotada.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"She worked hard, and yet her balance was always low\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«exhausted» = agotadísima: extremo.",
+   "en": "“exhausted”: extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "amazing · extremo",
+  "target": 3,
+  "tap": [
+   1,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "amazing · extremo",
+   "en": "amazing · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "The",
+   "offer",
+   "sounded",
+   "amazing."
+  ],
+  "tr": "La oferta sonaba increíble.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": null,
+  "why": {
+   "es": "«amazing» = increíble: extremo.",
+   "en": "“amazing”: extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "impossible · extremo",
+  "target": 3,
+  "tap": [
+   1,
+   3,
+   5
+  ],
+  "reinf": {
+   "es": "impossible · extremo",
+   "en": "impossible · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "Losing",
+   "everything",
+   "felt",
+   "impossible",
+   "to",
+   "accept."
+  ],
+  "tr": "Perderlo todo parecía imposible de aceptar.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"A lost card itself is not a disaster if you act fast.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«impossible»: extremo absoluto.",
+   "en": "“impossible”: absolute extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "endless · extremo",
+  "target": 3,
+  "tap": [
+   1,
+   3,
+   5
+  ],
+  "reinf": {
+   "es": "endless · extremo",
+   "en": "endless · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "The",
+   "queue",
+   "was",
+   "endless",
+   "that",
+   "Monday."
+  ],
+  "tr": "La cola era interminable ese lunes.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": null,
+  "why": {
+   "es": "«endless» = sin fin: extremo.",
+   "en": "“endless”: extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "clue": "terrifying · extremo",
+  "target": 4,
+  "tap": [
+   1,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "terrifying · extremo",
+   "en": "terrifying · extremo"
+  },
+  "task": {
+   "es": "Toca el adjetivo <b>EXTREMO</b> (el que no acepta “very”).",
+   "en": "Tap the <b>EXTREME</b> adjective (the one that rejects “very”)."
+  },
+  "words": [
+   "The",
+   "scam",
+   "was",
+   "absolutely",
+   "terrifying."
+  ],
+  "tr": "La estafa fue absolutamente aterradora.",
+  "hint": {
+   "es": "Los intensificadores modifican al adjetivo; los adjetivos extremos ya traen el “máximo” incorporado. Ubica lo que se pide.",
+   "en": "Intensifiers modify the adjective; extreme adjectives already carry the “maximum”. Find what is asked."
+  },
+  "story": {
+   "q": "\"thieves sometimes copy card numbers through the internet\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«terrifying»: extremo.",
+   "en": "“terrifying”: extreme."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔍 Por qué esa palabra', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -916,7 +803,7 @@ const T = {
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La respuesta marcada parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','No concuerda con la historia','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca la palabra que cumple la consigna.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔍 Why that word', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -941,8 +828,8 @@ function buildId(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <p class="sent" id="sent${i}">${ws}</p>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="fb" id="fb${i}"></div>
     <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
@@ -966,7 +853,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

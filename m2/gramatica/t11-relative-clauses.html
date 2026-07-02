@@ -217,13 +217,15 @@ const STEPS = [
         ${ii('👤','<b>Tip 1 — Persona o cosa:</b> personas → who · cosas → which · «that» sirve para ambos.')}
         ${ii('📍','<b>Tip 2 — Lugar/posesión:</b> lugar → where · de quién → whose.')}
         ${ii('✂️','<b>Tip 3 — Omitir:</b> si después del relativo viene «sujeto + verbo», puedes quitarlo (the film I saw).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «The man which lives here» → ✅ «The man <b>who</b> lives here».<br>❌ «The man lives here is kind» → ✅ «The man <b>who</b> lives here is kind».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «The man which lives here» → ✅ «The man <b>who</b> lives here».<br>❌ «The man lives here is kind» → ✅ «The man <b>who</b> lives here is kind».</p></div>
+        ${ii('⚡','who personas, which cosas, that sirve para ambos; sin coma cuando define.')}`,
       en:`<div class="gdesc">The formula:</div>
         <div class="fbox"><div class="frm"><span class="pill s">noun</span><span class="plus">+</span><span class="pill v">who/which/that/where/whose</span><span class="plus">+</span><span class="pill o">extra info</span></div><div class="fex"><span class="s">the man</span> <span class="v">who</span> <span class="o">lives here</span></div></div>
         ${ii('👤','<b>Tip 1 — Person or thing:</b> people → who · things → which · «that» works for both.')}
         ${ii('📍','<b>Tip 2 — Place/possession:</b> place → where · whose → possession.')}
         ${ii('✂️','<b>Tip 3 — Omit:</b> if «subject + verb» follows the relative, you can drop it (the film I saw).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «The man which lives here» → ✅ «The man <b>who</b> lives here».<br>❌ «The man lives here is kind» → ✅ «The man <b>who</b> lives here is kind».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «The man which lives here» → ✅ «The man <b>who</b> lives here».<br>❌ «The man lives here is kind» → ✅ «The man <b>who</b> lives here is kind».</p></div>
+        ${ii('⚡','who for people, which for things, that for both; no comma when it defines.')}`
     },
     checks:[
       { q:{es:'«The teacher ___ helped me is nice.» (persona):',en:'«The teacher ___ helped me is nice.» (person):'}, opts:{es:['who','which'],en:['who','which']}, correct:0, fb:{ why:{es:'Persona → who.',en:'Person → who.'}, ex:{es:'the teacher who helped me → el profesor que me ayudó',en:'the teacher who helped me'}, tip:{es:'persona → who',en:'person → who'}}, tr:{es:'El profesor que me ayudó es agradable.',en:'The teacher who helped me is nice.'} },

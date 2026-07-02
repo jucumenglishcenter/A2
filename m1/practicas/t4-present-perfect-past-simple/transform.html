@@ -8,7 +8,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transform · Present Perfect & Past Simple · JUCUM English Center</title>
+<title>Transform · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -124,792 +124,581 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Transform', subtitle:"A2 · Módulo 1 · Present Perfect & Past Simple", langDefault:'es', reportId:"A2_M1_t4-tr" };
-const PASS = 75;
+const MAT = {"title":"Transform","subtitle":"A2 · Módulo 1 · Present Perfect vs Past Simple","langDefault":"es","reportId":"A2_M1_t4-tr"};
+const PASS = 85;
 const QS = [
  {
   "reinf": {
-   "es": "have finished → finished yesterday",
-   "en": "have finished → finished yesterday"
+   "es": "perfect · already",
+   "en": "perfect · already"
   },
   "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "I have finished the report.",
+  "src": "I paid the bill yesterday.",
   "answer": [
    "I",
-   "finished",
+   "have",
+   "already",
+   "paid",
    "the",
-   "report",
+   "bill",
+   "."
+  ],
+  "tr": "Ya he pagado la cuenta.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": null,
+  "change": {
+   "es": "Cámbiala al periodo abierto con <b>already</b>.",
+   "en": "Switch to the open period with <b>already</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "simple · yesterday",
+   "en": "simple · yesterday"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "She has called the office this week.",
+  "answer": [
+   "She",
+   "called",
+   "the",
+   "office",
    "yesterday",
    "."
   ],
-  "tr": "Terminé el informe ayer.",
+  "tr": "Llamó a la oficina ayer.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
   },
-  "story": null,
+  "story": "\"Lucia called again the next morning\"",
   "change": {
-   "es": "con tiempo terminado → <b>finished</b> yesterday.",
-   "en": "with a finished time → <b>finished</b> yesterday."
+   "es": "Ciérrala con <b>yesterday</b>.",
+   "en": "Close it with <b>yesterday</b>."
   },
   "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
   },
   "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": []
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
  },
  {
   "reinf": {
-   "es": "has seen → saw last week",
-   "en": "has seen → saw last week"
+   "es": "perfect · just",
+   "en": "perfect · just"
   },
   "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "She has seen that movie.",
-  "answer": [
-   "She",
-   "saw",
-   "that",
-   "movie",
-   "last",
-   "week",
-   "."
-  ],
-  "tr": "Vio esa película la semana pasada.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>saw</b> last week.",
-   "en": "with a finished time → <b>saw</b> last week."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "those"
-  ]
- },
- {
-  "reinf": {
-   "es": "have eaten → ate … ago",
-   "en": "have eaten → ate … ago"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "They have eaten lunch.",
+  "src": "They fixed the pipe last week.",
   "answer": [
    "They",
-   "ate",
-   "lunch",
+   "have",
+   "just",
+   "fixed",
+   "the",
+   "pipe",
+   "."
+  ],
+  "tr": "Acaban de arreglar la tubería.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": null,
+  "change": {
+   "es": "Al presente reciente con <b>just</b>.",
+   "en": "To the recent present with <b>just</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "simple · ago",
+   "en": "simple · ago"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "He has sent two emails so far.",
+  "answer": [
+   "He",
+   "sent",
+   "two",
+   "emails",
    "an",
    "hour",
    "ago",
    "."
   ],
-  "tr": "Comieron hace una hora.",
+  "tr": "Envió dos correos hace una hora.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
   },
-  "story": null,
+  "story": "\"He sent an email asking for an update\"",
   "change": {
-   "es": "con tiempo terminado → <b>ate</b> … ago.",
-   "en": "with a finished time → <b>ate</b> … ago."
+   "es": "Ciérrala con <b>an hour ago</b>.",
+   "en": "Close it with <b>an hour ago</b>."
   },
   "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
   },
   "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "a"
-  ]
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
  },
  {
   "reinf": {
-   "es": "have visited → visited last year",
-   "en": "have visited → visited last year"
+   "es": "perfect · yet",
+   "en": "perfect · yet"
   },
   "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "We have visited Lima.",
+  "src": "We received the part on Monday.",
   "answer": [
    "We",
-   "visited",
-   "Lima",
+   "haven't",
+   "received",
+   "the",
+   "part",
+   "yet",
+   "."
+  ],
+  "tr": "Todavía no hemos recibido el repuesto.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": null,
+  "change": {
+   "es": "A la espera abierta con <b>yet</b> (negativa).",
+   "en": "To the open wait with <b>yet</b> (negative)."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "perfect · never",
+   "en": "perfect · never"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "He lost his receipt.",
+  "answer": [
+   "He",
+   "has",
+   "never",
+   "lost",
+   "his",
+   "receipt",
+   "."
+  ],
+  "tr": "Nunca ha perdido su comprobante.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": "\"Then she asked for the receipt.\"",
+  "change": {
+   "es": "A la experiencia con <b>never</b>.",
+   "en": "To experience with <b>never</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "perfect · ever",
+   "en": "perfect · ever"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "Did you dispute the charge?",
+  "answer": [
+   "Have",
+   "you",
+   "ever",
+   "disputed",
+   "the",
+   "charge",
+   "?"
+  ],
+  "tr": "¿Alguna vez has reclamado el cargo?",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": null,
+  "change": {
+   "es": "A la pregunta de experiencia con <b>ever</b>.",
+   "en": "To the experience question with <b>ever</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "perfect · just",
+   "en": "perfect · just"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The water came back in the evening.",
+  "answer": [
+   "The",
+   "water",
+   "has",
+   "just",
+   "come",
+   "back",
+   "."
+  ],
+  "tr": "El agua acaba de volver.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": "\"By evening, the water was running normally again.\"",
+  "change": {
+   "es": "Al presente reciente con <b>just</b>.",
+   "en": "To the recent present with <b>just</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "simple · last",
+   "en": "simple · last"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "She has worked there for years.",
+  "answer": [
+   "She",
+   "worked",
+   "there",
    "last",
    "year",
    "."
   ],
-  "tr": "Visitamos Lima el año pasado.",
+  "tr": "Trabajó allí el año pasado.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
   },
   "story": null,
   "change": {
-   "es": "con tiempo terminado → <b>visited</b> last year.",
-   "en": "with a finished time → <b>visited</b> last year."
+   "es": "Ciérrala con <b>last year</b>.",
+   "en": "Close it with <b>last year</b>."
   },
   "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
   },
   "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": []
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
  },
  {
   "reinf": {
-   "es": "has lost → lost yesterday",
-   "en": "has lost → lost yesterday"
+   "es": "perfect · this week",
+   "en": "perfect · this week"
   },
   "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "He has lost his keys.",
-  "answer": [
-   "He",
-   "lost",
-   "his",
-   "keys",
-   "yesterday",
-   "."
-  ],
-  "tr": "Perdió sus llaves ayer.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>lost</b> yesterday.",
-   "en": "with a finished time → <b>lost</b> yesterday."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "her"
-  ]
- },
- {
-  "reinf": {
-   "es": "have read → read last month",
-   "en": "have read → read last month"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "I have read that book.",
-  "answer": [
-   "I",
-   "read",
-   "that",
-   "book",
-   "last",
-   "month",
-   "."
-  ],
-  "tr": "Leí ese libro el mes pasado.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>read</b> last month.",
-   "en": "with a finished time → <b>read</b> last month."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "those"
-  ]
- },
- {
-  "reinf": {
-   "es": "has written → wrote this morning",
-   "en": "has written → wrote this morning"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "She has written the email.",
-  "answer": [
-   "She",
-   "wrote",
-   "the",
-   "email",
-   "this",
-   "morning",
-   "."
-  ],
-  "tr": "Escribió el correo esta mañana.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>wrote</b> this morning.",
-   "en": "with a finished time → <b>wrote</b> this morning."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "these"
-  ]
- },
- {
-  "reinf": {
-   "es": "have paid → paid yesterday",
-   "en": "have paid → paid yesterday"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "They have paid the bill.",
+  "src": "They called twice this morning.",
   "answer": [
    "They",
-   "paid",
-   "the",
-   "bill",
-   "yesterday",
-   "."
-  ],
-  "tr": "Pagaron la cuenta ayer.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>paid</b> yesterday.",
-   "en": "with a finished time → <b>paid</b> yesterday."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": []
- },
- {
-  "reinf": {
-   "es": "have made → made last night",
-   "en": "have made → made last night"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "We have made a cake.",
-  "answer": [
-   "We",
-   "made",
-   "a",
-   "cake",
-   "last",
-   "night",
-   "."
-  ],
-  "tr": "Hicimos un pastel anoche.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>made</b> last night.",
-   "en": "with a finished time → <b>made</b> last night."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "an"
-  ]
- },
- {
-  "reinf": {
-   "es": "has taken → took this morning",
-   "en": "has taken → took this morning"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "He has taken the bus.",
-  "answer": [
-   "He",
-   "took",
-   "the",
-   "bus",
-   "this",
-   "morning",
-   "."
-  ],
-  "tr": "Tomó el bus esta mañana.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>took</b> this morning.",
-   "en": "with a finished time → <b>took</b> this morning."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "these"
-  ]
- },
- {
-  "reinf": {
-   "es": "have called → called … ago",
-   "en": "have called → called … ago"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "I have called the office.",
-  "answer": [
-   "I",
+   "have",
    "called",
-   "the",
-   "office",
-   "an",
-   "hour",
-   "ago",
-   "."
-  ],
-  "tr": "Llamé a la oficina hace una hora.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>called</b> … ago.",
-   "en": "with a finished time → <b>called</b> … ago."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "a"
-  ]
- },
- {
-  "reinf": {
-   "es": "has bought → bought last week",
-   "en": "has bought → bought last week"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "She has bought a phone.",
-  "answer": [
-   "She",
-   "bought",
-   "a",
-   "phone",
-   "last",
+   "twice",
+   "this",
    "week",
    "."
   ],
-  "tr": "Compró un teléfono la semana pasada.",
+  "tr": "Han llamado dos veces esta semana.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
   },
   "story": null,
   "change": {
-   "es": "con tiempo terminado → <b>bought</b> last week.",
-   "en": "with a finished time → <b>bought</b> last week."
+   "es": "Ábrela con <b>this week</b>.",
+   "en": "Open it with <b>this week</b>."
   },
   "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
   },
   "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "an"
-  ]
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
  },
  {
   "reinf": {
-   "es": "have arrived → arrived … ago",
-   "en": "have arrived → arrived … ago"
+   "es": "simple · on + día",
+   "en": "simple · on + día"
   },
   "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "They have arrived.",
-  "answer": [
-   "They",
-   "arrived",
-   "ten",
-   "minutes",
-   "ago",
-   "."
-  ],
-  "tr": "Llegaron hace diez minutos.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>arrived</b> … ago.",
-   "en": "with a finished time → <b>arrived</b> … ago."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": []
- },
- {
-  "reinf": {
-   "es": "have cleaned → cleaned yesterday",
-   "en": "have cleaned → cleaned yesterday"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "We have cleaned the room.",
-  "answer": [
-   "We",
-   "cleaned",
-   "the",
-   "room",
-   "yesterday",
-   "."
-  ],
-  "tr": "Limpiamos la sala ayer.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "con tiempo terminado → <b>cleaned</b> yesterday.",
-   "en": "with a finished time → <b>cleaned</b> yesterday."
-  },
-  "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
-  },
-  "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": []
- },
- {
-  "reinf": {
-   "es": "has broken → broke last night",
-   "en": "has broken → broke last night"
-  },
-  "task": {
-   "es": "Transforma a <b>pasado simple</b> con un tiempo terminado y ordena las fichas.",
-   "en": "Transform into the <b>past simple</b> with a finished-time marker and order the tiles."
-  },
-  "src": "He has broken the screen.",
+  "src": "He has already signed.",
   "answer": [
    "He",
-   "broke",
-   "the",
-   "screen",
-   "last",
-   "night",
+   "signed",
+   "on",
+   "Friday",
    "."
   ],
-  "tr": "Rompió la pantalla anoche.",
+  "tr": "Firmó el viernes.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": "\"She agreed to sign up.\"",
+  "change": {
+   "es": "Ciérrala con <b>on Friday</b>.",
+   "en": "Close it with <b>on Friday</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "perfect · just",
+   "en": "perfect · just"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "We sent the claim an hour ago.",
+  "answer": [
+   "We",
+   "have",
+   "just",
+   "sent",
+   "the",
+   "claim",
+   "."
+  ],
+  "tr": "Acabamos de enviar el reclamo.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": "\"she found a claim form on the building's website\"",
+  "change": {
+   "es": "Al presente reciente con <b>just</b>.",
+   "en": "To the recent present with <b>just</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "simple · last",
+   "en": "simple · last"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "Have you finished the form yet?",
+  "answer": [
+   "Did",
+   "you",
+   "finish",
+   "the",
+   "form",
+   "last",
+   "night",
+   "?"
+  ],
+  "tr": "¿Terminaste el formulario anoche?",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
   },
   "story": null,
   "change": {
-   "es": "con tiempo terminado → <b>broke</b> last night.",
-   "en": "with a finished time → <b>broke</b> last night."
+   "es": "Ciérrala con <b>last night</b>.",
+   "en": "Close it with <b>last night</b>."
   },
   "formula": {
-   "es": "sujeto + verbo en pasado + (yesterday/last week/ago)",
-   "en": "subject + past verb + (yesterday/last week/ago)"
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
   },
   "rule": {
-   "es": "have/has + participio → verbo en pasado + tiempo terminado (yesterday, last…, ago).",
-   "en": "have/has + participle → past verb + finished time (yesterday, last…, ago)."
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "simple · negativa",
+   "en": "simple · negativa"
   },
-  "examples": {
-   "es": [],
-   "en": []
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "es": {
-   "es": "",
-   "en": ""
+  "src": "She has never complained.",
+  "answer": [
+   "She",
+   "didn't",
+   "complain",
+   "that",
+   "day",
+   "."
+  ],
+  "tr": "No reclamó ese día.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
   },
-  "lit": {
-   "es": "",
-   "en": ""
+  "story": null,
+  "change": {
+   "es": "Al pasado puntual en negativa (<b>that day</b>).",
+   "en": "To the specific past, negative (<b>that day</b>)."
   },
-  "distractors": []
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
+ },
+ {
+  "reinf": {
+   "es": "perfect · never",
+   "en": "perfect · never"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The technician arrived late yesterday.",
+  "answer": [
+   "The",
+   "technician",
+   "has",
+   "never",
+   "arrived",
+   "late",
+   "."
+  ],
+  "tr": "El técnico nunca ha llegado tarde.",
+  "hint": {
+   "es": "La nueva señal de tiempo manda: ¿cierra el periodo o lo deja abierto? Ajusta el verbo a ella.",
+   "en": "The new time signal rules: does it close the period or keep it open? Adjust the verb."
+  },
+  "story": null,
+  "change": {
+   "es": "A la experiencia con <b>never</b>.",
+   "en": "To experience with <b>never</b>."
+  },
+  "formula": {
+   "es": "señal cerrada → past simple · señal abierta → have/has + participio",
+   "en": "closed signal → past simple · open signal → have/has + participle"
+  },
+  "rule": {
+   "es": "Past simple + tiempo CERRADO (yesterday, ago, last…, in 2020). Present perfect + periodo ABIERTO o resultado presente (ever, never, just, already, yet, since, for, this week, so far).",
+   "en": "Past simple + CLOSED time (yesterday, ago, last…, in 2020). Present perfect + OPEN period or present result (ever, never, just, already, yet, since, for, this week, so far)."
+  }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo', check:'Comprobar', trayPh:'Toca las fichas para construir aquí…', original:'Original:',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bAnswer:'✔ Forma correcta', bChange:'🔧 El cambio paso a paso', bForm:'🧩 Estructura', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -918,7 +707,7 @@ const T = {
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran fichas','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca las fichas en orden para armar la oración.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help', check:'Check', trayPh:'Tap the tiles to build here…', original:'Original:',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bAnswer:'✔ Correct form', bChange:'🔧 The change, step by step', bForm:'🧩 Structure', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -942,8 +731,8 @@ function buildTr(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <div class="tprompt"><span class="po">${t.original}</span><span class="src">${it.src}</span></div>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="tray" id="tray${i}" data-ph="${t.trayPh}"></div>
     <div class="bank" id="bank${i}"></div>
@@ -953,16 +742,15 @@ function buildTr(it,i){ const t=T[lang];
     <div class="rdone" id="rd${i}"><div style="font-weight:800;font-size:13px;color:#1B5E20;">${t.rDone}</div><div style="font-size:11.5px;color:#555;margin-top:3px;" id="rcl${i}">${t.rCodeLab}</div><div class="rcode" id="rc${i}" onclick="copyCode(${i})"></div></div>
     <div class="nav"><button class="nb prev" onclick="nav(${i},-1)" ${i===0?'disabled':''}>${t.prev}</button><button class="nb next" id="nx${i}" onclick="nav(${i},1)" disabled>${i===QS.length-1?t.seeRes:t.next}</button></div></div>`;
 }
-function tilesOf(it){ return [...it.answer, ...((it.distractors)||[])]; }
 function initTr(i){ const it=QS[i]; trState[i]={order:[]};
-  trState[i].bankOrder=tilesOf(it).map((w,idx)=>idx).sort(()=>Math.random()-.5);
+  trState[i].bankOrder=[...it.answer].map((w,idx)=>idx).sort(()=>Math.random()-.5);
   renderBank(i); renderTray(i); }
 function renderBank(i){ const it=QS[i], st=trState[i];
-  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${tilesOf(it)[idx]}</button>`).join(''); }
+  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${it.answer[idx]}</button>`).join(''); }
 function renderTray(i){ const it=QS[i], st=trState[i]; const tray=document.getElementById('tray'+i);
-  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${tilesOf(it)[idx]}</button>`).join('');
+  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${it.answer[idx]}</button>`).join('');
   if(!locked[i]) tray.querySelectorAll('.tile').forEach(el=>attachDrag(i,el));
-  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length===0; }
+  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length!==it.answer.length; }
 function placeTile(i,idx){ if(locked[i])return; startTimer(); const st=trState[i]; if(st.order.includes(idx))return; st.order.push(idx); renderBank(i); renderTray(i); }
 function removeTile(i,idx){ if(locked[i])return; const st=trState[i]; st.order=st.order.filter(x=>x!==idx); renderBank(i); renderTray(i); }
 function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])return; e.preventDefault();
@@ -977,7 +765,7 @@ function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])r
     if(!moved){ removeTile(i,+el.dataset.idx); } };
   tray.addEventListener('pointermove',move); document.addEventListener('pointerup',up); }); }
 function checkTr(i){ if(locked[i])return; locked[i]=true; const it=QS[i], st=trState[i];
-  const ok=st.order.map(x=>tilesOf(it)[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
+  const ok=st.order.map(x=>it.answer[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
   if(ok){score++;xpTotal+=XPQ;toast('+'+XPQ+' XP ⭐');} else wrongTags.push(it.reinf[lang]); if(it._tr)usedTr++;
   document.getElementById('chk'+i).style.display='none'; document.querySelectorAll('#tray'+i+' .tile').forEach(x=>x.style.pointerEvents='none');
   renderFb(i,ok,it); document.getElementById('nx'+i).disabled=false; bump(); }
@@ -993,7 +781,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

@@ -214,14 +214,16 @@ const STEPS = [
         ${ii('✂️','<b>Tip 1 — Contracciones:</b> el apóstrofo reemplaza letras: do not → don\'t, I am → I\'m, it is → it\'s.')}
         ${ii('🔑','<b>Tip 2 — Posesión:</b> «\'s» después del dueño: Maria\'s phone (el teléfono de María).')}
         ${ii('⚠️','<b>Tip 3 — its ≠ it\'s:</b> «it\'s» = it is (contracción) · «its» = su (posesivo, sin apóstrofo).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «The dog wagged it\'s tail» → ✅ «… <b>its</b> tail» (posesivo, sin apóstrofo).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «The dog wagged it\'s tail» → ✅ «… <b>its</b> tail» (posesivo, sin apóstrofo).</p></div>
+        ${ii('⚡','En inglés la pregunta solo lleva ? al final (sin ¿), y los idiomas van con mayúscula: English, Spanish.')}`,
       en:`<div class="gdesc">The apostrophe (') has two key jobs in English:</div>
         <div class="fbox"><div class="frm"><span class="pill s">Contraction</span><span class="plus">→</span><span class="pill v">do not = don't</span></div><div class="fex">I'm · don't · it's (= it is) · can't</div></div>
         <div class="fbox"><div class="frm"><span class="pill o">Possession</span><span class="plus">→</span><span class="pill p">John's car</span></div><div class="fex">John<b>'s</b> book = el libro de John</div></div>
         ${ii('✂️','<b>Tip 1 — Contractions:</b> the apostrophe replaces letters: do not → don\'t, I am → I\'m, it is → it\'s.')}
         ${ii('🔑','<b>Tip 2 — Possession:</b> «\'s» after the owner: Maria\'s phone (el teléfono de María).')}
         ${ii('⚠️','<b>Tip 3 — its ≠ it\'s:</b> «it\'s» = it is (contraction) · «its» = its (possessive, no apostrophe).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «The dog wagged it\'s tail» → ✅ «… <b>its</b> tail» (possessive, no apostrophe).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «The dog wagged it\'s tail» → ✅ «… <b>its</b> tail» (possessive, no apostrophe).</p></div>
+        ${ii('⚡','English questions take only a final ? (no ¿), and language names are capitalized: English, Spanish.')}`
     },
     checks:[
       { q:{es:'«do not» en contracción es:',en:'«do not» as a contraction is:'}, opts:{es:['don\'t','dont'],en:['don\'t','dont']}, correct:0, fb:{ why:{es:'El apóstrofo reemplaza la «o» de «not».',en:'The apostrophe replaces the «o» of «not».'}, ex:{es:'don\'t → no (verbo)',en:'don\'t'}, tip:{es:'contracción con \'',en:'contraction with \''}} },

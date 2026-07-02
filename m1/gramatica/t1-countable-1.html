@@ -192,7 +192,8 @@ const STEPS = [
         </div>
         ${eg('I need <span class="tag s">some information</span>.','Necesito información. (sin «an», sin «-s»)','ok')}
         ${eg('I need an information.','«information» nunca lleva «an» ni plural.','bad')}
-        <div class="alert-card"><div class="atitle">⚠️ Cuidado con «news»</div><p>«news» (noticias) <b>parece plural</b> pero es <b>incontable y singular</b>: «The news <b>is</b> good» ✅, no «The news are good» ❌.</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Cuidado con «news»</div><p>«news» (noticias) <b>parece plural</b> pero es <b>incontable y singular</b>: «The news <b>is</b> good» ✅, no «The news are good» ❌.</p></div>
+        ${ii('⚡','El español cuenta cosas que el inglés no: «consejos» → advice (sin plural), «muebles» → furniture, «noticias» → news.')}`,
       en:`<div class="gdesc">Here are the 3 contrasts Spanish does NOT warn you about. Memorize them:</div>
         <table class="dtab"><tr><th>Rule in English</th><th>Right ✅</th><th>Wrong ❌</th></tr>
           <tr><td class="en">Uncountable: no a/an</td><td>some water</td><td>a water</td></tr>
@@ -207,7 +208,8 @@ const STEPS = [
         </div>
         ${eg('I need <span class="tag s">some information</span>.','I need some information. (no «an», no «-s»)','ok')}
         ${eg('I need an information.','«information» never takes «an» or a plural.','bad')}
-        <div class="alert-card"><div class="atitle">⚠️ Careful with «news»</div><p>«news» <b>looks plural</b> but is <b>uncountable and singular</b>: «The news <b>is</b> good» ✅, not «The news are good» ❌.</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Careful with «news»</div><p>«news» <b>looks plural</b> but is <b>uncountable and singular</b>: «The news <b>is</b> good» ✅, not «The news are good» ❌.</p></div>
+        ${ii('⚡','Spanish counts things English does not: «consejos» → advice (no plural), «muebles» → furniture, «noticias» → news.')}`
     },
     checks:[
       { q:{es:'¿Cuál es correcto?',en:'Which one is correct?'}, opts:{es:['I need some information','I need an information'],en:['I need some information','I need an information']}, correct:0, fb:{ why:{es:'«information» es incontable: sin «an», sin plural.',en:'«information» is uncountable: no «an», no plural.'}, contrast:{es:'«an information» es un error muy común.',en:'«an information» is a very common mistake.'}, ex:{es:'some information → información',en:'some information'}, tip:{es:'information = siempre singular',en:'information = always singular'}} },
@@ -225,7 +227,9 @@ const STEPS = [
         ${ii('📦','<b>Tip 2 — Para contar lo incontable</b> usa un recipiente o porción: a glass of water, a slice of bread, a piece of advice, a bottle of milk.')}
         ${eg('How <span class="tag s">much</span> money do you have?','¿Cuánto dinero tienes? (money = incontable)','ok')}
         ${eg('How <span class="tag s">many</span> coins do you have?','¿Cuántas monedas tienes? (coins = contable)','ok')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «How much apples?» → ✅ «How <b>many</b> apples?». Si tiene «-s» plural, casi siempre va «many».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «How much apples?» → ✅ «How <b>many</b> apples?». Si tiene «-s» plural, casi siempre va «many».</p></div>
+        ${ii('⚡','Los incontables van SIEMPRE en singular: ✗ «informations» → ✓ «information».')}
+        ${ii('⚡','Para contar un incontable usa una medida: «a bottle of water», «a piece of advice».')}`,
       en:`<div class="gdesc">Tricks so you don't slip up in daily life:</div>
         <div class="fbox"><div class="frm"><span class="pill o">How many</span><span class="plus">+</span><span class="pill s">countable plural</span></div><div class="fex">How many <span class="s">apples</span>? — ¿Cuántas manzanas?</div></div>
         <div class="fbox"><div class="frm"><span class="pill o">How much</span><span class="plus">+</span><span class="pill v">uncountable</span></div><div class="fex">How much <span class="v">water</span>? — ¿Cuánta agua?</div></div>
@@ -233,7 +237,9 @@ const STEPS = [
         ${ii('📦','<b>Tip 2 — To count the uncountable</b> use a container or portion: a glass of water, a slice of bread, a piece of advice, a bottle of milk.')}
         ${eg('How <span class="tag s">much</span> money do you have?','How much money do you have? (money = uncountable)','ok')}
         ${eg('How <span class="tag s">many</span> coins do you have?','How many coins do you have? (coins = countable)','ok')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «How much apples?» → ✅ «How <b>many</b> apples?». If it has a plural «-s», it almost always takes «many».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «How much apples?» → ✅ «How <b>many</b> apples?». If it has a plural «-s», it almost always takes «many».</p></div>
+        ${ii('⚡','Uncountables are ALWAYS singular: ✗ «informations» → ✓ «information».')}
+        ${ii('⚡','To count an uncountable use a measure: «a bottle of water», «a piece of advice».')}`
     },
     checks:[
       { q:{es:'«How ___ sugar do you need?» (azúcar):',en:'«How ___ sugar do you need?»'}, opts:{es:['much','many'],en:['much','many']}, correct:0, fb:{ why:{es:'«sugar» es incontable → much.',en:'«sugar» is uncountable → much.'}, ex:{es:'How much sugar? → ¿Cuánta azúcar?',en:'How much sugar?'}, tip:{es:'Masa → much',en:'Mass → much'}}, tr:{es:'¿Cuánta azúcar necesitas?',en:'How much sugar do you need?'} },

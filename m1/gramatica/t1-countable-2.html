@@ -224,14 +224,16 @@ const STEPS = [
         ${ii('🔎','<b>Tip 1 — Mira el sustantivo:</b> ¿termina en «-s» plural? → many. ¿es masa (water, time, money)? → much.')}
         ${ii('✅','<b>Tip 2 — Afirmativas:</b> usa «a lot of» y nunca fallas: a lot of water / a lot of apples.')}
         ${ii('🗣️','<b>Tip 3 — Respuesta corta:</b> «A lot.» / «Not much.» / «A few.» / «Just a little.»')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «How much friends?» → ✅ «How <b>many</b> friends?». Si tiene «-s» plural, va «many».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «How much friends?» → ✅ «How <b>many</b> friends?». Si tiene «-s» plural, va «many».</p></div>
+        ${ii('⚡','How much también pregunta el precio: «How much is it?» — aunque el precio se cuente.')}`,
       en:`<div class="gdesc">How to choose fast and without hesitating:</div>
         <div class="fbox"><div class="frm"><span class="pill o">How much</span><span class="plus">+</span><span class="pill v">uncountable</span></div><div class="fex">How much <span class="v">sugar</span>? — ¿Cuánta azúcar?</div></div>
         <div class="fbox"><div class="frm"><span class="pill o">How many</span><span class="plus">+</span><span class="pill s">countable plural</span></div><div class="fex">How many <span class="s">eggs</span>? — ¿Cuántos huevos?</div></div>
         ${ii('🔎','<b>Tip 1 — Look at the noun:</b> does it end in plural «-s»? → many. Is it a mass (water, time, money)? → much.')}
         ${ii('✅','<b>Tip 2 — Affirmatives:</b> use «a lot of» and you never fail: a lot of water / a lot of apples.')}
         ${ii('🗣️','<b>Tip 3 — Short answer:</b> «A lot.» / «Not much.» / «A few.» / «Just a little.»')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «How much friends?» → ✅ «How <b>many</b> friends?». If it has plural «-s», it takes «many».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «How much friends?» → ✅ «How <b>many</b> friends?». If it has plural «-s», it takes «many».</p></div>
+        ${ii('⚡','How much also asks the price: «How much is it?» — even though money is counted in coins.')}`
     },
     checks:[
       { q:{es:'«How ___ sugar?» (azúcar):',en:'«How ___ sugar?»'}, opts:{es:['much','many'],en:['much','many']}, correct:0, fb:{ why:{es:'«sugar» es masa → much.',en:'«sugar» is a mass → much.'}, ex:{es:'How much sugar? → ¿Cuánta azúcar?',en:'How much sugar?'}, tip:{es:'masa → much',en:'mass → much'}}, tr:{es:'¿Cuánta azúcar?',en:'How much sugar?'} },

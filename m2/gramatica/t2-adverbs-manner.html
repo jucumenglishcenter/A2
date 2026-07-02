@@ -225,13 +225,15 @@ const STEPS = [
         ${ii('🔤','<b>Tip 1 — Formación:</b> adjetivo + ly · y → ily (happy→happily) · le → ly (gentle→gently).')}
         ${ii('⭐','<b>Tip 2 — Irregulares:</b> good→well, fast→fast, hard→hard. ¡Memorízalos!')}
         ${ii('📍','<b>Tip 3 — Posición:</b> después del verbo (y su objeto), no entre el verbo y el objeto.')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «She speaks good English» → ✅ «She speaks English <b>well</b>».<br>❌ «He runs fastly» → ✅ «He runs <b>fast</b>».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «She speaks good English» → ✅ «She speaks English <b>well</b>».<br>❌ «He runs fastly» → ✅ «He runs <b>fast</b>».</p></div>
+        ${ii('⚡','No todos llevan -ly: fast, hard, well: «She sings well», no ✗ «goodly».')}`,
       en:`<div class="gdesc">The formula and the position:</div>
         <div class="fbox"><div class="frm"><span class="pill s">Subject</span><span class="plus">+</span><span class="pill v">verb (+ object)</span><span class="plus">+</span><span class="pill o">adverb</span></div><div class="fex"><span class="s">She</span> <span class="v">speaks English</span> <span class="o">well</span>.</div></div>
         ${ii('🔤','<b>Tip 1 — Formation:</b> adjective + ly · y → ily (happy→happily) · le → ly (gentle→gently).')}
         ${ii('⭐','<b>Tip 2 — Irregulars:</b> good→well, fast→fast, hard→hard. Memorize them!')}
         ${ii('📍','<b>Tip 3 — Position:</b> after the verb (and its object), not between the verb and the object.')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «She speaks good English» → ✅ «She speaks English <b>well</b>».<br>❌ «He runs fastly» → ✅ «He runs <b>fast</b>».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «She speaks good English» → ✅ «She speaks English <b>well</b>».<br>❌ «He runs fastly» → ✅ «He runs <b>fast</b>».</p></div>
+        ${ii('⚡','Not all take -ly: fast, hard, well: «She sings well», not ✗ «goodly».')}`
     },
     checks:[
       { q:{es:'«She dances ___» (hermoso):',en:'«She dances ___» (beautifully):'}, opts:{es:['beautifully','beautiful'],en:['beautifully','beautiful']}, correct:0, fb:{ why:{es:'Describe el verbo → adverbio.',en:'Describes the verb → adverb.'}, ex:{es:'She dances beautifully → Baila hermoso',en:'She dances beautifully'}, tip:{es:'verbo → -ly',en:'verb → -ly'}} },

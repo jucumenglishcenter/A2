@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Identification · A few/A little & Too many/Too much · JUCUM English Center</title>
+<title>Identification · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -99,7 +99,7 @@
     <div class="mbody" id="mbody">
       <div class="langsw"><span class="lsw-lab">🌐 <span id="lswLab"></span></span>
         <div class="lsw"><button id="lswEs" class="on" onclick="setLang('es')">Español</button><button id="lswEn" onclick="setLang('en')">English</button></div></div>
-      <div class="instr"><div class="em">🔧</div><div><b id="insT"></b><p id="insP"></p></div></div>
+      <div class="instr"><div class="em">🔎</div><div><b id="insT"></b><p id="insP"></p></div></div>
       <div id="qbox"></div>
     </div>
     <div class="results" id="results">
@@ -121,596 +121,560 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Identification', subtitle:"A2 · Módulo 1 · A few/A little & Too many/Too much", langDefault:'es', reportId:"A2_M1_t2-id" };
-const PASS = 75;
+const MAT = {"title":"Identification","subtitle":"A2 · Módulo 1 · A few / A little & Too many / Too much","langDefault":"es","reportId":"A2_M1_t2-id"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "a little",
-  "target": 3,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "incontable → a little",
-   "en": "incontable → a little"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
-  },
-  "words": [
-   "I",
-   "have",
-   "a",
-   "few",
-   "money."
-  ],
-  "tr": "Tengo un poco de dinero.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "money es incontable: a <b>little</b> money.",
-   "en": "money is uncountable: a <b>little</b> money."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "too many",
+  "clue": "a few · contable",
   "target": 3,
   "tap": [
    3,
-   4
+   4,
+   7
   ],
   "reinf": {
-   "es": "contable → too many",
-   "en": "contable → too many"
+   "es": "a few · contable",
+   "en": "a few · contable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
-  },
-  "words": [
-   "There",
-   "are",
-   "too",
-   "much",
-   "chairs."
-  ],
-  "tr": "Hay demasiadas sillas.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "chairs se cuenta: too <b>many</b> chairs.",
-   "en": "chairs are countable: too <b>many</b> chairs."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "a few",
-  "target": 3,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "contable → a few",
-   "en": "contable → a few"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca la palabra clave de la <b>cantidad pequeña positiva</b>.",
+   "en": "Tap the key word of the <b>small positive amount</b>."
   },
   "words": [
    "She",
-   "has",
-   "a",
-   "little",
-   "friends."
-  ],
-  "tr": "Tiene unos pocos amigos.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "friends se cuenta: a <b>few</b> friends.",
-   "en": "friends are countable: a <b>few</b> friends."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "too much",
-  "target": 3,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "incontable → too much",
-   "en": "incontable → too much"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
-  },
-  "words": [
-   "We",
-   "drank",
-   "too",
-   "many",
-   "water."
-  ],
-  "tr": "Bebimos demasiada agua.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "water es incontable: too <b>much</b> water.",
-   "en": "water is uncountable: too <b>much</b> water."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "a little",
-  "target": 2,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "incontable → a little",
-   "en": "incontable → a little"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
-  },
-  "words": [
-   "Add",
+   "kept",
    "a",
    "few",
-   "salt."
+   "coins",
+   "in",
+   "her",
+   "bag."
   ],
-  "tr": "Añade un poco de sal.",
+  "tr": "Guardaba unas monedas en su bolso.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "salt es incontable: a <b>little</b> salt.",
-   "en": "salt is uncountable: a <b>little</b> salt."
+   "es": "«few» (con a) marca el poquito de los contables.",
+   "en": "“few” (with a) marks the countable little."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "too many",
+  "clue": "a little · incontable",
   "target": 3,
   "tap": [
    3,
-   4
+   4,
+   8
   ],
   "reinf": {
-   "es": "contable → too many",
-   "en": "contable → too many"
+   "es": "a little · incontable",
+   "en": "a little · incontable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca la palabra clave de la <b>cantidad pequeña positiva</b>.",
+   "en": "Tap the key word of the <b>small positive amount</b>."
   },
   "words": [
    "There",
-   "were",
-   "too",
-   "much",
-   "people."
-  ],
-  "tr": "Había demasiada gente.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "people es contable: too <b>many</b> people.",
-   "en": "people is countable: too <b>many</b> people."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "a few",
-  "target": 3,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "contable → a few",
-   "en": "contable → a few"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
-  },
-  "words": [
-   "He",
-   "made",
+   "is",
    "a",
    "little",
-   "mistakes."
+   "tea",
+   "left",
+   "in",
+   "the",
+   "cup."
   ],
-  "tr": "Cometió unos pocos errores.",
+  "tr": "Queda un poco de té en la taza.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "mistakes se cuenta: a <b>few</b> mistakes.",
-   "en": "mistakes are countable: a <b>few</b> mistakes."
+   "es": "«little» (con a) es el poquito de los incontables.",
+   "en": "“little” (with a) is the uncountable little."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "too much",
+  "clue": "a few · contable",
+  "target": 1,
+  "tap": [
+   1,
+   2,
+   5
+  ],
+  "reinf": {
+   "es": "a few · contable",
+   "en": "a few · contable"
+  },
+  "task": {
+   "es": "Toca la palabra clave de la <b>cantidad pequeña positiva</b>.",
+   "en": "Tap the key word of the <b>small positive amount</b>."
+  },
+  "words": [
+   "A",
+   "few",
+   "workers",
+   "stayed",
+   "until",
+   "night."
+  ],
+  "tr": "Unos cuantos obreros se quedaron hasta la noche.",
+  "hint": {
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
+  },
+  "story": {
+   "q": "\"The process took most of the day.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«few»: contable (workers).",
+   "en": "“few”: countable (workers)."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "clue": "a little · incontable",
   "target": 3,
   "tap": [
    3,
-   4
+   4,
+   6
   ],
   "reinf": {
-   "es": "incontable → too much",
-   "en": "incontable → too much"
+   "es": "a little · incontable",
+   "en": "a little · incontable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca la palabra clave de la <b>cantidad pequeña positiva</b>.",
+   "en": "Tap the key word of the <b>small positive amount</b>."
   },
   "words": [
-   "I",
-   "have",
-   "too",
-   "many",
-   "homework."
+   "He",
+   "saved",
+   "a",
+   "little",
+   "money",
+   "every",
+   "month."
   ],
-  "tr": "Tengo demasiada tarea.",
+  "tr": "Ahorraba un poco de dinero cada mes.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "homework es incontable: too <b>much</b> homework.",
-   "en": "homework is uncountable: too <b>much</b> homework."
+   "es": "«little»: incontable (money).",
+   "en": "“little”: uncountable (money)."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "a little",
+  "clue": "a few · contable",
   "target": 3,
   "tap": [
-   2,
-   3
+   3,
+   4,
+   7
   ],
   "reinf": {
-   "es": "incontable → a little",
-   "en": "incontable → a little"
+   "es": "a few · contable",
+   "en": "a few · contable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca la palabra clave de la <b>cantidad pequeña positiva</b>.",
+   "en": "Tap the key word of the <b>small positive amount</b>."
   },
   "words": [
    "We",
    "need",
    "a",
    "few",
-   "sugar."
+   "boxes",
+   "for",
+   "the",
+   "move."
   ],
-  "tr": "Necesitamos un poco de azúcar.",
+  "tr": "Necesitamos unas cajas para la mudanza.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "sugar es incontable: a <b>little</b> sugar.",
-   "en": "sugar is uncountable: a <b>little</b> sugar."
+   "es": "«few»: contable (boxes).",
+   "en": "“few”: countable (boxes)."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "too many",
+  "clue": "too many · contable",
   "target": 3,
   "tap": [
    3,
-   4
+   4,
+   7
   ],
   "reinf": {
-   "es": "contable → too many",
-   "en": "contable → too many"
+   "es": "too many · contable",
+   "en": "too many · contable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca la palabra que dice si el <b>exceso</b> es de algo contable o incontable.",
+   "en": "Tap the word showing whether the <b>excess</b> is countable or uncountable."
   },
   "words": [
    "There",
-   "are",
+   "were",
    "too",
-   "much",
-   "problems."
+   "many",
+   "people",
+   "in",
+   "the",
+   "office."
   ],
-  "tr": "Hay demasiados problemas.",
+  "tr": "Había demasiada gente en la oficina.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "problems se cuenta: too <b>many</b> problems.",
-   "en": "problems are countable: too <b>many</b> problems."
+   "es": "«many» revela exceso de CONTABLES.",
+   "en": "“many” shows excess of COUNTABLES."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "a few",
+  "clue": "too much · incontable",
   "target": 3,
   "tap": [
+   3,
+   4,
+   6
+  ],
+  "reinf": {
+   "es": "too much · incontable",
+   "en": "too much · incontable"
+  },
+  "task": {
+   "es": "Toca la palabra que dice si el <b>exceso</b> es de algo contable o incontable.",
+   "en": "Tap the word showing whether the <b>excess</b> is countable or uncountable."
+  },
+  "words": [
+   "He",
+   "drank",
+   "too",
+   "much",
+   "coffee",
+   "this",
+   "morning."
+  ],
+  "tr": "Tomó demasiado café esta mañana.",
+  "hint": {
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
+  },
+  "story": null,
+  "why": {
+   "es": "«much» revela exceso de INCONTABLES.",
+   "en": "“much” shows excess of UNCOUNTABLES."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "clue": "too many · contable",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   7
+  ],
+  "reinf": {
+   "es": "too many · contable",
+   "en": "too many · contable"
+  },
+  "task": {
+   "es": "Toca la palabra que dice si el <b>exceso</b> es de algo contable o incontable.",
+   "en": "Tap the word showing whether the <b>excess</b> is countable or uncountable."
+  },
+  "words": [
+   "They",
+   "asked",
+   "too",
+   "many",
+   "questions",
+   "at",
+   "the",
+   "meeting."
+  ],
+  "tr": "Hicieron demasiadas preguntas en la reunión.",
+  "hint": {
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
+  },
+  "story": null,
+  "why": {
+   "es": "«many»: exceso contable (questions).",
+   "en": "“many”: countable excess."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "clue": "too much · incontable",
+  "target": 4,
+  "tap": [
+   1,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "too much · incontable",
+   "en": "too much · incontable"
+  },
+  "task": {
+   "es": "Toca la palabra que dice si el <b>exceso</b> es de algo contable o incontable.",
+   "en": "Tap the word showing whether the <b>excess</b> is countable or uncountable."
+  },
+  "words": [
+   "The",
+   "form",
+   "took",
+   "too",
+   "much",
+   "time."
+  ],
+  "tr": "El formulario tomó demasiado tiempo.",
+  "hint": {
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
+  },
+  "story": {
+   "q": "\"She described the issue, the timeline, and the impact\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«much»: exceso incontable (time).",
+   "en": "“much”: uncountable excess."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "clue": "too many · contable",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   7
+  ],
+  "reinf": {
+   "es": "too many · contable",
+   "en": "too many · contable"
+  },
+  "task": {
+   "es": "Toca la palabra que dice si el <b>exceso</b> es de algo contable o incontable.",
+   "en": "Tap the word showing whether the <b>excess</b> is countable or uncountable."
+  },
+  "words": [
+   "She",
+   "bought",
+   "too",
+   "many",
+   "bottles",
+   "for",
+   "one",
+   "week."
+  ],
+  "tr": "Compró demasiadas botellas para una semana.",
+  "hint": {
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
+  },
+  "story": {
+   "q": "\"keep a small supply of bottled water\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«many»: exceso contable (bottles).",
+   "en": "“many”: countable excess."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "clue": "incontable → a little",
+  "target": 2,
+  "tap": [
+   1,
    2,
-   3
+   4
+  ],
+  "reinf": {
+   "es": "incontable → a little",
+   "en": "incontable → a little"
+  },
+  "task": {
+   "es": "Toca el <b>sustantivo</b> que obliga a usar esa expresión de cantidad.",
+   "en": "Tap the <b>noun</b> that forces that quantity expression."
+  },
+  "words": [
+   "A",
+   "little",
+   "information",
+   "was",
+   "enough",
+   "to",
+   "decide."
+  ],
+  "tr": "Un poco de información bastó para decidir.",
+  "hint": {
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
+  },
+  "story": null,
+  "why": {
+   "es": "«information» es incontable → por eso va con a little.",
+   "en": "“information” is uncountable → hence a little."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
+  }
+ },
+ {
+  "clue": "contable → a few",
+  "target": 2,
+  "tap": [
+   1,
+   2,
+   6
   ],
   "reinf": {
    "es": "contable → a few",
    "en": "contable → a few"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca el <b>sustantivo</b> que obliga a usar esa expresión de cantidad.",
+   "en": "Tap the <b>noun</b> that forces that quantity expression."
   },
   "words": [
-   "She",
-   "gave",
-   "a",
-   "little",
-   "tips."
+   "A",
+   "few",
+   "emails",
+   "solved",
+   "the",
+   "whole",
+   "problem."
   ],
-  "tr": "Dio unos pocos consejos.",
+  "tr": "Unos cuantos correos resolvieron todo el problema.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
-  "story": null,
+  "story": {
+   "q": "\"He wrote a detailed email explaining the full timeline\"",
+   "es": ""
+  },
   "why": {
-   "es": "tips se cuenta: a <b>few</b> tips.",
-   "en": "tips are countable: a <b>few</b> tips."
+   "es": "«emails» es contable plural → por eso va con a few.",
+   "en": "“emails” is plural countable → hence a few."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "too much",
-  "target": 3,
+  "clue": "incontable → too much",
+  "target": 2,
   "tap": [
-   3,
+   1,
+   2,
    4
   ],
   "reinf": {
@@ -718,221 +682,146 @@ const QS = [
    "en": "incontable → too much"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca el <b>sustantivo</b> que obliga a usar esa expresión de cantidad.",
+   "en": "Tap the <b>noun</b> that forces that quantity expression."
   },
   "words": [
-   "They",
-   "sent",
-   "too",
-   "many",
-   "information."
+   "Too",
+   "much",
+   "sugar",
+   "is",
+   "bad",
+   "for",
+   "you."
   ],
-  "tr": "Enviaron demasiada información.",
+  "tr": "Demasiada azúcar te hace daño.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "information es incontable: too <b>much</b> information.",
-   "en": "information is uncountable: too <b>much</b> information."
+   "es": "«sugar» es incontable → exceso con much.",
+   "en": "“sugar” is uncountable → excess with much."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "a little",
+  "clue": "contable → too many",
   "target": 2,
   "tap": [
    1,
-   2
-  ],
-  "reinf": {
-   "es": "incontable → a little",
-   "en": "incontable → a little"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
-  },
-  "words": [
-   "Add",
-   "a",
-   "few",
-   "milk."
-  ],
-  "tr": "Añade un poco de leche.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "milk es incontable: a <b>little</b> milk.",
-   "en": "milk is uncountable: a <b>little</b> milk."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "too many",
-  "target": 1,
-  "tap": [
-   1,
-   2
+   2,
+   6
   ],
   "reinf": {
    "es": "contable → too many",
    "en": "contable → too many"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca el <b>sustantivo</b> que obliga a usar esa expresión de cantidad.",
+   "en": "Tap the <b>noun</b> that forces that quantity expression."
   },
   "words": [
    "Too",
-   "much",
-   "customers",
-   "complained",
-   "today."
+   "many",
+   "charges",
+   "appeared",
+   "on",
+   "the",
+   "bill."
   ],
-  "tr": "Demasiados clientes se quejaron hoy.",
+  "tr": "Aparecieron demasiados cargos en la boleta.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
-  "story": null,
+  "story": {
+   "q": "\"I saw a charge on my last bill that I do not recognize\"",
+   "es": ""
+  },
   "why": {
-   "es": "customers se cuenta: too <b>many</b> customers.",
-   "en": "customers are countable: too <b>many</b> customers."
+   "es": "«charges» es contable plural → exceso con many.",
+   "en": "“charges” is plural countable → excess with many."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  },
  {
-  "clue": "a little",
-  "target": 3,
+  "clue": "incontable → a little",
+  "target": 4,
   "tap": [
-   2,
-   3
+   3,
+   4,
+   8
   ],
   "reinf": {
    "es": "incontable → a little",
    "en": "incontable → a little"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (a few/a little o too many/too much mal usado).",
-   "en": "Tap the <b>wrong word</b> (a few/a little or too many/too much misused)."
+   "es": "Toca el <b>sustantivo</b> que obliga a usar esa expresión de cantidad.",
+   "en": "Tap the <b>noun</b> that forces that quantity expression."
   },
   "words": [
-   "He",
-   "drank",
+   "She",
+   "needs",
    "a",
-   "few",
-   "coffee."
+   "little",
+   "rest",
+   "after",
+   "the",
+   "long",
+   "shift."
   ],
-  "tr": "Bebió un poco de café.",
+  "tr": "Necesita un poco de descanso después del turno largo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Primero clasifica el sustantivo: ¿se cuenta o se mide? Esa es la llave de la expresión correcta.",
+   "en": "First classify the noun: counted or measured? That is the key to the right expression."
   },
   "story": null,
   "why": {
-   "es": "coffee aquí es incontable: a <b>little</b> coffee.",
-   "en": "coffee here is uncountable: a <b>little</b> coffee."
+   "es": "«rest» (descanso) es incontable → a little.",
+   "en": "“rest” is uncountable → a little."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → a few · too many · plural. Incontables → a little · too much.",
-   "en": "Countables → a few · too many · plural. Uncountables → a little · too much."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "a few + contables · a little + incontables (poquito positivo) · too many + contables · too much + incontables (exceso).",
+   "en": "a few + countables · a little + uncountables (small positive amount) · too many + countables · too much + uncountables (excess)."
   }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Encuentra el error', insP:'Cada oración tiene <b>un error</b>. Toca la palabra incorrecta. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
-    fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔧 El error y su arreglo', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
+    fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔍 Por qué esa palabra', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
     pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas '+PASS+'% para aprobar. ¡Inténtalo de nuevo!',
     hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota', reinf:'📌 A reforzar', xp:'+15 XP por aprobar', xpSub:'Sumaste a tu Liga Semanal. Mantén la racha.', back:'↩ Volver a la plataforma', retry:'🔁 Intentar de nuevo',
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La respuesta marcada parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','No concuerda con la historia','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca la palabra que cumple la consigna.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Find the error', insP:'Each sentence has <b>one error</b>. Tap the wrong word. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
-    fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔧 The error & fix', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
+    fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔍 Why that word', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
     pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need '+PASS+'% to pass. Try again!',
     hits:'Correct', time:'Time', timeNote:'does not affect your grade', reinf:'📌 To review', xp:'+15 XP for passing', xpSub:'Added to your Weekly League. Keep your streak.', back:'↩ Back to the platform', retry:'🔁 Try again',
@@ -955,8 +844,8 @@ function buildId(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <p class="sent" id="sent${i}">${ws}</p>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="fb" id="fb${i}"></div>
     <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
@@ -980,7 +869,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

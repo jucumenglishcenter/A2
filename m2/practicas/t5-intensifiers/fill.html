@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fill in · Intensifiers & Mitigators · JUCUM English Center</title>
+<title>Fill in · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -179,37 +179,32 @@
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║  EDITA AQUÍ · METADATOS DEL MATERIAL                                   ║
    ╚══════════════════════════════════════════════════════════════════════╝ */
-const MAT = {
-  title:'Fill in the Blanks',
-  subtitle:"A2 · Módulo 2 · Intensifiers & Mitigators",
-  langDefault:'es',
-  reportId:"A2_M2_t5-fill"
-};
-const PASS = 75;
+const MAT = {"title":"Fill in the Blanks","subtitle":"A2 · Módulo 2 · Intensifiers & Mitigators","langDefault":"es","reportId":"A2_M2_t5-fill"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "intensifica",
+  "clue": "extremo",
   "opts": [
+   "absolutely",
    "very",
-   "quite",
    "a bit"
   ],
-  "correct": "very",
+  "correct": "absolutely",
   "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
+   "es": "absolutely",
+   "en": "absolutely"
   },
-  "sentence": "It's _____ cold; I'm freezing.",
-  "tr": "Hace mucho frío; me estoy congelando.",
-  "hint": "",
-  "story": "It's very cold; I'm freezing.",
+  "sentence": "After the night shift, Marcos was _____ exhausted.",
+  "tr": "Después del turno nocturno, Marcos estaba absolutamente agotado.",
+  "hint": "¿El adjetivo ya es extremo por sí solo? Los extremos no aceptan “muy”: piden un intensificador total. 📖 La regla completa aparece al responder.",
+  "story": "\"Marcos felt for his wallet on the bus and his heart sank.\"",
   "storyWhy": {
-   "es": "mucha intensidad → very.",
-   "en": "strong intensity → very."
+   "es": "“Exhausted” ya es extremo: pide intensificador total.",
+   "en": "“Exhausted” is already extreme: it needs a total intensifier."
   },
   "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   },
   "es": {
    "es": "",
@@ -221,127 +216,28 @@ const QS = [
   }
  },
  {
-  "clue": "atenúa",
-  "opts": [
-   "quite",
-   "very",
-   "too"
-  ],
-  "correct": "quite",
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "sentence": "She's _____ busy, but she can talk.",
-  "tr": "Está algo ocupada, pero puede hablar.",
-  "hint": "",
-  "story": "She's quite busy, but she can talk.",
-  "storyWhy": {
-   "es": "grado moderado → quite.",
-   "en": "moderate degree → quite."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "exceso",
-  "opts": [
-   "too",
-   "very",
-   "quite"
-  ],
-  "correct": "too",
-  "reinf": {
-   "es": "exceso",
-   "en": "exceso"
-  },
-  "sentence": "He's _____ tired to continue.",
-  "tr": "Está demasiado cansado para continuar.",
-  "hint": "",
-  "story": "He's too tired to continue.",
-  "storyWhy": {
-   "es": "exceso (no puede) → too.",
-   "en": "excess (can't) → too."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "intensifica",
-  "opts": [
-   "so",
-   "quite",
-   "a bit"
-  ],
-  "correct": "so",
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "sentence": "The room is _____ small; there's no space.",
-  "tr": "La sala es tan pequeña; no hay espacio.",
-  "hint": "",
-  "story": "The room is so small; there's no space.",
-  "storyWhy": {
-   "es": "énfasis → so.",
-   "en": "emphasis → so."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "intensifica",
+  "clue": "normal",
   "opts": [
    "really",
-   "quite",
-   "a bit"
+   "absolutely",
+   "utterly"
   ],
   "correct": "really",
   "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
+   "es": "really",
+   "en": "really"
   },
-  "sentence": "It's _____ useful; I use it daily.",
-  "tr": "Es muy útil; lo uso a diario.",
-  "hint": "",
-  "story": "It's really useful; I use it daily.",
+  "sentence": "The queue at the bank was _____ long.",
+  "tr": "La cola del banco era realmente larga.",
+  "hint": "Adjetivo normal (acepta grados): ¿qué intensificador natural lo sube sin sonar raro? 📖 La regla completa aparece al responder.",
+  "story": "\"She sat down and waited for a clerk to call her.\"",
   "storyWhy": {
-   "es": "mucha intensidad → really.",
-   "en": "strong intensity → really."
+   "es": "“Long” es normal: acepta really/very.",
+   "en": "“Long” is normal: takes really/very."
   },
   "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   },
   "es": {
    "es": "",
@@ -353,28 +249,28 @@ const QS = [
   }
  },
  {
-  "clue": "atenúa",
+  "clue": "suave",
   "opts": [
    "a bit",
-   "very",
-   "so"
+   "absolutely",
+   "utterly"
   ],
   "correct": "a bit",
   "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
+   "es": "a bit",
+   "en": "a bit"
   },
-  "sentence": "I'm _____ tired, just a little.",
-  "tr": "Estoy un poco cansado, solo un poco.",
-  "hint": "",
-  "story": "I'm a bit tired, just a little.",
+  "sentence": "Sofía felt _____ nervous — it was her first time.",
+  "tr": "Sofía se sentía un poco nerviosa: era su primera vez.",
+  "hint": "El hablante SUAVIZA el adjetivo (no quiere sonar fuerte): ¿qué expresión baja el tono? 📖 La regla completa aparece al responder.",
+  "story": "\"She was a little nervous because everything felt new and complex.\"",
   "storyWhy": {
-   "es": "grado leve → a bit.",
-   "en": "slight degree → a bit."
+   "es": "La story la describe suave: mitigador.",
+   "en": "The story describes it softly: mitigator."
   },
   "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   },
   "es": {
    "es": "",
@@ -386,28 +282,28 @@ const QS = [
   }
  },
  {
-  "clue": "intensifica",
+  "clue": "extremo",
   "opts": [
+   "absolutely",
    "very",
-   "quite",
-   "a bit"
+   "fairly"
   ],
-  "correct": "very",
+  "correct": "absolutely",
   "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
+   "es": "absolutely",
+   "en": "absolutely"
   },
-  "sentence": "The coffee is _____ hot; be careful.",
-  "tr": "El café está muy caliente; ten cuidado.",
-  "hint": "",
-  "story": "The coffee is very hot; be careful.",
+  "sentence": "The fraud call left Carlos _____ furious.",
+  "tr": "La llamada del fraude dejó a Carlos absolutamente furioso.",
+  "hint": "¿El adjetivo ya es extremo por sí solo? Los extremos no aceptan “muy”: piden un intensificador total. 📖 La regla completa aparece al responder.",
+  "story": "\"His heart started to beat a little faster at that moment.\"",
   "storyWhy": {
-   "es": "mucha intensidad → very.",
-   "en": "strong intensity → very."
+   "es": "“Furious” es extremo (más que angry).",
+   "en": "“Furious” is extreme (beyond angry)."
   },
   "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   },
   "es": {
    "es": "",
@@ -419,259 +315,358 @@ const QS = [
   }
  },
  {
-  "clue": "exceso",
-  "opts": [
-   "too",
-   "very",
-   "quite"
-  ],
-  "correct": "too",
-  "reinf": {
-   "es": "exceso",
-   "en": "exceso"
-  },
-  "sentence": "It's _____ late to call now.",
-  "tr": "Es demasiado tarde para llamar ahora.",
-  "hint": "",
-  "story": "It's too late to call now.",
-  "storyWhy": {
-   "es": "exceso (no se puede) → too.",
-   "en": "excess (can't) → too."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "atenúa",
-  "opts": [
-   "fairly",
-   "too",
-   "so"
-  ],
-  "correct": "fairly",
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "sentence": "The test was _____ easy; I almost finished.",
-  "tr": "El examen fue bastante fácil; casi termino.",
-  "hint": "",
-  "story": "The test was fairly easy; I almost finished.",
-  "storyWhy": {
-   "es": "grado moderado → fairly.",
-   "en": "moderate degree → fairly."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "intensifica",
-  "opts": [
-   "very",
-   "too",
-   "a bit"
-  ],
-  "correct": "very",
-  "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
-  },
-  "sentence": "They were _____ happy with the result.",
-  "tr": "Estaban muy felices con el resultado.",
-  "hint": "",
-  "story": "They were very happy with the result.",
-  "storyWhy": {
-   "es": "mucha intensidad → very.",
-   "en": "strong intensity → very."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "atenúa",
-  "opts": [
-   "slightly",
-   "very",
-   "so"
-  ],
-  "correct": "slightly",
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "sentence": "I'm _____ confused, only slightly.",
-  "tr": "Estoy un poco confundido, solo levemente.",
-  "hint": "",
-  "story": "I'm slightly confused, only slightly.",
-  "storyWhy": {
-   "es": "grado muy leve → slightly.",
-   "en": "very slight degree → slightly."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "exceso",
-  "opts": [
-   "too",
-   "very",
-   "quite"
-  ],
-  "correct": "too",
-  "reinf": {
-   "es": "exceso",
-   "en": "exceso"
-  },
-  "sentence": "The box is _____ heavy to lift alone.",
-  "tr": "La caja es demasiado pesada para levantarla solo.",
-  "hint": "",
-  "story": "The box is too heavy to lift alone.",
-  "storyWhy": {
-   "es": "exceso (no se puede) → too.",
-   "en": "excess (can't) → too."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "atenúa",
-  "opts": [
-   "rather",
-   "too",
-   "so"
-  ],
-  "correct": "rather",
-  "reinf": {
-   "es": "atenúa",
-   "en": "atenúa"
-  },
-  "sentence": "It's _____ expensive, a bit pricey.",
-  "tr": "Es algo caro, un poco costoso.",
-  "hint": "",
-  "story": "It's rather expensive, a bit pricey.",
-  "storyWhy": {
-   "es": "grado moderado → rather.",
-   "en": "moderate degree → rather."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "exceso",
-  "opts": [
-   "too",
-   "quite",
-   "a bit"
-  ],
-  "correct": "too",
-  "reinf": {
-   "es": "exceso",
-   "en": "exceso"
-  },
-  "sentence": "The music is _____ loud; turn it down.",
-  "tr": "La música está demasiado fuerte; bájala.",
-  "hint": "",
-  "story": "The music is too loud; turn it down.",
-  "storyWhy": {
-   "es": "exceso (molesta) → too.",
-   "en": "excess (bothers) → too."
-  },
-  "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "intensifica",
+  "clue": "normal",
   "opts": [
    "really",
-   "quite",
-   "a bit"
+   "utterly",
+   "absolutely"
   ],
   "correct": "really",
   "reinf": {
-   "es": "intensifica",
-   "en": "intensifica"
+   "es": "really",
+   "en": "really"
   },
-  "sentence": "She's _____ kind; everyone loves her.",
-  "tr": "Es muy amable; todos la quieren.",
-  "hint": "",
-  "story": "She's really kind; everyone loves her.",
+  "sentence": "The banking app is _____ easy to use.",
+  "tr": "La aplicación del banco es realmente fácil de usar.",
+  "hint": "Adjetivo normal (acepta grados): ¿qué intensificador natural lo sube sin sonar raro? 📖 La regla completa aparece al responder.",
+  "story": "\"A small green app appeared on her screen in a few seconds.\"",
   "storyWhy": {
-   "es": "mucha intensidad → really.",
-   "en": "strong intensity → really."
+   "es": "“Easy” es normal: really/very.",
+   "en": "“Easy” is normal."
   },
   "rule": {
-   "es": "very/really/so (intensifican) · too (exceso) · quite/fairly/a bit (atenúan).",
-   "en": "very/really/so (intensify) · too (excess) · quite/fairly/a bit (soften)."
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "extremo",
+  "opts": [
+   "absolutely",
+   "very",
+   "a little"
+  ],
+  "correct": "absolutely",
+  "reinf": {
+   "es": "absolutely",
+   "en": "absolutely"
+  },
+  "sentence": "The office was _____ freezing that morning.",
+  "tr": "La oficina estaba absolutamente helada esa mañana.",
+  "hint": "¿El adjetivo ya es extremo por sí solo? Los extremos no aceptan “muy”: piden un intensificador total. 📖 La regla completa aparece al responder.",
+  "story": "\"One cold morning, she walked to the bank office near the main park.\"",
+  "storyWhy": {
+   "es": "“Freezing” ya significa heladísimo: ✗ very freezing.",
+   "en": "“Freezing” already means extremely cold."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "suave",
+  "opts": [
+   "quite",
+   "absolutely",
+   "utterly"
+  ],
+  "correct": "quite",
+  "reinf": {
+   "es": "quite",
+   "en": "quite"
+  },
+  "sentence": "The statement was _____ confusing at first.",
+  "tr": "El estado de cuenta era algo confuso al principio.",
+  "hint": "El hablante SUAVIZA el adjetivo (no quiere sonar fuerte): ¿qué expresión baja el tono? 📖 La regla completa aparece al responder.",
+  "story": "\"he found something truly strange on the second page\"",
+  "storyWhy": {
+   "es": "Suaviza: confuso “en cierto grado”.",
+   "en": "Softens: confusing “to a degree”."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "suave",
+  "opts": [
+   "quite",
+   "absolutely",
+   "utterly"
+  ],
+  "correct": "quite",
+  "reinf": {
+   "es": "quite",
+   "en": "quite"
+  },
+  "sentence": "Her savings grew _____ slowly at the beginning.",
+  "tr": "Sus ahorros crecían bastante lento al principio.",
+  "hint": "El hablante SUAVIZA el adjetivo (no quiere sonar fuerte): ¿qué expresión baja el tono? 📖 La regla completa aparece al responder.",
+  "story": "\"her bank balance was always low by the end\"",
+  "storyWhy": {
+   "es": "Mitigador con adverbio normal.",
+   "en": "Mitigator with a normal adverb."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "extremo",
+  "opts": [
+   "absolutely",
+   "very",
+   "slightly"
+  ],
+  "correct": "absolutely",
+  "reinf": {
+   "es": "absolutely",
+   "en": "absolutely"
+  },
+  "sentence": "Losing a wallet is _____ terrifying.",
+  "tr": "Perder la billetera es absolutamente aterrador.",
+  "hint": "¿El adjetivo ya es extremo por sí solo? Los extremos no aceptan “muy”: piden un intensificador total. 📖 La regla completa aparece al responder.",
+  "story": "\"The small leather wallet was simply not in any of his pockets.\"",
+  "storyWhy": {
+   "es": "“Terrifying” es extremo.",
+   "en": "“Terrifying” is extreme."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "normal",
+  "opts": [
+   "very",
+   "absolutely",
+   "utterly"
+  ],
+  "correct": "very",
+  "reinf": {
+   "es": "very",
+   "en": "very"
+  },
+  "sentence": "The clerk was _____ patient with her questions.",
+  "tr": "La empleada fue muy paciente con sus preguntas.",
+  "hint": "Adjetivo normal (acepta grados): ¿qué intensificador natural lo sube sin sonar raro? 📖 La regla completa aparece al responder.",
+  "story": "\"the clerk answered without making her feel slow\"",
+  "storyWhy": {
+   "es": "“Patient” es normal: very.",
+   "en": "“Patient” is normal: very."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "suave",
+  "opts": [
+   "a bit",
+   "absolutely",
+   "utterly"
+  ],
+  "correct": "a bit",
+  "reinf": {
+   "es": "a bit",
+   "en": "a bit"
+  },
+  "sentence": "The fee seemed _____ high for one download.",
+  "tr": "El cargo parecía un poco alto para una sola descarga.",
+  "hint": "El hablante SUAVIZA el adjetivo (no quiere sonar fuerte): ¿qué expresión baja el tono? 📖 La regla completa aparece al responder.",
+  "story": "\"The total is over four hundred soles. That is a lot of money for me.\"",
+  "storyWhy": {
+   "es": "Reclamo cortés: se suaviza.",
+   "en": "Polite complaint: softened."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "extremo",
+  "opts": [
+   "absolutely",
+   "very",
+   "fairly"
+  ],
+  "correct": "absolutely",
+  "reinf": {
+   "es": "absolutely",
+   "en": "absolutely"
+  },
+  "sentence": "The new security system is _____ impossible to trick.",
+  "tr": "El nuevo sistema de seguridad es absolutamente imposible de engañar.",
+  "hint": "¿El adjetivo ya es extremo por sí solo? Los extremos no aceptan “muy”: piden un intensificador total. 📖 La regla completa aparece al responder.",
+  "story": "\"He entered his ID number, his date of birth, and a one-time code.\"",
+  "storyWhy": {
+   "es": "“Impossible” es extremo: no hay “muy imposible”.",
+   "en": "“Impossible” is extreme."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "extremo",
+  "opts": [
+   "absolutely",
+   "slightly",
+   "fairly"
+  ],
+  "correct": "absolutely",
+  "reinf": {
+   "es": "absolutely",
+   "en": "absolutely"
+  },
+  "sentence": "Diana was _____ shocked by the total.",
+  "tr": "Diana quedó absolutamente impactada por el total.",
+  "hint": "¿El adjetivo ya es extremo por sí solo? Los extremos no aceptan “muy”: piden un intensificador total. 📖 La regla completa aparece al responder.",
+  "story": "\"The real surprise was how much she spent on small daily purchases.\"",
+  "storyWhy": {
+   "es": "“Shocked” funciona como extremo: total.",
+   "en": "“Shocked” works as extreme."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "suave",
+  "opts": [
+   "quite",
+   "absolutely",
+   "utterly"
+  ],
+  "correct": "quite",
+  "reinf": {
+   "es": "quite",
+   "en": "quite"
+  },
+  "sentence": "The interest rate was _____ low that year.",
+  "tr": "La tasa de interés estaba bastante baja ese año.",
+  "hint": "El hablante SUAVIZA el adjetivo (no quiere sonar fuerte): ¿qué expresión baja el tono? 📖 La regla completa aparece al responder.",
+  "story": null,
+  "storyWhy": {
+   "es": "Grado medio: mitigador.",
+   "en": "Middle degree: mitigator."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "normal",
+  "opts": [
+   "really",
+   "utterly",
+   "absolutely"
+  ],
+  "correct": "really",
+  "reinf": {
+   "es": "really",
+   "en": "really"
+  },
+  "sentence": "Online banking makes payments _____ simple.",
+  "tr": "La banca en línea hace los pagos realmente simples.",
+  "hint": "Adjetivo normal (acepta grados): ¿qué intensificador natural lo sube sin sonar raro? 📖 La regla completa aparece al responder.",
+  "story": "\"She could now check her balance, pay bills, and move money quickly.\"",
+  "storyWhy": {
+   "es": "“Simple” es normal: really.",
+   "en": "“Simple” is normal."
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
   },
   "es": {
    "es": "",
@@ -687,7 +682,7 @@ const QS = [
 /* ════════ FIN DE LO EDITABLE — debajo es el motor (no necesitas tocarlo) ════════ */
 
 const T = {
-  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
+  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Pista</b> o <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
        lswLab:'Instrucciones y ayuda', qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
        fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📝 Oración completa', bSig:'🔍 La señal', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Traducción: literal vs natural', sigTxt:'te indica la preposición.',
        prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉', unlock:'🔓 ¡Desbloqueaste la siguiente actividad!', pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas 75% para aprobar. ¡Inténtalo de nuevo!', hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota',
@@ -696,7 +691,7 @@ const T = {
        supp:n=>n+' pregunta'+(n>1?'s':'')+' con apoyo de traducción (no baja tu nota; tu teacher lo verá).',
        rFormH:'⚠ Reportar un error en esta pregunta', rOpts:['La respuesta correcta parece equivocada','Hay un error de tipeo / ortografía','La traducción no coincide','La pista confunde','La oración no concuerda con la historia','Otro'],
        rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> elige la opción correcta del hueco.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Translation</b> below the sentence. Each answer explains why.',
+  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Hint</b> or <b>Translation</b> below the sentence. Each answer explains why.',
        lswLab:'Instructions & help', qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
        fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📝 Full sentence', bSig:'🔍 The clue', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Translation: literal vs natural', sigTxt:'tells you the preposition.',
        prev:'← Back', next:'Next →', seeRes:'See results 🎉', unlock:'🔓 You unlocked the next activity!', pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need 75% to pass. Try again!', hits:'Correct', time:'Time', timeNote:'does not affect your grade',
@@ -718,8 +713,8 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
   return `<div class="qcard${i!==0?' hidden':''}" id="q${i}">
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <p class="qtext">${sentence}</p>
-    <div class="support">${q.hint?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
-    ${q.hint?`<div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>
     <div class="reveal trbox" id="trb${i}"><span class="lab">${t.trLab}</span>${q.tr}</div>
     <div class="opts" id="op${i}">${shuf.map(o=>`<button class="opt" onclick="pick(${i},this)">${o}</button>`).join('')}</div>
     <div class="fb" id="fb${i}"></div>
@@ -730,7 +725,7 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
 }
 function render(){ document.getElementById('qbox').innerHTML=QS.map(buildQ).join(''); document.getElementById('tot').textContent=QS.length; }
 function reveal(i,which){ startTimer();
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); QS[i]._tr=true; } } }
 function feedbackHTML(i){ const q=QS[i], t=T[lang], ok=picked[i]===q.correct;
   let b=`<div class="fblk story"><b>${t.bStory}</b><span class="qquote">${q.story}</span><br>${q.storyWhy[lang]}</div>`;

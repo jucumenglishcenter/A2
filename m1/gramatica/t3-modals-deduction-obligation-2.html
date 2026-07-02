@@ -225,13 +225,15 @@ const STEPS = [
         ${ii('🧭','<b>Tip 1 — Ubícalo en la escala:</b> ¿hay una regla en contra? mustn\'t. ¿es obligatorio? must/have to. ¿es buen consejo? should. ¿es opcional? don\'t have to.')}
         ${ii('🔁','<b>Tip 2 — Las dos negativas:</b> mustn\'t = prohibido · don\'t have to = no necesario. NO son lo mismo.')}
         ${ii('👤','<b>Tip 3 — have to cambia, los modales no:</b> he <b>has to</b> · he <b>should</b> · he <b>must</b>.')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «You don\'t must come» → ✅ «You <b>don\'t have to</b> come» (must no tiene «don\'t»; usa have to).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «You don\'t must come» → ✅ «You <b>don\'t have to</b> come» (must no tiene «don\'t»; usa have to).</p></div>
+        ${ii('⚡','must not ≠ do not have to: prohibido vs. no es necesario.')}`,
       en:`<div class="gdesc">The full spectrum, from the strongest rule to total freedom:</div>
         <div class="fbox"><div class="frm"><span class="pill o">mustn\'t</span><span class="plus">🚫</span><span class="pill s">must/have to</span><span class="plus">🔴</span><span class="pill v">should</span><span class="plus">🟡</span><span class="pill p">don\'t have to</span><span class="plus">🟢</span></div><div class="fex">forbidden · mandatory · advised · free</div></div>
         ${ii('🧭','<b>Tip 1 — Place it on the scale:</b> a rule against it? mustn\'t. mandatory? must/have to. good advice? should. optional? don\'t have to.')}
         ${ii('🔁','<b>Tip 2 — The two negatives:</b> mustn\'t = forbidden · don\'t have to = not necessary. NOT the same.')}
         ${ii('👤','<b>Tip 3 — have to changes, modals don\'t:</b> he <b>has to</b> · he <b>should</b> · he <b>must</b>.')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «You don\'t must come» → ✅ «You <b>don\'t have to</b> come» (must has no «don\'t»; use have to).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «You don\'t must come» → ✅ «You <b>don\'t have to</b> come» (must has no «don\'t»; use have to).</p></div>
+        ${ii('⚡','must not ≠ do not have to: forbidden vs. not necessary.')}`
     },
     checks:[
       { q:{es:'«It\'s a good idea: you ___ see a doctor.» (consejo):',en:'«It\'s a good idea: you ___ see a doctor.» (advice):'}, opts:{es:['should','must'],en:['should','must']}, correct:0, fb:{ why:{es:'Recomendación → should.',en:'Recommendation → should.'}, ex:{es:'should see → deberías ver',en:'should see'}, tip:{es:'consejo → should',en:'advice → should'}}, tr:{es:'Es buena idea: deberías ver a un doctor.',en:'It\'s a good idea: you should see a doctor.'} },

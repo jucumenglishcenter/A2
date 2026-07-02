@@ -221,13 +221,15 @@ const STEPS = [
         ${ii('1️⃣','<b>Tip 1 — Elige la apertura:</b> Could you tell me… / Do you know… / I wonder…')}
         ${ii('2️⃣','<b>Tip 2 — Quita la inversión y el «do»:</b> «Where does she live?» → «… where she <b>lives</b>».')}
         ${ii('3️⃣','<b>Tip 3 — ¿Es de sí/no?</b> mete «if»: «Is it far?» → «Do you know <b>if</b> it is far?».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «Do you know where is the bank?» → ✅ «Do you know where the bank <b>is</b>?» (sujeto antes del verbo).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «Do you know where is the bank?» → ✅ «Do you know where the bank <b>is</b>?» (sujeto antes del verbo).</p></div>
+        ${ii('⚡','Dentro de la pregunta indirecta NO hay inversión: ✗ «where is the bank» → ✓ «where the bank is».')}`,
       en:`<div class="gdesc">The recipe to turn any direct question into an indirect one:</div>
         <div class="fbox"><div class="frm"><span class="pill s">Polite opener</span><span class="plus">+</span><span class="pill v">question word / if</span><span class="plus">+</span><span class="pill o">subject + verb</span></div><div class="fex">Could you tell me <span class="v">where</span> <span class="o">the station is</span>?</div></div>
         ${ii('1️⃣','<b>Tip 1 — Pick the opener:</b> Could you tell me… / Do you know… / I wonder…')}
         ${ii('2️⃣','<b>Tip 2 — Drop the inversion and the «do»:</b> «Where does she live?» → «… where she <b>lives</b>».')}
         ${ii('3️⃣','<b>Tip 3 — Is it yes/no?</b> add «if»: «Is it far?» → «Do you know <b>if</b> it is far?».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «Do you know where is the bank?» → ✅ «Do you know where the bank <b>is</b>?» (subject before the verb).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «Do you know where is the bank?» → ✅ «Do you know where the bank <b>is</b>?» (subject before the verb).</p></div>
+        ${ii('⚡','No inversion inside the indirect question: ✗ «where is the bank» → ✓ «where the bank is».')}`
     },
     checks:[
       { q:{es:'«Where is the station?» → indirecta:',en:'«Where is the station?» → indirect:'}, opts:{es:['Could you tell me where the station is?','Could you tell me where is the station?'],en:['Could you tell me where the station is?','Could you tell me where is the station?']}, correct:0, fb:{ why:{es:'Sin inversión: «the station is».',en:'No inversion: «the station is».'}, ex:{es:'where the station is → dónde está la estación',en:'where the station is'}, tip:{es:'S + V',en:'S + V'}}, tr:{es:'¿Me puede decir dónde está la estación?',en:'Could you tell me where the station is?'} },

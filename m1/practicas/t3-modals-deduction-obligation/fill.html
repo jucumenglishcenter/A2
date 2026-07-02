@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fill in · Modals Deduction & Obligation · JUCUM English Center</title>
+<title>Fill in · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -179,49 +179,11 @@
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║  EDITA AQUÍ · METADATOS DEL MATERIAL                                   ║
    ╚══════════════════════════════════════════════════════════════════════╝ */
-const MAT = {
-  title:'Fill in the Blanks',
-  subtitle:"A2 · Módulo 1 · Modals Deduction & Obligation",
-  langDefault:'es',
-  reportId:"A2_M1_t3-fill"
-};
-const PASS = 75;
+const MAT = {"title":"Fill in the Blanks","subtitle":"A2 · Módulo 1 · Modals: Deduction & Obligation","langDefault":"es","reportId":"A2_M1_t3-fill"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "deducción (seguro)",
-  "opts": [
-   "must",
-   "can't",
-   "might"
-  ],
-  "correct": "must",
-  "reinf": {
-   "es": "deducción (seguro)",
-   "en": "deducción (seguro)"
-  },
-  "sentence": "She _____ be tired; she worked all day.",
-  "tr": "Debe de estar cansada; trabajó todo el día.",
-  "hint": "",
-  "story": "She must be tired; she worked all day.",
-  "storyWhy": {
-   "es": "evidencia fuerte → must.",
-   "en": "strong evidence → must."
-  },
-  "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "deducción (imposible)",
+  "clue": "ded-imposible",
   "opts": [
    "can't",
    "must",
@@ -229,20 +191,20 @@ const QS = [
   ],
   "correct": "can't",
   "reinf": {
-   "es": "deducción (imposible)",
-   "en": "deducción (imposible)"
+   "es": "can't",
+   "en": "can't"
   },
-  "sentence": "That _____ be true; it's impossible.",
-  "tr": "Eso no puede ser verdad; es imposible.",
-  "hint": "",
-  "story": "That can't be true; it's impossible.",
+  "sentence": "The lights are off. He _____ be home yet.",
+  "tr": "Las luces están apagadas. No puede estar en casa todavía.",
+  "hint": "La evidencia hace la conclusión IMPOSIBLE: ¿qué modal la niega? 📖 La regla completa aparece al responder.",
+  "story": null,
   "storyWhy": {
-   "es": "imposible → can't.",
-   "en": "impossible → can't."
+   "es": "Luces apagadas = conclusión imposible.",
+   "en": "Lights off = impossible conclusion."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -254,7 +216,40 @@ const QS = [
   }
  },
  {
-  "clue": "posibilidad",
+  "clue": "ded-seguro",
+  "opts": [
+   "must",
+   "can't",
+   "should"
+  ],
+  "correct": "must",
+  "reinf": {
+   "es": "must",
+   "en": "must"
+  },
+  "sentence": "She's been on the phone for an hour — it _____ be an important call.",
+  "tr": "Lleva una hora al teléfono: debe de ser una llamada importante.",
+  "hint": "La evidencia hace la conclusión CASI SEGURA: ¿qué modal saca esa conclusión? 📖 La regla completa aparece al responder.",
+  "story": null,
+  "storyWhy": {
+   "es": "Una hora al teléfono = casi seguro.",
+   "en": "An hour on the phone = almost certain."
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "ded-posible",
   "opts": [
    "might",
    "must",
@@ -262,20 +257,20 @@ const QS = [
   ],
   "correct": "might",
   "reinf": {
-   "es": "posibilidad",
-   "en": "posibilidad"
+   "es": "might",
+   "en": "might"
   },
-  "sentence": "He _____ come later; he's not sure.",
-  "tr": "Quizá venga más tarde; no está seguro.",
-  "hint": "",
-  "story": "He might come later; he's not sure.",
+  "sentence": "The package _____ arrive today or tomorrow; the tracking isn't clear.",
+  "tr": "El paquete podría llegar hoy o mañana; el seguimiento no está claro.",
+  "hint": "La evidencia deja la conclusión solo POSIBLE: ¿qué modal expresa esa duda? 📖 La regla completa aparece al responder.",
+  "story": "\"the status had not changed since the day he placed the order\"",
   "storyWhy": {
-   "es": "posibilidad → might.",
-   "en": "possibility → might."
+   "es": "Tracking confuso = solo posible.",
+   "en": "Unclear tracking = only possible."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -287,7 +282,7 @@ const QS = [
   }
  },
  {
-  "clue": "obligación",
+  "clue": "ded-seguro",
   "opts": [
    "must",
    "might",
@@ -295,20 +290,20 @@ const QS = [
   ],
   "correct": "must",
   "reinf": {
-   "es": "obligación",
-   "en": "obligación"
+   "es": "must",
+   "en": "must"
   },
-  "sentence": "You _____ wear a helmet here.",
-  "tr": "Debes usar casco aquí.",
-  "hint": "",
-  "story": "You must wear a helmet here.",
+  "sentence": "He answered right away. He _____ be waiting by the phone.",
+  "tr": "Contestó al instante. Debe de estar esperando junto al teléfono.",
+  "hint": "La evidencia hace la conclusión CASI SEGURA: ¿qué modal saca esa conclusión? 📖 La regla completa aparece al responder.",
+  "story": "\"This time, someone responded within 24 hours.\"",
   "storyWhy": {
-   "es": "obligación fuerte → must.",
-   "en": "strong obligation → must."
+   "es": "Respuesta inmediata = casi seguro.",
+   "en": "Instant reply = almost certain."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -320,160 +315,28 @@ const QS = [
   }
  },
  {
-  "clue": "prohibición",
-  "opts": [
-   "mustn't",
-   "don't have to",
-   "might"
-  ],
-  "correct": "mustn't",
-  "reinf": {
-   "es": "prohibición",
-   "en": "prohibición"
-  },
-  "sentence": "You _____ smoke here; it's forbidden.",
-  "tr": "No debes fumar aquí; está prohibido.",
-  "hint": "",
-  "story": "You mustn't smoke here; it's forbidden.",
-  "storyWhy": {
-   "es": "prohibición → mustn't.",
-   "en": "prohibition → mustn't."
-  },
-  "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "obligación (have to)",
-  "opts": [
-   "have",
-   "must",
-   "can"
-  ],
-  "correct": "have",
-  "reinf": {
-   "es": "obligación (have to)",
-   "en": "obligación (have to)"
-  },
-  "sentence": "We _____ to finish today.",
-  "tr": "Tenemos que terminar hoy.",
-  "hint": "",
-  "story": "We have to finish today.",
-  "storyWhy": {
-   "es": "obligación → have to.",
-   "en": "obligation → have to."
-  },
-  "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "no necesario",
-  "opts": [
-   "don't have to",
-   "mustn't",
-   "must"
-  ],
-  "correct": "don't have to",
-  "reinf": {
-   "es": "no necesario",
-   "en": "no necesario"
-  },
-  "sentence": "You _____ pay now; it's not necessary.",
-  "tr": "No tienes que pagar ahora; no es necesario.",
-  "hint": "",
-  "story": "You don't have to pay now; it's not necessary.",
-  "storyWhy": {
-   "es": "no necesario → don't have to.",
-   "en": "not necessary → don't have to."
-  },
-  "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "deducción (seguro)",
-  "opts": [
-   "must",
-   "can't",
-   "might"
-  ],
-  "correct": "must",
-  "reinf": {
-   "es": "deducción (seguro)",
-   "en": "deducción (seguro)"
-  },
-  "sentence": "They _____ be at home; the lights are on.",
-  "tr": "Deben de estar en casa; las luces están encendidas.",
-  "hint": "",
-  "story": "They must be at home; the lights are on.",
-  "storyWhy": {
-   "es": "evidencia fuerte → must.",
-   "en": "strong evidence → must."
-  },
-  "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "deducción (imposible)",
+  "clue": "ded-imposible",
   "opts": [
    "can't",
    "must",
-   "might"
+   "should"
   ],
   "correct": "can't",
   "reinf": {
-   "es": "deducción (imposible)",
-   "en": "deducción (imposible)"
+   "es": "can't",
+   "en": "can't"
   },
-  "sentence": "She _____ be serious; she's joking.",
-  "tr": "No puede estar hablando en serio; está bromeando.",
-  "hint": "",
-  "story": "She can't be serious; she's joking.",
+  "sentence": "They _____ be at the office; it closed an hour ago.",
+  "tr": "No pueden estar en la oficina; cerró hace una hora.",
+  "hint": "La evidencia hace la conclusión IMPOSIBLE: ¿qué modal la niega? 📖 La regla completa aparece al responder.",
+  "story": null,
   "storyWhy": {
-   "es": "imposible → can't.",
-   "en": "impossible → can't."
+   "es": "Oficina cerrada = imposible.",
+   "en": "Closed office = impossible."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -485,7 +348,7 @@ const QS = [
   }
  },
  {
-  "clue": "posibilidad",
+  "clue": "ded-posible",
   "opts": [
    "might",
    "must",
@@ -493,20 +356,20 @@ const QS = [
   ],
   "correct": "might",
   "reinf": {
-   "es": "posibilidad",
-   "en": "posibilidad"
+   "es": "might",
+   "en": "might"
   },
-  "sentence": "We _____ need help later.",
-  "tr": "Quizá necesitemos ayuda más tarde.",
-  "hint": "",
-  "story": "We might need help later.",
+  "sentence": "The noise _____ be the repair team downstairs — I'm not sure.",
+  "tr": "El ruido podría ser el equipo de reparación abajo — no estoy segura.",
+  "hint": "La evidencia deja la conclusión solo POSIBLE: ¿qué modal expresa esa duda? 📖 La regla completa aparece al responder.",
+  "story": "\"Lucia watched from her window as they set up their equipment\"",
   "storyWhy": {
-   "es": "posibilidad → might.",
-   "en": "possibility → might."
+   "es": "“No estoy segura” = solo posible.",
+   "en": "“Not sure” = only possible."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -518,7 +381,7 @@ const QS = [
   }
  },
  {
-  "clue": "obligación",
+  "clue": "ob-regla",
   "opts": [
    "must",
    "might",
@@ -526,20 +389,20 @@ const QS = [
   ],
   "correct": "must",
   "reinf": {
-   "es": "obligación",
-   "en": "obligación"
+   "es": "must",
+   "en": "must"
   },
-  "sentence": "You _____ sign here, please.",
-  "tr": "Debes firmar aquí, por favor.",
-  "hint": "",
-  "story": "You must sign here, please.",
+  "sentence": "Tenants _____ report leaks immediately.",
+  "tr": "Los inquilinos deben reportar las fugas de inmediato.",
+  "hint": "Es una REGLA dura (no se discute): ¿qué modal la impone? 📖 La regla completa aparece al responder.",
+  "story": "\"the landlord was responsible for maintaining a minimum indoor temperature\"",
   "storyWhy": {
-   "es": "obligación → must.",
-   "en": "obligation → must."
+   "es": "Regla del contrato: obligación dura.",
+   "en": "Lease rule: hard obligation."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -551,28 +414,61 @@ const QS = [
   }
  },
  {
-  "clue": "prohibición",
+  "clue": "ob-consejo",
+  "opts": [
+   "should",
+   "mustn't",
+   "might"
+  ],
+  "correct": "should",
+  "reinf": {
+   "es": "should",
+   "en": "should"
+  },
+  "sentence": "You _____ keep your receipt if you want a refund.",
+  "tr": "Deberías guardar tu comprobante si quieres un reembolso.",
+  "hint": "Es un CONSEJO (buena idea, no obligación): ¿qué modal aconseja? 📖 La regla completa aparece al responder.",
+  "story": "\"He kept a copy of everything he sent.\"",
+  "storyWhy": {
+   "es": "Buena idea (le funcionó a James): consejo.",
+   "en": "Good idea (it worked for James): advice."
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "ob-prohibido",
   "opts": [
    "mustn't",
-   "doesn't have to",
-   "can"
+   "don't have to",
+   "should"
   ],
   "correct": "mustn't",
   "reinf": {
-   "es": "prohibición",
-   "en": "prohibición"
+   "es": "mustn't",
+   "en": "mustn't"
   },
-  "sentence": "He _____ be late again.",
-  "tr": "No debe llegar tarde otra vez.",
-  "hint": "",
-  "story": "He mustn't be late again.",
+  "sentence": "You _____ sign a contract before reading it.",
+  "tr": "No debes firmar un contrato sin leerlo.",
+  "hint": "Está PROHIBIDO (hacerlo trae problemas): ¿qué forma lo prohíbe? 📖 La regla completa aparece al responder.",
+  "story": "\"She glanced at it briefly and clicked accept.\"",
   "storyWhy": {
-   "es": "prohibición → mustn't.",
-   "en": "prohibition → mustn't."
+   "es": "El error de Nadia: esto se prohíbe a uno mismo.",
+   "en": "Nadia’s mistake: this is what you must not do."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -584,61 +480,28 @@ const QS = [
   }
  },
  {
-  "clue": "deducción (seguro)",
-  "opts": [
-   "must",
-   "can't",
-   "might"
-  ],
-  "correct": "must",
-  "reinf": {
-   "es": "deducción (seguro)",
-   "en": "deducción (seguro)"
-  },
-  "sentence": "It _____ be expensive; it's a luxury brand.",
-  "tr": "Debe de ser caro; es una marca de lujo.",
-  "hint": "",
-  "story": "It must be expensive; it's a luxury brand.",
-  "storyWhy": {
-   "es": "evidencia fuerte → must.",
-   "en": "strong evidence → must."
-  },
-  "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "no necesario",
+  "clue": "ob-innecesario",
   "opts": [
    "don't have to",
-   "mustn't",
-   "must"
+   "must",
+   "should"
   ],
   "correct": "don't have to",
   "reinf": {
-   "es": "no necesario",
-   "en": "no necesario"
+   "es": "don't have to",
+   "en": "don't have to"
   },
-  "sentence": "You _____ worry; everything is fine.",
-  "tr": "No tienes que preocuparte; todo está bien.",
-  "hint": "",
-  "story": "You don't have to worry; everything is fine.",
+  "sentence": "Customers _____ pay for damage caused by the company.",
+  "tr": "Los clientes no tienen que pagar los daños causados por la empresa.",
+  "hint": "NO es necesario (pero puedes si quieres): ¿qué expresión lo dice? 📖 La regla completa aparece al responder.",
+  "story": "\"It was a system error on our side.\"",
   "storyWhy": {
-   "es": "no necesario → don't have to.",
-   "en": "not necessary → don't have to."
+   "es": "Si la falla es de la empresa, pagar NO es necesario.",
+   "en": "If the company failed, paying is not necessary."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -650,28 +513,160 @@ const QS = [
   }
  },
  {
-  "clue": "deducción (seguro)",
+  "clue": "ob-externa",
+  "opts": [
+   "have to",
+   "might",
+   "can't"
+  ],
+  "correct": "have to",
+  "reinf": {
+   "es": "have to",
+   "en": "have to"
+  },
+  "sentence": "Employees _____ wear their ID inside the building.",
+  "tr": "Los empleados tienen que llevar su identificación dentro del edificio.",
+  "hint": "La obligación viene de una regla EXTERNA (uniforme, reglamento): ¿qué expresión la carga? 📖 La regla completa aparece al responder.",
+  "story": null,
+  "storyWhy": {
+   "es": "Regla externa del edificio.",
+   "en": "External building rule."
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "ob-innecesario",
+  "opts": [
+   "don't have to",
+   "must",
+   "mustn't"
+  ],
+  "correct": "don't have to",
+  "reinf": {
+   "es": "don't have to",
+   "en": "don't have to"
+  },
+  "sentence": "You _____ call twice; one clear email is enough.",
+  "tr": "No tienes que llamar dos veces; un correo claro basta.",
+  "hint": "NO es necesario (pero puedes si quieres): ¿qué expresión lo dice? 📖 La regla completa aparece al responder.",
+  "story": "\"He wrote a detailed email explaining the full timeline\"",
+  "storyWhy": {
+   "es": "La story lo demuestra: no es necesario insistir por teléfono.",
+   "en": "The story proves it: phoning twice is unnecessary."
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "ob-prohibido",
+  "opts": [
+   "mustn't",
+   "should",
+   "don't have to"
+  ],
+  "correct": "mustn't",
+  "reinf": {
+   "es": "mustn't",
+   "en": "mustn't"
+  },
+  "sentence": "Drivers _____ park in front of the emergency exit.",
+  "tr": "Los conductores no deben estacionar frente a la salida de emergencia.",
+  "hint": "Está PROHIBIDO (hacerlo trae problemas): ¿qué forma lo prohíbe? 📖 La regla completa aparece al responder.",
+  "story": null,
+  "storyWhy": {
+   "es": "Prohibición de seguridad.",
+   "en": "Safety prohibition."
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "ob-consejo",
+  "opts": [
+   "should",
+   "might",
+   "can't"
+  ],
+  "correct": "should",
+  "reinf": {
+   "es": "should",
+   "en": "should"
+  },
+  "sentence": "If the heat fails, you _____ contact management in writing.",
+  "tr": "Si falla la calefacción, deberías contactar a la administración por escrito.",
+  "hint": "Es un CONSEJO (buena idea, no obligación): ¿qué modal aconseja? 📖 La regla completa aparece al responder.",
+  "story": "\"He asked whether the building had a policy\"",
+  "storyWhy": {
+   "es": "El consejo que salvó a Carlos: por escrito.",
+   "en": "The advice that saved Carlos: in writing."
+  },
+  "rule": {
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "ob-regla",
   "opts": [
    "must",
-   "can't",
-   "might"
+   "might",
+   "don't have to"
   ],
   "correct": "must",
   "reinf": {
-   "es": "deducción (seguro)",
-   "en": "deducción (seguro)"
+   "es": "must",
+   "en": "must"
   },
-  "sentence": "They _____ be tired after such a long trip.",
-  "tr": "Deben de estar cansados tras un viaje tan largo.",
-  "hint": "",
-  "story": "They must be tired after such a long trip.",
+  "sentence": "Everyone _____ follow the safety rules during repairs.",
+  "tr": "Todos deben seguir las reglas de seguridad durante las reparaciones.",
+  "hint": "Es una REGLA dura (no se discute): ¿qué modal la impone? 📖 La regla completa aparece al responder.",
+  "story": null,
   "storyWhy": {
-   "es": "evidencia fuerte → must.",
-   "en": "strong evidence → must."
+   "es": "Regla de seguridad: dura.",
+   "en": "Safety rule: hard."
   },
   "rule": {
-   "es": "must/can't/might (deducción) · must/have to/mustn't/don't have to (obligación).",
-   "en": "must/can't/might (deduction) · must/have to/mustn't/don't have to (obligation)."
+   "es": "Deducción: must (casi seguro) · might (posible) · can’t (imposible). Obligación: must / have to (obligatorio) · should (consejo) · mustn’t (prohibido) · don’t have to (no es necesario).",
+   "en": "Deduction: must (almost sure) · might (possible) · can’t (impossible). Obligation: must / have to · should (advice) · mustn’t (forbidden) · don’t have to (not necessary)."
   },
   "es": {
    "es": "",
@@ -687,7 +682,7 @@ const QS = [
 /* ════════ FIN DE LO EDITABLE — debajo es el motor (no necesitas tocarlo) ════════ */
 
 const T = {
-  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
+  es:{ instrT:'Completa el espacio en blanco', instrP:'Lee la oración en inglés. ¿Necesitas ayuda? Toca <b>Pista</b> o <b>Traducción</b> debajo de la oración. Cada respuesta te explica el porqué.',
        lswLab:'Instrucciones y ayuda', qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
        fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📝 Oración completa', bSig:'🔍 La señal', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Traducción: literal vs natural', sigTxt:'te indica la preposición.',
        prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉', unlock:'🔓 ¡Desbloqueaste la siguiente actividad!', pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas 75% para aprobar. ¡Inténtalo de nuevo!', hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota',
@@ -696,7 +691,7 @@ const T = {
        supp:n=>n+' pregunta'+(n>1?'s':'')+' con apoyo de traducción (no baja tu nota; tu teacher lo verá).',
        rFormH:'⚠ Reportar un error en esta pregunta', rOpts:['La respuesta correcta parece equivocada','Hay un error de tipeo / ortografía','La traducción no coincide','La pista confunde','La oración no concuerda con la historia','Otro'],
        rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> elige la opción correcta del hueco.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Translation</b> below the sentence. Each answer explains why.',
+  en:{ instrT:'Fill in the blank', instrP:'Read the English sentence. Need help? Tap <b>Hint</b> or <b>Translation</b> below the sentence. Each answer explains why.',
        lswLab:'Instructions & help', qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
        fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📝 Full sentence', bSig:'🔍 The clue', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Translation: literal vs natural', sigTxt:'tells you the preposition.',
        prev:'← Back', next:'Next →', seeRes:'See results 🎉', unlock:'🔓 You unlocked the next activity!', pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need 75% to pass. Try again!', hits:'Correct', time:'Time', timeNote:'does not affect your grade',
@@ -718,8 +713,8 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
   return `<div class="qcard${i!==0?' hidden':''}" id="q${i}">
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <p class="qtext">${sentence}</p>
-    <div class="support">${q.hint?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
-    ${q.hint?`<div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span>${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span>${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab">${t.hintLab}</span>${q.hint}</div>
     <div class="reveal trbox" id="trb${i}"><span class="lab">${t.trLab}</span>${q.tr}</div>
     <div class="opts" id="op${i}">${shuf.map(o=>`<button class="opt" onclick="pick(${i},this)">${o}</button>`).join('')}</div>
     <div class="fb" id="fb${i}"></div>
@@ -730,7 +725,7 @@ function buildQ(q,i){ const t=T[lang]; const shuf=fyShuffle(q.opts);
 }
 function render(){ document.getElementById('qbox').innerHTML=QS.map(buildQ).join(''); document.getElementById('tot').textContent=QS.length; }
 function reveal(i,which){ startTimer();
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); QS[i]._tr=true; } } }
 function feedbackHTML(i){ const q=QS[i], t=T[lang], ok=picked[i]===q.correct;
   let b=`<div class="fblk story"><b>${t.bStory}</b><span class="qquote">${q.story}</span><br>${q.storyWhy[lang]}</div>`;

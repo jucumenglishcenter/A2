@@ -8,7 +8,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transform · Intensifiers & Mitigators · JUCUM English Center</title>
+<title>Transform · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -124,784 +124,569 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Transform', subtitle:"A2 · Módulo 2 · Intensifiers & Mitigators", langDefault:'es', reportId:"A2_M2_t5-tr" };
-const PASS = 75;
+const MAT = {"title":"Transform","subtitle":"A2 · Módulo 2 · Intensifiers & Mitigators","langDefault":"es","reportId":"A2_M2_t5-tr"};
+const PASS = 85;
 const QS = [
  {
   "reinf": {
-   "es": "very (mucho)",
-   "en": "very (mucho)"
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
   },
   "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "It is cold. (mucho)",
+  "src": "The office was very cold.",
   "answer": [
-   "It",
-   "is",
-   "very",
-   "cold",
+   "The",
+   "office",
+   "was",
+   "absolutely",
+   "freezing",
    "."
   ],
-  "tr": "Hace mucho frío.",
+  "tr": "La oficina estaba absolutamente helada.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
   },
-  "story": null,
+  "story": "\"One cold morning\"",
   "change": {
-   "es": "mucho → <b>very</b> cold.",
-   "en": "mucho → <b>very</b> cold."
+   "es": "Hazlo EXTREMO con <b>freezing</b>.",
+   "en": "Make it EXTREME with <b>freezing</b>."
   },
   "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
   },
   "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
  },
  {
   "reinf": {
-   "es": "quite (un poco)",
-   "en": "quite (un poco)"
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
   },
   "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "She is busy. (un poco)",
-  "answer": [
-   "She",
-   "is",
-   "quite",
-   "busy",
-   "."
-  ],
-  "tr": "Está algo ocupada.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "un poco → <b>quite</b> busy.",
-   "en": "un poco → <b>quite</b> busy."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "too (demasiado)",
-   "en": "too (demasiado)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "He is tired. (demasiado)",
+  "src": "He was very angry.",
   "answer": [
    "He",
-   "is",
-   "too",
-   "tired",
+   "was",
+   "absolutely",
+   "furious",
    "."
   ],
-  "tr": "Está demasiado cansado.",
+  "tr": "Estaba absolutamente furioso.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
   },
   "story": null,
   "change": {
-   "es": "demasiado → <b>too</b> tired.",
-   "en": "demasiado → <b>too</b> tired."
+   "es": "EXTREMO con <b>furious</b>.",
+   "en": "EXTREME with <b>furious</b>."
   },
   "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
   },
   "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
  },
  {
   "reinf": {
-   "es": "so (tan)",
-   "en": "so (tan)"
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
   },
   "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "The room is small. (tan)",
+  "src": "She was very tired.",
+  "answer": [
+   "She",
+   "was",
+   "absolutely",
+   "exhausted",
+   "."
+  ],
+  "tr": "Estaba absolutamente agotada.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "EXTREMO con <b>exhausted</b>.",
+   "en": "EXTREME with <b>exhausted</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The service was very good.",
+  "answer": [
+   "The",
+   "service",
+   "was",
+   "absolutely",
+   "amazing",
+   "."
+  ],
+  "tr": "El servicio fue absolutamente increíble.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": "\"You have been very kind and very clear.\"",
+  "change": {
+   "es": "EXTREMO con <b>amazing</b>.",
+   "en": "EXTREME with <b>amazing</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The task was very hard.",
+  "answer": [
+   "The",
+   "task",
+   "was",
+   "absolutely",
+   "impossible",
+   "."
+  ],
+  "tr": "La tarea era absolutamente imposible.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "EXTREMO con <b>impossible</b>.",
+   "en": "EXTREME with <b>impossible</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The room was very big.",
   "answer": [
    "The",
    "room",
-   "is",
-   "so",
-   "small",
+   "was",
+   "absolutely",
+   "enormous",
    "."
   ],
-  "tr": "La sala es tan pequeña.",
+  "tr": "La sala era absolutamente enorme.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
   },
   "story": null,
   "change": {
-   "es": "tan → <b>so</b> small.",
-   "en": "tan → <b>so</b> small."
+   "es": "EXTREMO con <b>enormous</b>.",
+   "en": "EXTREME with <b>enormous</b>."
   },
   "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
   },
   "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
  },
  {
   "reinf": {
-   "es": "really (de verdad)",
-   "en": "really (de verdad)"
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
   },
   "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "It is useful. (de verdad)",
-  "answer": [
-   "It",
-   "is",
-   "really",
-   "useful",
-   "."
-  ],
-  "tr": "Es realmente útil.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "de verdad → <b>really</b> useful.",
-   "en": "de verdad → <b>really</b> useful."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "very (mucho)",
-   "en": "very (mucho)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "The coffee is hot. (mucho)",
+  "src": "The news was very surprising.",
   "answer": [
    "The",
-   "coffee",
-   "is",
-   "very",
-   "hot",
+   "news",
+   "was",
+   "absolutely",
+   "shocking",
    "."
   ],
-  "tr": "El café está muy caliente.",
+  "tr": "La noticia fue absolutamente impactante.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
   },
-  "story": null,
+  "story": "\"he found something truly strange\"",
   "change": {
-   "es": "mucho → <b>very</b> hot.",
-   "en": "mucho → <b>very</b> hot."
+   "es": "EXTREMO con <b>shocking</b>.",
+   "en": "EXTREME with <b>shocking</b>."
   },
   "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
   },
   "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
  },
  {
   "reinf": {
-   "es": "too (demasiado)",
-   "en": "too (demasiado)"
+   "es": "absolutely + extremo",
+   "en": "absolutely + extremo"
   },
   "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
   },
-  "src": "He is late. (demasiado)",
+  "src": "The queue was very long.",
+  "answer": [
+   "The",
+   "queue",
+   "was",
+   "absolutely",
+   "endless",
+   "."
+  ],
+  "tr": "La cola era absolutamente interminable.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "EXTREMO con <b>endless</b>.",
+   "en": "EXTREME with <b>endless</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a bit · mitigador",
+   "en": "a bit · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The fee is high.",
+  "answer": [
+   "The",
+   "fee",
+   "is",
+   "a",
+   "bit",
+   "high",
+   "."
+  ],
+  "tr": "El cargo es un poco alto.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": "\"That is a lot of money for me.\"",
+  "change": {
+   "es": "Suavízalo con <b>a bit</b>.",
+   "en": "Soften it with <b>a bit</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "quite · mitigador",
+   "en": "quite · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The form is confusing.",
+  "answer": [
+   "The",
+   "form",
+   "is",
+   "quite",
+   "confusing",
+   "."
+  ],
+  "tr": "El formulario es algo confuso.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo con <b>quite</b>.",
+   "en": "Soften it with <b>quite</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a bit · mitigador",
+   "en": "a bit · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "She was nervous.",
+  "answer": [
+   "She",
+   "was",
+   "a",
+   "bit",
+   "nervous",
+   "."
+  ],
+  "tr": "Estaba un poco nerviosa.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": "\"She was a little nervous\"",
+  "change": {
+   "es": "Suavízalo con <b>a bit</b>.",
+   "en": "Soften it with <b>a bit</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "a bit · mitigador",
+   "en": "a bit · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The app is slow today.",
+  "answer": [
+   "The",
+   "app",
+   "is",
+   "a",
+   "bit",
+   "slow",
+   "today",
+   "."
+  ],
+  "tr": "La aplicación está un poco lenta hoy.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo con <b>a bit</b>.",
+   "en": "Soften with <b>a bit</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "quite · mitigador",
+   "en": "quite · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The rate is low.",
+  "answer": [
+   "The",
+   "rate",
+   "is",
+   "quite",
+   "low",
+   "."
+  ],
+  "tr": "La tasa está bastante baja.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo con <b>quite</b>.",
+   "en": "Soften with <b>quite</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "slightly · mitigador",
+   "en": "slightly · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "He was worried.",
   "answer": [
    "He",
-   "is",
-   "too",
+   "was",
+   "slightly",
+   "worried",
+   "."
+  ],
+  "tr": "Estaba ligeramente preocupado.",
+  "hint": {
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
+  },
+  "story": null,
+  "change": {
+   "es": "Suavízalo con <b>slightly</b>.",
+   "en": "Soften with <b>slightly</b>."
+  },
+  "formula": {
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
+  },
+  "rule": {
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
+ },
+ {
+  "reinf": {
+   "es": "slightly · mitigador",
+   "en": "slightly · mitigador"
+  },
+  "task": {
+   "es": "Transforma la oración y <b>ordena las fichas</b>.",
+   "en": "Transform the sentence and <b>order the tiles</b>."
+  },
+  "src": "The report was late.",
+  "answer": [
+   "The",
+   "report",
+   "was",
+   "slightly",
    "late",
    "."
   ],
-  "tr": "Llega demasiado tarde.",
+  "tr": "El informe llegó ligeramente tarde.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Si el adjetivo destino es extremo, “muy” no sirve: usa el intensificador total. Para bajar el tono, elige un mitigador.",
+   "en": "If the target adjective is extreme, “very” fails: use the total intensifier. To lower the tone, pick a mitigator."
   },
   "story": null,
   "change": {
-   "es": "demasiado → <b>too</b> late.",
-   "en": "demasiado → <b>too</b> late."
+   "es": "Suavízalo con <b>slightly</b>.",
+   "en": "Soften with <b>slightly</b>."
   },
   "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
+   "es": "very + normal → absolutely + extremo · adjetivo fuerte → quite / a bit + adjetivo",
+   "en": "very + normal → absolutely + extreme · strong adjective → quite / a bit + adjective"
   },
   "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "really (de verdad)",
-   "en": "really (de verdad)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "She is kind. (de verdad)",
-  "answer": [
-   "She",
-   "is",
-   "really",
-   "kind",
-   "."
-  ],
-  "tr": "Es realmente amable.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "de verdad → <b>really</b> kind.",
-   "en": "de verdad → <b>really</b> kind."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "quite (un poco)",
-   "en": "quite (un poco)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "The test is easy. (un poco)",
-  "answer": [
-   "The",
-   "test",
-   "is",
-   "quite",
-   "easy",
-   "."
-  ],
-  "tr": "El examen es algo fácil.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "un poco → <b>quite</b> easy.",
-   "en": "un poco → <b>quite</b> easy."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "very (mucho)",
-   "en": "very (mucho)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "They are happy. (mucho)",
-  "answer": [
-   "They",
-   "are",
-   "very",
-   "happy",
-   "."
-  ],
-  "tr": "Están muy felices.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "mucho → <b>very</b> happy.",
-   "en": "mucho → <b>very</b> happy."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "is"
-  ]
- },
- {
-  "reinf": {
-   "es": "too (demasiado)",
-   "en": "too (demasiado)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "The box is heavy. (demasiado)",
-  "answer": [
-   "The",
-   "box",
-   "is",
-   "too",
-   "heavy",
-   "."
-  ],
-  "tr": "La caja es demasiado pesada.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "demasiado → <b>too</b> heavy.",
-   "en": "demasiado → <b>too</b> heavy."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "quite (un poco)",
-   "en": "quite (un poco)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "It is expensive. (un poco)",
-  "answer": [
-   "It",
-   "is",
-   "quite",
-   "expensive",
-   "."
-  ],
-  "tr": "Es algo caro.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "un poco → <b>quite</b> expensive.",
-   "en": "un poco → <b>quite</b> expensive."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "so (tan)",
-   "en": "so (tan)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "The music is loud. (tan)",
-  "answer": [
-   "The",
-   "music",
-   "is",
-   "so",
-   "loud",
-   "."
-  ],
-  "tr": "La música está tan fuerte.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "tan → <b>so</b> loud.",
-   "en": "tan → <b>so</b> loud."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "very (mucho)",
-   "en": "very (mucho)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "She is confident. (mucho)",
-  "answer": [
-   "She",
-   "is",
-   "very",
-   "confident",
-   "."
-  ],
-  "tr": "Está muy segura.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "mucho → <b>very</b> confident.",
-   "en": "mucho → <b>very</b> confident."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
- },
- {
-  "reinf": {
-   "es": "quite (un poco)",
-   "en": "quite (un poco)"
-  },
-  "task": {
-   "es": "Transforma <b>graduando</b> el adjetivo (la pista entre paréntesis indica el grado) y ordena las fichas.",
-   "en": "Transform by <b>grading</b> the adjective (the cue in brackets shows the degree) and order the tiles."
-  },
-  "src": "He is quiet. (un poco)",
-  "answer": [
-   "He",
-   "is",
-   "quite",
-   "quiet",
-   "."
-  ],
-  "tr": "Es algo callado.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "change": {
-   "es": "un poco → <b>quite</b> quiet.",
-   "en": "un poco → <b>quite</b> quiet."
-  },
-  "formula": {
-   "es": "sujeto + be + graduador + adjetivo",
-   "en": "subject + be + grader + adjective"
-  },
-  "rule": {
-   "es": "graduador + adjetivo (very cold, quite busy, too late, so small).",
-   "en": "grader + adjective (very cold, quite busy, too late, so small)."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  },
-  "distractors": [
-   "are"
-  ]
+   "es": "very / really + adjetivos normales · absolutely / completely + adjetivos EXTREMOS (freezing, furious, exhausted, impossible…) · quite / a bit / slightly suavizan. ✗ very freezing.",
+   "en": "very / really + normal adjectives · absolutely / completely + EXTREME adjectives · quite / a bit / slightly soften. ✗ very freezing."
+  }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo', check:'Comprobar', trayPh:'Toca las fichas para construir aquí…', original:'Original:',
     fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bAnswer:'✔ Forma correcta', bChange:'🔧 El cambio paso a paso', bForm:'🧩 Estructura', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
@@ -910,7 +695,7 @@ const T = {
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran fichas','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca las fichas en orden para armar la oración.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help', check:'Check', trayPh:'Tap the tiles to build here…', original:'Original:',
     fbOk:'Correct!', fbNo:'Almost — let\'s review', bAnswer:'✔ Correct form', bChange:'🔧 The change, step by step', bForm:'🧩 Structure', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
@@ -934,8 +719,8 @@ function buildTr(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <div class="tprompt"><span class="po">${t.original}</span><span class="src">${it.src}</span></div>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="tray" id="tray${i}" data-ph="${t.trayPh}"></div>
     <div class="bank" id="bank${i}"></div>
@@ -945,16 +730,15 @@ function buildTr(it,i){ const t=T[lang];
     <div class="rdone" id="rd${i}"><div style="font-weight:800;font-size:13px;color:#1B5E20;">${t.rDone}</div><div style="font-size:11.5px;color:#555;margin-top:3px;" id="rcl${i}">${t.rCodeLab}</div><div class="rcode" id="rc${i}" onclick="copyCode(${i})"></div></div>
     <div class="nav"><button class="nb prev" onclick="nav(${i},-1)" ${i===0?'disabled':''}>${t.prev}</button><button class="nb next" id="nx${i}" onclick="nav(${i},1)" disabled>${i===QS.length-1?t.seeRes:t.next}</button></div></div>`;
 }
-function tilesOf(it){ return [...it.answer, ...((it.distractors)||[])]; }
 function initTr(i){ const it=QS[i]; trState[i]={order:[]};
-  trState[i].bankOrder=tilesOf(it).map((w,idx)=>idx).sort(()=>Math.random()-.5);
+  trState[i].bankOrder=[...it.answer].map((w,idx)=>idx).sort(()=>Math.random()-.5);
   renderBank(i); renderTray(i); }
 function renderBank(i){ const it=QS[i], st=trState[i];
-  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${tilesOf(it)[idx]}</button>`).join(''); }
+  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${it.answer[idx]}</button>`).join(''); }
 function renderTray(i){ const it=QS[i], st=trState[i]; const tray=document.getElementById('tray'+i);
-  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${tilesOf(it)[idx]}</button>`).join('');
+  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${it.answer[idx]}</button>`).join('');
   if(!locked[i]) tray.querySelectorAll('.tile').forEach(el=>attachDrag(i,el));
-  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length===0; }
+  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length!==it.answer.length; }
 function placeTile(i,idx){ if(locked[i])return; startTimer(); const st=trState[i]; if(st.order.includes(idx))return; st.order.push(idx); renderBank(i); renderTray(i); }
 function removeTile(i,idx){ if(locked[i])return; const st=trState[i]; st.order=st.order.filter(x=>x!==idx); renderBank(i); renderTray(i); }
 function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])return; e.preventDefault();
@@ -969,7 +753,7 @@ function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])r
     if(!moved){ removeTile(i,+el.dataset.idx); } };
   tray.addEventListener('pointermove',move); document.addEventListener('pointerup',up); }); }
 function checkTr(i){ if(locked[i])return; locked[i]=true; const it=QS[i], st=trState[i];
-  const ok=st.order.map(x=>tilesOf(it)[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
+  const ok=st.order.map(x=>it.answer[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
   if(ok){score++;xpTotal+=XPQ;toast('+'+XPQ+' XP ⭐');} else wrongTags.push(it.reinf[lang]); if(it._tr)usedTr++;
   document.getElementById('chk'+i).style.display='none'; document.querySelectorAll('#tray'+i+' .tile').forEach(x=>x.style.pointerEvents='none');
   renderFb(i,ok,it); document.getElementById('nx'+i).disabled=false; bump(); }
@@ -985,7 +769,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }

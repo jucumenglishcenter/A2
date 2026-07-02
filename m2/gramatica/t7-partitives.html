@@ -217,13 +217,15 @@ const STEPS = [
         ${ii('🥤','<b>Tip 1 — Líquidos:</b> a glass/cup/bottle/can of (water, juice, milk).')}
         ${ii('🍞','<b>Tip 2 — Sólidos:</b> a slice/piece/loaf/bar/sheet of (bread, cake, chocolate, paper).')}
         ${ii('🚫','<b>Tip 3 — Abstractos:</b> a piece of advice/news/information (¡no «an advice»!).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «two breads» → ✅ «two <b>slices/loaves of</b> bread».<br>❌ «an information» → ✅ «a <b>piece of</b> information».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «two breads» → ✅ «two <b>slices/loaves of</b> bread».<br>❌ «an information» → ✅ «a <b>piece of</b> information».</p></div>
+        ${ii('⚡','a piece of + incontable: «a piece of advice / news / furniture».')}`,
       en:`<div class="gdesc">The formula:</div>
         <div class="fbox"><div class="frm"><span class="pill s">a/an</span><span class="plus">+</span><span class="pill v">portion</span><span class="plus">+</span><span class="pill o">of + uncountable</span></div><div class="fex"><span class="s">a</span> <span class="v">cup</span> <span class="o">of coffee</span> — una taza de café</div></div>
         ${ii('🥤','<b>Tip 1 — Liquids:</b> a glass/cup/bottle/can of (water, juice, milk).')}
         ${ii('🍞','<b>Tip 2 — Solids:</b> a slice/piece/loaf/bar/sheet of (bread, cake, chocolate, paper).')}
         ${ii('🚫','<b>Tip 3 — Abstract:</b> a piece of advice/news/information (not «an advice»!).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «two breads» → ✅ «two <b>slices/loaves of</b> bread».<br>❌ «an information» → ✅ «a <b>piece of</b> information».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «two breads» → ✅ «two <b>slices/loaves of</b> bread».<br>❌ «an information» → ✅ «a <b>piece of</b> information».</p></div>
+        ${ii('⚡','a piece of + uncountable: «a piece of advice / news / furniture».')}`
     },
     checks:[
       { q:{es:'«una botella de agua» en inglés:',en:'«una botella de agua» in English:'}, opts:{es:['a bottle of water','a water bottle (otra cosa)'],en:['a bottle of water','a water bottle (different)']}, correct:0, fb:{ why:{es:'a bottle of water = el contenido.',en:'a bottle of water = the content.'}, ex:{es:'a bottle of water → una botella de agua',en:'a bottle of water'}, tip:{es:'a bottle of',en:'a bottle of'}} },

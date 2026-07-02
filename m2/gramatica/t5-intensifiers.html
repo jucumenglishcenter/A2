@@ -219,13 +219,15 @@ const STEPS = [
         ${ii('⬆️','<b>Tip 1 — Subir:</b> very, really, so, extremely, incredibly + adjetivo.')}
         ${ii('⬇️','<b>Tip 2 — Bajar:</b> a bit, a little, slightly, fairly + adjetivo (suele ser negativo).')}
         ${ii('🎯','<b>Tip 3 — Emoción:</b> «so» + adjetivo en exclamaciones: «You\'re so kind!».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I\'m a bit happy» → ✅ «I\'m <b>really</b> happy» (lo positivo no va con «a bit»).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I\'m a bit happy» → ✅ «I\'m <b>really</b> happy» (lo positivo no va con «a bit»).</p></div>
+        ${ii('⚡','very no acompaña adjetivos extremos: ✗ «very freezing» → ✓ «absolutely freezing».')}`,
       en:`<div class="gdesc">The intensity thermometer:</div>
         <div class="fbox"><div class="frm"><span class="pill o">extremely</span><span class="plus">⬆️</span><span class="pill s">very/really</span><span class="plus">·</span><span class="pill v">fairly</span><span class="plus">·</span><span class="pill p">a bit</span><span class="plus">⬇️</span></div><div class="fex">+ adjective (cold, tired, expensive)</div></div>
         ${ii('⬆️','<b>Tip 1 — Raise:</b> very, really, so, extremely, incredibly + adjective.')}
         ${ii('⬇️','<b>Tip 2 — Lower:</b> a bit, a little, slightly, fairly + adjective (usually negative).')}
         ${ii('🎯','<b>Tip 3 — Emotion:</b> «so» + adjective in exclamations: «You\'re so kind!».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I\'m a bit happy» → ✅ «I\'m <b>really</b> happy» (positive doesn\'t go with «a bit»).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I\'m a bit happy» → ✅ «I\'m <b>really</b> happy» (positive doesn\'t go with «a bit»).</p></div>
+        ${ii('⚡','very does not go with extreme adjectives: ✗ «very freezing» → ✓ «absolutely freezing».')}`
     },
     checks:[
       { q:{es:'«The soup is ___ salty.» (un poco):',en:'«The soup is ___ salty.» (a bit):'}, opts:{es:['a bit','very much'],en:['a bit','very much']}, correct:0, fb:{ why:{es:'«salty» negativo → a bit.',en:'«salty» negative → a bit.'}, ex:{es:'a bit salty → un poco salada',en:'a bit salty'}, tip:{es:'negativo → a bit',en:'negative → a bit'}}, tr:{es:'La sopa está un poco salada.',en:'The soup is a bit salty.'} },

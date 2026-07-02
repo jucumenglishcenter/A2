@@ -229,13 +229,15 @@ const STEPS = [
         ${ii('1️⃣','<b>Tip 1 — Mira el verbo de la frase:</b> ¿hay be / can / have / will? Cópialo. ¿solo un verbo normal? usa do/does (presente) o did (pasado).')}
         ${ii('2️⃣','<b>Tip 2 — Voltea el signo:</b> «+» frase → «−» coletilla, y al revés.')}
         ${ii('👤','<b>Tip 3 — Pronombre, no nombre:</b> «Ana is nice, isn\'t <b>she</b>?» (no «isn\'t Ana?»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «You like it, isn\'t it?» → ✅ «You like it, <b>don\'t you?</b>» (copia el verbo «like» y el sujeto «you»).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «You like it, isn\'t it?» → ✅ «You like it, <b>don\'t you?</b>» (copia el verbo «like» y el sujeto «you»).</p></div>
+        ${ii('⚡','Afirmación → tag negativo, negación → tag positivo: «You are Ana, aren’t you?».')}`,
       en:`<div class="gdesc">The 2-step recipe for any tag:</div>
         <div class="fbox"><div class="frm"><span class="pill s">Sentence</span><span class="plus">→ mirror →</span><span class="pill v">opposite auxiliary</span><span class="plus">+</span><span class="pill o">pronoun</span></div><div class="fex">She is here, <span class="v">isn't</span> <span class="o">she</span>?</div></div>
         ${ii('1️⃣','<b>Tip 1 — Look at the sentence verb:</b> is there be / can / have / will? Copy it. Just a plain verb? use do/does (present) or did (past).')}
         ${ii('2️⃣','<b>Tip 2 — Flip the sign:</b> «+» sentence → «−» tag, and vice versa.')}
         ${ii('👤','<b>Tip 3 — Pronoun, not name:</b> «Ana is nice, isn\'t <b>she</b>?» (not «isn\'t Ana?»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «You like it, isn\'t it?» → ✅ «You like it, <b>don\'t you?</b>» (copy the verb «like» and the subject «you»).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «You like it, isn\'t it?» → ✅ «You like it, <b>don\'t you?</b>» (copy the verb «like» and the subject «you»).</p></div>
+        ${ii('⚡','Affirmative → negative tag, negative → positive tag: «You are Ana, aren’t you?».')}`
     },
     checks:[
       { q:{es:'«She is your sister, ___?»',en:'«She is your sister, ___?»'}, opts:{es:['isn\'t she','doesn\'t she'],en:['isn\'t she','doesn\'t she']}, correct:0, fb:{ why:{es:'Verbo «is» → isn\'t she.',en:'Verb «is» → isn\'t she.'}, ex:{es:'isn\'t she?',en:'isn\'t she?'}, tip:{es:'is → isn\'t',en:'is → isn\'t'}}, tr:{es:'Ella es tu hermana, ¿verdad?',en:'She is your sister, isn\'t she?'} },

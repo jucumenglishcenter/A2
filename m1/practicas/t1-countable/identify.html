@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Identification · Countable & How much/many · JUCUM English Center</title>
+<title>Identification · Used to · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
@@ -99,7 +99,7 @@
     <div class="mbody" id="mbody">
       <div class="langsw"><span class="lsw-lab">🌐 <span id="lswLab"></span></span>
         <div class="lsw"><button id="lswEs" class="on" onclick="setLang('es')">Español</button><button id="lswEn" onclick="setLang('en')">English</button></div></div>
-      <div class="instr"><div class="em">🔧</div><div><b id="insT"></b><p id="insP"></p></div></div>
+      <div class="instr"><div class="em">🔎</div><div><b id="insT"></b><p id="insP"></p></div></div>
       <div id="qbox"></div>
     </div>
     <div class="results" id="results">
@@ -121,839 +121,727 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = { title:'Identification', subtitle:"A2 · Módulo 1 · Countable & How much/many", langDefault:'es', reportId:"A2_M1_t1-id" };
-const PASS = 75;
+const MAT = {"title":"Identification","subtitle":"A2 · Módulo 1 · Countable & How much/many","langDefault":"es","reportId":"A2_M1_t1-id"};
+const PASS = 85;
 const QS = [
  {
-  "clue": "much",
-  "target": 2,
+  "clue": "information · incontable",
+  "target": 5,
   "tap": [
-   2,
-   3
+   1,
+   5,
+   8
   ],
   "reinf": {
-   "es": "many→much (incontable)",
-   "en": "many→much (incontable)"
+   "es": "information · incontable",
+   "en": "information · incontable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
+   "es": "Toca el sustantivo que <b>no se puede contar</b>.",
+   "en": "Tap the noun that <b>cannot be counted</b>."
   },
   "words": [
-   "I",
-   "need",
-   "many",
+   "The",
+   "agent",
+   "gave",
+   "Lucia",
+   "clear",
    "information",
    "about",
    "the",
-   "service."
+   "repair."
   ],
-  "tr": "Necesito mucha información sobre el servicio.",
+  "tr": "El agente le dio a Lucia información clara sobre la reparación.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
   },
   "story": null,
   "why": {
-   "es": "«many information» no va: information es incontable, así que se dice <b>much</b> information.",
-   "en": "«many information» is wrong: information is uncountable → <b>much</b> information."
+   "es": "«information» no acepta plural ni “two informations”: se mide, no se cuenta.",
+   "en": "“information” accepts no plural: measured, not counted."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
-  "clue": "many",
-  "target": 1,
+  "clue": "advice · incontable",
+  "target": 3,
+  "tap": [
+   0,
+   3,
+   7
+  ],
+  "reinf": {
+   "es": "advice · incontable",
+   "en": "advice · incontable"
+  },
+  "task": {
+   "es": "Toca el sustantivo que <b>no se puede contar</b>.",
+   "en": "Tap the noun that <b>cannot be counted</b>."
+  },
+  "words": [
+   "James",
+   "asked",
+   "for",
+   "advice",
+   "before",
+   "buying",
+   "the",
+   "model."
+  ],
+  "tr": "James pidió consejo antes de comprar el modelo.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": null,
+  "why": {
+   "es": "«advice» es incontable: “un consejo” = a piece of advice.",
+   "en": "“advice” is uncountable: one = a piece of advice."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "time · incontable",
+  "target": 3,
   "tap": [
    1,
-   2
-  ],
-  "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "How",
-   "much",
-   "tickets",
-   "do",
-   "you",
-   "have?"
-  ],
-  "tr": "¿Cuántos tickets tienes?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "tickets se cuenta, por eso se pregunta <b>How many</b> tickets, no How much.",
-   "en": "tickets are countable, so it's <b>How many</b> tickets, not How much."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "advice",
-  "target": 5,
-  "tap": [
    3,
-   4,
-   5
+   7
   ],
   "reinf": {
-   "es": "incontable sin plural",
-   "en": "incontable sin plural"
+   "es": "time · incontable",
+   "en": "time · incontable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
+   "es": "Toca el sustantivo que <b>no se puede contar</b>.",
+   "en": "Tap the noun that <b>cannot be counted</b>."
   },
   "words": [
-   "She",
-   "gave",
-   "me",
-   "some",
-   "useful",
-   "advices."
+   "The",
+   "workers",
+   "needed",
+   "time",
+   "to",
+   "fix",
+   "the",
+   "pipe."
   ],
-  "tr": "Me dio algunos consejos útiles.",
+  "tr": "Los obreros necesitaban tiempo para arreglar la tubería.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
   },
-  "story": null,
+  "story": {
+   "q": "\"she knew these things took time\"",
+   "es": ""
+  },
   "why": {
-   "es": "advice es incontable y no lleva plural: lo correcto es some useful <b>advice</b>.",
-   "en": "advice is uncountable and takes no plural: some useful <b>advice</b>."
+   "es": "«time» (tiempo en general) se mide: no “two times” en este sentido.",
+   "en": "“time” in general is measured."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
-  "clue": "many",
+  "clue": "water · incontable",
   "target": 2,
   "tap": [
    2,
-   3
+   5,
+   8
   ],
   "reinf": {
-   "es": "much→many (contable)",
-   "en": "much→many (contable)"
+   "es": "water · incontable",
+   "en": "water · incontable"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
+   "es": "Toca el sustantivo que <b>no se puede contar</b>.",
+   "en": "Tap the noun that <b>cannot be counted</b>."
+  },
+  "words": [
+   "There",
+   "was",
+   "water",
+   "on",
+   "the",
+   "floor",
+   "of",
+   "the",
+   "courtyard."
+  ],
+  "tr": "Había agua en el piso del patio.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": {
+   "q": "\"The whole building was without water.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«water» se mide (litros): incontable.",
+   "en": "“water” is measured (liters): uncountable."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "money · incontable",
+  "target": 5,
+  "tap": [
+   0,
+   5,
+   9
+  ],
+  "reinf": {
+   "es": "money · incontable",
+   "en": "money · incontable"
+  },
+  "task": {
+   "es": "Toca el sustantivo que <b>no se puede contar</b>.",
+   "en": "Tap the noun that <b>cannot be counted</b>."
+  },
+  "words": [
+   "Nadia",
+   "pays",
+   "a",
+   "lot",
+   "of",
+   "money",
+   "for",
+   "her",
+   "phone",
+   "plan."
+  ],
+  "tr": "Nadia paga mucho dinero por su plan de teléfono.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": null,
+  "why": {
+   "es": "«money» es incontable; lo contable son las monedas o los soles.",
+   "en": "“money” is uncountable; coins are countable."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "feedback · incontable",
+  "target": 6,
+  "tap": [
+   1,
+   3,
+   6
+  ],
+  "reinf": {
+   "es": "feedback · incontable",
+   "en": "feedback · incontable"
+  },
+  "task": {
+   "es": "Toca el sustantivo que <b>no se puede contar</b>.",
+   "en": "Tap the noun that <b>cannot be counted</b>."
+  },
+  "words": [
+   "The",
+   "manager",
+   "thanked",
+   "Lucia",
+   "for",
+   "the",
+   "feedback."
+  ],
+  "tr": "El gerente le agradeció a Lucia por los comentarios.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": {
+   "q": "\"thanking her for the feedback\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«feedback» no tiene plural: incontable.",
+   "en": "“feedback” has no plural: uncountable."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "emails · contable",
+  "target": 1,
+  "tap": [
+   1,
+   5,
+   6
+  ],
+  "reinf": {
+   "es": "emails · contable",
+   "en": "emails · contable"
+  },
+  "task": {
+   "es": "Toca el sustantivo <b>contable en plural</b>.",
+   "en": "Tap the <b>plural countable</b> noun."
+  },
+  "words": [
+   "Two",
+   "emails",
+   "arrived",
+   "with",
+   "the",
+   "confirmation",
+   "number."
+  ],
+  "tr": "Llegaron dos correos con el número de confirmación.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": null,
+  "why": {
+   "es": "«emails» está en plural y se cuenta: two emails.",
+   "en": "“emails” is plural and counted."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "fees · contable",
+  "target": 4,
+  "tap": [
+   1,
+   4,
+   7
+  ],
+  "reinf": {
+   "es": "fees · contable",
+   "en": "fees · contable"
+  },
+  "task": {
+   "es": "Toca el sustantivo <b>contable en plural</b>.",
+   "en": "Tap the <b>plural countable</b> noun."
+  },
+  "words": [
+   "The",
+   "contract",
+   "listed",
+   "extra",
+   "fees",
+   "at",
+   "the",
+   "bottom."
+  ],
+  "tr": "El contrato listaba cargos extra al final.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": {
+   "q": "\"certain fees listed at the bottom of the document\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«fees» se cuenta: one fee, two fees.",
+   "en": "“fees” is counted: one fee, two fees."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "voices · contable",
+  "target": 1,
+  "tap": [
+   1,
+   4,
+   8
+  ],
+  "reinf": {
+   "es": "voices · contable",
+   "en": "voices · contable"
+  },
+  "task": {
+   "es": "Toca el sustantivo <b>contable en plural</b>.",
+   "en": "Tap the <b>plural countable</b> noun."
+  },
+  "words": [
+   "Their",
+   "voices",
+   "carried",
+   "more",
+   "weight",
+   "than",
+   "one",
+   "single",
+   "message."
+  ],
+  "tr": "Sus voces pesaban más que un solo mensaje.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": {
+   "q": "\"together their voices seemed to carry more weight\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«voices» es plural contable; «weight» se mide.",
+   "en": "“voices” is plural countable; “weight” is measured."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "pipes · contable",
+  "target": 4,
+  "tap": [
+   1,
+   4,
+   7
+  ],
+  "reinf": {
+   "es": "pipes · contable",
+   "en": "pipes · contable"
+  },
+  "task": {
+   "es": "Toca el sustantivo <b>contable en plural</b>.",
+   "en": "Tap the <b>plural countable</b> noun."
+  },
+  "words": [
+   "The",
+   "team",
+   "fixed",
+   "the",
+   "pipes",
+   "before",
+   "the",
+   "weekend."
+  ],
+  "tr": "El equipo arregló las tuberías antes del fin de semana.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": {
+   "q": "\"There was a damaged section of pipe beneath the building\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«pipes» está en plural y se cuenta.",
+   "en": "“pipes” is plural and counted."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "much · cantidad",
+  "target": 2,
+  "tap": [
+   2,
+   3,
+   6
+  ],
+  "reinf": {
+   "es": "much · cantidad",
+   "en": "much · cantidad"
+  },
+  "task": {
+   "es": "Toca la <b>palabra de cantidad</b> de la oración.",
+   "en": "Tap the <b>quantity word</b> in the sentence."
   },
   "words": [
    "There",
    "isn't",
    "much",
-   "problems",
-   "with",
+   "space",
+   "for",
    "the",
-   "wifi."
+   "equipment."
   ],
-  "tr": "No hay muchos problemas con el wifi.",
+  "tr": "No hay mucho espacio para el equipo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
   },
-  "story": null,
+  "story": {
+   "q": "\"they set up their equipment in the courtyard\"",
+   "es": ""
+  },
   "why": {
-   "es": "problems se cuenta, así que se usa <b>many</b> problems (o a lot of), no much.",
-   "en": "problems are countable → <b>many</b> problems (or a lot of), not much."
+   "es": "«much» es la palabra de cantidad y acompaña a un incontable en negativa.",
+   "en": "“much” is the quantity word with an uncountable in a negative."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
-  "clue": "much",
+  "clue": "many · cantidad",
   "target": 1,
   "tap": [
    1,
-   2
+   2,
+   4
   ],
   "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
+   "es": "many · cantidad",
+   "en": "many · cantidad"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
+   "es": "Toca la <b>palabra de cantidad</b> de la oración.",
+   "en": "Tap the <b>quantity word</b> in the sentence."
   },
   "words": [
    "How",
    "many",
-   "water",
-   "do",
-   "we",
-   "need?"
+   "forms",
+   "did",
+   "Carlos",
+   "send?"
   ],
-  "tr": "¿Cuánta agua necesitamos?",
+  "tr": "¿Cuántos formularios envió Carlos?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
   },
   "story": null,
   "why": {
-   "es": "water es incontable: se pregunta <b>How much</b> water, no How many.",
-   "en": "water is uncountable: <b>How much</b> water, not How many."
+   "es": "«many» pregunta cantidad de contables en plural.",
+   "en": "“many” asks the quantity of plural countables."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
-  "clue": "some",
-  "target": 4,
+  "clue": "much · cantidad",
+  "target": 3,
   "tap": [
+   3,
    4,
+   7
+  ],
+  "reinf": {
+   "es": "much · cantidad",
+   "en": "much · cantidad"
+  },
+  "task": {
+   "es": "Toca la <b>palabra de cantidad</b> de la oración.",
+   "en": "Tap the <b>quantity word</b> in the sentence."
+  },
+  "words": [
+   "She",
+   "didn't",
+   "use",
+   "much",
+   "data",
+   "during",
+   "the",
+   "trip."
+  ],
+  "tr": "No usó muchos datos durante el viaje.",
+  "hint": {
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
+  },
+  "story": {
+   "q": "\"There was a large download on the eighth, while you were away from Wi-Fi.\"",
+   "es": ""
+  },
+  "why": {
+   "es": "«much» acompaña a “data” (incontable) en negativa.",
+   "en": "“much” goes with uncountable “data”."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
+  }
+ },
+ {
+  "clue": "many · cantidad",
+  "target": 0,
+  "tap": [
+   0,
+   1,
    5
   ],
   "reinf": {
-   "es": "incontable sin a/an",
-   "en": "incontable sin a/an"
+   "es": "many · cantidad",
+   "en": "many · cantidad"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
+   "es": "Toca la <b>palabra de cantidad</b> de la oración.",
+   "en": "Tap the <b>quantity word</b> in the sentence."
   },
   "words": [
-   "Can",
-   "you",
-   "give",
-   "me",
-   "an",
-   "advice,",
-   "please?"
-  ],
-  "tr": "¿Me puedes dar un consejo, por favor?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "advice no admite a/an; se dice give me <b>some</b> advice (o a piece of advice).",
-   "en": "advice takes no a/an; say give me <b>some</b> advice (or a piece of advice)."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "much",
-  "target": 3,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "many→much (incontable)",
-   "en": "many→much (incontable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "We",
-   "received",
-   "too",
-   "many",
-   "feedback",
-   "yesterday."
-  ],
-  "tr": "Recibimos demasiado feedback ayer.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "feedback es incontable: too <b>much</b> feedback, no too many.",
-   "en": "feedback is uncountable: too <b>much</b> feedback, not too many."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "many",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "How",
-   "much",
-   "people",
-   "work",
-   "here?"
-  ],
-  "tr": "¿Cuántas personas trabajan aquí?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "people es plural contable: se pregunta <b>How many</b> people, no How much.",
-   "en": "people is a countable plural: <b>How many</b> people, not How much."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "much",
-  "target": 3,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "many→much (incontable)",
-   "en": "many→much (incontable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "I",
-   "don't",
-   "have",
-   "many",
-   "money",
-   "for",
-   "that."
-  ],
-  "tr": "No tengo mucho dinero para eso.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "money es incontable: <b>much</b> money (o a lot of), no many.",
-   "en": "money is uncountable: <b>much</b> money (or a lot of), not many."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "information",
-  "target": 4,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "incontable sin plural",
-   "en": "incontable sin plural"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "They",
-   "sent",
-   "me",
-   "two",
-   "informations."
-  ],
-  "tr": "Me enviaron dos datos / informaciones.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "information no se pluraliza: se dice two pieces of <b>information</b>.",
-   "en": "information has no plural: two pieces of <b>information</b>."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "much",
-  "target": 1,
-  "tap": [
-   1,
-   2
-  ],
-  "reinf": {
-   "es": "How much (incontable)",
-   "en": "How much (incontable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "How",
-   "many",
-   "bread",
-   "should",
-   "I",
-   "buy?"
-  ],
-  "tr": "¿Cuánto pan debo comprar?",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "bread es incontable: <b>How much</b> bread, no How many.",
-   "en": "bread is uncountable: <b>How much</b> bread, not How many."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "many",
-  "target": 2,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "much→many (contable)",
-   "en": "much→many (contable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "There",
-   "are",
-   "much",
-   "customers",
-   "waiting."
-  ],
-  "tr": "Hay muchos clientes esperando.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "customers se cuenta: <b>many</b> customers (o a lot of), no much.",
-   "en": "customers are countable: <b>many</b> customers (or a lot of), not much."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "some",
-  "target": 2,
-  "tap": [
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "incontable sin a/an",
-   "en": "incontable sin a/an"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "We",
-   "need",
-   "a",
-   "furniture",
-   "for",
+   "Many",
+   "neighbors",
+   "signed",
    "the",
-   "office."
+   "complaint",
+   "letter."
   ],
-  "tr": "Necesitamos un mueble para la oficina.",
+  "tr": "Muchos vecinos firmaron la carta de reclamo.",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
   },
-  "story": null,
+  "story": {
+   "q": "\"A few neighbors mentioned that they had also complained.\"",
+   "es": ""
+  },
   "why": {
-   "es": "furniture es incontable y no lleva a: se dice <b>some</b> furniture (o a piece of furniture).",
-   "en": "furniture is uncountable, no a: say <b>some</b> furniture (or a piece of furniture)."
+   "es": "«Many» cuantifica un contable plural en afirmativa.",
+   "en": "“Many” quantifies a plural countable."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  },
  {
-  "clue": "many",
+  "clue": "How much · precio",
   "target": 1,
   "tap": [
    1,
-   2
+   5,
+   6
   ],
   "reinf": {
-   "es": "How many (contable)",
-   "en": "How many (contable)"
+   "es": "How much · precio",
+   "en": "How much · precio"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
+   "es": "Toca la <b>palabra de cantidad</b> de la oración.",
+   "en": "Tap the <b>quantity word</b> in the sentence."
   },
   "words": [
    "How",
    "much",
-   "complaints",
-   "did",
-   "they",
-   "make?"
+   "will",
+   "the",
+   "new",
+   "part",
+   "cost?"
   ],
-  "tr": "¿Cuántas quejas hicieron?",
+  "tr": "¿Cuánto costará el repuesto nuevo?",
   "hint": {
-   "es": "",
-   "en": ""
+   "es": "Prueba el truco «two + ___»: solo los contables lo aceptan. Decide primero qué te pide la consigna.",
+   "en": "Try the “two + ___” trick: only countables accept it. First check what the task asks for."
   },
-  "story": null,
+  "story": {
+   "q": "\"Could you offer a credit in the meantime?\"",
+   "es": ""
+  },
   "why": {
-   "es": "complaints se cuenta: <b>How many</b> complaints, no How much.",
-   "en": "complaints are countable: <b>How many</b> complaints, not How much."
+   "es": "«much» pregunta el precio (dinero: incontable).",
+   "en": "“much” asks the price (money: uncountable)."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "much",
-  "target": 3,
-  "tap": [
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "many→much (incontable)",
-   "en": "many→much (incontable)"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe la regla de cantidad).",
-   "en": "Tap the <b>wrong word</b> (the one breaking the quantity rule)."
-  },
-  "words": [
-   "He",
-   "doesn't",
-   "have",
-   "many",
-   "experience",
-   "in",
-   "support."
-  ],
-  "tr": "No tiene mucha experiencia en soporte.",
-  "hint": {
-   "es": "",
-   "en": ""
-  },
-  "story": null,
-  "why": {
-   "es": "experience aquí es incontable: <b>much</b> experience, no many.",
-   "en": "experience here is uncountable: <b>much</b> experience, not many."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Contables → many · How many · plural. Incontables → much · How much · sin plural ni a/an.",
-   "en": "Countables → many · How many · plural. Uncountables → much · How much · no plural, no a/an."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.",
+   "en": "much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."
   }
  }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
 const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Encuentra el error', insP:'Cada oración tiene <b>un error de cantidad</b>. Algunas palabras subrayadas <b>parecen el error pero son correctas</b>: léela completa y toca solo la incorrecta. ¿Dudas? Usa Traducción.',
+  es:{ lswLab:'Instrucciones y ayuda', insT:'Identifica y toca', insP:'Cada oración es <b>correcta</b>. Toca la <b>forma clave</b> del tema. ¿Dudas? Usa Pista o Traducción.',
     qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo',
-    fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔧 El error y su arreglo', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
+    fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bStory:'📖 En la historia', bWhy:'🔍 Por qué esa palabra', bOthers:'❌ Por qué no las otras', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
     prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
     pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas '+PASS+'% para aprobar. ¡Inténtalo de nuevo!',
     hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota', reinf:'📌 A reforzar', xp:'+15 XP por aprobar', xpSub:'Sumaste a tu Liga Semanal. Mantén la racha.', back:'↩ Volver a la plataforma', retry:'🔁 Intentar de nuevo',
     ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
     supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
     rFormH:'⚠ Reportar un error', rOpts:['La respuesta marcada parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','No concuerda con la historia','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca la palabra que cumple la consigna.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Find the error', insP:'Each sentence has <b>one quantity error</b>. Some underlined words <b>look wrong but are correct</b>: read the full sentence and tap only the wrong one. Stuck? Use Translation.',
+  en:{ lswLab:'Instructions & help', insT:'Identify and tap', insP:'Each sentence is <b>correct</b>. Tap the <b>key form</b>. Stuck? Use Hint or Translation.',
     qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help',
-    fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔧 The error & fix', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
+    fbOk:'Correct!', fbNo:'Almost — let\'s review', bStory:'📖 In the story', bWhy:'🔍 Why that word', bOthers:'❌ Why not the others', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
     prev:'← Back', next:'Next →', seeRes:'See results 🎉',
     pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need '+PASS+'% to pass. Try again!',
     hits:'Correct', time:'Time', timeNote:'does not affect your grade', reinf:'📌 To review', xp:'+15 XP for passing', xpSub:'Added to your Weekly League. Keep your streak.', back:'↩ Back to the platform', retry:'🔁 Try again',
@@ -976,8 +864,8 @@ function buildId(it,i){ const t=T[lang];
     <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
     <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
     <p class="sent" id="sent${i}">${ws}</p>
-    <div class="support">${(it.hint&&it.hint[lang])?`<button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button>`:''}<button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    ${(it.hint&&it.hint[lang])?`<div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>`:''}
+    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
     <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
     <div class="fb" id="fb${i}"></div>
     <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
@@ -1001,7 +889,7 @@ function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('f
   const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
   el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
 function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ const hr=document.getElementById('hr'+i); if(!hr) return; hr.classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
+  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
   else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
 function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
 function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }
