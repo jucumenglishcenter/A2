@@ -125,21 +125,20 @@ const MAT = { title:'Identification', subtitle:"A2 · Módulo 1 · Indirect Ques
 const PASS = 85;
 const QS = [
  {
-  "clue": "the station is",
-  "target": 5,
+  "clue": "is",
+  "target": 7,
   "tap": [
-   0,
-   5,
+   2,
    6,
    7
   ],
   "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
+   "es": "is",
+   "en": "is"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
   },
   "words": [
    "Could",
@@ -147,829 +146,655 @@ const QS = [
    "tell",
    "me",
    "where",
-   "is",
    "the",
-   "station?"
+   "office",
+   "is?"
   ],
-  "tr": "¿Podrías decirme dónde está la estación?",
+  "tr": "¿Podría decirme dónde queda la oficina?",
   "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
   },
   "story": null,
   "why": {
-   "es": "dentro de la indirecta no hay inversión: …where the station <b>is</b>.",
-   "en": "no inversion inside the indirect part: …where the station <b>is</b>."
+   "es": "«is» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“is” comes AFTER the subject: statement order inside the clause."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
   }
  },
  {
-  "clue": "the shop opens",
-  "target": 5,
+  "clue": "arrives",
+  "target": 7,
   "tap": [
-   0,
-   5,
-   6
+   2,
+   6,
+   7
   ],
   "reinf": {
-   "es": "sin do/does",
-   "en": "sin do/does"
+   "es": "arrives",
+   "en": "arrives"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
   },
   "words": [
    "Do",
    "you",
    "know",
-   "what",
-   "time",
-   "does",
+   "when",
    "the",
-   "shop",
-   "open?"
+   "repair",
+   "team",
+   "arrives?"
   ],
-  "tr": "¿Sabes a qué hora abre la tienda?",
+  "tr": "¿Sabe cuándo llega el equipo de reparación?",
   "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
   },
   "story": null,
   "why": {
-   "es": "sobra el auxiliar: …what time the shop <b>opens</b>, sin does.",
-   "en": "drop the auxiliary: …what time the shop <b>opens</b>, no does."
+   "es": "«arrives» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“arrives” comes AFTER the subject: statement order inside the clause."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
   }
  },
  {
-  "clue": "I can",
-  "target": 3,
+  "clue": "covers",
+  "target": 6,
   "tap": [
-   0,
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "I",
-   "wonder",
-   "where",
-   "can",
-   "I",
-   "find",
-   "help."
-  ],
-  "tr": "Me pregunto dónde puedo encontrar ayuda.",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "sin inversión tras where: …where <b>I</b> can find help.",
-   "en": "no inversion after where: …where <b>I</b> can find help."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "it is",
-  "target": 5,
-  "tap": [
-   0,
+   1,
    5,
    6
   ],
   "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
+   "es": "covers",
+   "en": "covers"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
   },
   "words": [
-   "Can",
-   "you",
-   "tell",
-   "me",
-   "if",
-   "is",
-   "it",
-   "open?"
+   "I",
+   "wonder",
+   "how",
+   "much",
+   "the",
+   "credit",
+   "covers."
   ],
-  "tr": "¿Puedes decirme si está abierto?",
+  "tr": "Me pregunto cuánto cubre el crédito.",
   "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
   },
   "story": null,
   "why": {
-   "es": "tras if va sujeto + verbo: …if <b>it</b> is open.",
-   "en": "after if use subject + verb: …if <b>it</b> is open."
+   "es": "«covers» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“covers” comes AFTER the subject: statement order inside the clause."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
   }
  },
  {
-  "clue": "I live",
-  "target": 4,
+  "clue": "is",
+  "target": 6,
   "tap": [
-   0,
-   4,
-   5
+   2,
+   5,
+   6
   ],
   "reinf": {
-   "es": "sin do/does",
-   "en": "sin do/does"
+   "es": "is",
+   "en": "is"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "Can",
+   "you",
+   "explain",
+   "why",
+   "the",
+   "bill",
+   "is",
+   "higher?"
+  ],
+  "tr": "¿Puede explicar por qué la boleta está más alta?",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«is» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“is” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "keep",
+  "target": 4,
+  "tap": [
+   1,
+   4,
+   7
+  ],
+  "reinf": {
+   "es": "keep",
+   "en": "keep"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
   },
   "words": [
    "She",
    "asked",
-   "me",
    "where",
-   "do",
-   "I",
-   "live."
-  ],
-  "tr": "Me preguntó dónde vivo.",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "sobra do: …where <b>I</b> live.",
-   "en": "drop do: …where <b>I</b> live."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "this button does",
-  "target": 4,
-  "tap": [
-   0,
-   4,
-   5
-  ],
-  "reinf": {
-   "es": "sin do/does",
-   "en": "sin do/does"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "I",
-   "don't",
-   "know",
-   "what",
-   "does",
-   "this",
-   "button",
-   "do."
-  ],
-  "tr": "No sé qué hace este botón.",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "sin auxiliar extra: …what this button <b>does</b>.",
-   "en": "no extra auxiliary: …what this button <b>does</b>."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "you parked",
-  "target": 4,
-  "tap": [
-   0,
-   4,
-   5
-  ],
-  "reinf": {
-   "es": "sin did",
-   "en": "sin did"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "Do",
-   "you",
-   "remember",
-   "where",
-   "did",
-   "you",
-   "park?"
-  ],
-  "tr": "¿Recuerdas dónde aparcaste?",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "el pasado va en el verbo: …where you <b>parked</b>, sin did.",
-   "en": "past goes on the verb: …where you <b>parked</b>, no did."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "it works",
-  "target": 4,
-  "tap": [
-   0,
-   4,
-   5
-  ],
-  "reinf": {
-   "es": "sin do/does",
-   "en": "sin do/does"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "Could",
-   "you",
-   "explain",
-   "how",
-   "does",
-   "it",
-   "work?"
-  ],
-  "tr": "¿Podrías explicar cómo funciona?",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "sin does: …how it <b>works</b>.",
-   "en": "no does: …how it <b>works</b>."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "the problem is",
-  "target": 4,
-  "tap": [
-   0,
-   4,
-   5
-  ],
-  "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "I'm",
-   "not",
-   "sure",
-   "what",
-   "is",
-   "the",
-   "problem",
-   "is."
-  ],
-  "tr": "No estoy seguro de cuál es el problema.",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "una sola vez el verbo, al final: …what the problem <b>is</b>.",
-   "en": "verb once, at the end: …what the problem <b>is</b>."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "they can",
-  "target": 4,
-  "tap": [
-   0,
-   4,
-   5
-  ],
-  "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "Do",
-   "you",
-   "know",
-   "whether",
-   "can",
    "they",
-   "help?"
-  ],
-  "tr": "¿Sabes si pueden ayudar?",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "tras whether: sujeto + verbo: …whether <b>they</b> can help.",
-   "en": "after whether: subject + verb: …whether <b>they</b> can help."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "the train leaves",
-  "target": 3,
-  "tap": [
-   0,
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "sin do/does",
-   "en": "sin do/does"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "Tell",
-   "me",
-   "when",
-   "does",
+   "keep",
    "the",
-   "train",
-   "leave."
+   "claim",
+   "forms."
   ],
-  "tr": "Dime cuándo sale el tren.",
+  "tr": "Preguntó dónde guardan los formularios de reclamo.",
   "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
   },
   "story": null,
   "why": {
-   "es": "sin does: …when the train <b>leaves</b>.",
-   "en": "no does: …when the train <b>leaves</b>."
+   "es": "«keep» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“keep” comes AFTER the subject: statement order inside the clause."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
   }
  },
  {
-  "clue": "she is",
-  "target": 3,
+  "clue": "works",
+  "target": 7,
   "tap": [
-   0,
-   3,
-   4
-  ],
-  "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "I",
-   "wonder",
-   "why",
-   "is",
-   "she",
-   "late."
-  ],
-  "tr": "Me pregunto por qué llega tarde.",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "sin inversión: …why <b>she</b> is late.",
-   "en": "no inversion: …why <b>she</b> is late."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "it is",
-  "target": 6,
-  "tap": [
-   5,
+   2,
    6,
    7
   ],
   "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
+   "es": "works",
+   "en": "works"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "Do",
+   "you",
+   "know",
+   "if",
+   "the",
+   "outage",
+   "map",
+   "works?"
+  ],
+  "tr": "¿Sabe si funciona el mapa de cortes?",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«works» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“works” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "came",
+  "target": 6,
+  "tap": [
+   1,
+   5,
+   6
+  ],
+  "reinf": {
+   "es": "came",
+   "en": "came"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "He",
+   "asked",
+   "what",
+   "time",
+   "the",
+   "water",
+   "came",
+   "back."
+  ],
+  "tr": "Preguntó a qué hora volvió el agua.",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«came» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“came” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "helps",
+  "target": 7,
+  "tap": [
+   2,
+   6,
+   7
+  ],
+  "reinf": {
+   "es": "helps",
+   "en": "helps"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "Could",
+   "you",
+   "tell",
+   "me",
+   "how",
+   "the",
+   "alert",
+   "helps?"
+  ],
+  "tr": "¿Podría decirme cómo ayuda la alerta?",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«helps» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“helps” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "is",
+  "target": 9,
+  "tap": [
+   4,
+   8,
+   9
+  ],
+  "reinf": {
+   "es": "is",
+   "en": "is"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "I",
+   "would",
+   "like",
+   "to",
+   "know",
+   "where",
+   "the",
+   "notice",
+   "board",
+   "is."
+  ],
+  "tr": "Quisiera saber dónde está el tablero de avisos.",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«is» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“is” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "change",
+  "target": 6,
+  "tap": [
+   2,
+   6,
+   8
+  ],
+  "reinf": {
+   "es": "change",
+   "en": "change"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "Do",
+   "you",
+   "know",
+   "if",
+   "I",
+   "can",
+   "change",
+   "my",
+   "plan?"
+  ],
+  "tr": "¿Sabe si puedo cambiar mi plan?",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«change» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“change” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "updates",
+  "target": 6,
+  "tap": [
+   1,
+   5,
+   6
+  ],
+  "reinf": {
+   "es": "updates",
+   "en": "updates"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "She",
+   "wonders",
+   "how",
+   "the",
+   "tracking",
+   "page",
+   "updates."
+  ],
+  "tr": "Se pregunta cómo se actualiza la página de seguimiento.",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«updates» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“updates” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "is",
+  "target": 7,
+  "tap": [
+   2,
+   6,
+   7
+  ],
+  "reinf": {
+   "es": "is",
+   "en": "is"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
   },
   "words": [
    "Can",
    "you",
    "tell",
    "me",
-   "what",
-   "time",
-   "is",
-   "it?"
+   "who",
+   "the",
+   "supervisor",
+   "is?"
   ],
-  "tr": "¿Puedes decirme qué hora es?",
+  "tr": "¿Puede decirme quién es la supervisora?",
   "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
   },
   "story": null,
   "why": {
-   "es": "dentro de la indirecta: …what time <b>it</b> is.",
-   "en": "inside the indirect part: …what time <b>it</b> is."
+   "es": "«is» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“is” comes AFTER the subject: statement order inside the clause."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
   }
  },
  {
-  "clue": "we agree",
+  "clue": "is",
   "target": 5,
   "tap": [
-   0,
-   5,
-   6
-  ],
-  "reinf": {
-   "es": "sin do/does",
-   "en": "sin do/does"
-  },
-  "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
-  },
-  "words": [
-   "He",
-   "wants",
-   "to",
-   "know",
-   "if",
-   "do",
-   "we",
-   "agree."
-  ],
-  "tr": "Quiere saber si estamos de acuerdo.",
-  "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
-  },
-  "story": null,
-  "why": {
-   "es": "tras if no va do: …if <b>we</b> agree.",
-   "en": "no do after if: …if <b>we</b> agree."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "the forms are",
-  "target": 4,
-  "tap": [
-   0,
+   1,
    4,
    5
   ],
   "reinf": {
-   "es": "sin inversión",
-   "en": "sin inversión"
+   "es": "is",
+   "en": "is"
   },
   "task": {
-   "es": "Toca la <b>palabra incorrecta</b> (la que rompe el orden de la pregunta indirecta).",
-   "en": "Tap the <b>wrong word</b> (the one breaking indirect-question order)."
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "I",
+   "wonder",
+   "whether",
+   "the",
+   "contract",
+   "is",
+   "fair."
+  ],
+  "tr": "Me pregunto si el contrato es justo.",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«is» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“is” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "open",
+  "target": 4,
+  "tap": [
+   1,
+   4,
+   6
+  ],
+  "reinf": {
+   "es": "open",
+   "en": "open"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
+  },
+  "words": [
+   "He",
+   "asked",
+   "when",
+   "they",
+   "open",
+   "on",
+   "Sundays."
+  ],
+  "tr": "Preguntó cuándo abren los domingos.",
+  "hint": {
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
+  },
+  "story": null,
+  "why": {
+   "es": "«open» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“open” comes AFTER the subject: statement order inside the clause."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
+  }
+ },
+ {
+  "clue": "are",
+  "target": 6,
+  "tap": [
+   2,
+   5,
+   6
+  ],
+  "reinf": {
+   "es": "are",
+   "en": "are"
+  },
+  "task": {
+   "es": "Toca el <b>verbo de la parte interna</b> (va en orden de afirmación, no de pregunta).",
+   "en": "Tap the <b>verb of the inner clause</b> (it follows statement order, not question order)."
   },
   "words": [
    "Do",
    "you",
    "know",
    "where",
-   "are",
    "the",
-   "forms?"
+   "heaters",
+   "are?"
   ],
-  "tr": "¿Sabes dónde están los formularios?",
+  "tr": "¿Sabe dónde están los calentadores?",
   "hint": {
-   "es": "Lee la frase completa y ubica la parte interna que va en orden de afirmación, no de pregunta.",
-   "en": "Read the full sentence and find the inner part that follows statement order, not question order."
+   "es": "Dentro de la frase cortés ya no hay pregunta: el verbo vuelve a su lugar de afirmación.",
+   "en": "Inside the polite frame there is no question left: the verb returns to statement position."
   },
   "story": null,
   "why": {
-   "es": "sin inversión: …where the forms <b>are</b>.",
-   "en": "no inversion: …where the forms <b>are</b>."
+   "es": "«are» va DESPUÉS del sujeto: orden de afirmación dentro de la frase.",
+   "en": "“are” comes AFTER the subject: statement order inside the clause."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "Indirect: Could you tell me where the bank is? · sin inversión · sin do/does · if/whether para sí-no.",
-   "en": "Indirect: Could you tell me where the bank is? · no inversion · no do/does · if/whether for yes-no."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "Pregunta indirecta: introducción cortés + sujeto + verbo (sin inversión, sin do/does/did).",
+   "en": "Indirect question: polite opener + subject + verb (no inversion, no do/does/did)."
   }
  }
 ];

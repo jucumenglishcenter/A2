@@ -125,822 +125,674 @@ const MAT = { title:'Identification', subtitle:"A2 · Módulo 2 · Time Linkers 
 const PASS = 85;
 const QS = [
  {
-  "clue": "while",
-  "target": 2,
-  "tap": [
-   0,
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "acción en desarrollo",
-   "en": "acción en desarrollo"
-  },
-  "task": {
-   "es": "Toca el <b>conector temporal</b>.",
-   "en": "Tap the <b>time linker</b>."
-  },
-  "words": [
-   "I",
-   "read",
-   "while",
-   "she",
-   "cooked."
-  ],
-  "tr": "Yo leía mientras ella cocinaba.",
-  "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
-  },
-  "story": null,
-  "why": {
-   "es": "<b>while</b> marca dos acciones a la vez.",
-   "en": "<b>while</b> marks two actions at once."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "when",
+  "clue": "While",
   "target": 0,
   "tap": [
    0,
    3,
-   4
+   5
   ],
   "reinf": {
-   "es": "momento puntual",
-   "en": "momento puntual"
+   "es": "While",
+   "en": "While"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
+   "en": "Tap the <b>time linker</b>."
+  },
+  "words": [
+   "While",
+   "she",
+   "was",
+   "paying,",
+   "the",
+   "lights",
+   "went",
+   "out."
+  ],
+  "tr": "Mientras pagaba, se fue la luz.",
+  "hint": {
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
+  },
+  "story": null,
+  "why": {
+   "es": "«While» abre la acción LARGA en desarrollo.",
+   "en": "“While” — time linker."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
+  }
+ },
+ {
+  "clue": "When",
+  "target": 0,
+  "tap": [
+   0,
+   2,
+   7
+  ],
+  "reinf": {
+   "es": "When",
+   "en": "When"
+  },
+  "task": {
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
    "When",
-   "it",
-   "rained,",
-   "we",
-   "stopped."
+   "the",
+   "alert",
+   "buzzed,",
+   "Marcos",
+   "froze",
+   "his",
+   "card."
   ],
-  "tr": "Cuando llovió, paramos.",
+  "tr": "Cuando sonó la alerta, Marcos congeló su tarjeta.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>when</b> señala el momento.",
-   "en": "<b>when</b> points to the moment."
+   "es": "«When» marca el momento PUNTUAL.",
+   "en": "“When” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
   "clue": "before",
   "target": 3,
   "tap": [
-   0,
+   2,
    3,
-   4
+   5
   ],
   "reinf": {
-   "es": "orden (antes)",
-   "en": "orden (antes)"
+   "es": "before",
+   "en": "before"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "Wash",
-   "your",
-   "hands",
+   "Read",
+   "the",
+   "contract",
    "before",
    "you",
-   "eat."
+   "sign",
+   "it."
   ],
-  "tr": "Lávate las manos antes de comer.",
+  "tr": "Lee el contrato antes de firmarlo.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>before</b> marca lo que va primero.",
-   "en": "<b>before</b> marks what comes first."
+   "es": "«before» ordena: esto va ANTES.",
+   "en": "“before” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
   "clue": "after",
-  "target": 2,
+  "target": 4,
   "tap": [
-   0,
-   2,
-   5
-  ],
-  "reinf": {
-   "es": "orden (después)",
-   "en": "orden (después)"
-  },
-  "task": {
-   "es": "Toca el <b>conector temporal</b>.",
-   "en": "Tap the <b>time linker</b>."
-  },
-  "words": [
-   "We",
-   "left",
-   "after",
-   "the",
-   "movie",
-   "ended."
-  ],
-  "tr": "Nos fuimos después de que terminó la película.",
-  "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
-  },
-  "story": null,
-  "why": {
-   "es": "<b>after</b> marca lo que va después.",
-   "en": "<b>after</b> marks what comes later."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "while",
-  "target": 2,
-  "tap": [
-   0,
-   2,
-   4
-  ],
-  "reinf": {
-   "es": "acción en desarrollo",
-   "en": "acción en desarrollo"
-  },
-  "task": {
-   "es": "Toca el <b>conector temporal</b>.",
-   "en": "Tap the <b>time linker</b>."
-  },
-  "words": [
-   "He",
-   "called",
-   "while",
-   "I",
-   "was",
-   "out."
-  ],
-  "tr": "Llamó mientras yo estaba fuera.",
-  "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
-  },
-  "story": null,
-  "why": {
-   "es": "<b>while</b> con una acción en curso.",
-   "en": "<b>while</b> with an ongoing action."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "when",
-  "target": 3,
-  "tap": [
-   0,
    3,
-   5
+   4,
+   6
   ],
   "reinf": {
-   "es": "momento puntual",
-   "en": "momento puntual"
+   "es": "after",
+   "en": "after"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
-   "en": "Tap the <b>time linker</b>."
-  },
-  "words": [
-   "I",
-   "was",
-   "happy",
-   "when",
-   "you",
-   "arrived."
-  ],
-  "tr": "Me alegré cuando llegaste.",
-  "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
-  },
-  "story": null,
-  "why": {
-   "es": "<b>when</b> marca el instante.",
-   "en": "<b>when</b> marks the instant."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "before",
-  "target": 2,
-  "tap": [
-   0,
-   2,
-   5
-  ],
-  "reinf": {
-   "es": "orden (antes)",
-   "en": "orden (antes)"
-  },
-  "task": {
-   "es": "Toca el <b>conector temporal</b>.",
-   "en": "Tap the <b>time linker</b>."
-  },
-  "words": [
-   "Finish",
-   "it",
-   "before",
-   "the",
-   "bell",
-   "rings."
-  ],
-  "tr": "Termínalo antes de que suene el timbre.",
-  "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
-  },
-  "story": null,
-  "why": {
-   "es": "<b>before</b> indica lo previo.",
-   "en": "<b>before</b> indicates what's earlier."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "while",
-  "target": 2,
-  "tap": [
-   0,
-   2,
-   3
-  ],
-  "reinf": {
-   "es": "acción en desarrollo",
-   "en": "acción en desarrollo"
-  },
-  "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
    "She",
-   "sang",
-   "while",
-   "cooking",
-   "dinner."
+   "checks",
+   "her",
+   "balance",
+   "after",
+   "every",
+   "purchase."
   ],
-  "tr": "Cantaba mientras cocinaba la cena.",
+  "tr": "Revisa su saldo después de cada compra.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>while</b> con acción simultánea.",
-   "en": "<b>while</b> with a simultaneous action."
+   "es": "«after» ordena: esto va DESPUÉS.",
+   "en": "“after” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
-  "clue": "after",
-  "target": 0,
-  "tap": [
-   0,
-   2,
-   5
-  ],
-  "reinf": {
-   "es": "orden (después)",
-   "en": "orden (después)"
-  },
-  "task": {
-   "es": "Toca el <b>conector temporal</b>.",
-   "en": "Tap the <b>time linker</b>."
-  },
-  "words": [
-   "After",
-   "he",
-   "left,",
-   "it",
-   "got",
-   "quiet."
-  ],
-  "tr": "Después de que se fue, hubo silencio.",
-  "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
-  },
-  "story": null,
-  "why": {
-   "es": "<b>after</b> marca lo posterior.",
-   "en": "<b>after</b> marks what's later."
-  },
-  "others": {
-   "es": "",
-   "en": ""
-  },
-  "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
-  }
- },
- {
-  "clue": "when",
+  "clue": "While",
   "target": 0,
   "tap": [
    0,
    3,
-   4
+   7
   ],
   "reinf": {
-   "es": "momento puntual",
-   "en": "momento puntual"
+   "es": "While",
+   "en": "While"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "When",
-   "I'm",
-   "tired,",
-   "I",
-   "rest."
+   "While",
+   "Diana",
+   "was",
+   "cooking,",
+   "Luis",
+   "made",
+   "the",
+   "chart."
   ],
-  "tr": "Cuando estoy cansado, descanso.",
+  "tr": "Mientras Diana cocinaba, Luis hacía el cuadro.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>when</b> señala la situación.",
-   "en": "<b>when</b> points to the situation."
+   "es": "«While» abre la acción LARGA en desarrollo.",
+   "en": "“While” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
-  "clue": "while",
-  "target": 2,
+  "clue": "when",
+  "target": 3,
   "tap": [
-   0,
    2,
-   3
+   3,
+   8
   ],
   "reinf": {
-   "es": "acción en desarrollo",
-   "en": "acción en desarrollo"
+   "es": "when",
+   "en": "when"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "They",
-   "talked",
-   "while",
-   "waiting",
-   "for",
-   "help."
+   "Call",
+   "the",
+   "bank",
+   "when",
+   "you",
+   "see",
+   "a",
+   "strange",
+   "charge."
   ],
-  "tr": "Hablaron mientras esperaban ayuda.",
+  "tr": "Llama al banco cuando veas un cargo extraño.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>while</b> con una acción en curso.",
-   "en": "<b>while</b> with an ongoing action."
+   "es": "«when» marca el momento PUNTUAL.",
+   "en": "“when” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
   "clue": "before",
   "target": 3,
   "tap": [
+   2,
+   3,
+   7
+  ],
+  "reinf": {
+   "es": "before",
+   "en": "before"
+  },
+  "task": {
+   "es": "Toca el <b>conector de tiempo</b>.",
+   "en": "Tap the <b>time linker</b>."
+  },
+  "words": [
+   "Save",
+   "the",
+   "receipt",
+   "before",
+   "you",
+   "leave",
+   "the",
+   "store."
+  ],
+  "tr": "Guarda el comprobante antes de salir de la tienda.",
+  "hint": {
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
+  },
+  "story": null,
+  "why": {
+   "es": "«before» ordena: esto va ANTES.",
+   "en": "“before” — time linker."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
+  }
+ },
+ {
+  "clue": "While",
+  "target": 0,
+  "tap": [
+   0,
+   3,
+   7
+  ],
+  "reinf": {
+   "es": "While",
+   "en": "While"
+  },
+  "task": {
+   "es": "Toca el <b>conector de tiempo</b>.",
+   "en": "Tap the <b>time linker</b>."
+  },
+  "words": [
+   "While",
+   "he",
+   "was",
+   "waiting,",
+   "he",
+   "read",
+   "the",
+   "terms."
+  ],
+  "tr": "Mientras esperaba, leyó las condiciones.",
+  "hint": {
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
+  },
+  "story": null,
+  "why": {
+   "es": "«While» abre la acción LARGA en desarrollo.",
+   "en": "“While” — time linker."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
+  }
+ },
+ {
+  "clue": "After",
+  "target": 0,
+  "tap": [
+   0,
+   2,
+   5
+  ],
+  "reinf": {
+   "es": "After",
+   "en": "After"
+  },
+  "task": {
+   "es": "Toca el <b>conector de tiempo</b>.",
+   "en": "Tap the <b>time linker</b>."
+  },
+  "words": [
+   "After",
+   "the",
+   "refund",
+   "arrived,",
+   "she",
+   "relaxed."
+  ],
+  "tr": "Después de que llegó el reembolso, se relajó.",
+  "hint": {
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
+  },
+  "story": null,
+  "why": {
+   "es": "«After» ordena: esto va DESPUÉS.",
+   "en": "“After” — time linker."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
+  }
+ },
+ {
+  "clue": "When",
+  "target": 0,
+  "tap": [
+   0,
+   3,
+   6
+  ],
+  "reinf": {
+   "es": "When",
+   "en": "When"
+  },
+  "task": {
+   "es": "Toca el <b>conector de tiempo</b>.",
+   "en": "Tap the <b>time linker</b>."
+  },
+  "words": [
+   "When",
+   "the",
+   "card",
+   "reader",
+   "beeped,",
+   "the",
+   "line",
+   "moved."
+  ],
+  "tr": "Cuando sonó el lector, la fila avanzó.",
+  "hint": {
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
+  },
+  "story": null,
+  "why": {
+   "es": "«When» marca el momento PUNTUAL.",
+   "en": "“When” — time linker."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
+  }
+ },
+ {
+  "clue": "While",
+  "target": 0,
+  "tap": [
    0,
    3,
    5
   ],
   "reinf": {
-   "es": "orden (antes)",
-   "en": "orden (antes)"
+   "es": "While",
+   "en": "While"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "Save",
-   "your",
-   "work",
+   "While",
+   "they",
+   "were",
+   "talking,",
+   "the",
+   "system",
+   "updated."
+  ],
+  "tr": "Mientras hablaban, el sistema se actualizó.",
+  "hint": {
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
+  },
+  "story": null,
+  "why": {
+   "es": "«While» abre la acción LARGA en desarrollo.",
+   "en": "“While” — time linker."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
+  }
+ },
+ {
+  "clue": "before",
+  "target": 3,
+  "tap": [
+   2,
+   3,
+   5
+  ],
+  "reinf": {
+   "es": "before",
+   "en": "before"
+  },
+  "task": {
+   "es": "Toca el <b>conector de tiempo</b>.",
+   "en": "Tap the <b>time linker</b>."
+  },
+  "words": [
+   "Compare",
+   "the",
+   "plans",
    "before",
    "you",
-   "close",
-   "it."
+   "choose",
+   "one."
   ],
-  "tr": "Guarda tu trabajo antes de cerrarlo.",
+  "tr": "Compara los planes antes de elegir uno.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>before</b> marca lo que va primero.",
-   "en": "<b>before</b> marks what comes first."
+   "es": "«before» ordena: esto va ANTES.",
+   "en": "“before” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
-  "clue": "when",
-  "target": 2,
+  "clue": "When",
+  "target": 0,
   "tap": [
    0,
    2,
-   4
+   7
   ],
   "reinf": {
-   "es": "momento puntual",
-   "en": "momento puntual"
+   "es": "When",
+   "en": "When"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "Call",
-   "me",
-   "when",
-   "you're",
-   "ready."
+   "When",
+   "the",
+   "bill",
+   "jumped,",
+   "Nadia",
+   "read",
+   "the",
+   "contract."
   ],
-  "tr": "Llámame cuando estés listo.",
+  "tr": "Cuando la boleta saltó, Nadia leyó el contrato.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>when</b> marca el momento.",
-   "en": "<b>when</b> marks the moment."
+   "es": "«When» marca el momento PUNTUAL.",
+   "en": "“When” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
-  "clue": "while",
-  "target": 2,
+  "clue": "While",
+  "target": 0,
   "tap": [
    0,
-   2,
-   3
+   5,
+   7
   ],
   "reinf": {
-   "es": "acción en desarrollo",
-   "en": "acción en desarrollo"
+   "es": "While",
+   "en": "While"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "I'll",
-   "wait",
-   "while",
-   "you",
-   "decide."
+   "While",
+   "Marcos",
+   "was",
+   "riding",
+   "the",
+   "bus,",
+   "his",
+   "heart",
+   "sank."
   ],
-  "tr": "Esperaré mientras decides.",
+  "tr": "Mientras Marcos iba en el bus, se le fue el alma a los pies.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>while</b> con acción simultánea.",
-   "en": "<b>while</b> with a simultaneous action."
+   "es": "«While» abre la acción LARGA en desarrollo.",
+   "en": "“While” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  },
  {
   "clue": "after",
-  "target": 2,
+  "target": 4,
   "tap": [
-   0,
-   2,
-   4
+   3,
+   4,
+   7
   ],
   "reinf": {
-   "es": "orden (después)",
-   "en": "orden (después)"
+   "es": "after",
+   "en": "after"
   },
   "task": {
-   "es": "Toca el <b>conector temporal</b>.",
+   "es": "Toca el <b>conector de tiempo</b>.",
    "en": "Tap the <b>time linker</b>."
   },
   "words": [
-   "We",
-   "celebrated",
+   "She",
+   "set",
+   "the",
+   "alert",
    "after",
-   "we",
-   "won."
+   "the",
+   "first",
+   "scare."
   ],
-  "tr": "Celebramos después de ganar.",
+  "tr": "Configuró la alerta después del primer susto.",
   "hint": {
-   "es": "Toca el conector de tiempo y decide si abre una acción larga o un momento puntual.",
-   "en": "Tap the time linker and decide if it opens a long action or a specific moment."
+   "es": "¿Abre una acción larga en progreso, un momento puntual, o marca el orden antes/después?",
+   "en": "Does it open a long action in progress, a specific moment, or mark before/after order?"
   },
   "story": null,
   "why": {
-   "es": "<b>after</b> marca lo posterior.",
-   "en": "<b>after</b> marks what's later."
+   "es": "«after» ordena: esto va DESPUÉS.",
+   "en": "“after” — time linker."
   },
   "others": {
    "es": "",
    "en": ""
   },
   "rule": {
-   "es": "when + momento · while + acción larga · before/after + orden.",
-   "en": "when + point · while + long action · before/after + order."
-  },
-  "examples": {
-   "es": [],
-   "en": []
-  },
-  "es": {
-   "es": "",
-   "en": ""
-  },
-  "lit": {
-   "es": "",
-   "en": ""
+   "es": "while + acción en desarrollo · when + momento puntual · before = antes · after = después.",
+   "en": "while + action in progress · when + specific moment · before · after."
   }
  }
 ];
