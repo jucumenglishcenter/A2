@@ -4,18 +4,18 @@
   "level": "a2",
   "topics": [
     "A few / A little",
-    "Adverbs of Manner",
+    "Partitives",
     "Comparatives",
+    "Adverbs of Manner",
     "Enough / Too",
     "Intensifiers & Mitigators",
+    "Zero Article",
     "Linkers",
-    "Partitives",
-    "Past Continuous",
     "Past Simple",
+    "Past Continuous",
     "Past Simple vs Continuous",
-    "Relative Clauses",
     "Time Linkers (When / While)",
-    "Zero Article"
+    "Relative Clauses"
   ],
   "activities": [
     {
@@ -79,32 +79,32 @@
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t1-a-few-a-little/transform.html"
     },
     {
-      "id": "sum-adverbs-manner",
+      "id": "sum-partitives",
       "type": "summary",
-      "name": "Resumen · Adverbs of Manner",
-      "group": "T2 · Adverbs of Manner",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t2-adverbs-manner.html"
+      "name": "Resumen · Partitives",
+      "group": "T2 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t7-partitives.html"
     },
     {
-      "id": "t2-fill",
+      "id": "t7-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T2 · Adverbs of Manner",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t2-adverbs-manner/fill.html"
+      "group": "T2 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t7-partitives/fill.html"
     },
     {
-      "id": "t2-id",
+      "id": "t7-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T2 · Adverbs of Manner",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t2-adverbs-manner/identify.html"
+      "group": "T2 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t7-partitives/identify.html"
     },
     {
-      "id": "t2-tr",
+      "id": "t7-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T2 · Adverbs of Manner",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t2-adverbs-manner/transform.html"
+      "group": "T2 · Partitives",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t7-partitives/transform.html"
     },
     {
       "id": "sum-comparatives",
@@ -135,144 +135,144 @@
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t3-comparatives/transform.html"
     },
     {
+      "id": "sum-adverbs-manner",
+      "type": "summary",
+      "name": "Resumen · Adverbs of Manner",
+      "group": "T4 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t2-adverbs-manner.html"
+    },
+    {
+      "id": "t2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t2-adverbs-manner/fill.html"
+    },
+    {
+      "id": "t2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t2-adverbs-manner/identify.html"
+    },
+    {
+      "id": "t2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t2-adverbs-manner/transform.html"
+    },
+    {
       "id": "sum-enough-too",
       "type": "summary",
       "name": "Resumen · Enough / Too",
-      "group": "T4 · Enough / Too",
+      "group": "T5 · Enough / Too",
       "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t4-enough-too.html"
     },
     {
       "id": "t4-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T4 · Enough / Too",
+      "group": "T5 · Enough / Too",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t4-enough-too/fill.html"
     },
     {
       "id": "t4-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T4 · Enough / Too",
+      "group": "T5 · Enough / Too",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t4-enough-too/identify.html"
     },
     {
       "id": "t4-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T4 · Enough / Too",
+      "group": "T5 · Enough / Too",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t4-enough-too/transform.html"
     },
     {
       "id": "sum-intensifiers",
       "type": "summary",
       "name": "Resumen · Intensifiers & Mitigators",
-      "group": "T5 · Intensifiers & Mitigators",
+      "group": "T6 · Intensifiers & Mitigators",
       "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t5-intensifiers.html"
     },
     {
       "id": "t5-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T5 · Intensifiers & Mitigators",
+      "group": "T6 · Intensifiers & Mitigators",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t5-intensifiers/fill.html"
     },
     {
       "id": "t5-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T5 · Intensifiers & Mitigators",
+      "group": "T6 · Intensifiers & Mitigators",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t5-intensifiers/identify.html"
     },
     {
       "id": "t5-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T5 · Intensifiers & Mitigators",
+      "group": "T6 · Intensifiers & Mitigators",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t5-intensifiers/transform.html"
+    },
+    {
+      "id": "sum-zero-article",
+      "type": "summary",
+      "name": "Resumen · Zero Article",
+      "group": "T7 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t13-zero-article.html"
+    },
+    {
+      "id": "t13-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T7 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t13-zero-article/fill.html"
+    },
+    {
+      "id": "t13-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T7 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t13-zero-article/identify.html"
+    },
+    {
+      "id": "t13-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T7 · Zero Article",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t13-zero-article/transform.html"
     },
     {
       "id": "sum-linkers",
       "type": "summary",
       "name": "Resumen · Linkers",
-      "group": "T6 · Linkers",
+      "group": "T8 · Linkers",
       "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t6-linkers.html"
     },
     {
       "id": "t6-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T6 · Linkers",
+      "group": "T8 · Linkers",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t6-linkers/fill.html"
     },
     {
       "id": "t6-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T6 · Linkers",
+      "group": "T8 · Linkers",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t6-linkers/identify.html"
     },
     {
       "id": "t6-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T6 · Linkers",
+      "group": "T8 · Linkers",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t6-linkers/transform.html"
-    },
-    {
-      "id": "sum-partitives",
-      "type": "summary",
-      "name": "Resumen · Partitives",
-      "group": "T7 · Partitives",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t7-partitives.html"
-    },
-    {
-      "id": "t7-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T7 · Partitives",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t7-partitives/fill.html"
-    },
-    {
-      "id": "t7-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T7 · Partitives",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t7-partitives/identify.html"
-    },
-    {
-      "id": "t7-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T7 · Partitives",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t7-partitives/transform.html"
-    },
-    {
-      "id": "sum-past-continuous",
-      "type": "summary",
-      "name": "Resumen · Past Continuous",
-      "group": "T8 · Past Continuous",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t8-past-continuous.html"
-    },
-    {
-      "id": "t8-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T8 · Past Continuous",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t8-past-continuous/fill.html"
-    },
-    {
-      "id": "t8-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T8 · Past Continuous",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t8-past-continuous/identify.html"
-    },
-    {
-      "id": "t8-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T8 · Past Continuous",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t8-past-continuous/transform.html"
     },
     {
       "id": "sum-past-simple",
@@ -303,60 +303,60 @@
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t9-past-simple/transform.html"
     },
     {
+      "id": "sum-past-continuous",
+      "type": "summary",
+      "name": "Resumen · Past Continuous",
+      "group": "T10 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t8-past-continuous.html"
+    },
+    {
+      "id": "t8-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T10 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t8-past-continuous/fill.html"
+    },
+    {
+      "id": "t8-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T10 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t8-past-continuous/identify.html"
+    },
+    {
+      "id": "t8-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T10 · Past Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t8-past-continuous/transform.html"
+    },
+    {
       "id": "sum-past-simple-vs-cont",
       "type": "summary",
       "name": "Resumen · Past Simple vs Continuous",
-      "group": "T10 · Past Simple vs Continuous",
+      "group": "T11 · Past Simple vs Continuous",
       "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t10-past-simple-vs-continuous.html"
     },
     {
       "id": "t10-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T10 · Past Simple vs Continuous",
+      "group": "T11 · Past Simple vs Continuous",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t10-past-simple-vs-continuous/fill.html"
     },
     {
       "id": "t10-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T10 · Past Simple vs Continuous",
+      "group": "T11 · Past Simple vs Continuous",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t10-past-simple-vs-continuous/identify.html"
     },
     {
       "id": "t10-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T10 · Past Simple vs Continuous",
+      "group": "T11 · Past Simple vs Continuous",
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t10-past-simple-vs-continuous/transform.html"
-    },
-    {
-      "id": "sum-relative-clauses",
-      "type": "summary",
-      "name": "Resumen · Relative Clauses",
-      "group": "T11 · Relative Clauses",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t11-relative-clauses.html"
-    },
-    {
-      "id": "t11-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T11 · Relative Clauses",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t11-relative-clauses/fill.html"
-    },
-    {
-      "id": "t11-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T11 · Relative Clauses",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t11-relative-clauses/identify.html"
-    },
-    {
-      "id": "t11-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T11 · Relative Clauses",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t11-relative-clauses/transform.html"
     },
     {
       "id": "sum-time-linkers",
@@ -387,32 +387,32 @@
       "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t12-time-linkers/transform.html"
     },
     {
-      "id": "sum-zero-article",
+      "id": "sum-relative-clauses",
       "type": "summary",
-      "name": "Resumen · Zero Article",
-      "group": "T13 · Zero Article",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t13-zero-article.html"
+      "name": "Resumen · Relative Clauses",
+      "group": "T13 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/gramatica/t11-relative-clauses.html"
     },
     {
-      "id": "t13-fill",
+      "id": "t11-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T13 · Zero Article",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t13-zero-article/fill.html"
+      "group": "T13 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t11-relative-clauses/fill.html"
     },
     {
-      "id": "t13-id",
+      "id": "t11-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T13 · Zero Article",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t13-zero-article/identify.html"
+      "group": "T13 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t11-relative-clauses/identify.html"
     },
     {
-      "id": "t13-tr",
+      "id": "t11-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T13 · Zero Article",
-      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t13-zero-article/transform.html"
+      "group": "T13 · Relative Clauses",
+      "url": "https://jucumenglishcenter.github.io/A2/m2/practicas/t11-relative-clauses/transform.html"
     }
   ]
 }
