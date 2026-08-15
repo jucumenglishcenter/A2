@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification · Intensifiers with Comparatives · JUCUM English Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2EA84B; --primary-light: #9FD3A2; --primary-dark: #1B5E20;
+            --accent: #43C062; --bg-gradient-start: #F0F8F2; --bg-gradient-end: #DFF5E3;
+            --text-dark: #1B5E20; --text-medium: #1F7A33; --text-light: #2E7D32;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange-light: #FFEDD5; --orange-dark: #C2410C;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(46,168,75,0.15);
+            --shadow-strong: 0 8px 30px rgba(46,168,75,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#DFF5E3; color:var(--text-medium); margin-left:auto; }
+        .toggle-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem; }
+        .toggle-btn { border:2px solid var(--primary-light); background:#F0F8F2; color:var(--text-medium); border-radius:20px; padding:0.4rem 0.9rem; font-family:'Nunito',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .toggle-btn:hover { background:var(--primary-light); }
+        .toggle-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+        .hint-box { background:#EFFAF1; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:#1B5E20; line-height:1.5; display:none; }
+        .hint-box.show { display:block; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.88rem; margin:0.5rem 0 1rem; padding:0.6rem 0.9rem; background:#F0F8F2; border-radius:10px; display:none; }
+        .translation.show { display:block; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border:1px solid #FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; }
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled { cursor:default; }
+        .sent-option.correct { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-status { font-size:1.1rem; flex-shrink:0; display:none; }
+        .sent-option.disabled .option-status { display:block; }
+        .error-highlight { color:var(--error); font-weight:800; text-decoration:underline wavy; }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+    </style>
+</head><body>
+    <header class="header">
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">💚 A2 · Módulo 3 · Intensificadores con comparativos</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee las tres oraciones y elige la que esté gramaticalmente correcta. Usa los botones para una pista o la traducción si las necesitas.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore"></div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [{"badge":"🕘 Hora muy temprana","options":[{"text":"That hour is much earlier than my class.","correct":true,"es":"Esa hora es mucho más temprano que mi clase."},{"text":"That hour is very earlier than my class.","correct":false,"es":"Esa hora es mucho más temprano que mi clase.","errorWord":"very","correctWord":"much","errorType":"very + comparativo","explanation":"«Very» no acompaña comparativos."},{"text":"That hour is much more earlier than my class.","correct":false,"es":"Esa hora es mucho más temprano que mi clase.","errorWord":"much more earlier","correctWord":"much earlier","errorType":"Doble marca","explanation":"«Earlier» ya es comparativo."}],"clue":"much + comparativo","clueExplain":"una sola marca.","correctReason":"«much earlier»: intensificador correcto.","hint":"¿Qué palabra sobra o está mal?"},{"badge":"💡 Mejor idea","options":[{"text":"That idea was far better than losing the morning.","correct":true,"es":"Esa idea era mucho mejor que perder la mañana."},{"text":"That idea was very better than losing the morning.","correct":false,"es":"Esa idea era mucho mejor que perder la mañana.","errorWord":"very","correctWord":"far","errorType":"very + comparativo","explanation":"Con comparativo va «far» o «much»."},{"text":"That idea was far more better than losing the morning.","correct":false,"es":"Esa idea era mucho mejor que perder la mañana.","errorWord":"far more better","correctWord":"far better","errorType":"Doble marca","explanation":"«Better» ya es comparativo."}],"clue":"far + comparativo","clueExplain":"sin «more».","correctReason":"«far better»: intensificador correcto.","hint":"Cuenta las marcas de comparativo."},{"badge":"🛏️ Cuarto pequeño","options":[{"text":"It is slightly smaller, but it is far quieter.","correct":true,"es":"Es un poco más pequeño, pero es mucho más tranquilo."},{"text":"It is slightly small, but it is far quieter.","correct":false,"es":"Es un poco más pequeño, pero es mucho más tranquilo.","errorWord":"slightly small","correctWord":"slightly smaller","errorType":"Falta el comparativo","explanation":"El intensificador exige comparativo."},{"text":"It is very smaller, but it is far quieter.","correct":false,"es":"Es un poco más pequeño, pero es mucho más tranquilo.","errorWord":"very smaller","correctWord":"slightly smaller","errorType":"very + comparativo","explanation":"«Very» no va con comparativos."}],"clue":"slightly + comparativo","clueExplain":"y far + comparativo.","correctReason":"«slightly smaller … far quieter»: los dos correctos.","hint":"Revisa las dos mitades."},{"badge":"🚗 Mejor que esperar","options":[{"text":"That is much better than waiting in the car.","correct":true,"es":"Eso es mucho mejor que esperar en el carro."},{"text":"That is much more better than waiting in the car.","correct":false,"es":"Eso es mucho mejor que esperar en el carro.","errorWord":"much more better","correctWord":"much better","errorType":"Doble marca","explanation":"Solo una marca de comparativo."},{"text":"That is very better than waiting in the car.","correct":false,"es":"Eso es mucho mejor que esperar en el carro.","errorWord":"very","correctWord":"much","errorType":"very + comparativo","explanation":"«Very» no va aquí."}],"clue":"much + better","clueExplain":"una sola marca.","correctReason":"«much better»: forma correcta.","hint":"¿Sobra alguna palabra?"},{"badge":"⚡ Más rápida que yo","options":[{"text":"You do it much faster than me.","correct":true,"es":"Tú lo haces mucho más rápido que yo."},{"text":"You do it very faster than me.","correct":false,"es":"Tú lo haces mucho más rápido que yo.","errorWord":"very","correctWord":"much","errorType":"very + comparativo","explanation":"Con comparativo se usa «much»."},{"text":"You do it much fast than me.","correct":false,"es":"Tú lo haces mucho más rápido que yo.","errorWord":"much fast","correctWord":"much faster","errorType":"Falta el comparativo","explanation":"«Fast» debe ir en comparativo."}],"clue":"much + comparativo","clueExplain":"antes del adverbio comparativo.","correctReason":"«much faster than»: forma correcta.","hint":"Mira la terminación de «fast»."},{"badge":"💰 Bus barato","options":[{"text":"The bus is slower, but it is a lot cheaper.","correct":true,"es":"El bus es más lento, pero es mucho más barato."},{"text":"The bus is slower, but it is a lot cheap.","correct":false,"es":"El bus es más lento, pero es mucho más barato.","errorWord":"a lot cheap","correctWord":"a lot cheaper","errorType":"Falta el comparativo","explanation":"El intensificador pide comparativo."},{"text":"The bus is slower, but it is very cheaper.","correct":false,"es":"El bus es más lento, pero es mucho más barato.","errorWord":"very cheaper","correctWord":"a lot cheaper","errorType":"very + comparativo","explanation":"«Very» no acompaña comparativos."}],"clue":"a lot + comparativo","clueExplain":"diferencia grande.","correctReason":"«a lot cheaper»: forma correcta.","hint":"¿Está el comparativo completo?"},{"badge":"🔧 Daño menor","options":[{"text":"The damage was far smaller than he expected.","correct":true,"es":"El daño era mucho menor de lo que esperaba."},{"text":"The damage was very smaller than he expected.","correct":false,"es":"El daño era mucho menor de lo que esperaba.","errorWord":"very","correctWord":"far","errorType":"very + comparativo","explanation":"Con comparativo va «far»."},{"text":"The damage was far more smaller than he expected.","correct":false,"es":"El daño era mucho menor de lo que esperaba.","errorWord":"far more smaller","correctWord":"far smaller","errorType":"Doble marca","explanation":"«Smaller» ya es comparativo."}],"clue":"far + comparativo","clueExplain":"sin «more».","correctReason":"«far smaller»: forma correcta.","hint":"Busca la doble marca."},{"badge":"📚 Profesor ocupado","options":[{"text":"Mr. Ortega was very busy that morning.","correct":true,"es":"El señor Ortega estaba muy ocupado esa mañana."},{"text":"Mr. Ortega was much busy that morning.","correct":false,"es":"El señor Ortega estaba muy ocupado esa mañana.","errorWord":"much busy","correctWord":"very busy","errorType":"much + adjetivo simple","explanation":"«Much» pide comparativo; aquí no hay comparación."},{"text":"Mr. Ortega was very busier that morning.","correct":false,"es":"El señor Ortega estaba muy ocupado esa mañana.","errorWord":"very busier","correctWord":"very busy","errorType":"very + comparativo","explanation":"Sin comparación no va «busier»."}],"clue":"very + adjetivo","clueExplain":"sin comparación.","correctReason":"«very busy»: adjetivo simple correcto.","hint":"¿Se compara con algo?"},{"badge":"🔁 Mover la clase","options":[{"text":"Moving the class is a bit harder on Fridays.","correct":true,"es":"Mover la clase es un poco más difícil los viernes."},{"text":"Moving the class is a bit hard on Fridays.","correct":false,"es":"Mover la clase es un poco más difícil los viernes.","errorWord":"a bit hard","correctWord":"a bit harder","errorType":"Falta el comparativo","explanation":"El intensificador exige comparativo."},{"text":"Moving the class is very harder on Fridays.","correct":false,"es":"Mover la clase es un poco más difícil los viernes.","errorWord":"very harder","correctWord":"a bit harder","errorType":"very + comparativo","explanation":"«Very» no va con comparativos."}],"clue":"a bit + comparativo","clueExplain":"diferencia pequeña.","correctReason":"«a bit harder»: forma correcta.","hint":"Mira la terminación."},{"badge":"🟰 Sin diferencia","options":[{"text":"This plan is no better than the first one.","correct":true,"es":"Este plan no es nada mejor que el primero."},{"text":"This plan is not better than the first one, no.","correct":false,"es":"Este plan no es nada mejor que el primero.","errorWord":"not better … no","correctWord":"no better","errorType":"Fórmula equivocada","explanation":"La fórmula fija es «no + comparativo»."},{"text":"This plan is no more better than the first one.","correct":false,"es":"Este plan no es nada mejor que el primero.","errorWord":"no more better","correctWord":"no better","errorType":"Doble marca","explanation":"«Better» ya es comparativo."}],"clue":"no + comparativo","clueExplain":"anula la diferencia.","correctReason":"«no better than»: fórmula correcta.","hint":"Es una fórmula fija."},{"badge":"🧩 Turno dividido","options":[{"text":"Two short pieces are much easier than one long one.","correct":true,"es":"Dos partes cortas son mucho más fáciles que una larga."},{"text":"Two short pieces are much more easier than one long one.","correct":false,"es":"Dos partes cortas son mucho más fáciles que una larga.","errorWord":"much more easier","correctWord":"much easier","errorType":"Doble marca","explanation":"«Easier» ya es comparativo."},{"text":"Two short pieces are very easier than one long one.","correct":false,"es":"Dos partes cortas son mucho más fáciles que una larga.","errorWord":"very easier","correctWord":"much easier","errorType":"very + comparativo","explanation":"«Very» no va con comparativos."}],"clue":"much + comparativo","clueExplain":"una sola marca.","correctReason":"«much easier»: forma correcta.","hint":"Cuenta las marcas."},{"badge":"⏳ Un poco más tarde","options":[{"text":"Could we meet slightly later?","correct":true,"es":"¿Podríamos vernos un poco más tarde?"},{"text":"Could we meet slightly late?","correct":false,"es":"¿Podríamos vernos un poco más tarde?","errorWord":"slightly late","correctWord":"slightly later","errorType":"Falta el comparativo","explanation":"Sin comparativo no hay diferencia."},{"text":"Could we meet very later?","correct":false,"es":"¿Podríamos vernos un poco más tarde?","errorWord":"very later","correctWord":"slightly later","errorType":"very + comparativo","explanation":"«Very» no acompaña comparativos."}],"clue":"slightly + comparativo","clueExplain":"pedido amable.","correctReason":"«slightly later»: forma correcta.","hint":"¿Está el comparativo?"},{"badge":"🛣️ Viaje más corto","options":[{"text":"The trip is much shorter than she expected.","correct":true,"es":"El viaje es mucho más corto de lo que esperaba."},{"text":"The trip is very shorter than she expected.","correct":false,"es":"El viaje es mucho más corto de lo que esperaba.","errorWord":"very","correctWord":"much","errorType":"very + comparativo","explanation":"Con comparativo va «much»."},{"text":"The trip is much short than she expected.","correct":false,"es":"El viaje es mucho más corto de lo que esperaba.","errorWord":"much short","correctWord":"much shorter","errorType":"Falta el comparativo","explanation":"«Short» debe ir en comparativo."}],"clue":"much + comparativo","clueExplain":"antes del adjetivo comparativo.","correctReason":"«much shorter than»: forma correcta.","hint":"Revisa las dos palabras."},{"badge":"🏬 Viernes ocupado","options":[{"text":"Friday is far busier than Tuesday.","correct":true,"es":"El viernes está mucho más ocupado que el martes."},{"text":"Friday is far busy than Tuesday.","correct":false,"es":"El viernes está mucho más ocupado que el martes.","errorWord":"far busy","correctWord":"far busier","errorType":"Falta el comparativo","explanation":"El intensificador exige comparativo."},{"text":"Friday is very busier than Tuesday.","correct":false,"es":"El viernes está mucho más ocupado que el martes.","errorWord":"very busier","correctWord":"far busier","errorType":"very + comparativo","explanation":"«Very» no va con comparativos."}],"clue":"far + comparativo","clueExplain":"diferencia grande.","correctReason":"«far busier than»: forma correcta.","hint":"Mira la terminación de «busy»."},{"badge":"🤫 Mucho más tranquilo","options":[{"text":"The yard is much quieter than the avenue.","correct":true,"es":"El patio es mucho más tranquilo que la avenida."},{"text":"The yard is much quiet than the avenue.","correct":false,"es":"El patio es mucho más tranquilo que la avenida.","errorWord":"much quiet","correctWord":"much quieter","errorType":"Falta el comparativo","explanation":"Sin -er no hay comparación."},{"text":"The yard is very quieter than the avenue.","correct":false,"es":"El patio es mucho más tranquilo que la avenida.","errorWord":"very quieter","correctWord":"much quieter","errorType":"very + comparativo","explanation":"«Very» no acompaña comparativos."}],"clue":"much + comparativo","clueExplain":"diferencia grande.","correctReason":"«much quieter than»: forma correcta.","hint":"Revisa la terminación."}];
+    let currentQuestion=0, score=0;
+    let answered=new Array(quizData.length).fill(false);
+
+    function initQuiz(){
+        const c=document.getElementById('questionsContainer'); c.innerHTML='';
+        quizData.forEach((q,i)=>{ q.shuffled=shuffle(q.options); c.appendChild(card(q,i)); });
+        showQuestion(0); updateProgress();
+    }
+    function card(q,index){
+        const d=document.createElement('div'); const L=['A','B','C'];
+        d.className='question-card'+(index!==0?' hidden':''); d.id='question-'+index;
+        const opts=q.shuffled.map((opt,oi)=>`
+            <button class="sent-option" data-idx="${oi}" onclick="selectOption(${index},${oi})">
+                <div class="option-letter">${L[oi]}</div>
+                <div class="option-text" id="opttext-${index}-${oi}">${opt.text}</div>
+                <div class="option-status"></div>
+            </button>`).join('');
+        const transRows=q.shuffled.map((opt,oi)=>`<div style="margin-bottom:0.3rem;"><strong>${L[oi]}.</strong> ${opt.es||''}</div>`).join('');
+        d.innerHTML=`
+            <div class="q-header">
+                <div class="question-number">${index+1}</div>
+                <span class="q-label">Elige la oración correcta:</span>
+                <span class="topic-badge">${q.badge}</span>
+            </div>
+            <div class="toggle-row">
+                <button class="toggle-btn" id="hintbtn-${index}" onclick="toggleHint(${index})">💡 Ver pista</button>
+                <button class="toggle-btn" id="transbtn-${index}" onclick="toggleTrans(${index})">Ver en español</button>
+            </div>
+            <div class="hint-box" id="hint-${index}"><div class="hint-label">💡 Pista</div>${q.hint}</div>
+            <div class="translation" id="trans-${index}">🇪🇸 Compara el sentido de cada opción:<br>${transRows||'(traducción no disponible)'}</div>
+            <div class="sentence-options" id="options-${index}">${opts}</div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index===0?'disabled':''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>${index===quizData.length-1?'Ver Resultados 🎉':'Siguiente →'}</button>
+            </div>`;
+        return d;
+    }
+    function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    function selectOption(qi,oi){
+        if(answered[qi])return; answered[qi]=true;
+        const q=quizData[qi]; const sel=q.shuffled[oi]; const ok=sel.correct;
+        const correctOpt=q.shuffled.find(o=>o.correct); if(ok)score++;
+        document.querySelectorAll('#options-'+qi+' .sent-option').forEach((b,i)=>{
+            b.classList.add('disabled'); const o=q.shuffled[i];
+            const st=b.querySelector('.option-status');
+            if(o.correct){ b.classList.add('correct'); st.textContent='✅'; }
+            else if(i===oi){ b.classList.add('incorrect'); st.textContent='❌'; }
+            else { st.textContent=''; }
+            const tx=document.getElementById('opttext-'+qi+'-'+i);
+            if(o.correct){ tx.innerHTML=o.text; }
+            else { tx.innerHTML=o.text.replace(new RegExp('(^|[^A-Za-z0-9_])('+escReg(o.errorWord)+')(?=$|[^A-Za-z0-9_])'),'$1<span class="error-highlight">'+o.errorWord+'</span>'); }
+        });
+        feedback(qi,sel,ok,correctOpt,q);
+        document.getElementById('next-'+qi).disabled=false; updateProgress();
+    }
+    function feedback(qi,sel,ok,correctOpt,q){
+        const el=document.getElementById('feedback-'+qi);
+        el.className='feedback show '+(ok?'correct':'incorrect');
+        const errs=q.shuffled.filter(o=>!o.correct);
+        const errBlocks=errs.map(e=>`
+            <div class="fb-block fb-error"><div class="fb-block-title">⚠️ Error: <span class="error-badge">${e.errorType}</span></div>
+                <div class="word-swap"><span class="ws-box ws-wrong">${e.errorWord}</span><span class="ws-arrow">→</span><span class="ws-box ws-right">${e.correctWord}</span></div>
+                <div class="error-text">${e.explanation}</div></div>`).join('');
+        if(ok){
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">✅</span><div><div class="fb-title">¡Correcto!</div><div class="fb-subtitle">Veamos por qué las otras estaban mal</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag">${q.clue}</span> ${q.clueExplain}</div></div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        } else {
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">❌</span><div><div class="fb-title">Incorrecto</div><div class="fb-subtitle">Revisemos juntos</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag red">${q.clue}</span> ${q.clueExplain}</div></div>
+                    <div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">🔄 Tu elección vs. la correcta</div>
+                        <div class="fb-compare-row"><span class="compare-label wrong">Tú elegiste</span><span class="compare-text"><span class="word-wrong">${sel.text}</span></span></div>
+                        <div class="fb-compare-row"><span class="compare-label right">Correcta</span><span class="compare-text"><span class="word-right">${correctOpt.text}</span></span></div>
+                    </div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta la oración correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        }
+    }
+    function showQuestion(i){
+        document.querySelectorAll('.question-card').forEach((c,idx)=>c.classList.toggle('hidden',idx!==i));
+        document.getElementById('currentQ').textContent=i+1;
+        currentQuestion=i;
+    }
+    function nextQuestion(i){ if(i<quizData.length-1) showQuestion(i+1); else showResults(); }
+    function prevQuestion(){ if(currentQuestion>0) showQuestion(currentQuestion-1); }
+    function updateProgress(){
+        const done=answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width=(done/quizData.length*100)+'%';
+    }
+    function toggleHint(i){
+        const b=document.getElementById('hint-'+i), btn=document.getElementById('hintbtn-'+i);
+        b.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=b.classList.contains('show')?'💡 Ocultar pista':'💡 Ver pista';
+    }
+    function toggleTrans(i){
+        const t=document.getElementById('trans-'+i), btn=document.getElementById('transbtn-'+i);
+        t.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=t.classList.contains('show')?'Ocultar español':'Ver en español';
+    }
+    function showResults(){
+        document.querySelectorAll('.question-card').forEach(c=>c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct=score/quizData.length*100;
+        window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:Math.round(pct)}}));
+        document.getElementById('finalScore').textContent=score+'/'+quizData.length;
+        let stars=pct>=90?3:pct>=85?2:1;
+        document.getElementById('resultsMessage').textContent=pct>=90
+            ?'¡Excelente trabajo! 🏆':pct>=85?'¡Muy bien! Aprobaste esta práctica. 💪'
+            :'Aún no llegas al 85%. Repasa e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s,i)=>{ if(i<stars) setTimeout(()=>s.classList.add('earned'),i*300); });
+    }
+    function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
+</body>
+</html>

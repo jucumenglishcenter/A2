@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification · Adverbs of Manner · JUCUM English Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2EA84B; --primary-light: #9FD3A2; --primary-dark: #1B5E20;
+            --accent: #43C062; --bg-gradient-start: #F0F8F2; --bg-gradient-end: #DFF5E3;
+            --text-dark: #1B5E20; --text-medium: #1F7A33; --text-light: #2E7D32;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange-light: #FFEDD5; --orange-dark: #C2410C;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(46,168,75,0.15);
+            --shadow-strong: 0 8px 30px rgba(46,168,75,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#DFF5E3; color:var(--text-medium); margin-left:auto; }
+        .toggle-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem; }
+        .toggle-btn { border:2px solid var(--primary-light); background:#F0F8F2; color:var(--text-medium); border-radius:20px; padding:0.4rem 0.9rem; font-family:'Nunito',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .toggle-btn:hover { background:var(--primary-light); }
+        .toggle-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+        .hint-box { background:#EFFAF1; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:#1B5E20; line-height:1.5; display:none; }
+        .hint-box.show { display:block; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.88rem; margin:0.5rem 0 1rem; padding:0.6rem 0.9rem; background:#F0F8F2; border-radius:10px; display:none; }
+        .translation.show { display:block; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border:1px solid #FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; }
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled { cursor:default; }
+        .sent-option.correct { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-status { font-size:1.1rem; flex-shrink:0; display:none; }
+        .sent-option.disabled .option-status { display:block; }
+        .error-highlight { color:var(--error); font-weight:800; text-decoration:underline wavy; }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+    </style>
+</head><body>
+    <header class="header">
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">💚 A2 · Módulo 3 · Adverbios de Modo</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee las tres oraciones y elige la que esté gramaticalmente correcta. Usa los botones para una pista o la traducción si las necesitas.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore"></div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [{"badge":"📝 Revisar el formulario","options":[{"text":"She checks the form carefully.","correct":true,"es":"Ella revisa el formulario con cuidado."},{"text":"She checks the form careful.","correct":false,"es":"Ella revisa el formulario con cuidado.","errorWord":"careful","correctWord":"carefully","errorType":"Adjetivo por adverbio","explanation":"El verbo «checks» pide adverbio: carefully."},{"text":"She checks carefully the form.","correct":false,"es":"Ella revisa el formulario con cuidado.","errorWord":"carefully the form","correctWord":"the form carefully","errorType":"Posición","explanation":"El adverbio no va entre el verbo y su objeto."}],"clue":"verbo + objeto + adverbio","clueExplain":"y el adverbio con -ly.","correctReason":"«checks the form carefully»: forma y orden correctos.","hint":"Mira la terminación y el lugar del adverbio."},{"badge":"🐢 Llenar las casillas","options":[{"text":"Then she fills in the boxes slowly.","correct":true,"es":"Luego llena las casillas despacio."},{"text":"Then she fills in the boxes slow.","correct":false,"es":"Luego llena las casillas despacio.","errorWord":"slow","correctWord":"slowly","errorType":"Adjetivo por adverbio","explanation":"«Slow» describe cosas; la acción pide «slowly»."},{"text":"Then she slowly fills in the boxes slow.","correct":false,"es":"Luego llena las casillas despacio.","errorWord":"slow","correctWord":"(nada)","errorType":"Adverbio repetido","explanation":"El adverbio aparece dos veces en la misma oración."}],"clue":"slow → slowly","clueExplain":"un solo adverbio por acción.","correctReason":"«fills in the boxes slowly»: un adverbio, bien colocado.","hint":"Cuenta cuántas veces aparece la idea de «despacio»."},{"badge":"🙏 Negarse con amabilidad","options":[{"text":"She refuses politely.","correct":true,"es":"Se niega con amabilidad."},{"text":"She refuses polite.","correct":false,"es":"Se niega con amabilidad.","errorWord":"polite","correctWord":"politely","errorType":"Adjetivo por adverbio","explanation":"«Refuse» es acción: politely."},{"text":"She is refuses politely.","correct":false,"es":"Se niega con amabilidad.","errorWord":"is refuses","correctWord":"refuses","errorType":"Dos verbos","explanation":"No se usan «is» y «refuses» juntos."}],"clue":"verbo + adverbio","clueExplain":"sin «be» delante.","correctReason":"«She refuses politely»: verbo simple + adverbio.","hint":"Revisa cuántos verbos hay."},{"badge":"✅ La máquina funciona","options":[{"text":"The machine was working perfectly.","correct":true,"es":"La máquina estaba funcionando perfectamente."},{"text":"The machine was working perfect.","correct":false,"es":"La máquina estaba funcionando perfectamente.","errorWord":"perfect","correctWord":"perfectly","errorType":"Adjetivo por adverbio","explanation":"La acción «working» pide adverbio."},{"text":"The machine was perfectly work.","correct":false,"es":"La máquina estaba funcionando perfectamente.","errorWord":"perfectly work","correctWord":"working perfectly","errorType":"Orden y forma","explanation":"Tras «was» el verbo va en -ing y el adverbio después."}],"clue":"was + -ing + adverbio","clueExplain":"el adverbio cierra la idea.","correctReason":"«was working perfectly»: forma continua + adverbio.","hint":"Mira el verbo en -ing."},{"badge":"📚 Ser cuidadosa","options":[{"text":"Marta is careful with dates.","correct":true,"es":"Marta es cuidadosa con las fechas."},{"text":"Marta is carefully with dates.","correct":false,"es":"Marta es cuidadosa con las fechas.","errorWord":"carefully","correctWord":"careful","errorType":"Adverbio por adjetivo","explanation":"Con «be» va el adjetivo."},{"text":"Marta carefully with dates.","correct":false,"es":"Marta es cuidadosa con las fechas.","errorWord":"(falta is)","correctWord":"is careful","errorType":"Falta el verbo","explanation":"La oración se quedó sin verbo."}],"clue":"be + adjetivo","clueExplain":"describe a la persona, no la acción.","correctReason":"«is careful»: el adjetivo acompaña a «be».","hint":"¿Describe a Marta o a lo que hace?"},{"badge":"⚡ Contestar el correo","options":[{"text":"He answered the email quickly.","correct":true,"es":"Contestó el correo rápidamente."},{"text":"He answered quickly the email.","correct":false,"es":"Contestó el correo rápidamente.","errorWord":"quickly the email","correctWord":"the email quickly","errorType":"Posición","explanation":"El adverbio no separa verbo y objeto."},{"text":"He answered the email quick.","correct":false,"es":"Contestó el correo rápidamente.","errorWord":"quick","correctWord":"quickly","errorType":"Adjetivo por adverbio","explanation":"La acción pide «quickly»."}],"clue":"verbo + objeto + adverbio","clueExplain":"esa es la posición segura.","correctReason":"«answered the email quickly»: orden y forma correctos.","hint":"Fíjate qué palabra queda pegada al verbo."},{"badge":"👍 El plan funcionó","options":[{"text":"The plan worked well.","correct":true,"es":"El plan funcionó bien."},{"text":"The plan worked good.","correct":false,"es":"El plan funcionó bien.","errorWord":"good","correctWord":"well","errorType":"Adjetivo por adverbio","explanation":"«Good» es adjetivo; el adverbio es «well»."},{"text":"The plan worked goodly.","correct":false,"es":"El plan funcionó bien.","errorWord":"goodly","correctWord":"well","errorType":"Palabra inexistente","explanation":"«Goodly» no existe en inglés."}],"clue":"good → well","clueExplain":"irregular.","correctReason":"«worked well»: adverbio irregular correcto.","hint":"Piensa en la forma irregular."},{"badge":"➡️ Caminar directo","options":[{"text":"They walked straight to the bus stop.","correct":true,"es":"Caminaron directo al paradero."},{"text":"They walked straightly to the bus stop.","correct":false,"es":"Caminaron directo al paradero.","errorWord":"straightly","correctWord":"straight","errorType":"-ly de más","explanation":"«Straight» no lleva -ly."},{"text":"They walked to the bus stop straightly.","correct":false,"es":"Caminaron directo al paradero.","errorWord":"straightly","correctWord":"straight","errorType":"-ly de más","explanation":"Aunque cambie de lugar, sigue sin -ly."}],"clue":"straight sin -ly","clueExplain":"igual que fast, hard y late.","correctReason":"«walked straight»: forma correcta, sin -ly.","hint":"¿Existe «straightly»?"},{"badge":"🏃 Llegar rápido","options":[{"text":"He reached the store fast.","correct":true,"es":"Llegó rápido a la tienda."},{"text":"He reached the store fastly.","correct":false,"es":"Llegó rápido a la tienda.","errorWord":"fastly","correctWord":"fast","errorType":"Palabra inexistente","explanation":"«Fastly» no existe."},{"text":"He reached fast the store.","correct":false,"es":"Llegó rápido a la tienda.","errorWord":"fast the store","correctWord":"the store fast","errorType":"Posición","explanation":"El objeto va pegado al verbo."}],"clue":"fast sin -ly","clueExplain":"y después del objeto.","correctReason":"«reached the store fast»: forma y orden correctos.","hint":"Dos cosas que revisar: la forma y el lugar."},{"badge":"🤫 El caballo tranquilo","options":[{"text":"A horse was standing quietly in the road.","correct":true,"es":"Un caballo estaba parado tranquilamente en la pista."},{"text":"A horse was standing quiet in the road.","correct":false,"es":"Un caballo estaba parado tranquilamente en la pista.","errorWord":"quiet","correctWord":"quietly","errorType":"Adjetivo por adverbio","explanation":"La acción «standing» pide adverbio."},{"text":"A horse was quietly standing quiet.","correct":false,"es":"Un caballo estaba parado tranquilamente en la pista.","errorWord":"quiet","correctWord":"(nada)","errorType":"Adverbio repetido","explanation":"La idea aparece dos veces."}],"clue":"quiet → quietly","clueExplain":"un adverbio por acción.","correctReason":"«standing quietly»: adverbio correcto y único.","hint":"Busca palabras repetidas."},{"badge":"😊 Escuchar con paciencia","options":[{"text":"She listened patiently to the whole story.","correct":true,"es":"Escuchó con paciencia toda la historia."},{"text":"She listened patient to the whole story.","correct":false,"es":"Escuchó con paciencia toda la historia.","errorWord":"patient","correctWord":"patiently","errorType":"Adjetivo por adverbio","explanation":"patient + -ly → patiently."},{"text":"She listened patiently the whole story to.","correct":false,"es":"Escuchó con paciencia toda la historia.","errorWord":"story to","correctWord":"to the story","errorType":"Orden","explanation":"La preposición «to» va antes del objeto."}],"clue":"patient → patiently","clueExplain":"y el objeto con «to».","correctReason":"«listened patiently to…»: forma y orden correctos.","hint":"Revisa el final de la oración."},{"badge":"🧾 Buscar simplemente","options":[{"text":"He simply looks for another hour.","correct":true,"es":"Simplemente busca otra hora."},{"text":"He simplely looks for another hour.","correct":false,"es":"Simplemente busca otra hora.","errorWord":"simplely","correctWord":"simply","errorType":"Ortografía","explanation":"simple → simply (se quita la e)."},{"text":"He simple looks for another hour.","correct":false,"es":"Simplemente busca otra hora.","errorWord":"simple","correctWord":"simply","errorType":"Adjetivo por adverbio","explanation":"Falta la terminación -ly."}],"clue":"simple → simply","clueExplain":"-le pierde la e.","correctReason":"«simply looks»: ortografía correcta.","hint":"Cuenta las letras antes de -ly."},{"badge":"🗂️ Encontrar la oficina","options":[{"text":"Marta found the office easily.","correct":true,"es":"Marta encontró la oficina fácilmente."},{"text":"Marta found the office easyly.","correct":false,"es":"Marta encontró la oficina fácilmente.","errorWord":"easyly","correctWord":"easily","errorType":"Ortografía","explanation":"La y se vuelve i: easily."},{"text":"Marta found easily the office.","correct":false,"es":"Marta encontró la oficina fácilmente.","errorWord":"easily the office","correctWord":"the office easily","errorType":"Posición","explanation":"El adverbio no va entre verbo y objeto."}],"clue":"easy → easily","clueExplain":"y después del objeto.","correctReason":"«found the office easily»: ortografía y orden correctos.","hint":"Dos trampas: la «y» y el lugar."},{"badge":"🐌 Contestar despacio","options":[{"text":"Ana answered slowly because she was tired.","correct":true,"es":"Ana contestó despacio porque estaba cansada."},{"text":"Ana answered slow because she was tired.","correct":false,"es":"Ana contestó despacio porque estaba cansada.","errorWord":"slow","correctWord":"slowly","errorType":"Adjetivo por adverbio","explanation":"La acción pide «slowly»."},{"text":"Ana was answered slowly because she was tired.","correct":false,"es":"Ana contestó despacio porque estaba cansada.","errorWord":"was answered","correctWord":"answered","errorType":"Verbo de más","explanation":"«Was» sobra en esta oración activa."}],"clue":"verbo simple + adverbio","clueExplain":"sin «was» delante.","correctReason":"«answered slowly»: verbo correcto + adverbio.","hint":"Cuenta los verbos."},{"badge":"🧑‍🏫 Trabajar bien y rápido","options":[{"text":"He works hard and finishes quickly.","correct":true,"es":"Trabaja duro y termina rápido."},{"text":"He works hardly and finishes quickly.","correct":false,"es":"Trabaja duro y termina rápido.","errorWord":"hardly","correctWord":"hard","errorType":"Palabra distinta","explanation":"«Hardly» significa «casi no»: cambia el sentido."},{"text":"He works hard and finishes quick.","correct":false,"es":"Trabaja duro y termina rápido.","errorWord":"quick","correctWord":"quickly","errorType":"Adjetivo por adverbio","explanation":"«Finish» pide «quickly»."}],"clue":"hard sin -ly","clueExplain":"y quick → quickly.","correctReason":"«works hard and finishes quickly»: las dos formas correctas.","hint":"Una palabra cambia de significado con -ly."}];
+    let currentQuestion=0, score=0;
+    let answered=new Array(quizData.length).fill(false);
+
+    function initQuiz(){
+        const c=document.getElementById('questionsContainer'); c.innerHTML='';
+        quizData.forEach((q,i)=>{ q.shuffled=shuffle(q.options); c.appendChild(card(q,i)); });
+        showQuestion(0); updateProgress();
+    }
+    function card(q,index){
+        const d=document.createElement('div'); const L=['A','B','C'];
+        d.className='question-card'+(index!==0?' hidden':''); d.id='question-'+index;
+        const opts=q.shuffled.map((opt,oi)=>`
+            <button class="sent-option" data-idx="${oi}" onclick="selectOption(${index},${oi})">
+                <div class="option-letter">${L[oi]}</div>
+                <div class="option-text" id="opttext-${index}-${oi}">${opt.text}</div>
+                <div class="option-status"></div>
+            </button>`).join('');
+        const transRows=q.shuffled.map((opt,oi)=>`<div style="margin-bottom:0.3rem;"><strong>${L[oi]}.</strong> ${opt.es||''}</div>`).join('');
+        d.innerHTML=`
+            <div class="q-header">
+                <div class="question-number">${index+1}</div>
+                <span class="q-label">Elige la oración correcta:</span>
+                <span class="topic-badge">${q.badge}</span>
+            </div>
+            <div class="toggle-row">
+                <button class="toggle-btn" id="hintbtn-${index}" onclick="toggleHint(${index})">💡 Ver pista</button>
+                <button class="toggle-btn" id="transbtn-${index}" onclick="toggleTrans(${index})">Ver en español</button>
+            </div>
+            <div class="hint-box" id="hint-${index}"><div class="hint-label">💡 Pista</div>${q.hint}</div>
+            <div class="translation" id="trans-${index}">🇪🇸 Compara el sentido de cada opción:<br>${transRows||'(traducción no disponible)'}</div>
+            <div class="sentence-options" id="options-${index}">${opts}</div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index===0?'disabled':''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>${index===quizData.length-1?'Ver Resultados 🎉':'Siguiente →'}</button>
+            </div>`;
+        return d;
+    }
+    function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    function selectOption(qi,oi){
+        if(answered[qi])return; answered[qi]=true;
+        const q=quizData[qi]; const sel=q.shuffled[oi]; const ok=sel.correct;
+        const correctOpt=q.shuffled.find(o=>o.correct); if(ok)score++;
+        document.querySelectorAll('#options-'+qi+' .sent-option').forEach((b,i)=>{
+            b.classList.add('disabled'); const o=q.shuffled[i];
+            const st=b.querySelector('.option-status');
+            if(o.correct){ b.classList.add('correct'); st.textContent='✅'; }
+            else if(i===oi){ b.classList.add('incorrect'); st.textContent='❌'; }
+            else { st.textContent=''; }
+            const tx=document.getElementById('opttext-'+qi+'-'+i);
+            if(o.correct){ tx.innerHTML=o.text; }
+            else { tx.innerHTML=o.text.replace(new RegExp('(^|[^A-Za-z0-9_])('+escReg(o.errorWord)+')(?=$|[^A-Za-z0-9_])'),'$1<span class="error-highlight">'+o.errorWord+'</span>'); }
+        });
+        feedback(qi,sel,ok,correctOpt,q);
+        document.getElementById('next-'+qi).disabled=false; updateProgress();
+    }
+    function feedback(qi,sel,ok,correctOpt,q){
+        const el=document.getElementById('feedback-'+qi);
+        el.className='feedback show '+(ok?'correct':'incorrect');
+        const errs=q.shuffled.filter(o=>!o.correct);
+        const errBlocks=errs.map(e=>`
+            <div class="fb-block fb-error"><div class="fb-block-title">⚠️ Error: <span class="error-badge">${e.errorType}</span></div>
+                <div class="word-swap"><span class="ws-box ws-wrong">${e.errorWord}</span><span class="ws-arrow">→</span><span class="ws-box ws-right">${e.correctWord}</span></div>
+                <div class="error-text">${e.explanation}</div></div>`).join('');
+        if(ok){
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">✅</span><div><div class="fb-title">¡Correcto!</div><div class="fb-subtitle">Veamos por qué las otras estaban mal</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag">${q.clue}</span> ${q.clueExplain}</div></div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        } else {
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">❌</span><div><div class="fb-title">Incorrecto</div><div class="fb-subtitle">Revisemos juntos</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag red">${q.clue}</span> ${q.clueExplain}</div></div>
+                    <div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">🔄 Tu elección vs. la correcta</div>
+                        <div class="fb-compare-row"><span class="compare-label wrong">Tú elegiste</span><span class="compare-text"><span class="word-wrong">${sel.text}</span></span></div>
+                        <div class="fb-compare-row"><span class="compare-label right">Correcta</span><span class="compare-text"><span class="word-right">${correctOpt.text}</span></span></div>
+                    </div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta la oración correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        }
+    }
+    function showQuestion(i){
+        document.querySelectorAll('.question-card').forEach((c,idx)=>c.classList.toggle('hidden',idx!==i));
+        document.getElementById('currentQ').textContent=i+1;
+        currentQuestion=i;
+    }
+    function nextQuestion(i){ if(i<quizData.length-1) showQuestion(i+1); else showResults(); }
+    function prevQuestion(){ if(currentQuestion>0) showQuestion(currentQuestion-1); }
+    function updateProgress(){
+        const done=answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width=(done/quizData.length*100)+'%';
+    }
+    function toggleHint(i){
+        const b=document.getElementById('hint-'+i), btn=document.getElementById('hintbtn-'+i);
+        b.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=b.classList.contains('show')?'💡 Ocultar pista':'💡 Ver pista';
+    }
+    function toggleTrans(i){
+        const t=document.getElementById('trans-'+i), btn=document.getElementById('transbtn-'+i);
+        t.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=t.classList.contains('show')?'Ocultar español':'Ver en español';
+    }
+    function showResults(){
+        document.querySelectorAll('.question-card').forEach(c=>c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct=score/quizData.length*100;
+        window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:Math.round(pct)}}));
+        document.getElementById('finalScore').textContent=score+'/'+quizData.length;
+        let stars=pct>=90?3:pct>=85?2:1;
+        document.getElementById('resultsMessage').textContent=pct>=90
+            ?'¡Excelente trabajo! 🏆':pct>=85?'¡Muy bien! Aprobaste esta práctica. 💪'
+            :'Aún no llegas al 85%. Repasa e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s,i)=>{ if(i<stars) setTimeout(()=>s.classList.add('earned'),i*300); });
+    }
+    function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
+</body>
+</html>

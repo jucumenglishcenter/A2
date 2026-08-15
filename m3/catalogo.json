@@ -1,0 +1,351 @@
+{
+  "module": "Appointments, Coordination & Planning",
+  "emoji": "📅",
+  "level": "a2",
+  "topics": [
+    "Adverbs of Manner",
+    "Present Simple vs Present Continuous",
+    "Verb Patterns: like + -ing / want to",
+    "Adverbs of Degree",
+    "Comparatives + not as…as",
+    "Intensifiers with Comparatives",
+    "Relative Clauses (defining)",
+    "Sequencers & Linkers",
+    "Superlatives with in / of",
+    "Phrasal Verbs",
+    "to-infinitive vs -ing"
+  ],
+  "activities": [
+    {
+      "id": "story",
+      "type": "story",
+      "name": "Stories y Diálogos · Appointments, Coordination & Planning",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m3/story.html"
+    },
+    {
+      "id": "reading",
+      "type": "reading",
+      "name": "Comprensión lectora · Appointments, Coordination & Planning",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m3/reading.html"
+    },
+    {
+      "id": "listening",
+      "type": "listening",
+      "name": "Comprensión auditiva · Appointments, Coordination & Planning",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m3/listening.html"
+    },
+    {
+      "id": "sum-adverbs-manner",
+      "type": "summary",
+      "name": "Resumen · Adverbs of Manner",
+      "group": "T1 · Adverbs of Manner",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t1-adverbs-manner.html"
+    },
+    {
+      "id": "t1-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T1 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t1-adverbs-manner/fill.html"
+    },
+    {
+      "id": "t1-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T1 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t1-adverbs-manner/identify.html"
+    },
+    {
+      "id": "t1-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T1 · Adverbs of Manner",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t1-adverbs-manner/transform.html"
+    },
+    {
+      "id": "sum-present-simple-continuous",
+      "type": "summary",
+      "name": "Resumen · Present Simple vs Present Continuous",
+      "group": "T2 · Present Simple vs Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t2-present-simple-continuous.html"
+    },
+    {
+      "id": "t2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T2 · Present Simple vs Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t2-present-simple-continuous/fill.html"
+    },
+    {
+      "id": "t2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T2 · Present Simple vs Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t2-present-simple-continuous/identify.html"
+    },
+    {
+      "id": "t2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T2 · Present Simple vs Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t2-present-simple-continuous/transform.html"
+    },
+    {
+      "id": "sum-verb-patterns-like-want",
+      "type": "summary",
+      "name": "Resumen · Verb Patterns: like + -ing / want to",
+      "group": "T3 · Verb Patterns: like + -ing / want to",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t3-verb-patterns-like-want.html"
+    },
+    {
+      "id": "t3-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T3 · Verb Patterns: like + -ing / want to",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t3-verb-patterns-like-want/fill.html"
+    },
+    {
+      "id": "t3-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T3 · Verb Patterns: like + -ing / want to",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t3-verb-patterns-like-want/identify.html"
+    },
+    {
+      "id": "t3-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T3 · Verb Patterns: like + -ing / want to",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t3-verb-patterns-like-want/transform.html"
+    },
+    {
+      "id": "sum-adverbs-degree",
+      "type": "summary",
+      "name": "Resumen · Adverbs of Degree",
+      "group": "T4 · Adverbs of Degree",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t4-adverbs-degree.html"
+    },
+    {
+      "id": "t4-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Adverbs of Degree",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t4-adverbs-degree/fill.html"
+    },
+    {
+      "id": "t4-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Adverbs of Degree",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t4-adverbs-degree/identify.html"
+    },
+    {
+      "id": "t4-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Adverbs of Degree",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t4-adverbs-degree/transform.html"
+    },
+    {
+      "id": "sum-comparatives-not-as-as",
+      "type": "summary",
+      "name": "Resumen · Comparatives + not as…as",
+      "group": "T5 · Comparatives + not as…as",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t5-comparatives-not-as-as.html"
+    },
+    {
+      "id": "t5-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T5 · Comparatives + not as…as",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t5-comparatives-not-as-as/fill.html"
+    },
+    {
+      "id": "t5-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T5 · Comparatives + not as…as",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t5-comparatives-not-as-as/identify.html"
+    },
+    {
+      "id": "t5-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T5 · Comparatives + not as…as",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t5-comparatives-not-as-as/transform.html"
+    },
+    {
+      "id": "sum-intensifiers-comparatives",
+      "type": "summary",
+      "name": "Resumen · Intensifiers with Comparatives",
+      "group": "T6 · Intensifiers with Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t6-intensifiers-comparatives.html"
+    },
+    {
+      "id": "t6-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T6 · Intensifiers with Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t6-intensifiers-comparatives/fill.html"
+    },
+    {
+      "id": "t6-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T6 · Intensifiers with Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t6-intensifiers-comparatives/identify.html"
+    },
+    {
+      "id": "t6-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T6 · Intensifiers with Comparatives",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t6-intensifiers-comparatives/transform.html"
+    },
+    {
+      "id": "sum-relative-clauses",
+      "type": "summary",
+      "name": "Resumen · Relative Clauses (defining)",
+      "group": "T7 · Relative Clauses (defining)",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t7-relative-clauses.html"
+    },
+    {
+      "id": "t7-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T7 · Relative Clauses (defining)",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t7-relative-clauses/fill.html"
+    },
+    {
+      "id": "t7-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T7 · Relative Clauses (defining)",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t7-relative-clauses/identify.html"
+    },
+    {
+      "id": "t7-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T7 · Relative Clauses (defining)",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t7-relative-clauses/transform.html"
+    },
+    {
+      "id": "sum-sequencers-linkers",
+      "type": "summary",
+      "name": "Resumen · Sequencers & Linkers",
+      "group": "T8 · Sequencers & Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t8-sequencers-linkers.html"
+    },
+    {
+      "id": "t8-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T8 · Sequencers & Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t8-sequencers-linkers/fill.html"
+    },
+    {
+      "id": "t8-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T8 · Sequencers & Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t8-sequencers-linkers/identify.html"
+    },
+    {
+      "id": "t8-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T8 · Sequencers & Linkers",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t8-sequencers-linkers/transform.html"
+    },
+    {
+      "id": "sum-superlatives-in-of",
+      "type": "summary",
+      "name": "Resumen · Superlatives with in / of",
+      "group": "T9 · Superlatives with in / of",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t9-superlatives-in-of.html"
+    },
+    {
+      "id": "t9-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T9 · Superlatives with in / of",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t9-superlatives-in-of/fill.html"
+    },
+    {
+      "id": "t9-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T9 · Superlatives with in / of",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t9-superlatives-in-of/identify.html"
+    },
+    {
+      "id": "t9-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T9 · Superlatives with in / of",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t9-superlatives-in-of/transform.html"
+    },
+    {
+      "id": "sum-phrasal-verbs",
+      "type": "summary",
+      "name": "Resumen · Phrasal Verbs",
+      "group": "T10 · Phrasal Verbs",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t10-phrasal-verbs.html"
+    },
+    {
+      "id": "t10-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T10 · Phrasal Verbs",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t10-phrasal-verbs/fill.html"
+    },
+    {
+      "id": "t10-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T10 · Phrasal Verbs",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t10-phrasal-verbs/identify.html"
+    },
+    {
+      "id": "t10-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T10 · Phrasal Verbs",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t10-phrasal-verbs/transform.html"
+    },
+    {
+      "id": "sum-infinitive-vs-ing",
+      "type": "summary",
+      "name": "Resumen · to-infinitive vs -ing",
+      "group": "T11 · to-infinitive vs -ing",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/gramatica/t11-infinitive-vs-ing.html"
+    },
+    {
+      "id": "t11-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T11 · to-infinitive vs -ing",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t11-infinitive-vs-ing/fill.html"
+    },
+    {
+      "id": "t11-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T11 · to-infinitive vs -ing",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t11-infinitive-vs-ing/identify.html"
+    },
+    {
+      "id": "t11-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T11 · to-infinitive vs -ing",
+      "url": "https://jucumenglishcenter.github.io/A2/m3/practicas/t11-infinitive-vs-ing/transform.html"
+    }
+  ]
+}
