@@ -38,6 +38,16 @@
       "url": "https://jucumenglishcenter.github.io/A2/m3/listening.html"
     },
     {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario y escritura",
+      "open": true,
+      "quizVocabulario": "https://quizlet.com/pe/1211361501/a2m3-vocabulario-parte-1-flash-cards/?funnelUUID=6a08f402-7b89-4dfa-b89a-45347f637454",
+      "quizVocabulario2": "https://quizlet.com/pe/1211361707/a2m3-vocabulario-parte-2-flash-cards/?funnelUUID=beb29d39-b1f3-465b-8477-daad398cff2f",
+      "quizOrdenar": "https://quizlet.com/pe/1211362141/m3-ordenar-a2_2026-flash-cards/?funnelUUID=f8c6bf6c-33f6-427b-ba71-160e19bc849c",
+      "quizTraducir": "https://quizlet.com/pe/1211361927/m3-traducir-a2_2026-flash-cards/?funnelUUID=b4b32d5a-a3bd-4c99-90d1-3542c35b9666"
+    },
+    {
       "id": "sum-adverbs-manner",
       "type": "summary",
       "name": "Resumen · Adverbs of Manner",
