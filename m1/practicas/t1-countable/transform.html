@@ -1,280 +1,527 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- ═══════════════════════════════════════════════════════════════════════
-     PLANTILLA · TRANSFORM (reconstruir con fichas) — JUCUM English Center
-     Mecánica: el alumno RECONSTRUYE con fichas la oración transformada
-     (afirmación→pregunta, singular→plural). Sin errores como input.
-     Nota = % correctas · umbral 75%. Ver "Especificaciones - Transform.html".
-     ═══════════════════════════════════════════════════════════════════════ -->
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transform · Used to · JUCUM English Center</title>
+<title>Práctica 3 · Countable & How much/many · JUCUM English Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root{ --card:#fff; --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
-    --fd:'Fredoka','Nunito',system-ui,sans-serif; --fb:'Nunito',system-ui,sans-serif; --fs:'Atkinson Hyperlegible',system-ui,sans-serif;
-    --correct:#2E7D32; --correct-bg:#E8F5E9; --correct-bd:#A5D6A7; --wrong:#C62828; --wrong-bg:#FFEBEE; --wrong-bd:#EF9A9A;
-    --rv-bg:#F3E5F5; --rv-text:#7B1FA2; --rv-bd:#CE93D8; --shadow:0 2px 4px rgba(0,0,0,.07),0 10px 30px rgba(0,0,0,.14); --shadow-sm:0 1px 2px rgba(0,0,0,.06),0 3px 10px rgba(0,0,0,.09); }
-  [data-level="pre-a1"]{ --lp:#F9A825; --ld:#E65100; --ll:#FFF9C4; --lm:#FFECB3; --lg:linear-gradient(135deg,#F9A825,#FF8F00); --tint:#FAF7EE; }
-  [data-level="a2"]{ --lp:#2196F3; --ld:#0D47A1; --ll:#E3F2FD; --lm:#BBDEFB; --lg:linear-gradient(135deg,#1565C0,#2196F3 60%,#64B5F6); --tint:#F1F7FE; }
-  [data-level="a2"]{ --lp:#2EA84B; --ld:#1B5E20; --ll:#DFF5E3; --lm:#9FD3A2; --lg:linear-gradient(135deg,#43C062,#1F7A33); --tint:#F0F8F2; }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  body{margin:0;background:var(--tint);color:var(--text);font-family:var(--fb);min-height:100vh;}
-  .mat{max-width:640px;margin:0 auto;min-height:100vh;}
-  .mhead{background:var(--lg);padding:16px 18px;display:flex;align-items:center;gap:11px;color:#fff;position:sticky;top:0;z-index:20;}
-  .mback{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);border:none;color:#fff;font-size:19px;cursor:pointer;flex-shrink:0;}
-  .mbadge{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.2);} .mbadge img{width:26px;height:26px;object-fit:contain;}
-  .mh-info{flex:1;min-width:0;} .mh-info b{font-family:var(--fd);font-weight:600;font-size:16px;display:block;} .mh-info span{font-size:11px;opacity:.9;font-weight:700;}
-  .mh-count{background:rgba(255,255,255,.25);padding:5px 12px;border-radius:14px;font-weight:800;font-size:13px;}
-  .pbar{height:5px;background:rgba(0,0,0,.06);position:sticky;top:68px;z-index:20;} .pfill{height:100%;background:var(--lp);width:0;transition:width .5s;}
-  .mbody{padding:16px 16px 40px;}
-  .langsw{display:flex;align-items:center;gap:9px;margin-bottom:12px;flex-wrap:wrap;}
-  .lsw-lab{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--text-soft);}
-  .lsw{display:flex;background:#fff;border:1.5px solid var(--lm);border-radius:11px;padding:3px;gap:2px;box-shadow:var(--shadow-sm);}
-  .lsw button{border:none;background:transparent;font-family:var(--fb);font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;color:var(--text-soft);} .lsw button.on{background:var(--lg);color:#fff;}
-  .instr{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:var(--shadow-sm);border-left:4px solid var(--lp);display:flex;gap:10px;margin-bottom:14px;}
-  .instr .em{font-size:21px;} .instr b{font-family:var(--fd);font-weight:600;font-size:14.5px;display:block;} .instr p{margin:1px 0 0;font-size:12.5px;color:var(--text-soft);line-height:1.45;}
-  .qcard{background:#fff;border-radius:18px;box-shadow:var(--shadow-sm);padding:16px;margin-bottom:13px;} .qcard.hidden{display:none;}
-  .qtop{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
-  .qnum{width:31px;height:31px;border-radius:50%;background:var(--lg);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:600;font-size:14px;flex-shrink:0;}
-  .qlabel{font-size:12.5px;font-weight:800;color:var(--text-soft);}
-  .qreport{margin-left:auto;font-size:11px;font-weight:800;color:#B9742B;background:#FCF1E3;border:1px solid #F2D9B8;padding:4px 10px;border-radius:9px;cursor:pointer;}
-  .consigna{background:var(--ll);border:1px solid var(--lm);border-radius:11px;padding:10px 13px;font-size:14px;font-weight:800;color:var(--ld);margin-bottom:12px;}
-  .tprompt{background:var(--tint);border:1px dashed var(--lm);border-radius:11px;padding:10px 13px;font-size:12px;margin-bottom:12px;color:var(--text-soft);font-weight:700;} .tprompt .src{font-family:var(--fb);font-weight:800;color:var(--text);font-size:15.5px;display:block;margin-top:3px;}
-  .support{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
-  .sbtn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;border-radius:9px;padding:7px 13px;cursor:pointer;border:1.5px solid;} .sbtn.hint{background:var(--tint);color:var(--ld);border-color:var(--lm);} .sbtn.tr{background:var(--rv-bg);color:var(--rv-text);border-color:var(--rv-bd);} .sbtn.used{opacity:.55;}
-  .reveal{display:none;border-radius:0 11px 11px 0;padding:10px 13px;font-size:13px;line-height:1.55;margin-bottom:12px;} .reveal.show{display:block;}
-  .reveal.hintbox{background:var(--tint);border-left:3px solid var(--lp);} .reveal.trbox{background:var(--rv-bg);border-left:3px solid var(--rv-text);font-family:var(--fs);font-style:italic;color:#5A2A66;}
-  .reveal .lab{display:block;font-style:normal;font-family:var(--fb);font-weight:800;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;opacity:.8;}
-  .tray{min-height:54px;background:#FAFAF7;border:2px dashed var(--lm);border-radius:12px;padding:10px;display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;align-content:flex-start;}
-  .tray:empty::before{content:attr(data-ph);color:#BBB;font-size:12.5px;font-weight:700;font-style:italic;}
-  .bank{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:6px;}
-  .tile{font-family:var(--fb);font-weight:800;font-size:14px;padding:9px 14px;border-radius:10px;border:2px solid var(--lm);background:#fff;color:var(--text);cursor:pointer;transition:.12s;box-shadow:var(--shadow-sm);}
-  .tile:hover{border-color:var(--lp);transform:translateY(-1px);} .tile.placed{opacity:.28;pointer-events:none;} .tray .tile{border-color:var(--lp);background:var(--ll);color:var(--ld);touch-action:none;cursor:grab;}
-  .tray .tile.dragging{opacity:.7;transform:scale(1.07);box-shadow:var(--shadow);cursor:grabbing;z-index:5;}
-  .tray .tile::before{content:'⠿';opacity:.4;margin-right:5px;font-size:11px;letter-spacing:-1px;}
-  .tcheck{width:100%;margin-top:4px;padding:12px;border:none;border-radius:11px;background:var(--lg);color:#fff;font-family:var(--fb);font-weight:800;font-size:14px;cursor:pointer;} .tcheck:disabled{opacity:.4;cursor:default;}
-  .fb{margin-top:14px;border-radius:14px;overflow:hidden;display:none;} .fb.show{display:block;}
-  .fbh{padding:10px 14px;display:flex;align-items:center;gap:8px;color:#fff;} .fb.ok .fbh{background:linear-gradient(135deg,var(--correct),#1B5E20);} .fb.no .fbh{background:linear-gradient(135deg,var(--wrong),#922);} .fbh b{font-family:var(--fd);font-weight:600;font-size:15px;}
-  .fbb{background:#fff;border:2px solid;border-top:none;border-radius:0 0 14px 14px;padding:13px;display:flex;flex-direction:column;gap:10px;} .fb.ok .fbb{border-color:var(--correct-bd);} .fb.no .fbb{border-color:var(--wrong-bd);}
-  .fblk{border-radius:11px;padding:10px 12px;font-size:13px;line-height:1.5;} .fblk b{font-weight:800;} .fblk>b:first-child{font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;display:flex;gap:5px;margin-bottom:3px;}
-  .fblk.answer{background:var(--correct-bg);border:1px solid var(--correct-bd);} .fblk.answer .answer-line{font-weight:800;color:var(--correct);font-size:15px;}
-  .fblk.sig{background:var(--tint);border:1px solid var(--lm);} .fblk.form{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534;} .formula{display:block;background:#fff;border:1px solid #BBF7D0;border-radius:7px;padding:5px 9px;font-weight:800;font-size:12.5px;margin-top:3px;}
-  .fblk.rule{background:#EFF6FF;border:1px solid #BFDBFE;color:#1D4ED8;} .fblk.es{background:#FDF2F8;border:1px solid #F9C6E0;color:#9D2463;} .fblk.lit{background:#F5F3FF;border:1px solid #DDD6FE;color:#5B21B6;}
-  .exrow{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;} .exchip{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:#fff;border:1px solid #BFDBFE;border-radius:6px;padding:2px 7px;color:#1D4ED8;font-weight:700;} .exw{font-weight:800;}
-  .nav{display:flex;gap:9px;margin-top:14px;} .nb{padding:12px 15px;border:none;border-radius:11px;font-family:var(--fb);font-weight:800;font-size:13.5px;cursor:pointer;} .nb.next{background:var(--lg);color:#fff;flex:1;} .nb.prev{background:#F1F0EA;color:var(--text);} .nb:disabled{opacity:.4;cursor:default;}
-  .rform{margin-top:12px;background:#FCF7EF;border:1.5px solid #F0D9B8;border-radius:13px;padding:13px;display:none;} .rform.show{display:block;}
-  .rform h4{margin:0 0 9px;font-family:var(--fd);font-weight:600;font-size:13.5px;color:#92510F;}
-  .rform select,.rform textarea{width:100%;font-family:var(--fb);font-size:13px;border:1.5px solid #E7D3B4;border-radius:9px;padding:9px 11px;margin-bottom:9px;background:#fff;resize:vertical;} .rform textarea{min-height:54px;}
-  .rrow{display:flex;gap:9px;} .rsend{background:#C77D2E;color:#fff;border:none;border-radius:9px;padding:10px 17px;font-weight:800;font-size:13px;cursor:pointer;flex:1;} .rcancel{background:#F1E7D6;color:#92510F;border:none;border-radius:9px;padding:10px 15px;font-weight:800;font-size:13px;cursor:pointer;}
-  .rdone{background:#EAF7EC;border:1.5px solid var(--correct-bd);border-radius:13px;padding:13px;margin-top:12px;display:none;} .rdone.show{display:block;}
-  .rcode{font-family:'Nunito',monospace;font-size:11.5px;background:#fff;border:1px dashed var(--correct-bd);border-radius:8px;padding:9px;margin-top:7px;color:#1B5E20;word-break:break-all;cursor:copy;}
-  .results{display:none;padding:20px 16px 40px;text-align:center;} .results.show{display:block;}
-  .unlock{border-radius:13px;padding:11px;display:flex;align-items:center;gap:9px;justify-content:center;font-weight:800;font-size:14px;margin-bottom:15px;}
-  .unlock.pass{background:var(--correct-bg);border:1.5px solid var(--correct-bd);color:var(--correct);} .unlock.fail{background:#FFF7E8;border:1.5px solid #F0C66B;color:#92510F;}
-  .hero{background:var(--lg);border-radius:20px;padding:24px 20px;color:#fff;box-shadow:var(--shadow-sm);} .hero .em{font-size:50px;line-height:1;}
-  .stars{display:flex;justify-content:center;gap:7px;margin:9px 0;} .star{font-size:28px;opacity:.32;} .star.on{opacity:1;}
-  .score{font-family:var(--fd);font-weight:600;font-size:46px;line-height:1;} .score small{font-size:20px;opacity:.8;} .phrase{font-size:14px;line-height:1.5;margin-top:9px;font-weight:700;opacity:.96;}
-  .strip{display:flex;gap:10px;margin:15px 0 6px;} .stat{flex:1;background:#fff;border:1px solid var(--border);border-radius:13px;padding:12px 9px;box-shadow:var(--shadow-sm);}
-  .stat b{font-family:var(--fd);font-weight:600;font-size:22px;display:block;color:var(--ld);} .stat span{font-size:11px;color:var(--text-soft);font-weight:800;text-transform:uppercase;letter-spacing:.04em;} .stat .note{display:block;font-size:9px;color:#A99;font-weight:700;text-transform:none;letter-spacing:0;margin-top:1px;}
-  .support-note{font-size:11.5px;color:var(--text-soft);font-weight:700;margin-bottom:14px;}
-  .action{background:#fff;border:1.5px solid var(--lm);border-left:4px solid var(--lp);border-radius:13px;padding:13px 15px;text-align:left;font-size:13px;line-height:1.5;font-weight:700;color:var(--text);margin-bottom:15px;box-shadow:var(--shadow-sm);}
-  .reinf{background:#FFF7E8;border:1.5px solid #F0C66B;border-radius:13px;padding:13px;text-align:left;margin-bottom:15px;} .reinf b{font-size:12px;color:#92510F;display:flex;gap:6px;align-items:center;text-transform:uppercase;letter-spacing:.04em;margin-bottom:9px;}
-  .rchips{display:flex;flex-wrap:wrap;gap:7px;} .rchip{background:#fff;border:1.5px solid #F0C66B;color:#92510F;border-radius:9px;padding:6px 11px;font-size:12.5px;font-weight:800;}
-  .surprise{background:linear-gradient(135deg,#FFF3D6,#FFFBF0);border:1.5px dashed var(--lp);border-radius:13px;padding:12px;display:flex;align-items:center;gap:11px;text-align:left;margin-bottom:15px;} .surprise .em{font-size:28px;} .surprise b{font-size:13px;color:var(--ld);} .surprise p{margin:1px 0 0;font-size:11.5px;color:var(--text-soft);font-weight:700;}
-  .rbtns{display:flex;flex-direction:column;gap:10px;} .rbtn{padding:14px;border:none;border-radius:13px;font-family:var(--fb);font-weight:800;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;} .rbtn.back{background:var(--lg);color:#fff;} .rbtn.retry{background:#F1F0EA;color:var(--text);}
-  .mfoot{display:flex;align-items:center;justify-content:center;gap:8px;font-size:10.5px;color:#B0A99A;padding:16px;font-weight:700;} .mfoot img{height:20px;opacity:.5;}
-  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#222;color:#fff;padding:12px 22px;border-radius:24px;font-weight:800;font-size:13.5px;box-shadow:var(--shadow);z-index:200;opacity:0;transition:.3s;pointer-events:none;} .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}  .helpfab{position:fixed;right:16px;bottom:16px;z-index:120;width:44px;height:44px;border-radius:50%;background:var(--lg);color:#fff;border:none;font-size:22px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);}
-  .helpov{position:fixed;inset:0;z-index:130;background:rgba(20,20,25,.5);display:none;align-items:center;justify-content:center;padding:18px;} .helpov.show{display:flex;}
-  .helpcard{background:#fff;border-radius:18px;max-width:380px;width:100%;max-height:86%;overflow-y:auto;box-shadow:var(--shadow);padding:18px 20px;position:relative;} .helpcard h3{font-family:var(--fd);font-weight:600;font-size:17px;color:var(--ld);margin:0 0 8px;} .helpcard .hx{position:absolute;top:11px;right:13px;border:none;background:none;font-size:20px;color:#bbb;cursor:pointer;}
-  .helptip{display:flex;gap:6px;font-size:12.5px;color:#555;padding:4px 0;line-height:1.45;} .helptip b{color:var(--ld);}
-  .chip{position:fixed;left:16px;bottom:16px;z-index:120;display:flex;align-items:center;gap:7px;background:var(--ld);color:#fff;padding:8px 14px;border-radius:22px;font-weight:800;font-size:12.5px;box-shadow:var(--shadow-sm);} .chip small{font-weight:700;opacity:.8;font-size:9px;} .chip #ct{font-variant-numeric:tabular-nums;}
+:root{--card:#fff;--text:#2A2A2A;--soft:#777;--bd:#E8E5DC;--fd:'Fredoka','Nunito',system-ui,sans-serif;--fb:'Nunito',system-ui,sans-serif;--fs:'Atkinson Hyperlegible',system-ui,sans-serif;
+--ok:#2E7D32;--okbg:#E8F5E9;--okbd:#A5D6A7;--warn:#B45309;--warnbg:#FFF7E8;--warnbd:#F5C77E;--bad:#C62828;--badbd:#EF9A9A;
+--sh:0 2px 4px rgba(0,0,0,.07),0 10px 30px rgba(0,0,0,.14);--shs:0 1px 2px rgba(0,0,0,.06),0 3px 10px rgba(0,0,0,.09)}
+[data-level="a2"]{--lp:#2EA84B;--ld:#1B5E20;--ll:#DFF5E3;--lm:#9FD3A2;--lg:linear-gradient(135deg,#43C062,#1F7A33);--tint:#F0F8F2}
+[data-level="pre-a1"]{--lp:#F9A825;--ld:#E65100;--ll:#FFF9C4;--lm:#FFECB3;--lg:linear-gradient(135deg,#F9A825,#FF8F00);--tint:#FAF7EE}
+[data-level="a1"]{--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;--lg:linear-gradient(135deg,#1565C0,#2196F3 60%,#64B5F6);--tint:#F1F7FE}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--tint);color:var(--text);font-family:var(--fb);min-height:100vh}
+a{color:var(--ld)}a:hover{color:var(--lp)}
+.mat{max-width:640px;margin:0 auto;min-height:100vh}
+.mhead{background:var(--lg);padding:16px 18px;display:flex;align-items:center;gap:11px;color:#fff;position:sticky;top:0;z-index:20}
+.mback{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);border:none;color:#fff;font-size:19px;cursor:pointer;flex-shrink:0}
+.mbadge{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.2)}.mbadge img{width:26px;height:26px;object-fit:contain}
+.mh-info{flex:1;min-width:0}.mh-info b{font-family:var(--fd);font-weight:600;font-size:16px;display:block}.mh-info span{font-size:11px;opacity:.9;font-weight:700}
+.mh-count{background:rgba(255,255,255,.25);padding:5px 12px;border-radius:14px;font-weight:800;font-size:13px}
+.pbar{height:5px;background:rgba(0,0,0,.06);position:sticky;top:68px;z-index:20}.pfill{height:100%;background:var(--lp);width:0;transition:width .5s}
+.mbody{padding:16px 16px 40px}
+.langsw{display:flex;align-items:center;gap:9px;margin-bottom:12px;flex-wrap:wrap}
+.lsw-lab{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--soft)}
+.lsw{display:flex;background:#fff;border:1.5px solid var(--lm);border-radius:11px;padding:3px;gap:2px;box-shadow:var(--shs)}
+.lsw button{border:none;background:transparent;font-family:var(--fb);font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;cursor:pointer;color:var(--soft)}.lsw button.on{background:var(--lg);color:#fff}
+.instr{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:var(--shs);border-left:4px solid var(--lp);display:flex;gap:10px;margin-bottom:14px}
+.instr .em{font-size:21px}.instr>div>b{font-family:var(--fd);font-weight:600;font-size:14.5px;display:block}
+.instr p{margin:1px 0 0;font-size:12.5px;color:var(--soft);line-height:1.45}.instr p b{display:inline;font-family:var(--fb);font-size:inherit;font-weight:800;color:var(--ld)}
+.qcard{background:#fff;border-radius:18px;box-shadow:var(--shs);padding:16px;margin-bottom:13px}.qcard.hidden{display:none}
+.qtop{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.qnum{width:31px;height:31px;border-radius:50%;background:var(--lg);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:600;font-size:14px;flex-shrink:0}
+.qlabel{font-size:12.5px;font-weight:800;color:var(--soft)}
+.qpt{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--soft);margin-left:auto}
+.qreport{font-size:11px;font-weight:800;color:#B9742B;background:#FCF1E3;border:1px solid #F2D9B8;padding:4px 10px;border-radius:9px;cursor:pointer}
+.consigna{background:var(--ll);border:1px solid var(--lm);border-radius:11px;padding:10px 13px;font-size:14px;font-weight:800;color:var(--ld);margin-bottom:12px}
+.cuewrap{background:var(--tint);border:1px dashed var(--lm);border-radius:11px;padding:11px 12px;margin-bottom:10px}
+.cuelab{display:block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-bottom:7px}
+.cue{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.piece{font-family:var(--fb);font-weight:800;font-size:15px;color:var(--ld);background:#fff;border:1.5px solid var(--lm);border-radius:9px;padding:7px 12px;cursor:pointer;transition:.12s;box-shadow:var(--shs)}
+.piece:hover{border-color:var(--lp);transform:translateY(-1px)}.piece.used{opacity:.42}
+.slash{color:#C9C3B4;font-weight:800;font-size:15px}
+.datos{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:11px}
+.dchip{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--lm);border-radius:11px;padding:7px 12px;box-shadow:var(--shs)}
+.dchip .di{font-size:19px}.dchip b{display:block;font-size:13.5px;color:var(--ld);font-weight:800;line-height:1.2}
+.dchip span{font-size:12px;color:var(--soft);font-weight:800}
+.keyrow{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.key{font-family:var(--fb);font-weight:800;font-size:15px;color:#fff;background:var(--lg);border:none;border-radius:9px;padding:7px 15px;cursor:pointer;box-shadow:var(--shs)}
+.key.used{opacity:.42}.qcard.locked .key{opacity:.4;pointer-events:none}
+.multi{font-size:10.5px;font-weight:800;color:var(--warn);background:var(--warnbg);border:1px solid var(--warnbd);border-radius:8px;padding:4px 9px;margin-top:8px;display:inline-block}
+.wline{display:flex;align-items:flex-end;gap:9px;margin-bottom:6px}
+.arrow{font-size:21px;color:var(--lp);font-weight:800;line-height:1.6}
+.winput{flex:1;min-width:0;font-family:var(--fb);font-weight:700;font-size:17px;color:var(--text);background:#fff;border:none;border-bottom:2.5px solid var(--lm);padding:10px 6px;outline:none;border-radius:5px 5px 0 0}
+.winput::placeholder{color:#C6C0B2;font-weight:700;font-style:italic;font-size:14px}
+.winput:focus{border-bottom-color:var(--lp);background:#FFFDF6}.winput:disabled{background:transparent}
+.winput.perfect,.winput.details{border-bottom-color:var(--ok);color:var(--ok)}.winput.details{border-bottom-color:var(--warn);color:var(--warn)}.winput.error{border-bottom-color:var(--bad)}.winput.order{border-bottom-color:var(--warn);color:var(--warn)}
+.ordq{background:#FFF7E8;border:1.5px solid var(--warnbd);border-radius:11px;padding:11px 13px;font-size:13px;font-weight:700;color:#6B4E00;line-height:1.5}
+.blk.noteb{background:#EAF3FB;border:1.5px solid #BBDEFB;border-radius:11px;padding:11px 13px;font-size:13px;font-weight:700;color:#0D47A1;line-height:1.5}
+.tools{display:flex;gap:7px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.tl{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.tool{font-family:var(--fb);font-size:12px;font-weight:800;border:1.5px solid #D9D3C4;background:#fff;color:#5B554A;border-radius:8px;padding:6px 11px;cursor:pointer}
+.tool.ap{font-size:17px;line-height:1;padding:5px 14px;color:var(--ld);border-color:var(--lm);background:var(--ll)}
+.tip{font-size:11px;color:var(--soft);font-weight:700;flex:1;min-width:130px}
+.support{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.sbtn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;border-radius:9px;padding:7px 13px;cursor:pointer;border:1.5px solid}
+.sbtn.hint{background:var(--tint);color:var(--ld);border-color:var(--lm)}.sbtn.tr{background:#F3E5F5;color:#7B1FA2;border-color:#CE93D8}.sbtn.used{opacity:.55}
+.reveal{display:none;border-radius:0 11px 11px 0;padding:10px 13px;font-size:13px;line-height:1.55;margin-bottom:12px}.reveal.show{display:block}
+.reveal.hintbox{background:var(--tint);border-left:3px solid var(--lp)}.reveal.trbox{background:#F3E5F5;border-left:3px solid #7B1FA2;font-family:var(--fs);font-style:italic;color:#5A2A66}
+.reveal .lab{display:block;font-style:normal;font-family:var(--fb);font-weight:800;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;opacity:.8}
+.tcheck{width:100%;padding:12px;border:none;border-radius:11px;background:var(--lg);color:#fff;font-family:var(--fb);font-weight:800;font-size:14px;cursor:pointer}.tcheck:disabled{opacity:.4;cursor:default}
+.reg{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--soft);font-weight:800;margin-top:9px}
+.fb{margin-top:13px;border-radius:14px;overflow:hidden;display:none}.fb.show{display:block}
+.fbh{padding:10px 14px;display:flex;align-items:center;gap:8px;color:#fff;font-family:var(--fd);font-weight:600;font-size:15px}
+.fb.perfect .fbh{background:linear-gradient(135deg,var(--ok),#1B5E20)}.fb.details .fbh,.fb.order .fbh{background:linear-gradient(135deg,#EF8A00,var(--warn))}.fb.error .fbh{background:linear-gradient(135deg,var(--bad),#922)}
+.fbh .pts{margin-left:auto;flex-shrink:0;white-space:nowrap;font-family:var(--fb);font-size:11px;font-weight:800;background:rgba(255,255,255,.25);padding:3px 10px;border-radius:10px}
+.fbb{background:#fff;border:2px solid;border-top:none;border-radius:0 0 14px 14px;padding:13px;display:flex;flex-direction:column;gap:10px}
+.fb.perfect .fbb{border-color:var(--okbd)}.fb.details .fbb,.fb.order .fbb{border-color:var(--warnbd)}.fb.error .fbb{border-color:var(--badbd)}
+.blk{border-radius:11px;padding:10px 12px;font-size:13px;line-height:1.5}
+.blk b.lab{font-size:10px;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px;opacity:.85}
+.blk.yours{background:#FAFAF7;border:1px solid var(--bd)}
+.blk.answer{background:var(--okbg);border:1px solid var(--okbd)}.blk.answer .a{font-weight:800;color:var(--ok);font-size:15px}
+.blk.alt{background:#F5F3FF;border:1px solid #DDD6FE;color:#5B21B6;font-size:12.5px}
+.blk.storyq{background:#FFF8E1;border:1px solid #FFE082;color:#6B4E00;font-family:var(--fs);font-style:italic}
+.corr{background:#FFFDF7;border:1px solid var(--bd);border-radius:10px;padding:12px;font-size:16.5px;line-height:2.15;font-weight:800}
+.corr .keep{color:#3B3B3B}
+.corr .del{color:var(--bad);text-decoration:line-through;text-decoration-thickness:2px;opacity:.7}
+.corr .add{color:var(--ok);background:var(--okbg);border:1px solid var(--okbd);border-radius:6px;padding:1px 7px;margin-left:3px}
+.corr .amb{color:var(--warn);background:#FFF3D6;border-radius:5px;padding:1px 5px;text-decoration:underline wavy var(--warnbd)}
+.struct{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:11px;padding:11px 12px;color:#1D4ED8}
+.struct>b.lab{display:block;font-family:var(--fd);font-weight:600;font-size:14.5px;margin-bottom:2px}
+.frm{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:4px 0 8px}
+.frm .pl{background:#fff;border:1px solid #BFDBFE;border-radius:7px;padding:3px 9px;font-size:12px;font-weight:800}
+.frm .pl.hit{background:#1D4ED8;color:#fff;border-color:#1D4ED8}
+.exrow{display:flex;flex-wrap:wrap;gap:5px}
+.exchip{background:#fff;border:1px solid #BFDBFE;border-radius:6px;padding:2px 8px;font-size:11.5px;font-weight:800;color:#1D4ED8}
+.frm .pls{color:#93B4F5;font-weight:800}
+.sline{font-size:13px;line-height:1.6;color:#1E3A8A;padding:7px 0;border-top:1px dashed #BFDBFE}.sline:first-of-type{border-top:none;padding-top:0}
+.sline q,.wy q{font-family:var(--fs);font-style:normal;font-weight:800;background:#fff;border-radius:4px;padding:0 5px;quotes:'«' '»'}
+.esbox{background:#FDF2F8;border:1px solid #F9C6E0;border-radius:11px;padding:10px 12px;color:#9D2463;font-size:13px;line-height:1.55}
+.esbox b.lab{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;opacity:.85}
+.why{display:flex;flex-direction:column;gap:7px}
+.wy{display:flex;gap:9px;font-size:13px;line-height:1.55;border:1px solid var(--warnbd);background:var(--warnbg);color:#7A4A08;border-radius:10px;padding:9px 11px}
+.wy.b{border-color:var(--badbd);background:#FFF8F7;color:#7A2F2F}
+.wy .ic{flex-shrink:0;font-size:15px}
+.wy .t{display:block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;opacity:.85}
+.qcard.locked .piece,.qcard.locked .tool{opacity:.4;pointer-events:none}
+.nav{display:flex;gap:9px;margin-top:14px}.nb{padding:12px 15px;border:none;border-radius:11px;font-family:var(--fb);font-weight:800;font-size:13.5px;cursor:pointer}
+.nb.next{background:var(--lg);color:#fff;flex:1}.nb.prev{background:#F1F0EA;color:var(--text)}.nb:disabled{opacity:.4;cursor:default}
+.rform{margin-top:12px;background:#FCF7EF;border:1.5px solid #F0D9B8;border-radius:13px;padding:13px;display:none}.rform.show{display:block}
+.rform h4{margin:0 0 9px;font-family:var(--fd);font-weight:600;font-size:13.5px;color:#92510F}
+.rform select,.rform textarea{width:100%;font-family:var(--fb);font-size:13px;border:1.5px solid #E7D3B4;border-radius:9px;padding:9px 11px;margin-bottom:9px;background:#fff;resize:vertical}.rform textarea{min-height:54px}
+.rrow{display:flex;gap:9px}.rsend{background:#C77D2E;color:#fff;border:none;border-radius:9px;padding:10px 17px;font-weight:800;font-size:13px;cursor:pointer;flex:1}.rcancel{background:#F1E7D6;color:#92510F;border:none;border-radius:9px;padding:10px 15px;font-weight:800;font-size:13px;cursor:pointer}
+.rdone{background:#EAF7EC;border:1.5px solid var(--okbd);border-radius:13px;padding:13px;margin-top:12px;display:none}.rdone.show{display:block}
+.results{display:none;padding:20px 16px 40px;text-align:center}.results.show{display:block}
+.unlock{border-radius:13px;padding:11px;display:flex;align-items:center;gap:9px;justify-content:center;font-weight:800;font-size:14px;margin-bottom:15px}
+.unlock.pass{background:var(--okbg);border:1.5px solid var(--okbd);color:var(--ok)}.unlock.fail{background:#FFF7E8;border:1.5px solid #F0C66B;color:#92510F}
+.hero{background:var(--lg);border-radius:20px;padding:24px 20px;color:#fff;box-shadow:var(--shs)}.hero .em{font-size:50px;line-height:1}
+.stars{display:flex;justify-content:center;gap:7px;margin:9px 0}.star{font-size:28px;opacity:.32}.star.on{opacity:1}
+.score{font-family:var(--fd);font-weight:600;font-size:46px;line-height:1}.score small{font-size:20px;opacity:.8}
+.phrase{font-size:14px;line-height:1.5;margin-top:9px;font-weight:700;opacity:.96}
+.strip{display:flex;gap:10px;margin:15px 0 6px}.stat{flex:1;background:#fff;border:1px solid var(--bd);border-radius:13px;padding:12px 9px;box-shadow:var(--shs)}
+.stat b{font-family:var(--fd);font-weight:600;font-size:22px;display:block;color:var(--ld)}.stat span{font-size:11px;color:var(--soft);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.note2{font-size:11.5px;color:var(--soft);font-weight:700;margin-bottom:14px}
+.action{background:#fff;border:1.5px solid var(--lm);border-left:4px solid var(--lp);border-radius:13px;padding:13px 15px;text-align:left;font-size:13px;line-height:1.5;font-weight:700;margin-bottom:15px;box-shadow:var(--shs)}
+.reinf{background:#FFF7E8;border:1.5px solid #F0C66B;border-radius:13px;padding:13px;text-align:left;margin-bottom:15px}
+.reinf b{font-size:12px;color:#92510F;display:flex;gap:6px;align-items:center;text-transform:uppercase;letter-spacing:.04em;margin-bottom:9px}
+.rchips{display:flex;flex-wrap:wrap;gap:7px}.rchip{background:#fff;border:1.5px solid #F0C66B;color:#92510F;border-radius:9px;padding:6px 11px;font-size:12.5px;font-weight:800}
+.surprise{background:linear-gradient(135deg,#FFF3D6,#FFFBF0);border:1.5px dashed var(--lp);border-radius:13px;padding:12px;display:flex;align-items:center;gap:11px;text-align:left;margin-bottom:15px}
+.surprise .em{font-size:28px}.surprise b{font-size:13px;color:var(--ld)}.surprise p{margin:1px 0 0;font-size:11.5px;color:var(--soft);font-weight:700}
+.rbtns{display:flex;flex-direction:column;gap:10px}.rbtn{padding:14px;border:none;border-radius:13px;font-family:var(--fb);font-weight:800;font-size:14px;cursor:pointer}
+.rbtn.back{background:var(--lg);color:#fff}.rbtn.retry{background:#F1F0EA;color:var(--text)}
+.mfoot{display:flex;align-items:center;justify-content:center;gap:8px;font-size:10.5px;color:#B0A99A;padding:16px;font-weight:700}.mfoot img{height:20px;opacity:.5}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#222;color:#fff;padding:12px 22px;border-radius:24px;font-weight:800;font-size:13.5px;box-shadow:var(--sh);z-index:200;opacity:0;transition:.3s;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.helpfab{position:fixed;right:16px;bottom:16px;z-index:120;width:44px;height:44px;border-radius:50%;background:var(--lg);color:#fff;border:none;font-size:22px;font-weight:800;cursor:pointer;box-shadow:var(--sh)}
+.helpov{position:fixed;inset:0;z-index:130;background:rgba(20,20,25,.5);display:none;align-items:center;justify-content:center;padding:18px}.helpov.show{display:flex}
+.helpcard{background:#fff;border-radius:18px;max-width:390px;width:100%;max-height:86%;overflow-y:auto;box-shadow:var(--sh);padding:18px 20px;position:relative}
+.helpcard h3{font-family:var(--fd);font-weight:600;font-size:17px;color:var(--ld);margin:0 0 8px}.helpcard .hx{position:absolute;top:11px;right:13px;border:none;background:none;font-size:20px;color:#bbb;cursor:pointer}
+.helptip{display:flex;gap:6px;font-size:12.5px;color:#555;padding:4px 0;line-height:1.45}.helptip b{color:var(--ld)}
+.chip{position:fixed;left:16px;bottom:16px;z-index:120;display:flex;align-items:center;gap:7px;background:var(--ld);color:#fff;padding:8px 14px;border-radius:22px;font-weight:800;font-size:12.5px;box-shadow:var(--shs)}.chip small{font-weight:700;opacity:.8;font-size:9px}
 </style>
 </head>
-<!-- ▼ NIVEL: pre-a1 | a1 | a2 ▼ -->
 <body data-level="a2">
-  <div class="mat">
-    <div class="mhead"><button class="mback" onclick="exitGuard()">‹</button>
-      <div class="mbadge"><img src="https://jucum-english-center.netlify.app/assets/jucum-figure.png" alt="JUCUM" onerror="this.style.display='none'"></div>
-      <div class="mh-info"><b id="mhtitle">Transform</b><span id="mhsub"></span></div>
-      <div class="mh-count"><span id="cq">1</span>/<span id="tot">0</span></div></div>
-    <div class="pbar"><div class="pfill" id="pfill"></div></div>
-    <div class="mbody" id="mbody">
-      <div class="langsw"><span class="lsw-lab">🌐 <span id="lswLab"></span></span>
-        <div class="lsw"><button id="lswEs" class="on" onclick="setLang('es')">Español</button><button id="lswEn" onclick="setLang('en')">English</button></div></div>
-      <div class="instr"><div class="em">🔄</div><div><b id="insT"></b><p id="insP"></p></div></div>
-      <div id="qbox"></div>
-    </div>
-    <div class="results" id="results">
-      <div class="unlock" id="unlockMsg"></div>
-      <div class="hero"><div class="em" id="heroEm">🎉</div><div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div><div class="score"><span id="fscore">0</span><small>%</small></div><div class="phrase" id="fphrase"></div></div>
-      <div class="strip"><div class="stat"><b id="fhits">0/0</b><span id="lHits"></span></div><div class="stat"><b id="ftime">0:00</b><span id="lTime"></span></div><div class="stat"><b id="fxp">+0</b><span id="lXpEarned"></span></div></div>
-      <div class="support-note" id="supportNote"></div>
-      <div class="action" id="actionMsg"></div>
-      <div class="reinf" id="reinf"><b id="lReinf"></b><div class="rchips" id="rchips"></div></div>
-      <div class="surprise" id="surprise"><div class="em">🎁</div><div><b id="lXp"></b><p id="lXpSub"></p></div></div>
-      <div class="rbtns"><button class="rbtn back" id="lBack" onclick="volver()"></button><button class="rbtn retry" id="lRetry" onclick="restart()"></button></div>
-    </div>
-    <div class="mfoot"><img src="https://jucum-english-center.netlify.app/assets/jucum-logo.png" alt="JUCUM English Center" onerror="this.style.display='none'">· Material protegido © JUCUM English Center</div>
+<div class="mat">
+  <div class="mhead"><button class="mback" onclick="exitGuard()">‹</button>
+    <div class="mbadge"><img src="https://jucum-english-center.netlify.app/assets/jucum-figure.png" alt="JUCUM" onerror="this.style.display='none'"></div>
+    <div class="mh-info"><b id="mhtitle">Práctica 3 · Escribe la oración</b><span id="mhsub">A2 · Módulo 1 · Countable & How much/many</span></div>
+    <div class="mh-count"><span id="cq">1</span>/<span id="tot">15</span></div></div>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+  <div class="mbody" id="mbody">
+    <div class="langsw"><span class="lsw-lab">🌐 <span id="lswLab"></span></span>
+      <div class="lsw"><button id="lswEs" class="on" onclick="setLang('es')">Español</button><button id="lswEn" onclick="setLang('en')">English</button></div></div>
+    <div class="instr"><div class="em">✍️</div><div><b id="insT"></b><p id="insP"></p></div></div>
+    <div id="qbox"></div>
   </div>
-  <div class="chip"><span>⏱</span><span id="ct">0:00</span><small id="chipNote">no afecta tu nota</small></div>
-  <button class="helpfab" onclick="openHelp()" title="?">?</button>
-  <div class="helpov" id="helpov"><div class="helpcard"><button class="hx" onclick="closeHelp()">✕</button><h3>🧭 <span id="helpT"></span></h3><div id="helpTips"></div></div></div>
-  <div class="helpov" id="exitov"><div class="helpcard"><h3 id="exitT" style="font-family:var(--fd);font-weight:600;font-size:16px;color:var(--ld);margin:0 0 8px"></h3><p id="exitP" style="font-size:13px;color:#555;line-height:1.5;margin:0 0 14px"></p><div style="display:flex;flex-direction:column;gap:8px"><button id="exitStay" onclick="closeExit()" style="padding:12px;border:none;border-radius:12px;background:var(--lg);color:#fff;font-weight:800;font-size:13.5px;cursor:pointer"></button><button id="exitLeave" onclick="leaveNow()" style="padding:12px;border:none;border-radius:12px;background:#F1F0EA;color:#C62828;font-weight:800;font-size:13px;cursor:pointer"></button></div></div></div>
-  <div class="toast" id="toast"></div>
+  <div class="results" id="results">
+    <div class="unlock" id="unlockMsg"></div>
+    <div class="hero"><div class="em" id="heroEm">🎉</div><div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div><div class="score"><span id="fscore">0</span><small>%</small></div><div class="phrase" id="fphrase"></div></div>
+    <div class="strip"><div class="stat"><b id="fhits">0/15</b><span id="lHits"></span></div><div class="stat"><b id="ftime">0:00</b><span id="lTime"></span></div><div class="stat"><b id="fxp">+0</b><span id="lXp2"></span></div></div>
+    <div class="note2" id="supportNote"></div>
+    <div class="action" id="actionMsg"></div>
+    <div class="reinf" id="reinf"><b id="lReinf"></b><div class="rchips" id="rchips"></div></div>
+    <div class="surprise" id="surprise"><div class="em">🎁</div><div><b id="lXp"></b><p id="lXpSub"></p></div></div>
+    <div class="rbtns"><button class="rbtn back" id="lBack" onclick="volver()"></button><button class="rbtn retry" id="lRetry" onclick="restart()"></button></div>
+  </div>
+  <div class="mfoot"><img src="https://jucum-english-center.netlify.app/assets/jucum-logo.png" alt="JUCUM English Center" onerror="this.style.display='none'">· Material protegido © JUCUM English Center</div>
+</div>
+<div class="chip"><span>⏱</span><span id="ct">0:00</span><small id="chipNote"></small></div>
+<button class="helpfab" onclick="openHelp()">?</button>
+<div class="helpov" id="helpov"><div class="helpcard"><button class="hx" onclick="closeHelp()">✕</button><h3>🧭 <span id="helpT"></span></h3><div id="helpTips"></div></div></div>
+<div class="helpov" id="exitov"><div class="helpcard"><h3 id="exitT"></h3><p id="exitP" style="font-size:13px;color:#555;line-height:1.5;margin:0 0 14px"></p><div style="display:flex;flex-direction:column;gap:8px"><button id="exitStay" onclick="closeExit()" style="padding:12px;border:none;border-radius:12px;background:var(--lg);color:#fff;font-weight:800;font-size:13.5px;cursor:pointer"></button><button id="exitLeave" onclick="leaveNow()" style="padding:12px;border:none;border-radius:12px;background:#F1F0EA;color:#C62828;font-weight:800;font-size:13px;cursor:pointer"></button></div></div></div>
+<div class="toast" id="toast"></div>
 <script>
-/* ════ EDITA AQUÍ · METADATOS ════ */
-const MAT = {"title":"Transform","subtitle":"A2 · Módulo 1 · Countable & How much/many","langDefault":"es","reportId":"A2_M1_t1-tr"};
-const PASS = 85;
-const QS = [{"reinf":{"es":"How much · precio","en":"How much · precio"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"The plan costs a lot of money.","answer":["How","much","does","the","plan","cost","?"],"tr":"¿Cuánto cuesta el plan?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"How much will the credit be?\"","change":{"es":"Pásala a <b>pregunta de precio</b>.","en":"Turn it into a <b>price question</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"How many · contable","en":"How many · contable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"She has many bills to pay.","answer":["How","many","bills","does","she","have","to","pay","?"],"tr":"¿Cuántas boletas tiene que pagar?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":null,"change":{"es":"Pregunta por la <b>cantidad</b>.","en":"Ask about the <b>quantity</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]},{"reinf":{"es":"much · incontable","en":"much · incontable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"There is a lot of information online.","answer":["There","isn't","much","information","online","."],"tr":"No hay mucha información en línea.","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":null,"change":{"es":"Pásala a <b>negativa</b> con la palabra de cantidad correcta.","en":"Make it <b>negative</b> with the right quantity word."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"many · contable","en":"many · contable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"They sent many emails.","answer":["They","didn't","send","many","emails","."],"tr":"No enviaron muchos correos.","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"He sent an email asking for an update\"","change":{"es":"Pásala a <b>negativa</b> en pasado.","en":"Make it <b>negative</b> in the past."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]},{"reinf":{"es":"How much · incontable","en":"How much · incontable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"We need water for cooking.","answer":["How","much","water","do","we","need","for","cooking","?"],"tr":"¿Cuánta agua necesitamos para cocinar?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"the things she needed water for: cooking, cleaning\"","change":{"es":"Pregunta por la <b>cantidad</b>.","en":"Ask about the <b>quantity</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"How many · contable","en":"How many · contable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"He bought three models.","answer":["How","many","models","did","he","buy","?"],"tr":"¿Cuántos modelos compró?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"building model ships\"","change":{"es":"Pregunta por la <b>cantidad</b> en pasado.","en":"Ask about the <b>quantity</b> in the past."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]},{"reinf":{"es":"much · incontable","en":"much · incontable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"There is a lot of noise in the building.","answer":["There","isn't","much","noise","in","the","building","."],"tr":"No hay mucho ruido en el edificio.","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"The pipes made a strange sound\"","change":{"es":"Pásala a <b>negativa</b>.","en":"Make it <b>negative</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"a lot of · afirmativa","en":"a lot of · afirmativa"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"She doesn't have many coins.","answer":["She","has","a","lot","of","coins","."],"tr":"Tiene un montón de monedas.","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":null,"change":{"es":"Pásala a <b>afirmativa</b> con cantidad grande.","en":"Make it <b>affirmative</b> with a large quantity."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","much"]},{"reinf":{"es":"much · incontable","en":"much · incontable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"How much time do we have?","answer":["We","don't","have","much","time","."],"tr":"No tenemos mucho tiempo.","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":null,"change":{"es":"Conviértela en <b>negación</b>.","en":"Turn it into a <b>negative statement</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"How many · contable","en":"How many · contable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"The form needs a lot of details.","answer":["How","many","details","does","the","form","need","?"],"tr":"¿Cuántos detalles necesita el formulario?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"She described the issue, the timeline, and the impact\"","change":{"es":"Pregunta por la <b>cantidad</b>.","en":"Ask about the <b>quantity</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]},{"reinf":{"es":"many · contable","en":"many · contable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"There are many fees in the contract.","answer":["There","aren't","many","fees","in","the","contract","."],"tr":"No hay muchos cargos en el contrato.","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"certain fees listed at the bottom\"","change":{"es":"Pásala a <b>negativa</b>.","en":"Make it <b>negative</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]},{"reinf":{"es":"How much · incontable","en":"How much · incontable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"He drinks a lot of coffee.","answer":["How","much","coffee","does","he","drink","?"],"tr":"¿Cuánto café toma?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":null,"change":{"es":"Pregunta por la <b>cantidad</b>.","en":"Ask about the <b>quantity</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"How many · contable","en":"How many · contable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"The team fixed many pipes.","answer":["How","many","pipes","did","the","team","fix","?"],"tr":"¿Cuántas tuberías arregló el equipo?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":null,"change":{"es":"Pregunta por la <b>cantidad</b> en pasado.","en":"Ask about the <b>quantity</b> in the past."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]},{"reinf":{"es":"How much · incontable","en":"How much · incontable"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"The heater uses a lot of electricity.","answer":["How","much","electricity","does","the","heater","use","?"],"tr":"¿Cuánta electricidad usa el calentador?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"arranged for a portable electric heater\"","change":{"es":"Pregunta por la <b>cantidad</b>.","en":"Ask about the <b>quantity</b>."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["many","a"]},{"reinf":{"es":"How many · sujeto","en":"How many · sujeto"},"task":{"es":"Transforma la oración y <b>ordena las fichas</b>.","en":"Transform the sentence and <b>order the tiles</b>."},"src":"Many neighbors complained.","answer":["How","many","neighbors","complained","?"],"tr":"¿Cuántos vecinos reclamaron?","hint":{"es":"Decide si el sustantivo se cuenta o se mide; luego arma la pregunta o la negación con su auxiliar correcto.","en":"Decide if the noun is counted or measured; then build the question or negative with the right auxiliary."},"story":"\"A few neighbors mentioned that they had also complained.\"","change":{"es":"Pregunta de <b>sujeto</b>: ojo, sin auxiliar.","en":"<b>Subject</b> question: no auxiliary needed."},"formula":{"es":"How much/many + sustantivo + auxiliar + sujeto + verbo …","en":"How much/many + noun + auxiliary + subject + verb …"},"rule":{"es":"much / How much → incontables y precios · many / How many → contables en plural. En afirmativas suena natural a lot of.","en":"much / How much → uncountables and prices · many / How many → plural countables. In affirmatives a lot of sounds natural."},"distractors":["much","a"]}];
+const MAT={"title":"Práctica 3 · Escribe la oración","subtitle":"A2 · Módulo 1 · Countable & How much/many","langDefault":"es","reportId":"A2_M1_t1-tr"};
+const PASS=85;
+const QS=[{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How much · precio","en":"How much · precio"},"task":{"es":"«The plan costs a lot of money.» → escribe la <b>pregunta</b> por el precio.","en":"«The plan costs a lot of money.» → write the <b>question</b> about the price."},"cue":["how much","the plan","cost"],"answer":["How much does the plan cost?"],"tr":"¿Cuánto cuesta el plan?","hint":{"es":"Precio → How much + does.","en":"Price → How much + does."},"change":{"es":"<b>How much does</b> … cost (sin -s).","en":"<b>How much does</b> … cost (no -s)."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How many · does","en":"How many · does"},"task":{"es":"«She has many bills to pay.» → escribe la <b>pregunta</b> por la cantidad de cuentas.","en":"«She has many bills to pay.» → write the <b>question</b> about the number of bills."},"cue":["how many","bills","she","have to pay"],"answer":["How many bills does she have to pay?"],"tr":"¿Cuántas cuentas tiene que pagar?","hint":{"es":"bills se cuentan → many; she → does + have.","en":"bills are counted → many; she → does + have."},"change":{"es":"<b>How many bills does</b> she have.","en":"<b>How many bills does</b> she have."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"not much","en":"not much"},"task":{"es":"«There is a lot of information online.» → escribe la oración <b>negativa</b> con <b>much</b>.","en":"«There is a lot of information online.» → write the <b>negative</b> sentence with <b>much</b>."},"cue":["there","not","much","information online"],"answer":["There isn't much information online."],"tr":"No hay mucha información en línea.","hint":{"es":"information es incontable → much.","en":"information is uncountable → much."},"change":{"es":"<b>isn’t much</b>.","en":"<b>isn’t much</b>."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"not many · pasado","en":"not many · pasado"},"task":{"es":"«They sent many emails.» → escribe la oración <b>negativa</b> en pasado con <b>many</b>.","en":"«They sent many emails.» → write the <b>negative</b> sentence in the past with <b>many</b>."},"cue":["they","not","send","many","emails"],"answer":["They didn't send many emails."],"tr":"No enviaron muchos correos.","hint":{"es":"didn’t + verbo base (send).","en":"didn’t + base verb (send)."},"change":{"es":"<b>didn’t send many</b>.","en":"<b>didn’t send many</b>."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How much · do","en":"How much · do"},"task":{"es":"«We need water for cooking.» → escribe la <b>pregunta</b> por la cantidad de agua.","en":"«We need water for cooking.» → write the <b>question</b> about the amount of water."},"cue":["how much","water","we","need","for cooking"],"answer":["How much water do we need for cooking?"],"tr":"¿Cuánta agua necesitamos para cocinar?","hint":{"es":"water → much; we → do.","en":"water → much; we → do."},"change":{"es":"<b>How much water do</b> we need.","en":"<b>How much water do</b> we need."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How many · did","en":"How many · did"},"task":{"es":"«He bought three models.» → escribe la <b>pregunta</b> por la cantidad de modelos.","en":"«He bought three models.» → write the <b>question</b> about the number of models."},"cue":["how many","models","he","buy"],"answer":["How many models did he buy?"],"tr":"¿Cuántos modelos compró?","hint":{"es":"Pasado → did + buy (no bought).","en":"Past → did + buy (not bought)."},"change":{"es":"<b>How many models did</b> he buy.","en":"<b>How many models did</b> he buy."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"not much","en":"not much"},"task":{"es":"«There is a lot of noise in the building.» → escribe la oración <b>negativa</b> con <b>much</b>.","en":"«There is a lot of noise in the building.» → write the <b>negative</b> sentence with <b>much</b>."},"cue":["there","not","much","noise","in the building"],"answer":["There isn't much noise in the building."],"tr":"No hay mucho ruido en el edificio.","hint":{"es":"noise es incontable.","en":"noise is uncountable."},"change":{"es":"<b>isn’t much noise</b>.","en":"<b>isn’t much noise</b>."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"a lot of · afirmativa","en":"a lot of · afirmativa"},"task":{"es":"«She doesn't have many coins.» → escribe la oración <b>afirmativa</b> con <b>a lot of</b>.","en":"«She doesn't have many coins.» → write the <b>affirmative</b> sentence with <b>a lot of</b>."},"cue":["she","have","a lot of","coins"],"answer":["She has a lot of coins."],"tr":"Ella tiene muchas monedas.","hint":{"es":"Afirmativa: has (no «have»).","en":"Affirmative: has (not «have»)."},"change":{"es":"<b>has a lot of</b>.","en":"<b>has a lot of</b>."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"not much · time","en":"not much · time"},"task":{"es":"«How much time do we have?» → escribe la <b>respuesta negativa</b> con <b>much</b>.","en":"«How much time do we have?» → write the <b>negative answer</b> with <b>much</b>."},"cue":["we","not","have","much","time"],"answer":["We don't have much time."],"tr":"No tenemos mucho tiempo.","hint":{"es":"time es incontable.","en":"time is uncountable."},"change":{"es":"<b>don’t have much time</b>.","en":"<b>don’t have much time</b>."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How many · does","en":"How many · does"},"task":{"es":"«The form needs a lot of details.» → escribe la <b>pregunta</b> por la cantidad de datos.","en":"«The form needs a lot of details.» → write the <b>question</b> about the number of details."},"cue":["how many","details","the form","need"],"answer":["How many details does the form need?"],"tr":"¿Cuántos datos necesita el formulario?","hint":{"es":"details se cuentan.","en":"details are counted."},"change":{"es":"<b>How many details does</b> the form need.","en":"<b>How many details does</b> the form need."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"not many","en":"not many"},"task":{"es":"«There are many fees in the contract.» → escribe la oración <b>negativa</b> con <b>many</b>.","en":"«There are many fees in the contract.» → write the <b>negative</b> sentence with <b>many</b>."},"cue":["there","not","many","fees","in the contract"],"answer":["There aren't many fees in the contract."],"tr":"No hay muchas tarifas en el contrato.","hint":{"es":"fees es plural → aren’t.","en":"fees is plural → aren’t."},"change":{"es":"<b>aren’t many</b>.","en":"<b>aren’t many</b>."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How much · does","en":"How much · does"},"task":{"es":"«He drinks a lot of coffee.» → escribe la <b>pregunta</b> por la cantidad de café.","en":"«He drinks a lot of coffee.» → write the <b>question</b> about the amount of coffee."},"cue":["how much","coffee","he","drink"],"answer":["How much coffee does he drink?"],"tr":"¿Cuánto café toma?","hint":{"es":"coffee → much; drink sin -s.","en":"coffee → much; drink with no -s."},"change":{"es":"<b>How much coffee does</b> he drink.","en":"<b>How much coffee does</b> he drink."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How many · did","en":"How many · did"},"task":{"es":"«The team fixed many pipes.» → escribe la <b>pregunta</b> por la cantidad de tubos.","en":"«The team fixed many pipes.» → write the <b>question</b> about the number of pipes."},"cue":["how many","pipes","the team","fix"],"answer":["How many pipes did the team fix?"],"tr":"¿Cuántos tubos arregló el equipo?","hint":{"es":"did + fix.","en":"did + fix."},"change":{"es":"<b>How many pipes did</b> the team fix.","en":"<b>How many pipes did</b> the team fix."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How much · does","en":"How much · does"},"task":{"es":"«The heater uses a lot of electricity.» → escribe la <b>pregunta</b> por la cantidad de electricidad.","en":"«The heater uses a lot of electricity.» → write the <b>question</b> about the amount of electricity."},"cue":["how much","electricity","the heater","use"],"answer":["How much electricity does the heater use?"],"tr":"¿Cuánta electricidad usa el calentador?","hint":{"es":"electricity es incontable.","en":"electricity is uncountable."},"change":{"es":"<b>How much electricity does</b> the heater use.","en":"<b>How much electricity does</b> the heater use."}},{"rule":{"es":"<b>How many</b> + plural contable · <b>How much</b> + incontable. Negativas: <b>not many</b> (contables) / <b>not much</b> (incontables). Afirmativas: <b>a lot of</b>.","en":"<b>How many</b> + plural countable · <b>How much</b> + uncountable. Negatives: <b>not many</b> / <b>not much</b>. Affirmatives: <b>a lot of</b>."},"formula":{"es":"How much / How many + (cosa) + do/does/did + sujeto + verbo base? · sujeto + don’t/didn’t + verbo + much/many + cosa","en":"How much / How many + (thing) + do/does/did + subject + base verb? · subject + don’t/didn’t + verb + much/many + thing"},"examples":{"es":["How many bills does she have to pay?","There isn’t much information online."],"en":["How many bills does she have to pay?","There isn’t much information online."]},"es":{"es":"El español cambia cuánto / cuántos; el inglés solo pregunta: ¿se cuenta (many) o se mide (much)?","en":"Spanish changes cuánto / cuántos; English only asks: counted (many) or measured (much)?"},"lit":{"es":"","en":""},"story":null,"reinf":{"es":"How many · sujeto","en":"How many · sujeto"},"task":{"es":"«Many neighbors complained.» → escribe la <b>pregunta</b> por la cantidad de vecinos (son el sujeto).","en":"«Many neighbors complained.» → write the <b>question</b> about the number of neighbors (they are the subject)."},"cue":["how many","neighbors","complain"],"answer":["How many neighbors complained?"],"tr":"¿Cuántos vecinos se quejaron?","hint":{"es":"Pregunta por el sujeto → sin did, verbo en pasado.","en":"Subject question → no did, past verb."},"change":{"es":"<b>How many neighbors complained</b> (sin did).","en":"<b>How many neighbors complained</b> (no did)."}}];
+/* ════ FIN DE LO EDITABLE — motor ════ */
+const T={es:{lswLab:'Instrucciones y ayuda',insT:'Escribe la oración completa',insP:'Las piezas están en su <b>forma base</b>. Tú produces la gramática: el <b>verbo conjugado</b>, la marca del tema y el <b>orden correcto</b>. Toca una pieza para escribirla más rápido y usa <b>’</b> para el apóstrofo.',
+ qlabel:'Pregunta',pt:'1 punto',dataLab:'Datos',keyLab:'Palabra clave',hint:'Pista',tr:'Traducción',hintLab:'Pista (contexto)',trLab:'Traducción de la oración',report:'⚠ Reportar',check:'Comprobar',cueLab:'Piezas',wph:'Escribe la oración completa aquí…',tip:'Mayúscula, coma y punto: 2 avisos sin costo.',clear:'🧹 Borrar',kb:'Teclado',
+ multi:n=>'✌️ '+n+' formas correctas: cualquiera cuenta',locked:'🔒 Intento registrado · esta oración ya no se puede editar',
+ fbOk:'✅ ¡Perfecto!',fbW:'🟡 ¡Bien! Solo faltaron detalles',fbNo:'❌ Así queda tu oración corregida',fbOrd:'🟠 Buen inglés, pero no lo que pedía la consigna',bOrdY:'✍️ Tu oración',ordMsg:'Tu oración es <b>inglés correcto</b>, pero esta pregunta evalúa <b>lo que pide la consigna</b>, así que no suma punto. Mira la forma pedida y la nota de abajo.',noteLab:'📐 Sobre el orden y la forma',pts1:'1 punto',pts0:'0 puntos',
+ bYours:'✍️ Tu oración, con la corrección encima',bStruct:'🧩 Cómo se arma esta oración',bEs:'🇪🇸 En español vs. en inglés',bAnswer:'✔ Forma correcta',bAlt:'🔤 También se acepta',bStory:'📖 En la historia del módulo',bLit:'🔤 Literal vs natural',
+ prev:'← Anterior',next:'Siguiente →',seeRes:'Ver resultados 🎉',
+ pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad',fail:'🔁 Necesitas '+PASS+'% para aprobar. ¡Inténtalo de nuevo!',
+ hits:'Aciertos',time:'Tiempo',xpL:'XP ganada',reinf:'📌 A reforzar',xp:'+15 XP por aprobar',xpSub:'Sumaste a tu Liga Semanal. Mantén la racha.',back:'↩ Volver a la plataforma',retry:'🔁 Intentar de nuevo',timeNote:'no afecta tu nota',
+ ph:['¡Excelente! Construyes tus oraciones con seguridad. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
+ supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
+ rFormH:'⚠ Reportar un error',rOpts:['Mi respuesta parecía correcta','La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran piezas','Otro'],rPlace:'Cuéntanos qué escribiste (opcional)...',rSend:'Enviar a soporte',rCancel:'Cancelar',rDone:'✓ Reporte enviado a soporte',rCodeLab:'Código (cópialo si tu teacher lo pide):',
+ exitT:'¿Seguro que deseas salir? 🚪',exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. 💪',exitStay:'Seguir practicando',exitLeave:'Salir y perder mis XP',
+ helpT:'¿Cómo uso este material?',tips:['<b>Cómo se resuelve:</b> usa las piezas y <b>escribe</b> la oración completa.','<b>Tú produces la gramática:</b> la forma del verbo, la marca del tema y el orden. Las piezas solo dan el contenido.','<b>Botón ’</b>: para escribir apóstrofos (isn’t, don’t) sin pelear con el teclado.','<b>💡 Pista</b> y <b>🔤 Traducción</b>: ayuda que no baja tu nota.','<b>Mayúscula y punto</b> se avisan en ámbar y suman igual… <b>las dos primeras veces</b>. A partir de la tercera ya cuentan como error.','<b>Un intento por oración:</b> al comprobar, la respuesta queda registrada.','<b>≥'+PASS+'% aprueba</b> y desbloquea la siguiente actividad.']},
+ en:{lswLab:'Instructions & help',insT:'Write the full sentence',insP:'The pieces are in their <b>base form</b>. You produce the grammar: the <b>conjugated verb</b>, the marker of the topic and the <b>right order</b>. Tap a piece to type it faster and use <b>’</b> for the apostrophe.',
+ qlabel:'Question',pt:'1 point',dataLab:'Facts',keyLab:'Key word',hint:'Hint',tr:'Translation',hintLab:'Hint (context)',trLab:'Sentence translation',report:'⚠ Report',check:'Check',cueLab:'Pieces',wph:'Write the full sentence here…',tip:'Capitals, commas and the final mark: 2 free warnings.',clear:'🧹 Clear',kb:'Keyboard',
+ multi:n=>'✌️ '+n+' correct forms: any of them counts',locked:'🔒 Attempt saved · this sentence can no longer be edited',
+ fbOk:'✅ Perfect!',fbW:'🟡 Good! Only small details missing',fbNo:'❌ This is your sentence, corrected',fbOrd:'🟠 Good English, but not what the task asked for',bOrdY:'✍️ Your sentence',ordMsg:'Your sentence is <b>correct English</b>, but this question assesses <b>what the task asks for</b>, so it scores no point. Look at the requested form and the note below.',noteLab:'📐 About order and form',pts1:'1 point',pts0:'0 points',
+ bYours:'✍️ Your sentence with the correction on top',bStruct:'🧩 How this sentence is built',bEs:'🇪🇸 Spanish vs. English',bAnswer:'✔ Correct form',bAlt:'🔤 Also accepted',bStory:'📖 In the module story',bLit:'🔤 Literal vs natural',
+ prev:'← Back',next:'Next →',seeRes:'See results 🎉',
+ pass:'🔓 Passed! You unlocked the next activity',fail:'🔁 You need '+PASS+'% to pass. Try again!',
+ hits:'Correct',time:'Time',xpL:'XP earned',reinf:'📌 To review',xp:'+15 XP for passing',xpSub:'Added to your Weekly League. Keep your streak.',back:'↩ Back to the platform',retry:'🔁 Try again',timeNote:'does not affect your grade',
+ ph:['Excellent! You build your sentences with confidence. 🌟','Great job, passed! Review the few slips. 💪','Almost — review and come back to top '+PASS+'%. 🌱'],
+ supp:n=>n+' answered with translation help (doesn\u2019t lower your grade).',
+ rFormH:'⚠ Report a problem',rOpts:['My answer looked correct','The correct form looks wrong','Typo / spelling error','The translation doesn\u2019t match','The task is confusing','Missing or extra pieces','Other'],rPlace:'Tell us what you wrote (optional)...',rSend:'Send to support',rCancel:'Cancel',rDone:'✓ Report sent to support',rCodeLab:'Code (copy it if your teacher asks):',
+ exitT:'Are you sure you want to leave? 🚪',exitP:x=>'If you leave now, <b>you\u2019ll lose the '+x+' XP</b> you\u2019ve earned. 💪',exitStay:'Keep practicing',exitLeave:'Leave and lose my XP',
+ helpT:'How do I use this material?',tips:['<b>How to solve it:</b> use the pieces and <b>write</b> the full sentence.','<b>You produce the grammar:</b> the verb form, the marker of the topic and the order. The pieces only give you the content.','<b>’ button</b>: type apostrophes without fighting your keyboard.','<b>💡 Hint</b> and <b>🔤 Translation</b>: help that never lowers your grade.','<b>Capitals and final mark</b> are flagged in amber and still count… <b>the first two times</b>. From the third one on they count as an error.','<b>One attempt per sentence:</b> once you check, the answer is saved.','<b>≥'+PASS+'% passes</b> and unlocks the next activity.']}};
+const ROLE={s:{es:'el sujeto',en:'the subject'},v:{es:'el verbo',en:'the verb'},adj:{es:'el comparativo',en:'the comparative'},than:{es:'la palabra <b>than</b>',en:'the word <b>than</b>'},c:{es:'el segundo elemento de la comparación',en:'the second element of the comparison'},art:{es:'el artículo',en:'the article'},prep:{es:'la preposición',en:'the preposition'},int:{es:'el intensificador',en:'the intensifier'},aux:{es:'el auxiliar',en:'the auxiliary'},neg:{es:'la negación',en:'the negative'},o:{es:'el objeto',en:'the object'}};
+const TIP={s:{es:'El sujeto abre la oración y en inglés <b>nunca se omite</b>.',en:'The subject opens the sentence and in English it is <b>never dropped</b>.'},
+ v:{es:'El verbo va <b>justo después del sujeto</b>: en las comparaciones casi siempre es <b>be</b> (is / are).',en:'The verb comes <b>right after the subject</b>: in comparisons it is almost always <b>be</b> (is / are).'},
+ adj:{es:'El comparativo se forma <b>en el adjetivo</b>: corto + <b>-er</b>, largo con <b>more</b>. Nunca las dos marcas juntas.',en:'The comparative is built <b>on the adjective</b>: short + <b>-er</b>, long with <b>more</b>. Never both markers.'},
+ than:{es:'<b>Than</b> es la bisagra de la comparación: va después del comparativo y antes del segundo elemento. No es «that».',en:'<b>Than</b> is the hinge of the comparison: it goes after the comparative and before the second element. It is not «that».'},
+ c:{es:'Después de <b>than</b> va lo que comparas: el segundo elemento cierra la oración.',en:'After <b>than</b> comes what you compare with: the second element closes the sentence.'},
+ art:{es:'El artículo acompaña al sustantivo; en inglés no se salta.',en:'The article goes with the noun; English does not skip it.'},
+ prep:{es:'La preposición marca lugar o tiempo y va antes del sustantivo.',en:'The preposition marks place or time and goes before the noun.'},
+ int:{es:'El intensificador (much, far, a lot) mide la diferencia y va <b>antes</b> del comparativo.',en:'The intensifier (much, far, a lot) measures the gap and goes <b>before</b> the comparative.'},
+ aux:{es:'El auxiliar deja el verbo en forma base.',en:'The auxiliary keeps the verb in its base form.'},
+ neg:{es:'La negación va pegada al auxiliar.',en:'The negative sits next to the auxiliary.'},
+ o:{es:'El objeto va después del verbo.',en:'The object goes after the verb.'}};
+const AP=/[\u2019\u02BC\u0060\u00B4']/g;
+const norm=s=>String(s).replace(AP,"'").replace(/\s+/g,' ').trim();
+const STRIP=/^[¿¡"“”('\[]+|[.,;:!?"“”)'\]]+$/g;
+const bare=w=>w.replace(STRIP,'');
+const body=s=>norm(s).replace(/\s*([.?!]+)\s*$/,'').trim();
+const toks=s=>body(s).split(' ').filter(Boolean).map(w=>({raw:w,b:bare(w)}));
+const endMark=s=>{const m=norm(s).match(/[.?!]$/);return m?m[0]:''};
+const isPropio=w=>/^[A-Z]/.test(w)&&w!=='I';
+const CMAP={dont:"don't",doesnt:"doesn't",didnt:"didn't",isnt:"isn't",arent:"aren't",wasnt:"wasn't",cant:"can't",wont:"won't",im:"I'm",its:"it's"};
+const SUF=/^(s|es|ed|ing|er|est|ies|ied|d|r|st|n)$/;
+const L=x=>(x&&typeof x==='object'&&!Array.isArray(x))?(x[lang]||x.es||''):x;
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function lev(a,b){const m=a.length,n=b.length;if(Math.abs(m-n)>2)return 9;const d=Array.from({length:m+1},(_,i)=>[i].concat(new Array(n).fill(0)));for(let j=0;j<=n;j++)d[0][j]=j;
+ for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1);}return d[m][n];}
+function apIssue(u,a){const uu=u.replace(/'/g,''),aa=a.replace(/'/g,'');
+ if(uu===aa&&u!==a){const cu=(u.match(/'/g)||[]).length,ca=(a.match(/'/g)||[]).length;return cu<ca?'falta':cu>ca?'sobra':'mal colocado';}
+ if(CMAP[u.toLowerCase()]&&!/'/.test(u))return 'falta';return null;}
+function esGramatica(u,a){const U=u.toLowerCase(),A=a.toLowerCase();
+ if(U.length!==A.length){const l=U.length>A.length?U:A,s=U.length>A.length?A:U;if(l.startsWith(s)&&SUF.test(l.slice(s.length)))return true;}
+ let i=0;while(i<U.length&&i<A.length&&U[i]===A[i])i++;return i>=4&&i>=Math.min(U.length,A.length)-2;}
+function marcas(input,ans){const w=[],em=endMark(input),ea=endMark(ans);
+ if(ea&&!em)w.push({t:'Signo final',u:'',a:ea});else if(ea&&em&&em!==ea)w.push({t:'Signo final',u:em,a:ea});
+ const U=toks(input),A=toks(ans);
+ if(U[0]&&A[0]&&U[0].b!==A[0].b&&U[0].b.toLowerCase()===A[0].b.toLowerCase())w.push({t:'Mayúscula inicial',u:U[0].b,a:A[0].b});
+ if(/\s\s|\s[.?!]/.test(input.trim()))w.push({t:'Espacios',u:'',a:''});
+ if(/[\u2019\u00B4\u0060]/.test(input))w.push({t:'Apóstrofo del teclado',u:'’',a:"'"});
+ return w;}
+function grade1(input,ans){
+ const U=toks(input),A=toks(ans),words=[],warn=[],err=[];
+ const setU=U.map(t=>t.b.toLowerCase()).sort().join(' '),setA=A.map(t=>t.b.toLowerCase()).sort().join(' ');
+ if(setU===setA&&U.map(t=>t.b.toLowerCase()).join(' ')!==A.map(t=>t.b.toLowerCase()).join(' ')){
+  let p=0;while(p<U.length&&U[p].b.toLowerCase()===A[p].b.toLowerCase())p++;
+  let s=0;while(s<U.length-p&&U[U.length-1-s].b.toLowerCase()===A[A.length-1-s].b.toLowerCase())s++;
+  const ws=U.map((t,i)=>({w:t.b,c:(i<p||i>=U.length-s)?'ok':'bad'}));
+  ws.splice(U.length-s,0,{w:A.slice(p,A.length-s).map(t=>t.b).join(' '),c:'ins'});
+  const eu=U.slice(p,U.length-s).map(t=>t.b).join(' '),ea2=A.slice(p,A.length-s).map(t=>t.b).join(' ');
+  if(!eu&&!ea2)return {kind:'details',words:U.map(t=>({w:t.b,c:'ok'})),warn:marcas(input,ans),err:[],score:1,ref:ans};
+  return {kind:'error',words:ws,warn:marcas(input,ans),err:[{t:'Orden',u:eu,a:ea2,i:p}],score:0};}
+ if(U.length!==A.length){
+  const eq=(x,y)=>x&&y&&x.b.toLowerCase()===y.b.toLowerCase();
+  let p=0;while(p<U.length&&p<A.length&&eq(U[p],A[p]))p++;
+  let s=0;while(s<U.length-p&&s<A.length-p&&eq(U[U.length-1-s],A[A.length-1-s]))s++;
+  const ws=U.map((t,i)=>({w:t.b,c:(i<p||i>=U.length-s)?'ok':'bad'}));
+  const extra=U.slice(p,U.length-s).map(t=>t.b).join(' '),miss=A.slice(p,A.length-s).map(t=>t.b).join(' ');
+  if(miss)ws.splice(U.length-s,0,{w:miss,c:'ins'});
+  return {kind:'error',words:ws,warn:marcas(input,ans),err:[{t:U.length>A.length?'Sobra':'Falta',u:extra,a:miss,i:p}],score:0};}
+ U.forEach((u,i)=>{const a=A[i];if(u.skip)return;
+  if(u.b===a.b){words.push({w:u.b,c:'ok'});return;}
+  if(i<U.length-1&&A[i+1]&&U[i+1]&&u.b.toLowerCase()===A[i+1].b.toLowerCase()&&U[i+1].b.toLowerCase()===a.b.toLowerCase()){
+   words.push({w:u.b,c:'bad',a:a.b},{w:U[i+1].b,c:'bad',a:A[i+1].b});
+   err.push({t:'Orden',u:u.b+' '+U[i+1].b,a:a.b+' '+A[i+1].b,i:i});U[i+1].skip=true;return;}
+  if(u.b.toLowerCase()===a.b.toLowerCase()){
+   if(a.b==='I'&&u.b!=='I'){words.push({w:u.b,c:'bad',a:a.b});err.push({t:'La «I» en mayúscula',u:u.b,a:a.b,i:i});return;}
+   if(i===0){words.push({w:u.b,c:'warn',a:a.b});warn.push({t:'Mayúscula inicial',u:u.b,a:a.b});return;}
+   if(isPropio(a.b)){words.push({w:u.b,c:'bad',a:a.b});err.push({t:'Nombre propio',u:u.b,a:a.b,i:i});return;}
+   words.push({w:u.b,c:'warn',a:a.b});warn.push({t:'Mayúscula de más',u:u.b,a:a.b});return;}
+  if(/^(a|an|the)$/i.test(u.b)&&/^(a|an|the)$/i.test(a.b)){words.push({w:u.b,c:'warn',a:a.b});warn.push({t:'Artículo distinto',u:u.b,a:a.b});return;}
+  const ap=apIssue(u.b,a.b);
+  if(ap){words.push({w:u.b,c:'bad',a:a.b});err.push({t:'Apóstrofo '+ap,u:u.b,a:a.b,i:i});return;}
+  if(lev(u.b.toLowerCase(),a.b.toLowerCase())<=2){words.push({w:u.b,c:'bad',a:a.b});
+   err.push({t:esGramatica(u.b,a.b)?'Forma de la palabra':'Ortografía',u:u.b,a:a.b,i:i});return;}
+  words.push({w:u.b,c:'bad',a:a.b});err.push({t:'Palabra equivocada',u:u.b,a:a.b,i:i});});
+ /*COMMA-V1*/A.forEach((a,i)=>{const u=U[i];if(!u)return;const ac=/,$/.test(a.raw),uc=/,$/.test(u.raw);if(ac===uc)return;
+  if(ac){warn.push({t:'Coma',u:u.b,a:a.b+','});if(words[i]&&words[i].c==='ok'){words[i].c='warn';words[i].a=a.b+',';}}
+  else{warn.push({t:'Coma de más',u:u.b+',',a:a.b});if(words[i]&&words[i].c==='ok'){words[i].c='warn';words[i].a=a.b;}}});
+ const em=endMark(input),ea=endMark(ans);
+ if(ea&&!em)warn.push({t:'Signo final',u:'',a:ea});else if(ea&&em&&em!==ea)warn.push({t:'Signo final',u:em,a:ea});
+ if(/\s\s|\s[.?!]/.test(input.trim()))warn.push({t:'Espacios',u:'',a:''});
+ if(/[\u2019\u00B4\u0060]/.test(input))warn.push({t:'Apóstrofo del teclado',u:'’',a:"'"});
+ return {kind:err.length?'error':(warn.length?'details':'perfect'),words,warn,err,score:err.length?0:1,ref:ans};}
 
-/* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
-const T = {
-  es:{ lswLab:'Instrucciones y ayuda', insT:'Transforma y reconstruye', insP:'Lee la oración <b>Original</b>, aplica el cambio que pide la consigna y ordena las fichas. Arrastra para reordenar. ¿Dudas? Usa Pista o Traducción.',
-    qlabel:'Pregunta', hint:'Pista', tr:'Traducción', hintLab:'Pista (contexto)', trLab:'Traducción de la oración', report:'⚠ Reportar', withSupport:'con apoyo', check:'Comprobar', trayPh:'Toca las fichas para construir aquí…', original:'Original:',
-    fbOk:'¡Correcto!', fbNo:'Casi — revisemos', bAnswer:'✔ Forma correcta', bChange:'🔧 El cambio paso a paso', bForm:'🧩 Estructura', bRule:'📐 Regla', bEs:'Español ↔ Inglés', bLit:'🔤 Literal vs natural',
-    prev:'← Anterior', next:'Siguiente →', seeRes:'Ver resultados 🎉',
-    pass:'🔓 ¡Aprobado! Desbloqueaste la siguiente actividad', fail:'🔁 Necesitas '+PASS+'% para aprobar. ¡Inténtalo de nuevo!',
-    hits:'Aciertos', time:'Tiempo', timeNote:'no afecta tu nota', reinf:'📌 A reforzar', xp:'+15 XP por aprobar', xpSub:'Sumaste a tu Liga Semanal. Mantén la racha.', back:'↩ Volver a la plataforma', retry:'🔁 Intentar de nuevo',
-    ph:['¡Excelente! Dominas el tema. 🌟','¡Muy bien, aprobado! Repasa los pocos errores. 💪','Casi — repasa y vuelve para superar el '+PASS+'%. 🌱'],
-    supp:n=>n+' con apoyo de traducción (no baja tu nota; lo verá tu teacher).',
-    rFormH:'⚠ Reportar un error', rOpts:['La forma correcta parece equivocada','Error de tipeo / ortografía','La traducción no coincide','La consigna confunde','Faltan o sobran fichas','Otro'], rPlace:'Cuéntanos qué viste (opcional)...', rSend:'Enviar a soporte', rCancel:'Cancelar', rDone:'✓ Reporte enviado a soporte', rCodeLab:'Código (cópialo si tu teacher lo pide):', xpEarned:'XP ganada', exitT:'¿Seguro que deseas salir? 🚪', exitP:x=>'Si sales ahora, <b>perderás los '+x+' XP</b> que llevas y el progreso de este ejercicio. Termínalo para reclamarlos. 💪', exitStay:'Seguir practicando', exitLeave:'Salir y perder mis XP', helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada botón:', tips:['<b>Cómo se resuelve:</b> toca las fichas en orden para armar la oración.','<b>🌐 Español/English:</b> idioma de instrucciones y explicaciones (el ejercicio queda en inglés).','<b>💡 Pista:</b> ayuda de contexto, debajo de la oración.','<b>🔤 Traducción:</b> la oración en español (apoyo, no baja tu nota).','<b>⚠ Reportar:</b> avísanos si algo está mal en la pregunta.','<b>Al terminar:</b> verás nota, aciertos, tiempo y temas a reforzar.','<b>≥75% aprueba</b> y desbloquea la siguiente actividad.'] },
-  en:{ lswLab:'Instructions & help', insT:'Transform and rebuild', insP:'Read the <b>Original</b>, apply the change in the task and order the tiles. Drag to reorder. Stuck? Use Hint or Translation.',
-    qlabel:'Question', hint:'Hint', tr:'Translation', hintLab:'Hint (context)', trLab:'Sentence translation', report:'⚠ Report', withSupport:'with help', check:'Check', trayPh:'Tap the tiles to build here…', original:'Original:',
-    fbOk:'Correct!', fbNo:'Almost — let\'s review', bAnswer:'✔ Correct form', bChange:'🔧 The change, step by step', bForm:'🧩 Structure', bRule:'📐 Rule', bEs:'Spanish ↔ English', bLit:'🔤 Literal vs natural',
-    prev:'← Back', next:'Next →', seeRes:'See results 🎉',
-    pass:'🔓 Passed! You unlocked the next activity', fail:'🔁 You need '+PASS+'% to pass. Try again!',
-    hits:'Correct', time:'Time', timeNote:'does not affect your grade', reinf:'📌 To review', xp:'+15 XP for passing', xpSub:'Added to your Weekly League. Keep your streak.', back:'↩ Back to the platform', retry:'🔁 Try again',
-    ph:['Excellent! You\'ve got it. 🌟','Great job, passed! Review the few slips. 💪','Almost — review and come back to top '+PASS+'%. 🌱'],
-    supp:n=>n+' answered with translation help (doesn\'t lower your grade; your teacher will see it).',
-    rFormH:'⚠ Report a problem', rOpts:['The correct form looks wrong','Typo / spelling error','The translation doesn\'t match','The task is confusing','Missing or extra tiles','Other'], rPlace:'Tell us what you saw (optional)...', rSend:'Send to support', rCancel:'Cancel', rDone:'✓ Report sent to support', rCodeLab:'Code (copy it if your teacher asks):', xpEarned:'XP earned', exitT:'Are you sure you want to leave? 🚪', exitP:x=>'If you leave now, <b>you\'ll lose the '+x+' XP</b> you\'ve earned and your progress here. Finish it to claim them. 💪', exitStay:'Keep practicing', exitLeave:'Leave and lose my XP', helpT:'How do I use this material?', tipsT:'What each button is for:', tips:['<b>How to solve it:</b> tap the tiles in order to build the sentence.','<b>🌐 Español/English:</b> language of instructions and explanations (the exercise stays in English).','<b>💡 Hint:</b> a context clue, below the sentence.','<b>🔤 Translation:</b> the sentence in Spanish (help, doesn\'t lower your grade).','<b>⚠ Report:</b> tell us if something is wrong in the question.','<b>At the end:</b> you\'ll see your grade, hits, time and topics to review.','<b>≥75% passes</b> and unlocks the next activity.'] }
-};
-let lang=MAT.langDefault, cur=0, score=0, locked=[], picked=[], usedTr=0, wrongTags=[], sec=0, timer=null; const trState={};
-let xpTotal=0; const XPQ=2;
+/* ── Reporte 23: variantes aceptadas (contracción ↔ forma completa) ──
+   Cada respuesta genera sus variantes automáticamente, salvo que el ítem
+   lleve "exact":true (la consigna fija la forma). Órdenes alternativos
+   válidos se agregan como respuestas extra en "answer". */
+const JEC_CONTR=[["is not","isn't"],["are not","aren't"],["was not","wasn't"],["were not","weren't"],["do not","don't"],["does not","doesn't"],["did not","didn't"],["has not","hasn't"],["have not","haven't"],["had not","hadn't"],["will not","won't"],["would not","wouldn't"],["cannot","can't"],["can not","can't"],["could not","couldn't"],["should not","shouldn't"],["must not","mustn't"],["i am","i'm"],["you are","you're"],["we are","we're"],["they are","they're"],["he is","he's"],["she is","she's"],["it is","it's"],["that is","that's"],["there is","there's"],["what is","what's"],["who is","who's"],["where is","where's"],["how is","how's"],["i have","i've"],["you have","you've"],["we have","we've"],["they have","they've"],["i will","i'll"],["you will","you'll"],["he will","he'll"],["she will","she'll"],["it will","it'll"],["we will","we'll"],["they will","they'll"],["i would","i'd"],["let us","let's"]];
+const jecCase=(src,rep)=>/^[A-Z]/.test(src)?rep.charAt(0).toUpperCase()+rep.slice(1):rep;
+function jecApply(s,pairs,toCon){let r=s;for(const p of pairs){const from=toCon?p[0]:p[1],to=toCon?p[1]:p[0];
+ const rx=new RegExp('\\b'+from.replace(/'/g,"['\u2019]")+'\\b','gi');r=r.replace(rx,m=>jecCase(m,to));}return r;}
+function expandForms(list,exact){if(exact)return list;const out=[],seen=new Set();const push=s=>{if(s&&!seen.has(s)){seen.add(s);out.push(s);}};
+ const PRON=JEC_CONTR.filter(p=>!/ not$|^can/.test(p[0])),NEG=JEC_CONTR.filter(p=>/ not$|^can/.test(p[0]));
+ for(const a of list){push(a);const e=jecApply(a,JEC_CONTR,false);push(e);
+  push(jecApply(a,NEG,true));push(jecApply(jecApply(a,NEG,true),PRON,true));
+  push(jecApply(e,NEG,true));push(jecApply(e,PRON,true));}
+ return out;}
+function grade(input,answers,exact){answers=expandForms(answers,exact);let best=null;
+ for(const a of answers){const r=grade1(input,a);
+  const rank=r.kind==='perfect'?0:r.kind==='details'?1:2+2*Math.abs(toks(input).length-toks(a).length)+r.err.length;
+  if(!best||rank<best.rank)best={r,rank,ref:a};}
+ return Object.assign(best.r,{ref:best.ref});}
+function rolesFor(q,ref){const base=q.roles||[];if(ref===q.answer[0])return base;
+ const A=toks(q.answer[0]).map(t=>t.b.toLowerCase()),R=toks(ref).map(t=>t.b.toLowerCase());
+ const out=R.map(()=>null),tom=A.map(()=>false);
+ R.forEach((w,i)=>{const k=A.findIndex((x,j)=>!tom[j]&&x===w);if(k>=0){tom[k]=true;out[i]=base[k]||null;}});
+ R.forEach((w,i)=>{if(out[i])return;if(/n't$/.test(w)||/^(do|does|did|is|are|was|were)$/.test(w))out[i]='v';else if(w==='not')out[i]='neg';else if(/er$|ier$/.test(w)||w==='better'||w==='worse'||w==='further'||w==='farther')out[i]='adj';});
+ return out;}
+const SB={es:{orden:(u,a)=>'Las palabras eran correctas, pero el <b>orden</b> no: escribiste <q>'+u+'</q> y ese trozo va <q>'+a+'</q>. El inglés casi no mueve el orden de sus piezas: sigue la fórmula de arriba de izquierda a derecha.',
+  falta:(a,nom,tip)=>'Ahí falta '+(nom?'<b>'+nom+'</b> (<q>'+a+'</q>)':'<q>'+a+'</q>')+' en tu oración. '+(tip||'Recórrela contra la fórmula de arriba: cada ficha aparece una vez.'),
+  faltaM:a=>'A tu oración le falta este trozo: <q>'+a+'</q>. Recórrela contra la fórmula de arriba: cada ficha aparece una vez.',
+  sobra:(u,extra)=>'Te sobró <q>'+u+'</q>: con la fórmula de arriba la oración queda completa sin esa parte.'+(extra||''),
+  dobleAdj:' El comparativo ya estaba marcado en el adjetivo, así que esa palabra repite la marca.',
+  rol:(nom,a,u,tip)=>'En ese lugar va <b>'+nom+'</b> (<q>'+a+'</q>) y tú pusiste <q>'+u+'</q>. '+(tip||''),
+  pieza:(u,a)=>'La pieza <q>'+u+'</q> no encaja en ese lugar de la fórmula: ahí la oración pide <q>'+a+'</q>.'},
+ en:{orden:(u,a)=>'The words were right, but the <b>order</b> was not: you wrote <q>'+u+'</q> and that part goes <q>'+a+'</q>. English hardly ever moves its pieces: follow the formula above from left to right.',
+  falta:(a,nom,tip)=>(nom?'<b>'+nom+'</b> (<q>'+a+'</q>)':'<q>'+a+'</q>')+' is missing from your sentence. '+(tip||'Check it against the formula above: every piece appears once.'),
+  faltaM:a=>'This part is missing from your sentence: <q>'+a+'</q>. Check it against the formula above: every piece appears once.',
+  sobra:(u,extra)=>'You had one extra piece, <q>'+u+'</q>: with the formula above the sentence is complete without it.'+(extra||''),
+  dobleAdj:' The comparative was already marked on the adjective, so that word repeats the marker.',
+  rol:(nom,a,u,tip)=>'That slot takes <b>'+nom+'</b> (<q>'+a+'</q>) and you wrote <q>'+u+'</q>. '+(tip||''),
+  pieza:(u,a)=>'The piece <q>'+u+'</q> does not fit that slot of the formula: the sentence needs <q>'+a+'</q> there.'}};
+function structBlock(q,r){const t=T[lang],S=SB[lang];
+ const fs=(L(q.formula)||'').split('+').map(x=>x.replace(/<[^>]+>/g,'').trim()).filter(Boolean);
+ const pills=fs.map(x=>'<span class="pl">'+esc(x)+'</span>').join('<span class="pls">+</span>');
+ let lines='';
+ r.err.forEach(er=>{
+  if(er.t==='Orden'){lines+=`<div class="sline">${S.orden(esc(er.u),esc(er.a))}</div>`;return;}
+  if(er.t==='Falta'){lines+=`<div class="sline">${S.faltaM(esc(er.a))}</div>`;return;}
+  if(er.t==='Sobra'){lines+=`<div class="sline">${S.sobra(esc(er.u),'')}</div>`;return;}
+  lines+=`<div class="sline">${S.pieza(esc(er.u),esc(er.a))}</div>`;});
+ if(L(q.change))lines+=`<div class="sline">🔧 ${L(q.change)}</div>`;
+ if(L(q.rule))lines+=`<div class="sline">💡 ${L(q.rule)}</div>`;
+ const ex=L(q.examples);
+ if(ex&&ex.length)lines+=`<div class="sline exrow">${ex.map(x=>'<span class="exchip">'+esc(x)+'</span>').join('')}</div>`;
+ return `<div class="struct"><b class="lab">${t.bStruct}</b>${pills?'<div class="frm">'+pills+'</div>':''}${lines}</div>`;}
+const WHY={es:{cap:(u,a)=>['Mayúscula inicial','Empezaste con '+u+'. Toda oración abre con mayúscula: '+a+'. <b>No baja tu nota</b>, pero es buen inglés.'],
+  cap2:(u,a)=>['Mayúscula de más','Escribiste '+u+' con mayúscula y ahí va en minúscula: '+a+'. <b>No baja tu nota.</b>'],
+  sig:(u,a)=>['Signo final',u?('Cerraste con '+u+' y esta oración pide '+a+'. <b>No baja tu nota.</b>'):('Tu oración quedó sin el signo final '+a+'. <b>No baja tu nota</b>, pero ciérrala siempre.')],
+  esp:()=>['Espacios de más','Dejaste espacios de sobra entre palabras o antes del punto. Los limpiamos solos: <b>no baja tu nota.</b>'],
+  ap:()=>['Apóstrofo del teclado','Tu teclado escribió un apóstrofo curvo en vez del recto. Los tratamos igual: <b>no baja tu nota.</b>'],
+  coma:(u,a)=>['Falta la coma','Después de '+u+' va una coma: '+a+'. La coma separa las dos partes de la oración (por ejemplo, después de la parte con <b>If</b> o <b>When</b>). <b>Los dos primeros avisos no bajan tu nota</b>; desde el tercero, sí cuenta como error.'],
+  coma2:(u,a)=>['Coma de más','Escribiste '+u+' y aquí no va coma: '+a+'. En este orden las dos partes van juntas. <b>Los dos primeros avisos no bajan tu nota</b>; desde el tercero, sí cuenta como error.'],
+  art:(u,a)=>['Otro artículo','Escribiste '+u+' y la versión de referencia usa '+a+'. Las dos son correctas aquí: <b>no baja tu nota.</b>']},
+ en:{cap:(u,a)=>['Capital letter','You started with '+u+'. Every sentence opens with a capital: '+a+'. <b>It does not lower your grade</b>, but it is good English.'],
+  cap2:(u,a)=>['Extra capital','You wrote '+u+' with a capital and it goes in lower case: '+a+'. <b>It does not lower your grade.</b>'],
+  sig:(u,a)=>['Final mark',u?('You closed with '+u+' and this sentence needs '+a+'. <b>It does not lower your grade.</b>'):('Your sentence ended without its final mark '+a+'. <b>It does not lower your grade</b>, but always close it.')],
+  esp:()=>['Extra spaces','You left extra spaces between words or before the full stop. We clean them up: <b>it does not lower your grade.</b>'],
+  ap:()=>['Keyboard apostrophe','Your keyboard typed a curly apostrophe instead of a straight one. We treat them the same: <b>it does not lower your grade.</b>'],
+  coma:(u,a)=>['Missing comma','After '+u+' there is a comma: '+a+'. The comma separates the two parts of the sentence (for example, after the <b>If</b> or <b>When</b> part). <b>The first two warnings do not lower your grade</b>; from the third one, it counts as an error.'],
+  coma2:(u,a)=>['Extra comma','You wrote '+u+' and there is no comma here: '+a+'. In this order the two parts go together. <b>The first two warnings do not lower your grade</b>; from the third one, it counts as an error.'],
+  art:(u,a)=>['A different article','You wrote '+u+' and the reference version uses '+a+'. Both are fine here: <b>it does not lower your grade.</b>']}};
+function why(e){const W=WHY[lang],q=s=>'<q>'+esc(s)+'</q>';
+ switch(e.t){case 'Mayúscula inicial':return W.cap(q(e.u),q(e.a));
+  case 'Mayúscula de más':return W.cap2(q(e.u),q(e.a));
+  case 'Signo final':return W.sig(e.u?q(e.u):'',q(e.a));
+  case 'Espacios':return W.esp();
+  case 'Apóstrofo del teclado':return W.ap();
+  case 'Artículo distinto':return W.art(q(e.u),q(e.a));
+  case 'Coma':return W.coma(q(e.u),q(e.a));
+  case 'Coma de más':return W.coma2(q(e.u),q(e.a));
+  default:return[e.t,''];}}
+function corrLine(r){const ws=r.words||r;
+ let out=ws.map(w=>{
+  if(w.c==='ok')return '<span class="keep">'+esc(w.w)+'</span>';
+  if(w.c==='ins')return '<span class="add">'+esc(w.w)+'</span>';
+  if(w.c==='warn')return '<span class="amb">'+esc(w.a||w.w)+'</span>';
+  return '<span class="del">'+esc(w.w)+'</span>'+(w.a?'<span class="add">'+esc(w.a)+'</span>':'');}).join(' ');
+ const sig=(r.warn||[]).concat((r.hard||[]).map(x=>x.sub==='end'?{t:'Signo final',a:x.a}:{})).find(x=>x&&x.t==='Signo final');
+ if(sig&&sig.a)out+='<span class="amb" style="margin-left:3px">'+esc(sig.a)+'</span>';
+ return out;}
+const DET={cap:0,end:0,comma:0};
+const HARD={es:{cap:(u,a)=>['Mayúscula inicial · ya avisada','Volviste a empezar con '+u+' en vez de '+a+'. Te avisamos dos veces sin costo; <b>desde este intento la mayúscula inicial sí cuenta como error</b>.'],
+  commaKey:(u,a)=>['Coma obligatoria','En esta oración la coma <b>no es opcional</b>: marca la información extra y cambia el sentido de lo que dices. Escribiste '+u+' y va '+a+'.'],
+  comma:(u,a)=>['Coma · ya avisada','Otra vez la coma no quedó en su lugar (escribiste '+u+', va '+a+'). Te avisamos dos veces sin costo; <b>desde este intento la coma sí cuenta como error</b>.'],
+  end:a=>['Signo final · ya avisado','Otra vez cerraste sin '+a+'. Te avisamos dos veces sin costo; <b>desde este intento el signo final sí cuenta como error</b>.']},
+ en:{cap:(u,a)=>['Capital letter · already flagged','You started with '+u+' instead of '+a+' again. We flagged it twice for free; <b>from this attempt the capital letter does count as an error</b>.'],
+  commaKey:(u,a)=>['Required comma','In this sentence the comma is <b>not optional</b>: it marks the extra information and changes the meaning. You wrote '+u+' and it should be '+a+'.'],
+  comma:(u,a)=>['Comma · already flagged','The comma is out of place again (you wrote '+u+', it should be '+a+'). We flagged it twice for free; <b>from this attempt the comma does count as an error</b>.'],
+  end:a=>['Final mark · already flagged','You closed without '+a+' again. We flagged it twice for free; <b>from this attempt the final mark does count as an error</b>.']}};
+function hardWhy(e){const H=HARD[lang],q=s=>'<q>'+esc(s)+'</q>';return e.sub==='cap'?H.cap(q(e.u),q(e.a)):e.sub==='commaKey'?H.commaKey(q(e.u),q(e.a)):e.sub==='comma'?H.comma(q(e.u),q(e.a)):H.end(q(e.a));}
+function escalar(r){r.hard=[];
+ r.warn=r.warn.filter(w=>{const k=w.t==='Mayúscula inicial'?'cap':w.t==='Signo final'?'end':(w.t==='Coma'||w.t==='Coma de más')?'comma':null;if(!k)return true;
+  DET[k]++;if(DET[k]>2){r.hard.push({sub:k,u:w.u,a:w.a});return false;}return true;});
+ if(r.hard.length){r.kind='error';r.score=0;r.words.forEach(w=>{if(w.c==='warn')w.c='bad';});}
+ return r;}
+let lang=MAT.langDefault,cur=0,score=0,locked=[],picked=[],usedTr=0,wrongTags=[],sec=0,timer=null,xpTotal=0;const XPQ=2;
 const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
-function startTimer(){ if(!timer) timer=setInterval(()=>{sec++; var c=document.getElementById('ct'); if(c)c.textContent=fmt(sec);},1000); }
-function render(){ cur=0;score=0;xpTotal=0;usedTr=0;wrongTags=[];sec=0;clearInterval(timer);timer=null;
-  locked=new Array(QS.length).fill(false); picked=new Array(QS.length).fill(null); QS.forEach(q=>delete q._tr);
-  document.getElementById('tot').textContent=QS.length; document.getElementById('results').classList.remove('show'); document.getElementById('mbody').style.display='block';
-  document.getElementById('pfill').style.width='0'; var _ct=document.getElementById('ct'); if(_ct)_ct.textContent='0:00'; document.querySelectorAll('.star').forEach(s=>s.classList.remove('on'));
-  document.getElementById('qbox').innerHTML=QS.map(buildTr).join(''); QS.forEach((it,i)=>initTr(i)); applyUiLang(); show(0); }
-function buildTr(it,i){ const t=T[lang];
-  return `<div class="qcard${i!==0?' hidden':''}" id="q${i}">
-    <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
-    <div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>
-    <div class="tprompt"><span class="po">${t.original}</span><span class="src">${it.src}</span></div>
-    <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
-    <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
-    <div class="reveal trbox" id="trb${i}"><span class="lab tl">${t.trLab}</span>${it.tr}</div>
-    <div class="tray" id="tray${i}" data-ph="${t.trayPh}"></div>
-    <div class="bank" id="bank${i}"></div>
-    <button class="tcheck" id="chk${i}" onclick="checkTr(${i})" disabled>${t.check}</button>
-    <div class="fb" id="fb${i}"></div>
-    <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
-    <div class="rdone" id="rd${i}"><div style="font-weight:800;font-size:13px;color:#1B5E20;">${t.rDone}</div><div style="font-size:11.5px;color:#555;margin-top:3px;" id="rcl${i}">${t.rCodeLab}</div><div class="rcode" id="rc${i}" onclick="copyCode(${i})"></div></div>
-    <div class="nav"><button class="nb prev" onclick="nav(${i},-1)" ${i===0?'disabled':''}>${t.prev}</button><button class="nb next" id="nx${i}" onclick="nav(${i},1)" disabled>${i===QS.length-1?t.seeRes:t.next}</button></div></div>`;
-}
-function tilesOf(it){ return [...it.answer, ...((it.distractors)||[])]; }
-function initTr(i){ const it=QS[i]; trState[i]={order:[]};
-  trState[i].bankOrder=tilesOf(it).map((w,idx)=>idx).sort(()=>Math.random()-.5);
-  renderBank(i); renderTray(i); }
-function renderBank(i){ const it=QS[i], st=trState[i];
-  document.getElementById('bank'+i).innerHTML=st.bankOrder.map(idx=>`<button class="tile${st.order.includes(idx)?' placed':''}" id="tile${i}_${idx}" onclick="placeTile(${i},${idx})">${tilesOf(it)[idx]}</button>`).join(''); }
-function renderTray(i){ const it=QS[i], st=trState[i]; const tray=document.getElementById('tray'+i);
-  tray.innerHTML=st.order.map(idx=>`<button class="tile" data-idx="${idx}">${tilesOf(it)[idx]}</button>`).join('');
-  if(!locked[i]) tray.querySelectorAll('.tile').forEach(el=>attachDrag(i,el));
-  const chk=document.getElementById('chk'+i); if(chk)chk.disabled = st.order.length===0; }
-function placeTile(i,idx){ if(locked[i])return; startTimer(); const st=trState[i]; if(st.order.includes(idx))return; st.order.push(idx); renderBank(i); renderTray(i); }
-function removeTile(i,idx){ if(locked[i])return; const st=trState[i]; st.order=st.order.filter(x=>x!==idx); renderBank(i); renderTray(i); }
-function attachDrag(i,el){ el.addEventListener('pointerdown',e=>{ if(locked[i])return; e.preventDefault();
-  const tray=document.getElementById('tray'+i); el.setPointerCapture(e.pointerId); el.classList.add('dragging'); let moved=false;
-  const move=ev=>{ moved=true; const others=[...tray.querySelectorAll('.tile')].filter(t=>t!==el); let ref=null;
-    for(const t of others){ const r=t.getBoundingClientRect();
-      if(ev.clientY < r.top + r.height/2 || (ev.clientY < r.bottom && ev.clientX < r.left + r.width/2)){ ref=t; break; } }
-    if(ref) tray.insertBefore(el,ref); else tray.appendChild(el); };
-  const up=ev=>{ try{el.releasePointerCapture(e.pointerId);}catch(_){} el.classList.remove('dragging');
-    tray.removeEventListener('pointermove',move); document.removeEventListener('pointerup',up);
-    trState[i].order=[...tray.querySelectorAll('.tile')].map(t=>+t.dataset.idx);
-    if(!moved){ removeTile(i,+el.dataset.idx); } };
-  tray.addEventListener('pointermove',move); document.addEventListener('pointerup',up); }); }
-function checkTr(i){ if(locked[i])return; locked[i]=true; const it=QS[i], st=trState[i];
-  const ok=st.order.map(x=>tilesOf(it)[x]).join(' ')===it.answer.join(' '); picked[i]=ok;
-  if(ok){score++;xpTotal+=XPQ;toast('+'+XPQ+' XP ⭐');} else wrongTags.push(it.reinf[lang]); if(it._tr)usedTr++;
-  document.getElementById('chk'+i).style.display='none'; document.querySelectorAll('#tray'+i+' .tile').forEach(x=>x.style.pointerEvents='none');
-  renderFb(i,ok,it); document.getElementById('nx'+i).disabled=false; bump(); }
-function renderFb(i,ok,it){ const t=T[lang]; const el=document.getElementById('fb'+i); el.className='fb show '+(ok?'ok':'no'); let b='';
-  if(!ok) b+=`<div class="fblk answer"><b>${t.bAnswer}</b><span class="answer-line">${it.answer.join(' ')}</span></div>`;
-  if(it.story&&it.story.q) b+=`<div class="fblk sig" style="background:#FFF8E1;border:1px solid #FFE082;color:#6B4E00"><b>📖</b><span style="font-family:var(--fs);font-style:italic">${it.story.q}</span><br><span style="font-family:var(--fs);color:#8a6f3a;font-size:11.5px">${it.story.es}</span></div>`;
-  b+=`<div class="fblk sig"><b>${t.bChange}</b>${it.change[lang]}</div>`;
-  if(it.formula&&it.formula[lang]) b+=`<div class="fblk form"><b>${t.bForm}</b><span class="formula">${it.formula[lang]}</span></div>`;
-  let ex=''; if(it.examples&&it.examples[lang]) ex=`<div class="exrow">${it.examples[lang].map(e=>{const p=e.split(' → ');return `<span class="exchip"><span class="exw">${p[0]}</span>→<span>${p[1]}</span></span>`;}).join('')}</div>`;
-  b+=`<div class="fblk rule"><b>${t.bRule}</b>${it.rule[lang]}${ex}</div>`;
-  if(it.es&&it.es[lang]) b+=`<div class="fblk es"><b>${t.bEs}</b>${it.es[lang]}</div>`;
-  if(it.lit&&it.lit[lang]) b+=`<div class="fblk lit"><b>${t.bLit}</b>${it.lit[lang]}</div>`;
-  const sup=it._tr?`<span style="margin-left:auto;font-size:10px;font-weight:800;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">${t.withSupport}</span>`:'';
-  el.innerHTML=`<div class="fbh">${ok?'✅':'❌'} <b>${ok?t.fbOk:t.fbNo}</b>${sup}</div><div class="fbb">${b}</div>`; }
-function reveal(i,which){ startTimer(); const it=QS[i];
-  if(which==='hint'){ document.getElementById('hr'+i).classList.toggle('show'); document.getElementById('hb'+i).classList.add('used'); }
-  else { document.getElementById('trb'+i).classList.toggle('show'); const b=document.getElementById('tb'+i); if(!b.classList.contains('used')){ b.classList.add('used'); it._tr=true; } } }
-function bump(){ document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%'; }
-function show(i){ document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i)); document.getElementById('cq').textContent=i+1; cur=i; window.scrollTo({top:0,behavior:'smooth'}); }
-function nav(i,d){ if(d<0){ if(i>0) show(i-1); return; } if(i<QS.length-1) show(i+1); else results(); }
-function results(){ const t=T[lang]; document.getElementById('mbody').style.display='none'; document.getElementById('results').classList.add('show');
-  const pct=Math.round(score/QS.length*100), passed=pct>=PASS;
-  const um=document.getElementById('unlockMsg'); um.className='unlock '+(passed?'pass':'fail'); um.textContent=passed?t.pass:t.fail;
-  document.getElementById('heroEm').textContent = passed?'🎉':'💪';
-  document.getElementById('fscore').textContent=pct; document.getElementById('fhits').textContent=score+'/'+QS.length; document.getElementById('ftime').textContent=fmt(sec); document.getElementById('fxp').textContent='+'+(passed?xpTotal:0);
-  const stars=pct>=90?3:pct>=PASS?2:1; document.querySelectorAll('.star').forEach((s,x)=>{ if(x<stars) setTimeout(()=>s.classList.add('on'),x*220); });
-  document.getElementById('fphrase').textContent = pct>=90?t.ph[0]:pct>=PASS?t.ph[1]:t.ph[2];
-  document.getElementById('supportNote').textContent = usedTr>0 ? t.supp(usedTr) : '';
-  const reinf=document.getElementById('reinf'), chips=document.getElementById('rchips'), uniq=[...new Set(wrongTags)];
-  if(uniq.length){ reinf.style.display='block'; chips.innerHTML=uniq.map(x=>`<span class="rchip">${x}</span>`).join(''); } else reinf.style.display='none';
-  const act=document.getElementById('actionMsg'); if(act){ const u=[...new Set(wrongTags)];
-    if(pct>=90) act.textContent = lang==='es'?'Dominas este tema. Continúa con la siguiente actividad en la plataforma.':'You\'ve mastered this. Move on to the next activity in the platform.';
-    else if(passed) act.innerHTML = lang==='es'?('Aprobaste. Antes de seguir, repasa: <b>'+u.join(', ')+'</b>.'):('You passed. Before moving on, review: <b>'+u.join(', ')+'</b>.');
-    else act.innerHTML = lang==='es'?('Te faltó poco. Enfócate en <b>'+(u.slice(0,2).join(' y ')||'el tema')+'</b>, abre el resumen y vuelve a intentarlo.'):('Almost there. Focus on <b>'+(u.slice(0,2).join(' and ')||'the topic')+'</b>, check the summary and try again.'); }
-  document.getElementById('surprise').style.display = passed ? 'flex' : 'none';
-  window.scrollTo({top:0,behavior:'smooth'});
-  window.JUCUM_OWN_PANEL=true; window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:pct,xp:passed?xpTotal:0,finished:passed}}));
-}
-function restart(){ render(); }
-function toggleReport(i){ document.getElementById('rf'+i).classList.toggle('show'); }
-function sendReport(i){ const type=document.getElementById('rt'+i).value, note=document.getElementById('rn'+i).value.trim();
-  document.getElementById('rf'+i).classList.remove('show'); const payload={mat:MAT.reportId,q:i+1,issue:type,note:note||'-'};
-  document.getElementById('rc'+i).textContent='JEC-RPT · '+JSON.stringify(payload); document.getElementById('rd'+i).classList.add('show');
-  try{ window.dispatchEvent(new CustomEvent('jucum:report',{detail:payload})); }catch(e){}
-  toast(lang==='es'?'✓ Reporte enviado a soporte':'✓ Report sent to support'); }
-function copyCode(i){ const x=document.getElementById('rc'+i).textContent; navigator.clipboard&&navigator.clipboard.writeText(x); toast(lang==='es'?'Código copiado':'Code copied'); }
-function applyUiLang(){ const t=T[lang]; var _cn=document.getElementById('chipNote'); if(_cn)_cn.textContent=t.timeNote;
-  document.getElementById('lswLab').textContent=t.lswLab; document.getElementById('insT').textContent=t.insT; document.getElementById('insP').innerHTML=t.insP;
-  document.getElementById('mhtitle').textContent=MAT.title; document.getElementById('mhsub').textContent=MAT.subtitle;
-  document.getElementById('lHits').textContent=t.hits; document.getElementById('lTime').innerHTML=t.time+'<span class="note">'+t.timeNote+'</span>';
-  document.getElementById('lReinf').textContent=t.reinf; document.getElementById('lXp').textContent=t.xp; document.getElementById('lXpSub').textContent=t.xpSub;
-  document.getElementById('lBack').textContent=t.back; document.getElementById('lRetry').textContent=t.retry; document.getElementById('lXpEarned').textContent=t.xpEarned;
-  document.getElementById('helpT').textContent=t.helpT; document.getElementById('helpTips').innerHTML='<div style="font-size:11.5px;color:var(--text-soft);font-weight:700;margin-bottom:6px">'+t.tipsT+'</div>'+t.tips.map(x=>'<div class="helptip">• <span>'+x+'</span></div>').join('');
-  QS.forEach((it,i)=>{ const e=id=>document.getElementById(id+i);
-    if(e('ql'))e('ql').textContent=t.qlabel+' '+(i+1); if(e('qr'))e('qr').textContent=t.report; if(e('cn'))e('cn').innerHTML='👉 '+it.task[lang];
-    const po=document.querySelector('#q'+i+' .po'); if(po)po.textContent=t.original;
-    const hb=document.querySelector('#hb'+i+' .sh'); if(hb)hb.textContent=t.hint; const tb=document.querySelector('#tb'+i+' .st'); if(tb)tb.textContent=t.tr;
-    const hl=document.querySelector('#hr'+i+' .hl'); if(hl)hl.textContent=t.hintLab; const hv=document.querySelector('#hr'+i+' .hv'); if(hv)hv.innerHTML=it.hint[lang];
-    const tl=document.querySelector('#trb'+i+' .tl'); if(tl)tl.textContent=t.trLab;
-    const chk=e('chk'); if(chk&&chk.style.display!=='none')chk.textContent=t.check; const tray=e('tray'); if(tray)tray.setAttribute('data-ph',t.trayPh);
-    if(e('nx'))e('nx').textContent=(i===QS.length-1?t.seeRes:t.next); const pv=document.querySelector('#q'+i+' .prev'); if(pv)pv.textContent=t.prev;
-    if(e('rfh'))e('rfh').textContent=t.rFormH; if(e('rcl'))e('rcl').textContent=t.rCodeLab;
-    if(picked[i]!==null) renderFb(i,picked[i],it); });
-  wrongTags=[]; QS.forEach((it,i)=>{ if(picked[i]===false) wrongTags.push(it.reinf[lang]); }); }
-function setLang(l){ lang=l; document.getElementById('lswEs').classList.toggle('on',l==='es'); document.getElementById('lswEn').classList.toggle('on',l==='en'); applyUiLang(); if(document.getElementById('results').classList.contains('show')) results(); }
-function openHelp(){document.getElementById('helpov').classList.add('show');} function closeHelp(){document.getElementById('helpov').classList.remove('show');}
-function exitGuard(){ if(!document.getElementById('results').classList.contains('show') && (sec>0 || locked.some(Boolean))){ openExit(); } else { volver(); } }
-function openExit(){ const t=T[lang]; document.getElementById('exitT').textContent=t.exitT; document.getElementById('exitP').innerHTML=t.exitP(xpTotal); document.getElementById('exitStay').textContent=t.exitStay; document.getElementById('exitLeave').textContent=t.exitLeave; document.getElementById('exitov').classList.add('show'); }
-function closeExit(){ document.getElementById('exitov').classList.remove('show'); }
-function leaveNow(){ document.getElementById('exitov').classList.remove('show'); xpTotal=0; volver(); }
-function volver(){ if(document.referrer){ location.href=document.referrer; } else if(history.length>1){ history.back(); } else { toast(lang==='es'?'Vuelve a tu práctica en la plataforma':'Go back to your practice'); } }
-function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2400); }
-document.addEventListener('contextmenu',e=>{ if(e.target.closest('.mat')){ e.preventDefault(); toast(lang==='es'?'Material protegido © JUCUM EC':'Protected material © JUCUM EC'); }});
+function startTimer(){if(!timer)timer=setInterval(()=>{sec++;const c=document.getElementById('ct');if(c)c.textContent=fmt(sec);},1000);}
+function render(){DET.cap=0;DET.end=0;DET.comma=0;cur=0;score=0;xpTotal=0;usedTr=0;wrongTags=[];sec=0;clearInterval(timer);timer=null;
+ locked=new Array(QS.length).fill(false);picked=new Array(QS.length).fill(null);QS.forEach(q=>{delete q._tr;delete q._res;delete q._in;});
+ document.getElementById('tot').textContent=QS.length;document.getElementById('results').classList.remove('show');document.getElementById('mbody').style.display='block';
+ document.getElementById('pfill').style.width='0';document.getElementById('ct').textContent='0:00';document.querySelectorAll('.star').forEach(s=>s.classList.remove('on'));
+ document.getElementById('qbox').innerHTML=QS.map(build).join('');applyUiLang();show(0);}
+function build(it,i){const t=T[lang];
+ return `<div class="qcard${i!==0?' hidden':''}" id="q${i}">
+  <div class="qtop"><div class="qnum">${i+1}</div><span class="qlabel" id="ql${i}">${t.qlabel} ${i+1}</span><span class="qpt" id="qp${i}">${t.pt}</span><button class="qreport" id="qr${i}" onclick="toggleReport(${i})">${t.report}</button></div>
+  ${it.task?`<div class="consigna" id="cn${i}">👉 ${it.task[lang]}</div>`:''}
+  <div class="cuewrap"><span class="cuelab cl">${t.cueLab}</span><div class="cue" id="cue${i}">${it.cue.map((w,k)=>`<button class="piece" id="p${i}_${k}" onclick="ins(${i},${k})">${esc(w)}</button>`).join('<span class="slash">/</span>')}</div>${it.answer.length>1?`<span class="multi" id="mu${i}">${t.multi(it.answer.length)}</span>`:''}</div>
+  <div class="wline"><span class="arrow">→</span><input class="winput" id="wi${i}" type="text" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="${t.wph}" oninput="typed(${i})" onkeydown="if(event.key==='Enter'){event.preventDefault();check(${i})}"></div>
+  <div class="tools"><span class="tl kb">${t.kb}</span><button class="tool ap" onclick="ap(${i})" title="${lang==='es'?'Toca para escribir el apóstrofo':'Tap to type the apostrophe'}">’ <small style="font-size:11px;font-weight:700">${lang==='es'?'apóstrofo':'apostrophe'}</small></button><span class="tip tp">${t.tip}</span><button class="tool" id="wc${i}" onclick="clr(${i})">${t.clear}</button></div>
+  <div class="support"><button class="sbtn hint" id="hb${i}" onclick="reveal(${i},'hint')">💡 <span class="sh">${t.hint}</span></button><button class="sbtn tr" id="tb${i}" onclick="reveal(${i},'tr')">🔤 <span class="st">${t.tr}</span></button></div>
+  <div class="reveal hintbox" id="hr${i}"><span class="lab hl">${t.hintLab}</span><span class="hv">${it.hint[lang]}</span></div>
+  <div class="reveal trbox" id="trb${i}"><span class="lab tl2">${t.trLab}</span>${it.tr}</div>
+  <button class="tcheck" id="chk${i}" onclick="check(${i})" disabled>${t.check}</button>
+  <div class="reg" id="reg${i}" style="display:none"></div>
+  <div class="fb" id="fb${i}"></div>
+  <div class="rform" id="rf${i}"><h4 id="rfh${i}">${t.rFormH}</h4><select id="rt${i}">${t.rOpts.map(o=>`<option>${o}</option>`).join('')}</select><textarea id="rn${i}" placeholder="${t.rPlace}"></textarea><div class="rrow"><button class="rsend" onclick="sendReport(${i})">${t.rSend}</button><button class="rcancel" onclick="toggleReport(${i})">${t.rCancel}</button></div></div>
+  <div class="rdone" id="rd${i}"><div style="font-weight:800;font-size:13px;color:#1B5E20">${t.rDone}</div><div style="font-size:11.5px;color:#555;margin-top:3px" id="rcl${i}">${t.rCodeLab}</div><div style="font-family:var(--fs);font-size:11.5px;background:#fff;border:1px dashed var(--okbd);border-radius:8px;padding:9px;margin-top:7px;color:#1B5E20;word-break:break-all" id="rc${i}"></div></div>
+  <div class="nav"><button class="nb prev" onclick="nav(${i},-1)" ${i===0?'disabled':''}>${t.prev}</button><button class="nb next" id="nx${i}" onclick="nav(${i},1)" disabled>${i===QS.length-1?t.seeRes:t.next}</button></div></div>`;}
+function put(i,txt){const el=document.getElementById('wi'+i);if(el.disabled)return;startTimer();
+ const s=el.selectionStart??el.value.length,v=el.value,pre=v.slice(0,s),sp=pre&&!/[\s'’]$/.test(pre)&&!/^['’]/.test(txt);
+ el.value=pre+(sp?' ':'')+txt+v.slice(s);const p=(pre+(sp?' ':'')+txt).length;el.focus();el.setSelectionRange(p,p);typed(i);}
+function ins(i,k){put(i,QS[i].cue[k]);}
+function insKey(i){put(i,QS[i].key.replace(/^much \+ /,'much '));}
+function ap(i){put(i,"'");}
+function clr(i){const el=document.getElementById('wi'+i);if(el.disabled)return;el.value='';el.focus();typed(i);}
+function typed(i){startTimer();const el=document.getElementById('wi'+i);QS[i]._in=el.value;
+ document.getElementById('chk'+i).disabled=!el.value.trim();
+ const txt=' '+norm(el.value).toLowerCase()+' ';
+ QS[i].cue.forEach((w,k)=>{const b=document.getElementById('p'+i+'_'+k);if(b)b.classList.toggle('used',txt.indexOf(' '+norm(w).toLowerCase()+' ')>=0);});
+ const kb=document.getElementById('k'+i);if(kb)kb.classList.toggle('used',new RegExp('\\b'+QS[i].key.split(' ')[0].slice(0,4)).test(norm(el.value).toLowerCase()));}
+function check(i){const el=document.getElementById('wi'+i);if(!el.value.trim()||locked[i])return;
+ locked[i]=true;const it=QS[i];let r=escalar(grade(el.value,it.answer,it.exact));
+ /*COMMA-V2*/if(it.commaStrict){const cw=r.warn.filter(w=>w.t==='Coma'||w.t==='Coma de más');if(cw.length){r.warn=r.warn.filter(w=>cw.indexOf(w)<0);cw.forEach(w=>r.hard.push({sub:'commaKey',u:w.u,a:w.a}));r.kind='error';r.score=0;r.words.forEach(w=>{if(w.c==='warn')w.c='bad';});}}
+ if(r.kind==='error'&&it.alsoValid&&it.alsoValid.length){const alt=escalar(grade(el.value,it.alsoValid,it.exact));
+  if(alt.kind!=='error'&&!alt.err.length)r={kind:'order',words:[],warn:[],err:[],hard:[],score:0,ref:it.answer[0],alt:alt.ref};}
+ it._res=r;it._in=el.value;picked[i]=r.kind;
+ if(r.kind==='perfect'||r.kind==='details'){score++;xpTotal+=XPQ;toast('+'+XPQ+' XP ⭐');}else wrongTags.push(it.reinf[lang]);
+ if(it._tr)usedTr++;
+ el.disabled=true;el.className='winput '+r.kind;
+ document.getElementById('q'+i).classList.add('locked');
+ document.getElementById('chk'+i).style.display='none';
+ renderFb(i,r,it);
+ document.getElementById('nx'+i).disabled=false;bump();}
+function renderFb(i,r,it){const t=T[lang],fb=document.getElementById('fb'+i);
+ const head=r.kind==='perfect'?t.fbOk:r.kind==='details'?t.fbW:r.kind==='order'?t.fbOrd:t.fbNo;
+ let b='';
+ if(r.kind==='order'){b+=`<div class="blk alt"><b class="lab">${t.bOrdY}</b><span class="a">${esc(it._in||'')}</span></div><div class="ordq">${t.ordMsg}</div>`;}
+ else if(r.kind!=='perfect'){
+  b+=`<div class="blk yours"><b class="lab">${t.bYours}</b><div class="corr">${corrLine(r)}</div></div>`;
+  if(r.err.length){b+=structBlock(it,r);if(L(it.es))b+=`<div class="esbox"><b class="lab">${t.bEs}</b>${L(it.es)}</div>`;
+  if(L(it.lit))b+=`<div class="blk alt"><b class="lab">${t.bLit}</b>${L(it.lit)}</div>`;}
+  if(r.warn.length)b+=`<div class="why">${r.warn.map(e=>{const[ti,tx]=why(e);return `<div class="wy"><span class="ic">🟡</span><div><span class="t">${ti}</span>${tx}</div></div>`;}).join('')}</div>`;
+  if(r.hard&&r.hard.length)b+=`<div class="why">${r.hard.map(e=>{const[ti,tx]=hardWhy(e);return `<div class="wy b"><span class="ic">🔴</span><div><span class="t">${ti}</span>${tx}</div></div>`;}).join('')}</div>`;}
+ b+=`<div class="blk answer"><b class="lab">${t.bAnswer}</b><span class="a">${esc(r.ref)}</span></div>`;
+ if(it.answer.length>1)b+=`<div class="blk alt"><b class="lab">${t.bAlt}</b>${it.answer.filter(a=>a!==r.ref).map(esc).join(' · ')}</div>`;
+ if(it.noteB)b+=`<div class="blk noteb"><b class="lab">${t.noteLab}</b>${it.noteB[lang]}</div>`;
+ if(it.story)b+=`<div class="blk storyq"><b class="lab" style="font-family:var(--fb);font-style:normal">${t.bStory}</b>${esc(it.story)}</div>`;
+ fb.className='fb show '+r.kind;
+ fb.innerHTML=`<div class="fbh"><span>${head}</span><span class="pts">${(r.kind==='perfect'||r.kind==='details')?t.pts1:t.pts0}</span></div><div class="fbb">${b}</div>`;
+ const reg=document.getElementById('reg'+i);reg.style.display='flex';reg.textContent=t.locked;}
+function reveal(i,which){startTimer();const it=QS[i];
+ if(which==='hint'){document.getElementById('hr'+i).classList.toggle('show');document.getElementById('hb'+i).classList.add('used');}
+ else{document.getElementById('trb'+i).classList.toggle('show');const b=document.getElementById('tb'+i);if(!b.classList.contains('used')){b.classList.add('used');it._tr=true;}}}
+function bump(){document.getElementById('pfill').style.width=(picked.filter(x=>x!==null).length/QS.length*100)+'%';}
+function show(i){document.querySelectorAll('#qbox .qcard').forEach((c,x)=>c.classList.toggle('hidden',x!==i));document.getElementById('cq').textContent=i+1;cur=i;window.scrollTo({top:0,behavior:'smooth'});}
+function nav(i,d){if(d<0){if(i>0)show(i-1);return;}if(i<QS.length-1)show(i+1);else results();}
+function results(){const t=T[lang];document.getElementById('mbody').style.display='none';document.getElementById('results').classList.add('show');
+ const pct=Math.round(score/QS.length*100),passed=pct>=PASS;
+ const um=document.getElementById('unlockMsg');um.className='unlock '+(passed?'pass':'fail');um.textContent=passed?t.pass:t.fail;
+ document.getElementById('heroEm').textContent=passed?'🎉':'💪';
+ document.getElementById('fscore').textContent=pct;document.getElementById('fhits').textContent=score+'/'+QS.length;
+ document.getElementById('ftime').textContent=fmt(sec);document.getElementById('fxp').textContent='+'+(passed?xpTotal:0);
+ const stars=pct>=90?3:pct>=PASS?2:1;document.querySelectorAll('.star').forEach((s,x)=>{if(x<stars)setTimeout(()=>s.classList.add('on'),x*220);});
+ document.getElementById('fphrase').textContent=pct>=90?t.ph[0]:pct>=PASS?t.ph[1]:t.ph[2];
+ document.getElementById('supportNote').innerHTML=usedTr>0?t.supp(usedTr):'';
+ const uniq=[...new Set(wrongTags)],reinf=document.getElementById('reinf');
+ if(uniq.length){reinf.style.display='block';document.getElementById('rchips').innerHTML=uniq.map(x=>`<span class="rchip">${x}</span>`).join('');}else reinf.style.display='none';
+ const act=document.getElementById('actionMsg');
+ act.innerHTML=pct>=90?(lang==='es'?'Dominas este tema. Continúa con la siguiente actividad en la plataforma.':'You\u2019ve mastered this. Move on to the next activity.'):passed?(lang==='es'?'Aprobaste. Antes de seguir, repasa: <b>'+uniq.join(', ')+'</b>.':'You passed. Before moving on, review: <b>'+uniq.join(', ')+'</b>.'):(lang==='es'?'Te faltó poco. Enfócate en <b>'+(uniq.slice(0,2).join(' y ')||'el tema')+'</b>, abre el resumen y vuelve a intentarlo.':'Almost there. Focus on <b>'+(uniq.slice(0,2).join(' and ')||'the topic')+'</b> and try again.');
+ document.getElementById('surprise').style.display=passed?'flex':'none';
+ window.scrollTo({top:0,behavior:'smooth'});
+ window.JUCUM_OWN_PANEL=true;window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:pct,xp:passed?xpTotal:0,finished:passed}}));}
+function restart(){render();}
+function toggleReport(i){document.getElementById('rf'+i).classList.toggle('show');}
+function sendReport(i){const type=document.getElementById('rt'+i).value,note=document.getElementById('rn'+i).value.trim();
+ document.getElementById('rf'+i).classList.remove('show');
+ const payload={mat:MAT.reportId,q:i+1,issue:type,note:note||'-',wrote:(QS[i]._in||'').slice(0,120)};
+ document.getElementById('rc'+i).textContent='JEC-RPT · '+JSON.stringify(payload);document.getElementById('rd'+i).classList.add('show');
+ try{window.dispatchEvent(new CustomEvent('jucum:report',{detail:payload}));}catch(e){}
+ toast(lang==='es'?'✓ Reporte enviado a soporte':'✓ Report sent to support');}
+function applyUiLang(){const t=T[lang];
+ document.getElementById('chipNote').textContent=t.timeNote;document.getElementById('lswLab').textContent=t.lswLab;
+ document.getElementById('insT').textContent=t.insT;document.getElementById('insP').innerHTML=t.insP;
+ document.getElementById('mhtitle').textContent=MAT.title;document.getElementById('mhsub').textContent=MAT.subtitle;
+ document.getElementById('lHits').textContent=t.hits;document.getElementById('lTime').textContent=t.time;document.getElementById('lXp2').textContent=t.xpL;
+ document.getElementById('lReinf').textContent=t.reinf;document.getElementById('lXp').textContent=t.xp;document.getElementById('lXpSub').textContent=t.xpSub;
+ document.getElementById('lBack').textContent=t.back;document.getElementById('lRetry').textContent=t.retry;
+ document.getElementById('helpT').textContent=t.helpT;
+ document.getElementById('helpTips').innerHTML=t.tips.map(x=>'<div class="helptip">• <span>'+x+'</span></div>').join('');
+ QS.forEach((it,i)=>{const e=id=>document.getElementById(id+i);
+  if(e('ql'))e('ql').textContent=t.qlabel+' '+(i+1);if(e('qp'))e('qp').textContent=t.pt;if(e('qr'))e('qr').textContent=t.report;
+  if(e('cn')&&it.task)e('cn').innerHTML='👉 '+it.task[lang];if(e('mu'))e('mu').textContent=t.multi(it.answer.length);
+  const cl=document.querySelector('#q'+i+' .cl');if(cl)cl.textContent=t.cueLab;
+  const kb=document.querySelector('#q'+i+' .kb');if(kb)kb.textContent=t.kb;
+  const tp=document.querySelector('#q'+i+' .tp');if(tp)tp.textContent=t.tip;
+  const wi=e('wi');if(wi)wi.placeholder=t.wph;if(e('wc'))e('wc').textContent=t.clear;
+  const sh=document.querySelector('#hb'+i+' .sh');if(sh)sh.textContent=t.hint;const st=document.querySelector('#tb'+i+' .st');if(st)st.textContent=t.tr;
+  const hl=document.querySelector('#hr'+i+' .hl');if(hl)hl.textContent=t.hintLab;const hv=document.querySelector('#hr'+i+' .hv');if(hv)hv.innerHTML=it.hint[lang];
+  const tl2=document.querySelector('#trb'+i+' .tl2');if(tl2)tl2.textContent=t.trLab;
+  const chk=e('chk');if(chk&&chk.style.display!=='none')chk.textContent=t.check;
+  if(e('nx'))e('nx').textContent=(i===QS.length-1?t.seeRes:t.next);
+  const pv=document.querySelector('#q'+i+' .prev');if(pv)pv.textContent=t.prev;
+  if(e('rfh'))e('rfh').textContent=t.rFormH;if(e('rcl'))e('rcl').textContent=t.rCodeLab;
+  if(locked[i]&&it._res){const w=e('wi');if(w){w.value=it._in||'';w.disabled=true;}renderFb(i,it._res,it);}});
+ wrongTags=[];QS.forEach((it,i)=>{if(picked[i]==='error')wrongTags.push(it.reinf[lang]);});}
+function setLang(l){lang=l;document.getElementById('lswEs').classList.toggle('on',l==='es');document.getElementById('lswEn').classList.toggle('on',l==='en');applyUiLang();if(document.getElementById('results').classList.contains('show'))results();}
+function openHelp(){document.getElementById('helpov').classList.add('show');}
+function closeHelp(){document.getElementById('helpov').classList.remove('show');}
+function exitGuard(){if(!document.getElementById('results').classList.contains('show')&&(sec>0||locked.some(Boolean)))openExit();else volver();}
+function openExit(){const t=T[lang];document.getElementById('exitT').textContent=t.exitT;document.getElementById('exitP').innerHTML=t.exitP(xpTotal);
+ document.getElementById('exitStay').textContent=t.exitStay;document.getElementById('exitLeave').textContent=t.exitLeave;document.getElementById('exitov').classList.add('show');}
+function closeExit(){document.getElementById('exitov').classList.remove('show');}
+function leaveNow(){document.getElementById('exitov').classList.remove('show');xpTotal=0;volver();}
+function volver(){if(document.referrer)location.href=document.referrer;else if(history.length>1)history.back();else toast(lang==='es'?'Vuelve a tu práctica en la plataforma':'Go back to your practice');}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2400);}
+document.addEventListener('contextmenu',e=>{if(e.target.closest('.mat')){e.preventDefault();toast(lang==='es'?'Material protegido © JUCUM EC':'Protected material © JUCUM EC');}});
 render();
 </script>
-<!-- JUCUM English Center · seguimiento de progreso (NO QUITAR) -->
 <script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>
